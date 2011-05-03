@@ -1,5 +1,5 @@
-Getting Started Tutorial (Scala): First Chapter
-===============================================
+Getting Started Tutorial: First Chapter
+=======================================
 
 Introduction
 ------------
@@ -31,30 +31,10 @@ If you want don't want to type in the code and/or set up an SBT project then you
 __ https://github.com/jboner/akka/tree/master/akka-tutorials/akka-tutorial-first
 __ https://github.com/jboner/akka/blob/master/akka-tutorials/akka-tutorial-first/src/main/scala/Pi.scala
 
-To check out the code using Git invoke the following::
-
-    $ git clone git://github.com/jboner/akka.git
-
-Then you can navigate down to the tutorial:: 
-
-    $ cd akka/akka-tutorials/akka-tutorial-first
-
 Prerequisites
 -------------
 
 This tutorial assumes that you have Jave 1.6 or later installed on you machine and ``java`` on your ``PATH``. You also need to know how to run commands in a shell (ZSH, Bash, DOS etc.) and a decent text editor or IDE to type in the Scala code.
-
-You need to make sure that ``$JAVA_HOME`` environment variable is set to the root of the Java distribution. You also need to make sure that the ``$JAVA_HOME/bin`` is on your ``PATH``::
-
-    $ export JAVA_HOME=..root of java distribution..
-    $ export PATH=$PATH:$JAVA_HOME/bin
-
-You can test your installation by invoking ``java``::
-
-    $ java -version
-    java version "1.6.0_24"
-    Java(TM) SE Runtime Environment (build 1.6.0_24-b07-334-10M3326)
-    Java HotSpot(TM) 64-Bit Server VM (build 19.1-b02-334, mixed mode)
 
 Downloading and installing Akka
 -------------------------------
@@ -135,11 +115,13 @@ Downloading and installing SBT
 
 SBT, short for 'Simple Build Tool' is an excellent build system written in Scala. It uses Scala to write the build scripts which gives you a lot of power. It has a plugin architecture with many plugins available, something that we will take advantage of soon. SBT is the preferred way of building software in Scala and is probably the easiest way of getting through this tutorial. If you want to use SBT for this tutorial then follow the following instructions, if not you can skip this section and the next.
 
-First browse to  `http://code.google.com/p/simple-build-tool/downloads/list <http://code.google.com/p/simple-build-tool/downloads/list>`_ and download the ``0.7.6.RC0`` distribution.
+First browse to the `SBT download page <http://code.google.com/p/simple-build-tool/downloads/list>`_ and download the ``0.7.6.RC0`` distribution.
 
-To install SBT and create a project for this tutorial it is easiest to follow the instructions on `http://code.google.com/p/simple-build-tool/wiki/Setup <http://code.google.com/p/simple-build-tool/wiki/Setup>`_.
+To install SBT and create a project for this tutorial it is easiest to follow the instructions on `this page <http://code.google.com/p/simple-build-tool/wiki/Setup>`_.
 
-Now we need to create our first Akka project. You could add the dependencies manually to the build script, but the easiest way is to use Akka's SBT Plugin, covered in the next section.
+If you have created an SBT project then step into the newly created SBT project, create a source file ``Pi.scala`` for the tutorial sample and put it in the ``src/main/scala`` directory.
+
+So far we only have a standard Scala project but now we need to make our project an Akka project. You could add the dependencies manually to the build script, but the easiest way is to use Akka's SBT Plugin, covered in the next section.
 
 Creating an Akka SBT project
 ----------------------------
@@ -184,10 +166,7 @@ Not needed in this tutorial, but if you would like to use additional Akka module
 
 So, now we are all set. Just one final thing to do; make SBT download the dependencies it needs. That is done by invoking::
 
-    > reload
     > update
-
-The first reload command is needed because we have changed the project definition since the sbt session started.
 
 SBT itself needs a whole bunch of dependencies but our project will only need one; ``akka-actor-1.1.jar``. SBT downloads that as well.
 
@@ -196,17 +175,9 @@ Start writing the code
 
 Now it's about time to start hacking.
 
-We start by creating a ``Pi.scala`` file and adding these import statements at the top of the file::
+We start by creating a ``Pi.scala`` file and adding these import statements at the top of the file:
 
-    package akka.tutorial.first.scala
-
-    import akka.actor.{Actor, PoisonPill}
-    import Actor._
-    import akka.routing.{Routing, CyclicIterator}
-    import Routing._
-    import akka.dispatch.Dispatchers
-
-    import java.util.concurrent.CountDownLatch
+.. includecode:: examples/Pi.scala#imports
 
 If you are using SBT in this tutorial then create the file in the ``src/main/scala`` directory.
 
@@ -223,63 +194,34 @@ With this in mind, let's now create the messages that we want to have flowing in
 - ``Work`` -- sent from the ``Master`` actor to the ``Worker`` actors containing the work assignment
 - ``Result`` -- sent from the ``Worker`` actors to the ``Master`` actor containing the result from the worker's calculation
 
-Messages sent to actors should always be immutable to avoid sharing mutable state. In scala we have 'case classes' which make excellent messages. So let's start by creating three messages as case classes.  We also create a common base trait for our messages (that we define as being ``sealed`` in order to prevent creating messages outside our control)::
+Messages sent to actors should always be immutable to avoid sharing mutable state. In scala we have 'case classes' which make excellent messages. So let's start by creating three messages as case classes.  We also create a common base trait for our messages (that we define as being ``sealed`` in order to prevent creating messages outside our control):
 
-    sealed trait PiMessage
-
-    case object Calculate extends PiMessage
-
-    case class Work(start: Int, nrOfElements: Int) extends PiMessage
-
-    case class Result(value: Double) extends PiMessage
+.. includecode:: examples/Pi.scala#messages
 
 Creating the worker
 -------------------
 
-Now we can create the worker actor.  This is done by mixing in the ``Actor`` trait and defining the ``receive`` method. The ``receive`` method defines our message handler. We expect it to be able to handle the ``Work`` message so we need to add a handler for this message::
+Now we can create the worker actor.  This is done by mixing in the ``Actor`` trait and defining the ``receive`` method. The ``receive`` method defines our message handler. We expect it to be able to handle the ``Work`` message so we need to add a handler for this message:
 
-    class Worker extends Actor {
-      def receive = {
-        case Work(start, nrOfElements) =>
-          self reply Result(calculatePiFor(start, nrOfElements)) // perform the work
-      }
-    }
+.. includecode:: examples/Pi.scala#worker
+   :exclude: calculate-pi
 
 As you can see we have now created an ``Actor`` with a ``receive`` method as a handler for the ``Work`` message. In this handler we invoke the ``calculatePiFor(..)`` method, wrap the result in a ``Result`` message and send it back to the original sender using ``self.reply``. In Akka the sender reference is implicitly passed along with the message so that the receiver can always reply or store away the sender reference for future use.
 
-The only thing missing in our ``Worker`` actor is the implementation on the ``calculatePiFor(..)`` method. While there are many ways we can implement this algorithm in Scala, in this introductory tutorial we have chosen an imperative style using a for comprehension and an accumulator::
+The only thing missing in our ``Worker`` actor is the implementation on the ``calculatePiFor(..)`` method. While there are many ways we can implement this algorithm in Scala, in this introductory tutorial we have chosen an imperative style using a for comprehension and an accumulator:
 
-    def calculatePiFor(start: Int, nrOfElements: Int): Double = {
-      var acc = 0.0
-      for (i <- start until (start + nrOfElements))
-        acc += 4.0 * (1 - (i % 2) * 2) / (2 * i + 1)
-      acc
-    }
+.. includecode:: examples/Pi.scala#calculate-pi
 
 Creating the master
 -------------------
 
-The master actor is a little bit more involved. In its constructor we need to create the workers (the ``Worker`` actors) and start them. We will also wrap them in a load-balancing router to make it easier to spread out the work evenly between the workers. Let's do that first::
+The master actor is a little bit more involved. In its constructor we need to create the workers (the ``Worker`` actors) and start them. We will also wrap them in a load-balancing router to make it easier to spread out the work evenly between the workers. Let's do that first:
 
-    // create the workers
-    val workers = Vector.fill(nrOfWorkers)(actorOf[Worker].start())
-
-    // wrap them with a load-balancing router
-    val router = Routing.loadBalancerActor(CyclicIterator(workers)).start()
+.. includecode:: examples/Pi.scala#create-workers
 
 As you can see we are using the ``actorOf`` factory method to create actors, this method returns as an ``ActorRef`` which is a reference to our newly created actor.  This method is available in the ``Actor`` object but is usually imported::
 
-    import akka.actor.Actor.actorOf
-
-There are two versions of ``actorOf``; one of them taking a actor type and the other one an instance of an actor. The former one (``actorOf[MyActor]``) is used when the actor class has a no-argument constructor while the second one (``actorOf(new MyActor(..))``) is used when the actor class has a constructor that takes arguments. This is the only way to create an instance of an Actor and the ``actorOf`` method ensures this. The latter version is using call-by-name and lazily creates the actor within the scope of the ``actorOf`` method. The ``actorOf`` method instantiates the actor and returns, not an instance to the actor, but an instance to an ``ActorRef``. This reference is the handle through which you communicate with the actor. It is immutable, serializable and location-aware meaning that it "remembers" its original actor even if it is sent to other nodes across the network and can be seen as the equivalent to the Erlang actor's PID.
-
-The actor's life-cycle is:
-
-- Created -- ``Actor.actorOf[MyActor]`` -- can **not** receive messages
-- Started -- ``actorRef.start()`` -- can receive messages
-- Stopped -- ``actorRef.stop()`` -- can **not** receive messages
-
-Once the actor has been stopped it is dead and can not be started again.
+    import akka.actor.Actor._
 
 Now we have a router that is representing all our workers in a single abstraction. If you paid attention to the code above, you saw that we were using the ``nrOfWorkers`` variable. This variable and others we have to pass to the ``Master`` actor in its constructor. So now let's create the master actor. We have to pass in three integer variables:
 
@@ -287,40 +229,14 @@ Now we have a router that is representing all our workers in a single abstractio
 - ``nrOfMessages`` -- defining how many number chunks to send out to the workers
 - ``nrOfElements`` -- defining how big the number chunks sent to each worker should be
 
-Here is the master actor::
+Here is the master actor:
 
-    class Master(
-      nrOfWorkers: Int, nrOfMessages: Int, nrOfElements: Int, latch: CountDownLatch)
-      extends Actor {
-
-      var pi: Double = _
-      var nrOfResults: Int = _
-      var start: Long = _
-
-      // create the workers
-      val workers = Vector.fill(nrOfWorkers)(actorOf[Worker].start())
-
-      // wrap them with a load-balancing router
-      val router = Routing.loadBalancerActor(CyclicIterator(workers)).start()
-
-      def receive = { ... }
-
-      override def preStart() {
-        start = System.currentTimeMillis
-      }
-
-      override def postStop() {
-        // tell the world that the calculation is complete
-        println(
-          "\n\tPi estimate: \t\t%s\n\tCalculation time: \t%s millis"
-          .format(pi, (System.currentTimeMillis - start)))
-        latch.countDown()
-      }
-    }
+.. includecode:: examples/Pi.scala#master
+   :exclude: message-handling
 
 A couple of things are worth explaining further.
 
-First, we are passing in a ``java.util.concurrent.CountDownLatch`` to the ``Master`` actor. This latch is only used for plumbing (in this specific tutorial), to have a simple way of letting the outside world knowing when the master can deliver the result and shut down. In more idiomatic Akka code, as we will see in part two of this tutorial series, we would not use a latch but other abstractions and functions like ``Channel``, ``Future`` and ``!!!`` to achieve the same thing in a non-blocking way. But for simplicity let's stick to a ``CountDownLatch`` for now.
+First, we are passing in a ``java.util.concurrent.CountDownLatch`` to the ``Master`` actor. This latch is only used for plumbing (in this specific tutorial), to have a simple way of letting the outside world knowing when the master can deliver the result and shut down. In more idiomatic Akka code, as we will see in part two of this tutorial series, we would not use a latch but other abstractions and functions like ``Channel``, ``Future`` and ``!!!`` to achive the same thing in a non-blocking way. But for simplicity let's stick to a ``CountDownLatch`` for now.
 
 Second, we are adding a couple of life-cycle callback methods; ``preStart`` and ``postStop``. In the ``preStart`` callback we are recording the time when the actor is started and in the ``postStop`` callback we are printing out the result (the approximation of Pi) and the time it took to calculate it. In this call we also invoke ``latch.countDown`` to tell the outside world that we are done.
 
@@ -333,170 +249,25 @@ The ``Calculate`` handler is sending out work to all the ``Worker`` actors and a
 
 The ``Result`` handler is simpler, here we get the value from the ``Result`` message and aggregate it to our ``pi`` member variable. We also keep track of how many results we have received back, and if that matches the number of tasks sent out, the ``Master`` actor considers itself done and shuts down.
 
-Let's capture this in code::
+Let's capture this in code:
 
-    // message handler
-    def receive = {
-      case Calculate =>
-        // schedule work
-        for (i <- 0 until nrOfMessages) router ! Work(i * nrOfElements, nrOfElements)
-
-        // send a PoisonPill to all workers telling them to shut down themselves
-        router ! Broadcast(PoisonPill)
-
-        // send a PoisonPill to the router, telling him to shut himself down
-        router ! PoisonPill
-
-      case Result(value) =>
-        // handle result from the worker
-        pi += value
-        nrOfResults += 1
-        if (nrOfResults == nrOfMessages) self.stop()
-    }
+.. includecode:: examples/Pi.scala#master-receive
 
 Bootstrap the calculation
 -------------------------
 
 Now the only thing that is left to implement is the runner that should bootstrap and run the calculation for us. We do that by creating an object that we call ``Pi``, here we can extend the ``App`` trait in Scala, which means that we will be able to run this as an application directly from the command line.
 
-The ``Pi`` object is a perfect container module for our actors and messages, so let's put them all there. We also create a method ``calculate`` in which we start up the ``Master`` actor and wait for it to finish::
+The ``Pi`` object is a perfect container module for our actors and messages, so let's put them all there. We also create a method ``calculate`` in which we start up the ``Master`` actor and wait for it to finish:
 
-    object Pi extends App {
-
-      calculate(nrOfWorkers = 4, nrOfElements = 10000, nrOfMessages = 10000)
-
-      ... // actors and messages
-
-      def calculate(nrOfWorkers: Int, nrOfElements: Int, nrOfMessages: Int) {
-
-        // this latch is only plumbing to know when the calculation is completed
-        val latch = new CountDownLatch(1)
-
-        // create the master
-        val master = actorOf(
-          new Master(nrOfWorkers, nrOfMessages, nrOfElements, latch)).start()
-
-        // start the calculation
-        master ! Calculate
-
-        // wait for master to shut down
-        latch.await()
-      }
-    }
+.. includecode:: examples/Pi.scala#app
+   :exclude: actors-and-messages
 
 That's it. Now we are done.
 
-But before we package it up and run it, let's take a look at the full code now, with package declaration, imports and all::
+But before we package it up and run it, let's take a look at the full code now, with package declaration, imports and all:
 
-    package akka.tutorial.first.scala
-
-    import akka.actor.{Actor, PoisonPill}
-    import Actor._
-    import akka.routing.{Routing, CyclicIterator}
-    import Routing._
-
-    import java.util.concurrent.CountDownLatch
-
-    object Pi extends App {
-
-      calculate(nrOfWorkers = 4, nrOfElements = 10000, nrOfMessages = 10000)
-
-      // ====================
-      // ===== Messages =====
-      // ====================
-      sealed trait PiMessage
-      case object Calculate extends PiMessage
-      case class Work(start: Int, nrOfElements: Int) extends PiMessage
-      case class Result(value: Double) extends PiMessage
-
-      // ==================
-      // ===== Worker =====
-      // ==================
-      class Worker extends Actor {
-
-        // define the work
-        def calculatePiFor(start: Int, nrOfElements: Int): Double = {
-          var acc = 0.0
-          for (i <- start until (start + nrOfElements))
-            acc += 4.0 * (1 - (i % 2) * 2) / (2 * i + 1)
-          acc
-        }
-
-        def receive = {
-          case Work(start, nrOfElements) =>
-            self reply Result(calculatePiFor(start, nrOfElements)) // perform the work
-        }
-      }
-
-      // ==================
-      // ===== Master =====
-      // ==================
-      class Master(
-        nrOfWorkers: Int, nrOfMessages: Int, nrOfElements: Int, latch: CountDownLatch)
-        extends Actor {
-
-        var pi: Double = _
-        var nrOfResults: Int = _
-        var start: Long = _
-
-        // create the workers
-        val workers = Vector.fill(nrOfWorkers)(actorOf[Worker].start())
-
-        // wrap them with a load-balancing router
-        val router = Routing.loadBalancerActor(CyclicIterator(workers)).start()
-
-        // message handler
-        def receive = {
-          case Calculate =>
-            // schedule work
-            //for (start <- 0 until nrOfMessages) router ! Work(start, nrOfElements)
-            for (i <- 0 until nrOfMessages) router ! Work(i * nrOfElements, nrOfElements)
-
-            // send a PoisonPill to all workers telling them to shut down themselves
-            router ! Broadcast(PoisonPill)
-
-            // send a PoisonPill to the router, telling him to shut himself down
-            router ! PoisonPill
-
-          case Result(value) =>
-            // handle result from the worker
-            pi += value
-            nrOfResults += 1
-            if (nrOfResults == nrOfMessages) self.stop()
-        }
-
-        override def preStart() {
-          start = System.currentTimeMillis
-        }
-
-        override def postStop() {
-          // tell the world that the calculation is complete
-          println(
-            "\n\tPi estimate: \t\t%s\n\tCalculation time: \t%s millis"
-            .format(pi, (System.currentTimeMillis - start)))
-          latch.countDown()
-        }
-      }
-
-      // ==================
-      // ===== Run it =====
-      // ==================
-      def calculate(nrOfWorkers: Int, nrOfElements: Int, nrOfMessages: Int) {
-
-        // this latch is only plumbing to know when the calculation is completed
-        val latch = new CountDownLatch(1)
-
-        // create the master
-        val master = actorOf(
-          new Master(nrOfWorkers, nrOfMessages, nrOfElements, latch)).start()
-
-        // start the calculation
-        master ! Calculate
-
-        // wait for master to shut down
-        latch.await()
-      }
-    }
+.. includecode:: examples/Pi.scala
 
 Run it as a command line application
 ------------------------------------
@@ -509,18 +280,16 @@ First we need to compile the source file. That is done with Scala's compiler ``s
 
 When we have compiled the source file we are ready to run the application. This is done with ``java`` but yet again we need to add the ``akka-actor-1.1.jar`` JAR file to the classpath, and this time we also need to add the Scala runtime library ``scala-library.jar`` and the classes we compiled ourselves::
 
-    $ java \
-        -cp dist/akka-actor-1.1.jar:scala-library.jar:tutorial \
-        akka.tutorial.first.scala.Pi
-    AKKA_HOME is defined as [/Users/jboner/src/akka-stuff/akka-core]
-    loading config from [/Users/jboner/src/akka-stuff/akka-core/config/akka.conf].
+    $ java -cp dist/akka-actor-1.1.jar:scala-library.jar:tutorial akka.tutorial.scala.first.Pi
+    AKKA_HOME is defined as [/Users/jboner/src/akka-stuff/akka-core], loading config from \
+      [/Users/jboner/src/akka-stuff/akka-core/config/akka.conf].
 
     Pi estimate:        3.1435501812459323
     Calculation time:   858 millis
 
 Yippee! It is working.
 
-If you have not defined the ``AKKA_HOME`` environment variable then Akka can't find the ``akka.conf`` configuration file and will print out a ``Can’t load akka.conf`` warning. This is ok since it will then just use the defaults.
+If you have not defined an the ``AKKA_HOME`` environment variable then Akka can't find the ``akka.conf`` configuration file and will print out a ``Can’t load akka.conf`` warning. This is ok since it will then just use the defaults.
 
 Run it inside SBT
 -----------------
@@ -544,12 +313,23 @@ Yippee! It is working.
 
 If you have not defined an the ``AKKA_HOME`` environment variable then Akka can't find the ``akka.conf`` configuration file and will print out a ``Can’t load akka.conf`` warning. This is ok since it will then just use the defaults.
 
+The implementation in more detail
+---------------------------------
+
+To create our actors we used a method called ``actorOf`` in the ``Actor`` object. We used it in two different ways,  one of them taking a actor type and the other one an instance of an actor. The former one (``actorOf[Worker]``) is used when the actor class has a no-argument constructor while the second one (``actorOf(new Master(..))``) is used when the actor class has a constructor that takes arguments. This is the only way to create an instance of an Actor and the ``actorOf`` method ensures this. The latter version is using call-by-name and lazily creates the actor within the scope of the ``actorOf`` method. The ``actorOf`` method instantiates the actor and returns, not an instance to the actor, but an instance to an ``ActorRef``. This reference is the handle through which you communicate with the actor. It is immutable, serializable and location-aware meaning that it "remembers" its original actor even if it is sent to other nodes across the network and can be seen as the equivalent to the Erlang actor's PID.
+
+The actor's life-cycle is:
+
+- Created -- ``Actor.actorOf[MyActor]`` -- can **not** receive messages
+- Started -- ``actorRef.start()`` -- can receive messages
+- Stopped -- ``actorRef.stop()`` -- can **not** receive messages
+
+Once the actor has been stopped it is dead and can not be started again.
+
 Conclusion
 ----------
 
 We have learned how to create our first Akka project using Akka's actors to speed up a computation-intensive problem by scaling out on multi-core processors (also known as scaling up). We have also learned to compile and run an Akka project using either the tools on the command line or the SBT build system.
-
-If you have a multi-core machine then I encourage you to try out different number of workers (number of working actors) by tweaking the ``nrOfWorkers`` variable to for example; 2, 4, 6, 8 etc. to see performance improvement by scaling up.
 
 Now we are ready to take on more advanced problems. In the next tutorial we will build on this one, refactor it into more idiomatic Akka and Scala code, and introduce a few new concepts and abstractions. Whenever you feel ready, join me in the `Getting Started Tutorial: Second Chapter <TODO>`_.
 
