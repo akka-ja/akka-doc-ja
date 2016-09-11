@@ -1,0 +1,333 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:5
+msgid "Migration Guide 2.0.x to 2.4.x"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:8
+msgid "General notes"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:11
+msgid "akka.Done and akka.NotUsed replacing Unit and BoxedUnit"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:13
+msgid ""
+"To provide more clear signatures and have a unified API for both Java and"
+" Scala two new types have been introduced:"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:16
+msgid ""
+"``akka.NotUsed`` is meant to be used instead of ``Unit`` in Scala and "
+"``BoxedUnit`` in Java to signify that the type parameter is required but "
+"not actually used. This is commonly the case with ``Source``, ``Flow`` "
+"and ``Sink`` that do not materialize into any value."
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:21
+msgid ""
+"``akka.Done`` is added for the use case where it is boxed inside another "
+"object to signify completion but there is no actual value attached to the"
+" completion. It is used to replace occurrences of ``Future<BoxedUnit>`` "
+"with ``Future<Done>`` in Java and ``Future[Unit]`` with ``Future[Done]`` "
+"in Scala."
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:26
+msgid ""
+"All previous usage of ``Unit`` and ``BoxedUnit`` for these two cases in "
+"the Akka Streams APIs has been updated."
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:29
+msgid "This means that Scala code like this::"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:35
+msgid "needs to be changed into::"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:40
+msgid ""
+"These changes apply to all the places where streams are used, which means"
+" that signatures in the persistent query APIs also are affected."
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:44
+msgid "Removed ImplicitMaterializer"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:46
+msgid ""
+"The helper trait :class:`ImplicitMaterializer` has been removed as it was"
+" hard to find and the feature was not worth the extra trait. Defining an "
+"implicit materializer inside an enclosing actor can be done this way::"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:52
+msgid "Changed Operators"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:55
+msgid "``expand()`` is now based on an Iterator"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:57
+msgid ""
+"Previously the ``expand`` combinator required two functions as input: the"
+" first one lifted incoming values into an extrapolation state and the "
+"second one extracted values from that, possibly evolving that state. This"
+" has been simplified into a single function that turns the incoming "
+"element into an Iterator."
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:63
+msgid ""
+"The most prominent use-case previously was to just repeat the previously "
+"received value::"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:67
+msgid "In Akka 2.4.x this is simplified to:"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:71
+msgid ""
+"If state needs to be be kept during the expansion process then this state"
+" will need to be managed by the Iterator. The example of counting the "
+"number of expansions might previously have looked like::"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:78
+msgid "In Akka 2.4.x this is formulated like so:"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:83
+msgid "``conflate`` has been renamed to ``conflateWithSeed()``"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:85
+msgid ""
+"The new ``conflate`` operator is a special case of the original behavior "
+"(renamed to ``conflateWithSeed``) that does not change the type of the "
+"stream. The usage of the new operator is as simple as::"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:90
+msgid "Which is the same as using ``conflateWithSeed`` with an identity function"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:92
+msgid ""
+"Flow[Int].conflateWithSeed(identity)(_ + _) // Add numbers while "
+"downstream is not ready"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:96
+msgid "``viaAsync`` and ``viaAsyncMat`` has been replaced with ``async``"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:97
+msgid ""
+"``async`` is available from ``Sink``, ``Source``, ``Flow`` and the sub "
+"flows. It provides a shortcut for setting the attribute "
+"``Attributes.asyncBoundary`` on a flow. The existing methods "
+"``Flow.viaAsync`` and ``Flow.viaAsyncMat`` has been removed to make "
+"marking out asynchronous boundaries more consistent::"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:104
+msgid "In Akka 2.4.x this will instead look lile this:"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:110
+msgid "Changes in Akka HTTP"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:113
+msgid "Routing settings parameter name"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:115
+msgid ""
+"``RoutingSettings`` were previously the only setting available on "
+"``RequestContext``, and were accessible via ``settings``. We now made it "
+"possible to configure the parsers settings as well, so "
+"``RoutingSettings`` is now ``routingSettings`` and ``ParserSettings`` is "
+"now accessible via ``parserSettings``."
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:121
+msgid "Client / server behaviour on cancelled entity"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:123
+msgid ""
+"Previously if request or response were cancelled or consumed only "
+"partially (e.g. by using ``take`` combinator) the remaining data was "
+"silently drained to prevent stalling the connection, since there could "
+"still be more requests / responses incoming. Now the default behaviour is"
+" to close the connection in order to prevent using excessive resource "
+"usage in case of huge entities."
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:129
+msgid "The old behaviour can be achieved by explicitly draining the entity:"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:131
+msgid "response.entity.dataBytes.runWith(Sink.ignore)"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:134
+msgid "Changed Sources / Sinks"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:137
+msgid "IO Sources / Sinks materialize IOResult"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:139
+msgid "Materialized values of the following sources and sinks:"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:141
+msgid "``FileIO.fromPath``"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:142
+msgid "``FileIO.toPath``"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:143
+msgid "``StreamConverters.fromInputStream``"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:144
+msgid "``StreamConverters.fromOutputStream``"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:146
+msgid ""
+"have been changed from ``Long`` to ``akka.stream.io.IOResult``. This "
+"allows to signal more complicated completion scenarios. For example, on "
+"failure it is now possible to return the exception and the number of "
+"bytes written until that exception occured."
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:151
+msgid ""
+"PushStage, PushPullStage and DetachedStage have been deprecated in favor "
+"of GraphStage"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:153
+msgid ""
+"The :class:`PushStage` :class:`PushPullStage` and :class:`DetachedStage` "
+"classes have been deprecated and should be replaced by "
+":class:`GraphStage` (:ref:`graphstage-scala`) which is now a single "
+"powerful API for custom stream processing."
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:158
+msgid "Update procedure"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:160
+msgid ""
+"Please consult the :class:`GraphStage` documentation (:ref:`graphstage-"
+"scala`) and the `previous migration guide`_ on migrating from "
+":class:`AsyncStage` to :class:`GraphStage`."
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:166
+msgid "Websocket now consistently named WebSocket"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:168
+msgid ""
+"Previously we had a mix of methods and classes called ``websocket`` or "
+"``Websocket``, which was in contradiction with how the word is spelled in"
+" the spec and some other places of Akka HTTP."
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:171
+msgid ""
+"Methods and classes using the word WebSocket now consistently use it as "
+"``WebSocket``, so updating is as simple as find-and-replacing the lower-"
+"case ``s`` to an upper-case ``S`` wherever the word WebSocket appeared."
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:175
+msgid "Java DSL for Http binding and connections changed"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:177
+msgid ""
+"In order to minimise the number of needed overloads for each method "
+"defined on the ``Http`` extension a new mini-DSL has been introduced for "
+"connecting to hosts given a hostname, port and optional "
+"``ConnectionContext``."
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:180
+msgid ""
+"The availability of the connection context (if it's set to "
+"``HttpsConnectionContext``) makes the server be bound as an HTTPS server,"
+" and for outgoing connections those settings are used instead of the "
+"default ones if provided."
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:183
+msgid "Was::"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:188
+msgid "Replace with::"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:194
+msgid "SslTls has been renamed to TLS and moved"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:196
+msgid ""
+"The DSL to access a TLS (or SSL) :class:`BidiFlow` have now split between"
+" the ``javadsl`` and ``scaladsl`` packages and have been renamed to "
+":class:`TLS`. Common option types (closing modes, authentication modes, "
+"etc.) have been moved to the top level ``stream`` package, and the common"
+" message types are accessible in the class "
+":class:`akka.stream.TLSProtocol`"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:201
+msgid "Framing moved to akka.stream.[javadsl/scaladsl]"
+msgstr ""
+
+#: ../../scala/stream/migration-guide-2.0-2.4-scala.rst:203
+msgid ""
+"The ``Framing`` object which can be used to chunk up ``ByteString`` "
+"streams into framing dependent chunks (such as lines) has moved to "
+"``akka.stream.scaladsl.Framing``, and has gotten a Java DSL equivalent "
+"type in ``akka.stream.javadsl.Framing``."
+msgstr ""
+

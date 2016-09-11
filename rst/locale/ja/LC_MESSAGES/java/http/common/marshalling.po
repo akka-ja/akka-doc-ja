@@ -1,0 +1,355 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/common/marshalling.rst:4
+msgid "Marshalling"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:5
+msgid "TODO overhaul for Java"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:7
+msgid ""
+"\"Marshalling\" is the process of converting a higher-level (object) "
+"structure into some kind of lower-level representation, often a \"wire "
+"format\". Other popular names for it are \"Serialization\" or "
+"\"Pickling\"."
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:10
+msgid ""
+"In Akka HTTP \"Marshalling\" means the conversion of an object of type "
+"``T`` into a lower-level target type, e.g. a ``MessageEntity`` (which "
+"forms the \"entity body\" of an HTTP request or response) or a full "
+"``HttpRequest`` or ``HttpResponse``."
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:16
+msgid "Basic Design"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:18
+msgid ""
+"Marshalling of instances of type ``A`` into instances of type ``B`` is "
+"performed by a ``Marshaller[A, B]``. Akka HTTP also predefines a number "
+"of helpful aliases for the types of marshallers that you'll likely work "
+"with most:"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:24
+msgid ""
+"Contrary to what you might initially expect ``Marshaller[A, B]`` is not a"
+" plain function ``A => B`` but rather essentially a function ``A => "
+"Future[List[Marshalling[B]]]``. Let's dissect this rather complicated "
+"looking signature piece by piece to understand what marshallers are "
+"designed this way. Given an instance of type ``A`` a ``Marshaller[A, B]``"
+" produces:"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:30
+msgid ""
+"1. A ``Future``: This is probably quite clear. Marshallers are not "
+"required to synchronously produce a result, so instead they return a "
+"future, which allows for asynchronicity in the marshalling process."
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:33
+msgid ""
+"2. of ``List``: Rather than only a single target representation for ``A``"
+" marshallers can offer several ones. Which one will be rendered onto the "
+"wire in the end is decided by content negotiation. For example, the "
+"``ToEntityMarshaller[OrderConfirmation]`` might offer a JSON as well as "
+"an XML representation. The client can decide through the addition of an "
+"``Accept`` request header which one is preferred. If the client doesn't "
+"express a preference the first representation is picked."
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:39
+msgid ""
+"3. of ``Marshalling[B]``: Rather than returning an instance of ``B`` "
+"directly marshallers first produce a ``Marshalling[B]``. This allows for "
+"querying the ``MediaType`` and potentially the ``HttpCharset`` that the "
+"marshaller will produce before the actual marshalling is triggered. Apart"
+" from enabling content negotiation this design allows for delaying the "
+"actual construction of the marshalling target instance to the very last "
+"moment when it is really needed."
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:44
+msgid "This is how ``Marshalling`` is defined:"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:51
+msgid "Predefined Marshallers"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:53
+msgid ""
+"Akka HTTP already predefines a number of marshallers for the most common "
+"types. Specifically these are:"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:56
+msgid "PredefinedToEntityMarshallers_"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:58
+msgid "``Array[Byte]``"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:59
+msgid "``ByteString``"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:60
+msgid "``Array[Char]``"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:61
+msgid "``String``"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:62
+msgid "``akka.http.scaladsl.model.FormData``"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:63
+msgid "``akka.http.scaladsl.model.MessageEntity``"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:64
+msgid "``T <: akka.http.scaladsl.model.Multipart``"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:66
+msgid "PredefinedToResponseMarshallers_"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:68
+msgid "``T``, if a ``ToEntityMarshaller[T]`` is available"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:69
+msgid "``HttpResponse``"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:70
+msgid "``StatusCode``"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:71
+msgid "``(StatusCode, T)``, if a ``ToEntityMarshaller[T]`` is available"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:72
+msgid "``(Int, T)``, if a ``ToEntityMarshaller[T]`` is available"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:73
+msgid ""
+"``(StatusCode, immutable.Seq[HttpHeader], T)``, if a "
+"``ToEntityMarshaller[T]`` is available"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:74
+msgid ""
+"``(Int, immutable.Seq[HttpHeader], T)``, if a ``ToEntityMarshaller[T]`` "
+"is available"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:76
+msgid "PredefinedToRequestMarshallers_"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:78
+msgid "``HttpRequest``"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:79
+msgid "``Uri``"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:80
+msgid "``(HttpMethod, Uri, T)``, if a ``ToEntityMarshaller[T]`` is available"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:81
+msgid ""
+"``(HttpMethod, Uri, immutable.Seq[HttpHeader], T)``, if a "
+"``ToEntityMarshaller[T]`` is available"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:83
+msgid "GenericMarshallers_"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:85
+msgid "``Marshaller[Throwable, T]``"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:86
+msgid ""
+"``Marshaller[Option[A], B]``, if a ``Marshaller[A, B]`` and an "
+"``EmptyValue[B]`` is available"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:87
+msgid ""
+"``Marshaller[Either[A1, A2], B]``, if a ``Marshaller[A1, B]`` and a "
+"``Marshaller[A2, B]`` is available"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:88
+msgid "``Marshaller[Future[A], B]``, if a ``Marshaller[A, B]`` is available"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:89
+msgid "``Marshaller[Try[A], B]``, if a ``Marshaller[A, B]`` is available"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:98
+msgid "Implicit Resolution"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:100
+msgid ""
+"The marshalling infrastructure of Akka HTTP relies on a type-class based "
+"approach, which means that ``Marshaller`` instances from a certain type "
+"``A`` to a certain type ``B`` have to be available implicitly."
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:103
+msgid ""
+"The implicits for most of the predefined marshallers in Akka HTTP are "
+"provided through the companion object of the ``Marshaller`` trait. This "
+"means that they are always available and never need to be explicitly "
+"imported. Additionally, you can simply \"override\" them by bringing your"
+" own custom version into local scope."
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:109
+msgid "Custom Marshallers"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:111
+msgid ""
+"Akka HTTP gives you a few convenience tools for constructing marshallers "
+"for your own types. Before you do that you need to think about what kind "
+"of marshaller you want to create. If all your marshaller needs to produce"
+" is a ``MessageEntity`` then you should probably provide a "
+"``ToEntityMarshaller[T]``. The advantage here is that it will work on "
+"both the client- as well as the server-side since a "
+"``ToResponseMarshaller[T]`` as well as a ``ToRequestMarshaller[T]`` can "
+"automatically be created if a ``ToEntityMarshaller[T]`` is available."
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:118
+msgid ""
+"If, however, your marshaller also needs to set things like the response "
+"status code, the request method, the request URI or any headers then a "
+"``ToEntityMarshaller[T]`` won't work. You'll need to fall down to "
+"providing a ``ToResponseMarshaller[T]`` or a ``ToRequestMarshaller[T]`` "
+"directly."
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:122
+msgid ""
+"For writing your own marshallers you won't have to \"manually\" implement"
+" the ``Marshaller`` trait directly. Rather, it should be possible to use "
+"one of the convenience construction helpers defined on the ``Marshaller``"
+" companion:"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:131
+msgid "Deriving Marshallers"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:133
+msgid ""
+"Sometimes you can save yourself some work by reusing existing marshallers"
+" for your custom ones. The idea is to \"wrap\" an existing marshaller "
+"with some logic to \"re-target\" it to your type."
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:136
+msgid ""
+"In this regard wrapping a marshaller can mean one or both of the "
+"following two things:"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:138
+msgid "Transform the input before it reaches the wrapped marshaller"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:139
+msgid "Transform the output of the wrapped marshaller"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:141
+msgid ""
+"For the latter (transforming the output) you can use "
+"``baseMarshaller.map``, which works exactly as it does for functions. For"
+" the former (transforming the input) you have four alternatives:"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:144
+msgid "``baseMarshaller.compose``"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:145
+msgid "``baseMarshaller.composeWithEC``"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:146
+msgid "``baseMarshaller.wrap``"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:147
+msgid "``baseMarshaller.wrapWithEC``"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:149
+msgid ""
+"``compose`` works just like it does for functions. ``wrap`` is a compose "
+"that allows you to also change the ``ContentType`` that the marshaller "
+"marshals to. The ``...WithEC`` variants allow you to receive an "
+"``ExecutionContext`` internally if you need one, without having to depend"
+" on one being available implicitly at the usage site."
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:156
+msgid "Using Marshallers"
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:158
+msgid ""
+"In many places throughput Akka HTTP marshallers are used implicitly, e.g."
+" when you define how to :ref:`-complete-` a request using the "
+":ref:`Routing DSL <http-high-level-server-side-api>`."
+msgstr ""
+
+#: ../../java/http/common/marshalling.rst:161
+msgid ""
+"However, you can also use the marshalling infrastructure directly if you "
+"wish, which can be useful for example in tests. The best entry point for "
+"this is the ``akka.http.scaladsl.marshalling.Marshal`` object, which you "
+"can use like this:"
+msgstr ""
+

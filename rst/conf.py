@@ -49,9 +49,9 @@ htmlhelp_basename = 'Akkadoc'
 html_use_smartypants = False
 html_add_permalinks = ''
 
-html_context = {
-  'include_analytics': 'online' in tags
-}
+# html_context = {
+#   'include_analytics': 'online' in tags
+# }
 
 # -- Options for EPUB output ---------------------------------------------------
 epub_author = "Lightbend Inc"
@@ -85,3 +85,6 @@ latex_elements = {
     }
 
 # latex_logo = '_sphinx/static/akka.png'
+
+locale_dirs = ['locale/']
+gettext_compact = False

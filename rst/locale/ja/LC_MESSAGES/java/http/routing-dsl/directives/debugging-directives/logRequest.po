@@ -1,0 +1,57 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/routing-dsl/directives/debugging-directives/logRequest.rst:4
+msgid "logRequest"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/debugging-directives/logRequest.rst:7
+msgid "Description"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/debugging-directives/logRequest.rst:9
+msgid ""
+"Logs the request. The directive is available with the following "
+"parameters:"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/debugging-directives/logRequest.rst:11
+msgid "A marker to prefix each log message with."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/debugging-directives/logRequest.rst:12
+msgid "A log level."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/debugging-directives/logRequest.rst:13
+msgid ""
+"A function that creates a :class:``LogEntry`` from the "
+":class:``HttpRequest``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/debugging-directives/logRequest.rst:15
+msgid ""
+"Use ``logResult`` for logging the response, or ``logRequestResult`` for "
+"logging both."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/debugging-directives/logRequest.rst:18
+msgid "Example"
+msgstr ""
+

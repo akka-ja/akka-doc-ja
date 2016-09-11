@@ -1,0 +1,93 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../scala/http/routing-dsl/overview.rst:2
+msgid "Routing DSL Overview"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/overview.rst:4
+msgid ""
+"The Akka HTTP :ref:`http-low-level-server-side-api` provides a ``Flow``- "
+"or ``Function``-level interface that allows an application to respond to "
+"incoming HTTP requests by simply mapping requests to responses:"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/overview.rst:10
+msgid ""
+"While it'd be perfectly possible to define a complete REST API service "
+"purely by pattern-matching against the incoming ``HttpRequest`` (maybe "
+"with the help of a few extractors in the way of `Unfiltered`_) this "
+"approach becomes somewhat unwieldy for larger services due to the amount "
+"of syntax \"ceremony\" required. Also, it doesn't help in keeping your "
+"service definition as DRY_ as you might like."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/overview.rst:15
+msgid ""
+"As an alternative Akka HTTP provides a flexible DSL for expressing your "
+"service behavior as a structure of composable elements (called "
+":ref:`Directives`) in a concise and readable way. Directives are "
+"assembled into a so called *route structure* which, at its top-level, "
+"forms a handler ``Flow`` (or, alternatively, an async handler function) "
+"that can be directly supplied to a ``bind`` call. The conversion from "
+"``Route`` to flow can either be invoked explicitly using "
+"``Route.handlerFlow`` or, otherwise, the conversion is also provided "
+"implicitly by ``RouteResult.route2HandlerFlow`` [1]_."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/overview.rst:22
+msgid ""
+"For example, the service definition from above, written using the routing"
+" DSL, would look like this:"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/overview.rst:27
+msgid "The core of the Routing DSL becomes available with a single import::"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/overview.rst:31
+msgid "This example also relies on the pre-defined support for Scala XML with::"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/overview.rst:35
+msgid ""
+"The very short example shown here is certainly not the best for "
+"illustrating the savings in \"ceremony\" and improvements in conciseness "
+"and readability that the Routing DSL promises. The :ref:`Long Example` "
+"might do a better job in this regard."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/overview.rst:39
+msgid ""
+"For learning how to work with the Routing DSL you should first understand"
+" the concept of :ref:`Routes`."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/overview.rst:42
+msgid ""
+"To be picked up automatically, the implicit conversion needs to be "
+"provided in the companion object of the source type. However, as "
+"``Route`` is just a type alias for ``RequestContext => "
+"Future[RouteResult]``, there's no companion object for ``Route``. "
+"Fortunately, the `implicit scope`_ for finding an implicit conversion "
+"also includes all types that are \"associated with any part\" of the "
+"source type which in this case means that the implicit conversion will "
+"also be picked up from ``RouteResult.route2HandlerFlow`` automatically."
+msgstr ""
+

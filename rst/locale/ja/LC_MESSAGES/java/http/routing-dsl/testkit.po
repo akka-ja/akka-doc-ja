@@ -1,0 +1,227 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/routing-dsl/testkit.rst:4
+msgid "Route Testkit"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:6
+msgid ""
+"akka-http has a testkit that provides a convenient way of testing your "
+"routes with JUnit. It allows running requests against a route (without "
+"hitting the network) and provides means to assert against response "
+"properties in a compact way."
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:10
+msgid "To use the testkit you need to take these steps:"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:12
+msgid "add a dependency to the ``akka-http-testkit`` module"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:13
+msgid "derive the test class from ``JUnitRouteTest``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:14
+msgid ""
+"wrap the route under test with ``RouteTest.testRoute`` to create a "
+"``TestRoute``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:15
+msgid ""
+"run requests against the route using ``TestRoute.run(request)`` which "
+"will return a ``TestResponse``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:17
+msgid ""
+"use the methods of ``TestResponse`` to assert on properties of the "
+"response"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:20
+msgid "Example"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:22
+msgid ""
+"To see the testkit in action consider the following simple calculator app"
+" service:"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:27
+msgid ""
+"The app extends from ``HttpApp`` which brings all of the directives into "
+"scope. Method ``createRoute`` needs to be implemented to return the "
+"complete route of the app."
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:30
+msgid "Here's how you would test that service:"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:37
+msgid "Writing Asserting against the HttpResponse"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:39
+msgid ""
+"The testkit supports a fluent DSL to write compact assertions on the "
+"response by chaining assertions using \"dot-syntax\". To simplify working"
+" with streamed responses the entity of the response is first "
+"\"strictified\", i.e. entity data is collected into a single "
+"``ByteString`` and provided the entity is supplied as an "
+"``HttpEntityStrict``. This allows to write several assertions against the"
+" same entity data which wouldn't (necessarily) be possible for the "
+"streamed version."
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:45
+msgid ""
+"All of the defined assertions provide HTTP specific error messages aiding"
+" in diagnosing problems."
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:47
+msgid ""
+"Currently, these methods are defined on ``TestResponse`` to assert on the"
+" response:"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:50
+msgid "Assertion                                        Description"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:52
+msgid "``assertStatusCode(int expectedCode)``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:52
+msgid "Asserts that the numeric response status code equals the expected one"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:53
+msgid "``assertStatusCode(StatusCode expectedCode)``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:53
+msgid "Asserts that the response ``StatusCode`` equals the expected one"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:54
+msgid "``assertMediaType(String expectedType)``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:54
+msgid ""
+"Asserts that the media type part of the response's content type matches "
+"the given String"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:56
+msgid "``assertMediaType(MediaType expectedType)``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:56
+msgid ""
+"Asserts that the media type part of the response's content type matches "
+"the given ``MediaType``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:58
+msgid "``assertEntity(String expectedStringContent)``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:58
+msgid ""
+"Asserts that the entity data interpreted as UTF8 equals the expected "
+"String"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:60
+msgid "``assertEntityBytes(ByteString expectedBytes)``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:60
+msgid "Asserts that the entity data bytes equal the expected ones"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:61
+msgid "``assertEntityAs(Unmarshaller<T> unmarshaller, expectedValue: T)``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:61
+msgid ""
+"Asserts that the entity data if unmarshalled with the given marshaller "
+"equals the given value"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:63
+msgid "``assertHeaderExists(HttpHeader expectedHeader)``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:63
+msgid ""
+"Asserts that the response contains an HttpHeader instance equal to the "
+"expected one"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:65
+msgid "``assertHeaderKindExists(String expectedHeaderName)``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:65
+msgid "Asserts that the response contains a header with the expected name"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:66
+msgid "``assertHeader(String name, String expectedValue)``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:66
+msgid "Asserts that the response contains a header with the given name and value."
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:70
+msgid ""
+"It's, of course, possible to use any other means of writing assertions by"
+" inspecting the properties the response manually. As written above, "
+"``TestResponse.entity`` and ``TestResponse.response`` return strict "
+"versions of the entity data."
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:75
+msgid "Supporting Custom Test Frameworks"
+msgstr ""
+
+#: ../../java/http/routing-dsl/testkit.rst:77
+msgid ""
+"Adding support for a custom test framework is achieved by creating new "
+"superclass analogous to ``JUnitRouteTest`` for writing tests with the "
+"custom test framwork deriving from "
+"``akka.http.javadsl.testkit.RouteTest`` and implementing its abstract "
+"methods. This will allow users of the test framework to use ``testRoute``"
+" and to write assertions using the assertion methods defined on "
+"``TestResponse``."
+msgstr ""
+

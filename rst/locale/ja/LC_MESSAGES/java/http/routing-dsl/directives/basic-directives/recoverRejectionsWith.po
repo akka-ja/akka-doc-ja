@@ -1,0 +1,61 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/routing-dsl/directives/basic-directives/recoverRejectionsWith.rst:4
+msgid "recoverRejectionsWith"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/recoverRejectionsWith.rst:7
+msgid "Description"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/recoverRejectionsWith.rst:9
+msgid ""
+"**Low level directive** – unless you're sure you need to be working on "
+"this low-level you might instead want to try the :ref:`-handleRejections-"
+"java-` directive which provides a nicer DSL for building rejection "
+"handlers."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/recoverRejectionsWith.rst:12
+msgid ""
+"Transforms rejections from the inner route with a "
+"``Function<Iterable<Rejection>, CompletionStage<RouteResult>>``."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/recoverRejectionsWith.rst:14
+msgid "Asynchronous version of :ref:`-recoverRejections-java-`."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/recoverRejectionsWith.rst:16
+msgid ""
+"See :ref:`-recoverRejections-java-` (the synchronous equivalent of this "
+"directive) for a detailed description."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/recoverRejectionsWith.rst:19
+msgid ""
+"To learn more about how and why rejections work read the :ref"
+":`rejections-java` section of the documentation."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/recoverRejectionsWith.rst:22
+msgid "Example"
+msgstr ""
+

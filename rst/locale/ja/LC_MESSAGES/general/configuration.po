@@ -1,0 +1,526 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../general/configuration.rst:4
+msgid "Configuration"
+msgstr ""
+
+#: ../../general/configuration.rst:6
+msgid ""
+"You can start using Akka without defining any configuration, since "
+"sensible default values are provided. Later on you might need to amend "
+"the settings to change the default behavior or adapt for specific runtime"
+" environments. Typical examples of settings that you might amend:"
+msgstr ""
+
+#: ../../general/configuration.rst:11
+msgid "log level and logger backend"
+msgstr ""
+
+#: ../../general/configuration.rst:12
+msgid "enable remoting"
+msgstr ""
+
+#: ../../general/configuration.rst:13
+msgid "message serializers"
+msgstr ""
+
+#: ../../general/configuration.rst:14
+msgid "definition of routers"
+msgstr ""
+
+#: ../../general/configuration.rst:15
+msgid "tuning of dispatchers"
+msgstr ""
+
+#: ../../general/configuration.rst:17
+msgid ""
+"Akka uses the `Typesafe Config Library "
+"<https://github.com/typesafehub/config>`_, which might also be a good "
+"choice for the configuration of your own application or library built "
+"with or without Akka. This library is implemented in Java with no "
+"external dependencies; you should have a look at its documentation (in "
+"particular about `ConfigFactory "
+"<http://typesafehub.github.io/config/v1.2.0/com/typesafe/config/ConfigFactory.html>`_),"
+" which is only summarized in the following."
+msgstr ""
+
+#: ../../general/configuration.rst:27
+msgid ""
+"If you use Akka from the Scala REPL from the 2.9.x series, and you do not"
+" provide your own ClassLoader to the ActorSystem, start the REPL with "
+"\"-Yrepl-sync\" to work around a deficiency in the REPLs provided Context"
+" ClassLoader."
+msgstr ""
+
+#: ../../general/configuration.rst:34
+msgid "Where configuration is read from"
+msgstr ""
+
+#: ../../general/configuration.rst:36
+msgid ""
+"All configuration for Akka is held within instances of "
+":class:`ActorSystem`, or put differently, as viewed from the outside, "
+":class:`ActorSystem` is the only consumer of configuration information. "
+"While constructing an actor system, you can either pass in a "
+":class:`Config` object or not, where the second case is equivalent to "
+"passing ``ConfigFactory.load()`` (with the right class loader). This "
+"means roughly that the default is to parse all ``application.conf``, "
+"``application.json`` and ``application.properties`` found at the root of "
+"the class path—please refer to the aforementioned documentation for "
+"details. The actor system then merges in all ``reference.conf`` resources"
+" found at the root of the class path to form the fallback configuration, "
+"i.e. it internally uses"
+msgstr ""
+
+#: ../../general/configuration.rst:51
+msgid ""
+"The philosophy is that code never contains default values, but instead "
+"relies upon their presence in the ``reference.conf`` supplied with the "
+"library in question."
+msgstr ""
+
+#: ../../general/configuration.rst:55
+msgid ""
+"Highest precedence is given to overrides given as system properties, see "
+"`the HOCON specification "
+"<https://github.com/typesafehub/config/blob/master/HOCON.md>`_ (near the "
+"bottom). Also noteworthy is that the application configuration—which "
+"defaults to ``application``—may be overridden using the "
+"``config.resource`` property (there are more, please refer to the `Config"
+" docs <https://github.com/typesafehub/config/blob/master/README.md>`_)."
+msgstr ""
+
+#: ../../general/configuration.rst:65
+msgid ""
+"If you are writing an Akka application, keep you configuration in "
+"``application.conf`` at the root of the class path. If you are writing an"
+" Akka-based library, keep its configuration in ``reference.conf`` at the "
+"root of the JAR file."
+msgstr ""
+
+#: ../../general/configuration.rst:72
+msgid "When using JarJar, OneJar, Assembly or any jar-bundler"
+msgstr ""
+
+#: ../../general/configuration.rst:76
+msgid ""
+"Akka's configuration approach relies heavily on the notion of every "
+"module/jar having its own reference.conf file, all of these will be "
+"discovered by the configuration and loaded. Unfortunately this also means"
+" that if you put/merge multiple jars into the same jar, you need to merge"
+" all the reference.confs as well. Otherwise all defaults will be lost and"
+" Akka will not function."
+msgstr ""
+
+#: ../../general/configuration.rst:83
+msgid ""
+"If you are using Maven to package your application, you can also make use"
+" of the `Apache Maven Shade Plugin <http://maven.apache.org/plugins"
+"/maven-shade-plugin>`_ support for `Resource Transformers "
+"<http://maven.apache.org/plugins/maven-shade-plugin/examples/resource-"
+"transformers.html#AppendingTransformer>`_ to merge all the "
+"reference.confs on the build classpath into one."
+msgstr ""
+
+#: ../../general/configuration.rst:90
+msgid "The plugin configuration might look like this::"
+msgstr ""
+
+#: ../../general/configuration.rst:128
+msgid "Custom application.conf"
+msgstr ""
+
+#: ../../general/configuration.rst:130
+msgid "A custom ``application.conf`` might look like this::"
+msgstr ""
+
+#: ../../general/configuration.rst:172
+msgid "Including files"
+msgstr ""
+
+#: ../../general/configuration.rst:174
+msgid ""
+"Sometimes it can be useful to include another configuration file, for "
+"example if you have one ``application.conf`` with all environment "
+"independent settings and then override some settings for specific "
+"environments."
+msgstr ""
+
+#: ../../general/configuration.rst:177
+msgid ""
+"Specifying system property with ``-Dconfig.resource=/dev.conf`` will load"
+" the ``dev.conf`` file, which includes the ``application.conf``"
+msgstr ""
+
+#: ../../general/configuration.rst:179
+msgid "dev.conf:"
+msgstr ""
+
+#: ../../general/configuration.rst:189
+msgid ""
+"More advanced include and substitution mechanisms are explained in the "
+"`HOCON <https://github.com/typesafehub/config/blob/master/HOCON.md>`_ "
+"specification."
+msgstr ""
+
+#: ../../general/configuration.rst:196
+msgid "Logging of Configuration"
+msgstr ""
+
+#: ../../general/configuration.rst:198
+msgid ""
+"If the system or config property ``akka.log-config-on-start`` is set to "
+"``on``, then the complete configuration is logged at INFO level when the "
+"actor system is started. This is useful when you are uncertain of what "
+"configuration is used."
+msgstr ""
+
+#: ../../general/configuration.rst:202
+msgid ""
+"If in doubt, you can also easily and nicely inspect configuration objects"
+" before or after using them to construct an actor system:"
+msgstr ""
+
+#: ../../general/configuration.rst:227
+msgid ""
+"The comments preceding every item give detailed information about the "
+"origin of the setting (file & line number) plus possible comments which "
+"were present, e.g. in the reference configuration. The settings as merged"
+" with the reference and parsed by the actor system can be displayed like "
+"this:"
+msgstr ""
+
+#: ../../general/configuration.rst:239
+msgid "A Word About ClassLoaders"
+msgstr ""
+
+#: ../../general/configuration.rst:241
+msgid ""
+"In several places of the configuration file it is possible to specify the"
+" fully-qualified class name of something to be instantiated by Akka. This"
+" is done using Java reflection, which in turn uses a "
+":class:`ClassLoader`. Getting the right one in challenging environments "
+"like application containers or OSGi bundles is not always trivial, the "
+"current approach of Akka is that each :class:`ActorSystem` implementation"
+" stores the current thread’s context class loader (if available, "
+"otherwise just its own loader as in ``this.getClass.getClassLoader``) and"
+" uses that for all reflective accesses. This implies that putting Akka on"
+" the boot class path will yield :class:`NullPointerException` from "
+"strange places: this is simply not supported."
+msgstr ""
+
+#: ../../general/configuration.rst:254
+msgid "Application specific settings"
+msgstr ""
+
+#: ../../general/configuration.rst:256
+msgid ""
+"The configuration can also be used for application specific settings. A "
+"good practice is to place those settings in an Extension, as described "
+"in:"
+msgstr ""
+
+#: ../../general/configuration.rst:259
+msgid "Scala API: :ref:`extending-akka-scala.settings`"
+msgstr ""
+
+#: ../../general/configuration.rst:260
+msgid "Java API: :ref:`extending-akka-java.settings`"
+msgstr ""
+
+#: ../../general/configuration.rst:263
+msgid "Configuring multiple ActorSystem"
+msgstr ""
+
+#: ../../general/configuration.rst:265
+msgid ""
+"If you have more than one ``ActorSystem`` (or you're writing a library "
+"and have an ``ActorSystem`` that may be separate from the application's) "
+"you may want to separate the configuration for each system."
+msgstr ""
+
+#: ../../general/configuration.rst:270
+msgid ""
+"Given that ``ConfigFactory.load()`` merges all resources with matching "
+"name from the whole class path, it is easiest to utilize that "
+"functionality and differentiate actor systems within the hierarchy of the"
+" configuration::"
+msgstr ""
+
+#: ../../general/configuration.rst:292
+msgid ""
+"These two samples demonstrate different variations of the "
+"“lift-a-subtree” trick: in the first case, the configuration accessible "
+"from within the actor system is this"
+msgstr ""
+
+#: ../../general/configuration.rst:303
+msgid ""
+"while in the second one, only the “akka” subtree is lifted, with the "
+"following result"
+msgstr ""
+
+#: ../../general/configuration.rst:315
+msgid ""
+"The configuration library is really powerful, explaining all features "
+"exceeds the scope affordable here. In particular not covered are how to "
+"include other configuration files within other files (see a small example"
+" at `Including files`_) and copying parts of the configuration tree by "
+"way of path substitutions."
+msgstr ""
+
+#: ../../general/configuration.rst:321
+msgid ""
+"You may also specify and parse the configuration programmatically in "
+"other ways when instantiating the ``ActorSystem``."
+msgstr ""
+
+#: ../../general/configuration.rst:328
+msgid "Reading configuration from a custom location"
+msgstr ""
+
+#: ../../general/configuration.rst:330
+msgid ""
+"You can replace or supplement ``application.conf`` either in code or "
+"using system properties."
+msgstr ""
+
+#: ../../general/configuration.rst:333
+msgid ""
+"If you're using ``ConfigFactory.load()`` (which Akka does by default) you"
+" can replace ``application.conf`` by defining "
+"``-Dconfig.resource=whatever``, ``-Dconfig.file=whatever``, or "
+"``-Dconfig.url=whatever``."
+msgstr ""
+
+#: ../../general/configuration.rst:338
+msgid ""
+"From inside your replacement file specified with ``-Dconfig.resource`` "
+"and friends, you can ``include \"application\"`` if you still want to use"
+" ``application.{conf,json,properties}`` as well.  Settings specified "
+"before ``include \"application\"`` would be overridden by the included "
+"file, while those after would override the included file."
+msgstr ""
+
+#: ../../general/configuration.rst:346
+msgid "In code, there are many customization options."
+msgstr ""
+
+#: ../../general/configuration.rst:348
+msgid ""
+"There are several overloads of ``ConfigFactory.load()``; these allow you "
+"to specify something to be sandwiched between system properties (which "
+"override) and the defaults (from ``reference.conf``), replacing the usual"
+" ``application.{conf,json,properties}`` and replacing ``-Dconfig.file`` "
+"and friends."
+msgstr ""
+
+#: ../../general/configuration.rst:355
+msgid ""
+"The simplest variant of ``ConfigFactory.load()`` takes a resource "
+"basename (instead of ``application``); ``myname.conf``, ``myname.json``, "
+"and ``myname.properties`` would then be used instead of "
+"``application.{conf,json,properties}``."
+msgstr ""
+
+#: ../../general/configuration.rst:360
+msgid ""
+"The most flexible variant takes a ``Config`` object, which you can load "
+"using any method in ``ConfigFactory``.  For example you could put a "
+"config string in code using ``ConfigFactory.parseString()`` or you could "
+"make a map and ``ConfigFactory.parseMap()``, or you could load a file."
+msgstr ""
+
+#: ../../general/configuration.rst:366
+msgid ""
+"You can also combine your custom config with the usual config, that might"
+" look like:"
+msgstr ""
+
+#: ../../general/configuration.rst:372
+msgid ""
+"When working with ``Config`` objects, keep in mind that there are three "
+"\"layers\" in the cake:"
+msgstr ""
+
+#: ../../general/configuration.rst:375
+msgid "``ConfigFactory.defaultOverrides()`` (system properties)"
+msgstr ""
+
+#: ../../general/configuration.rst:376
+msgid "the app's settings"
+msgstr ""
+
+#: ../../general/configuration.rst:377
+msgid "``ConfigFactory.defaultReference()`` (reference.conf)"
+msgstr ""
+
+#: ../../general/configuration.rst:379
+msgid ""
+"The normal goal is to customize the middle layer while leaving the other "
+"two alone."
+msgstr ""
+
+#: ../../general/configuration.rst:382
+msgid "``ConfigFactory.load()`` loads the whole stack"
+msgstr ""
+
+#: ../../general/configuration.rst:383
+msgid ""
+"the overloads of ``ConfigFactory.load()`` let you specify a different "
+"middle layer"
+msgstr ""
+
+#: ../../general/configuration.rst:385
+msgid "the ``ConfigFactory.parse()`` variations load single files or resources"
+msgstr ""
+
+#: ../../general/configuration.rst:387
+msgid ""
+"To stack two layers, use ``override.withFallback(fallback)``; try to keep"
+" system props (``defaultOverrides()``) on top and ``reference.conf`` "
+"(``defaultReference()``) on the bottom."
+msgstr ""
+
+#: ../../general/configuration.rst:391
+msgid ""
+"Do keep in mind, you can often just add another ``include`` statement in "
+"``application.conf`` rather than writing code. Includes at the top of "
+"``application.conf`` will be overridden by the rest of "
+"``application.conf``, while those at the bottom will override the earlier"
+" stuff."
+msgstr ""
+
+#: ../../general/configuration.rst:398
+msgid "Actor Deployment Configuration"
+msgstr ""
+
+#: ../../general/configuration.rst:400
+msgid ""
+"Deployment settings for specific actors can be defined in the "
+"``akka.actor.deployment`` section of the configuration. In the deployment"
+" section it is possible to define things like dispatcher, mailbox, router"
+" settings, and remote deployment. Configuration of these features are "
+"described in the chapters detailing corresponding topics. An example may "
+"look like this:"
+msgstr ""
+
+#: ../../general/configuration.rst:411
+msgid ""
+"The deployment section for a specific actor is identified by the path of "
+"the actor relative to ``/user``."
+msgstr ""
+
+#: ../../general/configuration.rst:414
+msgid ""
+"You can use asterisks as wildcard matches for the actor path sections, so"
+" you could specify: ``/*/sampleActor`` and that would match all "
+"``sampleActor`` on that level in the hierarchy. In addition, please note:"
+msgstr ""
+
+#: ../../general/configuration.rst:418
+msgid ""
+"you can also use wildcards in the last position to match all actors at a "
+"certain level: ``/someParent/*``"
+msgstr ""
+
+#: ../../general/configuration.rst:419
+msgid ""
+"you can use double-wildcards in the last position to match all child "
+"actors and their children recursively: ``/someParent/**``"
+msgstr ""
+
+#: ../../general/configuration.rst:421
+msgid ""
+"non-wildcard matches always have higher priority to match than wildcards,"
+" and single wildcard matches have higher priority than double-wildcards, "
+"so: ``/foo/bar`` is considered **more specific** than ``/foo/*``, which "
+"is considered **more specific** than ``/foo/**``. Only the highest "
+"priority match is used"
+msgstr ""
+
+#: ../../general/configuration.rst:424
+msgid ""
+"wildcards **cannot** be used to partially match section, like this: "
+"``/foo*/bar``, ``/f*o/bar`` etc."
+msgstr ""
+
+#: ../../general/configuration.rst:427
+msgid "Double-wildcards can only be placed in the last position."
+msgstr ""
+
+#: ../../general/configuration.rst:430
+msgid "Listing of the Reference Configuration"
+msgstr ""
+
+#: ../../general/configuration.rst:432
+msgid ""
+"Each Akka module has a reference configuration file with the default "
+"values."
+msgstr ""
+
+#: ../../general/configuration.rst:437
+msgid "akka-actor"
+msgstr ""
+
+#: ../../general/configuration.rst:445
+msgid "akka-agent"
+msgstr ""
+
+#: ../../general/configuration.rst:453
+msgid "akka-camel"
+msgstr ""
+
+#: ../../general/configuration.rst:461
+msgid "akka-cluster"
+msgstr ""
+
+#: ../../general/configuration.rst:469
+msgid "akka-multi-node-testkit"
+msgstr ""
+
+#: ../../general/configuration.rst:477
+msgid "akka-persistence"
+msgstr ""
+
+#: ../../general/configuration.rst:485
+msgid "akka-remote"
+msgstr ""
+
+#: ../../general/configuration.rst:493
+msgid "akka-testkit"
+msgstr ""
+
+#: ../../general/configuration.rst:500
+msgid "akka-cluster-metrics ~~~~~~~~~~~~--------"
+msgstr ""
+
+#: ../../general/configuration.rst:508
+msgid "akka-cluster-tools ~~~~~~~~~~~~------"
+msgstr ""
+
+#: ../../general/configuration.rst:516
+msgid "akka-cluster-sharding ~~~~~~~~~~~~---------"
+msgstr ""
+
+#: ../../general/configuration.rst:524
+msgid "akka-distributed-data ~~~~~~~~~~~~---------"
+msgstr ""
+

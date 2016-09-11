@@ -1,0 +1,122 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../project/links.rst:5
+msgid "Project"
+msgstr ""
+
+#: ../../project/links.rst:8
+msgid "Commercial Support"
+msgstr ""
+
+#: ../../project/links.rst:10
+msgid ""
+"Commercial support is provided by `Lightbend "
+"<http://www.lightbend.com>`_. Akka is part of the `Lightbend Reactive "
+"Platform <http://www.lightbend.com/platform>`_."
+msgstr ""
+
+#: ../../project/links.rst:14
+msgid "Mailing List"
+msgstr ""
+
+#: ../../project/links.rst:16
+msgid "`Akka User Google Group <http://groups.google.com/group/akka-user>`_"
+msgstr ""
+
+#: ../../project/links.rst:18
+msgid "`Akka Developer Google Group <http://groups.google.com/group/akka-dev>`_"
+msgstr ""
+
+#: ../../project/links.rst:22
+msgid "Downloads"
+msgstr ""
+
+#: ../../project/links.rst:24
+msgid "`<http://akka.io/downloads>`_"
+msgstr ""
+
+#: ../../project/links.rst:28
+msgid "Source Code"
+msgstr ""
+
+#: ../../project/links.rst:30
+msgid "Akka uses Git and is hosted at `Github <http://github.com>`_."
+msgstr ""
+
+#: ../../project/links.rst:32
+msgid "Akka: clone the Akka repository from `<http://github.com/akka/akka>`_"
+msgstr ""
+
+#: ../../project/links.rst:36
+msgid "Releases Repository"
+msgstr ""
+
+#: ../../project/links.rst:38
+#, python-format
+msgid ""
+"All Akka releases are published via Sonatype to Maven Central, see "
+"`search.maven.org "
+"<http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.typesafe.akka%22>`_"
+" or `search.maven.org (Akka versions before 2.4.3) "
+"<http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.typesafe.akka%22>`_"
+msgstr ""
+
+#: ../../project/links.rst:46
+msgid "Snapshots Repository"
+msgstr ""
+
+#: ../../project/links.rst:48
+msgid ""
+"Nightly builds are available in http://repo.akka.io/snapshots/ as both "
+"``SNAPSHOT`` and timestamped versions."
+msgstr ""
+
+#: ../../project/links.rst:51
+msgid ""
+"For timestamped versions, pick a timestamp from "
+"http://repo.akka.io/snapshots/com/lightbend/akka/akka-"
+"actor_@binVersion@/. All Akka modules that belong to the same build have "
+"the same timestamp."
+msgstr ""
+
+#: ../../project/links.rst:56
+msgid "sbt definition of snapshot repository"
+msgstr ""
+
+#: ../../project/links.rst:58
+msgid "Make sure that you add the repository to the sbt resolvers::"
+msgstr ""
+
+#: ../../project/links.rst:62 ../../project/links.rst:81
+msgid ""
+"Define the library dependencies with the timestamp as version. For "
+"example::"
+msgstr ""
+
+#: ../../project/links.rst:68
+msgid "maven definition of snapshot repository"
+msgstr ""
+
+#: ../../project/links.rst:70
+msgid ""
+"Make sure that you add the repository to the maven repositories in "
+"pom.xml::"
+msgstr ""
+

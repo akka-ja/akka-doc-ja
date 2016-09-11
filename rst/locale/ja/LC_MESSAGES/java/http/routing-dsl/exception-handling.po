@@ -1,0 +1,72 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/routing-dsl/exception-handling.rst:4
+msgid "Exception Handling"
+msgstr ""
+
+#: ../../java/http/routing-dsl/exception-handling.rst:6
+msgid ""
+"Exceptions thrown during route execution bubble up through the route "
+"structure to the next enclosing :ref:`-handleExceptions-java-` directive "
+"or the top of your route structure."
+msgstr ""
+
+#: ../../java/http/routing-dsl/exception-handling.rst:9
+msgid ""
+"Similarly to the way that :ref:`rejections-java` are handled the :ref"
+":`-handleExceptions-java-` directive delegates the actual job of "
+"converting an exception to its argument, an ``ExceptionHandler``."
+msgstr ""
+
+#: ../../java/http/routing-dsl/exception-handling.rst:12
+msgid ""
+"An ``ExceptionHandler`` is a partial function, so it can choose which "
+"exceptions it would like to handle and which not. Unhandled exceptions "
+"will simply continue to bubble up in the route structure. At the root of "
+"the route tree any still unhandled exception will be dealt with by the "
+"top-level handler which always handles *all* exceptions."
+msgstr ""
+
+#: ../../java/http/routing-dsl/exception-handling.rst:17
+msgid ""
+"``Route.seal`` internally wraps its argument route with the :ref"
+":`-handleExceptions-java-` directive in order to \"catch\" and handle any"
+" exception."
+msgstr ""
+
+#: ../../java/http/routing-dsl/exception-handling.rst:20
+msgid ""
+"So, if you'd like to customize the way certain exceptions are handled you"
+" need to write a custom ``ExceptionHandler``. Once you have defined your "
+"custom ``ExceptionHandler`` you can supply it as argument to the :ref"
+":`-handleExceptions-java-` directive. That will apply your handler to the"
+" inner route given to that directive."
+msgstr ""
+
+#: ../../java/http/routing-dsl/exception-handling.rst:24
+msgid ""
+"Here is an example for wiring up a custom handler via :ref"
+":`-handleExceptions-java-`:"
+msgstr ""
+
+#: ../../java/http/routing-dsl/exception-handling.rst:26
+msgid "TODO"
+msgstr ""
+

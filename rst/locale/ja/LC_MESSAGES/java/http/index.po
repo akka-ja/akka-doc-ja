@@ -1,0 +1,87 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/index.rst:4
+msgid "Akka HTTP"
+msgstr ""
+
+#: ../../java/http/index.rst:6
+msgid ""
+"The Akka HTTP modules implement a full server- and client-side HTTP stack"
+" on top of *akka-actor* and *akka-stream*. It's not a web-framework but "
+"rather a more general toolkit for providing and consuming HTTP-based "
+"services. While interaction with a browser is of course also in scope it "
+"is not the primary focus of Akka HTTP."
+msgstr ""
+
+#: ../../java/http/index.rst:10
+msgid ""
+"Akka HTTP follows a rather open design and many times offers several "
+"different API levels for \"doing the same thing\". You get to pick the "
+"API level of abstraction that is most suitable for your application. This"
+" means that, if you have trouble achieving something using a high-level "
+"API, there's a good chance that you can get it done with a low-level API,"
+" which offers more flexibility but might require you to write more "
+"application code."
+msgstr ""
+
+#: ../../java/http/index.rst:15
+msgid "Akka HTTP is structured into several modules:"
+msgstr ""
+
+#: ../../java/http/index.rst:19
+msgid "akka-http-core"
+msgstr ""
+
+#: ../../java/http/index.rst:18
+msgid ""
+"A complete, mostly low-level, server- and client-side implementation of "
+"HTTP (incl. WebSockets). Includes a model of all things HTTP."
+msgstr ""
+
+#: ../../java/http/index.rst:23
+msgid "akka-http"
+msgstr ""
+
+#: ../../java/http/index.rst:22
+msgid ""
+"Higher-level functionality, like (un)marshalling, (de)compression as well"
+" as a powerful DSL for defining HTTP-based APIs on the server-side"
+msgstr ""
+
+#: ../../java/http/index.rst:26
+msgid "akka-http-testkit"
+msgstr ""
+
+#: ../../java/http/index.rst:26
+msgid ""
+"A test harness and set of utilities for verifying server-side service "
+"implementations"
+msgstr ""
+
+#: ../../java/http/index.rst:29
+msgid "akka-http-jackson"
+msgstr ""
+
+#: ../../java/http/index.rst:29
+msgid ""
+"Predefined glue-code for (de)serializing custom types from/to JSON with "
+"jackson_"
+msgstr ""
+

@@ -1,0 +1,1367 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:4
+msgid "Predefined Directives (alphabetically)"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:7
+msgid "Directive"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:7
+msgid "Description"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:9
+msgid ":ref:`-authenticateBasic-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:9
+msgid ""
+"Wraps the inner route with Http Basic authentication support using a "
+"given ``Authenticator[T]``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:11
+msgid ":ref:`-authenticateBasicAsync-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:11
+msgid ""
+"Wraps the inner route with Http Basic authentication support using a "
+"given ``AsyncAuthenticator[T]``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:13
+msgid ":ref:`-authenticateBasicPF-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:13
+msgid ""
+"Wraps the inner route with Http Basic authentication support using a "
+"given ``AuthenticatorPF[T]``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:15
+msgid ":ref:`-authenticateBasicPFAsync-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:15
+msgid ""
+"Wraps the inner route with Http Basic authentication support using a "
+"given ``AsyncAuthenticatorPF[T]``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:17
+msgid ":ref:`-authenticateOAuth2-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:17
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:21
+msgid ""
+"Wraps the inner route with OAuth Bearer Token authentication support "
+"using a given ``AuthenticatorPF[T]``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:19
+msgid ":ref:`-authenticateOAuth2Async-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:19
+msgid ""
+"Wraps the inner route with OAuth Bearer Token authentication support "
+"using a given ``AsyncAuthenticator[T]``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:21
+msgid ":ref:`-authenticateOAuth2PF-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:23
+msgid ":ref:`-authenticateOAuth2PFAsync-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:23
+msgid ""
+"Wraps the inner route with OAuth Bearer Token authentication support "
+"using a given ``AsyncAuthenticatorPF[T]``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:25
+msgid ":ref:`-authenticateOrRejectWithChallenge-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:25
+msgid "Lifts an authenticator function into a directive"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:26
+msgid ":ref:`-authorize-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:26
+msgid "Applies the given authorization check to the request"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:27
+msgid ":ref:`-authorizeAsync-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:27
+msgid "Applies the given asynchronous authorization check to the request"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:28
+msgid ":ref:`-cancelRejection-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:28
+msgid ""
+"Adds a ``TransformationRejection`` cancelling all rejections equal to the"
+" given one to the rejections potentially coming back from the inner "
+"route."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:30
+msgid ":ref:`-cancelRejections-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:30
+msgid ""
+"Adds a ``TransformationRejection`` cancelling all matching rejections to "
+"the rejections potentially coming back from the inner route"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:32
+msgid ":ref:`-checkSameOrigin-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:32
+msgid "Checks that the request comes from the same origin"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:33
+msgid ":ref:`-complete-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:33
+msgid "Completes the request using the given arguments"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:34
+msgid ":ref:`-completeOrRecoverWith-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:34
+msgid ""
+"\"Unwraps\" a ``Future[T]`` and runs the inner route when the future has "
+"failed with the error as an extraction of type ``Throwable``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:36
+msgid ":ref:`-completeWith-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:36
+msgid "Uses the marshaller for a given type to extract a completion function"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:37
+msgid ":ref:`-conditional-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:37
+msgid ""
+"Wraps its inner route with support for conditional requests as defined by"
+" http://tools.ietf.org/html/rfc7232"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:39
+msgid ":ref:`-cookie-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:39
+msgid "Extracts the ``HttpCookie`` with the given name"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:40
+msgid ":ref:`-decodeRequest-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:40
+msgid "Decompresses the  request if it is ``gzip`` or ``deflate`` compressed"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:41
+msgid ":ref:`-decodeRequestWith-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:41
+msgid "Decodes the incoming request using one of the given decoders"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:42
+msgid ":ref:`-delete-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:42
+msgid "Rejects all non-DELETE requests"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:43
+msgid ":ref:`-deleteCookie-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:43
+msgid "Adds a ``Set-Cookie`` response header expiring the given cookies"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:44
+msgid ":ref:`-encodeResponse-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:44
+msgid ""
+"Encodes the response with the encoding that is requested by the client "
+"via the ``Accept-Encoding`` header (``NoCoding``, ``Gzip`` and "
+"``Deflate``)"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:46
+msgid ":ref:`-encodeResponseWith-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:46
+msgid ""
+"Encodes the response with the encoding that is requested by the client "
+"via the ``Accept-Encoding`` header (from a user-defined set)"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:48
+msgid ":ref:`-entity-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:48
+msgid "Extracts the request entity unmarshalled to a given type"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:49
+msgid ":ref:`-extract-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:49
+msgid "Extracts a single value using a ``RequestContext ⇒ T`` function"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:50
+msgid ":ref:`-extractDataBytes-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:50
+msgid "Extracts the entities data bytes as a stream ``Source[ByteString, Any]``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:51
+msgid ":ref:`-extractClientIP-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:51
+msgid ""
+"Extracts the client's IP from either the ``X-Forwarded-``, ``Remote-"
+"Address`` or ``X-Real-IP`` header"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:53
+msgid ":ref:`-extractCredentials-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:53
+msgid ""
+"Extracts the potentially present ``HttpCredentials`` provided with the "
+"request's ``Authorization`` header"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:55
+msgid ":ref:`-extractExecutionContext-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:55
+msgid "Extracts the ``ExecutionContext`` from the ``RequestContext``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:56
+msgid ":ref:`-extractMaterializer-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:56
+msgid "Extracts the ``Materializer`` from the ``RequestContext``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:57
+msgid ":ref:`-extractHost-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:57
+msgid "Extracts the hostname part of the Host request header value"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:58
+msgid ":ref:`-extractLog-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:58
+msgid "Extracts the ``LoggingAdapter`` from the ``RequestContext``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:59
+msgid ":ref:`-extractMethod-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:59
+msgid "Extracts the request method"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:60
+msgid ":ref:`-extractRequest-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:60
+msgid "Extracts the current ``HttpRequest`` instance"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:61
+msgid ":ref:`-extractRequestContext-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:61
+msgid "Extracts the ``RequestContext`` itself"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:62
+msgid ":ref:`-extractRequestEntity-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:62
+msgid "Extracts the ``RequestEntity`` from the ``RequestContext``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:63
+msgid ":ref:`-extractScheme-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:63
+msgid "Extracts the URI scheme from the request"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:64
+msgid ":ref:`-extractSettings-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:64
+msgid "Extracts the ``RoutingSettings`` from the ``RequestContext``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:65
+msgid ":ref:`-extractUnmatchedPath-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:65
+msgid "Extracts the yet unmatched path from the ``RequestContext``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:66
+msgid ":ref:`-extractUri-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:66
+msgid "Extracts the complete request URI"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:67
+msgid ":ref:`-failWith-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:67
+msgid ""
+"Bubbles the given error up the response chain where it is dealt with by "
+"the closest :ref:`-handleExceptions-` directive and its "
+"``ExceptionHandler``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:69
+msgid ":ref:`-fileUpload-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:69
+msgid "Provides a stream of an uploaded file from a multipart request"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:70
+msgid ":ref:`-formField-scala-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:70
+msgid "Extracts an HTTP form field from the request"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:71
+msgid ":ref:`-formFieldMap-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:71
+msgid ""
+"Extracts a number of HTTP form field from the request as a ``Map[String, "
+"String]``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:73
+msgid ":ref:`-formFieldMultiMap-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:73
+msgid ""
+"Extracts a number of HTTP form field from the request as a ``Map[String, "
+"List[String]``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:75
+msgid ":ref:`-formFields-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:75
+msgid "Extracts a number of HTTP form field from the request"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:76
+msgid ":ref:`-formFieldSeq-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:76
+msgid ""
+"Extracts a number of HTTP form field from the request as a ``Seq[(String,"
+" String)]``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:78
+msgid ":ref:`-get-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:78
+msgid "Rejects all non-GET requests"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:79
+msgid ":ref:`-getFromBrowseableDirectories-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:79
+msgid ""
+"Serves the content of the given directories as a file-system browser, "
+"i.e. files are sent and directories served as browseable listings"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:81
+msgid ":ref:`-getFromBrowseableDirectory-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:81
+msgid ""
+"Serves the content of the given directory as a file-system browser, i.e. "
+"files are sent and directories served as browseable listings"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:83
+msgid ":ref:`-getFromDirectory-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:83
+msgid ""
+"Completes GET requests with the content of a file underneath a given "
+"file-system directory"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:85
+msgid ":ref:`-getFromFile-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:85
+msgid "Completes GET requests with the content of a given file"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:86
+msgid ":ref:`-getFromResource-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:86
+msgid "Completes GET requests with the content of a given class-path resource"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:87
+msgid ":ref:`-getFromResourceDirectory-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:87
+msgid ""
+"Completes GET requests with the content of a file underneath a given "
+"\"class-path resource directory\""
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:89
+msgid ":ref:`-handleExceptions-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:89
+msgid ""
+"Transforms exceptions thrown during evaluation of the inner route using "
+"the given ``ExceptionHandler``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:91
+msgid ":ref:`-handleRejections-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:91
+msgid ""
+"Transforms rejections produced by the inner route using the given "
+"``RejectionHandler``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:93
+msgid ":ref:`-handleWebSocketMessages-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:93
+msgid ""
+"Handles websocket requests with the given handler and rejects other "
+"requests with an ``ExpectedWebSocketRequestRejection``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:95
+msgid ":ref:`-handleWebSocketMessagesForProtocol-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:95
+msgid ""
+"Handles websocket requests with the given handler if the subprotocol "
+"matches and rejects other requests with an "
+"``ExpectedWebSocketRequestRejection`` or an "
+"``UnsupportedWebSocketSubprotocolRejection``."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:98
+msgid ":ref:`-handleWith-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:98
+msgid "Completes the request using a given function"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:99
+msgid ":ref:`-head-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:99
+msgid "Rejects all non-HEAD requests"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:100
+msgid ":ref:`-headerValue-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:100
+msgid ""
+"Extracts an HTTP header value using a given ``HttpHeader ⇒ Option[T]`` "
+"function"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:102
+msgid ":ref:`-headerValueByName-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:102
+msgid "Extracts the value of the first HTTP request header with a given name"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:103
+msgid ":ref:`-headerValueByType-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:103
+msgid "Extracts the first HTTP request header of the given type"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:104
+msgid ":ref:`-headerValuePF-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:104
+msgid ""
+"Extracts an HTTP header value using a given ``PartialFunction[HttpHeader,"
+" T]``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:106
+msgid ":ref:`-host-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:106
+msgid "Rejects all requests with a non-matching host name"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:107
+msgid ":ref:`-listDirectoryContents-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:107
+msgid ""
+"Completes GET requests with a unified listing of the contents of all "
+"given file-system directories"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:109
+msgid ":ref:`-logRequest-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:109
+msgid "Produces a log entry for every incoming request"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:110
+msgid ":ref:`-logRequestResult-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:110
+msgid "Produces a log entry for every incoming request and ``RouteResult``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:111
+msgid ":ref:`-logResult-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:111
+msgid "Produces a log entry for every ``RouteResult``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:112
+msgid ":ref:`-mapInnerRoute-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:112
+msgid "Transforms its inner ``Route`` with a ``Route => Route`` function"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:113
+msgid ":ref:`-mapRejections-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:113
+msgid ""
+"Transforms rejections from a previous route with an "
+"``immutable.Seq[Rejection] ⇒ immutable.Seq[Rejection]`` function"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:115
+msgid ":ref:`-mapRequest-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:115
+msgid "Transforms the request with an ``HttpRequest => HttpRequest`` function"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:116
+msgid ":ref:`-mapRequestContext-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:116
+msgid ""
+"Transforms the ``RequestContext`` with a ``RequestContext => "
+"RequestContext`` function"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:118
+msgid ":ref:`-mapResponse-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:118
+msgid "Transforms the response with an ``HttpResponse => HttpResponse`` function"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:119
+msgid ":ref:`-mapResponseEntity-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:119
+msgid ""
+"Transforms the response entity with an ``ResponseEntity ⇒ "
+"ResponseEntity`` function"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:121
+msgid ":ref:`-mapResponseHeaders-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:121
+msgid ""
+"Transforms the response headers with an ``immutable.Seq[HttpHeader] ⇒ "
+"immutable.Seq[HttpHeader]`` function"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:123
+msgid ":ref:`-mapRouteResult-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:123
+msgid ""
+"Transforms the ``RouteResult`` with a ``RouteResult ⇒ RouteResult`` "
+"function"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:125
+msgid ":ref:`-mapRouteResultFuture-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:125
+msgid ""
+"Transforms the ``RouteResult`` future with a ``Future[RouteResult] ⇒ "
+"Future[RouteResult]`` function"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:127
+msgid ":ref:`-mapRouteResultPF-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:127
+msgid ""
+"Transforms the ``RouteResult`` with a ``PartialFunction[RouteResult, "
+"RouteResult]``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:129
+msgid ":ref:`-mapRouteResultWith-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:129
+msgid ""
+"Transforms the ``RouteResult`` with a ``RouteResult ⇒ "
+"Future[RouteResult]`` function"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:131
+msgid ":ref:`-mapRouteResultWithPF-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:131
+msgid ""
+"Transforms the ``RouteResult`` with a ``PartialFunction[RouteResult, "
+"Future[RouteResult]]``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:133
+msgid ":ref:`-mapSettings-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:133
+msgid ""
+"Transforms the ``RoutingSettings`` with a ``RoutingSettings ⇒ "
+"RoutingSettings`` function"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:135
+msgid ":ref:`-mapUnmatchedPath-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:135
+msgid ""
+"Transforms the ``unmatchedPath`` of the ``RequestContext`` using a "
+"``Uri.Path ⇒ Uri.Path`` function"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:137
+msgid ":ref:`-method-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:137
+msgid "Rejects all requests whose HTTP method does not match the given one"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:138
+msgid ":ref:`-onComplete-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:138
+msgid ""
+"\"Unwraps\" a ``Future[T]`` and runs the inner route after future "
+"completion with the future's value as an extraction of type ``Try[T]``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:140
+msgid ":ref:`-onCompleteWithBreaker-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:140
+msgid ""
+"\"Unwraps\" a ``Future[T]`` inside a ``CircuitBreaker`` and runs the "
+"inner route after future completion with the future's value as an "
+"extraction of type ``Try[T]``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:143
+msgid ":ref:`-onSuccess-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:143
+msgid ""
+"\"Unwraps\" a ``Future[T]`` and runs the inner route after future "
+"completion with the future's value as an extraction of type ``T``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:145
+msgid ":ref:`-optionalCookie-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:145
+msgid ""
+"Extracts the ``HttpCookiePair`` with the given name as an "
+"``Option[HttpCookiePair]``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:147
+msgid ":ref:`-optionalHeaderValue-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:147
+msgid ""
+"Extracts an optional HTTP header value using a given ``HttpHeader ⇒ "
+"Option[T]`` function"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:149
+msgid ":ref:`-optionalHeaderValueByName-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:149
+msgid ""
+"Extracts the value of the first optional HTTP request header with a given"
+" name"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:151
+msgid ":ref:`-optionalHeaderValueByType-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:151
+msgid "Extracts the first optional HTTP request header of the given type"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:152
+msgid ":ref:`-optionalHeaderValuePF-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:152
+msgid ""
+"Extracts an optional HTTP header value using a given "
+"``PartialFunction[HttpHeader, T]``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:154
+msgid ":ref:`-options-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:154
+msgid "Rejects all non-OPTIONS requests"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:155
+msgid ":ref:`-overrideMethodWithParameter-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:155
+msgid "Changes the request method to the value of the specified query parameter"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:156
+msgid ":ref:`-parameter-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:156
+msgid "Extracts a query parameter value from the request"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:157
+msgid ":ref:`-parameterMap-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:157
+msgid "Extracts the request's query parameters as a ``Map[String, String]``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:158
+msgid ":ref:`-parameterMultiMap-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:158
+msgid "Extracts the request's query parameters as a ``Map[String, List[String]]``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:159
+msgid ":ref:`-parameters-scala-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:159
+msgid "Extracts a number of query parameter values from the request"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:160
+msgid ":ref:`-parameterSeq-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:160
+msgid "Extracts the request's query parameters as a ``Seq[(String, String)]``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:161
+msgid ":ref:`-pass-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:161
+msgid ""
+"Always simply passes the request on to its inner route, i.e. doesn't do "
+"anything, neither with the request nor the response"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:163
+msgid ":ref:`-patch-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:163
+msgid "Rejects all non-PATCH requests"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:164
+msgid ":ref:`-path-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:164
+msgid ""
+"Applies the given ``PathMatcher`` to the remaining unmatched path after "
+"consuming a leading slash"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:166
+msgid ":ref:`-pathEnd-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:166
+msgid ""
+"Only passes on the request to its inner route if the request path has "
+"been matched completely"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:168
+msgid ":ref:`-pathEndOrSingleSlash-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:168
+msgid ""
+"Only passes on the request to its inner route if the request path has "
+"been matched completely or only consists of exactly one remaining slash"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:170
+msgid ":ref:`-pathPrefix-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:170
+msgid ""
+"Applies the given ``PathMatcher`` to a prefix of the remaining unmatched "
+"path after consuming a leading slash"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:172
+msgid ":ref:`-pathPrefixTest-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:172
+msgid ""
+"Checks whether the unmatchedPath has a prefix matched by the given "
+"``PathMatcher`` after implicitly consuming a leading slash"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:174
+msgid ":ref:`-pathSingleSlash-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:174
+msgid ""
+"Only passes on the request to its inner route if the request path "
+"consists of exactly one remaining slash"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:176
+msgid ":ref:`-pathSuffix-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:176
+msgid ""
+"Applies the given ``PathMatcher`` to a suffix of the remaining unmatched "
+"path (Caution: check scaladoc!)"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:178
+msgid ":ref:`-pathSuffixTest-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:178
+msgid ""
+"Checks whether the unmatched path has a suffix matched by the given "
+"``PathMatcher`` (Caution: check scaladoc!)"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:180
+msgid ":ref:`-post-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:180
+msgid "Rejects all non-POST requests"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:181
+msgid ":ref:`-provide-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:181
+msgid "Injects a given value into a directive"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:182
+msgid ":ref:`-put-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:182
+msgid "Rejects all non-PUT requests"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:183
+msgid ":ref:`-rawPathPrefix-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:183
+msgid ""
+"Applies the given matcher directly to a prefix of the unmatched path of "
+"the ``RequestContext``, without implicitly consuming a leading slash"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:185
+msgid ":ref:`-rawPathPrefixTest-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:185
+msgid ""
+"Checks whether the unmatchedPath has a prefix matched by the given "
+"``PathMatcher``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:187
+msgid ":ref:`-recoverRejections-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:187
+msgid ""
+"Transforms rejections from the inner route with an "
+"``immutable.Seq[Rejection] ⇒ RouteResult`` function"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:189
+msgid ":ref:`-recoverRejectionsWith-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:189
+msgid ""
+"Transforms rejections from the inner route with an "
+"``immutable.Seq[Rejection] ⇒ Future[RouteResult]`` function"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:191
+msgid ":ref:`-redirect-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:191
+msgid ""
+"Completes the request with redirection response of the given type to the "
+"given URI"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:193
+msgid ":ref:`-redirectToNoTrailingSlashIfPresent-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:193
+msgid ""
+"If the request path ends with a slash, redirects to the same uri without "
+"trailing slash in the path"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:195
+msgid ":ref:`-redirectToTrailingSlashIfMissing-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:195
+msgid ""
+"If the request path doesn't end with a slash, redirects to the same uri "
+"with trailing slash in the path"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:197
+msgid ":ref:`-reject-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:197
+msgid "Rejects the request with the given rejections"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:198
+msgid ":ref:`-rejectEmptyResponse-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:198
+msgid "Converts responses with an empty entity into (empty) rejections"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:199
+msgid ":ref:`-requestEncodedWith-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:199
+msgid ""
+"Rejects the request with an ``UnsupportedRequestEncodingRejection`` if "
+"its encoding doesn't match the given one"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:201
+msgid ":ref:`-requestEntityEmpty-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:201
+msgid "Rejects if the request entity is non-empty"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:202
+msgid ":ref:`-requestEntityPresent-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:202
+msgid ""
+"Rejects with a ``RequestEntityExpectedRejection`` if the request entity "
+"is empty"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:204
+msgid ":ref:`-respondWithDefaultHeader-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:204
+msgid ""
+"Adds a given response header if the response doesn't already contain a "
+"header with the same name"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:206
+msgid ":ref:`-respondWithDefaultHeaders-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:206
+msgid ""
+"Adds the subset of the given headers to the response which doesn't "
+"already have a header with the respective name present in the response"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:208
+msgid ":ref:`-respondWithHeader-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:208
+msgid "Unconditionally adds a given header to the outgoing response"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:209
+msgid ":ref:`-respondWithHeaders-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:209
+msgid "Unconditionally adds the given headers to the outgoing response"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:210
+msgid ":ref:`-responseEncodingAccepted-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:210
+msgid ""
+"Rejects the request with an ``UnacceptedResponseEncodingRejection`` if "
+"the given response encoding is not accepted by the client"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:212
+msgid ":ref:`-scheme-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:212
+msgid "Rejects all requests whose URI scheme doesn't match the given one"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:213
+msgid ":ref:`-selectPreferredLanguage-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:213
+msgid ""
+"Inspects the request's ``Accept-Language`` header and determines, which "
+"of a given set of language alternatives is preferred by the client"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:215
+msgid ":ref:`-setCookie-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:215
+msgid "Adds a ``Set-Cookie`` response header with the given cookies"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:216
+msgid ":ref:`-textract-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:216
+msgid "Extracts a number of values using a ``RequestContext ⇒ Tuple`` function"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:217
+msgid ":ref:`-tprovide-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:217
+msgid "Injects a given tuple of values into a directive"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:218
+msgid ":ref:`-uploadedFile-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:218
+msgid "Streams one uploaded file from a multipart request to a file on disk"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:219
+msgid ":ref:`-validate-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:219
+msgid "Checks a given condition before running its inner route"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:220
+msgid ":ref:`-withoutRequestTimeout-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:220
+msgid ""
+"Disables :ref:`request timeouts <request-timeout-scala>` for a given "
+"route."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:221
+msgid ":ref:`-withoutSizeLimit-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:221
+msgid "Skips request entity size check"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:222
+msgid ":ref:`-withExecutionContext-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:222
+msgid "Runs its inner route with the given alternative ``ExecutionContext``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:223
+msgid ":ref:`-withMaterializer-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:223
+msgid "Runs its inner route with the given alternative ``Materializer``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:224
+msgid ":ref:`-withLog-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:224
+msgid "Runs its inner route with the given alternative ``LoggingAdapter``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:225
+msgid ":ref:`-withRangeSupport-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:225
+msgid ""
+"Adds ``Accept-Ranges: bytes`` to responses to GET requests, produces "
+"partial responses if the initial request contained a valid ``Range`` "
+"header"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:227
+msgid ":ref:`-withRequestTimeout-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:227
+msgid ""
+"Configures the :ref:`request timeouts <request-timeout-scala>` for a "
+"given route."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:228
+msgid ":ref:`-withRequestTimeoutResponse-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:228
+msgid ""
+"Prepares the ``HttpResponse`` that is emitted if a request timeout is "
+"triggered. ``RequestContext => RequestContext`` function"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:230
+msgid ":ref:`-withSettings-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:230
+msgid "Runs its inner route with the given alternative ``RoutingSettings``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:231
+msgid ":ref:`-withSizeLimit-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/alphabetically.rst:231
+msgid "Applies request entity size check"
+msgstr ""
+

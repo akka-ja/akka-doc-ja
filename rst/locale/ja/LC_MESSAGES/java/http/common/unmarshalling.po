@@ -1,0 +1,266 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/common/unmarshalling.rst:4
+msgid "Unmarshalling"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:5
+msgid "TODO overhaul for Java"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:7
+msgid ""
+"\"Unmarshalling\" is the process of converting some kind of a lower-level"
+" representation, often a \"wire format\", into a higher-level (object) "
+"structure. Other popular names for it are \"Deserialization\" or "
+"\"Unpickling\"."
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:10
+msgid ""
+"In Akka HTTP \"Unmarshalling\" means the conversion of a lower-level "
+"source object, e.g. a ``MessageEntity`` (which forms the \"entity body\" "
+"of an HTTP request or response) or a full ``HttpRequest`` or "
+"``HttpResponse``, into an instance of type ``T``."
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:16
+msgid "Basic Design"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:18
+msgid ""
+"Unmarshalling of instances of type ``A`` into instances of type ``B`` is "
+"performed by an ``Unmarshaller[A, B]``. Akka HTTP also predefines a "
+"number of helpful aliases for the types of unmarshallers that you'll "
+"likely work with most:"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:24
+msgid ""
+"At its core an ``Unmarshaller[A, B]`` is very similar to a ``Function<A, "
+"CompletionStage<B>>`` and as such quite a bit simpler than its "
+":ref:`marshalling <http-marshalling-java>` counterpart. The process of "
+"unmarshalling does not have to support content negotiation which saves "
+"two additional layers of indirection that are required on the marshalling"
+" side."
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:30
+msgid "Predefined Unmarshallers"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:32
+msgid ""
+"Akka HTTP already predefines a number of marshallers for the most common "
+"types. Specifically these are:"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:35
+msgid "PredefinedFromStringUnmarshallers_"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:37
+msgid "``Byte``"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:38
+msgid "``Short``"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:39
+msgid "``Int``"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:40
+msgid "``Long``"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:41
+msgid "``Float``"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:42
+msgid "``Double``"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:43
+msgid "``Boolean``"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:45
+msgid "PredefinedFromEntityUnmarshallers_"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:47
+msgid "``Array[Byte]``"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:48
+msgid "``ByteString``"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:49
+msgid "``Array[Char]``"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:50
+msgid "``String``"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:51
+msgid "``akka.http.scaladsl.model.FormData``"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:53
+msgid "GenericUnmarshallers_"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:55
+msgid "``Unmarshaller[T, T]`` (identity unmarshaller)"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:56
+msgid "``Unmarshaller[Option[A], B]``, if an ``Unmarshaller[A, B]`` is available"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:57
+msgid "``Unmarshaller[A, Option[B]]``, if an ``Unmarshaller[A, B]`` is available"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:65
+msgid "Implicit Resolution"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:67
+msgid ""
+"The unmarshalling infrastructure of Akka HTTP relies on a type-class "
+"based approach, which means that ``Unmarshaller`` instances from a "
+"certain type ``A`` to a certain type ``B`` have to be available "
+"implicitly."
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:70
+msgid ""
+"The implicits for most of the predefined unmarshallers in Akka HTTP are "
+"provided through the companion object of the ``Unmarshaller`` trait. This"
+" means that they are always available and never need to be explicitly "
+"imported. Additionally, you can simply \"override\" them by bringing your"
+" own custom version into local scope."
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:76
+msgid "Custom Unmarshallers"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:78
+msgid ""
+"Akka HTTP gives you a few convenience tools for constructing "
+"unmarshallers for your own types. Usually you won't have to \"manually\" "
+"implement the ``Unmarshaller`` trait directly. Rather, it should be "
+"possible to use one of the convenience construction helpers defined on "
+"the ``Unmarshaller`` companion:"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:83
+msgid "TODO rewrite sample for Java"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:91
+msgid "Deriving Unmarshallers"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:93
+msgid ""
+"Sometimes you can save yourself some work by reusing existing "
+"unmarshallers for your custom ones. The idea is to \"wrap\" an existing "
+"unmarshaller with some logic to \"re-target\" it to your type."
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:96
+msgid ""
+"Usually what you want to do is to transform the output of some existing "
+"unmarshaller and convert it to your type. For this type of unmarshaller "
+"transformation Akka HTTP defines these methods:"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:99
+msgid "``baseUnmarshaller.transform``"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:100
+msgid "``baseUnmarshaller.map``"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:101
+msgid "``baseUnmarshaller.mapWithInput``"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:102
+msgid "``baseUnmarshaller.flatMap``"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:103
+msgid "``baseUnmarshaller.flatMapWithInput``"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:104
+msgid "``baseUnmarshaller.recover``"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:105
+msgid "``baseUnmarshaller.withDefaultValue``"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:106
+msgid ""
+"``baseUnmarshaller.mapWithCharset`` (only available for "
+"FromEntityUnmarshallers)"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:107
+msgid ""
+"``baseUnmarshaller.forContentTypes`` (only available for "
+"FromEntityUnmarshallers)"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:109
+msgid "The method signatures should make their semantics relatively clear."
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:113
+msgid "Using Unmarshallers"
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:115
+msgid ""
+"In many places throughput Akka HTTP unmarshallers are used implicitly, "
+"e.g. when you want to access the :ref:`-entity-` of a request using the "
+":ref:`Routing DSL <http-high-level-server-side-api>`."
+msgstr ""
+
+#: ../../java/http/common/unmarshalling.rst:118
+msgid ""
+"However, you can also use the unmarshalling infrastructure directly if "
+"you wish, which can be useful for example in tests. The best entry point "
+"for this is the ``akka.http.scaladsl.unmarshalling.Unmarshal`` object, "
+"which you can use like this:"
+msgstr ""
+

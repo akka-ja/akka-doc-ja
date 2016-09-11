@@ -1,0 +1,81 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../scala/http/routing-dsl/directives/security-directives/authenticateBasic.rst:4
+msgid "authenticateBasic"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/security-directives/authenticateBasic.rst:7
+msgid "Signature"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/security-directives/authenticateBasic.rst:15
+msgid "Description"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/security-directives/authenticateBasic.rst:16
+msgid ""
+"Wraps the inner route with Http Basic authentication support using a "
+"given ``Authenticator[T]``."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/security-directives/authenticateBasic.rst:18
+msgid "Provides support for handling `HTTP Basic Authentication`_."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/security-directives/authenticateBasic.rst:20
+msgid ""
+"Given a function returning ``Some[T]`` upon successful authentication and"
+" ``None`` otherwise, respectively applies the inner route or rejects the "
+"request with a :class:`AuthenticationFailedRejection` rejection, which by"
+" default is mapped to an ``401 Unauthorized`` response."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/security-directives/authenticateBasic.rst:24
+msgid ""
+"Longer-running authentication tasks (like looking up credentials in a "
+"database) should use the :ref:`-authenticateBasicAsync-` variant of this "
+"directive which allows it to run without blocking routing layer of Akka "
+"HTTP, freeing it for other requests."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/security-directives/authenticateBasic.rst:27
+msgid ""
+"Standard HTTP-based authentication which uses the ``WWW-Authenticate`` "
+"header containing challenge data and ``Authorization`` header for "
+"receiving credentials is implemented in subclasses of "
+"``HttpAuthenticator``."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/security-directives/authenticateBasic.rst:30
+msgid ""
+"See :ref:`credentials-and-timing-attacks-scala` for details about "
+"verifying the secret."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/security-directives/authenticateBasic.rst:33
+msgid ""
+"Make sure to use basic authentication only over SSL/TLS because "
+"credentials are transferred in plaintext."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/security-directives/authenticateBasic.rst:38
+msgid "Example"
+msgstr ""
+

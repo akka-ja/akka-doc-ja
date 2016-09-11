@@ -1,0 +1,57 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../scala/http/routing-dsl/directives/respond-with-directives/respondWithDefaultHeader.rst:4
+msgid "respondWithDefaultHeader"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/respond-with-directives/respondWithDefaultHeader.rst:7
+msgid "Signature"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/respond-with-directives/respondWithDefaultHeader.rst:14
+msgid "Description"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/respond-with-directives/respondWithDefaultHeader.rst:15
+msgid ""
+"Adds a given HTTP header to all responses coming back from its inner "
+"route only if a header with the same name doesn't exist yet in the "
+"response."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/respond-with-directives/respondWithDefaultHeader.rst:19
+msgid ""
+"This directive transforms ``HttpResponse`` and ``ChunkedResponseStart`` "
+"messages coming back from its inner route by potentially adding the given"
+" ``HttpHeader`` instance to the headers list. The header is only added if"
+" there is no header instance with the same name (case insensitively) "
+"already present in the response."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/respond-with-directives/respondWithDefaultHeader.rst:24
+msgid ""
+"See also :ref:`-respondWithDefaultHeaders-`  if you'd like to add more "
+"than one header."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/respond-with-directives/respondWithDefaultHeader.rst:27
+msgid "Example"
+msgstr ""
+

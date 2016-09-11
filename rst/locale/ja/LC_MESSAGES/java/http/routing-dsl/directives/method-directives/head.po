@@ -1,0 +1,52 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/routing-dsl/directives/method-directives/head.rst:4
+msgid "head"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/method-directives/head.rst:5
+msgid "Matches requests with HTTP method ``HEAD``."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/method-directives/head.rst:8
+msgid "Description"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/method-directives/head.rst:10
+msgid ""
+"This directive filters the incoming request by its HTTP method. Only "
+"requests with method ``HEAD`` are passed on to the inner route. All "
+"others are rejected with a ``MethodRejection``, which is translated into "
+"a ``405 Method Not Allowed`` response by the default "
+"``RejectionHandler``."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/method-directives/head.rst:15
+msgid ""
+"By default, akka-http handles HEAD-requests transparently by dispatching "
+"a GET-request to the handler and stripping of the result body. See the "
+"``akka.http.server.transparent-head-requests`` setting for how to disable"
+" this behavior."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/method-directives/head.rst:20
+msgid "Example"
+msgstr ""
+

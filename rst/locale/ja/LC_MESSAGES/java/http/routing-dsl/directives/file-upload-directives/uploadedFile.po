@@ -1,0 +1,55 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/routing-dsl/directives/file-upload-directives/uploadedFile.rst:4
+msgid "uploadedFile"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/file-upload-directives/uploadedFile.rst:7
+msgid "Description"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/file-upload-directives/uploadedFile.rst:8
+msgid ""
+"Streams the contents of a file uploaded as a multipart form into a "
+"temporary file on disk and provides the file and metadata about the "
+"upload as extracted value."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/file-upload-directives/uploadedFile.rst:11
+msgid ""
+"If there is an error writing to disk the request will be failed with the "
+"thrown exception, if there is no field with the given name the request "
+"will be rejected, if there are multiple file parts with the same name, "
+"the first one will be used and the subsequent ones ignored."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/file-upload-directives/uploadedFile.rst:16
+msgid ""
+"This directive will stream contents of the request into a file, however "
+"one can not start processing these until the file has been written "
+"completely. For streaming APIs it is preferred to use the :ref"
+":`-fileUpload-java-` directive, as it allows for streaming handling of "
+"the incoming data bytes."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/file-upload-directives/uploadedFile.rst:22
+msgid "Example"
+msgstr ""
+

@@ -1,0 +1,71 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/routing-dsl/directives/websocket-directives/handleWebSocketMessagesForProtocol.rst:4
+msgid "handleWebSocketMessagesForProtocol"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/websocket-directives/handleWebSocketMessagesForProtocol.rst:7
+msgid "Description"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/websocket-directives/handleWebSocketMessagesForProtocol.rst:8
+msgid ""
+"Handles WebSocket requests with the given handler if the given "
+"subprotocol is offered in the ``Sec-WebSocket-Protocol`` header of the "
+"request and rejects other requests with an "
+"``ExpectedWebSocketRequestRejection`` or an "
+"``UnsupportedWebSocketSubprotocolRejection``."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/websocket-directives/handleWebSocketMessagesForProtocol.rst:12
+msgid ""
+"The directive first checks if the request was a valid WebSocket handshake"
+" request and if the request offers the passed subprotocol name. If yes, "
+"the directive completes the request with the passed handler. Otherwise, "
+"the request is either rejected with an "
+"``ExpectedWebSocketRequestRejection`` or an "
+"``UnsupportedWebSocketSubprotocolRejection``."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/websocket-directives/handleWebSocketMessagesForProtocol.rst:16
+msgid ""
+"To support several subprotocols, for example at the same path, several "
+"instances of ``handleWebSocketMessagesForProtocol`` can be chained using "
+"``~`` as you can see in the below example."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/websocket-directives/handleWebSocketMessagesForProtocol.rst:19
+msgid ""
+"For more information about the WebSocket support, see :ref:`server-side-"
+"websocket-support-java`."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/websocket-directives/handleWebSocketMessagesForProtocol.rst:22
+msgid "Example"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/websocket-directives/handleWebSocketMessagesForProtocol.rst:23
+msgid ""
+"TODO: Example snippets for JavaDSL are subject to community "
+"contributions! Help us complete the docs, read more about it here: `write"
+" example snippets for Akka HTTP Java DSL #20466 "
+"<https://github.com/akka/akka/issues/20466>`_."
+msgstr ""
+

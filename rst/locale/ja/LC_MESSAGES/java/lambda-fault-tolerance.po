@@ -1,0 +1,257 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/lambda-fault-tolerance.rst:4
+msgid "Fault Tolerance (Java with Lambda Support)"
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:6
+msgid ""
+"As explained in :ref:`actor-systems` each actor is the supervisor of its "
+"children, and as such each actor defines fault handling supervisor "
+"strategy. This strategy cannot be changed afterwards as it is an integral"
+" part of the actor system’s structure."
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:12
+msgid "Fault Handling in Practice"
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:14
+msgid ""
+"First, let us look at a sample that illustrates one way to handle data "
+"store errors, which is a typical source of failure in real world "
+"applications. Of course it depends on the actual application what is "
+"possible to do when the data store is unavailable, but in this sample we "
+"use a best effort re-connect approach."
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:19
+msgid ""
+"Read the following source code. The inlined comments explain the "
+"different pieces of the fault handling and why they are added. It is also"
+" highly recommended to run this sample as it is easy to follow the log "
+"output to understand what is happening in runtime."
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:28
+msgid "Creating a Supervisor Strategy"
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:30
+msgid ""
+"The following sections explain the fault handling mechanism and "
+"alternatives in more depth."
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:33
+msgid "For the sake of demonstration let us consider the following strategy:"
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:38
+msgid ""
+"I have chosen a few well-known exception types in order to demonstrate "
+"the application of the fault handling directives described in "
+":ref:`supervision`. First off, it is a one-for-one strategy, meaning that"
+" each child is treated separately (an all-for-one strategy works very "
+"similarly, the only difference is that any decision is applied to all "
+"children of the supervisor, not only the failing one). There are limits "
+"set on the restart frequency, namely maximum 10 restarts per minute. "
+"``-1`` and ``Duration.Inf()`` means that the respective limit does not "
+"apply, leaving the possibility to specify an absolute upper limit on the "
+"restarts or to make the restarts work infinitely. The child actor is "
+"stopped if the limit is exceeded."
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:51
+msgid ""
+"If the strategy is declared inside the supervising actor (as opposed to a"
+" separate class) its decider has access to all internal state of the "
+"actor in a thread-safe fashion, including obtaining a reference to the "
+"currently failed child (available as the ``getSender`` of the failure "
+"message)."
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:57
+msgid "Default Supervisor Strategy"
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:59
+msgid ""
+"``Escalate`` is used if the defined strategy doesn't cover the exception "
+"that was thrown."
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:61
+msgid ""
+"When the supervisor strategy is not defined for an actor the following "
+"exceptions are handled by default:"
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:64
+msgid "``ActorInitializationException`` will stop the failing child actor"
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:65
+msgid "``ActorKilledException`` will stop the failing child actor"
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:66
+msgid "``Exception`` will restart the failing child actor"
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:67
+msgid "Other types of ``Throwable`` will be escalated to parent actor"
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:69
+msgid ""
+"If the exception escalate all the way up to the root guardian it will "
+"handle it in the same way as the default strategy defined above."
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:73
+msgid "Stopping Supervisor Strategy"
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:75
+msgid ""
+"Closer to the Erlang way is the strategy to just stop children when they "
+"fail and then take corrective action in the supervisor when DeathWatch "
+"signals the loss of the child. This strategy is also provided pre-"
+"packaged as :obj:`SupervisorStrategy.stoppingStrategy` with an "
+"accompanying :class:`StoppingSupervisorStrategy` configurator to be used "
+"when you want the ``\"/user\"`` guardian to apply it."
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:83
+msgid "Logging of Actor Failures"
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:85
+msgid ""
+"By default the ``SupervisorStrategy`` logs failures unless they are "
+"escalated. Escalated failures are supposed to be handled, and potentially"
+" logged, at a level higher in the hierarchy."
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:89
+msgid ""
+"You can mute the default logging of a ``SupervisorStrategy`` by setting "
+"``loggingEnabled`` to ``false`` when instantiating it. Customized logging"
+" can be done inside the ``Decider``. Note that the reference to the "
+"currently failed child is available as the ``getSender`` when the "
+"``SupervisorStrategy`` is declared inside the supervising actor."
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:95
+msgid ""
+"You may also customize the logging in your own ``SupervisorStrategy`` "
+"implementation by overriding the ``logFailure`` method."
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:99
+msgid "Supervision of Top-Level Actors"
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:101
+msgid ""
+"Toplevel actors means those which are created using ``system.actorOf()``,"
+" and they are children of the :ref:`User Guardian <user-guardian>`. There"
+" are no special rules applied in this case, the guardian simply applies "
+"the configured strategy."
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:107
+msgid "Test Application"
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:109
+msgid ""
+"The following section shows the effects of the different directives in "
+"practice, where a test setup is needed. First off, we need a suitable "
+"supervisor:"
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:115
+msgid ""
+"This supervisor will be used to create a child, with which we can "
+"experiment:"
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:120
+msgid ""
+"The test is easier by using the utilities described in :ref:`akka-"
+"testkit`, where ``TestProbe`` provides an actor ref useful for receiving "
+"and inspecting replies."
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:126
+msgid "Let us create actors:"
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:131
+msgid ""
+"The first test shall demonstrate the ``Resume`` directive, so we try it "
+"out by setting some non-initial state in the actor and have it fail:"
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:137
+msgid ""
+"As you can see the value 42 survives the fault handling directive. Now, "
+"if we change the failure to a more serious ``NullPointerException``, that"
+" will no longer be the case:"
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:144
+msgid ""
+"And finally in case of the fatal ``IllegalArgumentException`` the child "
+"will be terminated by the supervisor:"
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:150
+msgid ""
+"Up to now the supervisor was completely unaffected by the child’s "
+"failure, because the directives set did handle it. In case of an "
+"``Exception``, this is not true anymore and the supervisor escalates the "
+"failure."
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:157
+msgid ""
+"The supervisor itself is supervised by the top-level actor provided by "
+"the :class:`ActorSystem`, which has the default policy to restart in case"
+" of all ``Exception`` cases (with the notable exceptions of "
+"``ActorInitializationException`` and ``ActorKilledException``). Since the"
+" default directive in case of a restart is to kill all children, we "
+"expected our poor child not to survive this failure."
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:164
+msgid ""
+"In case this is not desired (which depends on the use case), we need to "
+"use a different supervisor which overrides this behavior."
+msgstr ""
+
+#: ../../java/lambda-fault-tolerance.rst:170
+msgid ""
+"With this parent, the child survives the escalated restart, as "
+"demonstrated in the last test:"
+msgstr ""
+

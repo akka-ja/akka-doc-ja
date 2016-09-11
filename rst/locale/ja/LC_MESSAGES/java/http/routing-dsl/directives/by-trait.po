@@ -1,0 +1,200 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:2
+msgid "Predefined Directives (by trait)"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:4
+msgid ""
+"All predefined directives are organized into traits that form one part of"
+" the overarching ``Directives`` trait."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:9
+msgid "Directives filtering or extracting from the request"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:12
+msgid ":ref:`MethodDirectives-java`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:12
+msgid "Filter and extract based on the request method."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:15
+msgid ":ref:`HeaderDirectives-java`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:15
+msgid "Filter and extract based on request headers."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:18
+msgid ":ref:`PathDirectives-java`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:18
+msgid "Filter and extract from the request URI path."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:21
+msgid ":ref:`HostDirectives-java`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:21
+msgid "Filter and extract based on the target host."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:24
+msgid ":ref:`ParameterDirectives-java`, :ref:`FormFieldDirectives-java`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:24
+msgid "Filter and extract based on query parameters or form fields."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:27
+#: ../../java/http/routing-dsl/directives/by-trait.rst:60
+msgid ":ref:`CodingDirectives-java`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:27
+msgid "Filter and decode compressed request content."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:30
+msgid ":ref:`MarshallingDirectives-java`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:30
+msgid "Extract the request entity."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:33
+msgid ":ref:`SchemeDirectives-java`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:33
+msgid "Filter and extract based on the request scheme."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:36
+msgid ":ref:`SecurityDirectives-java`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:36
+msgid "Handle authentication data from the request."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:39
+#: ../../java/http/routing-dsl/directives/by-trait.rst:57
+msgid ":ref:`CookieDirectives-java`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:39
+msgid "Filter and extract cookies."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:42
+#: ../../java/http/routing-dsl/directives/by-trait.rst:75
+msgid ":ref:`BasicDirectives-java` and :ref:`MiscDirectives-java`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:42
+msgid "Directives handling request properties."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:46
+msgid ":ref:`FileUploadDirectives-java`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:45
+msgid "Handle file uploads."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:51
+msgid "Directives creating or transforming the response"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:54
+msgid ":ref:`CacheConditionDirectives-java`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:54
+msgid "Support for conditional requests (``304 Not Modified`` responses)."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:57
+msgid "Set, modify, or delete cookies."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:60
+msgid "Compress responses."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:63
+msgid ":ref:`FileAndResourceDirectives-java`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:63
+msgid "Deliver responses from files and resources."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:66
+msgid ":ref:`RangeDirectives-java`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:66
+msgid "Support for range requests (``206 Partial Content`` responses)."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:69
+msgid ":ref:`RespondWithDirectives-java`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:69
+msgid "Change response properties."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:72
+msgid ":ref:`RouteDirectives-java`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:72
+msgid "Complete or reject a request with a response."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:75
+msgid "Directives handling or transforming response properties."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:79
+msgid ":ref:`TimeoutDirectives-java`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:78
+msgid "Configure request timeouts and automatic timeout responses."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/by-trait.rst:82
+msgid "List of predefined directives by trait"
+msgstr ""
+

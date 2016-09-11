@@ -15,15 +15,15 @@ $ pip install sphinx-intl
 $ git clone https://github.com/akka-ja/akka-doc-ja.git
 $ cd akka-doc-ja/rst
 $ # potファイル(テンプレートファイル)の作成
-$ sphinx-build.exe -c . -D pygments_style=sphinx -a -b gettext  . _build/gettext
+$ sphinx-build -b gettext . _build/gettext
 $ # potファイルを*.poにリネームして移動
-$ sphinx-intl 
+$ sphinx-intl update -p _build/gettext -l ja
 ```
 
 ### htmlのビルド
 
 ```
 $ cd akka-doc-ja/rst
-$ sphinx-build.exe -c . -D pygments_style=sphinx -a -b html  . _build/html
+$ sphinx-build -c . -D pygments_style=sphinx -D language='ja' -a -b html . _build/html
 ```
 

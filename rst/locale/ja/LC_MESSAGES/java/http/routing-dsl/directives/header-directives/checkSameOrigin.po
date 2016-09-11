@@ -1,0 +1,45 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/routing-dsl/directives/header-directives/checkSameOrigin.rst:4
+msgid "checkSameOrigin"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/header-directives/checkSameOrigin.rst:7
+msgid "Description"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/header-directives/checkSameOrigin.rst:8
+msgid ""
+"Checks that request comes from the same origin. Extracts the ``Origin`` "
+"header value and verifies that allowed range contains the obtained value."
+" In the case of absent of the ``Origin`` header rejects with a "
+"``MissingHeaderRejection``. If the origin value is not in the allowed "
+"range rejects with an ``InvalidOriginHeaderRejection`` and "
+"``StatusCodes.FORBIDDEN`` status."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/header-directives/checkSameOrigin.rst:14
+msgid "Example"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/header-directives/checkSameOrigin.rst:15
+msgid "Checking the ``Origin`` header:"
+msgstr ""
+

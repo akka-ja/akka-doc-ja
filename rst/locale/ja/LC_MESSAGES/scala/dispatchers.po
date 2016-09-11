@@ -1,0 +1,287 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../scala/dispatchers.rst:4
+msgid "Dispatchers"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:6
+msgid ""
+"An Akka ``MessageDispatcher`` is what makes Akka Actors \"tick\", it is "
+"the engine of the machine so to speak. All ``MessageDispatcher`` "
+"implementations are also an ``ExecutionContext``, which means that they "
+"can be used to execute arbitrary code, for instance :ref:`futures-scala`."
+msgstr ""
+
+#: ../../scala/dispatchers.rst:11
+msgid "Default dispatcher"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:13
+msgid ""
+"Every ``ActorSystem`` will have a default dispatcher that will be used in"
+" case nothing else is configured for an ``Actor``. The default dispatcher"
+" can be configured, and is by default a ``Dispatcher`` with the specified"
+" ``default-executor``. If an ActorSystem is created with an "
+"ExecutionContext passed in, this ExecutionContext will be used as the "
+"default executor for all dispatchers in this ActorSystem. If no "
+"ExecutionContext is given, it will fallback to the executor specified in "
+"``akka.actor.default-dispatcher.default-executor.fallback``. By default "
+"this is a \"fork-join-executor\", which gives excellent performance in "
+"most cases."
+msgstr ""
+
+#: ../../scala/dispatchers.rst:23
+msgid "Looking up a Dispatcher"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:25
+msgid ""
+"Dispatchers implement the :class:`ExecutionContext` interface and can "
+"thus be used to run :class:`Future` invocations etc."
+msgstr ""
+
+#: ../../scala/dispatchers.rst:30
+msgid "Setting the dispatcher for an Actor"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:32
+msgid ""
+"So in case you want to give your ``Actor`` a different dispatcher than "
+"the default, you need to do two things, of which the first is to "
+"configure the dispatcher:"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:38
+msgid ""
+"Note that the ``parallelism-max`` does not set the upper bound on the "
+"total number of threads allocated by the ForkJoinPool. It is a setting "
+"specifically talking about the number of *hot* threads the pool keep "
+"running in order to reduce the latency of handling a new incoming task. "
+"You can read more about parallelism in the JDK's `ForkJoinPool "
+"documentation`_."
+msgstr ""
+
+#: ../../scala/dispatchers.rst:43
+msgid "And here's another example that uses the \"thread-pool-executor\":"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:48
+msgid ""
+"The thread pool executor dispatcher is implemented using by a "
+"``java.util.concurrent.ThreadPoolExecutor``. You can read more about it "
+"in the JDK's `ThreadPoolExecutor documentation`_."
+msgstr ""
+
+#: ../../scala/dispatchers.rst:51
+msgid ""
+"For more options, see the default-dispatcher section of the "
+":ref:`configuration`."
+msgstr ""
+
+#: ../../scala/dispatchers.rst:53
+msgid ""
+"Then you create the actor as usual and define the dispatcher in the "
+"deployment configuration."
+msgstr ""
+
+#: ../../scala/dispatchers.rst:59
+msgid ""
+"An alternative to the deployment configuration is to define the "
+"dispatcher in code. If you define the ``dispatcher`` in the deployment "
+"configuration then this value will be used instead of programmatically "
+"provided parameter."
+msgstr ""
+
+#: ../../scala/dispatchers.rst:66
+msgid ""
+"The dispatcher you specify in ``withDispatcher`` and the ``dispatcher`` "
+"property in the deployment configuration is in fact a path into your "
+"configuration. So in this example it's a top-level section, but you could"
+" for instance put it as a sub-section, where you'd use periods to denote "
+"sub-sections, like this: ``\"foo.bar.my-dispatcher\"``"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:74
+msgid "Types of dispatchers"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:76
+msgid "There are 3 different types of message dispatchers:"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:78
+msgid "Dispatcher"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:80
+msgid ""
+"This is an event-based dispatcher that binds a set of Actors to a thread "
+"pool. It is the default dispatcher used if one is not specified."
+msgstr ""
+
+#: ../../scala/dispatchers.rst:83 ../../scala/dispatchers.rst:134
+msgid "Sharability: Unlimited"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:85 ../../scala/dispatchers.rst:100
+msgid "Mailboxes: Any, creates one per Actor"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:87
+msgid "Use cases: Default dispatcher, Bulkheading"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:92 ../../scala/dispatchers.rst:124
+msgid "Driven by: ``java.util.concurrent.ExecutorService``"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:90 ../../scala/dispatchers.rst:122
+msgid ""
+"specify using \"executor\" using \"fork-join-executor\", \"thread-pool-"
+"executor\" or the FQCN of an "
+"``akka.dispatcher.ExecutorServiceConfigurator``"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:94
+msgid "PinnedDispatcher"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:96
+msgid ""
+"This dispatcher dedicates a unique thread for each actor using it; i.e. "
+"each actor will have its own thread pool with only one thread in the "
+"pool."
+msgstr ""
+
+#: ../../scala/dispatchers.rst:98
+msgid "Sharability: None"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:102
+msgid "Use cases: Bulkheading"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:105
+msgid "Driven by: Any ``akka.dispatch.ThreadPoolExecutorConfigurator``"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:105
+msgid "by default a \"thread-pool-executor\""
+msgstr ""
+
+#: ../../scala/dispatchers.rst:107
+msgid "BalancingDispatcher"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:109
+msgid ""
+"This is an executor based event driven dispatcher that will try to "
+"redistribute work from busy actors to idle actors."
+msgstr ""
+
+#: ../../scala/dispatchers.rst:111
+msgid "All the actors share a single Mailbox that they get their messages from."
+msgstr ""
+
+#: ../../scala/dispatchers.rst:113
+msgid ""
+"It is assumed that all actors using the same instance of this dispatcher "
+"can process all messages that have been sent to one of the actors; i.e. "
+"the actors belong to a pool of actors, and to the client there is no "
+"guarantee about which actor instance actually processes a given message."
+msgstr ""
+
+#: ../../scala/dispatchers.rst:115
+msgid "Sharability: Actors of the same type only"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:117
+msgid "Mailboxes: Any, creates one for all Actors"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:119
+msgid "Use cases: Work-sharing"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:126
+msgid ""
+"Note that you can **not** use a ``BalancingDispatcher`` as a **Router "
+"Dispatcher**. (You can however use it for the **Routees**)"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:128
+msgid "CallingThreadDispatcher"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:130
+msgid ""
+"This dispatcher runs invocations on the current thread only. This "
+"dispatcher does not create any new threads, but it can be used from "
+"different threads concurrently for the same actor. See :ref:`Scala-"
+"CallingThreadDispatcher` for details and restrictions."
+msgstr ""
+
+#: ../../scala/dispatchers.rst:136
+msgid "Mailboxes: Any, creates one per Actor per Thread (on demand)"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:138
+msgid "Use cases: Testing"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:140
+msgid "Driven by: The calling thread (duh)"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:144
+msgid "More dispatcher configuration examples"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:147
+msgid ""
+"Configuring a dispatcher with fixed thread pool size, e.g. for actors "
+"that perform blocking IO:"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:151 ../../scala/dispatchers.rst:159
+msgid "And then using it:"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:155
+msgid "Configuring a ``PinnedDispatcher``:"
+msgstr ""
+
+#: ../../scala/dispatchers.rst:163
+msgid ""
+"Note that ``thread-pool-executor`` configuration as per the above ``my-"
+"thread-pool-dispatcher`` example is NOT applicable. This is because every"
+" actor will have its own thread pool when using ``PinnedDispatcher``, and"
+" that pool will have only one thread."
+msgstr ""
+
+#: ../../scala/dispatchers.rst:167
+msgid ""
+"Note that it's not guaranteed that the *same* thread is used over time, "
+"since the core pool timeout is used for ``PinnedDispatcher`` to keep "
+"resource usage down in case of idle actors. To use the same thread all "
+"the time you need to add ``thread-pool-executor.allow-core-timeout=off`` "
+"to the configuration of the ``PinnedDispatcher``."
+msgstr ""
+

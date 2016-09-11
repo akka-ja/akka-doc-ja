@@ -1,0 +1,210 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../intro/what-is-akka.rst:5
+msgid "What is Akka?"
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:7
+msgid "**«resilient elastic distributed real-time transaction processing»**"
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:9
+msgid ""
+"We believe that writing correct distributed, concurrent, fault-tolerant "
+"and scalable applications is too hard. Most of the time it's because we "
+"are using the wrong tools and the wrong level of abstraction. Akka is "
+"here to change that. Using the Actor Model we raise the abstraction level"
+" and provide a better platform to build scalable, resilient and "
+"responsive applications—see the `Reactive Manifesto "
+"<http://reactivemanifesto.org/>`_ for more details. For fault-tolerance "
+"we adopt the \"let it crash\" model which the telecom industry has used "
+"with great success to build applications that self-heal and systems that "
+"never stop. Actors also provide the abstraction for transparent "
+"distribution and the basis for truly scalable and fault-tolerant "
+"applications."
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:20
+msgid "Akka is Open Source and available under the Apache 2 License."
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:22
+msgid "Download from http://akka.io/downloads."
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:24
+msgid ""
+"Please note that all code samples compile, so if you want direct access "
+"to the sources, have a look over at the Akka Docs subproject on github: "
+"for `Java <@github@/akka-docs/rst/java/code/docs>`_ and `Scala <@github"
+"@/akka-docs/rst/scala/code/docs>`_."
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:30
+msgid "Akka implements a unique hybrid"
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:33
+msgid "Actors"
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:35
+msgid "Actors give you:"
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:37
+msgid ""
+"Simple and high-level abstractions for distribution, concurrency and "
+"parallelism."
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:38
+msgid ""
+"Asynchronous, non-blocking and highly performant message-driven "
+"programming model."
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:39
+msgid ""
+"Very lightweight event-driven processes (several million actors per GB of"
+" heap memory)."
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:41
+msgid ""
+"See the chapter for :ref:`Scala <actors-scala>` or :ref:`Java <untyped-"
+"actors-java>`."
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:44
+msgid "Fault Tolerance"
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:46
+msgid "Supervisor hierarchies with \"let-it-crash\" semantics."
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:47
+msgid ""
+"Actor systems can span over multiple JVMs to provide truly fault-tolerant"
+" systems."
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:48
+msgid ""
+"Excellent for writing highly fault-tolerant systems that self-heal and "
+"never stop."
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:50
+msgid ""
+"See :ref:`Fault Tolerance (Scala) <fault-tolerance-scala>` and "
+":ref:`Fault Tolerance (Java) <fault-tolerance-java>`."
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:53
+msgid "Location Transparency"
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:54
+msgid ""
+"Everything in Akka is designed to work in a distributed environment: all "
+"interactions of actors use pure message passing and everything is "
+"asynchronous."
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:57
+msgid ""
+"For an overview of the cluster support see the :ref:`Java "
+"<cluster_usage_java>` and :ref:`Scala <cluster_usage_scala>` "
+"documentation chapters."
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:61
+msgid "Persistence"
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:63
+msgid ""
+"State changes experienced by an actor can optionally be persisted and "
+"replayed when the actor is started or restarted. This allows actors to "
+"recover their state, even after JVM crashes or when being migrated to "
+"another node."
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:67
+msgid ""
+"You can find more details in the respective chapter for :ref:`Java "
+"<persistence-java>` or :ref:`Scala <persistence-scala>`."
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:70
+msgid "Scala and Java APIs"
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:72
+msgid "Akka has both a :ref:`scala-api` and a :ref:`java-api`."
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:76
+msgid "Akka can be used in different ways"
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:78
+msgid ""
+"Akka is a toolkit, not a framework: you integrate it into your build like"
+" any other library without having to follow a particular source code "
+"layout. When expressing your systems as collaborating Actors you may feel"
+" pushed more towards proper encapsulation of internal state, you may find"
+" that there is a natural separation between business logic and inter-"
+"component communication."
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:83
+msgid "Akka applications are typically deployed as follows:"
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:85
+msgid "as a library: used as a regular JAR on the classpath or in a web app."
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:87
+msgid ""
+"packaged with `sbt-native-packager <https://github.com/sbt/sbt-native-"
+"packager>`_."
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:89
+msgid ""
+"packaged and deployed using `Lightbend ConductR "
+"<http://www.lightbend.com/products/conductr>`_."
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:92
+msgid "Commercial Support"
+msgstr ""
+
+#: ../../intro/what-is-akka.rst:94
+msgid ""
+"Akka is available from Lightbend Inc. under a commercial license which "
+"includes development or production support, read more `here "
+"<http://www.lightbend.com/how/subscription>`_."
+msgstr ""
+
