@@ -45,8 +45,8 @@ What do they do?
 * In `Half-Open` state:
 	* The first call attempted is allowed through without failing fast
 	* All other calls fail-fast with an exception just as in `Open` state
-	* If the first call succeeds, the breaker is reset back to `Closed` state
-	* If the first call fails, the breaker is tripped again into the `Open` state for another full `resetTimeout`
+	* If the first call succeeds, the breaker is reset back to `Closed` state and the `resetTimeout` is reset
+	* If the first call fails, the breaker is tripped again into the `Open` state (as for exponential backoff circuit breaker, the `resetTimeout` is multiplied by the exponential backoff factor)
 * State transition listeners: 
 	* Callbacks can be provided for every state entry via `onOpen`, `onClose`, and `onHalfOpen`
 	* These are executed in the :class:`ExecutionContext` provided. 
@@ -107,3 +107,35 @@ Java
 	will return a :class:`CircuitBreaker` where callbacks are executed in the caller's thread.
 	This can be useful if the asynchronous :class:`Future` behavior is unnecessary, for
 	example invoking a synchronous-only API.
+
+
+------------
+Tell Pattern
+------------
+
+The above ``Call Protection`` pattern works well when the return from a remote call is wrapped in a ``Future``.
+However, when a remote call sends back a message or timeout to the caller ``Actor``, the ``Call Protection`` pattern
+is awkward. CircuitBreaker doesn't support it natively at the moment, so you need to use below low-level power-user APIs,
+``succeed``  and  ``fail`` methods, as well as ``isClose``, ``isOpen``, ``isHalfOpen``.
+
+.. note::
+
+	The below examples doesn't make a remote call when the state is `HalfOpen`. Using the power-user APIs, it is
+	your responsibility to judge when to make remote calls in `HalfOpen`.
+
+
+^^^^^^^
+Scala
+^^^^^^^
+
+.. includecode:: code/docs/circuitbreaker/CircuitBreakerDocSpec.scala
+   :include: circuit-breaker-tell-pattern
+
+^^^^^^^
+Java
+^^^^^^^
+
+.. includecode:: code/docs/circuitbreaker/TellPatternJavaActor.java
+   :include: circuit-breaker-tell-pattern
+
+

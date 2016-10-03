@@ -1,9 +1,8 @@
 
 .. _serialization-scala:
 
-######################
- Serialization
-######################
+Serialization
+#############
 
 Akka has a built-in Extension for serialization,
 and it is both possible to use the built-in serializers and to write your own.
@@ -34,6 +33,13 @@ configured classes, the most specific configured class will be used, i.e. the
 one of which all other candidates are superclasses. If this condition cannot be
 met, because e.g. ``java.io.Serializable`` and ``MyOwnSerializable`` both apply
 and neither is a subtype of the other, a warning will be issued
+
+.. note::
+
+  If your messages are contained inside of a Scala object, then in order to
+  reference those messages, you will need use the fully qualified Java class name. For a message
+  named ``Message`` contained inside the object named ``Wrapper``
+  you would need to reference it as ``Wrapper$Message`` instead of ``Wrapper.Message``.
 
 Akka provides serializers for :class:`java.io.Serializable` and `protobuf
 <http://code.google.com/p/protobuf/>`_

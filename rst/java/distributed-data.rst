@@ -41,8 +41,12 @@ with a specific role. It communicates with other ``Replicator`` instances with t
 ``akka.cluster.ddata.DistributedData`` extension.
 
 Cluster members with status :ref:`WeaklyUp <weakly_up_java>`, if that feature is enabled,
-will currently not participate in Distributed Data, but that is something that should be possible to
-add in a future release.
+will participate in Distributed Data. This means that the data will be replicated to the
+:ref:`WeaklyUp <weakly_up_java>` nodes with the background gossip protocol. Note that it
+will not participate in any actions where the consistency mode is to read/write from all
+nodes or the majority of nodes. The :ref:`WeaklyUp <weakly_up_java>` node is not counted
+as part of the cluster. So 3 nodes + 5 :ref:`WeaklyUp <weakly_up_java>` is essentially a
+3 node cluster as far as consistent actions are concerned.
 
 Below is an example of an actor that schedules tick messages to itself and for each tick 
 adds or removes elements from a ``ORSet`` (observed-remove set). It also subscribes to
@@ -239,6 +243,14 @@ Subsequent ``Delete``, ``Update`` and ``Get`` requests will be replied with ``Re
 Subscribers will receive ``Replicator.DataDeleted``.
 
 .. includecode:: code/docs/ddata/DistributedDataDocTest.java#delete
+
+.. warning::
+
+  As deleted keys continue to be included in the stored data on each node as well as in gossip 
+  messages, a continuous series of updates and deletes of top-level entities will result in 
+  growing memory usage until an ActorSystem runs out of memory. To use Akka Distributed Data 
+  where frequent adds and removes are required, you should use a fixed number of top-level data 
+  types that support both updates and removals, for example ``ORMap`` or ``ORSet``.
 
 Data Types
 ==========
