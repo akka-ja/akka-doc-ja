@@ -1,0 +1,100 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/routing-dsl/directives/host-directives/host.rst:4
+msgid "host"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/host-directives/host.rst:6
+msgid ""
+"Filter requests matching conditions against the hostname part of the Host"
+" header value in the request."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/host-directives/host.rst:9
+msgid "There are a few variants:"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/host-directives/host.rst:11
+msgid "reject all requests with a hostname different from the given ones"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/host-directives/host.rst:12
+msgid ""
+"reject all requests for which the hostname does not satisfy the given "
+"predicate"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/host-directives/host.rst:13
+msgid ""
+"reject all requests for which the hostname does not satisfy the given "
+"regular expression"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/host-directives/host.rst:15
+msgid ""
+"The regular expression matching works a little bit different: it rejects "
+"all requests with a hostname that doesn't have a prefix matching the "
+"given regular expression and also extracts a ``String`` to its inner "
+"route following this rules:"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/host-directives/host.rst:19
+msgid ""
+"For all matching requests the prefix string matching the regex is "
+"extracted and passed to the inner route."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/host-directives/host.rst:20
+msgid ""
+"If the regex contains a capturing group only the string matched by this "
+"group is extracted."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/host-directives/host.rst:21
+msgid ""
+"If the regex contains more than one capturing group an "
+"``IllegalArgumentException`` is thrown."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/host-directives/host.rst:24
+msgid "Example"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/host-directives/host.rst:26
+msgid "Matching a list of hosts:"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/host-directives/host.rst:30
+msgid "Making sure the host satisfies the given predicate"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/host-directives/host.rst:34
+msgid "Using a regular expressions:"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/host-directives/host.rst:38
+msgid ""
+"Beware that in the case of introducing multiple capturing groups in the "
+"regex such as in the case bellow, the directive will fail at runtime, at "
+"the moment the route tree is evaluated for the first time. This might "
+"cause your http handler actor to enter in a fail/restart loop depending "
+"on your supervision strategy."
+msgstr ""
+

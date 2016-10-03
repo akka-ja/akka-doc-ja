@@ -1,0 +1,70 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/routing-dsl/directives/path-directives/pathPrefixTest.rst:4
+msgid "pathPrefixTest"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives/pathPrefixTest.rst:7
+msgid "Description"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives/pathPrefixTest.rst:8
+msgid ""
+"Checks whether the unmatched path of the ``RequestContext`` has a prefix "
+"matched by the given ``PathMatcher``. Potentially extracts one or more "
+"values (depending on the type of the argument) but doesn't consume its "
+"match from the unmatched path."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives/pathPrefixTest.rst:12
+msgid ""
+"This directive is very similar to the :ref:`-pathPrefix-java-` directive "
+"with the one difference that the path prefix it matched (if it matched) "
+"is *not* consumed. The unmatched path of the ``RequestContext`` is "
+"therefore left as is even in the case that the directive successfully "
+"matched and the request is passed on to its inner route."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives/pathPrefixTest.rst:16
+msgid ""
+"For more info on how to create a ``PathMatcher`` see :ref:`pathmatcher-"
+"dsl`."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives/pathPrefixTest.rst:18
+msgid ""
+"As opposed to its :ref:`-rawPathPrefixTest-java-` counterpart "
+"``pathPrefixTest`` automatically adds a leading slash to its "
+"``PathMatcher`` argument, you therefore don't have to start your matching"
+" expression with an explicit slash."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives/pathPrefixTest.rst:21
+msgid ""
+"Depending on the type of its ``PathMatcher`` argument the "
+"``pathPrefixTest`` directive extracts zero or more values from the URI. "
+"If the match fails the request is rejected with an :ref:`empty rejection "
+"set <empty rejections>`."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives/pathPrefixTest.rst:26
+msgid "Example"
+msgstr ""
+

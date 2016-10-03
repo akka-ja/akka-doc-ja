@@ -1,0 +1,224 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:4
+msgid "BasicDirectives"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:6
+msgid ""
+"Basic directives are building blocks for building :ref:`Custom "
+"Directives`. As such they usually aren't used in a route directly but "
+"rather in the definition of new directives."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:13
+msgid "Providing Values to Inner Routes"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:15
+msgid ""
+"These directives provide values to the inner routes with extractions. "
+"They can be distinguished on two axes: a) provide a constant value or "
+"extract a value from the ``RequestContext`` b) provide a single value or "
+"a tuple of values."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:19
+msgid ":ref:`-extract-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:20
+msgid ":ref:`-extractActorSystem-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:21
+msgid ":ref:`-extractDataBytes-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:22
+msgid ":ref:`-extractExecutionContext-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:23
+msgid ":ref:`-extractMaterializer-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:24
+msgid ":ref:`-extractStrictEntity-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:25
+msgid ":ref:`-extractLog-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:26
+msgid ":ref:`-extractRequest-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:27
+msgid ":ref:`-extractRequestContext-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:28
+msgid ":ref:`-extractRequestEntity-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:29
+msgid ":ref:`-extractSettings-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:30
+msgid ":ref:`-extractUnmatchedPath-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:31
+msgid ":ref:`-extractUri-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:32
+msgid ":ref:`-provide-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:38
+msgid "Transforming the Request(Context)"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:40
+msgid ":ref:`-mapRequest-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:41
+msgid ":ref:`-mapRequestContext-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:42
+msgid ":ref:`-mapSettings-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:43
+msgid ":ref:`-mapUnmatchedPath-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:44
+msgid ":ref:`-withExecutionContext-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:45
+msgid ":ref:`-withMaterializer-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:46
+msgid ":ref:`-withLog-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:47
+msgid ":ref:`-withSettings-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:48
+msgid ":ref:`-toStrictEntity-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:54
+msgid "Transforming the Response"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:56
+msgid ""
+"These directives allow to hook into the response path and transform the "
+"complete response or the parts of a response or the list of rejections:"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:59
+msgid ":ref:`-mapResponse-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:60
+msgid ":ref:`-mapResponseEntity-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:61
+msgid ":ref:`-mapResponseHeaders-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:67
+msgid "Transforming the RouteResult"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:69
+msgid "These directives allow to transform the RouteResult of the inner route."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:71
+msgid ":ref:`-cancelRejection-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:72
+msgid ":ref:`-cancelRejections-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:73
+msgid ":ref:`-mapRejections-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:74
+msgid ":ref:`-mapRouteResult-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:75
+msgid ":ref:`-mapRouteResultFuture-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:76
+msgid ":ref:`-mapRouteResultPF-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:77
+msgid ":ref:`-mapRouteResultWith-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:78
+msgid ":ref:`-mapRouteResultWithPF-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:79
+msgid ":ref:`-recoverRejections-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:80
+msgid ":ref:`-recoverRejectionsWith-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:84
+msgid "Other"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:86
+msgid ":ref:`-mapInnerRoute-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:87
+msgid ":ref:`-pass-java-`"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/index.rst:91
+msgid "Alphabetically"
+msgstr ""
+

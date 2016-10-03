@@ -1,0 +1,89 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../project/issue-tracking.rst:4
+msgid "Issue Tracking"
+msgstr ""
+
+#: ../../project/issue-tracking.rst:6
+msgid "Akka is using GitHub Issues as its issue tracking system."
+msgstr ""
+
+#: ../../project/issue-tracking.rst:9
+msgid "Browsing"
+msgstr ""
+
+#: ../../project/issue-tracking.rst:12
+msgid "Tickets"
+msgstr ""
+
+#: ../../project/issue-tracking.rst:14
+msgid ""
+"Before filing a ticket, please check the existing `Akka tickets "
+"<https://github.com/akka/akka/issues>`_ for earlier reports of the same "
+"problem. You are very welcome to comment on existing tickets, especially "
+"if you have reproducible test cases that you can share."
+msgstr ""
+
+#: ../../project/issue-tracking.rst:20
+msgid "Roadmaps"
+msgstr ""
+
+#: ../../project/issue-tracking.rst:22
+msgid ""
+"Short and long-term plans are published in the `akka/akka-meta "
+"<https://github.com/akka/akka-meta/issues>`_ repository."
+msgstr ""
+
+#: ../../project/issue-tracking.rst:25
+msgid "Creating tickets"
+msgstr ""
+
+#: ../../project/issue-tracking.rst:27
+msgid ""
+"*Please include the versions of Scala and Akka and relevant configuration"
+" files.*"
+msgstr ""
+
+#: ../../project/issue-tracking.rst:29
+msgid ""
+"You can create a `new ticket <https://github.com/akka/akka/issues/new>`_ "
+"if you have registered a GitHub user account."
+msgstr ""
+
+#: ../../project/issue-tracking.rst:32
+msgid "Thanks a lot for reporting bugs and suggesting features!"
+msgstr ""
+
+#: ../../project/issue-tracking.rst:35
+msgid "Submitting Pull Requests"
+msgstr ""
+
+#: ../../project/issue-tracking.rst:37
+msgid "*A pull request is worth a thousand +1's.* -- Old Klangian Proverb"
+msgstr ""
+
+#: ../../project/issue-tracking.rst:39
+msgid ""
+"Pull Requests fixing issues or adding functionality are very welcome. "
+"Please read `CONTRIBUTING.md "
+"<https://github.com/akka/akka/blob/master/CONTRIBUTING.md>`_ for more "
+"information about contributing to Akka."
+msgstr ""
+

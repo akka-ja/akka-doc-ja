@@ -1,0 +1,47 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../scala/http/routing-dsl/directives/scheme-directives/extractScheme.rst:4
+msgid "extractScheme"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/scheme-directives/extractScheme.rst:7
+msgid "Signature"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/scheme-directives/extractScheme.rst:13
+msgid "Description"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/scheme-directives/extractScheme.rst:14
+msgid ""
+"Extracts the Uri scheme (i.e. \"``http``\", \"``https``\", etc.) for an "
+"incoming request."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/scheme-directives/extractScheme.rst:16
+msgid ""
+"For rejecting a request if it doesn't match a specified scheme name, see "
+"the :ref:`-scheme-` directive."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/scheme-directives/extractScheme.rst:19
+msgid "Example"
+msgstr ""
+

@@ -1,0 +1,168 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/fault-tolerance-sample.rst:4
+msgid "Diagrams of the Fault Tolerance Sample"
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:8
+msgid "*The above diagram illustrates the normal message flow.*"
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:10
+msgid "**Normal flow:**"
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:13
+#: ../../java/fault-tolerance-sample.rst:33
+msgid "Step"
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:13
+#: ../../java/fault-tolerance-sample.rst:33
+msgid "Description"
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:15
+#: ../../java/fault-tolerance-sample.rst:35
+msgid "1"
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:15
+msgid "The progress ``Listener`` starts the work."
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:16
+#: ../../java/fault-tolerance-sample.rst:36
+msgid "2"
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:16
+msgid ""
+"The ``Worker`` schedules work by sending ``Do`` messages periodically to "
+"itself"
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:17
+msgid "3, 4, 5"
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:17
+msgid ""
+"When receiving ``Do`` the ``Worker`` tells the ``CounterService`` to "
+"increment the counter, three times. The ``Increment`` message is "
+"forwarded to the ``Counter``, which updates its counter variable and "
+"sends current value to the ``Storage``."
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:21
+msgid "6, 7"
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:21
+msgid ""
+"The ``Worker`` asks the ``CounterService`` of current value of the "
+"counter and pipes the result back to the ``Listener``."
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:28
+msgid "*The above diagram illustrates what happens in case of storage failure.*"
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:30
+msgid "**Failure flow:**"
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:35
+msgid "The ``Storage`` throws ``StorageException``."
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:36
+msgid ""
+"The ``CounterService`` is supervisor of the ``Storage`` and restarts the "
+"``Storage`` when ``StorageException`` is thrown."
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:38
+msgid "3, 4, 5, 6"
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:38
+msgid "The ``Storage`` continues to fail and is restarted."
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:39
+msgid "7"
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:39
+msgid ""
+"After 3 failures and restarts within 5 seconds the ``Storage`` is stopped"
+" by its supervisor, i.e. the ``CounterService``."
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:41
+msgid "8"
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:41
+msgid ""
+"The ``CounterService`` is also watching the ``Storage`` for termination "
+"and receives the ``Terminated`` message when the ``Storage`` has been "
+"stopped ..."
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:43
+msgid "9, 10, 11"
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:43
+msgid "and tells the ``Counter`` that there is no ``Storage``."
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:44
+msgid "12"
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:44
+msgid "The ``CounterService`` schedules a ``Reconnect`` message to itself."
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:45
+msgid "13, 14"
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:45
+msgid ""
+"When it receives the ``Reconnect`` message it creates a new ``Storage`` "
+"..."
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:46
+msgid "15, 16"
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:46
+msgid "and tells the ``Counter`` to use the new ``Storage``"
+msgstr ""
+
+#: ../../java/fault-tolerance-sample.rst:50
+msgid "Full Source Code of the Fault Tolerance Sample"
+msgstr ""
+

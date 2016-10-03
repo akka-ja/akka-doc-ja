@@ -1,0 +1,59 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/routing-dsl/directives/method-directives/overrideMethodWithParameter.rst:4
+msgid "overrideMethodWithParameter"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/method-directives/overrideMethodWithParameter.rst:6
+msgid ""
+"Changes the HTTP method of the request to the value of the specified "
+"query string parameter."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/method-directives/overrideMethodWithParameter.rst:9
+msgid "Description"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/method-directives/overrideMethodWithParameter.rst:11
+msgid ""
+"If the query string parameter is not specified this directive has no "
+"effect. If the query string is specified as something that is not a HTTP "
+"method, then this directive completes the request with a `501 Not "
+"Implemented` response."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/method-directives/overrideMethodWithParameter.rst:15
+msgid "This directive is useful for:"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/method-directives/overrideMethodWithParameter.rst:17
+msgid "Use in combination with JSONP (JSONP only supports GET)"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/method-directives/overrideMethodWithParameter.rst:18
+msgid ""
+"Supporting older browsers that lack support for certain HTTP methods. "
+"E.g. IE8 does not support PATCH"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/method-directives/overrideMethodWithParameter.rst:21
+msgid "Example"
+msgstr ""
+

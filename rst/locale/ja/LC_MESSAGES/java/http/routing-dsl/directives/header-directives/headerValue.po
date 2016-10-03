@@ -1,0 +1,58 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/routing-dsl/directives/header-directives/headerValue.rst:4
+msgid "headerValue"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/header-directives/headerValue.rst:7
+msgid "Description"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/header-directives/headerValue.rst:8
+msgid ""
+"Traverses the list of request headers with the specified function and "
+"extracts the first value the function returns as ``Optional[value]``."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/header-directives/headerValue.rst:11
+msgid ""
+"The :ref:`-headerValue-java-` directive is a mixture of ``map`` and "
+"``find`` on the list of request headers. The specified function is called"
+" once for each header until the function returns ``Optional(value)``. "
+"This value is extracted and presented to the inner route. If the function"
+" throws an exception the request is rejected with a "
+"``MalformedHeaderRejection``. If the function returns ``Optional.empty`` "
+"for every header the request is rejected as \"NotFound\"."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/header-directives/headerValue.rst:16
+msgid ""
+"This directive is the basis for building other request header related "
+"directives."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/header-directives/headerValue.rst:18
+msgid "See also :ref:`-headerValuePF-java-` for a nicer syntactic alternative."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/header-directives/headerValue.rst:21
+msgid "Example"
+msgstr ""
+

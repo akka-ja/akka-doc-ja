@@ -1,0 +1,137 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../scala/stream/stream-error.rst:5
+msgid "Error Handling"
+msgstr ""
+
+#: ../../scala/stream/stream-error.rst:7
+msgid ""
+"Strategies for how to handle exceptions from processing stream elements "
+"can be defined when materializing the stream. The error handling "
+"strategies are inspired by actor supervision strategies, but the "
+"semantics have been adapted to the domain of stream processing."
+msgstr ""
+
+#: ../../scala/stream/stream-error.rst:13
+msgid ""
+"*ZipWith*, *GraphStage* junction, *ActorPublisher* source and "
+"*ActorSubscriber* sink components do not honour the supervision strategy "
+"attribute yet."
+msgstr ""
+
+#: ../../scala/stream/stream-error.rst:17
+msgid "Supervision Strategies"
+msgstr ""
+
+#: ../../scala/stream/stream-error.rst:19
+msgid "There are three ways to handle exceptions from application code:"
+msgstr ""
+
+#: ../../scala/stream/stream-error.rst:21
+msgid "``Stop`` - The stream is completed with failure."
+msgstr ""
+
+#: ../../scala/stream/stream-error.rst:22
+msgid "``Resume`` - The element is dropped and the stream continues."
+msgstr ""
+
+#: ../../scala/stream/stream-error.rst:23
+msgid ""
+"``Restart`` - The element is dropped and the stream continues after "
+"restarting the stage. Restarting a stage means that any accumulated state"
+" is cleared. This is typically performed by creating a new instance of "
+"the stage."
+msgstr ""
+
+#: ../../scala/stream/stream-error.rst:28
+msgid ""
+"By default the stopping strategy is used for all exceptions, i.e. the "
+"stream will be completed with failure when an exception is thrown."
+msgstr ""
+
+#: ../../scala/stream/stream-error.rst:33
+msgid ""
+"The default supervision strategy for a stream can be defined on the "
+"settings of the materializer."
+msgstr ""
+
+#: ../../scala/stream/stream-error.rst:37
+msgid ""
+"Here you can see that all ``ArithmeticException`` will resume the "
+"processing, i.e. the elements that cause the division by zero are "
+"effectively dropped."
+msgstr ""
+
+#: ../../scala/stream/stream-error.rst:42
+msgid ""
+"Be aware that dropping elements may result in deadlocks in graphs with "
+"cycles, as explained in :ref:`graph-cycles-scala`."
+msgstr ""
+
+#: ../../scala/stream/stream-error.rst:45
+msgid "The supervision strategy can also be defined for all operators of a flow."
+msgstr ""
+
+#: ../../scala/stream/stream-error.rst:49
+msgid ""
+"``Restart`` works in a similar way as ``Resume`` with the addition that "
+"accumulated state, if any, of the failing processing stage will be reset."
+msgstr ""
+
+#: ../../scala/stream/stream-error.rst:55
+msgid "Errors from mapAsync"
+msgstr ""
+
+#: ../../scala/stream/stream-error.rst:57
+msgid "Stream supervision can also be applied to the futures of ``mapAsync``."
+msgstr ""
+
+#: ../../scala/stream/stream-error.rst:59
+msgid ""
+"Let's say that we use an external service to lookup email addresses and "
+"we would like to discard those that cannot be found."
+msgstr ""
+
+#: ../../scala/stream/stream-error.rst:62
+msgid "We start with the tweet stream of authors:"
+msgstr ""
+
+#: ../../scala/stream/stream-error.rst:66
+msgid "Assume that we can lookup their email address using:"
+msgstr ""
+
+#: ../../scala/stream/stream-error.rst:70
+msgid "The ``Future`` is completed with ``Failure`` if the email is not found."
+msgstr ""
+
+#: ../../scala/stream/stream-error.rst:72
+msgid ""
+"Transforming the stream of authors to a stream of email addresses by "
+"using the ``lookupEmail`` service can be done with ``mapAsync`` and we "
+"use ``Supervision.resumingDecider`` to drop unknown email addresses:"
+msgstr ""
+
+#: ../../scala/stream/stream-error.rst:78
+msgid ""
+"If we would not use ``Resume`` the default stopping strategy would "
+"complete the stream with failure on the first ``Future`` that was "
+"completed with ``Failure``."
+msgstr ""
+

@@ -1,0 +1,56 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/routing-dsl/directives/header-directives/headerValuePF.rst:4
+msgid "headerValuePF"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/header-directives/headerValuePF.rst:7
+msgid "Description"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/header-directives/headerValuePF.rst:8
+msgid ""
+"Calls the specified partial function with the first request header the "
+"function is ``isDefinedAt`` and extracts the result of calling the "
+"function."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/header-directives/headerValuePF.rst:11
+msgid ""
+"The ``headerValuePF`` directive is an alternative syntax version of :ref"
+":`-headerValue-java-`."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/header-directives/headerValuePF.rst:13
+msgid ""
+"If the function throws an exception the request is rejected with a "
+"``MalformedHeaderRejection``."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/header-directives/headerValuePF.rst:15
+msgid ""
+"If the function is not defined for any header the request is rejected as "
+"\"NotFound\"."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/header-directives/headerValuePF.rst:18
+msgid "Example"
+msgstr ""
+

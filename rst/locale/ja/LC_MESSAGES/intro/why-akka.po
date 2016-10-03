@@ -1,0 +1,136 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../intro/why-akka.rst:2
+msgid "Why Akka?"
+msgstr ""
+
+#: ../../intro/why-akka.rst:5
+msgid "What features can the Akka platform offer, over the competition?"
+msgstr ""
+
+#: ../../intro/why-akka.rst:7
+msgid "Akka provides scalable real-time transaction processing."
+msgstr ""
+
+#: ../../intro/why-akka.rst:9
+msgid "Akka is an unified runtime and programming model for:"
+msgstr ""
+
+#: ../../intro/why-akka.rst:11
+msgid "Scale up (Concurrency)"
+msgstr ""
+
+#: ../../intro/why-akka.rst:12
+msgid "Scale out (Remoting)"
+msgstr ""
+
+#: ../../intro/why-akka.rst:13
+msgid "Fault tolerance"
+msgstr ""
+
+#: ../../intro/why-akka.rst:15
+msgid "One thing to learn and admin, with high cohesion and coherent semantics."
+msgstr ""
+
+#: ../../intro/why-akka.rst:17
+msgid ""
+"Akka is a very scalable piece of software, not only in the context of "
+"performance but also in the size of applications it is useful for. The "
+"core of Akka, akka-actor, is very small and easily dropped into an "
+"existing project where you need asynchronicity and lockless concurrency "
+"without hassle."
+msgstr ""
+
+#: ../../intro/why-akka.rst:22
+msgid ""
+"You can choose to include only the parts of Akka you need in your "
+"application. With CPUs growing more and more cores every cycle, Akka is "
+"the alternative that provides outstanding performance even if you're only"
+" running it on one machine. Akka also supplies a wide array of "
+"concurrency-paradigms, allowing users to choose the right tool for the "
+"job."
+msgstr ""
+
+#: ../../intro/why-akka.rst:30
+msgid "What's a good use-case for Akka?"
+msgstr ""
+
+#: ../../intro/why-akka.rst:32
+msgid ""
+"We see Akka being adopted by many large organizations in a big range of "
+"industries:"
+msgstr ""
+
+#: ../../intro/why-akka.rst:34
+msgid "Investment and Merchant Banking"
+msgstr ""
+
+#: ../../intro/why-akka.rst:35
+msgid "Retail"
+msgstr ""
+
+#: ../../intro/why-akka.rst:36
+msgid "Social Media"
+msgstr ""
+
+#: ../../intro/why-akka.rst:37
+msgid "Simulation"
+msgstr ""
+
+#: ../../intro/why-akka.rst:38
+msgid "Gaming and Betting"
+msgstr ""
+
+#: ../../intro/why-akka.rst:39
+msgid "Automobile and Traffic Systems"
+msgstr ""
+
+#: ../../intro/why-akka.rst:40
+msgid "Health Care"
+msgstr ""
+
+#: ../../intro/why-akka.rst:41
+msgid "Data Analytics"
+msgstr ""
+
+#: ../../intro/why-akka.rst:43
+msgid ""
+"and much more. Any system with the need for high-throughput and low "
+"latency is a good candidate for using Akka."
+msgstr ""
+
+#: ../../intro/why-akka.rst:46
+msgid ""
+"Actors let you manage service failures (Supervisors), load management "
+"(back-off strategies, timeouts and processing-isolation), as well as both"
+" horizontal and vertical scalability (add more cores and/or add more "
+"machines)."
+msgstr ""
+
+#: ../../intro/why-akka.rst:50
+msgid ""
+"Here's what some of the Akka users have to say about how they are using "
+"Akka: http://stackoverflow.com/questions/4493001/good-use-case-for-akka"
+msgstr ""
+
+#: ../../intro/why-akka.rst:53
+msgid "All this in the ApacheV2-licensed open source project."
+msgstr ""
+

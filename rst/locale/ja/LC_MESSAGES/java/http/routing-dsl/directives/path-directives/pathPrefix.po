@@ -1,0 +1,71 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/routing-dsl/directives/path-directives/pathPrefix.rst:4
+msgid "pathPrefix"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives/pathPrefix.rst:7
+msgid "Description"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives/pathPrefix.rst:8
+msgid ""
+"Matches and consumes a prefix of the unmatched path of the "
+"``RequestContext`` against the given ``PathMatcher``, potentially "
+"extracts one or more values (depending on the type of the argument)."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives/pathPrefix.rst:11
+msgid ""
+"This directive filters incoming requests based on the part of their URI "
+"that hasn't been matched yet by other potentially existing ``pathPrefix``"
+" or :ref:`-rawPathPrefix-java-` directives on higher levels of the "
+"routing structure. Its one parameter is usually an expression evaluating "
+"to a ``PathMatcher`` instance (see also: :ref:`pathmatcher-dsl`)."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives/pathPrefix.rst:15
+msgid ""
+"As opposed to its :ref:`-rawPathPrefix-java-` counterpart ``pathPrefix`` "
+"automatically adds a leading slash to its ``PathMatcher`` argument, you "
+"therefore don't have to start your matching expression with an explicit "
+"slash."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives/pathPrefix.rst:18
+msgid ""
+"Depending on the type of its ``PathMatcher`` argument the ``pathPrefix`` "
+"directive extracts zero or more values from the URI. If the match fails "
+"the request is rejected with an :ref:`empty rejection set <empty "
+"rejections>`."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives/pathPrefix.rst:21
+msgid ""
+"The empty string (also called empty word or identity) is a **neutral "
+"element** of string concatenation operation, so it will match everything "
+"and consume nothing. The :ref:`-path-java-` provides more strict "
+"behaviour."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives/pathPrefix.rst:26
+msgid "Example"
+msgstr ""
+

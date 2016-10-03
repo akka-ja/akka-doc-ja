@@ -1,0 +1,93 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../scala/http/routing-dsl/exception-handling.rst:4
+msgid "Exception Handling"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/exception-handling.rst:6
+msgid ""
+"Exceptions thrown during route execution bubble up through the route "
+"structure to the next enclosing :ref:`-handleExceptions-` directive or "
+"the top of your route structure."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/exception-handling.rst:9
+msgid ""
+"Similarly to the way that :ref:`rejections-scala` are handled the "
+":ref:`-handleExceptions-` directive delegates the actual job of "
+"converting an exception to its argument, an ExceptionHandler__, which is "
+"defined like this::"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/exception-handling.rst:16
+msgid ""
+"Since an ``ExceptionHandler`` is a partial function it can choose, which "
+"exceptions it would like to handle and which not. Unhandled exceptions "
+"will simply continue to bubble up in the route structure. At the root of "
+"the route tree any still unhandled exception will be dealt with by the "
+"top-level handler which always handles *all* exceptions."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/exception-handling.rst:21
+msgid ""
+"``Route.seal`` internally wraps its argument route with the "
+":ref:`-handleExceptions-` directive in order to \"catch\" and handle any "
+"exception."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/exception-handling.rst:24
+msgid ""
+"So, if you'd like to customize the way certain exceptions are handled you"
+" need to write a custom ``ExceptionHandler``. Once you have defined your "
+"custom ``ExceptionHandler`` you have two options for \"activating\" it:"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/exception-handling.rst:27
+msgid "Bring it into implicit scope at the top-level."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/exception-handling.rst:28
+msgid "Supply it as argument to the :ref:`-handleExceptions-` directive."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/exception-handling.rst:30
+msgid ""
+"In the first case your handler will be \"sealed\" (which means that it "
+"will receive the default handler as a fallback for all cases your handler"
+" doesn't handle itself) and used for all exceptions that are not handled "
+"within the route structure itself."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/exception-handling.rst:34
+msgid ""
+"The second case allows you to restrict the applicability of your handler "
+"to certain branches of your route structure."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/exception-handling.rst:36
+msgid ""
+"Here is an example for wiring up a custom handler via "
+":ref:`-handleExceptions-`:"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/exception-handling.rst:42
+msgid "And this is how to do it implicitly:"
+msgstr ""
+

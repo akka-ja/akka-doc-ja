@@ -1,0 +1,87 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../scala/http/routing-dsl/directives/marshalling-directives/index.rst:4
+msgid "Marshalling Directives"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/marshalling-directives/index.rst:6
+msgid ""
+"Marshalling directives work in conjunction with "
+"``akka.http.scaladsl.marshalling`` and "
+"``akka.http.scaladsl.unmarshalling`` to convert a request entity to a "
+"specific type or a type to a response."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/marshalling-directives/index.rst:9
+msgid ""
+"See :ref:`marshalling <http-marshalling-scala>` and :ref:`unmarshalling "
+"<http-unmarshalling-scala>` for specific serialization (also known as "
+"pickling) guidance."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/marshalling-directives/index.rst:12
+msgid ""
+"Marshalling directives usually rely on an in-scope implicit marshaller to"
+" handle conversion."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/marshalling-directives/index.rst:22
+msgid "Understanding Specific Marshalling Directives"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/marshalling-directives/index.rst:25
+msgid "directive"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/marshalling-directives/index.rst:25
+msgid "behavior"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/marshalling-directives/index.rst:27
+msgid ":ref:`-completeWith-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/marshalling-directives/index.rst:27
+msgid ""
+"Uses a marshaller for a given type to produce a completion function for "
+"an inner route. Used in conjuction with *instanceOf* to format responses."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/marshalling-directives/index.rst:28
+msgid ":ref:`-entity-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/marshalling-directives/index.rst:28
+msgid ""
+"Unmarshalls the request entity to the given type and passes it to its "
+"inner route.  Used in conjection with *as* to convert requests to "
+"objects."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/marshalling-directives/index.rst:29
+msgid ":ref:`-handleWith-`"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/marshalling-directives/index.rst:29
+msgid ""
+"Completes a request with a given function, using an in-scope unmarshaller"
+" for an input and in-scope marshaller for the output."
+msgstr ""
+

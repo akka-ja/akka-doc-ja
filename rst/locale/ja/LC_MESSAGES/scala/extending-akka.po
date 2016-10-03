@@ -1,0 +1,152 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../scala/extending-akka.rst:5
+msgid "Akka Extensions"
+msgstr ""
+
+#: ../../scala/extending-akka.rst:8
+msgid ""
+"If you want to add features to Akka, there is a very elegant, but "
+"powerful mechanism for doing so. It's called Akka Extensions and is "
+"comprised of 2 basic components: an ``Extension`` and an ``ExtensionId``."
+msgstr ""
+
+#: ../../scala/extending-akka.rst:11
+msgid ""
+"Extensions will only be loaded once per ``ActorSystem``, which will be "
+"managed by Akka. You can choose to have your Extension loaded on-demand "
+"or at ``ActorSystem`` creation time through the Akka configuration. "
+"Details on how to make that happens are below, in the \"Loading from "
+"Configuration\" section."
+msgstr ""
+
+#: ../../scala/extending-akka.rst:17
+msgid ""
+"Since an extension is a way to hook into Akka itself, the implementor of "
+"the extension needs to ensure the thread safety of his/her extension."
+msgstr ""
+
+#: ../../scala/extending-akka.rst:21
+msgid "Building an Extension"
+msgstr ""
+
+#: ../../scala/extending-akka.rst:23
+msgid ""
+"So let's create a sample extension that just lets us count the number of "
+"times something has happened."
+msgstr ""
+
+#: ../../scala/extending-akka.rst:25
+msgid "First, we define what our ``Extension`` should do:"
+msgstr ""
+
+#: ../../scala/extending-akka.rst:30
+msgid ""
+"Then we need to create an ``ExtensionId`` for our extension so we can "
+"grab a hold of it."
+msgstr ""
+
+#: ../../scala/extending-akka.rst:35
+msgid "Wicked! Now all we need to do is to actually use it:"
+msgstr ""
+
+#: ../../scala/extending-akka.rst:40
+msgid "Or from inside of an Akka Actor:"
+msgstr ""
+
+#: ../../scala/extending-akka.rst:45
+msgid "You can also hide extension behind traits:"
+msgstr ""
+
+#: ../../scala/extending-akka.rst:50
+msgid "That's all there is to it!"
+msgstr ""
+
+#: ../../scala/extending-akka.rst:53
+msgid "Loading from Configuration"
+msgstr ""
+
+#: ../../scala/extending-akka.rst:55
+msgid ""
+"To be able to load extensions from your Akka configuration you must add "
+"FQCNs of implementations of either ``ExtensionId`` or "
+"``ExtensionIdProvider`` in the ``akka.extensions`` section of the config "
+"you provide to your ``ActorSystem``."
+msgstr ""
+
+#: ../../scala/extending-akka.rst:62
+msgid "Applicability"
+msgstr ""
+
+#: ../../scala/extending-akka.rst:64
+msgid ""
+"The sky is the limit! By the way, did you know that Akka's ``Typed "
+"Actors``, ``Serialization`` and other features are implemented as Akka "
+"Extensions?"
+msgstr ""
+
+#: ../../scala/extending-akka.rst:70
+msgid "Application specific settings"
+msgstr ""
+
+#: ../../scala/extending-akka.rst:72
+msgid ""
+"The :ref:`configuration` can be used for application specific settings. A"
+" good practice is to place those settings in an Extension."
+msgstr ""
+
+#: ../../scala/extending-akka.rst:74
+msgid "Sample configuration:"
+msgstr ""
+
+#: ../../scala/extending-akka.rst:79
+msgid "The ``Extension``:"
+msgstr ""
+
+#: ../../scala/extending-akka.rst:85
+msgid "Use it:"
+msgstr ""
+
+#: ../../scala/extending-akka.rst:92
+msgid "Library extensions"
+msgstr ""
+
+#: ../../scala/extending-akka.rst:93
+msgid ""
+"A third part library may register it's extension for auto-loading on "
+"actor system startup by appending it to ``akka.library-extensions`` in "
+"its ``reference.conf``."
+msgstr ""
+
+#: ../../scala/extending-akka.rst:101
+msgid ""
+"As there is no way to selectively remove such extensions, it should be "
+"used with care and only when there is no case where the user would ever "
+"want it disabled or have specific support for disabling such sub-"
+"features. One example where this could be important is in tests."
+msgstr ""
+
+#: ../../scala/extending-akka.rst:106
+msgid ""
+"The``akka.library-extensions`` must never be assigned (``= "
+"[\"Extension\"]``) instead of appending as this will break the library-"
+"extension mechanism and make behavior depend on class path ordering."
+msgstr ""
+

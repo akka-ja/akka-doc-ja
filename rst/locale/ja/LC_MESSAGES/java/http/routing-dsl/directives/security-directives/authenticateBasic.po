@@ -1,0 +1,78 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateBasic.rst:4
+msgid "authenticateBasic"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateBasic.rst:5
+msgid ""
+"Wraps the inner route with Http Basic authentication support using a "
+"given ``Authenticator<T>``."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateBasic.rst:8
+msgid "Description"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateBasic.rst:9
+msgid "Provides support for handling `HTTP Basic Authentication`_."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateBasic.rst:11
+msgid ""
+"Given a function returning an ``Optional<T>`` with a value upon "
+"successful authentication and an empty ``Optional<T>`` otherwise, "
+"respectively applies the inner route or rejects the request with a "
+":class:`AuthenticationFailedRejection` rejection, which by default is "
+"mapped to an ``401 Unauthorized`` response."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateBasic.rst:15
+msgid ""
+"Longer-running authentication tasks (like looking up credentials in a "
+"database) should use the :ref:`-authenticateBasicAsync-java-` variant of "
+"this directive which allows it to run without blocking routing layer of "
+"Akka HTTP, freeing it for other requests."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateBasic.rst:18
+msgid ""
+"Standard HTTP-based authentication which uses the ``WWW-Authenticate`` "
+"header containing challenge data and ``Authorization`` header for "
+"receiving credentials is implemented in subclasses of "
+"``HttpAuthenticator``."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateBasic.rst:21
+msgid ""
+"See :ref:`credentials-and-timing-attacks-java` for details about "
+"verifying the secret."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateBasic.rst:24
+msgid ""
+"Make sure to use basic authentication only over SSL/TLS because "
+"credentials are transferred in plaintext."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateBasic.rst:29
+msgid "Example"
+msgstr ""
+

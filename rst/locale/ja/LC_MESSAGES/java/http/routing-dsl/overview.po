@@ -1,0 +1,72 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/routing-dsl/overview.rst:4
+msgid "Routing DSL Overview"
+msgstr ""
+
+#: ../../java/http/routing-dsl/overview.rst:6
+msgid ""
+"The Akka HTTP :ref:`http-low-level-server-side-api-java` provides a "
+"``Flow``- or ``Function``-level interface that allows an application to "
+"respond to incoming HTTP requests by simply mapping requests to responses"
+" (excerpt from :ref:`Low-level server side example <http-low-level-"
+"server-side-example-java>`):"
+msgstr ""
+
+#: ../../java/http/routing-dsl/overview.rst:13
+msgid ""
+"While it'd be perfectly possible to define a complete REST API service "
+"purely by inspecting the incoming ``HttpRequest`` this approach becomes "
+"somewhat unwieldy for larger services due to the amount of syntax "
+"\"ceremony\" required. Also, it doesn't help in keeping your service "
+"definition as DRY_ as you might like."
+msgstr ""
+
+#: ../../java/http/routing-dsl/overview.rst:17
+msgid ""
+"As an alternative Akka HTTP provides a flexible DSL for expressing your "
+"service behavior as a structure of composable elements (called :ref"
+":`directives-java`) in a concise and readable way. Directives are "
+"assembled into a so called *route structure* which, at its top-level, can"
+" be used to create a handler ``Flow`` (or, alternatively, an async "
+"handler function) that can be directly supplied to a ``bind`` call."
+msgstr ""
+
+#: ../../java/http/routing-dsl/overview.rst:22
+msgid "Here's the complete example rewritten using the composable high-level API:"
+msgstr ""
+
+#: ../../java/http/routing-dsl/overview.rst:27
+msgid "The core of the Routing DSL becomes available with a single import::"
+msgstr ""
+
+#: ../../java/http/routing-dsl/overview.rst:31
+msgid ""
+"Or by extending the ``akka.http.javadsl.server.AllDirectives`` class "
+"which brings together all directives into a single class for easier "
+"access::"
+msgstr ""
+
+#: ../../java/http/routing-dsl/overview.rst:36
+msgid ""
+"Of course it is possible to directly import only the directives you need "
+"(i.e. ``WebSocketDirectives`` etc)."
+msgstr ""
+

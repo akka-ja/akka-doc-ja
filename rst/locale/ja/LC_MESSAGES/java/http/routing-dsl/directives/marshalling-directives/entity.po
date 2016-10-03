@@ -1,0 +1,118 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/routing-dsl/directives/marshalling-directives/entity.rst:4
+msgid "entity"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/marshalling-directives/entity.rst:7
+msgid "Description"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/marshalling-directives/entity.rst:8
+msgid ""
+"Unmarshalls the request entity to the given type and passes it to its "
+"inner Route.  An unmarshaller returns an ``Either`` with ``Right(value)``"
+" if successful or ``Left(exception)`` for a failure. The ``entity`` "
+"method will either pass the ``value`` to the inner route or map the "
+"``exception`` to a :class:``akka.http.javadsl.server.Rejection``."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/marshalling-directives/entity.rst:13
+msgid ""
+"The ``entity`` directive works in conjuction with ``as`` and "
+"``akka.http.scaladsl.unmarshalling`` to convert some serialized \"wire "
+"format\" value into a higher-level object structure. :ref:`The "
+"unmarshalling documentation <http-unmarshalling-java>` explains this "
+"process in detail. This directive simplifies extraction and error "
+"handling to the specified type from the request."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/marshalling-directives/entity.rst:18
+msgid ""
+"An unmarshaller will return a ``Left(exception)`` in the case of an "
+"error.  This is converted to a ``akka.http.scaladsl.server.Rejection`` "
+"within the ``entity`` directive.  The following table lists how "
+"exceptions are mapped to rejections:"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/marshalling-directives/entity.rst:23
+msgid "Left(exception)"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/marshalling-directives/entity.rst:23
+msgid "Rejection"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/marshalling-directives/entity.rst:25
+msgid "``ContentExpected``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/marshalling-directives/entity.rst:25
+msgid "``RequestEntityExpectedRejection``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/marshalling-directives/entity.rst:26
+msgid "``UnsupportedContentType``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/marshalling-directives/entity.rst:26
+msgid ""
+"``UnsupportedRequestContentTypeRejection``, which lists the supported "
+"types"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/marshalling-directives/entity.rst:27
+msgid "``MaformedContent``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/marshalling-directives/entity.rst:27
+msgid "``MalformedRequestContentRejection``, with an error message and cause"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/marshalling-directives/entity.rst:31
+msgid "Examples"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/marshalling-directives/entity.rst:33
+msgid ""
+"The following example uses ``spray-json`` to unmarshall a json request "
+"into a simple ``Person`` class.  It utilizes ``SprayJsonSupport`` via the"
+" ``PersonJsonSupport`` object as the in-scope unmarshaller."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/marshalling-directives/entity.rst:36
+msgid "TODO: Add example snippets."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/marshalling-directives/entity.rst:38
+msgid ""
+"It is also possible to use the ``entity`` directive to obtain raw "
+"``JsValue`` ( spray-json_ ) objects, by simply using ``as[JsValue]``, or "
+"any other JSON type for which you have marshallers in-scope."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/marshalling-directives/entity.rst:41
+msgid ""
+"TODO: Example snippets for JavaDSL are subject to community "
+"contributions! Help us complete the docs, read more about it here: `write"
+" example snippets for Akka HTTP Java DSL #20466 "
+"<https://github.com/akka/akka/issues/20466>`_."
+msgstr ""
+

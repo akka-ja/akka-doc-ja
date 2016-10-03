@@ -1,0 +1,66 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateBasicPFAsync.rst:4
+msgid "authenticateBasicPFAsync"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateBasicPFAsync.rst:5
+msgid ""
+"Wraps the inner route with Http Basic authentication support using a "
+"given ``AsyncAuthenticatorPF<T>``."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateBasicPFAsync.rst:8
+msgid "Description"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateBasicPFAsync.rst:9
+msgid "Provides support for handling `HTTP Basic Authentication`_."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateBasicPFAsync.rst:11
+msgid ""
+"Refer to :ref:`-authenticateBasic-java-` for a detailed description of "
+"this directive."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateBasicPFAsync.rst:13
+msgid ""
+"Its semantics are equivalent to ``authenticateBasicPF`` 's, where not "
+"handling a case in the Partial Function (PF) leaves the request to be "
+"rejected with a :class:`AuthenticationFailedRejection` rejection."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateBasicPFAsync.rst:16
+msgid ""
+"See :ref:`credentials-and-timing-attacks-java` for details about "
+"verifying the secret."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateBasicPFAsync.rst:19
+msgid ""
+"Make sure to use basic authentication only over SSL/TLS because "
+"credentials are transferred in plaintext."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateBasicPFAsync.rst:24
+msgid "Example"
+msgstr ""
+

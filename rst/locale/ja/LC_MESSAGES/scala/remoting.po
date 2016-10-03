@@ -1,0 +1,718 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../scala/remoting.rst:5
+msgid "Remoting"
+msgstr ""
+
+#: ../../scala/remoting.rst:7
+msgid ""
+"For an introduction of remoting capabilities of Akka please see "
+":ref:`remoting`."
+msgstr ""
+
+#: ../../scala/remoting.rst:11
+msgid ""
+"As explained in that chapter Akka remoting is designed for communication "
+"in a peer-to-peer fashion and it has limitations for client-server "
+"setups. In particular Akka Remoting does not work transparently with "
+"Network Address Translation, Load Balancers, or in Docker containers. For"
+" symmetric communication in these situations network and/or Akka "
+"configuration will have to be changed as described in :ref:`remote-"
+"configuration-nat`."
+msgstr ""
+
+#: ../../scala/remoting.rst:19
+msgid "Preparing your ActorSystem for Remoting"
+msgstr ""
+
+#: ../../scala/remoting.rst:21
+msgid ""
+"The Akka remoting is a separate jar file. Make sure that you have the "
+"following dependency in your project::"
+msgstr ""
+
+#: ../../scala/remoting.rst:25
+msgid ""
+"To enable remote capabilities in your Akka project you should, at a "
+"minimum, add the following changes to your ``application.conf`` file::"
+msgstr ""
+
+#: ../../scala/remoting.rst:41
+msgid ""
+"As you can see in the example above there are four things you need to add"
+" to get started:"
+msgstr ""
+
+#: ../../scala/remoting.rst:43
+msgid ""
+"Change provider from ``akka.actor.LocalActorRefProvider`` to "
+"``akka.remote.RemoteActorRefProvider``"
+msgstr ""
+
+#: ../../scala/remoting.rst:44
+msgid ""
+"Add host name - the machine you want to run the actor system on; this "
+"host name is exactly what is passed to remote systems in order to "
+"identify this system and consequently used for connecting back to this "
+"system if need be, hence set it to a reachable IP address or resolvable "
+"name in case you want to communicate across the network."
+msgstr ""
+
+#: ../../scala/remoting.rst:49
+msgid ""
+"Add port number - the port the actor system should listen on, set to 0 to"
+" have it chosen automatically"
+msgstr ""
+
+#: ../../scala/remoting.rst:52
+msgid ""
+"The port number needs to be unique for each actor system on the same "
+"machine even if the actor systems have different names. This is because "
+"each actor system has its own networking subsystem listening for "
+"connections and handling messages as not to interfere with other actor "
+"systems."
+msgstr ""
+
+#: ../../scala/remoting.rst:56
+msgid ""
+"The example above only illustrates the bare minimum of properties you "
+"have to add to enable remoting. All settings are described in :ref"
+":`remote-configuration-scala`."
+msgstr ""
+
+#: ../../scala/remoting.rst:60
+msgid "Types of Remote Interaction"
+msgstr ""
+
+#: ../../scala/remoting.rst:62
+msgid "Akka has two ways of using remoting:"
+msgstr ""
+
+#: ../../scala/remoting.rst:64
+msgid ""
+"Lookup    : used to look up an actor on a remote node with "
+"``actorSelection(path)``"
+msgstr ""
+
+#: ../../scala/remoting.rst:65
+msgid ""
+"Creation  : used to create an actor on a remote node with "
+"``actorOf(Props(...), actorName)``"
+msgstr ""
+
+#: ../../scala/remoting.rst:67
+msgid "In the next sections the two alternatives are described in detail."
+msgstr ""
+
+#: ../../scala/remoting.rst:70
+msgid "Looking up Remote Actors"
+msgstr ""
+
+#: ../../scala/remoting.rst:72
+msgid ""
+"``actorSelection(path)`` will obtain an ``ActorSelection`` to an Actor on"
+" a remote node, e.g.::"
+msgstr ""
+
+#: ../../scala/remoting.rst:77
+msgid ""
+"As you can see from the example above the following pattern is used to "
+"find an actor on a remote node::"
+msgstr ""
+
+#: ../../scala/remoting.rst:81
+msgid ""
+"Once you obtained a selection to the actor you can interact with it in "
+"the same way you would with a local actor, e.g.::"
+msgstr ""
+
+#: ../../scala/remoting.rst:85
+msgid ""
+"To acquire an :class:`ActorRef` for an :class:`ActorSelection` you need "
+"to send a message to the selection and use the ``sender`` reference of "
+"the reply from the actor. There is a built-in ``Identify`` message that "
+"all Actors will understand and automatically reply to with a "
+"``ActorIdentity`` message containing the :class:`ActorRef`. This can also"
+" be done with the ``resolveOne`` method of the :class:`ActorSelection`, "
+"which returns a ``Future`` of the matching :class:`ActorRef`."
+msgstr ""
+
+#: ../../scala/remoting.rst:95
+msgid ""
+"For more details on how actor addresses and paths are formed and used, "
+"please refer to :ref:`addressing`."
+msgstr ""
+
+#: ../../scala/remoting.rst:99
+msgid ""
+"Message sends to actors that are actually in the sending actor system do "
+"not get delivered via the remote actor ref provider. They're delivered "
+"directly, by the local actor ref provider."
+msgstr ""
+
+#: ../../scala/remoting.rst:103
+msgid ""
+"Aside from providing better performance, this also means that if the "
+"hostname you configure remoting to listen as cannot actually be resolved "
+"from within the very same actor system, such messages will (perhaps "
+"counterintuitively) be delivered just fine."
+msgstr ""
+
+#: ../../scala/remoting.rst:109
+msgid "Creating Actors Remotely"
+msgstr ""
+
+#: ../../scala/remoting.rst:111
+msgid ""
+"If you want to use the creation functionality in Akka remoting you have "
+"to further amend the ``application.conf`` file in the following way (only"
+" showing deployment section)::"
+msgstr ""
+
+#: ../../scala/remoting.rst:124
+msgid ""
+"The configuration above instructs Akka to react when an actor with path "
+"``/sampleActor`` is created, i.e. using ``system.actorOf(Props(...), "
+"\"sampleActor\")``. This specific actor will not be directly "
+"instantiated, but instead the remote daemon of the remote system will be "
+"asked to create the actor, which in this sample corresponds to "
+"``sampleActorSystem@127.0.0.1:2553``."
+msgstr ""
+
+#: ../../scala/remoting.rst:129
+msgid ""
+"Once you have configured the properties above you would do the following "
+"in code:"
+msgstr ""
+
+#: ../../scala/remoting.rst:133
+msgid ""
+"The actor class ``SampleActor`` has to be available to the runtimes using"
+" it, i.e. the classloader of the actor systems has to have a JAR "
+"containing the class."
+msgstr ""
+
+#: ../../scala/remoting.rst:138
+msgid ""
+"In order to ensure serializability of ``Props`` when passing constructor "
+"arguments to the actor being created, do not make the factory an inner "
+"class: this will inherently capture a reference to its enclosing object, "
+"which in most cases is not serializable. It is best to create a factory "
+"method in the companion object of the actor’s class."
+msgstr ""
+
+#: ../../scala/remoting.rst:144
+msgid ""
+"Serializability of all Props can be tested by setting the configuration "
+"item ``akka.actor.serialize-creators=on``. Only Props whose ``deploy`` "
+"has ``LocalScope`` are exempt from this check."
+msgstr ""
+
+#: ../../scala/remoting.rst:150
+msgid ""
+"You can use asterisks as wildcard matches for the actor paths, so you "
+"could specify: ``/*/sampleActor`` and that would match all "
+"``sampleActor`` on that level in the hierarchy. You can also use wildcard"
+" in the last position to match all actors at a certain level: "
+"``/someParent/*``. Non-wildcard matches always have higher priority to "
+"match than wildcards, so: ``/foo/bar`` is considered **more specific** "
+"than ``/foo/*`` and only the highest priority match is used. Please note "
+"that it **cannot** be used to partially match section, like this: "
+"``/foo*/bar``, ``/f*o/bar`` etc."
+msgstr ""
+
+#: ../../scala/remoting.rst:158
+msgid "Programmatic Remote Deployment"
+msgstr ""
+
+#: ../../scala/remoting.rst:160
+msgid ""
+"To allow dynamically deployed systems, it is also possible to include "
+"deployment configuration in the :class:`Props` which are used to create "
+"an actor: this information is the equivalent of a deployment section from"
+" the configuration file, and if both are given, the external "
+"configuration takes precedence."
+msgstr ""
+
+#: ../../scala/remoting.rst:166
+msgid "With these imports:"
+msgstr ""
+
+#: ../../scala/remoting.rst:170
+msgid "and a remote address like this:"
+msgstr ""
+
+#: ../../scala/remoting.rst:174
+msgid "you can advise the system to create a child on that remote node like so:"
+msgstr ""
+
+#: ../../scala/remoting.rst:179
+msgid "Lifecycle and Failure Recovery Model"
+msgstr ""
+
+#: ../../scala/remoting.rst:185
+msgid ""
+"Each link with a remote system can be in one of the four states as "
+"illustrated above. Before any communication happens with a remote system "
+"at a given ``Address`` the state of the association is ``Idle``. The "
+"first time a message is attempted to be sent to the remote system or an "
+"inbound connection is accepted the state of the link transitions to "
+"``Active`` denoting that the two systems has messages to send or receive "
+"and no failures were encountered so far. When a communication failure "
+"happens and the connection is lost between the two systems the link "
+"becomes ``Gated``."
+msgstr ""
+
+#: ../../scala/remoting.rst:191
+msgid ""
+"In this state the system will not attempt to connect to the remote host "
+"and all outbound messages will be dropped. The time while the link is in "
+"the ``Gated`` state is controlled by the setting ``akka.remote.retry-"
+"gate-closed-for``: after this time elapses the link state transitions to "
+"``Idle`` again. ``Gate`` is one-sided in the sense that whenever a "
+"successful *inbound* connection is accepted from a remote system during "
+"``Gate`` it automatically transitions to ``Active`` and communication "
+"resumes immediately."
+msgstr ""
+
+#: ../../scala/remoting.rst:197
+msgid ""
+"In the face of communication failures that are unrecoverable because the "
+"state of the participating systems are inconsistent, the remote system "
+"becomes ``Quarantined``. Unlike ``Gate``, quarantining is permanent and "
+"lasts until one of the systems is restarted. After a restart "
+"communication can be resumed again and the link can become ``Active`` "
+"again."
+msgstr ""
+
+#: ../../scala/remoting.rst:202
+msgid "Watching Remote Actors"
+msgstr ""
+
+#: ../../scala/remoting.rst:204
+msgid ""
+"Watching a remote actor is not different than watching a local actor, as "
+"described in :ref:`deathwatch-scala`."
+msgstr ""
+
+#: ../../scala/remoting.rst:208
+msgid "Failure Detector"
+msgstr ""
+
+#: ../../scala/remoting.rst:210
+msgid ""
+"Under the hood remote death watch uses heartbeat messages and a failure "
+"detector to generate ``Terminated`` message from network failures and JVM"
+" crashes, in addition to graceful termination of watched actor."
+msgstr ""
+
+#: ../../scala/remoting.rst:214
+msgid ""
+"The heartbeat arrival times is interpreted by an implementation of `The "
+"Phi Accrual Failure Detector "
+"<http://www.jaist.ac.jp/~defago/files/pdf/IS_RR_2004_010.pdf>`_."
+msgstr ""
+
+#: ../../scala/remoting.rst:217
+msgid ""
+"The suspicion level of failure is given by a value called *phi*. The "
+"basic idea of the phi failure detector is to express the value of *phi* "
+"on a scale that is dynamically adjusted to reflect current network "
+"conditions."
+msgstr ""
+
+#: ../../scala/remoting.rst:221
+msgid "The value of *phi* is calculated as::"
+msgstr ""
+
+#: ../../scala/remoting.rst:225
+msgid ""
+"where F is the cumulative distribution function of a normal distribution "
+"with mean and standard deviation estimated from historical heartbeat "
+"inter-arrival times."
+msgstr ""
+
+#: ../../scala/remoting.rst:228
+msgid ""
+"In the :ref:`remote-configuration-scala` you can adjust the ``akka.remote"
+".watch-failure-detector.threshold`` to define when a *phi* value is "
+"considered to be a failure."
+msgstr ""
+
+#: ../../scala/remoting.rst:231
+msgid ""
+"A low ``threshold`` is prone to generate many false positives but ensures"
+" a quick detection in the event of a real crash. Conversely, a high "
+"``threshold`` generates fewer mistakes but needs more time to detect "
+"actual crashes. The default ``threshold`` is 10 and is appropriate for "
+"most situations. However in cloud environments, such as Amazon EC2, the "
+"value could be increased to 12 in order to account for network issues "
+"that sometimes occur on such platforms."
+msgstr ""
+
+#: ../../scala/remoting.rst:238
+msgid ""
+"The following chart illustrates how *phi* increase with increasing time "
+"since the previous heartbeat."
+msgstr ""
+
+#: ../../scala/remoting.rst:243
+msgid ""
+"Phi is calculated from the mean and standard deviation of historical "
+"inter arrival times. The previous chart is an example for standard "
+"deviation of 200 ms. If the heartbeats arrive with less deviation the "
+"curve becomes steeper, i.e. it is possible to determine failure more "
+"quickly. The curve looks like this for a standard deviation of 100 ms."
+msgstr ""
+
+#: ../../scala/remoting.rst:251
+msgid ""
+"To be able to survive sudden abnormalities, such as garbage collection "
+"pauses and transient network failures the failure detector is configured "
+"with a margin, ``akka.remote.watch-failure-detector.acceptable-heartbeat-"
+"pause``. You may want to adjust the :ref:`remote-configuration-scala` of "
+"this depending on you environment. This is how the curve looks like for "
+"``acceptable-heartbeat-pause`` configured to 3 seconds."
+msgstr ""
+
+#: ../../scala/remoting.rst:261
+msgid "Serialization"
+msgstr ""
+
+#: ../../scala/remoting.rst:263
+msgid ""
+"When using remoting for actors you must ensure that the ``props`` and "
+"``messages`` used for those actors are serializable. Failing to do so "
+"will cause the system to behave in an unintended way."
+msgstr ""
+
+#: ../../scala/remoting.rst:266
+msgid "For more information please see :ref:`serialization-scala`."
+msgstr ""
+
+#: ../../scala/remoting.rst:269
+msgid "Routers with Remote Destinations"
+msgstr ""
+
+#: ../../scala/remoting.rst:271
+msgid "It is absolutely feasible to combine remoting with :ref:`routing-scala`."
+msgstr ""
+
+#: ../../scala/remoting.rst:273
+msgid "A pool of remote deployed routees can be configured as:"
+msgstr ""
+
+#: ../../scala/remoting.rst:277
+msgid ""
+"This configuration setting will clone the actor defined in the ``Props`` "
+"of the ``remotePool`` 10 times and deploy it evenly distributed across "
+"the two given target nodes."
+msgstr ""
+
+#: ../../scala/remoting.rst:280
+msgid "A group of remote actors can be configured as:"
+msgstr ""
+
+#: ../../scala/remoting.rst:284
+msgid ""
+"This configuration setting will send messages to the defined remote actor"
+" paths. It requires that you create the destination actors on the remote "
+"nodes with matching paths. That is not done by the router."
+msgstr ""
+
+#: ../../scala/remoting.rst:291
+msgid "Remoting Sample"
+msgstr ""
+
+#: ../../scala/remoting.rst:293
+msgid ""
+"There is a more extensive remote example that comes with `Lightbend "
+"Activator <http://www.lightbend.com/platform/getstarted>`_. The tutorial "
+"named `Akka Remote Samples with Scala "
+"<http://www.lightbend.com/activator/template/akka-sample-remote-scala>`_ "
+"demonstrates both remote deployment and look-up of remote actors."
+msgstr ""
+
+#: ../../scala/remoting.rst:298
+msgid "Pluggable transport support"
+msgstr ""
+
+#: ../../scala/remoting.rst:300
+msgid ""
+"Akka can be configured to use various transports to communicate with "
+"remote systems. The core component of this feature is the "
+":meth:`akka.remote.transport.Transport` SPI. Transport implementations "
+"must extend this trait. Transports can be loaded by setting the "
+"``akka.remote.enabled-transports`` configuration key to point to one or "
+"more configuration sections containing driver descriptions."
+msgstr ""
+
+#: ../../scala/remoting.rst:305
+msgid "An example of setting up the default Netty based SSL driver as default::"
+msgstr ""
+
+#: ../../scala/remoting.rst:324
+msgid "An example of setting up a custom transport implementation::"
+msgstr ""
+
+#: ../../scala/remoting.rst:350
+msgid "Remote Events"
+msgstr ""
+
+#: ../../scala/remoting.rst:352
+msgid ""
+"It is possible to listen to events that occur in Akka Remote, and to "
+"subscribe/unsubscribe to these events you simply register as listener to "
+"the below described types in on the ``ActorSystem.eventStream``."
+msgstr ""
+
+#: ../../scala/remoting.rst:357
+msgid ""
+"To subscribe to any remote event, subscribe to "
+":meth:`RemotingLifecycleEvent`.  To subscribe to events related only to "
+"the lifecycle of associations, subscribe to "
+":meth:`akka.remote.AssociationEvent`."
+msgstr ""
+
+#: ../../scala/remoting.rst:364
+msgid ""
+"The use of term \"Association\" instead of \"Connection\" reflects that "
+"the remoting subsystem may use connectionless transports, but an "
+"association similar to transport layer connections is maintained between "
+"endpoints by the Akka protocol."
+msgstr ""
+
+#: ../../scala/remoting.rst:369
+msgid ""
+"By default an event listener is registered which logs all of the events "
+"described below. This default was chosen to help setting up a system, but"
+" it is quite common to switch this logging off once that phase of the "
+"project is finished."
+msgstr ""
+
+#: ../../scala/remoting.rst:376
+msgid ""
+"In order to switch off the logging, set ``akka.remote.log-remote-"
+"lifecycle-events = off`` in your ``application.conf``."
+msgstr ""
+
+#: ../../scala/remoting.rst:380
+msgid ""
+"To be notified when an association is over (\"disconnected\") listen to "
+"``DisassociatedEvent`` which holds the direction of the association "
+"(inbound or outbound) and the addresses of the involved parties."
+msgstr ""
+
+#: ../../scala/remoting.rst:383
+msgid ""
+"To be notified  when an association is successfully established "
+"(\"connected\") listen to ``AssociatedEvent`` which holds the direction "
+"of the association (inbound or outbound) and the addresses of the "
+"involved parties."
+msgstr ""
+
+#: ../../scala/remoting.rst:386
+msgid ""
+"To intercept errors directly related to associations, listen to "
+"``AssociationErrorEvent`` which holds the direction of the association "
+"(inbound or outbound), the addresses of the involved parties and the "
+"``Throwable`` cause."
+msgstr ""
+
+#: ../../scala/remoting.rst:390
+msgid ""
+"To be notified  when the remoting subsystem is ready to accept "
+"associations, listen to ``RemotingListenEvent`` which contains the "
+"addresses the remoting listens on."
+msgstr ""
+
+#: ../../scala/remoting.rst:393
+msgid ""
+"To be notified when the current system is quarantined by the remote "
+"system, listen to ``ThisActorSystemQuarantinedEvent``, which includes the"
+" addresses of local and remote ActorSystems."
+msgstr ""
+
+#: ../../scala/remoting.rst:396
+msgid ""
+"To be notified  when the remoting subsystem has been shut down, listen to"
+" ``RemotingShutdownEvent``."
+msgstr ""
+
+#: ../../scala/remoting.rst:398
+msgid ""
+"To intercept generic remoting related errors, listen to "
+"``RemotingErrorEvent`` which holds the ``Throwable`` cause."
+msgstr ""
+
+#: ../../scala/remoting.rst:401
+msgid "Remote Security"
+msgstr ""
+
+#: ../../scala/remoting.rst:403
+msgid ""
+"Akka provides a couple of ways to enhance security between remote nodes "
+"(client/server):"
+msgstr ""
+
+#: ../../scala/remoting.rst:405 ../../scala/remoting.rst:409
+msgid "Untrusted Mode"
+msgstr ""
+
+#: ../../scala/remoting.rst:406
+msgid "Security Cookie Handshake"
+msgstr ""
+
+#: ../../scala/remoting.rst:411
+msgid ""
+"As soon as an actor system can connect to another remotely, it may in "
+"principle send any possible message to any actor contained within that "
+"remote system. One example may be sending a :class:`PoisonPill` to the "
+"system guardian, shutting that system down. This is not always desired, "
+"and it can be disabled with the following setting::"
+msgstr ""
+
+#: ../../scala/remoting.rst:419
+msgid ""
+"This disallows sending of system messages (actor life-cycle commands, "
+"DeathWatch, etc.) and any message extending :class:`PossiblyHarmful` to "
+"the system on which this flag is set. Should a client send them "
+"nonetheless they are dropped and logged (at DEBUG level in order to "
+"reduce the possibilities for a denial of service attack). "
+":class:`PossiblyHarmful` covers the predefined messages like "
+":class:`PoisonPill` and :class:`Kill`, but it can also be added as a "
+"marker trait to user-defined messages."
+msgstr ""
+
+#: ../../scala/remoting.rst:427
+msgid ""
+"Messages sent with actor selection are by default discarded in untrusted "
+"mode, but permission to receive actor selection messages can be granted "
+"to specific actors defined in configuration::"
+msgstr ""
+
+#: ../../scala/remoting.rst:433
+msgid "The actual message must still not be of type :class:`PossiblyHarmful`."
+msgstr ""
+
+#: ../../scala/remoting.rst:435
+msgid ""
+"In summary, the following operations are ignored by a system configured "
+"in untrusted mode when incoming via the remoting layer:"
+msgstr ""
+
+#: ../../scala/remoting.rst:438
+msgid "remote deployment (which also means no remote supervision)"
+msgstr ""
+
+#: ../../scala/remoting.rst:439
+msgid "remote DeathWatch"
+msgstr ""
+
+#: ../../scala/remoting.rst:440
+msgid "``system.stop()``, :class:`PoisonPill`, :class:`Kill`"
+msgstr ""
+
+#: ../../scala/remoting.rst:441
+msgid ""
+"sending any message which extends from the :class:`PossiblyHarmful` "
+"marker interface, which includes :class:`Terminated`"
+msgstr ""
+
+#: ../../scala/remoting.rst:443
+msgid ""
+"messages sent with actor selection, unless destination defined in "
+"``trusted-selection-paths``."
+msgstr ""
+
+#: ../../scala/remoting.rst:447
+msgid ""
+"Enabling the untrusted mode does not remove the capability of the client "
+"to freely choose the target of its message sends, which means that "
+"messages not prohibited by the above rules can be sent to any actor in "
+"the remote system. It is good practice for a client-facing system to only"
+" contain a well-defined set of entry point actors, which then forward "
+"requests (possibly after performing validation) to another actor system "
+"containing the actual worker actors. If messaging between these two "
+"server-side systems is done using local :class:`ActorRef` (they can be "
+"exchanged safely between actor systems within the same JVM), you can "
+"restrict the messages on this interface by marking them "
+":class:`PossiblyHarmful` so that a client cannot forge them."
+msgstr ""
+
+#: ../../scala/remoting.rst:459
+msgid "SSL"
+msgstr ""
+
+#: ../../scala/remoting.rst:461
+msgid ""
+"SSL can be used as the remote transport by adding "
+"``akka.remote.netty.ssl`` to the ``enabled-transport`` configuration "
+"section. See a description of the settings in the :ref:`remote-"
+"configuration-scala` section."
+msgstr ""
+
+#: ../../scala/remoting.rst:465
+msgid ""
+"The SSL support is implemented with Java Secure Socket Extension, please "
+"consult the official `Java Secure Socket Extension documentation "
+"<http://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/JSSERefGuide.html>`_"
+" and related resources for troubleshooting."
+msgstr ""
+
+#: ../../scala/remoting.rst:471
+msgid ""
+"When using SHA1PRNG on Linux it's recommended specify "
+"``-Djava.security.egd=file:/dev/./urandom`` as argument to the JVM to "
+"prevent blocking. It is NOT as secure because it reuses the seed. Use "
+"'/dev/./urandom', not '/dev/urandom' as that doesn't work according to "
+"`Bug ID: 6202721 <http://bugs.sun.com/view_bug.do?bug_id=6202721>`_."
+msgstr ""
+
+#: ../../scala/remoting.rst:479
+msgid "Remote Configuration"
+msgstr ""
+
+#: ../../scala/remoting.rst:481
+msgid ""
+"There are lots of configuration properties that are related to remoting "
+"in Akka. We refer to the :ref:`reference configuration <config-akka-"
+"remote>` for more information."
+msgstr ""
+
+#: ../../scala/remoting.rst:486
+msgid ""
+"Setting properties like the listening IP and port number programmatically"
+" is best done by using something like the following:"
+msgstr ""
+
+#: ../../scala/remoting.rst:495
+msgid "Akka behind NAT or in a Docker container"
+msgstr ""
+
+#: ../../scala/remoting.rst:497
+msgid ""
+"In setups involving Network Address Translation (NAT), Load Balancers or "
+"Docker containers the hostname and port pair that Akka binds to will be "
+"different than the \"logical\" host name and port pair that is used to "
+"connect to the system from the outside. This requires special "
+"configuration that sets both the logical and the bind pairs for remoting."
+msgstr ""
+

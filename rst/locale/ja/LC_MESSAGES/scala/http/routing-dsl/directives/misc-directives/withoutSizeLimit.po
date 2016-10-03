@@ -1,0 +1,52 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../scala/http/routing-dsl/directives/misc-directives/withoutSizeLimit.rst:4
+msgid "withoutSizeLimit"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/misc-directives/withoutSizeLimit.rst:7
+msgid "Signature"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/misc-directives/withoutSizeLimit.rst:13
+msgid "Description"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/misc-directives/withoutSizeLimit.rst:14
+msgid "Skips request entity size verification."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/misc-directives/withoutSizeLimit.rst:16
+msgid ""
+"The whole mechanism of entity size checking is intended to prevent "
+"certain Denial-of-Service attacks. So suggested setup is to have "
+"``akka.http.parsing.max-content-length`` relatively low and use "
+"``withoutSizeLimit`` directive just for endpoints for which size "
+"verification should not be performed."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/misc-directives/withoutSizeLimit.rst:20
+msgid "See also :ref:`-withSizeLimit-` for setting request entity size limit."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/misc-directives/withoutSizeLimit.rst:23
+msgid "Example"
+msgstr ""
+

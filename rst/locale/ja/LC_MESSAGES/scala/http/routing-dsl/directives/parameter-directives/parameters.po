@@ -1,0 +1,199 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:4
+msgid "parameters"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:7
+msgid "Signature"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:15
+msgid ""
+"The signature shown is simplified and written in pseudo-syntax, the real "
+"signature uses magnets. [1]_ The type ``<ParamDef>`` doesn't really exist"
+" but consists of the syntactic variants as shown in the description and "
+"the examples."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:18
+msgid "See `The Magnet Pattern`_ for an explanation of magnet-based overloading."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:22
+msgid "Description"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:23
+msgid ""
+"The parameters directive filters on the existence of several query "
+"parameters and extract their values."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:25
+msgid ""
+"Query parameters can be either extracted as a String or can be converted "
+"to another type. The parameter name can be supplied either as a String or"
+" as a Symbol. Parameter extraction can be modified to mark a query "
+"parameter as required, optional, or repeated, or to filter requests where"
+" a parameter has a certain value:"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:29
+msgid "``\"color\"``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:30
+msgid "extract value of parameter \"color\" as ``String``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:31
+msgid "``\"color\".?``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:32
+msgid "extract optional value of parameter \"color\" as ``Option[String]``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:33
+msgid "``\"color\" ? \"red\"``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:34
+msgid ""
+"extract optional value of parameter \"color\" as ``String`` with default "
+"value ``\"red\"``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:35
+msgid "``\"color\" ! \"blue\"``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:36
+msgid ""
+"require value of parameter \"color\" to be ``\"blue\"`` and extract "
+"nothing"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:38
+msgid "``\"amount\".as[Int]``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:38
+msgid ""
+"extract value of parameter \"amount\" as ``Int``, you need a matching "
+"``Deserializer`` in scope for that to work (see also :ref:`http-"
+"unmarshalling-scala`)"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:40
+msgid "``\"amount\".as(deserializer)``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:41
+msgid "extract value of parameter \"amount\" with an explicit ``Deserializer``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:42
+msgid "``\"distance\".*``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:43
+msgid ""
+"extract multiple occurrences of parameter \"distance\" as "
+"``Iterable[String]``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:45
+msgid "``\"distance\".as[Int].*``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:45
+msgid ""
+"extract multiple occurrences of parameter \"distance\" as "
+"``Iterable[Int]``, you need a matching ``Deserializer`` in scope for that"
+" to work (see also :ref:`http-unmarshalling-scala`)"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:48
+msgid "``\"distance\".as(deserializer).*``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:48
+msgid ""
+"extract multiple occurrences of parameter \"distance\" with an explicit "
+"``Deserializer``"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:50
+msgid ""
+"You can use :ref:`Case Class Extraction` to group several extracted "
+"values together into a case-class instance."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:53
+msgid ""
+"Requests missing a required parameter or parameter value will be rejected"
+" with an appropriate rejection."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:55
+msgid ""
+"There's also a singular version, :ref:`-parameter-`. Form fields can be "
+"handled in a similar way, see ``formFields``. If you want unified "
+"handling for both query parameters and form fields, see ``anyParams``."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:59
+msgid "Examples"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:62
+msgid "Required parameter"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:68
+msgid "Optional parameter"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:74
+msgid "Optional parameter with default value"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:80
+msgid "Parameter with required value"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:86
+msgid "Deserialized parameter"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:92
+msgid "Repeated parameter"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:98
+msgid "CSV parameter"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/parameter-directives/parameters.rst:104
+msgid "Repeated, deserialized parameter"
+msgstr ""
+

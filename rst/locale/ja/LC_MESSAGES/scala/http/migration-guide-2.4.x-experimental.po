@@ -1,0 +1,108 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../scala/http/migration-guide-2.4.x-experimental.rst:2
+msgid "Migration Guide between experimental builds of Akka HTTP (2.4.x)"
+msgstr ""
+
+#: ../../scala/http/migration-guide-2.4.x-experimental.rst:5
+msgid "General notes"
+msgstr ""
+
+#: ../../scala/http/migration-guide-2.4.x-experimental.rst:6
+msgid ""
+"Please note that Akka HTTP consists of a number of modules, most notably "
+"`akka-http-core` which is **stable** and won't be breaking compatibility "
+"without a proper deprecation cycle, and `akka-http` which contains the "
+"routing DSLs which is **experimental** still."
+msgstr ""
+
+#: ../../scala/http/migration-guide-2.4.x-experimental.rst:10
+msgid ""
+"The following migration guide explains migration steps to be made between"
+" breaking versions of the **experimental** part of Akka HTTP."
+msgstr ""
+
+#: ../../scala/http/migration-guide-2.4.x-experimental.rst:14
+msgid ""
+"Please note that experimental modules are allowed (and are expected to) "
+"break compatibility in search of the best API we can offer, before the "
+"API is frozen in a stable release."
+msgstr ""
+
+#: ../../scala/http/migration-guide-2.4.x-experimental.rst:17
+msgid ""
+"Please read :ref:`BinCompatRules` to understand in depth what bin-compat "
+"rules are, and where they are applied."
+msgstr ""
+
+#: ../../scala/http/migration-guide-2.4.x-experimental.rst:20
+msgid "Akka HTTP 2.4.7 -> 2.4.8"
+msgstr ""
+
+#: ../../scala/http/migration-guide-2.4.x-experimental.rst:23
+msgid "``SecurityDirectives#challengeFor`` has moved"
+msgstr ""
+
+#: ../../scala/http/migration-guide-2.4.x-experimental.rst:24
+msgid ""
+"The ``challengeFor`` directive was actually more like a factory for "
+"``HttpChallenge``, thus it was moved to become such. It is now available "
+"as ``akka.http.javadsl.model.headers.HttpChallenge#create[Basic|OAuth2]``"
+" for JavaDSL and "
+"``akka.http.scaladsl.model.headers.HttpChallenges#[basic|oAuth2]`` for "
+"ScalaDSL."
+msgstr ""
+
+#: ../../scala/http/migration-guide-2.4.x-experimental.rst:29
+msgid "Akka HTTP 2.4.8 -> 2.4.9"
+msgstr ""
+
+#: ../../scala/http/migration-guide-2.4.x-experimental.rst:32
+msgid "Java DSL Package structure changes"
+msgstr ""
+
+#: ../../scala/http/migration-guide-2.4.x-experimental.rst:33
+msgid ""
+"We have aligned the package structure of the Java based DSL with the "
+"Scala based DSL and moved classes that were in the wrong or unexpected "
+"places around a bit. This means that Java DSL users must update their "
+"imports as follows:"
+msgstr ""
+
+#: ../../scala/http/migration-guide-2.4.x-experimental.rst:37
+msgid ""
+"Classes dealing with unmarshalling and marshalling used to reside in "
+"``akka.http.javadsl.server``, but are now available from the packages "
+"``akka.http.javadsl.unmarshalling`` and "
+"``akka.http.javadsl.marshalling``."
+msgstr ""
+
+#: ../../scala/http/migration-guide-2.4.x-experimental.rst:40
+msgid ""
+"``akka.http.javadsl.server.Coder`` is now "
+"``akka.http.javadsl.coding.Coder``."
+msgstr ""
+
+#: ../../scala/http/migration-guide-2.4.x-experimental.rst:42
+msgid ""
+"``akka.http.javadsl.server.RegexConverters`` is now "
+"``akka.http.javadsl.common.RegexConverters``."
+msgstr ""
+

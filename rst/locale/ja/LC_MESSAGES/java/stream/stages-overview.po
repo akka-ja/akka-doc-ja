@@ -1,0 +1,2380 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/stream/stages-overview.rst:4
+msgid "Overview of built-in stages and their semantics"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:8
+msgid "Source stages"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:9
+msgid "These built-in sources are available from ``akka.stream.javadsl.Source``:"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:14
+msgid "fromIterator"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:15
+msgid ""
+"Stream the values from an ``Iterator``, requesting the next value when "
+"there is demand. The iterator will be created anew on each "
+"materialization of the source which is the reason the factory takes a "
+"``Creator`` rather than an ``Iterator`` directly."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:18
+msgid ""
+"If the iterator perform blocking operations, make sure to run it on a "
+"separate dispatcher."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:20
+msgid "**emits** the next value returned from the iterator"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:22
+msgid "**completes** when the iterator reaches its end"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:25
+msgid "from"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:26
+msgid ""
+"Stream the values of an ``Iterable``. Make sure the ``Iterable`` is "
+"immutable or at least not modified after being used as a source."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:29
+msgid "**emits** the next value of the iterable"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:31
+msgid "**completes** after the last element of the iterable has been emitted"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:35
+msgid "single"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:36
+msgid "Stream a single object"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:38
+msgid "**emits** the value once"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:40
+msgid "**completes** when the single value has been emitted"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:43
+msgid "repeat"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:44
+msgid "Stream a single object repeatedly"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:46
+msgid "**emits** the same value repeatedly when there is demand"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:48
+#: ../../java/stream/stages-overview.rst:59
+#: ../../java/stream/stages-overview.rst:68
+msgid "**completes** never"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:51
+msgid "cycle"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:52
+msgid ""
+"Stream iterator in cycled manner. Internally new iterator is being "
+"created to cycle the one provided via argument meaning when original "
+"iterator runs out of elements process will start all over again from the "
+"beginning of the iterator provided by the evaluation of provided "
+"parameter. If method argument provides empty iterator stream will be "
+"terminated with exception."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:57
+msgid "**emits** the next value returned from cycled iterator"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:62
+msgid "tick"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:63
+msgid ""
+"A periodical repetition of an arbitrary object. Delay of first tick is "
+"specified separately from interval of the following ticks."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:66
+msgid ""
+"**emits** periodically, if there is downstream backpressure ticks are "
+"skipped"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:71
+msgid "fromCompletionStage"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:72
+msgid ""
+"Send the single value of the ``CompletionStage`` when it completes and "
+"there is demand. If the ``CompletionStage`` fails the stream is failed "
+"with that exception."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:75
+msgid "**emits** when the ``CompletionStage`` completes"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:77
+msgid "**completes** after the ``CompletionStage`` has completed or when it fails"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:81
+msgid "fromFuture"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:82
+msgid ""
+"Send the single value of the Scala ``Future`` when it completes and there"
+" is demand. If the future fails the stream is failed with that exception."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:85
+msgid "**emits** the future completes"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:87
+msgid "**completes** after the future has completed"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:90
+msgid "unfold"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:91
+msgid ""
+"Stream the result of a function as long as it returns a ``Optional``, the"
+" value inside the optional consists of a pair where the first value is a "
+"state passed back into the next call to the function allowing to pass a "
+"state. The first invocation of the provided fold function will receive "
+"the ``zero`` state."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:95
+#: ../../java/stream/stages-overview.rst:106
+msgid ""
+"Can be used to implement many stateful sources without having to touch "
+"the more low level ``GraphStage`` API."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:97
+msgid ""
+"**emits** when there is demand and the unfold function over the previous "
+"state returns non empty value"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:99
+msgid "**completes** when the unfold function returns an empty value"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:102
+msgid "unfoldAsync"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:103
+msgid ""
+"Just like ``unfold`` but the fold function returns a ``CompletionStage`` "
+"which will cause the source to complete or emit when it completes."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:108
+msgid ""
+"**emits** when there is demand and unfold state returned CompletionStage "
+"completes with some value"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:110
+msgid ""
+"**completes** when the CompletionStage returned by the unfold function "
+"completes with an empty value"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:113
+msgid "empty"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:114
+msgid ""
+"Complete right away without ever emitting any elements. Useful when you "
+"have to provide a source to an API but there are no elements to emit."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:117
+#: ../../java/stream/stages-overview.rst:135
+msgid "**emits** never"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:119
+msgid "**completes** directly"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:122
+msgid "maybe"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:123
+msgid ""
+"Materialize a ``CompletionStage`` that can be completed with an "
+"``Optional``. If it is completed with a value it will be eimitted from "
+"the source if it is an empty ``Optional`` it will complete directly."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:127
+msgid "**emits** when the returned promise is completed with some value"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:129
+msgid ""
+"**completes** after emitting some value, or directly if the promise is "
+"completed with no value"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:132
+msgid "failed"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:133
+msgid "Fail directly with a user specified exception."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:137
+msgid "**completes** fails the stream directly with the given exception"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:140
+msgid "actorPublisher"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:141
+msgid "Wrap an actor extending ``ActorPublisher`` as a source."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:143
+msgid "**emits** depends on the actor implementation"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:145
+msgid "**completes** when the actor stops"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:148
+#: ../../java/stream/stages-overview.rst:363
+msgid "actorRef"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:149
+msgid ""
+"Materialize an ``ActorRef``, sending messages to it will emit them on the"
+" stream. The actor contain a buffer but since communication is one way, "
+"there is no back pressure. Handling overflow is done by either dropping "
+"elements or failing the stream, the strategy is chosen by the user."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:153
+msgid ""
+"**emits** when there is demand and there are messages in the buffer or a "
+"message is sent to the actorref"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:155
+msgid ""
+"**completes** when the ``ActorRef`` is sent ``akka.actor.Status.Success``"
+" or ``PoisonPill``"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:158
+#: ../../java/stream/stages-overview.rst:354
+msgid "combine"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:159
+msgid ""
+"Combine several sources, using a given strategy such as merge or concat, "
+"into one source."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:161
+msgid "**emits** when there is demand, but depending on the strategy"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:163
+msgid "**completes** when all sources has completed"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:167
+msgid "range"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:168
+msgid "Emit each integer in a range, with an option to take bigger steps than 1."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:170
+msgid "**emits** when there is demand, the next value"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:172
+msgid "**completes** when the end of the range has been reached"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:175
+msgid "unfoldResource"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:176
+msgid ""
+"Wrap any resource that can be opened, queried for next element (in a "
+"blocking way) and closed using three distinct functions into a source."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:178
+msgid "**emits** when there is demand and read method returns value"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:180
+msgid "**completes** when read function returns ``None``"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:183
+msgid "unfoldAsyncResource"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:184
+msgid ""
+"Wrap any resource that can be opened, queried for next element and closed"
+" using three distinct functions into a source. Functions return "
+"``CompletionStage`` result to achieve asynchronous processing"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:187
+msgid ""
+"**emits** when there is demand and ``CompletionStage`` from read function"
+" returns value"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:189
+msgid "**completes** when ``CompletionStage`` from read function returns ``None``"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:192
+msgid "queue"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:193
+msgid ""
+"Materialize a ``SourceQueue`` onto which elements can be pushed for "
+"emitting from the source. The queue contains a buffer, if elements are "
+"pushed onto the queue faster than the source is consumed the overflow "
+"will be handled with a strategy specified by the user. Functionality for "
+"tracking when an element has been emitted is available through "
+"``SourceQueue.offer``."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:198
+msgid "**emits** when there is demand and the queue contains elements"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:200
+msgid "**completes** when downstream completes"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:203
+msgid "asSubscriber"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:204
+msgid ""
+"Integration with Reactive Streams, materializes into a "
+"``org.reactivestreams.Subscriber``."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:208
+msgid "fromPublisher"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:209
+msgid ""
+"Integration with Reactive Streams, subscribes to a "
+"``org.reactivestreams.Publisher``."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:212
+msgid "zipN"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:213
+msgid "Combine the elements of multiple streams into a stream of sequences."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:215
+#: ../../java/stream/stages-overview.rst:223
+msgid "**emits** when all of the inputs has an element available"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:217
+#: ../../java/stream/stages-overview.rst:225
+#: ../../java/stream/stages-overview.rst:1128
+#: ../../java/stream/stages-overview.rst:1139
+msgid "**completes** when any upstream completes"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:220
+msgid "zipWithN"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:221
+msgid ""
+"Combine the elements of multiple streams into a stream of sequences using"
+" a combiner function."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:231
+msgid "Sink stages"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:232
+msgid "These built-in sinks are available from ``akka.stream.javadsl.Sink``:"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:236
+msgid "head"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:237
+msgid ""
+"Materializes into a ``CompletionStage`` which completes with the first "
+"value arriving, after this the stream is canceled. If no element is "
+"emitted, the CompletionStage is be failed."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:240
+#: ../../java/stream/stages-overview.rst:249
+msgid "**cancels** after receiving one element"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:242
+#: ../../java/stream/stages-overview.rst:251
+#: ../../java/stream/stages-overview.rst:260
+#: ../../java/stream/stages-overview.rst:270
+#: ../../java/stream/stages-overview.rst:279
+#: ../../java/stream/stages-overview.rst:324
+#: ../../java/stream/stages-overview.rst:368
+msgid "**backpressures** never"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:245
+msgid "headOption"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:246
+msgid ""
+"Materializes into a ``CompletionStage<Optional<T>>`` which completes with"
+" the first value arriving wrapped in optional, or an empty optional if "
+"the stream completes without any elements emitted."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:254
+msgid "last"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:255
+msgid ""
+"Materializes into a ``CompletionStage`` which will complete with the last"
+" value emitted when the stream completes. If the stream completes with no"
+" elements the CompletionStage is failed."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:258
+#: ../../java/stream/stages-overview.rst:268
+#: ../../java/stream/stages-overview.rst:277
+#: ../../java/stream/stages-overview.rst:304
+#: ../../java/stream/stages-overview.rst:313
+#: ../../java/stream/stages-overview.rst:322
+#: ../../java/stream/stages-overview.rst:337
+#: ../../java/stream/stages-overview.rst:348
+msgid "**cancels** never"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:263
+msgid "lastOption"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:264
+msgid ""
+"Materialize a ``CompletionStage<Optional<T>>`` which completes with the "
+"last value emitted wrapped in an optional when the stream completes. if "
+"the stream completes with no elements the ``CompletionStage`` is "
+"completed with an empty optional."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:273
+msgid "ignore"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:274
+msgid ""
+"Consume all elements but discards them. Useful when a stream has to be "
+"consumed but there is no use to actually do anything with the elements."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:282
+msgid "cancelled"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:283
+msgid "Immediately cancel the stream"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:285
+msgid "**cancels** immediately"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:288
+msgid "seq"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:289
+msgid ""
+"Collect values emitted from the stream into a collection, the collection "
+"is available through a ``CompletionStage`` or which completes when the "
+"stream completes. Note that the collection is bounded to "
+"``Integer.MAX_VALUE``, if more element are emitted the sink will cancel "
+"the stream"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:293
+msgid "**cancels** If too many values are collected"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:296
+msgid "foreach"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:297
+msgid ""
+"Invoke a given procedure for each element received. Note that it is not "
+"safe to mutate shared state from the procedure."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:299
+msgid ""
+"The sink materializes into a ``CompletionStage<Optional<Done>>`` which "
+"completes when the stream completes, or fails if the stream fails."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:302
+msgid "Note that it is not safe to mutate state from the procedure."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:306
+msgid ""
+"**backpressures** when the previous procedure invocation has not yet "
+"completed"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:310
+msgid "foreachParallel"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:311
+msgid ""
+"Like ``foreach`` but allows up to ``parallellism`` procedure calls to "
+"happen in parallel."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:315
+msgid ""
+"**backpressures** when the previous parallel procedure invocations has "
+"not yet completed"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:319
+msgid "onComplete"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:320
+msgid "Invoke a callback when the stream has completed or failed."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:328
+#: ../../java/stream/stages-overview.rst:623
+msgid "fold"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:329
+msgid ""
+"Fold over emitted element with a function, where each invocation will get"
+" the new element and the result from the previous fold invocation. The "
+"first invocation will be provided the ``zero`` value."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:332
+msgid ""
+"Materializes into a CompletionStage that will complete with the last "
+"state when the stream has completed."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:334
+msgid ""
+"This stage allows combining values into a result without a global mutable"
+" state by instead passing the state along between invocations."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:339
+msgid ""
+"**backpressures** when the previous fold function invocation has not yet "
+"completed"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:342
+msgid "reduce"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:343
+msgid ""
+"Apply a reduction function on the incoming elements and pass the result "
+"to the next invocation. The first invocation receives the two first "
+"elements of the flow."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:346
+msgid ""
+"Materializes into a CompletionStage that will be completed by the last "
+"result of the reduction function."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:350
+msgid ""
+"**backpressures** when the previous reduction function invocation has not"
+" yet completed"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:355
+msgid "Combine several sinks into one using a user specified strategy"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:357
+msgid "**cancels** depends on the strategy"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:359
+msgid "**backpressures** depends on the strategy"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:364
+msgid ""
+"Send the elements from the stream to an ``ActorRef``. No backpressure so "
+"care must be taken to not overflow the inbox."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:366
+#: ../../java/stream/stages-overview.rst:376
+#: ../../java/stream/stages-overview.rst:388
+msgid "**cancels** when the actor terminates"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:372
+msgid "actorRefWithAck"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:373
+msgid ""
+"Send the elements from the stream to an ``ActorRef`` which must then "
+"acknowledge reception after completing a message, to provide back "
+"pressure onto the sink."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:378
+msgid "**backpressures** when the actor acknowledgement has not arrived"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:382
+msgid "actorSubscriber"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:383
+msgid ""
+"Create an actor from a ``Props`` upon materialization, where the actor "
+"implements ``ActorSubscriber``, which will receive the elements from the "
+"stream."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:386
+msgid "Materializes into an ``ActorRef`` to the created actor."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:390
+msgid "**backpressures** depends on the actor implementation"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:394
+msgid "asPublisher"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:395
+msgid ""
+"Integration with Reactive Streams, materializes into a "
+"``org.reactivestreams.Publisher``."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:399
+msgid "fromSubscriber"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:400
+msgid ""
+"Integration with Reactive Streams, wraps a "
+"``org.reactivestreams.Subscriber`` as a sink"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:406
+msgid "Additional Sink and Source converters"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:407
+msgid ""
+"Sources and sinks for integrating with ``java.io.InputStream`` and "
+"``java.io.OutputStream`` can be found on ``StreamConverters``. As they "
+"are blocking APIs the implementations of these stages are run on a "
+"separate dispatcher configured through the ``akka.stream.blocking-io-"
+"dispatcher``."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:412
+msgid "fromOutputStream"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:413
+msgid ""
+"Create a sink that wraps an ``OutputStream``. Takes a function that "
+"produces an ``OutputStream``, when the sink is materialized the function "
+"will be called and bytes sent to the sink will be written to the returned"
+" ``OutputStream``."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:416
+#: ../../java/stream/stages-overview.rst:438
+msgid ""
+"Materializes into a ``CompletionStage`` which will complete with a "
+"``IOResult`` when the stream completes."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:419
+msgid ""
+"Note that a flow can be materialized multiple times, so the function "
+"producing the ``OutputStream`` must be able to handle multiple "
+"invocations."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:422
+msgid ""
+"The ``OutputStream`` will be closed when the stream that flows into the "
+"``Sink`` is completed, and the ``Sink`` will cancel its inflow when the "
+"``OutputStream`` is no longer writable."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:426
+msgid "asInputStream"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:427
+msgid ""
+"Create a sink which materializes into an ``InputStream`` that can be read"
+" to trigger demand through the sink. Bytes emitted through the stream "
+"will be available for reading through the ``InputStream``"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:430
+msgid ""
+"The ``InputStream`` will be ended when the stream flowing into this "
+"``Sink`` completes, and the closing the ``InputStream`` will cancel the "
+"inflow of this ``Sink``."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:434
+msgid "fromInputStream"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:435
+msgid ""
+"Create a source that wraps an ``InputStream``. Takes a function that "
+"produces an ``InputStream``, when the source is materialized the function"
+" will be called and bytes from the ``InputStream`` will be emitted into "
+"the stream."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:441
+msgid ""
+"Note that a flow can be materialized multiple times, so the function "
+"producing the ``InputStream`` must be able to handle multiple "
+"invocations."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:444
+msgid ""
+"The ``InputStream`` will be closed when the ``Source`` is canceled from "
+"its downstream, and reaching the end of the ``InputStream`` will complete"
+" the ``Source``."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:448
+msgid "asOutputStream"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:449
+msgid ""
+"Create a source that materializes into an ``OutputStream``. When bytes "
+"are written to the ``OutputStream`` they are emitted from the source."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:452
+msgid ""
+"The ``OutputStream`` will no longer be writable when the ``Source`` has "
+"been canceled from its downstream, and closing the ``OutputStream`` will "
+"complete the ``Source``."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:456
+msgid "asJavaStream"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:457
+msgid ""
+"Create a sink which materializes into Java 8 ``Stream`` that can be run "
+"to trigger demand through the sink. Elements emitted through the stream "
+"will be available for reading through the Java 8 ``Stream``."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:460
+msgid ""
+"The Java 8 a ``Stream`` will be ended when the stream flowing into this "
+"``Sink`` completes, and closing the Java ``Stream`` will cancel the "
+"inflow of this ``Sink``. Java ``Stream`` throws exception in case "
+"reactive stream failed."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:463
+msgid ""
+"Be aware that Java 8 ``Stream`` blocks current thread while waiting on "
+"next element from downstream."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:466
+msgid "fromJavaStream"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:467
+msgid ""
+"Create a source that wraps Java 8 ``Stream``. ``Source`` uses a stream "
+"iterator to get all its elements and send them downstream on demand."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:471
+msgid "javaCollector"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:472
+msgid ""
+"Create a sink which materializes into a ``CompletionStage`` which will be"
+" completed with a result of the Java 8 ``Collector`` transformation and "
+"reduction operations. This allows usage of Java 8 streams transformations"
+" for reactive streams. The ``Collector`` will trigger demand downstream. "
+"Elements emitted through the stream will be accumulated into a mutable "
+"result container, optionally transformed into a final representation "
+"after all input elements have been processed. The ``Collector`` can also "
+"do reduction at the end. Reduction processing is performed sequentially"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:478
+#: ../../java/stream/stages-overview.rst:489
+msgid ""
+"Note that a flow can be materialized multiple times, so the function "
+"producing the ``Collector`` must be able to handle multiple invocations."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:482
+msgid "javaCollectorParallelUnordered"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:483
+msgid ""
+"Create a sink which materializes into a ``CompletionStage`` which will be"
+" completed with a result of the Java 8 Collector transformation and "
+"reduction operations. This allows usage of Java 8 streams transformations"
+" for reactive streams. The ``Collector`` will trigger demand downstream.."
+" Elements emitted through the stream will be accumulated into a mutable "
+"result container, optionally transformed into a final representation "
+"after all input elements have been processed. The ``Collector`` can also "
+"do reduction at the end. Reduction processing is performed in parallel "
+"based on graph ``Balance``."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:493
+msgid "File IO Sinks and Sources"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:494
+msgid ""
+"Sources and sinks for reading and writing files can be found on "
+"``FileIO``."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:497
+msgid "fromFile"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:498
+msgid ""
+"Emit the contents of a file, as ``ByteString`` s, materializes into a "
+"``CompletionStage`` which will be completed with a ``IOResult`` upon "
+"reaching the end of the file or if there is a failure."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:502
+msgid "toFile"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:503
+msgid "Create a sink which will write incoming ``ByteString`` s to a given file."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:508
+msgid "Flow stages"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:510
+msgid ""
+"All flows by default backpressure if the computation they encapsulate is "
+"not fast enough to keep up with the rate of incoming elements from the "
+"preceding stage. There are differences though how the different stages "
+"handle when some of their downstream stages backpressure them."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:514
+msgid ""
+"Most stages stop and propagate the failure downstream as soon as any of "
+"their upstreams emit a failure. This happens to ensure reliable teardown "
+"of streams and cleanup when failures happen. Failures are meant to be to "
+"model unrecoverable conditions, therefore they are always eagerly "
+"propagated. For in-band error handling of normal errors (dropping "
+"elements if a map fails for example) you should use the supervision "
+"support, or explicitly wrap your element types in a proper container that"
+" can express error or success states."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:523
+msgid "Simple processing stages"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:525
+msgid ""
+"These stages can transform the rate of incoming elements since there are "
+"stages that emit multiple elements for a single input (e.g. `mapConcat') "
+"or consume multiple elements before emitting one output (e.g. "
+"``filter``). However, these rate transformations are data-driven, i.e. it"
+" is the incoming elements that define how the rate is affected. This is "
+"in contrast with :ref:`detached-stages-overview_java` which can change "
+"their processing behavior depending on being backpressured by downstream "
+"or not."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:532
+msgid "map"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:533
+msgid ""
+"Transform each element in the stream by calling a mapping function with "
+"it and passing the returned value downstream."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:535
+msgid "**emits** when the mapping function returns an element"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:537
+#: ../../java/stream/stages-overview.rst:618
+#: ../../java/stream/stages-overview.rst:629
+#: ../../java/stream/stages-overview.rst:649
+#: ../../java/stream/stages-overview.rst:661
+#: ../../java/stream/stages-overview.rst:701
+#: ../../java/stream/stages-overview.rst:712
+#: ../../java/stream/stages-overview.rst:775
+#: ../../java/stream/stages-overview.rst:885
+#: ../../java/stream/stages-overview.rst:982
+#: ../../java/stream/stages-overview.rst:994
+#: ../../java/stream/stages-overview.rst:1011
+#: ../../java/stream/stages-overview.rst:1024
+#: ../../java/stream/stages-overview.rst:1038
+#: ../../java/stream/stages-overview.rst:1052
+#: ../../java/stream/stages-overview.rst:1064
+#: ../../java/stream/stages-overview.rst:1095
+#: ../../java/stream/stages-overview.rst:1106
+#: ../../java/stream/stages-overview.rst:1116
+#: ../../java/stream/stages-overview.rst:1126
+#: ../../java/stream/stages-overview.rst:1137
+#: ../../java/stream/stages-overview.rst:1147
+#: ../../java/stream/stages-overview.rst:1159
+msgid "**backpressures** when downstream backpressures"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:539
+#: ../../java/stream/stages-overview.rst:571
+#: ../../java/stream/stages-overview.rst:582
+#: ../../java/stream/stages-overview.rst:593
+#: ../../java/stream/stages-overview.rst:605
+#: ../../java/stream/stages-overview.rst:620
+#: ../../java/stream/stages-overview.rst:631
+#: ../../java/stream/stages-overview.rst:641
+#: ../../java/stream/stages-overview.rst:673
+#: ../../java/stream/stages-overview.rst:703
+#: ../../java/stream/stages-overview.rst:714
+#: ../../java/stream/stages-overview.rst:788
+#: ../../java/stream/stages-overview.rst:798
+#: ../../java/stream/stages-overview.rst:829
+#: ../../java/stream/stages-overview.rst:841
+#: ../../java/stream/stages-overview.rst:887
+#: ../../java/stream/stages-overview.rst:1066
+#: ../../java/stream/stages-overview.rst:1078
+#: ../../java/stream/stages-overview.rst:1188
+#: ../../java/stream/stages-overview.rst:1198
+#: ../../java/stream/stages-overview.rst:1208
+#: ../../java/stream/stages-overview.rst:1218
+#: ../../java/stream/stages-overview.rst:1244
+#: ../../java/stream/stages-overview.rst:1256
+msgid "**completes** when upstream completes"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:542
+msgid "mapConcat"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:543
+msgid ""
+"Transform each element into zero or more elements that are individually "
+"passed downstream."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:545
+#: ../../java/stream/stages-overview.rst:556
+msgid ""
+"**emits** when the mapping function returns an element or there are still"
+" remaining elements from the previously calculated collection"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:547
+#: ../../java/stream/stages-overview.rst:558
+msgid ""
+"**backpressures** when downstream backpressures or there are still "
+"available elements from the previously calculated collection"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:549
+#: ../../java/stream/stages-overview.rst:560
+msgid ""
+"**completes** when upstream completes and all remaining elements has been"
+" emitted"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:552
+msgid "statefulMapConcat"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:553
+msgid ""
+"Transform each element into zero or more elements that are individually "
+"passed downstream. The difference to ``mapConcat`` is that the "
+"transformation function is created from a factory for every "
+"materialization of the flow."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:563
+msgid "filter"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:564
+msgid ""
+"Filter the incoming elements using a predicate. If the predicate returns "
+"true the element is passed downstream, if it returns false the element is"
+" discarded."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:567
+msgid "**emits** when the given predicate returns true for the element"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:569
+msgid ""
+"**backpressures** when the given predicate returns true for the element "
+"and downstream backpressures"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:574
+msgid "collect"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:575
+msgid ""
+"Apply a partial function to each incoming element, if the partial "
+"function is defined for a value the returned value is passed downstream. "
+"Can often replace ``filter`` followed by ``map`` to achieve the same in "
+"one single stage."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:578
+msgid "**emits** when the provided partial function is defined for the element"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:580
+msgid ""
+"**backpressures** the partial function is defined for the element and "
+"downstream backpressures"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:585
+msgid "grouped"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:586
+msgid ""
+"Accumulate incoming events until the specified number of elements have "
+"been accumulated and then pass the collection of elements downstream."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:589
+msgid ""
+"**emits** when the specified number of elements has been accumulated or "
+"upstream completed"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:591
+#: ../../java/stream/stages-overview.rst:603
+msgid ""
+"**backpressures** when a group has been assembled and downstream "
+"backpressures"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:596
+msgid "sliding"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:597
+msgid ""
+"Provide a sliding window over the incoming stream and pass the windows as"
+" groups of elements downstream."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:599
+msgid ""
+"Note: the last window might be smaller than the requested size due to end"
+" of stream."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:601
+msgid ""
+"**emits** the specified number of elements has been accumulated or "
+"upstream completed"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:609
+msgid "scan"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:610
+msgid ""
+"Emit its current value which starts at ``zero`` and then applies the "
+"current and next value to the given function emitting the next current "
+"value."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:613
+msgid ""
+"Note that this means that scan emits one element downstream before and "
+"upstream elements will not be requested until the second element is "
+"required from downstream."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:616
+msgid "**emits** when the function scanning the element returns a new element"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:624
+msgid ""
+"Start with current value ``zero`` and then apply the current and next "
+"value to the given function, when upstream complete the current value is "
+"emitted downstream."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:627
+msgid "**emits** when upstream completes"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:634
+msgid "drop"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:635
+msgid "Drop ``n`` elements and then pass any subsequent element downstream."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:637
+msgid "**emits** when the specified number of elements has been dropped already"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:639
+msgid ""
+"**backpressures** when the specified number of elements has been dropped "
+"and downstream backpressures"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:644
+msgid "take"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:645
+msgid "Pass ``n`` incoming elements downstream and then complete"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:647
+msgid ""
+"**emits** while the specified number of elements to take has not yet been"
+" reached"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:651
+msgid ""
+"**completes** when the defined number of elements has been taken or "
+"upstream completes"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:655
+msgid "takeWhile"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:656
+msgid ""
+"Pass elements downstream as long as a predicate function return true for "
+"the element include the element when the predicate first return false and"
+" then complete."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:659
+msgid "**emits** while the predicate is true and until the first false result"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:663
+msgid "**completes** when predicate returned false or upstream completes"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:666
+msgid "dropWhile"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:667
+msgid "Drop elements as long as a predicate function return true for the element"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:669
+msgid ""
+"**emits** when the predicate returned false and for all following stream "
+"elements"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:671
+msgid "**backpressures** predicate returned false and downstream backpressures"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:676
+msgid "recover"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:677
+msgid ""
+"Allow sending of one last element downstream when a failure has happened "
+"upstream."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:679
+msgid ""
+"**emits** when the element is available from the upstream or upstream is "
+"failed and pf returns an element"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:681
+msgid "**backpressures** when downstream backpressures, not when failure happened"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:683
+msgid ""
+"**completes** when upstream completes or upstream failed with exception "
+"pf can handle"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:686
+msgid "recoverWith"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:687
+msgid ""
+"Allow switching to alternative Source when a failure has happened "
+"upstream."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:689
+msgid ""
+"**emits** the element is available from the upstream or upstream is "
+"failed and pf returns alternative Source"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:691
+msgid ""
+"**backpressures** downstream backpressures, after failure happened it "
+"backprssures to alternative Source"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:693
+msgid ""
+"**completes** upstream completes or upstream failed with exception pf can"
+" handle"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:696
+msgid "detach"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:697
+msgid ""
+"Detach upstream demand from downstream demand without detaching the "
+"stream rates."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:699
+msgid "**emits** when the upstream stage has emitted and there is demand"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:706
+msgid "throttle"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:707
+msgid ""
+"Limit the throughput to a specific number of elements per time unit, or a"
+" specific total cost per time unit, where a function has to be provided "
+"to calculate the individual cost of each element."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:710
+msgid ""
+"**emits** when upstream emits an element and configured time per each "
+"element elapsed"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:719
+msgid "Asynchronous processing stages"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:721
+msgid ""
+"These stages encapsulate an asynchronous computation, properly handling "
+"backpressure while taking care of the asynchronous operation at the same "
+"time (usually handling the completion of a CompletionStage)."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:726
+msgid "mapAsync"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:727
+msgid ""
+"Pass incoming elements to a function that return a ``CompletionStage`` "
+"result. When the CompletionStage arrives the result is passed downstream."
+" Up to ``n`` elements can be processed concurrently, but regardless of "
+"their completion time the incoming order will be kept when results "
+"complete. For use cases where order does not mather ``mapAsyncUnordered``"
+" can be used."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:731
+msgid ""
+"If a ``CompletionStage`` fails, the stream also fails (unless a different"
+" supervision strategy is applied)"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:733
+msgid ""
+"**emits** when the CompletionStage returned by the provided function "
+"finishes for the next element in sequence"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:735
+#: ../../java/stream/stages-overview.rst:748
+msgid ""
+"**backpressures** when the number of ``CompletionStage`` s reaches the "
+"configured parallelism and the downstream backpressures"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:737
+msgid ""
+"**completes** when upstream completes and all ``CompletionStage`` s has "
+"been completed and all elements has been emitted"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:740
+msgid "mapAsyncUnordered"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:741
+msgid ""
+"Like ``mapAsync`` but ``CompletionStage`` results are passed downstream "
+"as they arrive regardless of the order of the elements that triggered "
+"them."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:744
+msgid ""
+"If a CompletionStage fails, the stream also fails (unless a different "
+"supervision strategy is applied)"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:746
+msgid ""
+"**emits** any of the ``CompletionStage`` s returned by the provided "
+"function complete"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:750
+msgid ""
+"**completes** upstream completes and all CompletionStages has been "
+"completed  and all elements has been emitted"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:754
+msgid "Timer driven stages"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:756
+msgid ""
+"These stages process elements using timers, delaying, dropping or "
+"grouping elements for certain time durations."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:759
+msgid "takeWithin"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:760
+msgid "Pass elements downstream within a timeout and then complete."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:762
+msgid "**emits** when an upstream element arrives"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:764
+msgid "**backpressures** downstream backpressures"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:766
+msgid "**completes** upstream completes or timer fires"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:770
+msgid "dropWithin"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:771
+msgid "Drop elements until a timeout has fired"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:773
+msgid "**emits** after the timer fired and a new upstream element arrives"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:777
+msgid "**completes** upstream completes"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:780
+msgid "groupedWithin"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:781
+msgid ""
+"Chunk up the stream into groups of elements received within a time "
+"window, or limited by the given number of elements, whichever happens "
+"first."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:784
+msgid ""
+"**emits** when the configured time elapses since the last group has been "
+"emitted"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:786
+msgid ""
+"**backpressures** when the group has been assembled (the duration "
+"elapsed) and downstream backpressures"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:791
+#: ../../java/stream/stages-overview.rst:1071
+msgid "initialDelay"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:792
+msgid ""
+"Delay the initial element by a user specified duration from stream "
+"materialization."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:794
+msgid "**emits** upstream emits an element if the initial delay already elapsed"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:796
+msgid ""
+"**backpressures** downstream backpressures or initial delay not yet "
+"elapsed"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:802
+msgid "delay"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:803
+msgid "Delay every element passed through with a specific duration."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:805
+msgid ""
+"**emits** there is a pending element in the buffer and configured time "
+"for this element elapsed"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:807
+msgid "**backpressures** differs, depends on ``OverflowStrategy`` set"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:809
+#: ../../java/stream/stages-overview.rst:898
+#: ../../java/stream/stages-overview.rst:925
+msgid ""
+"**completes** when upstream completes and buffered elements has been "
+"drained"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:815
+msgid "Backpressure aware stages"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:817
+msgid ""
+"These stages are aware of the backpressure provided by their downstreams "
+"and able to adapt their behavior to that signal."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:820
+msgid "conflate"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:821
+msgid ""
+"Allow for a slower downstream by passing incoming elements and a summary "
+"into an aggregate function as long as there is backpressure. The summary "
+"value must be of the same type as the incoming elements, for example the "
+"sum or average of incoming numbers, if aggregation should lead to a "
+"different type ``conflateWithSeed`` can be used:"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:825
+#: ../../java/stream/stages-overview.rst:837
+msgid ""
+"**emits** when downstream stops backpressuring and there is a conflated "
+"element available"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:827
+msgid ""
+"**backpressures** when the aggregate function cannot keep up with "
+"incoming elements"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:832
+msgid "conflateWithSeed"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:833
+msgid ""
+"Allow for a slower downstream by passing incoming elements and a summary "
+"into an aggregate function as long as there is backpressure. When "
+"backpressure starts or there is no backpressure element is passed into a "
+"``seed`` function to transform it to the summary type."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:839
+msgid ""
+"**backpressures** when the aggregate or seed functions cannot keep up "
+"with incoming elements"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:844
+msgid "batch"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:845
+msgid ""
+"Allow for a slower downstream by passing incoming elements and a summary "
+"into an aggregate function as long as there is backpressure and a maximum"
+" number of batched elements is not yet reached. When the maximum number "
+"is reached and downstream still backpressures batch will also "
+"backpressure."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:849
+msgid ""
+"When backpressure starts or there is no backpressure element is passed "
+"into a ``seed`` function to transform it to the summary type."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:852
+#: ../../java/stream/stages-overview.rst:869
+msgid ""
+"Will eagerly pull elements, this behavior may result in a single pending "
+"(i.e. buffered) element which cannot be aggregated to the batched value."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:855
+msgid ""
+"**emits** when downstream stops backpressuring and there is a batched "
+"element available"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:857
+msgid ""
+"**backpressures** when batched elements reached the max limit of allowed "
+"batched elements & downstream backpressures"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:859
+msgid ""
+"**completes** when upstream completes and a \"possibly pending\" element "
+"was drained"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:863
+msgid "batchWeighted"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:864
+msgid ""
+"Allow for a slower downstream by passing incoming elements and a summary "
+"into an aggregate function as long as there is backpressure and a maximum"
+" weight batched elements is not yet reached. The weight of each element "
+"is determined by applying ``costFn``. When the maximum total weight is "
+"reached and downstream still backpressures batch will also backpressure."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:872
+msgid ""
+"**emits** downstream stops backpressuring and there is a batched element "
+"available"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:874
+msgid ""
+"**backpressures** batched elements reached the max weight limit of "
+"allowed batched elements & downstream backpressures"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:876
+msgid ""
+"**completes** upstream completes and a \"possibly pending\" element was "
+"drained"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:879
+msgid "expand"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:880
+msgid ""
+"Allow for a faster downstream by expanding the last incoming element to "
+"an ``Iterator``. For example ``Iterator.continually(element)`` to keep "
+"repating the last incoming element."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:883
+msgid "**emits** when downstream stops backpressuring"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:890
+msgid "buffer (Backpressure)"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:891
+msgid ""
+"Allow for a temporarily faster upstream events by buffering ``size`` "
+"elements. When the buffer is full backpressure is applied."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:894
+#: ../../java/stream/stages-overview.rst:910
+#: ../../java/stream/stages-overview.rst:921
+msgid ""
+"**emits** when downstream stops backpressuring and there is a pending "
+"element in the buffer"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:896
+msgid "**backpressures** when buffer is full"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:901
+msgid "buffer (Drop)"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:902
+msgid ""
+"Allow for a temporarily faster upstream events by buffering ``size`` "
+"elements. When the buffer is full elements are dropped according to the "
+"specified ``OverflowStrategy``:"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:905
+msgid ""
+"``dropHead()`` drops the oldest element in the buffer to make space for "
+"the new element"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:906
+msgid ""
+"``dropTail()`` drops the youngest element in the buffer to make space for"
+" the new element"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:907
+msgid "``dropBuffer()`` drops the entire buffer and buffers the new element"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:908
+msgid "``dropNew()`` drops the new element"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:912
+msgid ""
+"**backpressures** never (when dropping cannot keep up with incoming "
+"elements)"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:914
+msgid "**completes** upstream completes and buffered elements has been drained"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:917
+msgid "buffer (Fail)"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:918
+msgid ""
+"Allow for a temporarily faster upstream events by buffering ``size`` "
+"elements. When the buffer is full the stage fails the flow with a "
+"``BufferOverflowException``."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:923
+msgid ""
+"**backpressures** never, fails the stream instead of backpressuring when "
+"buffer is full"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:929
+msgid "Nesting and flattening stages"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:931
+msgid ""
+"These stages either take a stream and turn it into a stream of streams "
+"(nesting) or they take a stream that contains nested streams and turn "
+"them into a stream of elements instead (flattening)."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:935
+msgid "prefixAndTail"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:936
+msgid ""
+"Take up to `n` elements from the stream (less than `n` only if the "
+"upstream completes before emitting `n` elements) and returns a pair "
+"containing a strict sequence of the taken element and a stream "
+"representing the remaining elements."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:939
+msgid ""
+"**emits** when the configured number of prefix elements are available. "
+"Emits this prefix, and the rest as a substream"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:941
+msgid "**backpressures** when downstream backpressures or substream backpressures"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:943
+msgid ""
+"**completes** when prefix elements has been consumed and substream has "
+"been consumed"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:947
+msgid "groupBy"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:948
+msgid "Demultiplex the incoming stream into separate output streams."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:950
+msgid ""
+"**emits** an element for which the grouping function returns a group that"
+" has not yet been created. Emits the new group there is an element "
+"pending for a group whose substream backpressures"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:953
+#: ../../java/stream/stages-overview.rst:963
+#: ../../java/stream/stages-overview.rst:973
+msgid ""
+"**completes** when upstream completes (Until the end of stream it is not "
+"possible to know whether new substreams will be needed or not)"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:956
+msgid "splitWhen"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:957
+msgid ""
+"Split off elements into a new substream whenever a predicate function "
+"return ``true``."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:959
+msgid ""
+"**emits** an element for which the provided predicate is true, opening "
+"and emitting a new substream for subsequent elements"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:961
+#: ../../java/stream/stages-overview.rst:971
+msgid ""
+"**backpressures** when there is an element pending for the next "
+"substream, but the previous is not fully consumed yet, or the substream "
+"backpressures"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:966
+msgid "splitAfter"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:967
+msgid ""
+"End the current substream whenever a predicate returns ``true``, starting"
+" a new substream for the next element."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:969
+msgid ""
+"**emits** when an element passes through. When the provided predicate is "
+"true it emits the element * and opens a new substream for subsequent "
+"element"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:976
+msgid "flatMapConcat"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:977
+msgid ""
+"Transform each input element into a ``Source`` whose elements are then "
+"flattened into the output stream through concatenation. This means each "
+"source is fully consumed before consumption of the next source starts."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:980
+msgid "**emits** when the current consumed substream has an element available"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:984
+#: ../../java/stream/stages-overview.rst:996
+msgid "**completes** when upstream completes and all consumed substreams complete"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:988
+msgid "flatMapMerge"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:989
+msgid ""
+"Transform each input element into a ``Source`` whose elements are then "
+"flattened into the output stream through merging. The maximum number of "
+"merged sources has to be specified."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:992
+msgid ""
+"**emits** when one of the currently consumed substreams has an element "
+"available"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1000
+msgid "Time aware stages"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1002
+msgid "Those stages operate taking time into consideration."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1005
+msgid "initialTimeout"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1006
+msgid ""
+"If the first element has not passed through this stage before the "
+"provided timeout, the stream is failed with a ``TimeoutException``."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1009
+#: ../../java/stream/stages-overview.rst:1022
+#: ../../java/stream/stages-overview.rst:1036
+#: ../../java/stream/stages-overview.rst:1050
+#: ../../java/stream/stages-overview.rst:1252
+msgid "**emits** when upstream emits an element"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1013
+msgid ""
+"**completes** when upstream completes or fails if timeout elapses before "
+"first element arrives"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1015
+#: ../../java/stream/stages-overview.rst:1028
+#: ../../java/stream/stages-overview.rst:1042
+#: ../../java/stream/stages-overview.rst:1056
+#: ../../java/stream/stages-overview.rst:1068
+#: ../../java/stream/stages-overview.rst:1080
+msgid "**cancels** when downstream cancels"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1018
+msgid "completionTimeout"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1019
+msgid ""
+"If the completion of the stream does not happen until the provided "
+"timeout, the stream is failed with a ``TimeoutException``."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1026
+msgid ""
+"**completes** when upstream completes or fails if timeout elapses before "
+"upstream completes"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1031
+msgid "idleTimeout"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1032
+msgid ""
+"If the time between two processed elements exceeds the provided timeout, "
+"the stream is failed with a ``TimeoutException``. The timeout is checked "
+"periodically, so the resolution of the check is one period (equals to "
+"timeout value)."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1040
+msgid ""
+"**completes** when upstream completes or fails if timeout elapses between"
+" two emitted elements"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1045
+msgid "backpressureTimeout"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1046
+msgid ""
+"If the time between the emission of an element and the following "
+"downstream demand exceeds the provided timeout, the stream is failed with"
+" a ``TimeoutException``. The timeout is checked periodically, so the "
+"resolution of the check is one period (equals to timeout value)."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1054
+msgid ""
+"**completes** when upstream completes or fails if timeout elapses between"
+" element emission and downstream demand."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1059
+msgid "keepAlive"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1060
+msgid ""
+"Injects additional (configured) elements if upstream does not emit for a "
+"configured amount of time."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1062
+msgid ""
+"**emits** when upstream emits an element or if the upstream was idle for "
+"the configured period"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1072
+msgid "Delays the initial element by the specified duration."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1074
+msgid ""
+"**emits** when upstream emits an element if the initial delay is already "
+"elapsed"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1076
+msgid ""
+"**backpressures** when downstream backpressures or initial delay is not "
+"yet elapsed"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1084
+msgid "Fan-in stages"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1086
+msgid ""
+"These stages take multiple streams as their input and provide a single "
+"output combining the elements from all of the inputs in different ways."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1090
+msgid "merge"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1091
+msgid ""
+"Merge multiple sources. Picks elements randomly if all sources has "
+"elements ready."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1093
+msgid "**emits** when one of the inputs has an element available"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1097
+#: ../../java/stream/stages-overview.rst:1118
+msgid ""
+"**completes** when all upstreams complete (This behavior is changeable to"
+" completing when any upstream completes by setting "
+"``eagerComplete=true``.)"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1100
+msgid "mergeSorted"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1101
+msgid ""
+"Merge multiple sources. Waits for one element to be ready from each input"
+" stream and emits the smallest element."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1104
+#: ../../java/stream/stages-overview.rst:1124
+#: ../../java/stream/stages-overview.rst:1135
+msgid "**emits** when all of the inputs have an element available"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1108
+#: ../../java/stream/stages-overview.rst:1149
+#: ../../java/stream/stages-overview.rst:1161
+msgid "**completes** when all upstreams complete"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1111
+msgid "mergePreferred"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1112
+msgid ""
+"Merge multiple sources. Prefer one source if all sources has elements "
+"ready."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1114
+msgid ""
+"**emits** when one of the inputs has an element available, preferring a "
+"defined input if multiple have elements available"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1121
+msgid "zip"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1122
+msgid ""
+"Combines elements from each of multiple sources into `Pair` s and passes "
+"the pairs downstream."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1131
+msgid "zipWith"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1132
+msgid ""
+"Combines elements from multiple sources through a ``combine`` function "
+"and passes the returned value downstream."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1142
+msgid "concat"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1143
+msgid ""
+"After completion of the original upstream the elements of the given "
+"source will be emitted."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1145
+msgid ""
+"**emits** when the current stream has an element available; if the "
+"current input completes, it tries the next one"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1152
+msgid "prepend"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1153
+msgid ""
+"Prepends the given source to the flow, consuming it until completion "
+"before the original source is consumed."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1155
+msgid "If materialized values needs to be collected ``prependMat`` is available."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1157
+msgid ""
+"**emits** when the given stream has an element available; if the given "
+"input completes, it tries the current one"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1164
+msgid "interleave"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1165
+msgid ""
+"Emits a specifiable number of elements from the original source, then "
+"from the provided source and repeats. If one source completes the rest of"
+" the other stream will be emitted."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1168
+msgid "**emits** when element is available from the currently consumed upstream"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1170
+msgid "**backpressures** when upstream backpressures"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1172
+msgid "**completes** when both upstreams have completed"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1175
+msgid "Fan-out stages"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1177
+msgid ""
+"These have one input and multiple outputs. They might route the elements "
+"between different outputs, or emit elements on multiple outputs at the "
+"same time."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1181
+msgid "unzip"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1182
+msgid ""
+"Takes a stream of two element tuples and unzips the two elements ino two "
+"different downstreams."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1184
+#: ../../java/stream/stages-overview.rst:1194
+#: ../../java/stream/stages-overview.rst:1204
+msgid ""
+"**emits** when all of the outputs stops backpressuring and there is an "
+"input element available"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1186
+#: ../../java/stream/stages-overview.rst:1196
+#: ../../java/stream/stages-overview.rst:1206
+msgid "**backpressures** when any of the outputs backpressures"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1191
+msgid "unzipWith"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1192
+msgid "Splits each element of input into multiple downstreams using a function"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1201
+msgid "broadcast"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1202
+msgid "Emit each incoming element each of ``n`` outputs."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1211
+msgid "balance"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1212
+msgid ""
+"Fan-out the stream to several streams. Each upstream element is emitted "
+"to the first available downstream consumer."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1214
+msgid ""
+"**emits** when any of the outputs stops backpressuring; emits the element"
+" to the first available output"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1216
+msgid "**backpressures** when all of the outputs backpressure"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1221
+msgid "partition"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1222
+msgid ""
+"Fan-out the stream to several streams. Each upstream element is emitted "
+"to one downstream consumer according to the partitioner function applied "
+"to the element."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1225
+msgid ""
+"**emits** when the chosen output stops backpressuring and there is an "
+"input element available"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1227
+msgid "**backpressures** when the chosen output backpressures"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1229
+msgid "**completes** when upstream completes and no output is pending"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1233
+msgid "Watching status stages"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1236
+msgid "watchTermination"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1237
+msgid ""
+"Materializes to a ``CompletionStage`` that will be completed with Done or"
+" failed depending whether the upstream of the stage has been completed or"
+" failed. The stage otherwise passes through elements unchanged."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1240
+msgid "**emits** when input has an element available"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1242
+msgid "**backpressures** when output backpressures"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1247
+msgid "monitor"
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1248
+msgid ""
+"Materializes to a ``FlowMonitor`` that monitors messages flowing through "
+"or completion of the stage. The stage otherwise passes through elements "
+"unchanged. Note that the ``FlowMonitor`` inserts a memory barrier every "
+"time it processes an event, and may therefore affect performance."
+msgstr ""
+
+#: ../../java/stream/stages-overview.rst:1254
+msgid "**backpressures** when downstream **backpressures**"
+msgstr ""
+

@@ -1,0 +1,63 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../scala/http/routing-dsl/directives/timeout-directives/withoutRequestTimeout.rst:4
+msgid "withoutRequestTimeout"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/timeout-directives/withoutRequestTimeout.rst:7
+msgid "Signature"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/timeout-directives/withoutRequestTimeout.rst:13
+msgid "Description"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/timeout-directives/withoutRequestTimeout.rst:15
+msgid ""
+"This directive enables \"late\" (during request processing) control over "
+"the :ref:`request-timeout-scala` feature in Akka HTTP."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/timeout-directives/withoutRequestTimeout.rst:17
+msgid ""
+"It is not recommended to turn off request timeouts using this method as "
+"it is inherently racy and disabling request timeouts basically turns off "
+"the safety net against programming mistakes that it provides."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/timeout-directives/withoutRequestTimeout.rst:21
+msgid ""
+"Please note that setting the timeout from within a directive is "
+"inherently racy (as the \"point in time from which we're measuring the "
+"timeout\" is already in the past (the moment we started handling the "
+"request), so if the existing timeout already was triggered before your "
+"directive had the chance to change it, an timeout may still be logged."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/timeout-directives/withoutRequestTimeout.rst:25
+msgid ""
+"For more information about various timeouts in Akka HTTP see :ref:`http-"
+"timeouts-scala`."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/timeout-directives/withoutRequestTimeout.rst:28
+msgid "Example"
+msgstr ""
+

@@ -1,0 +1,5 @@
+_build/**
+project/**
+rst/_build/**
+_sphinx/**
+*.mo

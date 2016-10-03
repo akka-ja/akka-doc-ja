@@ -1,0 +1,61 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/routing-dsl/directives/file-and-resource-directives/listDirectoryContents.rst:4
+msgid "listDirectoryContents"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/file-and-resource-directives/listDirectoryContents.rst:7
+msgid "Description"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/file-and-resource-directives/listDirectoryContents.rst:9
+msgid ""
+"Completes GET requests with a unified listing of the contents of all "
+"given directories. The actual rendering of the directory contents is "
+"performed by the in-scope ``Marshaller[DirectoryListing]``."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/file-and-resource-directives/listDirectoryContents.rst:12
+msgid "To just serve files use :ref:`-getFromDirectory-java-`."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/file-and-resource-directives/listDirectoryContents.rst:14
+msgid ""
+"To serve files and provide a browseable directory listing use :ref"
+":`-getFromBrowseableDirectories-java-` instead."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/file-and-resource-directives/listDirectoryContents.rst:16
+msgid ""
+"The rendering can be overridden by providing a custom "
+"``Marshaller[DirectoryListing]``, you can read more about it in :ref"
+":`-getFromDirectory-java-` 's documentation."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/file-and-resource-directives/listDirectoryContents.rst:19
+msgid ""
+"Note that it's not required to wrap this directive with ``get`` as this "
+"directive will only respond to ``GET`` requests."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/file-and-resource-directives/listDirectoryContents.rst:22
+msgid "Example"
+msgstr ""
+

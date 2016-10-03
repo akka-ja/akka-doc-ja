@@ -1,0 +1,82 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../additional/books.rst:2
+msgid "Books"
+msgstr ""
+
+#: ../../additional/books.rst:4
+msgid ""
+"`Learning Akka <https://www.packtpub.com/application-development"
+"/learning-akka>`_, by Jason Goodwin, PACKT Publishing, ISBN: "
+"9781784393007, December 2015"
+msgstr ""
+
+#: ../../additional/books.rst:5
+msgid ""
+"`Akka in Action <http://www.lightbend.com/resources/e-book/akka-in-"
+"action>`_, by Raymond Roestenburg and Rob Bakker, Manning Publications "
+"Co., ISBN: 9781617291012, estimated in 2016"
+msgstr ""
+
+#: ../../additional/books.rst:6
+msgid ""
+"`Reactive Messaging Patterns with the Actor Model "
+"<http://www.informit.com/store/reactive-messaging-patterns-with-the-"
+"actor-model-applications-9780133846836>`_, by Vaughn Vernon, Addison-"
+"Wesley Professional, ISBN: 0133846830, August 2015"
+msgstr ""
+
+#: ../../additional/books.rst:7
+msgid ""
+"`Developing an Akka Edge <http://bleedingedgepress.com/our-books"
+"/developing-an-akka-edge/>`_, by Thomas Lockney and Raymond Tay, Bleeding"
+" Edge Press, ISBN: 9781939902054, April 2014"
+msgstr ""
+
+#: ../../additional/books.rst:8
+msgid ""
+"`Effective Akka <http://shop.oreilly.com/product/0636920028789.do>`_, by "
+"Jamie Allen, O'Reilly Media, ISBN: 1449360076, August 2013"
+msgstr ""
+
+#: ../../additional/books.rst:9
+msgid ""
+"`Akka Concurrency <http://www.artima.com/shop/akka_concurrency>`_, by "
+"Derek Wyatt, artima developer, ISBN: 0981531660, May 2013"
+msgstr ""
+
+#: ../../additional/books.rst:10
+msgid ""
+"`Akka Essentials <https://www.packtpub.com/application-development/akka-"
+"essentials>`_, by Munish K. Gupta, PACKT Publishing, ISBN: 1849518289, "
+"October 2012"
+msgstr ""
+
+#: ../../additional/books.rst:13
+msgid "Videos"
+msgstr ""
+
+#: ../../additional/books.rst:15
+msgid ""
+"`Learning Akka Videos <https://www.packtpub.com/application-development"
+"/learning-akka-video>`_, by Salma Khater, PACKT Publishing, ISBN: "
+"9781784391836, January 2016"
+msgstr ""
+

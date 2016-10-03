@@ -1,0 +1,473 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:5
+msgid "Migration Guide Eventsourced to Akka Persistence 2.3.x"
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:8
+msgid "General notes"
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:10
+msgid ""
+"`Eventsourced`_ and Akka :ref:`persistence-scala` share many high-level "
+"concepts but strongly differ on design, implementation and usage level. "
+"This migration guide is more a higher-level comparison of Eventsourced "
+"and Akka Persistence rather than a sequence of low-level instructions how"
+" to transform Eventsourced application code into Akka Persistence "
+"application code. This should provide a good starting point for a "
+"migration effort. Development teams should consult the user documentation"
+" of both projects for further details."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:18
+msgid ""
+"Scope of this migration guide is code migration, not journal migration. "
+"Journals written by Eventsourced can neither be used directly Akka "
+"Persistence nor migrated to Akka Persistence compatible journals. Journal"
+" migration tools may be provided in the future but do not exist at the "
+"moment."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:23
+msgid "Extensions"
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:25
+msgid "Eventsourced and Akka Persistence are both :ref:`extending-akka-scala`."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:27
+msgid "**Eventsourced:** ``EventsourcingExtension``"
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:29
+msgid ""
+"Must be explicitly created with an actor system and an application-"
+"defined journal actor as arguments. (see `example usage "
+"<https://github.com/eligosource/eventsourced#step-1"
+"-eventsourcingextension-initialization>`_)."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:31
+msgid ""
+"`Processors <https://github.com/eligosource/eventsourced#processor>`_ and"
+" `Channels <https://github.com/eligosource/eventsourced#channel>`_ must "
+"be created with the factory methods ``processorOf`` and ``channelOf`` "
+"defined on ``EventsourcingExtension``."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:34
+msgid "Is a central registry of created processors and channels."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:36
+msgid "**Akka Persistence:** ``Persistence`` extension"
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:38
+msgid ""
+"Must **not** be explicitly created by an application. A ``Persistence`` "
+"extension is implicitly created upon first `PersistentActor`` creation. "
+"Journal actors are automatically created from a journal plugin "
+"configuration (see :ref:`journal-plugin-api`)."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:41
+msgid ""
+"``PersistentActor``  can be created like any other actor with ``actorOf``"
+" without using the ``Persistence`` extension."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:43
+msgid "Is **not** a central registry of persistent actors."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:46
+msgid "Processors / PersistentActor"
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:48
+msgid "**Eventsourced:** ``Eventsourced``"
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:50
+msgid ""
+"Stackable trait that adds journaling (write-ahead-logging) to actors (see"
+" processor `definition "
+"<https://github.com/eligosource/eventsourced#step-2-event-sourced-actor-"
+"definition>`_ and `creation "
+"<https://github.com/eligosource/eventsourced#step-3-event-sourced-actor-"
+"creation-and-recovery>`_). Name ``Eventsourced`` caused some confusion in"
+" the past as many examples used ``Eventsourced`` processors for *command "
+"sourcing*. See also `this FAQ entry "
+"<https://github.com/eligosource/eventsourced/wiki/FAQ#wiki-event-"
+"sourcing-comparison>`_ for clarification."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:57
+msgid ""
+"Must be explicitly `recovered "
+"<https://github.com/eligosource/eventsourced#recovery>`_ using recovery "
+"methods on  ``EventsourcingExtension``. Applications are responsible for "
+"avoiding an interference of replayed messages and new messages i.e. "
+"applications have to explicitly wait for recovery to complete. Recovery "
+"on processor re-start is not supported out-of-the box."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:61
+msgid ""
+"Journaling-preserving `behavior changes "
+"<https://github.com/eligosource/eventsourced#behavior-changes>`_ are only"
+" possible with special-purpose methods ``become`` and ``unbecome``, in "
+"addition to non-journaling-preserving behavior changes with default "
+"methods ``context.become`` and ``context.unbecome``."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:64
+msgid ""
+"Writes messages of type ``Message`` to the journal (see processor `usage "
+"<https://github.com/eligosource/eventsourced#step-4-event-sourced-actor-"
+"usage>`_). `Sender references "
+"<https://github.com/eligosource/eventsourced#sender-references>`_ are not"
+" stored in the journal i.e. the sender reference of a replayed message is"
+" always ``system.deadLetters``."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:68
+msgid ""
+"Supports `snapshots "
+"<https://github.com/eligosource/eventsourced#snapshots>`_."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:69
+msgid "Identifiers are of type ``Int`` and must be application-defined."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:70
+msgid "Does not support batch-writes of messages to the journal."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:71
+msgid "Does not support stashing of messages."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:73
+msgid "**Akka Persistence:** ``PersistentActor``"
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:75
+msgid ""
+"Trait that adds journaling to actors (see :ref:`event-sourcing-scala`) "
+"and used by applications for *event sourcing* or *command sourcing*. "
+"Corresponds to ``Eventsourced`` processors in Eventsourced but is not a "
+"stackable trait."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:77
+msgid ""
+"Automatically recovers on start and re-start, by default. :ref:`recovery`"
+" can be customized or turned off by overriding actor life cycle hooks "
+"``preStart`` and ``preRestart``. ``Processor`` takes care that new "
+"messages never interfere with replayed messages. New messages are "
+"internally buffered until recovery completes."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:80
+msgid ""
+"No special-purpose behavior change methods. Default behavior change "
+"methods ``context.become`` and ``context.unbecome`` can be used and are "
+"journaling-preserving."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:82
+msgid ""
+"Sender references are written to the journal. Sender references of type "
+"``PromiseActorRef`` are not journaled, they are ``system.deadLetters`` on"
+" replay."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:84
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:143
+msgid "Supports :ref:`snapshots`."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:85
+msgid ""
+":ref:`persistence-identifiers` are of type ``String``, have a default "
+"value and can be overridden by applications."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:86
+msgid "Supports :ref:`batch-writes`."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:87
+msgid "Supports stashing of messages."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:90
+msgid "Channels"
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:92
+msgid "**Eventsourced:** ``DefaultChannel``"
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:94
+msgid ""
+"Prevents redundant delivery of messages to a destination (see `usage "
+"example <https://github.com/eligosource/eventsourced#step-5-channel-"
+"usage>`_ and `default channel "
+"<https://github.com/eligosource/eventsourced#defaultchannel>`_)."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:97
+msgid ""
+"Is associated with a single destination actor reference. A new "
+"incarnation of the destination is not automatically resolved by the "
+"channel. In this case a new channel must be created."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:99
+msgid ""
+"Must be explicitly activated using methods ``deliver`` or ``recover`` "
+"defined on ``EventsourcingExtension``."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:100
+msgid ""
+"Must be activated **after** all processors have been activated. Depending"
+" on the `recovery "
+"<https://github.com/eligosource/eventsourced#recovery>`_ method, this is "
+"either done automatically or must be followed by the application (see "
+"`non-blocking recovery <https://github.com/eligosource/eventsourced#non-"
+"blocking-recovery>`_). This is necessary for a network of processors and "
+"channels to recover consistently."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:104
+msgid "Does not redeliver messages on missing or negative delivery confirmation."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:105
+msgid "Cannot be used standalone."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:107
+msgid "**Eventsourced:** ``ReliableChannel``"
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:109
+msgid ""
+"Provides ``DefaultChannel`` functionality plus persistence and recovery "
+"from sender JVM crashes (see `ReliableChannel "
+"<https://github.com/eligosource/eventsourced#reliablechannel>`_). Also "
+"provides message redelivery in case of missing or negative delivery "
+"confirmations."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:112
+msgid ""
+"Delivers next message to a destination only if previous message has been "
+"successfully delivered (flow control is done by destination)."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:114
+msgid ""
+"Stops itself when the maximum number of redelivery attempts has been "
+"reached."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:115
+msgid "Cannot reply on persistence."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:116
+msgid "Can be used standalone."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:118
+msgid "**Akka Persistence:** ``AtLeastOnceDelivery``"
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:120
+msgid "``AtLeastOnceDelivery`` trait is mixed in to a ``PersistentActor``"
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:121
+msgid ""
+"Does not prevent redundant delivery of messages to a destination "
+"entirely, but won't re-send messages whose delivery is confirmed during "
+"recovery."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:123
+msgid ""
+"Is not associated with a single destination. A destination can be "
+"specified with each ``deliver`` request and is referred to by an actor "
+"path. A destination path is resolved to the current destination "
+"incarnation during delivery (via ``actorSelection``)."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:126
+msgid ""
+"Redelivers messages on missing delivery confirmation. In contrast to "
+"Eventsourced, Akka Persistence doesn't distinguish between missing and "
+"negative confirmations. It only has a notion of missing confirmations "
+"using timeouts (which are closely related to negative confirmations as "
+"both trigger message redelivery)."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:132
+msgid "Views"
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:134
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:148
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:165
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:176
+msgid "**Eventsourced:**"
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:136
+msgid ""
+"No direct support for views. Only way to maintain a view is to use a "
+"channel and a processor as destination."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:138
+msgid "**Akka Persistence:** ``View``"
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:140
+msgid ""
+"Receives the message stream written by a ``PersistentActor`` by reading "
+"it directly from the journal (see :ref:`persistent-views`). Alternative "
+"to using channels. Useful in situations where actors shall receive a "
+"persistent message stream in correct order without duplicates."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:146
+msgid "Serializers"
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:150
+msgid "Uses a protobuf serializer for serializing ``Message`` objects."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:151
+msgid ""
+"Delegates to a configurable Akka serializer for serializing ``Message`` "
+"payloads."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:152
+msgid ""
+"Delegates to a configurable, proprietary (stream) serializer for "
+"serializing snapshots."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:153
+msgid ""
+"See `Serialization "
+"<https://github.com/eligosource/eventsourced#serialization>`_."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:155
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:169
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:185
+msgid "**Akka Persistence:**"
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:157
+msgid "Uses a protobuf serializer for serializing ``Persistent`` objects."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:158
+msgid ""
+"Delegates to a configurable Akka serializer for serializing "
+"``Persistent`` payloads."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:159
+msgid "Delegates to a configurable Akka serializer for serializing snapshots."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:160
+msgid "See :ref:`custom-serialization`."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:163
+msgid "Sequence numbers"
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:167
+msgid "Generated on a per-journal basis."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:171
+msgid "Generated on a per persistent actor basis."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:174
+msgid "Storage plugins"
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:178
+msgid ""
+"Plugin API: `SynchronousWriteReplaySupport "
+"<http://eligosource.github.io/eventsourced/api/snapshot/#org.eligosource.eventsourced.journal.common.support.SynchronousWriteReplaySupport>`_"
+" and `AsynchronousWriteReplaySupport "
+"<http://eligosource.github.io/eventsourced/api/snapshot/#org.eligosource.eventsourced.journal.common.support.AsynchronousWriteReplaySupport>`_"
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:181
+msgid "No separation between journal and snapshot storage plugins."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:182
+msgid ""
+"All plugins pre-packaged with project (see `journals "
+"<https://github.com/eligosource/eventsourced#journals>`_ and `snapshot "
+"configuration "
+"<https://github.com/eligosource/eventsourced#configuration>`_)"
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:187
+msgid ""
+"Plugin API: ``SyncWriteJournal``, ``AsyncWriteJournal``, "
+"``AsyncRecovery``, ``SnapshotStore`` (see :ref:`storage-plugins`)."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:189
+msgid "Clear separation between journal and snapshot storage plugins."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:190
+msgid ""
+"Limited number of :ref:`pre-packaged-plugins` (LevelDB journal and local "
+"snapshot store)."
+msgstr ""
+
+#: ../../project/migration-guide-eventsourced-2.3.x.rst:191
+msgid "Impressive list of `community plugins <http://akka.io/community/>`_."
+msgstr ""
+

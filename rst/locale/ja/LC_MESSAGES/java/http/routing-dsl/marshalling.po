@@ -1,0 +1,106 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/routing-dsl/marshalling.rst:4
+msgid "Marshalling & Unmarshalling"
+msgstr ""
+
+#: ../../java/http/routing-dsl/marshalling.rst:6
+msgid ""
+"\"Marshalling\" is the process of converting a higher-level (object) "
+"structure into some kind of lower-level representation (and vice versa), "
+"often a binary wire format. Other popular names for it are "
+"\"Serialization\" or \"Pickling\"."
+msgstr ""
+
+#: ../../java/http/routing-dsl/marshalling.rst:10
+msgid ""
+"In akka-http \"Marshalling\" means the conversion of an object of type T "
+"into an HttpEntity, which forms the entity body of an HTTP request or "
+"response (depending on whether used on the client or server side)."
+msgstr ""
+
+#: ../../java/http/routing-dsl/marshalling.rst:14
+msgid "Marshalling"
+msgstr ""
+
+#: ../../java/http/routing-dsl/marshalling.rst:16
+msgid ""
+"On the server-side marshalling is used to convert an application-domain "
+"object to a response (entity). Requests can contain an ``Accept`` header "
+"that lists acceptable content types for the client. A marshaller contains"
+" the logic to negotiate the result content types based on the ``Accept`` "
+"and the ``AcceptCharset`` headers."
+msgstr ""
+
+#: ../../java/http/routing-dsl/marshalling.rst:20
+msgid ""
+"Marshallers can be specified when completing a request with "
+"``RequestContext.complete`` or by using one of the "
+"``RouteDirectives.complete`` directives."
+msgstr ""
+
+#: ../../java/http/routing-dsl/marshalling.rst:23
+msgid "These marshallers are provided by akka-http:"
+msgstr ""
+
+#: ../../java/http/routing-dsl/marshalling.rst:25
+msgid ""
+"Use :ref:`json-jackson-support-java` to create an marshaller that can "
+"convert a POJO to an ``application/json`` response using jackson_."
+msgstr ""
+
+#: ../../java/http/routing-dsl/marshalling.rst:27
+msgid ""
+"Use ``Marshaller.stringToEntity``, ``Marshaller.byteArrayToEntity``, "
+"``Marshaller.byteStringToEntity``, combined with "
+"``Marshaller.entityToResponse`` to create custom marshallers."
+msgstr ""
+
+#: ../../java/http/routing-dsl/marshalling.rst:31
+msgid "Unmarshalling"
+msgstr ""
+
+#: ../../java/http/routing-dsl/marshalling.rst:33
+msgid ""
+"On the server-side unmarshalling is used to convert a request (entity) to"
+" an application-domain object. This is done in the "
+"``MarshallingDirectives.request`` or ``MarshallingDirectives.entity`` "
+"directive. There are several unmarshallers provided by akka-http:"
+msgstr ""
+
+#: ../../java/http/routing-dsl/marshalling.rst:37
+msgid ""
+"Use :ref:`json-jackson-support-java` to create an unmarshaller that can "
+"convert an ``application/json`` request to a POJO using jackson_."
+msgstr ""
+
+#: ../../java/http/routing-dsl/marshalling.rst:39
+msgid ""
+"Use the predefined ``Unmarshaller.entityToString``, "
+"``Unmarshaller.entityToByteString``, ``Unmarshaller.entityToByteArray``, "
+"``Unmarshaller.entityToCharArray`` to convert to those basic types."
+msgstr ""
+
+#: ../../java/http/routing-dsl/marshalling.rst:41
+msgid ""
+"Use ``Unmarshaller.sync`` or ``Unmarshaller.async`` to create a custom "
+"unmarshaller."
+msgstr ""
+

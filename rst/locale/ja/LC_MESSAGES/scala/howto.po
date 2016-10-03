@@ -1,0 +1,324 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../scala/howto.rst:6
+msgid "HowTo: Common Patterns"
+msgstr ""
+
+#: ../../scala/howto.rst:8
+msgid ""
+"This section lists common actor patterns which have been found to be "
+"useful, elegant or instructive. Anything is welcome, example topics being"
+" message routing strategies, supervision patterns, restart handling, etc."
+" As a special bonus, additions to this section are marked with the "
+"contributor’s name, and it would be nice if every Akka user who finds a "
+"recurring pattern in his or her code could share it for the profit of "
+"all. Where applicable it might also make sense to add to the "
+"``akka.pattern`` package for creating an `OTP-like library "
+"<http://www.erlang.org/doc/man_index.html>`_."
+msgstr ""
+
+#: ../../scala/howto.rst:18
+msgid "Throttling Messages"
+msgstr ""
+
+#: ../../scala/howto.rst:20
+msgid "Contributed by: Kaspar Fischer"
+msgstr ""
+
+#: ../../scala/howto.rst:22
+msgid ""
+"\"A message throttler that ensures that messages are not sent out at too "
+"high a rate.\""
+msgstr ""
+
+#: ../../scala/howto.rst:24
+msgid ""
+"The pattern is described in `Throttling Messages in Akka 2 "
+"<http://letitcrash.com/post/28901663062/throttling-messages-in-akka-2>`_."
+msgstr ""
+
+#: ../../scala/howto.rst:27
+msgid "Balancing Workload Across Nodes"
+msgstr ""
+
+#: ../../scala/howto.rst:29 ../../scala/howto.rst:53 ../../scala/howto.rst:78
+msgid "Contributed by: Derek Wyatt"
+msgstr ""
+
+#: ../../scala/howto.rst:31
+msgid ""
+"\"Often times, people want the functionality of the BalancingDispatcher "
+"with the stipulation that the Actors doing the work have distinct "
+"Mailboxes on remote nodes. In this post we’ll explore the implementation "
+"of such a concept.\""
+msgstr ""
+
+#: ../../scala/howto.rst:35
+msgid ""
+"The pattern is described `Balancing Workload across Nodes with Akka 2 "
+"<http://letitcrash.com/post/29044669086/balancing-workload-across-nodes-"
+"with-akka-2>`_."
+msgstr ""
+
+#: ../../scala/howto.rst:38
+msgid ""
+"Work Pulling Pattern to throttle and distribute work, and prevent mailbox"
+" overflow"
+msgstr ""
+
+#: ../../scala/howto.rst:40
+msgid "Contributed by: Michael Pollmeier"
+msgstr ""
+
+#: ../../scala/howto.rst:42
+msgid ""
+"\"This pattern ensures that your mailboxes don’t overflow if creating "
+"work is fast than actually doing it – which can lead to out of memory "
+"errors when the mailboxes eventually become too full. It also let’s you "
+"distribute work around your cluster, scale dynamically scale and is "
+"completely non-blocking. This pattern is a specialisation of the above "
+"'Balancing Workload Pattern'.\""
+msgstr ""
+
+#: ../../scala/howto.rst:48
+msgid ""
+"The pattern is described `Work Pulling Pattern to prevent mailbox "
+"overflow, throttle and distribute work <http://www.michaelpollmeier.com"
+"/akka-work-pulling-pattern>`_."
+msgstr ""
+
+#: ../../scala/howto.rst:51
+msgid "Ordered Termination"
+msgstr ""
+
+#: ../../scala/howto.rst:55
+msgid ""
+"\"When an Actor stops, its children stop in an undefined order. Child "
+"termination is asynchronous and thus non-deterministic."
+msgstr ""
+
+#: ../../scala/howto.rst:58
+msgid ""
+"If an Actor has children that have order dependencies, then you might "
+"need to ensure a particular shutdown order of those children so that "
+"their postStop() methods get called in the right order.\""
+msgstr ""
+
+#: ../../scala/howto.rst:62
+msgid ""
+"The pattern is described `An Akka 2 Terminator "
+"<http://letitcrash.com/post/29773618510/an-akka-2-terminator>`_."
+msgstr ""
+
+#: ../../scala/howto.rst:65
+msgid "Akka AMQP Proxies"
+msgstr ""
+
+#: ../../scala/howto.rst:67
+msgid "Contributed by: Fabrice Drouin"
+msgstr ""
+
+#: ../../scala/howto.rst:69
+msgid ""
+"\"“AMQP proxies” is a simple way of integrating AMQP with Akka to "
+"distribute jobs across a network of computing nodes. You still write "
+"“local” code, have very little to configure, and end up with a "
+"distributed, elastic, fault-tolerant grid where computing nodes can be "
+"written in nearly every programming language.\""
+msgstr ""
+
+#: ../../scala/howto.rst:73
+msgid ""
+"The pattern is described `Akka AMQP Proxies "
+"<http://letitcrash.com/post/29988753572/akka-amqp-proxies>`_."
+msgstr ""
+
+#: ../../scala/howto.rst:76
+msgid "Shutdown Patterns in Akka 2"
+msgstr ""
+
+#: ../../scala/howto.rst:80
+msgid ""
+"“How do you tell Akka to shut down the ActorSystem when everything’s "
+"finished? It turns out that there’s no magical flag for this, no "
+"configuration setting, no special callback you can register for, and "
+"neither will the illustrious shutdown fairy grace your application with "
+"her glorious presence at that perfect moment. She’s just plain mean."
+msgstr ""
+
+#: ../../scala/howto.rst:85
+msgid ""
+"In this post, we’ll discuss why this is the case and provide you with a "
+"simple option for shutting down “at the right time”, as well as a not-so-"
+"simple-option for doing the exact same thing.\""
+msgstr ""
+
+#: ../../scala/howto.rst:88
+msgid ""
+"The pattern is described `Shutdown Patterns in Akka 2 "
+"<http://letitcrash.com/post/30165507578/shutdown-patterns-in-akka-2>`_."
+msgstr ""
+
+#: ../../scala/howto.rst:91
+msgid "Distributed (in-memory) graph processing with Akka"
+msgstr ""
+
+#: ../../scala/howto.rst:93
+msgid "Contributed by: Adelbert Chang"
+msgstr ""
+
+#: ../../scala/howto.rst:95
+msgid ""
+"\"Graphs have always been an interesting structure to study in both "
+"mathematics and computer science (among other fields), and have become "
+"even more interesting in the context of online social networks such as "
+"Facebook and Twitter, whose underlying network structures are nicely "
+"represented by graphs.\""
+msgstr ""
+
+#: ../../scala/howto.rst:99
+msgid ""
+"The pattern is described `Distributed In-Memory Graph Processing with "
+"Akka <http://letitcrash.com/post/30257014291/distributed-in-memory-graph-"
+"processing-with-akka>`_."
+msgstr ""
+
+#: ../../scala/howto.rst:102
+msgid "Case Study: An Auto-Updating Cache Using Actors"
+msgstr ""
+
+#: ../../scala/howto.rst:104
+msgid "Contributed by: Eric Pederson"
+msgstr ""
+
+#: ../../scala/howto.rst:106
+msgid ""
+"\"We recently needed to build a caching system in front of a slow backend"
+" system with the following requirements:"
+msgstr ""
+
+#: ../../scala/howto.rst:108
+msgid ""
+"The data in the backend system is constantly being updated so the caches "
+"need to be updated every N minutes. Requests to the backend system need "
+"to be throttled. The caching system we built used Akka actors and Scala’s"
+" support for functions as first class objects.\""
+msgstr ""
+
+#: ../../scala/howto.rst:112
+msgid ""
+"The pattern is described `Case Study: An Auto-Updating Cache using Actors"
+" <http://letitcrash.com/post/30509298968/case-study-an-auto-updating-"
+"cache-using-actors>`_."
+msgstr ""
+
+#: ../../scala/howto.rst:115
+msgid "Discovering message flows in actor systems with the Spider Pattern"
+msgstr ""
+
+#: ../../scala/howto.rst:117
+msgid "Contributed by: Raymond Roestenburg"
+msgstr ""
+
+#: ../../scala/howto.rst:119
+msgid ""
+"\"Building actor systems is fun but debugging them can be difficult, you "
+"mostly end up browsing through many log files on several machines to find"
+" out what’s going on. I’m sure you have browsed through logs and thought,"
+" “Hey, where did that message go?”, “Why did this message cause that "
+"effect” or “Why did this actor never get a message?”"
+msgstr ""
+
+#: ../../scala/howto.rst:123
+msgid "This is where the Spider pattern comes in.\""
+msgstr ""
+
+#: ../../scala/howto.rst:125
+msgid ""
+"The pattern is described `Discovering Message Flows in Actor System with "
+"the Spider Pattern <http://letitcrash.com/post/30585282971/discovering-"
+"message-flows-in-actor-systems-with-the>`_."
+msgstr ""
+
+#: ../../scala/howto.rst:128
+msgid "Scheduling Periodic Messages"
+msgstr ""
+
+#: ../../scala/howto.rst:130
+msgid ""
+"This pattern describes how to schedule periodic messages to yourself in "
+"two different ways."
+msgstr ""
+
+#: ../../scala/howto.rst:133
+msgid ""
+"The first way is to set up periodic message scheduling in the constructor"
+" of the actor, and cancel that scheduled sending in ``postStop`` or else "
+"we might have multiple registered message sends to the same actor."
+msgstr ""
+
+#: ../../scala/howto.rst:139
+msgid ""
+"With this approach the scheduled periodic message send will be restarted "
+"with the actor on restarts. This also means that the time period that "
+"elapses between two tick messages during a restart may drift off based on"
+" when you restart the scheduled message sends relative to the time that "
+"the last message was sent, and how long the initial delay is. Worst case "
+"scenario is ``interval`` plus ``initialDelay``."
+msgstr ""
+
+#: ../../scala/howto.rst:146
+msgid ""
+"The second variant sets up an initial one shot message send in the "
+"``preStart`` method of the actor, and the then the actor when it receives"
+" this message sets up a new one shot message send. You also have to "
+"override ``postRestart`` so we don't call ``preStart`` and schedule the "
+"initial message send again."
+msgstr ""
+
+#: ../../scala/howto.rst:153
+msgid ""
+"With this approach we won't fill up the mailbox with tick messages if the"
+" actor is under pressure, but only schedule a new tick message when we "
+"have seen the previous one."
+msgstr ""
+
+#: ../../scala/howto.rst:159
+msgid "Template Pattern"
+msgstr ""
+
+#: ../../scala/howto.rst:161
+msgid "*Contributed by: N. N.*"
+msgstr ""
+
+#: ../../scala/howto.rst:163
+msgid ""
+"This is an especially nice pattern, since it does even come with some "
+"empty example code:"
+msgstr ""
+
+#: ../../scala/howto.rst:171
+msgid "Spread the word: this is the easiest way to get famous!"
+msgstr ""
+
+#: ../../scala/howto.rst:173
+msgid "Please keep this pattern at the end of this file."
+msgstr ""
+

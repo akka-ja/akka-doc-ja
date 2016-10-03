@@ -1,0 +1,84 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateOAuth2.rst:4
+msgid "authenticateOAuth2"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateOAuth2.rst:5
+msgid ""
+"Wraps the inner route with OAuth Bearer Token authentication support "
+"using a given ``AuthenticatorPF<T>``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateOAuth2.rst:8
+msgid "Description"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateOAuth2.rst:9
+msgid ""
+"Provides support for extracting the so-called \"*Bearer Token*\" from the"
+" :class:`Authorization` HTTP Header, which is used to initiate an OAuth2 "
+"authorization."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateOAuth2.rst:13
+msgid ""
+"This directive does not implement the complete OAuth2 protocol, but "
+"instead enables implementing it, by extracting the needed token from the "
+"HTTP headers."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateOAuth2.rst:16
+msgid ""
+"Given a function returning ``Some<T>`` upon successful authentication and"
+" ``None`` otherwise, respectively applies the inner route or rejects the "
+"request with a :class:`AuthenticationFailedRejection` rejection, which by"
+" default is mapped to an ``401 Unauthorized`` response."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateOAuth2.rst:20
+msgid ""
+"Longer-running authentication tasks (like looking up credentials in a "
+"database) should use the :ref:`-authenticateOAuth2Async-java-` variant of"
+" this directive which allows it to run without blocking routing layer of "
+"Akka HTTP, freeing it for other requests."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateOAuth2.rst:23
+msgid ""
+"See :ref:`credentials-and-timing-attacks-java` for details about "
+"verifying the secret."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateOAuth2.rst:25
+msgid "For more information on how OAuth2 works see `RFC 6750`_."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateOAuth2.rst:30
+msgid "Example"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/security-directives/authenticateOAuth2.rst:32
+msgid ""
+"Usage in code is exactly the same as :ref:`-authenticateBasic-java-`, "
+"with the difference that one must validate the token as OAuth2 dictates "
+"(which is currently not part of Akka HTTP itself)."
+msgstr ""
+

@@ -1,0 +1,140 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/common/timeouts.rst:4
+msgid "Akka HTTP Timeouts"
+msgstr ""
+
+#: ../../java/http/common/timeouts.rst:6
+msgid ""
+"Akka HTTP comes with a variety of built-in timeout mechanisms to protect "
+"your servers from malicious attacks or programming mistakes. Some of "
+"these are simply configuration options (which may be overriden in code) "
+"while others are left to the streaming APIs and are easily implementable "
+"as patterns in user-code directly."
+msgstr ""
+
+#: ../../java/http/common/timeouts.rst:11
+msgid "Common timeouts"
+msgstr ""
+
+#: ../../java/http/common/timeouts.rst:16
+msgid "Idle timeouts"
+msgstr ""
+
+#: ../../java/http/common/timeouts.rst:18
+msgid ""
+"The ``idle-timeout`` is a global setting which sets the maximum "
+"inactivity time of a given connection. In other words, if a connection is"
+" open but no request/response is being written to it for over ``idle-"
+"timeout`` time, the connection will be automatically closed."
+msgstr ""
+
+#: ../../java/http/common/timeouts.rst:22
+msgid ""
+"The setting works the same way for all connections, be it server-side or "
+"client-side, and it's configurable independently for each of those using "
+"the following keys::"
+msgstr ""
+
+#: ../../java/http/common/timeouts.rst:31
+msgid ""
+"For the connection pooled client side the idle period is counted only "
+"when the pool has no pending requests waiting."
+msgstr ""
+
+#: ../../java/http/common/timeouts.rst:35
+msgid "Server timeouts"
+msgstr ""
+
+#: ../../java/http/common/timeouts.rst:40
+msgid "Request timeout"
+msgstr ""
+
+#: ../../java/http/common/timeouts.rst:42
+msgid ""
+"Request timeouts are a mechanism that limits the maximum time it may take"
+" to produce an ``HttpResponse`` from a route. If that deadline is not met"
+" the server will automatically inject a Service Unavailable HTTP response"
+" and close the connection to prevent it from leaking and staying around "
+"indefinitely (for example if by programming error a Future would never "
+"complete, never sending the real response otherwise)."
+msgstr ""
+
+#: ../../java/http/common/timeouts.rst:47
+msgid ""
+"The default ``HttpResponse`` that is written when a request timeout is "
+"exceeded looks like this:"
+msgstr ""
+
+#: ../../java/http/common/timeouts.rst:52
+msgid ""
+"A default request timeout is applied globally to all routes and can be "
+"configured using the ``akka.http.server.request-timeout`` setting (which "
+"defaults to 20 seconds)."
+msgstr ""
+
+#: ../../java/http/common/timeouts.rst:56
+msgid ""
+"Please note that if multiple requests (``R1,R2,R3,...``) were sent by a "
+"client (see \"HTTP pipelining\") using the same connection and the "
+"``n-th`` request triggers a request timeout the server will reply with an"
+" Http Response and close the connection, leaving the ``(n+1)-th`` (and "
+"subsequent requests on the same connection) unhandled."
+msgstr ""
+
+#: ../../java/http/common/timeouts.rst:60
+msgid ""
+"The request timeout can be configured at run-time for a given route using"
+" the any of the :ref:`TimeoutDirectives`."
+msgstr ""
+
+#: ../../java/http/common/timeouts.rst:63
+msgid "Bind timeout"
+msgstr ""
+
+#: ../../java/http/common/timeouts.rst:65
+msgid ""
+"The bind timeout is the time period within which the TCP binding process "
+"must be completed (using any of the ``Http().bind*`` methods). It can be "
+"configured using the ``akka.http.server.bind-timeout`` setting."
+msgstr ""
+
+#: ../../java/http/common/timeouts.rst:69
+msgid "Client timeouts"
+msgstr ""
+
+#: ../../java/http/common/timeouts.rst:72
+msgid "Connecting timeout"
+msgstr ""
+
+#: ../../java/http/common/timeouts.rst:74
+msgid ""
+"The connecting timeout is the time period within which the TCP connecting"
+" process must be completed. Tweaking it should rarely be required, but it"
+" allows erroring out the connection in case a connection is unable to be "
+"established for a given amount of time."
+msgstr ""
+
+#: ../../java/http/common/timeouts.rst:78
+msgid ""
+"it can be configured using the ``akka.http.client.connecting-timeout`` "
+"setting."
+msgstr ""
+

@@ -1,0 +1,50 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/routing-dsl/directives/basic-directives/extractLog.rst:4
+msgid "extractLog"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/extractLog.rst:7
+msgid "Description"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/extractLog.rst:9
+msgid ""
+"Extracts a :class:`LoggingAdapter` from the request context which can be "
+"used for logging inside the route."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/extractLog.rst:11
+msgid ""
+"The ``extractLog`` directive is used for providing logging to routes, "
+"such that they don't have to depend on closing over a logger provided in "
+"the class body."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/extractLog.rst:14
+msgid ""
+"See :ref:`-extract-java-` and :ref:`ProvideDirectives-java` for an "
+"overview of similar directives."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/basic-directives/extractLog.rst:17
+msgid "Example"
+msgstr ""
+

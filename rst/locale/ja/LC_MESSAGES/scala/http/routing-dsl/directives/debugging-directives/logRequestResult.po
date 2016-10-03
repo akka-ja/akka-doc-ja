@@ -1,0 +1,70 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../scala/http/routing-dsl/directives/debugging-directives/logRequestResult.rst:4
+msgid "logRequestResult"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/debugging-directives/logRequestResult.rst:7
+msgid "Signature"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/debugging-directives/logRequestResult.rst:15
+msgid "The signature shown is simplified, the real signature uses magnets. [1]_"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/debugging-directives/logRequestResult.rst:17
+msgid "See `The Magnet Pattern`_ for an explanation of magnet-based overloading."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/debugging-directives/logRequestResult.rst:21
+msgid "Description"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/debugging-directives/logRequestResult.rst:22
+msgid "Logs both, the request and the response."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/debugging-directives/logRequestResult.rst:24
+msgid ""
+"This directive is a combination of :ref:`-logRequest-` and "
+":ref:`-logResult-`."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/debugging-directives/logRequestResult.rst:26
+msgid ""
+"See :ref:`-logRequest-` for the general description how these directives "
+"work."
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/debugging-directives/logRequestResult.rst:29
+msgid "Example"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/debugging-directives/logRequestResult.rst:36
+msgid "Building Advanced Directives"
+msgstr ""
+
+#: ../../scala/http/routing-dsl/directives/debugging-directives/logRequestResult.rst:38
+msgid ""
+"This example will showcase the advanced logging using the "
+"``DebuggingDirectives``. The built `logResponseTime ` directive will log "
+"the request time (or rejection reason):"
+msgstr ""
+

@@ -1,0 +1,52 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/configuration.rst:4
+msgid "Configuration"
+msgstr ""
+
+#: ../../java/http/configuration.rst:6
+msgid ""
+"Just like any other Akka module Akka HTTP is configured via `Typesafe "
+"Config`_. Usually this means that you provide an ``application.conf`` "
+"which contains all the application-specific settings that differ from the"
+" default ones provided by the reference configuration files from the "
+"individual Akka modules."
+msgstr ""
+
+#: ../../java/http/configuration.rst:10
+msgid ""
+"These are the relevant default configuration values for the Akka HTTP "
+"modules."
+msgstr ""
+
+#: ../../java/http/configuration.rst:13
+msgid "akka-http-core"
+msgstr ""
+
+#: ../../java/http/configuration.rst:20
+msgid "akka-http"
+msgstr ""
+
+#: ../../java/http/configuration.rst:26
+msgid ""
+"The other Akka HTTP modules do not offer any configuration via `Typesafe "
+"Config`_."
+msgstr ""
+

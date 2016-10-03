@@ -1,0 +1,72 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/client-side/index.rst:4
+msgid "Consuming HTTP-based Services (Client-Side)"
+msgstr ""
+
+#: ../../java/http/client-side/index.rst:6
+msgid ""
+"All client-side functionality of Akka HTTP, for consuming HTTP-based "
+"services offered by other endpoints, is currently provided by the ``akka-"
+"http-core`` module."
+msgstr ""
+
+#: ../../java/http/client-side/index.rst:9
+msgid ""
+"Depending on your application's specific needs you can choose from three "
+"different API levels:"
+msgstr ""
+
+#: ../../java/http/client-side/index.rst:12
+msgid ":ref:`connection-level-api-java`"
+msgstr ""
+
+#: ../../java/http/client-side/index.rst:12
+msgid ""
+"for full-control over when HTTP connections are opened/closed and how "
+"requests are scheduled across them"
+msgstr ""
+
+#: ../../java/http/client-side/index.rst:15
+msgid ":ref:`host-level-api-java`"
+msgstr ""
+
+#: ../../java/http/client-side/index.rst:15
+msgid ""
+"for letting Akka HTTP manage a connection-pool to *one specific* "
+"host/port endpoint"
+msgstr ""
+
+#: ../../java/http/client-side/index.rst:18
+msgid ":ref:`request-level-api-java`"
+msgstr ""
+
+#: ../../java/http/client-side/index.rst:18
+msgid "for letting Akka HTTP perform all connection management"
+msgstr ""
+
+#: ../../java/http/client-side/index.rst:20
+msgid ""
+"You can interact with different API levels at the same time and, "
+"independently of which API level you choose, Akka HTTP will happily "
+"handle many thousand concurrent connections to a single or many different"
+" hosts."
+msgstr ""
+

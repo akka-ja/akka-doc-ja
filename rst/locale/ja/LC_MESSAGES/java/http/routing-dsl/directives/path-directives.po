@@ -1,0 +1,240 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:4
+msgid "PathDirectives"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:6
+msgid ""
+"Path directives are the most basic building blocks for routing requests "
+"depending on the URI path."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:8
+msgid ""
+"When a request (or rather the respective ``RequestContext`` instance) "
+"enters the route structure it has an \"unmatched path\" that is identical"
+" to the ``request.uri.path``. As it descends the routing tree and passes "
+"through one or more ``pathPrefix`` or ``path`` directives the \"unmatched"
+" path\" progressively gets \"eaten into\" from the left until, in most "
+"cases, it eventually has been consumed completely."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:13
+msgid ""
+"The two main directives are ``path`` and ``pathPrefix``. The ``path`` "
+"directive tries to match the complete remaining unmatched path against "
+"the specified \"path matchers\", the ``pathPrefix`` directive only "
+"matches a prefix and passes the remaining unmatched path to nested "
+"directives. Both directives automatically match a slash from the "
+"beginning, so that matching slashes in a hierarchy of nested "
+"``pathPrefix`` and ``path`` directives is usually not needed."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:18
+msgid ""
+"Path directives take a variable amount of arguments. Each argument must "
+"be a ``PathMatcher`` or a string (which is automatically converted to a "
+"path matcher using ``PathMatchers.segment``). In the case of ``path`` and"
+" ``pathPrefix``, if multiple arguments are supplied, a slash is assumed "
+"between any of the supplied path matchers. The ``rawPathX`` variants of "
+"those directives on the other side do no such preprocessing, so that "
+"slashes must be matched manually."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:24
+msgid "Path Matchers"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:26
+msgid ""
+"A path matcher is a description of a part of a path to match. The "
+"simplest path matcher is ``PathMatcher.segment`` which matches exactly "
+"one path segment against the supplied constant string."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:29
+msgid ""
+"Other path matchers defined in ``PathMatchers`` match the end of the path"
+" (``PathMatchers.END``), a single slash (``PathMatchers.SLASH``), or "
+"nothing at all (``PathMatchers.NEUTRAL``)."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:32
+msgid ""
+"Many path matchers are hybrids that can both match (by using them with "
+"one of the PathDirectives) and extract values, Extracting a path matcher "
+"value (i.e. using it with ``handleWithX``) is only allowed if it nested "
+"inside a path directive that uses that path matcher and so specifies at "
+"which position the value should be extracted from the path."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:36
+msgid "Predefined path matchers allow extraction of various types of values:"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:41
+msgid "``PathMatchers.segment(String)``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:39
+#, python-format
+msgid ""
+"Strings simply match themselves and extract no value. Note that strings "
+"are interpreted as the decoded representation of the path, so if they "
+"include a '/' character this character will match \"%2F\" in the encoded "
+"raw URI!"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:47
+msgid "``PathMatchers.regex``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:44
+msgid ""
+"You can use a regular expression instance as a path matcher, which "
+"matches whatever the regex matches and extracts one ``String`` value. A "
+"``PathMatcher`` created from a regular expression extracts either the "
+"complete match (if the regex doesn't contain a capture group) or the "
+"capture group (if the regex contains exactly one capture group). If the "
+"regex contains more than one capture group an "
+"``IllegalArgumentException`` will be thrown."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:50
+msgid "``PathMatchers.SLASH``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:50
+msgid "Matches exactly one path-separating slash (``/``) character."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:53
+msgid "``PathMatchers.END``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:53
+msgid "Matches the very end of the path, similar to ``$`` in regular expressions."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:57
+msgid "``PathMatchers.Segment``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:56
+msgid ""
+"Matches if the unmatched path starts with a path segment (i.e. not a "
+"slash). If so the path segment is extracted as a ``String`` instance."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:61
+msgid "``PathMatchers.Remaining``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:60
+msgid ""
+"Matches and extracts the complete remaining unmatched part of the "
+"request's URI path as an (encoded!) String. If you need access to the "
+"remaining *decoded* elements of the path use ``RemainingPath`` instead."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:65
+msgid "``PathMatchers.intValue``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:64
+msgid ""
+"Efficiently matches a number of decimal digits (unsigned) and extracts "
+"their (non-negative) ``Int`` value. The matcher will not match zero "
+"digits or a sequence of digits that would represent an ``Int`` value "
+"larger than ``Integer.MAX_VALUE``."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:69
+msgid "``PathMatchers.longValue``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:68
+msgid ""
+"Efficiently matches a number of decimal digits (unsigned) and extracts "
+"their (non-negative) ``Long`` value. The matcher will not match zero "
+"digits or a sequence of digits that would represent an ``Long`` value "
+"larger than ``Long.MAX_VALUE``."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:73
+msgid "``PathMatchers.hexIntValue``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:72
+msgid ""
+"Efficiently matches a number of hex digits and extracts their (non-"
+"negative) ``Int`` value. The matcher will not match zero digits or a "
+"sequence of digits that would represent an ``Int`` value larger than "
+"``Integer.MAX_VALUE``."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:77
+msgid "``PathMatchers.hexLongValue``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:76
+msgid ""
+"Efficiently matches a number of hex digits and extracts their (non-"
+"negative) ``Long`` value. The matcher will not match zero digits or a "
+"sequence of digits that would represent an ``Long`` value larger than "
+"``Long.MAX_VALUE``."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:80
+msgid "``PathMatchers.uuid``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:80
+msgid "Matches and extracts a ``java.util.UUID`` instance."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:84
+msgid "``PathMatchers.NEUTRAL``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:83
+msgid ""
+"A matcher that always matches, doesn't consume anything and extracts "
+"nothing. Serves mainly as a neutral element in ``PathMatcher`` "
+"composition."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:89
+msgid "``PathMatchers.segments``"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:87
+msgid ""
+"Matches all remaining segments as a list of strings. Note that this can "
+"also be \"no segments\" resulting in the empty list. If the path has a "
+"trailing slash this slash will *not* be matched, i.e. remain unmatched "
+"and to be consumed by potentially nested directives."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/path-directives.rst:91
+msgid "Here's a collection of path matching examples:"
+msgstr ""
+

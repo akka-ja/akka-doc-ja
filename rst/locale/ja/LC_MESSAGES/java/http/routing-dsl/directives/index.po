@@ -1,0 +1,141 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2016, Lightbend Inc
+# This file is distributed under the same license as the Akka package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Akka @version@\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../java/http/routing-dsl/directives/index.rst:4
+msgid "Directives"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/index.rst:6
+msgid ""
+"A \"Directive\" is a small building block used for creating arbitrarily "
+"complex :ref:`route structures <Routes>`. Akka HTTP already pre-defines a"
+" large number of directives and you can easily construct your own:"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/index.rst:18
+msgid "Basics"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/index.rst:20
+msgid ""
+":ref:`Routes-java` effectively are simply highly specialised functions "
+"that take a ``RequestContext`` and eventually ``complete`` it, which "
+"could (and often should) happen asynchronously."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/index.rst:23
+msgid "With the :ref:`-complete-java-` directive this becomes even shorter::"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/index.rst:27
+msgid ""
+"Writing multiple routes that are tried as alternatives (in-order of "
+"definition), is as simple as using the ``route(route1, route2)``, "
+"method::"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/index.rst:38
+msgid ""
+"You could also simply define a \"catch all\" completion by providing it "
+"as the last route to attempt to match. In the example below we use the "
+"``get()`` (one of the :ref:`MethodDirectives-java`) to match all incoming"
+" ``GET`` requests for that route, and all other requests will be routed "
+"towards the other \"catch all\" route, that completes the route::"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/index.rst:50
+msgid ""
+"If no route matches a given request, a default ``404 Not Found`` response"
+" will be returned as response."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/index.rst:53
+msgid "Structure"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/index.rst:55
+msgid "The general anatomy of a directive is as follows::"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/index.rst:61
+msgid ""
+"It has a name, zero or more arguments and optionally an inner route (The "
+":ref:`RouteDirectives-java` are special in that they are always used at "
+"the leaf-level and as such cannot have inner routes)."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/index.rst:64
+msgid ""
+"Additionally directives can \"extract\" a number of values and make them "
+"available to their inner routes as function arguments. When seen \"from "
+"the outside\" a directive with its inner route form an expression of type"
+" ``Route``."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/index.rst:69
+msgid "What Directives do"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/index.rst:71
+msgid "A directive can do one or more of the following:"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/index.rst:75
+msgid ""
+"Transform the incoming ``RequestContext`` before passing it on to its "
+"inner route (i.e. modify the request)"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/index.rst:76
+msgid ""
+"Filter the ``RequestContext`` according to some logic, i.e. only pass on "
+"certain requests and reject others"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/index.rst:77
+msgid ""
+"Extract values from the ``RequestContext`` and make them available to its"
+" inner route as \"extractions\""
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/index.rst:78
+msgid ""
+"Chain some logic into the :class:`RouteResult` future transformation "
+"chain (i.e. modify the response or rejection)"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/index.rst:79
+msgid "Complete the request"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/index.rst:81
+msgid ""
+"This means a ``Directive`` completely wraps the functionality of its "
+"inner route and can apply arbitrarily complex transformations, both (or "
+"either) on the request and on the response side."
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/index.rst:86
+msgid "Composing Directives"
+msgstr ""
+
+#: ../../java/http/routing-dsl/directives/index.rst:88
+msgid "TODO rewrite for Java API"
+msgstr ""
+
