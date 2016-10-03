@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -228,22 +228,31 @@ msgid ""
 "completed it will use the new behavior."
 msgstr ""
 
-#: ../../scala/persistence.rst:127 ../../scala/persistence.rst:510
+#: ../../scala/persistence.rst:129 ../../scala/persistence.rst:549
 msgid "Identifiers"
 msgstr ""
 
-#: ../../scala/persistence.rst:129
+#: ../../scala/persistence.rst:131
 msgid ""
 "A persistent actor must have an identifier that doesn't change across "
 "different actor incarnations. The identifier must be defined with the "
 "``persistenceId`` method."
 msgstr ""
 
-#: ../../scala/persistence.rst:137 ../../scala/persistence.rst:501
+#: ../../scala/persistence.rst:137
+msgid ""
+"``persistenceId`` must be unique to a given entity in the journal "
+"(database table/keyspace). When replaying messages persisted to the "
+"journal, you query messages with a ``persistenceId``. So, if two "
+"different entities share the same ``persistenceId``, message-replaying "
+"behavior is corrupted."
+msgstr ""
+
+#: ../../scala/persistence.rst:145 ../../scala/persistence.rst:540
 msgid "Recovery"
 msgstr ""
 
-#: ../../scala/persistence.rst:139
+#: ../../scala/persistence.rst:147
 msgid ""
 "By default, a persistent actor is automatically recovered on start and on"
 " restart by replaying journaled messages. New messages sent to a "
@@ -252,7 +261,7 @@ msgid ""
 "completes."
 msgstr ""
 
-#: ../../scala/persistence.rst:144
+#: ../../scala/persistence.rst:152
 msgid ""
 "Accessing the ``sender()`` for replayed messages will always result in a "
 "``deadLetters`` reference, as the original sender is presumed to be long "
@@ -260,11 +269,11 @@ msgid ""
 "future, store its ``ActorPath`` explicitly in your persisted events."
 msgstr ""
 
-#: ../../scala/persistence.rst:149
+#: ../../scala/persistence.rst:157
 msgid "Recovery customization"
 msgstr ""
 
-#: ../../scala/persistence.rst:151
+#: ../../scala/persistence.rst:159
 msgid ""
 "Applications may also customise how recovery is performed by returning a "
 "customised ``Recovery`` object in the ``recovery`` method of a "
@@ -273,21 +282,21 @@ msgid ""
 "instead to its most up to date state:"
 msgstr ""
 
-#: ../../scala/persistence.rst:157
+#: ../../scala/persistence.rst:165
 msgid ""
 "Recovery can be disabled by returning ``Recovery.none()`` in the "
 "``recovery`` method of a ``PersistentActor``:"
 msgstr ""
 
-#: ../../scala/persistence.rst:162
+#: ../../scala/persistence.rst:170
 msgid "Recovery status"
 msgstr ""
 
-#: ../../scala/persistence.rst:164
+#: ../../scala/persistence.rst:172
 msgid "A persistent actor can query its own recovery status via the methods"
 msgstr ""
 
-#: ../../scala/persistence.rst:168
+#: ../../scala/persistence.rst:176
 msgid ""
 "Sometimes there is a need for performing additional initialization when "
 "the recovery has completed before processing any other message sent to "
@@ -296,29 +305,29 @@ msgid ""
 "other received messages."
 msgstr ""
 
-#: ../../scala/persistence.rst:175
+#: ../../scala/persistence.rst:183
 msgid ""
 "If there is a problem with recovering the state of the actor from the "
 "journal, ``onRecoveryFailure`` is called (logging the error by default) "
 "and the actor will be stopped."
 msgstr ""
 
-#: ../../scala/persistence.rst:181
+#: ../../scala/persistence.rst:189
 msgid "Internal stash"
 msgstr ""
 
-#: ../../scala/persistence.rst:183
+#: ../../scala/persistence.rst:191
 msgid ""
 "The persistent actor has a private :ref:`stash <stash-scala>` for "
-"internally caching incoming messages during :ref:`recovery <recovery>` or"
-" the ``persist\\persistAll`` method persisting events. You can still "
-"use/inherit from the ``Stash`` interface. The internal stash cooperates "
-"with the normal stash by hooking into ``unstashAll`` method and making "
-"sure messages are unstashed properly to the internal stash to maintain "
-"ordering guarantees."
+"internally caching incoming messages during :ref:`recovery <recovery-"
+"scala>` or the ``persist\\persistAll`` method persisting events. You can "
+"still use/inherit from the ``Stash`` interface. The internal stash "
+"cooperates with the normal stash by hooking into ``unstashAll`` method "
+"and making sure messages are unstashed properly to the internal stash to "
+"maintain ordering guarantees."
 msgstr ""
 
-#: ../../scala/persistence.rst:188
+#: ../../scala/persistence.rst:196
 msgid ""
 "You should be careful to not send more messages to a persistent actor "
 "than it can keep up with, otherwise the number of stashed messages will "
@@ -327,7 +336,7 @@ msgid ""
 "configuration::"
 msgstr ""
 
-#: ../../scala/persistence.rst:194
+#: ../../scala/persistence.rst:202
 msgid ""
 "Note that the stash capacity is per actor. If you have many persistent "
 "actors, e.g. when using cluster sharding, you may need to define a small "
@@ -345,30 +354,30 @@ msgid ""
 "``StashOverflowStrategyConfigurator``, in the persistence configuration::"
 msgstr ""
 
-#: ../../scala/persistence.rst:207
+#: ../../scala/persistence.rst:215
 msgid ""
 "The ``DiscardToDeadLetterStrategy`` strategy also has a pre-packaged "
 "companion configurator ``akka.persistence.DiscardConfigurator``."
 msgstr ""
 
-#: ../../scala/persistence.rst:210
+#: ../../scala/persistence.rst:218
 msgid ""
 "You can also query default strategy via the Akka persistence extension "
 "singleton::"
 msgstr ""
 
-#: ../../scala/persistence.rst:215
+#: ../../scala/persistence.rst:223
 msgid ""
 "The bounded mailbox should be avoided in the persistent actor, by which "
 "the messages come from storage backends may be discarded. You can use "
 "bounded stash instead of it."
 msgstr ""
 
-#: ../../scala/persistence.rst:221
+#: ../../scala/persistence.rst:229
 msgid "Relaxed local consistency requirements and high throughput use-cases"
 msgstr ""
 
-#: ../../scala/persistence.rst:223
+#: ../../scala/persistence.rst:231
 msgid ""
 "If faced with relaxed local consistency requirements and high throughput "
 "demands sometimes ``PersistentActor`` and its ``persist`` may not be "
@@ -382,7 +391,7 @@ msgid ""
 "to persistence failures if needed."
 msgstr ""
 
-#: ../../scala/persistence.rst:230
+#: ../../scala/persistence.rst:238
 msgid ""
 "The ``persistAsync`` method provides a tool for implementing high-"
 "throughput persistent actors. It will *not* stash incoming Commands while"
@@ -390,7 +399,7 @@ msgid ""
 " event callbacks."
 msgstr ""
 
-#: ../../scala/persistence.rst:233
+#: ../../scala/persistence.rst:241
 msgid ""
 "In the below example, the event callbacks may be called \"at any time\", "
 "even after the next Command has been processed. The ordering between "
@@ -398,25 +407,25 @@ msgid ""
 "which will be sent after \"evt-a-1\" etc.)."
 msgstr ""
 
-#: ../../scala/persistence.rst:239
+#: ../../scala/persistence.rst:247
 msgid ""
 "In order to implement the pattern known as \"*command sourcing*\" simply "
 "call ``persistAsync(cmd)(...)`` right away on all incoming messages and "
 "handle them in the callback."
 msgstr ""
 
-#: ../../scala/persistence.rst:243
+#: ../../scala/persistence.rst:251
 msgid ""
 "The callback will not be invoked if the actor is restarted (or stopped) "
 "in between the call to ``persistAsync`` and the journal has confirmed the"
 " write."
 msgstr ""
 
-#: ../../scala/persistence.rst:249
+#: ../../scala/persistence.rst:257
 msgid "Deferring actions until preceding persist handlers have executed"
 msgstr ""
 
-#: ../../scala/persistence.rst:251
+#: ../../scala/persistence.rst:259
 msgid ""
 "Sometimes when working with ``persistAsync`` you may find that it would "
 "be nice to define some actions in terms of ''happens-after the previous "
@@ -427,36 +436,36 @@ msgid ""
 "have corresponding events in your domain model."
 msgstr ""
 
-#: ../../scala/persistence.rst:256
+#: ../../scala/persistence.rst:264
 msgid ""
 "Using this method is very similar to the persist family of methods, yet "
 "it does **not** persist the passed in event. It will be kept in memory "
 "and used when invoking the handler."
 msgstr ""
 
-#: ../../scala/persistence.rst:261
+#: ../../scala/persistence.rst:269
 msgid ""
 "Notice that the ``sender()`` is **safe** to access in the handler "
 "callback, and will be pointing to the original sender of the command for "
 "which this ``deferAsync`` handler was called."
 msgstr ""
 
-#: ../../scala/persistence.rst:264
+#: ../../scala/persistence.rst:272
 msgid "The calling side will get the responses in this (guaranteed) order:"
 msgstr ""
 
-#: ../../scala/persistence.rst:269
+#: ../../scala/persistence.rst:277
 msgid ""
 "The callback will not be invoked if the actor is restarted (or stopped) "
 "in between the call to ``deferAsync`` and the journal has processed and "
 "confirmed all preceding writes."
 msgstr ""
 
-#: ../../scala/persistence.rst:275
+#: ../../scala/persistence.rst:283
 msgid "Nested persist calls"
 msgstr ""
 
-#: ../../scala/persistence.rst:276
+#: ../../scala/persistence.rst:284
 msgid ""
 "It is possible to call ``persist`` and ``persistAsync`` inside their "
 "respective callback blocks and they will properly retain both the thread "
@@ -464,7 +473,7 @@ msgid ""
 "guarantees."
 msgstr ""
 
-#: ../../scala/persistence.rst:279
+#: ../../scala/persistence.rst:287
 msgid ""
 "In general it is encouraged to create command handlers which do not need "
 "to resort to nested event persisting, however there are situations where "
@@ -475,13 +484,13 @@ msgid ""
 "persist inside its callback:"
 msgstr ""
 
-#: ../../scala/persistence.rst:286
+#: ../../scala/persistence.rst:294
 msgid ""
 "When sending two commands to this ``PersistentActor``, the persist "
 "handlers will be executed in the following order:"
 msgstr ""
 
-#: ../../scala/persistence.rst:290
+#: ../../scala/persistence.rst:298
 msgid ""
 "First the \"outer layer\" of persist calls is issued and their callbacks "
 "are applied. After these have successfully completed, the inner callbacks"
@@ -493,37 +502,37 @@ msgid ""
 "extended until all nested ``persist`` callbacks have been handled."
 msgstr ""
 
-#: ../../scala/persistence.rst:296
+#: ../../scala/persistence.rst:304
 msgid ""
 "It is also possible to nest ``persistAsync`` calls, using the same "
 "pattern:"
 msgstr ""
 
-#: ../../scala/persistence.rst:300
+#: ../../scala/persistence.rst:308
 msgid ""
 "In this case no stashing is happening, yet events are still persisted and"
 " callbacks are executed in the expected order:"
 msgstr ""
 
-#: ../../scala/persistence.rst:304
+#: ../../scala/persistence.rst:312
 msgid ""
 "While it is possible to nest mixed ``persist`` and ``persistAsync`` with "
 "keeping their respective semantics it is not a recommended practice, as "
 "it may lead to overly complex nesting."
 msgstr ""
 
-#: ../../scala/persistence.rst:310
+#: ../../scala/persistence.rst:318
 msgid "Failures"
 msgstr ""
 
-#: ../../scala/persistence.rst:312
+#: ../../scala/persistence.rst:320
 msgid ""
 "If persistence of an event fails, ``onPersistFailure`` will be invoked "
 "(logging the error by default), and the actor will unconditionally be "
 "stopped."
 msgstr ""
 
-#: ../../scala/persistence.rst:315
+#: ../../scala/persistence.rst:323
 msgid ""
 "The reason that it cannot resume when persist fails is that it is unknown"
 " if the event was actually persisted or not, and therefore it is in an "
@@ -534,25 +543,25 @@ msgid ""
 "restarts."
 msgstr ""
 
-#: ../../scala/persistence.rst:323
+#: ../../scala/persistence.rst:331
 msgid ""
 "If persistence of an event is rejected before it is stored, e.g. due to "
 "serialization error, ``onPersistRejected`` will be invoked (logging a "
 "warning by default), and the actor continues with next message."
 msgstr ""
 
-#: ../../scala/persistence.rst:327
+#: ../../scala/persistence.rst:335
 msgid ""
 "If there is a problem with recovering the state of the actor from the "
 "journal when the actor is started, ``onRecoveryFailure`` is called "
 "(logging the error by default), and the actor will be stopped."
 msgstr ""
 
-#: ../../scala/persistence.rst:331
+#: ../../scala/persistence.rst:339
 msgid "Atomic writes"
 msgstr ""
 
-#: ../../scala/persistence.rst:333
+#: ../../scala/persistence.rst:341
 msgid ""
 "Each event is of course stored atomically, but it is also possible to "
 "store several events atomically by using the ``persistAll`` or "
@@ -560,13 +569,13 @@ msgid ""
 "method are stored or none of them are stored if there is an error."
 msgstr ""
 
-#: ../../scala/persistence.rst:337
+#: ../../scala/persistence.rst:345
 msgid ""
 "The recovery of a persistent actor will therefore never be done partially"
 " with only a subset of events persisted by `persistAll`."
 msgstr ""
 
-#: ../../scala/persistence.rst:340
+#: ../../scala/persistence.rst:348
 msgid ""
 "Some journals may not support atomic writes of several events and they "
 "will then reject the ``persistAll`` command, i.e. ``onPersistRejected`` "
@@ -574,11 +583,11 @@ msgid ""
 "``UnsupportedOperationException``)."
 msgstr ""
 
-#: ../../scala/persistence.rst:346
+#: ../../scala/persistence.rst:354
 msgid "Batch writes"
 msgstr ""
 
-#: ../../scala/persistence.rst:348
+#: ../../scala/persistence.rst:356
 msgid ""
 "In order to optimize throughput when using ``persistAsync``, a persistent"
 " actor internally batches events to be stored under high load before "
@@ -590,18 +599,18 @@ msgid ""
 "latencies at a minimum."
 msgstr ""
 
-#: ../../scala/persistence.rst:357
+#: ../../scala/persistence.rst:365
 msgid "Message deletion"
 msgstr ""
 
-#: ../../scala/persistence.rst:359
+#: ../../scala/persistence.rst:367
 msgid ""
 "It is possible to delete all messages (journaled by a single persistent "
 "actor) up to a specified sequence number; Persistent actors may call the "
 "``deleteMessages`` method to this end."
 msgstr ""
 
-#: ../../scala/persistence.rst:362
+#: ../../scala/persistence.rst:370
 msgid ""
 "Deleting messages in event sourcing based applications is typically "
 "either not used at all, or used in conjunction with :ref:`snapshotting "
@@ -612,93 +621,93 @@ msgid ""
 "loading the snapshot."
 msgstr ""
 
-#: ../../scala/persistence.rst:367
+#: ../../scala/persistence.rst:375
 msgid ""
 "The result of the ``deleteMessages`` request is signaled to the "
 "persistent actor with a ``DeleteMessagesSuccess`` message if the delete "
 "was successful or a ``DeleteMessagesFailure`` message if it failed."
 msgstr ""
 
-#: ../../scala/persistence.rst:370
+#: ../../scala/persistence.rst:378
 msgid ""
 "Message deletion doesn't affect the highest sequence number of the "
 "journal, even if all messages were deleted from it after "
 "``deleteMessages`` invocation."
 msgstr ""
 
-#: ../../scala/persistence.rst:373
+#: ../../scala/persistence.rst:381
 msgid "Persistence status handling"
 msgstr ""
 
-#: ../../scala/persistence.rst:374
+#: ../../scala/persistence.rst:382
 msgid "Persisting, deleting, and replaying messages can either succeed or fail."
 msgstr ""
 
-#: ../../scala/persistence.rst:377 ../../scala/persistence.rst:578
+#: ../../scala/persistence.rst:385 ../../scala/persistence.rst:617
 msgid "**Method**"
 msgstr ""
 
-#: ../../scala/persistence.rst:377 ../../scala/persistence.rst:578
+#: ../../scala/persistence.rst:385 ../../scala/persistence.rst:617
 msgid "**Success**"
 msgstr ""
 
-#: ../../scala/persistence.rst:377
+#: ../../scala/persistence.rst:385
 msgid "**Failure / Rejection**"
 msgstr ""
 
-#: ../../scala/persistence.rst:377
+#: ../../scala/persistence.rst:385
 msgid "**After failure handler invoked**"
 msgstr ""
 
-#: ../../scala/persistence.rst:379
+#: ../../scala/persistence.rst:387
 msgid "``persist`` / ``persistAsync``"
 msgstr ""
 
-#: ../../scala/persistence.rst:379
+#: ../../scala/persistence.rst:387
 msgid "persist handler invoked"
 msgstr ""
 
-#: ../../scala/persistence.rst:379
+#: ../../scala/persistence.rst:387
 msgid "``onPersistFailure``"
 msgstr ""
 
-#: ../../scala/persistence.rst:379 ../../scala/persistence.rst:383
+#: ../../scala/persistence.rst:387 ../../scala/persistence.rst:391
 msgid "Actor is stopped."
 msgstr ""
 
-#: ../../scala/persistence.rst:381
+#: ../../scala/persistence.rst:389
 msgid "``onPersistRejected``"
 msgstr ""
 
-#: ../../scala/persistence.rst:381 ../../scala/persistence.rst:385
+#: ../../scala/persistence.rst:389 ../../scala/persistence.rst:393
 msgid "No automatic actions."
 msgstr ""
 
-#: ../../scala/persistence.rst:383
+#: ../../scala/persistence.rst:391
 msgid "``recovery``"
 msgstr ""
 
-#: ../../scala/persistence.rst:383
+#: ../../scala/persistence.rst:391
 msgid "``RecoveryCompleted``"
 msgstr ""
 
-#: ../../scala/persistence.rst:383
+#: ../../scala/persistence.rst:391
 msgid "``onRecoveryFailure``"
 msgstr ""
 
-#: ../../scala/persistence.rst:385
+#: ../../scala/persistence.rst:393
 msgid "``deleteMessages``"
 msgstr ""
 
-#: ../../scala/persistence.rst:385
+#: ../../scala/persistence.rst:393
 msgid "``DeleteMessagesSuccess``"
 msgstr ""
 
-#: ../../scala/persistence.rst:385
+#: ../../scala/persistence.rst:393
 msgid "``DeleteMessagesFailure``"
 msgstr ""
 
-#: ../../scala/persistence.rst:388
+#: ../../scala/persistence.rst:396
 msgid ""
 "The most important operations (``persist`` and ``recovery``) have failure"
 " handlers modelled as explicit callbacks which the user can override in "
@@ -708,7 +717,7 @@ msgid ""
 "which message caused the failure."
 msgstr ""
 
-#: ../../scala/persistence.rst:393
+#: ../../scala/persistence.rst:401
 msgid ""
 "For critical failures, such as recovery or persisting events failing, the"
 " persistent actor will be stopped after the failure handler is invoked. "
@@ -724,7 +733,7 @@ msgid ""
 "persistent actor."
 msgstr ""
 
-#: ../../scala/persistence.rst:402
+#: ../../scala/persistence.rst:410
 msgid ""
 "Journal implementations may choose to implement a retry mechanism, e.g. "
 "such that only after a write fails N number of times a persistence "
@@ -733,17 +742,17 @@ msgid ""
 "persistent actor which caused the failure will be stopped."
 msgstr ""
 
-#: ../../scala/persistence.rst:406
+#: ../../scala/persistence.rst:414
 msgid ""
 "Check the documentation of the journal implementation you are using for "
 "details if/how it is using this technique."
 msgstr ""
 
-#: ../../scala/persistence.rst:413
+#: ../../scala/persistence.rst:421
 msgid "Safely shutting down persistent actors"
 msgstr ""
 
-#: ../../scala/persistence.rst:415
+#: ../../scala/persistence.rst:423
 msgid ""
 "Special care should be given when shutting down persistent actors from "
 "the outside. With normal Actors it is often acceptable to use the special"
@@ -753,7 +762,7 @@ msgid ""
 " to refuse stopping itself when given a poison pill."
 msgstr ""
 
-#: ../../scala/persistence.rst:420
+#: ../../scala/persistence.rst:428
 msgid ""
 "This can be dangerous when used with :class:`PersistentActor` due to the "
 "fact that incoming commands are *stashed* while the persistent actor is "
@@ -766,13 +775,13 @@ msgid ""
 "shutdown of the Actor."
 msgstr ""
 
-#: ../../scala/persistence.rst:427
+#: ../../scala/persistence.rst:435
 msgid ""
 "Consider using explicit shut-down messages instead of :class:`PoisonPill`"
 " when working with persistent actors."
 msgstr ""
 
-#: ../../scala/persistence.rst:429
+#: ../../scala/persistence.rst:437
 msgid ""
 "The example below highlights how messages arrive in the Actor's mailbox "
 "and how they interact with its internal stashing mechanism when "
@@ -780,11 +789,52 @@ msgid ""
 "``PoisonPill`` is used:"
 msgstr ""
 
-#: ../../scala/persistence.rst:439
+#: ../../scala/persistence.rst:447
+msgid "Replay Filter"
+msgstr ""
+
+#: ../../scala/persistence.rst:448
+msgid ""
+"There could be cases where event streams are corrupted and multiple "
+"writers (i.e. multiple persistent actor instances) journaled different "
+"messages with the same sequence number. In such a case, you can configure"
+" how you filter replayed messages from multiple writers, upon recovery."
+msgstr ""
+
+#: ../../scala/persistence.rst:452
+msgid ""
+"In your configuration, under the ``akka.persistence.journal.xxx.replay-"
+"filter`` section (where ``xxx`` is your journal plugin id), you can "
+"select the replay filter ``mode`` from one of the following values:"
+msgstr ""
+
+#: ../../scala/persistence.rst:455
+msgid "repair-by-discard-old"
+msgstr ""
+
+#: ../../scala/persistence.rst:456
+msgid "fail"
+msgstr ""
+
+#: ../../scala/persistence.rst:457
+msgid "warn"
+msgstr ""
+
+#: ../../scala/persistence.rst:458
+msgid "off"
+msgstr ""
+
+#: ../../scala/persistence.rst:460
+msgid ""
+"For example, if you configure the replay filter for leveldb plugin, it "
+"looks like this::"
+msgstr ""
+
+#: ../../scala/persistence.rst:478
 msgid "Persistent Views"
 msgstr ""
 
-#: ../../scala/persistence.rst:443
+#: ../../scala/persistence.rst:482
 msgid ""
 "``PersistentView`` is deprecated. Use :ref:`persistence-query-scala` "
 "instead. The corresponding query type is ``EventsByPersistenceId``. There"
@@ -792,37 +842,37 @@ msgid ""
 "corresponding to a previous ``PersistentView`` actor:"
 msgstr ""
 
-#: ../../scala/persistence.rst:447
+#: ../../scala/persistence.rst:486
 msgid ""
 "`Sink.actorRef`_ is simple, but has the disadvantage that there is no "
 "back-pressure signal from the destination actor, i.e. if the actor is not"
 " consuming the messages fast enough the mailbox of the actor will grow"
 msgstr ""
 
-#: ../../scala/persistence.rst:449
+#: ../../scala/persistence.rst:488
 msgid ""
 "`mapAsync`_ combined with :ref:`actors-ask-lambda` is almost as simple "
 "with the advantage of back-pressure being propagated all the way"
 msgstr ""
 
-#: ../../scala/persistence.rst:451
+#: ../../scala/persistence.rst:490
 msgid "`ActorSubscriber`_ in case you need more fine grained control"
 msgstr ""
 
-#: ../../scala/persistence.rst:453
+#: ../../scala/persistence.rst:492
 msgid ""
 "The consuming actor may be a plain ``Actor`` or a ``PersistentActor`` if "
 "it needs to store its own state (e.g. fromSequenceNr offset)."
 msgstr ""
 
-#: ../../scala/persistence.rst:460
+#: ../../scala/persistence.rst:499
 msgid ""
 "Persistent views can be implemented by extending the ``PersistentView`` "
 "trait  and implementing the ``receive`` and the ``persistenceId`` "
 "methods."
 msgstr ""
 
-#: ../../scala/persistence.rst:465
+#: ../../scala/persistence.rst:504
 msgid ""
 "The ``persistenceId`` identifies the persistent actor from which the view"
 " receives journaled messages. It is not necessary that the referenced "
@@ -832,7 +882,7 @@ msgid ""
 " is updated automatically."
 msgstr ""
 
-#: ../../scala/persistence.rst:469
+#: ../../scala/persistence.rst:508
 msgid ""
 "It is possible to determine if a message was sent from the Journal or "
 "from another actor in user-land by calling the ``isPersistent`` method. "
@@ -841,17 +891,17 @@ msgid ""
 "isPersistent`` check)."
 msgstr ""
 
-#: ../../scala/persistence.rst:474
+#: ../../scala/persistence.rst:513
 msgid "Updates"
 msgstr ""
 
-#: ../../scala/persistence.rst:476
+#: ../../scala/persistence.rst:515
 msgid ""
 "The default update interval of all views of an actor system is "
 "configurable:"
 msgstr ""
 
-#: ../../scala/persistence.rst:480
+#: ../../scala/persistence.rst:519
 msgid ""
 "``PersistentView`` implementation classes may also override the "
 "``autoUpdateInterval`` method to return a custom update interval for a "
@@ -859,7 +909,7 @@ msgid ""
 "additional updates at any time by sending a view an ``Update`` message."
 msgstr ""
 
-#: ../../scala/persistence.rst:486
+#: ../../scala/persistence.rst:525
 msgid ""
 "If the ``await`` parameter is set to ``true``, messages that follow the "
 "``Update`` request are processed when the incremental message replay, "
@@ -869,13 +919,13 @@ msgid ""
 "false``."
 msgstr ""
 
-#: ../../scala/persistence.rst:491
+#: ../../scala/persistence.rst:530
 msgid ""
 "Automated updates of all persistent views of an actor system can be "
 "turned off by configuration:"
 msgstr ""
 
-#: ../../scala/persistence.rst:495
+#: ../../scala/persistence.rst:534
 msgid ""
 "Implementation classes may override the configured default value by "
 "overriding the ``autoUpdate`` method. To limit the number of replayed "
@@ -886,41 +936,41 @@ msgid ""
 "``Update`` message."
 msgstr ""
 
-#: ../../scala/persistence.rst:503
+#: ../../scala/persistence.rst:542
 msgid ""
 "Initial recovery of persistent views works the very same way as for "
 "persistent actors (i.e. by sending a ``Recover`` message to self). The "
 "maximum number of replayed messages during initial recovery is determined"
 " by ``autoUpdateReplayMax``. Further possibilities to customize initial "
-"recovery are explained in section :ref:`recovery`."
+"recovery are explained in section :ref:`recovery-scala`."
 msgstr ""
 
-#: ../../scala/persistence.rst:512
+#: ../../scala/persistence.rst:551
 msgid ""
 "A persistent view must have an identifier that doesn't change across "
 "different actor incarnations. The identifier must be defined with the "
 "``viewId`` method."
 msgstr ""
 
-#: ../../scala/persistence.rst:515
+#: ../../scala/persistence.rst:554
 msgid ""
 "The ``viewId`` must differ from the referenced ``persistenceId``, unless "
 ":ref:`snapshots` of a view and its persistent actor should be shared "
 "(which is what applications usually do not want)."
 msgstr ""
 
-#: ../../scala/persistence.rst:521
+#: ../../scala/persistence.rst:560
 msgid "Snapshots"
 msgstr ""
 
-#: ../../scala/persistence.rst:523
+#: ../../scala/persistence.rst:562
 msgid ""
 "Snapshots can dramatically reduce recovery times of persistent actors and"
 " views. The following discusses snapshots in context of persistent actors"
 " but this is also applicable to persistent views."
 msgstr ""
 
-#: ../../scala/persistence.rst:526
+#: ../../scala/persistence.rst:565
 msgid ""
 "Persistent actors can save snapshots of internal state by calling the  "
 "``saveSnapshot`` method. If saving of a snapshot succeeds, the persistent"
@@ -928,25 +978,25 @@ msgid ""
 "``SaveSnapshotFailure`` message"
 msgstr ""
 
-#: ../../scala/persistence.rst:531
+#: ../../scala/persistence.rst:570
 msgid "where ``metadata`` is of type ``SnapshotMetadata``:"
 msgstr ""
 
-#: ../../scala/persistence.rst:535
+#: ../../scala/persistence.rst:574
 msgid ""
 "During recovery, the persistent actor is offered a previously saved "
 "snapshot via a ``SnapshotOffer`` message from which it can initialize "
 "internal state."
 msgstr ""
 
-#: ../../scala/persistence.rst:540
+#: ../../scala/persistence.rst:579
 msgid ""
 "The replayed messages that follow the ``SnapshotOffer`` message, if any, "
 "are younger than the offered snapshot. They finally recover the "
 "persistent actor to its current (i.e. latest) state."
 msgstr ""
 
-#: ../../scala/persistence.rst:543
+#: ../../scala/persistence.rst:582
 msgid ""
 "In general, a persistent actor is only offered a snapshot if that "
 "persistent actor has previously saved one or more snapshots and at least "
@@ -954,7 +1004,7 @@ msgid ""
 " be specified for recovery."
 msgstr ""
 
-#: ../../scala/persistence.rst:548
+#: ../../scala/persistence.rst:587
 msgid ""
 "If not specified, they default to ``SnapshotSelectionCriteria.Latest`` "
 "which selects the latest (= youngest) snapshot. To disable snapshot-based"
@@ -963,7 +1013,7 @@ msgid ""
 "``SnapshotSelectionCriteria`` will replay all journaled messages."
 msgstr ""
 
-#: ../../scala/persistence.rst:553
+#: ../../scala/persistence.rst:592
 msgid ""
 "In order to use snapshots, a default snapshot-store (``akka.persistence"
 ".snapshot-store.plugin``) must be configured, or the ``PersistentActor`` "
@@ -971,7 +1021,7 @@ msgid ""
 "snapshotPluginId: String``."
 msgstr ""
 
-#: ../../scala/persistence.rst:556
+#: ../../scala/persistence.rst:595
 msgid ""
 "Since it is acceptable for some applications to not use any snapshotting,"
 " it is legal to not configure a snapshot store. However, Akka will log a "
@@ -981,82 +1031,82 @@ msgid ""
 "example)."
 msgstr ""
 
-#: ../../scala/persistence.rst:560
+#: ../../scala/persistence.rst:599
 msgid ""
 "Note that :ref:`cluster_sharding_scala` is using snapshots, so if you use"
 " Cluster Sharding you need to define a snapshot store plugin."
 msgstr ""
 
-#: ../../scala/persistence.rst:563
+#: ../../scala/persistence.rst:602
 msgid "Snapshot deletion"
 msgstr ""
 
-#: ../../scala/persistence.rst:565
+#: ../../scala/persistence.rst:604
 msgid ""
 "A persistent actor can delete individual snapshots by calling the "
 "``deleteSnapshot`` method with the sequence number of when the snapshot "
 "was taken."
 msgstr ""
 
-#: ../../scala/persistence.rst:568
+#: ../../scala/persistence.rst:607
 msgid ""
 "To bulk-delete a range of snapshots matching "
 "``SnapshotSelectionCriteria``, persistent actors should use the "
 "``deleteSnapshots`` method."
 msgstr ""
 
-#: ../../scala/persistence.rst:572
+#: ../../scala/persistence.rst:611
 msgid "Snapshot status handling"
 msgstr ""
 
-#: ../../scala/persistence.rst:574
+#: ../../scala/persistence.rst:613
 msgid ""
 "Saving or deleting snapshots can either succeed or fail – this "
 "information is reported back to the persistent actor via status messages "
 "as illustrated in the following table."
 msgstr ""
 
-#: ../../scala/persistence.rst:578
+#: ../../scala/persistence.rst:617
 msgid "**Failure message**"
 msgstr ""
 
-#: ../../scala/persistence.rst:580
+#: ../../scala/persistence.rst:619
 msgid "``saveSnapshot(Any)``"
 msgstr ""
 
-#: ../../scala/persistence.rst:580
+#: ../../scala/persistence.rst:619
 msgid "``SaveSnapshotSuccess``"
 msgstr ""
 
-#: ../../scala/persistence.rst:580
+#: ../../scala/persistence.rst:619
 msgid "``SaveSnapshotFailure``"
 msgstr ""
 
-#: ../../scala/persistence.rst:581
+#: ../../scala/persistence.rst:620
 msgid "``deleteSnapshot(Long)``"
 msgstr ""
 
-#: ../../scala/persistence.rst:581
+#: ../../scala/persistence.rst:620
 msgid "``DeleteSnapshotSuccess``"
 msgstr ""
 
-#: ../../scala/persistence.rst:581
+#: ../../scala/persistence.rst:620
 msgid "``DeleteSnapshotFailure``"
 msgstr ""
 
-#: ../../scala/persistence.rst:582
+#: ../../scala/persistence.rst:621
 msgid "``deleteSnapshots(SnapshotSelectionCriteria)``"
 msgstr ""
 
-#: ../../scala/persistence.rst:582
+#: ../../scala/persistence.rst:621
 msgid "``DeleteSnapshotsSuccess``"
 msgstr ""
 
-#: ../../scala/persistence.rst:582
+#: ../../scala/persistence.rst:621
 msgid "``DeleteSnapshotsFailure``"
 msgstr ""
 
-#: ../../scala/persistence.rst:585
+#: ../../scala/persistence.rst:624
 msgid ""
 "If failure messages are left unhandled by the actor, a default warning "
 "log message will be logged for each incoming failure message. No default "
@@ -1065,11 +1115,11 @@ msgid ""
 "snapshot, or in the case of failure to attempt save the snapshot again."
 msgstr ""
 
-#: ../../scala/persistence.rst:592
+#: ../../scala/persistence.rst:631
 msgid "At-Least-Once Delivery"
 msgstr ""
 
-#: ../../scala/persistence.rst:594
+#: ../../scala/persistence.rst:633
 msgid ""
 "To send messages with at-least-once delivery semantics to destinations "
 "you can mix-in ``AtLeastOnceDelivery`` trait to your ``PersistentActor`` "
@@ -1077,7 +1127,7 @@ msgid ""
 " not been confirmed within a configurable timeout."
 msgstr ""
 
-#: ../../scala/persistence.rst:598
+#: ../../scala/persistence.rst:637
 msgid ""
 "The state of the sending actor, including which messages have been sent "
 "that have not been confirmed by the recipient must be persistent so that "
@@ -1087,7 +1137,7 @@ msgid ""
 " a confirmation has been received."
 msgstr ""
 
-#: ../../scala/persistence.rst:606
+#: ../../scala/persistence.rst:645
 msgid ""
 "At-least-once delivery implies that original message sending order is not"
 " always preserved, and the destination may receive duplicate messages. "
@@ -1095,23 +1145,23 @@ msgid ""
 "operation:"
 msgstr ""
 
-#: ../../scala/persistence.rst:610
+#: ../../scala/persistence.rst:649
 msgid "it is not at-most-once delivery"
 msgstr ""
 
-#: ../../scala/persistence.rst:612
+#: ../../scala/persistence.rst:651
 msgid ""
 "message order for the same sender–receiver pair is not preserved due to "
 "possible resends"
 msgstr ""
 
-#: ../../scala/persistence.rst:615
+#: ../../scala/persistence.rst:654
 msgid ""
 "after a crash and restart of the destination messages are still delivered"
 " to the new actor incarnation"
 msgstr ""
 
-#: ../../scala/persistence.rst:618
+#: ../../scala/persistence.rst:657
 msgid ""
 "These semantics are similar to what an :class:`ActorPath` represents (see"
 " :ref:`actor-lifecycle-scala`), therefore you need to supply a path and "
@@ -1119,24 +1169,24 @@ msgid ""
 "path with an actor selection."
 msgstr ""
 
-#: ../../scala/persistence.rst:623
+#: ../../scala/persistence.rst:662
 msgid ""
 "Use the ``deliver`` method to send a message to a destination. Call the "
 "``confirmDelivery`` method when the destination has replied with a "
 "confirmation message."
 msgstr ""
 
-#: ../../scala/persistence.rst:627
+#: ../../scala/persistence.rst:666
 msgid "Relationship between deliver and confirmDelivery"
 msgstr ""
 
-#: ../../scala/persistence.rst:629
+#: ../../scala/persistence.rst:668
 msgid ""
 "To send messages to the destination path, use the ``deliver`` method "
 "after you have persisted the intent to send the message."
 msgstr ""
 
-#: ../../scala/persistence.rst:632
+#: ../../scala/persistence.rst:671
 msgid ""
 "The destination actor must send back a confirmation message. When the "
 "sending actor receives this confirmation message you should persist the "
@@ -1144,7 +1194,7 @@ msgid ""
 "``confirmDelivery`` method."
 msgstr ""
 
-#: ../../scala/persistence.rst:636
+#: ../../scala/persistence.rst:675
 msgid ""
 "If the persistent actor is not currently recovering, the ``deliver`` "
 "method will send the message to the destination actor. When recovering, "
@@ -1155,7 +1205,7 @@ msgid ""
 "messages."
 msgstr ""
 
-#: ../../scala/persistence.rst:641
+#: ../../scala/persistence.rst:680
 msgid ""
 "Deliver requires a ``deliveryIdToMessage`` function to pass the provided "
 "``deliveryId`` into the message so that the correlation between "
@@ -1166,7 +1216,7 @@ msgid ""
 "method to complete the delivery routine."
 msgstr ""
 
-#: ../../scala/persistence.rst:648
+#: ../../scala/persistence.rst:687
 msgid ""
 "The ``deliveryId`` generated by the persistence module is a strictly "
 "monotonically increasing sequence number without gaps. The same sequence "
@@ -1182,7 +1232,7 @@ msgid ""
 "receiver of your message has replied with your custom correlation id."
 msgstr ""
 
-#: ../../scala/persistence.rst:657
+#: ../../scala/persistence.rst:696
 msgid ""
 "The ``AtLeastOnceDelivery`` trait has a state consisting of unconfirmed "
 "messages and a sequence number. It does not store this state itself. You "
@@ -1196,7 +1246,7 @@ msgid ""
 "been performed."
 msgstr ""
 
-#: ../../scala/persistence.rst:665
+#: ../../scala/persistence.rst:704
 msgid ""
 "Support for snapshots is provided by ``getDeliverySnapshot`` and "
 "``setDeliverySnapshot``. The ``AtLeastOnceDeliverySnapshot`` contains the"
@@ -1208,7 +1258,7 @@ msgid ""
 "snapshot."
 msgstr ""
 
-#: ../../scala/persistence.rst:672
+#: ../../scala/persistence.rst:711
 msgid ""
 "The interval between redelivery attempts is defined by the "
 "``redeliverInterval`` method. The default value can be configured with "
@@ -1217,7 +1267,7 @@ msgid ""
 " to return non-default values."
 msgstr ""
 
-#: ../../scala/persistence.rst:676
+#: ../../scala/persistence.rst:715
 msgid ""
 "The maximum number of messages that will be sent at each redelivery burst"
 " is defined by the ``redeliveryBurstLimit`` method (burst frequency is "
@@ -1229,7 +1279,7 @@ msgid ""
 "be overridden by implementation classes to return non-default values."
 msgstr ""
 
-#: ../../scala/persistence.rst:683
+#: ../../scala/persistence.rst:722
 msgid ""
 "After a number of delivery attempts a "
 "``AtLeastOnceDelivery.UnconfirmedWarning`` message will be sent to "
@@ -1242,7 +1292,7 @@ msgid ""
 "be overridden by implementation classes to return non-default values."
 msgstr ""
 
-#: ../../scala/persistence.rst:690
+#: ../../scala/persistence.rst:729
 msgid ""
 "The ``AtLeastOnceDelivery`` trait holds messages in memory until their "
 "successful delivery has been confirmed. The maximum number of unconfirmed"
@@ -1255,21 +1305,21 @@ msgid ""
 "can be overridden by implementation classes to return non-default values."
 msgstr ""
 
-#: ../../scala/persistence.rst:700
+#: ../../scala/persistence.rst:739
 msgid "Event Adapters"
 msgstr ""
 
-#: ../../scala/persistence.rst:702
+#: ../../scala/persistence.rst:741
 msgid ""
 "In long running projects using event sourcing sometimes the need arises "
 "to detach the data model from the domain model completely."
 msgstr ""
 
-#: ../../scala/persistence.rst:705
+#: ../../scala/persistence.rst:744
 msgid "Event Adapters help in situations where:"
 msgstr ""
 
-#: ../../scala/persistence.rst:707
+#: ../../scala/persistence.rst:746
 msgid ""
 "**Version Migrations** – existing events stored in *Version 1* should be "
 "\"upcasted\" to a new *Version 2* representation, and the process of "
@@ -1281,7 +1331,7 @@ msgid ""
 "\"upcasting\" in other CQRS libraries."
 msgstr ""
 
-#: ../../scala/persistence.rst:712
+#: ../../scala/persistence.rst:751
 msgid ""
 "**Separating Domain and Data models** – thanks to EventAdapters it is "
 "possible to completely separate the domain model from the model used to "
@@ -1293,7 +1343,7 @@ msgid ""
 "this feature."
 msgstr ""
 
-#: ../../scala/persistence.rst:716
+#: ../../scala/persistence.rst:755
 msgid ""
 "**Journal Specialized Data Types** – exposing data types understood by "
 "the underlying Journal, for example for data stores which understand JSON"
@@ -1302,17 +1352,17 @@ msgid ""
 " object to its binary representation."
 msgstr ""
 
-#: ../../scala/persistence.rst:720
+#: ../../scala/persistence.rst:759
 msgid "Implementing an EventAdapter is rather stright forward:"
 msgstr ""
 
-#: ../../scala/persistence.rst:724
+#: ../../scala/persistence.rst:763
 msgid ""
 "Then in order for it to be used on events coming to and from the journal "
 "you must bind it using the below configuration syntax:"
 msgstr ""
 
-#: ../../scala/persistence.rst:728
+#: ../../scala/persistence.rst:767
 msgid ""
 "It is possible to bind multiple adapters to one class *for recovery*, in "
 "which case the ``fromJournal`` methods of all bound adapters will be "
@@ -1325,17 +1375,17 @@ msgid ""
 "delivered in-order to the ``PersistentActor`` during replay."
 msgstr ""
 
-#: ../../scala/persistence.rst:735 ../../scala/persistence.rst:1077
+#: ../../scala/persistence.rst:774 ../../scala/persistence.rst:1116
 msgid ""
 "For more advanced schema evolution techniques refer to the :ref"
 ":`persistence-schema-evolution-scala` documentation."
 msgstr ""
 
-#: ../../scala/persistence.rst:740
+#: ../../scala/persistence.rst:779
 msgid "Persistent FSM"
 msgstr ""
 
-#: ../../scala/persistence.rst:741
+#: ../../scala/persistence.rst:780
 msgid ""
 "``PersistentFSM`` handles the incoming messages in an FSM like fashion. "
 "Its internal state is persisted as a sequence of changes, later referred "
@@ -1343,7 +1393,7 @@ msgid ""
 " and transitions, persistence of domain events is defined by a DSL."
 msgstr ""
 
-#: ../../scala/persistence.rst:747
+#: ../../scala/persistence.rst:786
 msgid ""
 "``PersistentFSM`` is marked as **“experimental”** as of its introduction "
 "in Akka 2.4.0. We will continue to improve this API based on our users’ "
@@ -1353,18 +1403,18 @@ msgid ""
 "``PersistentFSM``."
 msgstr ""
 
-#: ../../scala/persistence.rst:753
+#: ../../scala/persistence.rst:792
 msgid "A Simple Example"
 msgstr ""
 
-#: ../../scala/persistence.rst:754
+#: ../../scala/persistence.rst:793
 msgid ""
 "To demonstrate the features of the ``PersistentFSM`` trait, consider an "
 "actor which represents a Web store customer. The contract of our "
 "\"WebStoreCustomerFSMActor\" is that it accepts the following commands:"
 msgstr ""
 
-#: ../../scala/persistence.rst:759
+#: ../../scala/persistence.rst:798
 msgid ""
 "``AddItem`` sent when the customer adds an item to a shopping cart "
 "``Buy`` - when the customer finishes the purchase ``Leave`` - when the "
@@ -1372,11 +1422,11 @@ msgid ""
 "allows to query the current state of customer's shopping cart"
 msgstr ""
 
-#: ../../scala/persistence.rst:764
+#: ../../scala/persistence.rst:803
 msgid "The customer can be in one of the following states:"
 msgstr ""
 
-#: ../../scala/persistence.rst:768
+#: ../../scala/persistence.rst:807
 msgid ""
 "``LookingAround`` customer is browsing the site, but hasn't added "
 "anything to the shopping cart ``Shopping`` customer has recently added "
@@ -1385,7 +1435,7 @@ msgid ""
 "purchased the items"
 msgstr ""
 
-#: ../../scala/persistence.rst:775
+#: ../../scala/persistence.rst:814
 msgid ""
 "``PersistentFSM`` states must inherit from trait "
 "``PersistentFSM.FSMState`` and implement the ``def identifier: String`` "
@@ -1393,22 +1443,22 @@ msgid ""
 "states. String identifiers should be unique!"
 msgstr ""
 
-#: ../../scala/persistence.rst:779
+#: ../../scala/persistence.rst:818
 msgid ""
 "Customer's actions are \"recorded\" as a sequence of \"domain events\" "
 "which are persisted. Those events are replayed on an actor's start in "
 "order to restore the latest customer's state:"
 msgstr ""
 
-#: ../../scala/persistence.rst:784
+#: ../../scala/persistence.rst:823
 msgid "Customer state data represents the items in a customer's shopping cart:"
 msgstr ""
 
-#: ../../scala/persistence.rst:788
+#: ../../scala/persistence.rst:827
 msgid "Here is how everything is wired together:"
 msgstr ""
 
-#: ../../scala/persistence.rst:794
+#: ../../scala/persistence.rst:833
 msgid ""
 "State data can only be modified directly on initialization. Later it's "
 "modified only as a result of applying domain events. Override the "
@@ -1416,7 +1466,7 @@ msgid ""
 "events, see the example below"
 msgstr ""
 
-#: ../../scala/persistence.rst:799
+#: ../../scala/persistence.rst:838
 msgid ""
 "``andThen`` can be used to define actions which will be executed "
 "following event's persistence - convenient for \"side effects\" like "
@@ -1424,43 +1474,43 @@ msgid ""
 "block are not executed on recovery:"
 msgstr ""
 
-#: ../../scala/persistence.rst:804
+#: ../../scala/persistence.rst:843
 msgid ""
 "A snapshot of state data can be persisted by calling the "
 "``saveStateSnapshot()`` method:"
 msgstr ""
 
-#: ../../scala/persistence.rst:808
+#: ../../scala/persistence.rst:847
 msgid ""
 "On recovery state data is initialized according to the latest available "
 "snapshot, then the remaining domain events are replayed, triggering the "
 "``applyEvent`` method."
 msgstr ""
 
-#: ../../scala/persistence.rst:814
+#: ../../scala/persistence.rst:853
 msgid "Storage plugins"
 msgstr ""
 
-#: ../../scala/persistence.rst:816
+#: ../../scala/persistence.rst:855
 msgid ""
 "Storage backends for journals and snapshot stores are pluggable in the "
 "Akka persistence extension."
 msgstr ""
 
-#: ../../scala/persistence.rst:818
+#: ../../scala/persistence.rst:857
 msgid ""
 "A directory of persistence journal and snapshot store plugins is "
 "available at the Akka Community Projects page, see `Community plugins`_"
 msgstr ""
 
-#: ../../scala/persistence.rst:820
+#: ../../scala/persistence.rst:859
 msgid ""
 "Plugins can be selected either by \"default\" for all persistent actors "
 "and views, or \"individually\", when a persistent actor or view defines "
 "its own set of plugins."
 msgstr ""
 
-#: ../../scala/persistence.rst:823
+#: ../../scala/persistence.rst:862
 msgid ""
 "When a persistent actor or view does NOT override the ``journalPluginId``"
 " and ``snapshotPluginId`` methods, the persistence extension will use the"
@@ -1468,7 +1518,7 @@ msgid ""
 "``reference.conf``::"
 msgstr ""
 
-#: ../../scala/persistence.rst:829
+#: ../../scala/persistence.rst:868
 msgid ""
 "However, these entries are provided as empty \"\", and require explicit "
 "user configuration via override in the user ``application.conf``. For an "
@@ -1478,18 +1528,18 @@ msgid ""
 ":`local-snapshot-store`."
 msgstr ""
 
-#: ../../scala/persistence.rst:833
+#: ../../scala/persistence.rst:872
 msgid ""
 "Applications can provide their own plugins by implementing a plugin API "
 "and activating them by configuration. Plugin development requires the "
 "following imports:"
 msgstr ""
 
-#: ../../scala/persistence.rst:839
+#: ../../scala/persistence.rst:878
 msgid "Eager initialization of persistence plugin"
 msgstr ""
 
-#: ../../scala/persistence.rst:841
+#: ../../scala/persistence.rst:880
 msgid ""
 "By default, persistence plugins are started on-demand, as they are used. "
 "In some case, however, it might be beneficial to start a certain plugin "
@@ -1500,37 +1550,37 @@ msgid ""
 ".snapshot-store.auto-start-snapshot-stores``."
 msgstr ""
 
-#: ../../scala/persistence.rst:849
+#: ../../scala/persistence.rst:888
 msgid "Journal plugin API"
 msgstr ""
 
-#: ../../scala/persistence.rst:851
+#: ../../scala/persistence.rst:890
 msgid "A journal plugin extends ``AsyncWriteJournal``."
 msgstr ""
 
-#: ../../scala/persistence.rst:853
+#: ../../scala/persistence.rst:892
 msgid "``AsyncWriteJournal`` is an actor and the methods to be implemented are:"
 msgstr ""
 
-#: ../../scala/persistence.rst:857
+#: ../../scala/persistence.rst:896
 msgid ""
 "If the storage backend API only supports synchronous, blocking writes, "
 "the methods should be implemented as:"
 msgstr ""
 
-#: ../../scala/persistence.rst:861
+#: ../../scala/persistence.rst:900
 msgid ""
 "A journal plugin must also implement the methods defined in "
 "``AsyncRecovery`` for replays and sequence number recovery:"
 msgstr ""
 
-#: ../../scala/persistence.rst:865
+#: ../../scala/persistence.rst:904
 msgid ""
 "A journal plugin can be activated with the following minimal "
 "configuration:"
 msgstr ""
 
-#: ../../scala/persistence.rst:869 ../../scala/persistence.rst:892
+#: ../../scala/persistence.rst:908 ../../scala/persistence.rst:931
 msgid ""
 "The specified plugin ``class`` must have a no-arg constructor. The "
 "``plugin-dispatcher`` is the dispatcher used for the plugin actor. If not"
@@ -1538,7 +1588,7 @@ msgid ""
 "dispatcher``."
 msgstr ""
 
-#: ../../scala/persistence.rst:872
+#: ../../scala/persistence.rst:911
 msgid ""
 "The journal plugin instance is an actor so the methods corresponding to "
 "requests from persistent actors are executed sequentially. It may "
@@ -1546,7 +1596,7 @@ msgid ""
 "actors to achive parallelism."
 msgstr ""
 
-#: ../../scala/persistence.rst:876
+#: ../../scala/persistence.rst:915
 msgid ""
 "The journal plugin class must have a constructor without parameters or a "
 "constructor with one ``com.typesafe.config.Config`` parameter. The plugin"
@@ -1554,29 +1604,29 @@ msgid ""
 "constructor parameter."
 msgstr ""
 
-#: ../../scala/persistence.rst:879
+#: ../../scala/persistence.rst:918
 msgid ""
 "Don't run journal tasks/futures on the system default dispatcher, since "
 "that might starve other tasks."
 msgstr ""
 
-#: ../../scala/persistence.rst:882
+#: ../../scala/persistence.rst:921
 msgid "Snapshot store plugin API"
 msgstr ""
 
-#: ../../scala/persistence.rst:884
+#: ../../scala/persistence.rst:923
 msgid ""
 "A snapshot store plugin must extend the ``SnapshotStore`` actor and "
 "implement the following methods:"
 msgstr ""
 
-#: ../../scala/persistence.rst:888
+#: ../../scala/persistence.rst:927
 msgid ""
 "A snapshot store plugin can be activated with the following minimal "
 "configuration:"
 msgstr ""
 
-#: ../../scala/persistence.rst:895
+#: ../../scala/persistence.rst:934
 msgid ""
 "The snapshot store instance is an actor so the methods corresponding to "
 "requests from persistent actors are executed sequentially. It may "
@@ -1584,7 +1634,7 @@ msgid ""
 "actors to achive parallelism."
 msgstr ""
 
-#: ../../scala/persistence.rst:899
+#: ../../scala/persistence.rst:938
 msgid ""
 "The snapshot store plugin class must have a constructor without "
 "parameters or a constructor with one ``com.typesafe.config.Config`` "
@@ -1592,36 +1642,36 @@ msgid ""
 " in the config constructor parameter."
 msgstr ""
 
-#: ../../scala/persistence.rst:902
+#: ../../scala/persistence.rst:941
 msgid ""
 "Don't run snapshot store tasks/futures on the system default dispatcher, "
 "since that might starve other tasks."
 msgstr ""
 
-#: ../../scala/persistence.rst:905
+#: ../../scala/persistence.rst:944
 msgid "Plugin TCK"
 msgstr ""
 
-#: ../../scala/persistence.rst:906
+#: ../../scala/persistence.rst:945
 msgid ""
 "In order to help developers build correct and high quality storage "
 "plugins, we provide a Technology Compatibility Kit (`TCK "
 "<http://en.wikipedia.org/wiki/Technology_Compatibility_Kit>`_ for short)."
 msgstr ""
 
-#: ../../scala/persistence.rst:908
+#: ../../scala/persistence.rst:947
 msgid ""
 "The TCK is usable from Java as well as Scala projects. For Scala you need"
 " to include the akka-persistence-tck dependency::"
 msgstr ""
 
-#: ../../scala/persistence.rst:912
+#: ../../scala/persistence.rst:951
 msgid ""
 "To include the Journal TCK tests in your test suite simply extend the "
 "provided ``JournalSpec``:"
 msgstr ""
 
-#: ../../scala/persistence.rst:916
+#: ../../scala/persistence.rst:955
 msgid ""
 "Please note that some of the tests are optional, and by overriding the "
 "``supports...`` methods you give the TCK the needed information about "
@@ -1629,7 +1679,7 @@ msgid ""
 "or the provided ``CapabilityFlag.on`` / ``CapabilityFlag.off`` values."
 msgstr ""
 
-#: ../../scala/persistence.rst:920
+#: ../../scala/persistence.rst:959
 msgid ""
 "We also provide a simple benchmarking class ``JournalPerfSpec`` which "
 "includes all the tests that ``JournalSpec`` has, and also performs some "
@@ -1639,63 +1689,63 @@ msgid ""
 " typical scenarios."
 msgstr ""
 
-#: ../../scala/persistence.rst:925
+#: ../../scala/persistence.rst:964
 msgid ""
 "In order to include the ``SnapshotStore`` TCK tests in your test suite "
 "simply extend the ``SnapshotStoreSpec``:"
 msgstr ""
 
-#: ../../scala/persistence.rst:929
+#: ../../scala/persistence.rst:968
 msgid ""
 "In case your plugin requires some setting up (starting a mock database, "
 "removing temporary files etc.) you can override the ``beforeAll`` and "
 "``afterAll`` methods to hook into the tests lifecycle:"
 msgstr ""
 
-#: ../../scala/persistence.rst:934
+#: ../../scala/persistence.rst:973
 msgid ""
 "We *highly recommend* including these specifications in your test suite, "
 "as they cover a broad range of cases you might have otherwise forgotten "
 "to test for when writing a plugin from scratch."
 msgstr ""
 
-#: ../../scala/persistence.rst:940
+#: ../../scala/persistence.rst:979
 msgid "Pre-packaged plugins"
 msgstr ""
 
-#: ../../scala/persistence.rst:945
+#: ../../scala/persistence.rst:984
 msgid "Local LevelDB journal"
 msgstr ""
 
-#: ../../scala/persistence.rst:947
+#: ../../scala/persistence.rst:986
 msgid ""
 "The LevelDB journal plugin config entry is "
 "``akka.persistence.journal.leveldb``. It writes messages to a local "
 "LevelDB instance. Enable this plugin by defining config property:"
 msgstr ""
 
-#: ../../scala/persistence.rst:952
+#: ../../scala/persistence.rst:991
 msgid ""
 "LevelDB based plugins will also require the following additional "
 "dependency declaration::"
 msgstr ""
 
-#: ../../scala/persistence.rst:957
+#: ../../scala/persistence.rst:996
 msgid ""
 "The default location of LevelDB files is a directory named ``journal`` in"
 " the current working directory. This location can be changed by "
 "configuration where the specified path can be relative or absolute:"
 msgstr ""
 
-#: ../../scala/persistence.rst:962
+#: ../../scala/persistence.rst:1001
 msgid "With this plugin, each actor system runs its own private LevelDB instance."
 msgstr ""
 
-#: ../../scala/persistence.rst:968
+#: ../../scala/persistence.rst:1007
 msgid "Shared LevelDB journal"
 msgstr ""
 
-#: ../../scala/persistence.rst:970
+#: ../../scala/persistence.rst:1009
 msgid ""
 "A LevelDB instance can also be shared by multiple actor systems (on the "
 "same or on different nodes). This, for example, allows persistent actors "
@@ -1703,39 +1753,39 @@ msgid ""
 "instance from the backup node."
 msgstr ""
 
-#: ../../scala/persistence.rst:976
+#: ../../scala/persistence.rst:1015
 msgid ""
 "A shared LevelDB instance is a single point of failure and should "
 "therefore only be used for testing purposes. Highly-available, replicated"
 " journals are available as `Community plugins`_."
 msgstr ""
 
-#: ../../scala/persistence.rst:981
+#: ../../scala/persistence.rst:1020
 msgid ""
 "This plugin has been supplanted by :ref:`Persistence Plugin Proxy"
 "<persistence-plugin-proxy>`."
 msgstr ""
 
-#: ../../scala/persistence.rst:983
+#: ../../scala/persistence.rst:1022
 msgid ""
 "A shared LevelDB instance is started by instantiating the "
 "``SharedLeveldbStore`` actor."
 msgstr ""
 
-#: ../../scala/persistence.rst:987
+#: ../../scala/persistence.rst:1026
 msgid ""
 "By default, the shared instance writes journaled messages to a local "
 "directory named ``journal`` in the current working directory. The storage"
 " location can be changed by configuration:"
 msgstr ""
 
-#: ../../scala/persistence.rst:992
+#: ../../scala/persistence.rst:1031
 msgid ""
 "Actor systems that use a shared LevelDB store must activate the "
 "``akka.persistence.journal.leveldb-shared`` plugin."
 msgstr ""
 
-#: ../../scala/persistence.rst:997
+#: ../../scala/persistence.rst:1036
 msgid ""
 "This plugin must be initialized by injecting the (remote) "
 "``SharedLeveldbStore`` actor reference. Injection is done by calling the "
@@ -1743,42 +1793,42 @@ msgid ""
 "argument."
 msgstr ""
 
-#: ../../scala/persistence.rst:1002
+#: ../../scala/persistence.rst:1041
 msgid ""
 "Internal journal commands (sent by persistent actors) are buffered until "
 "injection completes. Injection is idempotent i.e. only the first "
 "injection is used."
 msgstr ""
 
-#: ../../scala/persistence.rst:1009
+#: ../../scala/persistence.rst:1048
 msgid "Local snapshot store"
 msgstr ""
 
-#: ../../scala/persistence.rst:1011
+#: ../../scala/persistence.rst:1050
 msgid ""
 "The local snapshot store plugin config entry is ``akka.persistence"
 ".snapshot-store.local``. It writes snapshot files to the local "
 "filesystem. Enable this plugin by defining config property:"
 msgstr ""
 
-#: ../../scala/persistence.rst:1016
+#: ../../scala/persistence.rst:1055
 msgid ""
 "The default storage location is a directory named ``snapshots`` in the "
 "current working directory. This can be changed by configuration where the"
 " specified path can be relative or absolute:"
 msgstr ""
 
-#: ../../scala/persistence.rst:1021
+#: ../../scala/persistence.rst:1060
 msgid ""
 "Note that it is not mandatory to specify a snapshot store plugin. If you "
 "don't use snapshots you don't have to configure it."
 msgstr ""
 
-#: ../../scala/persistence.rst:1028
+#: ../../scala/persistence.rst:1067
 msgid "Persistence Plugin Proxy"
 msgstr ""
 
-#: ../../scala/persistence.rst:1030
+#: ../../scala/persistence.rst:1069
 msgid ""
 "A persistence plugin proxy allows sharing of journals and snapshot stores"
 " across multiple actor systems (on the same or on different nodes). This,"
@@ -1789,14 +1839,14 @@ msgid ""
 "use case supported by the proxied plugin."
 msgstr ""
 
-#: ../../scala/persistence.rst:1037
+#: ../../scala/persistence.rst:1076
 msgid ""
 "A shared journal/snapshot store is a single point of failure and should "
 "therefore only be used for testing purposes. Highly-available, replicated"
 " persistence plugins are available as `Community plugins`_."
 msgstr ""
 
-#: ../../scala/persistence.rst:1040
+#: ../../scala/persistence.rst:1079
 msgid ""
 "The journal and snapshot store proxies are controlled via the "
 "``akka.persistence.journal.proxy`` and ``akka.persistence.snapshot-"
@@ -1813,7 +1863,7 @@ msgid ""
 "``PersistencePluginProxy.setTargetLocation`` method."
 msgstr ""
 
-#: ../../scala/persistence.rst:1051
+#: ../../scala/persistence.rst:1090
 msgid ""
 "Akka starts extensions lazily when they are required, and this includes "
 "the proxy. This means that in order for the proxy to work, the "
@@ -1823,46 +1873,46 @@ msgid ""
 "``PersistencePluginProxy.start`` method."
 msgstr ""
 
-#: ../../scala/persistence.rst:1057
+#: ../../scala/persistence.rst:1096
 msgid ""
 "The proxied persistence plugin can (and should) be configured using its "
 "original configuration keys."
 msgstr ""
 
-#: ../../scala/persistence.rst:1063
+#: ../../scala/persistence.rst:1102
 msgid "Custom serialization"
 msgstr ""
 
-#: ../../scala/persistence.rst:1065
+#: ../../scala/persistence.rst:1104
 msgid ""
 "Serialization of snapshots and payloads of ``Persistent`` messages is "
 "configurable with Akka's :ref:`serialization-scala` infrastructure. For "
 "example, if an application wants to serialize"
 msgstr ""
 
-#: ../../scala/persistence.rst:1068
+#: ../../scala/persistence.rst:1107
 msgid "payloads of type ``MyPayload`` with a custom ``MyPayloadSerializer`` and"
 msgstr ""
 
-#: ../../scala/persistence.rst:1069
+#: ../../scala/persistence.rst:1108
 msgid "snapshots of type ``MySnapshot`` with a custom ``MySnapshotSerializer``"
 msgstr ""
 
-#: ../../scala/persistence.rst:1071
+#: ../../scala/persistence.rst:1110
 msgid "it must add"
 msgstr ""
 
-#: ../../scala/persistence.rst:1075
+#: ../../scala/persistence.rst:1114
 msgid ""
 "to the application configuration. If not specified, a default serializer "
 "is used."
 msgstr ""
 
-#: ../../scala/persistence.rst:1080
+#: ../../scala/persistence.rst:1119
 msgid "Testing"
 msgstr ""
 
-#: ../../scala/persistence.rst:1082
+#: ../../scala/persistence.rst:1121
 msgid ""
 "When running tests with LevelDB default settings in ``sbt``, make sure to"
 " set ``fork := true`` in your sbt project. Otherwise, you'll see an "
@@ -1870,17 +1920,17 @@ msgid ""
 " port by setting"
 msgstr ""
 
-#: ../../scala/persistence.rst:1086
+#: ../../scala/persistence.rst:1125
 msgid "or"
 msgstr ""
 
-#: ../../scala/persistence.rst:1090
+#: ../../scala/persistence.rst:1129
 msgid ""
 "in your Akka configuration. The LevelDB Java port is for testing purposes"
 " only."
 msgstr ""
 
-#: ../../scala/persistence.rst:1093
+#: ../../scala/persistence.rst:1132
 msgid ""
 "It is not possible to test persistence provided classes (i.e. "
 ":ref:`PersistentActor <event-sourcing-scala>` and "
@@ -1890,52 +1940,79 @@ msgid ""
 "internal persistence related events."
 msgstr ""
 
-#: ../../scala/persistence.rst:1098
+#: ../../scala/persistence.rst:1137
 msgid ""
 "When testing Persistence based projects always rely on :ref:`asynchronous"
 " messaging using the TestKit <async-integration-testing-scala>`."
 msgstr ""
 
-#: ../../scala/persistence.rst:1101
+#: ../../scala/persistence.rst:1140
 msgid "Configuration"
 msgstr ""
 
-#: ../../scala/persistence.rst:1103
+#: ../../scala/persistence.rst:1142
 msgid ""
 "There are several configuration properties for the persistence module, "
 "please refer to the :ref:`reference configuration <config-akka-"
 "persistence>`."
 msgstr ""
 
-#: ../../scala/persistence.rst:1107
+#: ../../scala/persistence.rst:1146
 msgid "Multiple persistence plugin configurations"
 msgstr ""
 
-#: ../../scala/persistence.rst:1109
+#: ../../scala/persistence.rst:1148
 msgid ""
 "By default, a persistent actor or view will use the \"default\" journal "
 "and snapshot store plugins configured in the following sections of the "
 "``reference.conf`` configuration resource:"
 msgstr ""
 
-#: ../../scala/persistence.rst:1114
+#: ../../scala/persistence.rst:1153
 msgid ""
 "Note that in this case the actor or view overrides only the "
 "``persistenceId`` method:"
 msgstr ""
 
-#: ../../scala/persistence.rst:1118
+#: ../../scala/persistence.rst:1157
 msgid ""
 "When the persistent actor or view overrides the ``journalPluginId`` and "
 "``snapshotPluginId`` methods, the actor or view will be serviced by these"
 " specific persistence plugins instead of the defaults:"
 msgstr ""
 
-#: ../../scala/persistence.rst:1123
+#: ../../scala/persistence.rst:1162
 msgid ""
 "Note that ``journalPluginId`` and ``snapshotPluginId`` must refer to "
 "properly configured ``reference.conf`` plugin entries with a standard "
 "``class`` property as well as settings which are specific for those "
 "plugins, i.e.:"
 msgstr ""
+
+#~ msgid ""
+#~ "The persistent actor has a private "
+#~ ":ref:`stash <stash-scala>` for internally "
+#~ "caching incoming messages during "
+#~ ":ref:`recovery <recovery>` or the "
+#~ "``persist\\persistAll`` method persisting events."
+#~ " You can still use/inherit from the"
+#~ " ``Stash`` interface. The internal stash"
+#~ " cooperates with the normal stash by"
+#~ " hooking into ``unstashAll`` method and "
+#~ "making sure messages are unstashed "
+#~ "properly to the internal stash to "
+#~ "maintain ordering guarantees."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Initial recovery of persistent views "
+#~ "works the very same way as for "
+#~ "persistent actors (i.e. by sending a "
+#~ "``Recover`` message to self). The "
+#~ "maximum number of replayed messages "
+#~ "during initial recovery is determined by"
+#~ " ``autoUpdateReplayMax``. Further possibilities "
+#~ "to customize initial recovery are "
+#~ "explained in section :ref:`recovery`."
+#~ msgstr ""
 

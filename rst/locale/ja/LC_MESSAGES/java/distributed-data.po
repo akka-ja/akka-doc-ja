@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -80,28 +80,34 @@ msgstr ""
 #: ../../java/distributed-data.rst:43
 msgid ""
 "Cluster members with status :ref:`WeaklyUp <weakly_up_java>`, if that "
-"feature is enabled, will currently not participate in Distributed Data, "
-"but that is something that should be possible to add in a future release."
+"feature is enabled, will participate in Distributed Data. This means that"
+" the data will be replicated to the :ref:`WeaklyUp <weakly_up_java>` "
+"nodes with the background gossip protocol. Note that it will not "
+"participate in any actions where the consistency mode is to read/write "
+"from all nodes or the majority of nodes. The :ref:`WeaklyUp "
+"<weakly_up_java>` node is not counted as part of the cluster. So 3 nodes "
+"+ 5 :ref:`WeaklyUp <weakly_up_java>` is essentially a 3 node cluster as "
+"far as consistent actions are concerned."
 msgstr ""
 
-#: ../../java/distributed-data.rst:47
+#: ../../java/distributed-data.rst:51
 msgid ""
 "Below is an example of an actor that schedules tick messages to itself "
 "and for each tick adds or removes elements from a ``ORSet`` (observed-"
 "remove set). It also subscribes to changes of this."
 msgstr ""
 
-#: ../../java/distributed-data.rst:56
+#: ../../java/distributed-data.rst:60
 msgid "Update"
 msgstr ""
 
-#: ../../java/distributed-data.rst:58
+#: ../../java/distributed-data.rst:62
 msgid ""
 "To modify and replicate a data value you send a ``Replicator.Update`` "
 "message to the local ``Replicator``."
 msgstr ""
 
-#: ../../java/distributed-data.rst:61
+#: ../../java/distributed-data.rst:65
 msgid ""
 "The current data value for the ``key`` of the ``Update`` is passed as "
 "parameter to the ``modify`` function of the ``Update``. The function is "
@@ -109,7 +115,7 @@ msgid ""
 "replicated according to the given consistency level."
 msgstr ""
 
-#: ../../java/distributed-data.rst:65
+#: ../../java/distributed-data.rst:69
 msgid ""
 "The ``modify`` function is called by the ``Replicator`` actor and must "
 "therefore be a pure function that only uses the data parameter and stable"
@@ -117,48 +123,48 @@ msgid ""
 " reference of an enclosing actor."
 msgstr ""
 
-#: ../../java/distributed-data.rst:70
+#: ../../java/distributed-data.rst:74
 msgid ""
 "``Update`` is intended to only be sent from an actor running in same "
 "local ``ActorSystem`` as"
 msgstr ""
 
-#: ../../java/distributed-data.rst:70
+#: ../../java/distributed-data.rst:74
 msgid ""
 "the `Replicator`, because the `modify` function is typically not "
 "serializable."
 msgstr ""
 
-#: ../../java/distributed-data.rst:72
+#: ../../java/distributed-data.rst:76
 msgid "You supply a write consistency level which has the following meaning:"
 msgstr ""
 
-#: ../../java/distributed-data.rst:74
+#: ../../java/distributed-data.rst:78
 msgid ""
 "``writeLocal`` the value will immediately only be written to the local "
 "replica, and later disseminated with gossip"
 msgstr ""
 
-#: ../../java/distributed-data.rst:76
+#: ../../java/distributed-data.rst:80
 msgid ""
 "``writeTo(n)`` the value will immediately be written to at least ``n`` "
 "replicas, including the local replica"
 msgstr ""
 
-#: ../../java/distributed-data.rst:78
+#: ../../java/distributed-data.rst:82
 msgid ""
 "``writeMajority`` the value will immediately be written to a majority of "
 "replicas, i.e. at least **N/2 + 1** replicas, where N is the number of "
 "nodes in the cluster (or cluster role group)"
 msgstr ""
 
-#: ../../java/distributed-data.rst:81
+#: ../../java/distributed-data.rst:85
 msgid ""
 "``writeAll`` the value will immediately be written to all nodes in the "
 "cluster (or all nodes in the cluster role group)"
 msgstr ""
 
-#: ../../java/distributed-data.rst:86
+#: ../../java/distributed-data.rst:90
 msgid ""
 "As reply of the ``Update`` a ``Replicator.UpdateSuccess`` is sent to the "
 "sender of the ``Update`` if the value was successfully replicated "
@@ -170,7 +176,7 @@ msgid ""
 "gossip protocol."
 msgstr ""
 
-#: ../../java/distributed-data.rst:97
+#: ../../java/distributed-data.rst:101
 msgid ""
 "You will always see your own writes. For example if you send two "
 "``Update`` messages changing the value of the same ``key``, the "
@@ -178,7 +184,7 @@ msgid ""
 "performed by the first ``Update`` message."
 msgstr ""
 
-#: ../../java/distributed-data.rst:101
+#: ../../java/distributed-data.rst:105
 msgid ""
 "In the ``Update`` message you can pass an optional request context, which"
 " the ``Replicator`` does not care about, but is included in the reply "
@@ -187,41 +193,41 @@ msgid ""
 "correlation data structures."
 msgstr ""
 
-#: ../../java/distributed-data.rst:111
+#: ../../java/distributed-data.rst:115
 msgid "Get"
 msgstr ""
 
-#: ../../java/distributed-data.rst:113
+#: ../../java/distributed-data.rst:117
 msgid ""
 "To retrieve the current value of a data you send ``Replicator.Get`` "
 "message to the ``Replicator``. You supply a consistency level which has "
 "the following meaning:"
 msgstr ""
 
-#: ../../java/distributed-data.rst:116
+#: ../../java/distributed-data.rst:120
 msgid "``readLocal`` the value will only be read from the local replica"
 msgstr ""
 
-#: ../../java/distributed-data.rst:117
+#: ../../java/distributed-data.rst:121
 msgid ""
 "``readFrom(n)`` the value will be read and merged from ``n`` replicas, "
 "including the local replica"
 msgstr ""
 
-#: ../../java/distributed-data.rst:119
+#: ../../java/distributed-data.rst:123
 msgid ""
 "``readMajority`` the value will be read and merged from a majority of "
 "replicas, i.e. at least **N/2 + 1** replicas, where N is the number of "
 "nodes in the cluster (or cluster role group)"
 msgstr ""
 
-#: ../../java/distributed-data.rst:122
+#: ../../java/distributed-data.rst:126
 msgid ""
 "``readAll`` the value will be read and merged from all nodes in the "
 "cluster (or all nodes in the cluster role group)"
 msgstr ""
 
-#: ../../java/distributed-data.rst:128
+#: ../../java/distributed-data.rst:132
 msgid ""
 "As reply of the ``Get`` a ``Replicator.GetSuccess`` is sent to the sender"
 " of the ``Get`` if the value was successfully retrieved according to the "
@@ -230,7 +236,7 @@ msgid ""
 "will be ``Replicator.NotFound``."
 msgstr ""
 
-#: ../../java/distributed-data.rst:137
+#: ../../java/distributed-data.rst:141
 msgid ""
 "You will always read your own writes. For example if you send a "
 "``Update`` message followed by a ``Get`` of the same ``key`` the ``Get`` "
@@ -240,7 +246,7 @@ msgid ""
 "``UpdateSuccess``."
 msgstr ""
 
-#: ../../java/distributed-data.rst:143
+#: ../../java/distributed-data.rst:147
 msgid ""
 "In the ``Get`` message you can pass an optional request context in the "
 "same way as for the ``Update`` message, described above. For example the "
@@ -248,11 +254,11 @@ msgid ""
 "transforming ``GetSuccess``."
 msgstr ""
 
-#: ../../java/distributed-data.rst:150
+#: ../../java/distributed-data.rst:154
 msgid "Consistency"
 msgstr ""
 
-#: ../../java/distributed-data.rst:152
+#: ../../java/distributed-data.rst:156
 msgid ""
 "The consistency level that is supplied in the "
 ":ref:`replicator_update_java` and :ref:`replicator_get_java` specifies "
@@ -260,20 +266,20 @@ msgid ""
 "and read request."
 msgstr ""
 
-#: ../../java/distributed-data.rst:155
+#: ../../java/distributed-data.rst:159
 msgid ""
 "For low latency reads you use ``ReadLocal`` with the risk of retrieving "
 "stale data, i.e. updates from other nodes might not be visible yet."
 msgstr ""
 
-#: ../../java/distributed-data.rst:158
+#: ../../java/distributed-data.rst:162
 msgid ""
 "When using ``writeLocal`` the update is only written to the local replica"
 " and then disseminated in the background with the gossip protocol, which "
 "can take few seconds to spread to all nodes."
 msgstr ""
 
-#: ../../java/distributed-data.rst:161
+#: ../../java/distributed-data.rst:165
 msgid ""
 "``writeAll`` and ``readAll`` is the strongest consistency level, but also"
 " the slowest and with lowest availability. For example, it is enough that"
@@ -281,26 +287,26 @@ msgid ""
 "the value."
 msgstr ""
 
-#: ../../java/distributed-data.rst:165
+#: ../../java/distributed-data.rst:169
 msgid ""
 "If consistency is important, you can ensure that a read always reflects "
 "the most recent write by using the following formula::"
 msgstr ""
 
-#: ../../java/distributed-data.rst:170
+#: ../../java/distributed-data.rst:174
 msgid ""
 "where N is the total number of nodes in the cluster, or the number of "
 "nodes with the role that is used for the ``Replicator``."
 msgstr ""
 
-#: ../../java/distributed-data.rst:173
+#: ../../java/distributed-data.rst:177
 msgid ""
 "For example, in a 7 node cluster this these consistency properties are "
 "achieved by writing to 4 nodes and reading from 4 nodes, or writing to 5 "
 "nodes and reading from 3 nodes."
 msgstr ""
 
-#: ../../java/distributed-data.rst:176
+#: ../../java/distributed-data.rst:180
 msgid ""
 "By combining ``writeMajority`` and ``readMajority`` levels a read always "
 "reflects the most recent write. The ``Replicator`` writes and reads to a "
@@ -309,11 +315,11 @@ msgid ""
 "it writes to 4 nodes and reads from 4 nodes."
 msgstr ""
 
-#: ../../java/distributed-data.rst:181
+#: ../../java/distributed-data.rst:185
 msgid "Here is an example of using ``writeMajority`` and ``readMajority``:"
 msgstr ""
 
-#: ../../java/distributed-data.rst:189
+#: ../../java/distributed-data.rst:193
 msgid ""
 "In some rare cases, when performing an ``Update`` it is needed to first "
 "try to fetch latest data from other nodes. That can be done by first "
@@ -327,11 +333,11 @@ msgid ""
 "name observed-removed set)."
 msgstr ""
 
-#: ../../java/distributed-data.rst:197
+#: ../../java/distributed-data.rst:201
 msgid "The following example illustrates how to do that:"
 msgstr ""
 
-#: ../../java/distributed-data.rst:203
+#: ../../java/distributed-data.rst:207
 msgid ""
 "*Caveat:* Even if you use ``writeMajority`` and ``readMajority`` there is"
 " small risk that you may read stale data if the cluster membership has "
@@ -342,11 +348,11 @@ msgid ""
 "n2, n3 is not seen in the response of the ``Get`` request."
 msgstr ""
 
-#: ../../java/distributed-data.rst:211
+#: ../../java/distributed-data.rst:215
 msgid "Subscribe"
 msgstr ""
 
-#: ../../java/distributed-data.rst:213
+#: ../../java/distributed-data.rst:217
 msgid ""
 "You may also register interest in change notifications by sending "
 "``Replicator.Subscribe`` message to the ``Replicator``. It will send "
@@ -357,18 +363,18 @@ msgid ""
 "to the ``Replicator`` to notify the subscribers immediately."
 msgstr ""
 
-#: ../../java/distributed-data.rst:220
+#: ../../java/distributed-data.rst:224
 msgid ""
 "The subscriber is automatically removed if the subscriber is terminated. "
 "A subscriber can also be deregistered with the ``Replicator.Unsubscribe``"
 " message."
 msgstr ""
 
-#: ../../java/distributed-data.rst:226
+#: ../../java/distributed-data.rst:230
 msgid "Delete"
 msgstr ""
 
-#: ../../java/distributed-data.rst:228
+#: ../../java/distributed-data.rst:232
 msgid ""
 "A data entry can be deleted by sending a ``Replicator.Delete`` message to"
 " the local local ``Replicator``. As reply of the ``Delete`` a "
@@ -381,7 +387,7 @@ msgid ""
 "nodes, and may eventually be replicated to all nodes."
 msgstr ""
 
-#: ../../java/distributed-data.rst:236
+#: ../../java/distributed-data.rst:240
 msgid ""
 "A deleted key cannot be reused again, but it is still recommended to "
 "delete unused data entries because that reduces the replication overhead "
@@ -390,63 +396,74 @@ msgid ""
 "Subscribers will receive ``Replicator.DataDeleted``."
 msgstr ""
 
-#: ../../java/distributed-data.rst:244
+#: ../../java/distributed-data.rst:249
+msgid ""
+"As deleted keys continue to be included in the stored data on each node "
+"as well as in gossip messages, a continuous series of updates and deletes"
+" of top-level entities will result in growing memory usage until an "
+"ActorSystem runs out of memory. To use Akka Distributed Data where "
+"frequent adds and removes are required, you should use a fixed number of "
+"top-level data types that support both updates and removals, for example "
+"``ORMap`` or ``ORSet``."
+msgstr ""
+
+#: ../../java/distributed-data.rst:256
 msgid "Data Types"
 msgstr ""
 
-#: ../../java/distributed-data.rst:246
+#: ../../java/distributed-data.rst:258
 msgid ""
 "The data types must be convergent (stateful) CRDTs and implement the "
 "``ReplicatedData`` trait, i.e. they provide a monotonic merge function "
 "and the state changes always converge."
 msgstr ""
 
-#: ../../java/distributed-data.rst:249
+#: ../../java/distributed-data.rst:261
 msgid ""
 "You can use your own custom ``ReplicatedData`` types, and several types "
 "are provided by this package, such as:"
 msgstr ""
 
-#: ../../java/distributed-data.rst:252
+#: ../../java/distributed-data.rst:264
 msgid "Counters: ``GCounter``, ``PNCounter``"
 msgstr ""
 
-#: ../../java/distributed-data.rst:253
+#: ../../java/distributed-data.rst:265
 msgid "Sets: ``GSet``, ``ORSet``"
 msgstr ""
 
-#: ../../java/distributed-data.rst:254
+#: ../../java/distributed-data.rst:266
 msgid "Maps: ``ORMap``, ``ORMultiMap``, ``LWWMap``, ``PNCounterMap``"
 msgstr ""
 
-#: ../../java/distributed-data.rst:255
+#: ../../java/distributed-data.rst:267
 msgid "Registers: ``LWWRegister``, ``Flag``"
 msgstr ""
 
-#: ../../java/distributed-data.rst:258
+#: ../../java/distributed-data.rst:270
 msgid "Counters"
 msgstr ""
 
-#: ../../java/distributed-data.rst:260
+#: ../../java/distributed-data.rst:272
 msgid ""
 "``GCounter`` is a \"grow only counter\". It only supports increments, no "
 "decrements."
 msgstr ""
 
-#: ../../java/distributed-data.rst:262
+#: ../../java/distributed-data.rst:274
 msgid ""
 "It works in a similar way as a vector clock. It keeps track of one "
 "counter per node and the total value is the sum of these counters. The "
 "``merge`` is implemented by taking the maximum count for each node."
 msgstr ""
 
-#: ../../java/distributed-data.rst:266
+#: ../../java/distributed-data.rst:278
 msgid ""
 "If you need both increments and decrements you can use the ``PNCounter`` "
 "(positive/negative counter)."
 msgstr ""
 
-#: ../../java/distributed-data.rst:268
+#: ../../java/distributed-data.rst:280
 msgid ""
 "It is tracking the increments (P) separate from the decrements (N). Both "
 "P and N are represented as two internal ``GCounter``. Merge is handled by"
@@ -454,7 +471,7 @@ msgid ""
 "value of the P counter minus the value of the N counter."
 msgstr ""
 
-#: ../../java/distributed-data.rst:274
+#: ../../java/distributed-data.rst:286
 msgid ""
 "Several related counters can be managed in a map with the "
 "``PNCounterMap`` data type. When the counters are placed in a "
@@ -463,11 +480,11 @@ msgid ""
 "sometimes necessary for related data."
 msgstr ""
 
-#: ../../java/distributed-data.rst:282
+#: ../../java/distributed-data.rst:294
 msgid "Sets"
 msgstr ""
 
-#: ../../java/distributed-data.rst:284
+#: ../../java/distributed-data.rst:296
 msgid ""
 "If you only need to add elements to a set and not remove elements the "
 "``GSet`` (grow-only set) is the data type to use. The elements can be any"
@@ -475,7 +492,7 @@ msgid ""
 "two sets."
 msgstr ""
 
-#: ../../java/distributed-data.rst:290
+#: ../../java/distributed-data.rst:302
 msgid ""
 "If you need add and remove operations you should use the ``ORSet`` "
 "(observed-remove set). Elements can be added and removed any number of "
@@ -483,7 +500,7 @@ msgid ""
 " You cannot remove an element that you have not seen."
 msgstr ""
 
-#: ../../java/distributed-data.rst:294
+#: ../../java/distributed-data.rst:306
 msgid ""
 "The ``ORSet`` has a version vector that is incremented when an element is"
 " added to the set. The version for the node that added the element is "
@@ -492,32 +509,32 @@ msgid ""
 " of the operations and resolve concurrent updates."
 msgstr ""
 
-#: ../../java/distributed-data.rst:302
+#: ../../java/distributed-data.rst:314
 msgid "Maps"
 msgstr ""
 
-#: ../../java/distributed-data.rst:304
+#: ../../java/distributed-data.rst:316
 msgid ""
 "``ORMap`` (observed-remove map) is a map with ``String`` keys and the "
 "values are ``ReplicatedData`` types themselves. It supports add, remove "
 "and delete any number of times for a map entry."
 msgstr ""
 
-#: ../../java/distributed-data.rst:307
+#: ../../java/distributed-data.rst:319
 msgid ""
 "If an entry is concurrently added and removed, the add will win. You "
 "cannot remove an entry that you have not seen. This is the same semantics"
 " as for the ``ORSet``."
 msgstr ""
 
-#: ../../java/distributed-data.rst:310
+#: ../../java/distributed-data.rst:322
 msgid ""
 "If an entry is concurrently updated to different values the values will "
 "be merged, hence the requirement that the values must be "
 "``ReplicatedData`` types."
 msgstr ""
 
-#: ../../java/distributed-data.rst:313
+#: ../../java/distributed-data.rst:325
 msgid ""
 "It is rather inconvenient to use the ``ORMap`` directly since it does not"
 " expose specific types of the values. The ``ORMap`` is intended as a low "
@@ -525,32 +542,32 @@ msgid ""
 "specialized maps."
 msgstr ""
 
-#: ../../java/distributed-data.rst:317
+#: ../../java/distributed-data.rst:329
 msgid ""
 "``ORMultiMap`` (observed-remove multi-map) is a multi-map implementation "
 "that wraps an ``ORMap`` with an ``ORSet`` for the map's value."
 msgstr ""
 
-#: ../../java/distributed-data.rst:320
+#: ../../java/distributed-data.rst:332
 msgid ""
 "``PNCounterMap`` (positive negative counter map) is a map of named "
 "counters. It is a specialized ``ORMap`` with ``PNCounter`` values."
 msgstr ""
 
-#: ../../java/distributed-data.rst:323
+#: ../../java/distributed-data.rst:335
 msgid ""
 "``LWWMap`` (last writer wins map) is a specialized ``ORMap`` with "
 "``LWWRegister`` (last writer wins register) values."
 msgstr ""
 
-#: ../../java/distributed-data.rst:328
+#: ../../java/distributed-data.rst:340
 msgid ""
 "Note that ``LWWRegister`` and therefore ``LWWMap`` relies on synchronized"
 " clocks and should only be used when the choice of value is not important"
 " for concurrent updates occurring within the clock skew."
 msgstr ""
 
-#: ../../java/distributed-data.rst:331 ../../java/distributed-data.rst:362
+#: ../../java/distributed-data.rst:343 ../../java/distributed-data.rst:374
 msgid ""
 "Instead of using timestamps based on ``System.currentTimeMillis()`` time "
 "it is possible to use a timestamp value based on something else, for "
@@ -558,7 +575,7 @@ msgid ""
 "for optimistic concurrency control."
 msgstr ""
 
-#: ../../java/distributed-data.rst:335
+#: ../../java/distributed-data.rst:347
 msgid ""
 "When a data entry is changed the full state of that entry is replicated "
 "to other nodes, i.e. when you update a map the whole map is replicated. "
@@ -570,24 +587,24 @@ msgid ""
 "top level entries cannot be updated atomically together."
 msgstr ""
 
-#: ../../java/distributed-data.rst:344
+#: ../../java/distributed-data.rst:356
 msgid "Flags and Registers"
 msgstr ""
 
-#: ../../java/distributed-data.rst:346
+#: ../../java/distributed-data.rst:358
 msgid ""
 "``Flag`` is a data type for a boolean value that is initialized to "
 "``false`` and can be switched to ``true``. Thereafter it cannot be "
 "changed. ``true`` wins over ``false`` in merge."
 msgstr ""
 
-#: ../../java/distributed-data.rst:351
+#: ../../java/distributed-data.rst:363
 msgid ""
 "``LWWRegister`` (last writer wins register) can hold any (serializable) "
 "value."
 msgstr ""
 
-#: ../../java/distributed-data.rst:353
+#: ../../java/distributed-data.rst:365
 msgid ""
 "Merge of a ``LWWRegister`` takes the register with highest timestamp. "
 "Note that this relies on synchronized clocks. `LWWRegister` should only "
@@ -595,30 +612,30 @@ msgid ""
 "occurring within the clock skew."
 msgstr ""
 
-#: ../../java/distributed-data.rst:357
+#: ../../java/distributed-data.rst:369
 msgid ""
 "Merge takes the register updated by the node with lowest address "
 "(``UniqueAddress`` is ordered) if the timestamps are exactly the same."
 msgstr ""
 
-#: ../../java/distributed-data.rst:368
+#: ../../java/distributed-data.rst:380
 msgid ""
 "For first-write-wins semantics you can use the "
 "``LWWRegister#reverseClock`` instead of the ``LWWRegister#defaultClock``."
 msgstr ""
 
-#: ../../java/distributed-data.rst:372
+#: ../../java/distributed-data.rst:384
 msgid "Custom Data Type"
 msgstr ""
 
-#: ../../java/distributed-data.rst:374
+#: ../../java/distributed-data.rst:386
 msgid ""
 "You can rather easily implement your own data types. The only requirement"
 " is that it implements the ``mergeData`` function of the "
 "``AbstractReplicatedData`` class."
 msgstr ""
 
-#: ../../java/distributed-data.rst:377
+#: ../../java/distributed-data.rst:389
 msgid ""
 "A nice property of stateful CRDTs is that they typically compose nicely, "
 "i.e. you can combine several smaller data types to build richer data "
@@ -627,7 +644,7 @@ msgid ""
 "separately."
 msgstr ""
 
-#: ../../java/distributed-data.rst:381
+#: ../../java/distributed-data.rst:393
 msgid ""
 "Here is s simple implementation of a custom ``TwoPhaseSet`` that is using"
 " two internal ``GSet`` types to keep track of addition and removals.  A "
@@ -635,17 +652,17 @@ msgid ""
 "never added again thereafter."
 msgstr ""
 
-#: ../../java/distributed-data.rst:387
+#: ../../java/distributed-data.rst:399
 msgid ""
 "Data types should be immutable, i.e. \"modifying\" methods should return "
 "a new instance."
 msgstr ""
 
-#: ../../java/distributed-data.rst:390
+#: ../../java/distributed-data.rst:402
 msgid "Serialization"
 msgstr ""
 
-#: ../../java/distributed-data.rst:392
+#: ../../java/distributed-data.rst:404
 msgid ""
 "The data types must be serializable with an :ref:`Akka Serializer "
 "<serialization-java>`. It is highly recommended that you implement  "
@@ -655,7 +672,7 @@ msgid ""
 "``akka.cluster.ddata.protobuf.ReplicatedDataSerializer``."
 msgstr ""
 
-#: ../../java/distributed-data.rst:397
+#: ../../java/distributed-data.rst:409
 msgid ""
 "Serialization of the data types are used in remote messages and also for "
 "creating message digests (SHA-1) to detect changes. Therefore it is "
@@ -664,32 +681,32 @@ msgid ""
 "deterministically in the serialization."
 msgstr ""
 
-#: ../../java/distributed-data.rst:402
+#: ../../java/distributed-data.rst:414
 msgid "This is a protobuf representation of the above ``TwoPhaseSet``:"
 msgstr ""
 
-#: ../../java/distributed-data.rst:406
+#: ../../java/distributed-data.rst:418
 msgid "The serializer for the ``TwoPhaseSet``:"
 msgstr ""
 
-#: ../../java/distributed-data.rst:410
+#: ../../java/distributed-data.rst:422
 msgid ""
 "Note that the elements of the sets are sorted so the SHA-1 digests are "
 "the same for the same elements."
 msgstr ""
 
-#: ../../java/distributed-data.rst:413
+#: ../../java/distributed-data.rst:425
 msgid "You register the serializer in configuration:"
 msgstr ""
 
-#: ../../java/distributed-data.rst:417
+#: ../../java/distributed-data.rst:429
 msgid ""
 "Using compression can sometimes be a good idea to reduce the data size. "
 "Gzip compression is provided by the "
 "``akka.cluster.ddata.protobuf.SerializationSupport`` trait:"
 msgstr ""
 
-#: ../../java/distributed-data.rst:422
+#: ../../java/distributed-data.rst:434
 msgid ""
 "The two embedded ``GSet`` can be serialized as illustrated above, but in "
 "general when composing new data types from the existing built in types it"
@@ -697,7 +714,7 @@ msgid ""
 "can be done by declaring those as bytes fields in protobuf:"
 msgstr ""
 
-#: ../../java/distributed-data.rst:428
+#: ../../java/distributed-data.rst:440
 msgid ""
 "and use the methods ``otherMessageToProto`` and "
 "``otherMessageFromBinary`` that are provided by the "
@@ -707,11 +724,11 @@ msgid ""
 "``TwoPhaseSet``:"
 msgstr ""
 
-#: ../../java/distributed-data.rst:437
+#: ../../java/distributed-data.rst:449
 msgid "CRDT Garbage"
 msgstr ""
 
-#: ../../java/distributed-data.rst:439
+#: ../../java/distributed-data.rst:451
 msgid ""
 "One thing that can be problematic with CRDTs is that some data types "
 "accumulate history (garbage). For example a ``GCounter`` keeps track of "
@@ -724,11 +741,11 @@ msgid ""
 "trait."
 msgstr ""
 
-#: ../../java/distributed-data.rst:447
+#: ../../java/distributed-data.rst:459
 msgid "Samples"
 msgstr ""
 
-#: ../../java/distributed-data.rst:449
+#: ../../java/distributed-data.rst:461
 msgid ""
 "Several interesting samples are included and described in the `Lightbend "
 "Activator <http://www.lightbend.com/platform/getstarted>`_ tutorial named"
@@ -737,41 +754,41 @@ msgid ""
 "data-java>`_."
 msgstr ""
 
-#: ../../java/distributed-data.rst:452
+#: ../../java/distributed-data.rst:464
 msgid "Low Latency Voting Service"
 msgstr ""
 
-#: ../../java/distributed-data.rst:453
+#: ../../java/distributed-data.rst:465
 msgid "Highly Available Shopping Cart"
 msgstr ""
 
-#: ../../java/distributed-data.rst:454
+#: ../../java/distributed-data.rst:466
 msgid "Distributed Service Registry"
 msgstr ""
 
-#: ../../java/distributed-data.rst:455
+#: ../../java/distributed-data.rst:467
 msgid "Replicated Cache"
 msgstr ""
 
-#: ../../java/distributed-data.rst:456
+#: ../../java/distributed-data.rst:468
 msgid "Replicated Metrics"
 msgstr ""
 
-#: ../../java/distributed-data.rst:459
+#: ../../java/distributed-data.rst:471
 msgid "Limitations"
 msgstr ""
 
-#: ../../java/distributed-data.rst:461
+#: ../../java/distributed-data.rst:473
 msgid "There are some limitations that you should be aware of."
 msgstr ""
 
-#: ../../java/distributed-data.rst:463
+#: ../../java/distributed-data.rst:475
 msgid ""
 "CRDTs cannot be used for all types of problems, and eventual consistency "
 "does not fit all domains. Sometimes you need strong consistency."
 msgstr ""
 
-#: ../../java/distributed-data.rst:466
+#: ../../java/distributed-data.rst:478
 msgid ""
 "It is not intended for *Big Data*. The number of top level entries should"
 " not exceed 100000. When a new node is added to the cluster all these "
@@ -783,13 +800,13 @@ msgid ""
 "but the design is still not intended for billions of entries."
 msgstr ""
 
-#: ../../java/distributed-data.rst:473
+#: ../../java/distributed-data.rst:485
 msgid ""
 "All data is held in memory, which is another reason why it is not "
 "intended for *Big Data*."
 msgstr ""
 
-#: ../../java/distributed-data.rst:475
+#: ../../java/distributed-data.rst:487
 msgid ""
 "When a data entry is changed the full state of that entry is replicated "
 "to other nodes. For example, if you add one element to a Set with 100 "
@@ -801,7 +818,7 @@ msgid ""
 "draft16may2014.pdf>`_."
 msgstr ""
 
-#: ../../java/distributed-data.rst:481
+#: ../../java/distributed-data.rst:493
 msgid ""
 "The data is only kept in memory. It is redundant since it is replicated "
 "to other nodes in the cluster, but if you stop all nodes the data is "
@@ -810,30 +827,30 @@ msgid ""
 " to be a full featured database."
 msgstr ""
 
-#: ../../java/distributed-data.rst:487
+#: ../../java/distributed-data.rst:499
 msgid "Learn More about CRDTs"
 msgstr ""
 
-#: ../../java/distributed-data.rst:489
+#: ../../java/distributed-data.rst:501
 msgid ""
 "`The Final Causal Frontier <http://www.ustream.tv/recorded/61448875>`_ "
 "talk by Sean Cribbs"
 msgstr ""
 
-#: ../../java/distributed-data.rst:491
+#: ../../java/distributed-data.rst:503
 msgid ""
 "`Eventually Consistent Data Structures <https://vimeo.com/43903960>`_ "
 "talk by Sean Cribbs"
 msgstr ""
 
-#: ../../java/distributed-data.rst:493
+#: ../../java/distributed-data.rst:505
 msgid ""
 "`Strong Eventual Consistency and Conflict-free Replicated Data Types "
 "<http://research.microsoft.com/apps/video/default.aspx?id=153540&r=1>`_ "
 "talk by Mark Shapiro"
 msgstr ""
 
-#: ../../java/distributed-data.rst:495
+#: ../../java/distributed-data.rst:507
 msgid ""
 "`A comprehensive study of Convergent and Commutative Replicated Data "
 "Types "
@@ -841,31 +858,40 @@ msgid ""
 "paper by Mark Shapiro et. al."
 msgstr ""
 
-#: ../../java/distributed-data.rst:499
+#: ../../java/distributed-data.rst:511
 msgid "Dependencies"
 msgstr ""
 
-#: ../../java/distributed-data.rst:501
+#: ../../java/distributed-data.rst:513
 msgid ""
 "To use Distributed Data you must add the following dependency in your "
 "project."
 msgstr ""
 
-#: ../../java/distributed-data.rst:503
+#: ../../java/distributed-data.rst:515
 msgid "sbt::"
 msgstr ""
 
-#: ../../java/distributed-data.rst:507
+#: ../../java/distributed-data.rst:519
 msgid "maven::"
 msgstr ""
 
-#: ../../java/distributed-data.rst:516
+#: ../../java/distributed-data.rst:528
 msgid "Configuration"
 msgstr ""
 
-#: ../../java/distributed-data.rst:518
+#: ../../java/distributed-data.rst:530
 msgid ""
 "The ``DistributedData`` extension can be configured with the following "
 "properties:"
 msgstr ""
+
+#~ msgid ""
+#~ "Cluster members with status :ref:`WeaklyUp "
+#~ "<weakly_up_java>`, if that feature is "
+#~ "enabled, will currently not participate "
+#~ "in Distributed Data, but that is "
+#~ "something that should be possible to "
+#~ "add in a future release."
+#~ msgstr ""
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,15 +62,23 @@ msgid ""
 " <weakly_up_java>` if that feature is enabled."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:29
-msgid "An Example"
-msgstr ""
-
-#: ../../java/cluster-sharding.rst:31
-msgid "This is how an entity actor may look like:"
+#: ../../java/cluster-sharding.rst:29 ../../java/cluster-sharding.rst:314
+msgid ""
+"**Don't use Cluster Sharding together with Automatic Downing**, since it "
+"allows the cluster to split up into two separate clusters, which in turn "
+"will result in *multiple shards and entities* being started, one in each "
+"separate cluster! See :ref:`automatic-vs-manual-downing-java`."
 msgstr ""
 
 #: ../../java/cluster-sharding.rst:35
+msgid "An Example"
+msgstr ""
+
+#: ../../java/cluster-sharding.rst:37
+msgid "This is how an entity actor may look like:"
+msgstr ""
+
+#: ../../java/cluster-sharding.rst:41
 msgid ""
 "The above actor uses event sourcing and the support provided in "
 "``UntypedPersistentActor`` to store its state. It does not have to be a "
@@ -78,14 +86,14 @@ msgid ""
 " nodes it must be able to recover its state if it is valuable."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:39
+#: ../../java/cluster-sharding.rst:45
 msgid ""
 "Note how the ``persistenceId`` is defined. The name of the actor is the "
 "entity identifier (utf-8 URL-encoded). You may define it another way, but"
 " it must be unique."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:42
+#: ../../java/cluster-sharding.rst:48
 msgid ""
 "When using the sharding extension you are first, typically at system "
 "startup on each node in the cluster, supposed to register the supported "
@@ -94,29 +102,29 @@ msgid ""
 "along."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:48
+#: ../../java/cluster-sharding.rst:54
 msgid ""
 "The ``messageExtractor`` defines application specific methods to extract "
 "the entity identifier and the shard identifier from incoming messages."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:53
+#: ../../java/cluster-sharding.rst:59
 msgid ""
 "This example illustrates two different ways to define the entity "
 "identifier in the messages:"
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:55
+#: ../../java/cluster-sharding.rst:61
 msgid "The ``Get`` message includes the identifier itself."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:56
+#: ../../java/cluster-sharding.rst:62
 msgid ""
 "The ``EntityEnvelope`` holds the identifier, and the actual message that "
 "is sent to the entity actor is wrapped in the envelope."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:59
+#: ../../java/cluster-sharding.rst:65
 msgid ""
 "Note how these two messages types are handled in the ``entityId`` and "
 "``entityMessage`` methods shown above. The message sent to the entity "
@@ -124,7 +132,7 @@ msgid ""
 "unwrap envelopes if needed."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:63
+#: ../../java/cluster-sharding.rst:69
 msgid ""
 "A shard is a group of entities that will be managed together. The "
 "grouping is defined by the ``extractShardId`` function shown above. For a"
@@ -133,7 +141,7 @@ msgid ""
 "places at the same time."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:67
+#: ../../java/cluster-sharding.rst:73
 msgid ""
 "Creating a good sharding algorithm is an interesting challenge in itself."
 " Try to produce a uniform distribution, i.e. same amount of entities in "
@@ -147,7 +155,7 @@ msgid ""
 "cluster. It can be changed after stopping all nodes in the cluster."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:75
+#: ../../java/cluster-sharding.rst:81
 msgid ""
 "A simple sharding algorithm that works fine in most cases is to take the "
 "absolute value of the ``hashCode`` of the entity identifier modulo number"
@@ -155,7 +163,7 @@ msgid ""
 "``ShardRegion.HashCodeMessageExtractor``."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:79
+#: ../../java/cluster-sharding.rst:85
 msgid ""
 "Messages to the entities are always sent via the local ``ShardRegion``. "
 "The ``ShardRegion`` actor reference for a named entity type is returned "
@@ -167,11 +175,11 @@ msgid ""
 "specific entity is delivered."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:88
+#: ../../java/cluster-sharding.rst:94
 msgid "How it works"
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:90
+#: ../../java/cluster-sharding.rst:96
 msgid ""
 "The ``ShardRegion`` actor is started on each node in the cluster, or "
 "group of nodes tagged with a specific role. The ``ShardRegion`` is "
@@ -182,7 +190,7 @@ msgid ""
 "from a central coordinator, the ``ShardCoordinator``."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:97
+#: ../../java/cluster-sharding.rst:103
 msgid ""
 "The ``ShardCoordinator`` decides which ``ShardRegion`` shall own the "
 "``Shard`` and informs that ``ShardRegion``. The region will confirm this "
@@ -192,7 +200,7 @@ msgid ""
 "``Shard`` to the target ``Entity``."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:103
+#: ../../java/cluster-sharding.rst:109
 msgid ""
 "If the shard home is another ``ShardRegion`` instance messages will be "
 "forwarded to that ``ShardRegion`` instance instead. While resolving the "
@@ -202,72 +210,72 @@ msgid ""
 "without involving the ``ShardCoordinator``."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:109
+#: ../../java/cluster-sharding.rst:115
 msgid "Scenario 1:"
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:111
+#: ../../java/cluster-sharding.rst:117
 msgid "Incoming message M1 to ``ShardRegion`` instance R1."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:112
+#: ../../java/cluster-sharding.rst:118
 msgid ""
 "M1 is mapped to shard S1. R1 doesn't know about S1, so it asks the "
 "coordinator C for the location of S1."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:113
+#: ../../java/cluster-sharding.rst:119
 msgid "C answers that the home of S1 is R1."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:114
+#: ../../java/cluster-sharding.rst:120
 msgid ""
 "R1 creates child actor for the entity E1 and sends buffered messages for "
 "S1 to E1 child"
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:115
+#: ../../java/cluster-sharding.rst:121
 msgid ""
 "All incoming messages for S1 which arrive at R1 can be handled by R1 "
 "without C. It creates entity children as needed, and forwards messages to"
 " them."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:117
+#: ../../java/cluster-sharding.rst:123
 msgid "Scenario 2:"
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:119
+#: ../../java/cluster-sharding.rst:125
 msgid "Incoming message M2 to R1."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:120
+#: ../../java/cluster-sharding.rst:126
 msgid ""
 "M2 is mapped to S2. R1 doesn't know about S2, so it asks C for the "
 "location of S2."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:121
+#: ../../java/cluster-sharding.rst:127
 msgid "C answers that the home of S2 is R2."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:122
+#: ../../java/cluster-sharding.rst:128
 msgid "R1 sends buffered messages for S2 to R2"
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:123
+#: ../../java/cluster-sharding.rst:129
 msgid ""
 "All incoming messages for S2 which arrive at R1 can be handled by R1 "
 "without C. It forwards messages to R2."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:124
+#: ../../java/cluster-sharding.rst:130
 msgid ""
 "R2 receives message for S2, ask C, which answers that the home of S2 is "
 "R2, and we are in Scenario 1 (but for R2)."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:126
+#: ../../java/cluster-sharding.rst:132
 msgid ""
 "To make sure that at most one instance of a specific entity actor is "
 "running somewhere in the cluster it is important that all nodes have the "
@@ -277,7 +285,7 @@ msgid ""
 "among all cluster nodes or a group of nodes tagged with a specific role."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:133
+#: ../../java/cluster-sharding.rst:139
 msgid ""
 "The logic that decides where a shard is to be located is defined in a "
 "pluggable shard allocation strategy. The default implementation "
@@ -286,7 +294,7 @@ msgid ""
 "This strategy can be replaced by an application specific implementation."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:138
+#: ../../java/cluster-sharding.rst:144
 msgid ""
 "To be able to use newly added members in the cluster the coordinator "
 "facilitates rebalancing of shards, i.e. migrate entities from one node to"
@@ -310,7 +318,7 @@ msgid ""
 " at the new location."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:155
+#: ../../java/cluster-sharding.rst:161
 msgid ""
 "The logic that decides which shards to rebalance is defined in a "
 "pluggable shard allocation strategy. The default implementation "
@@ -323,7 +331,7 @@ msgid ""
 "specific implementation."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:163
+#: ../../java/cluster-sharding.rst:169
 msgid ""
 "The state of shard locations in the ``ShardCoordinator`` is persistent "
 "(durable) with :ref:`persistence-java` to survive failures. Since it is "
@@ -336,7 +344,7 @@ msgid ""
 "``ShardCoordinator`` becomes available."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:171
+#: ../../java/cluster-sharding.rst:177
 msgid ""
 "As long as a sender uses the same ``ShardRegion`` actor to deliver "
 "messages to an entity actor the order of the messages is preserved. As "
@@ -347,7 +355,7 @@ msgid ""
 ":`persistence-java`."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:177
+#: ../../java/cluster-sharding.rst:183
 msgid ""
 "Some additional latency is introduced for messages targeted to new or "
 "previously unused shards due to the round-trip to the coordinator. "
@@ -356,11 +364,11 @@ msgid ""
 "too fine grained shards."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:183
+#: ../../java/cluster-sharding.rst:189
 msgid "Distributed Data Mode"
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:185
+#: ../../java/cluster-sharding.rst:191
 msgid ""
 "Instead of using :ref:`persistence-java` it is possible to use the "
 ":ref:`distributed_data_java` module as storage for the state of the "
@@ -369,18 +377,18 @@ msgid ""
 "module with ``WriteMajority``/``ReadMajority`` consistency."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:190
+#: ../../java/cluster-sharding.rst:196
 msgid "This mode can be enabled by setting configuration property::"
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:194
+#: ../../java/cluster-sharding.rst:200
 msgid ""
 "It is using the Distributed Data extension that must be running on all "
 "nodes in the cluster. Therefore you should add that extension to the "
 "configuration to make sure that it is started on all nodes::"
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:200
+#: ../../java/cluster-sharding.rst:206
 msgid ""
 "You must explicitly add the ``akka-distributed-data-experimental`` "
 "dependency to your build if you use this mode. It is possible to remove "
@@ -393,18 +401,18 @@ msgid ""
 "data usig persistence, no matter how ``State Store Mode`` is set."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:210
+#: ../../java/cluster-sharding.rst:216
 msgid ""
 "The ``ddata`` mode is considered as **“experimental”** as of its "
 "introduction in Akka 2.4.0, since it depends on the experimental "
 "Distributed Data module."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:214
+#: ../../java/cluster-sharding.rst:220
 msgid "Proxy Only Mode"
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:216
+#: ../../java/cluster-sharding.rst:222
 msgid ""
 "The ``ShardRegion`` actor can also be started in proxy only mode, i.e. it"
 " will not host any entities itself, but knows how to delegate messages to"
@@ -412,11 +420,11 @@ msgid ""
 " the method ``ClusterSharding.startProxy`` method."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:222
+#: ../../java/cluster-sharding.rst:228
 msgid "Passivation"
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:224
+#: ../../java/cluster-sharding.rst:230
 msgid ""
 "If the state of the entities are persistent you may stop entities that "
 "are not used to reduce memory consumption. This is done by the "
@@ -432,11 +440,11 @@ msgid ""
 "thereafter delivered to a new incarnation of the entity."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:236
+#: ../../java/cluster-sharding.rst:242
 msgid "Remembering Entities"
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:238
+#: ../../java/cluster-sharding.rst:244
 msgid ""
 "The list of entities in each ``Shard`` can be made persistent (durable) "
 "by setting the ``rememberEntities`` flag to true in "
@@ -449,7 +457,7 @@ msgid ""
 "the entity restart backoff specified in the configuration."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:247
+#: ../../java/cluster-sharding.rst:253
 msgid ""
 "When ``rememberEntities`` is set to false, a ``Shard`` will not "
 "automatically restart any entities after a rebalance or recovering from a"
@@ -458,17 +466,17 @@ msgid ""
 " if they stop without using a ``Passivate``."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:252
+#: ../../java/cluster-sharding.rst:258
 msgid ""
 "Note that the state of the entities themselves will not be restored "
 "unless they have been made persistent, e.g. with :ref:`persistence-java`."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:256
+#: ../../java/cluster-sharding.rst:262
 msgid "Supervision"
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:258
+#: ../../java/cluster-sharding.rst:264
 msgid ""
 "If you need to use another ``supervisorStrategy`` for the entity actors "
 "than the default (restarting) strategy you need to create an intermediate"
@@ -476,21 +484,21 @@ msgid ""
 " actor."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:264
+#: ../../java/cluster-sharding.rst:270
 msgid "You start such a supervisor in the same way as if it was the entity actor."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:268
+#: ../../java/cluster-sharding.rst:274
 msgid ""
 "Note that stopped entities will be started again when a new message is "
 "targeted to the entity."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:271
+#: ../../java/cluster-sharding.rst:277
 msgid "Graceful Shutdown"
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:273
+#: ../../java/cluster-sharding.rst:279
 msgid ""
 "You can send the ``ShardRegion.gracefulShutdownInstance`` message to the "
 "``ShardRegion`` actor to handoff all shards that are hosted by that "
@@ -502,42 +510,42 @@ msgid ""
 "elsewhere."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:279
+#: ../../java/cluster-sharding.rst:285
 msgid ""
 "When the ``ShardRegion`` has terminated you probably want to ``leave`` "
 "the cluster, and shut down the ``ActorSystem``."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:281
+#: ../../java/cluster-sharding.rst:287
 msgid "This is how to do that:"
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:288
+#: ../../java/cluster-sharding.rst:294
 msgid "Removal of Internal Cluster Sharding Data"
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:290
+#: ../../java/cluster-sharding.rst:296
 msgid ""
 "The Cluster Sharding coordinator stores the locations of the shards using"
 " Akka Persistence. This data can safely be removed when restarting the "
 "whole Akka Cluster. Note that this is not application data."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:294
+#: ../../java/cluster-sharding.rst:300
 msgid ""
 "There is a utility program "
 "``akka.cluster.sharding.RemoveInternalClusterShardingData`` that removes "
 "this data."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:299
+#: ../../java/cluster-sharding.rst:305
 msgid ""
 "Never use this program while there are running Akka Cluster nodes that "
 "are using Cluster Sharding. Stop all Cluster nodes before using this "
 "program."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:302
+#: ../../java/cluster-sharding.rst:308
 msgid ""
 "It can be needed to remove the data if the Cluster Sharding coordinator "
 "cannot startup because of corrupt data, which may happen if accidentally "
@@ -545,53 +553,53 @@ msgid ""
 "down and there was a network partition."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:307
+#: ../../java/cluster-sharding.rst:319
 msgid "Use this program as a standalone Java main program::"
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:313
+#: ../../java/cluster-sharding.rst:325
 msgid ""
 "The program is included in the ``akka-cluster-sharding`` jar file. It is "
 "easiest to run it with same classpath and configuration as your ordinary "
 "application. It can be run from sbt or maven in similar way."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:317
+#: ../../java/cluster-sharding.rst:329
 msgid ""
 "Specify the entity type names (same as you use in the ``start`` method of"
 " ``ClusterSharding``) as program arguments."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:320
+#: ../../java/cluster-sharding.rst:332
 msgid ""
 "If you specify ``-2.3`` as the first program argument it will also try to"
 " remove data that was stored by Cluster Sharding in Akka 2.3.x using "
 "different persistenceId."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:326
+#: ../../java/cluster-sharding.rst:338
 msgid "Dependencies"
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:328
+#: ../../java/cluster-sharding.rst:340
 msgid ""
 "To use the Cluster Sharding you must add the following dependency in your"
 " project."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:330
+#: ../../java/cluster-sharding.rst:342
 msgid "sbt::"
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:334
+#: ../../java/cluster-sharding.rst:346
 msgid "maven::"
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:343
+#: ../../java/cluster-sharding.rst:355
 msgid "Configuration"
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:345
+#: ../../java/cluster-sharding.rst:357
 msgid ""
 "The ``ClusterSharding`` extension can be configured with the following "
 "properties. These configuration properties are read by the "
@@ -603,7 +611,7 @@ msgid ""
 "configured with different settings if needed."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:354
+#: ../../java/cluster-sharding.rst:366
 msgid ""
 "Custom shard allocation strategy can be defined in an optional parameter "
 "to ``ClusterSharding.start``. See the API documentation of "
@@ -611,22 +619,22 @@ msgid ""
 "custom shard allocation strategy."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:360
+#: ../../java/cluster-sharding.rst:372
 msgid "Inspecting cluster sharding state"
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:361
+#: ../../java/cluster-sharding.rst:373
 msgid "Two requests to inspect the cluster state are available:"
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:363
+#: ../../java/cluster-sharding.rst:375
 msgid ""
 "``ShardRegion.getShardRegionStateInstance`` which will return a "
 "``ShardRegion.ShardRegionState`` that contains the identifiers of the "
 "shards running in a Region and what entities are alive for each of them."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:366
+#: ../../java/cluster-sharding.rst:378
 msgid ""
 "``ShardRegion.GetClusterShardingStats`` which will query all the regions "
 "in the cluster and return a ``ShardRegion.ClusterShardingStats`` "
@@ -634,7 +642,7 @@ msgid ""
 "count of entities that are alive in each shard."
 msgstr ""
 
-#: ../../java/cluster-sharding.rst:370
+#: ../../java/cluster-sharding.rst:382
 msgid ""
 "The purpose of these messages is testing and monitoring, they are not "
 "provided to give access to directly sending messages to the individual "

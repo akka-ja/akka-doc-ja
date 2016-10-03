@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -674,8 +674,8 @@ msgstr ""
 msgid ""
 "The parent of an actor is always the actor that created it. At times this"
 " leads to a coupling between the two that may not be straightforward to "
-"test. Broadly, there are three approaches to improve testability of "
-"parent-child relationships:"
+"test. There are several approaches to improve testability of a child "
+"actor that needs to refer to its parent:"
 msgstr ""
 
 #: ../../java/testing.rst:476
@@ -683,7 +683,7 @@ msgid "when creating a child, pass an explicit reference to its parent"
 msgstr ""
 
 #: ../../java/testing.rst:477
-msgid "when creating a parent, tell the parent how to create its child"
+msgid "create the child with a ``TestProbe`` as parent"
 msgstr ""
 
 #: ../../java/testing.rst:478
@@ -691,63 +691,86 @@ msgid "create a fabricated parent when testing"
 msgstr ""
 
 #: ../../java/testing.rst:480
+msgid "Conversely, a parent's binding to its child can be lessened as follows:"
+msgstr ""
+
+#: ../../java/testing.rst:482
+msgid "when creating a parent, tell the parent how to create its child"
+msgstr ""
+
+#: ../../java/testing.rst:484
 msgid ""
 "For example, the structure of the code you want to test may follow this "
 "pattern:"
 msgstr ""
 
-#: ../../java/testing.rst:485
-msgid "Using dependency-injection"
+#: ../../java/testing.rst:489
+msgid "Introduce child to its parent"
 msgstr ""
 
-#: ../../java/testing.rst:487
+#: ../../java/testing.rst:491
 msgid ""
 "The first option is to avoid use of the :meth:`context.parent` function "
 "and create a child with a custom parent by passing an explicit reference "
 "to its parent instead."
 msgstr ""
 
-#: ../../java/testing.rst:492
+#: ../../java/testing.rst:497
+msgid "Create the child using JavaTestKit"
+msgstr ""
+
+#: ../../java/testing.rst:499
+msgid ""
+"The ``JavaTestKit`` class can in fact create actors that will run with "
+"the test probe as parent. This will cause any messages the the child "
+"actor sends to `context().getParent()` to end up in the test probe."
+msgstr ""
+
+#: ../../java/testing.rst:506
+msgid "Using a fabricated parent"
+msgstr ""
+
+#: ../../java/testing.rst:508
+msgid ""
+"If you prefer to avoid modifying the child constructor you can create a "
+"fabricated parent in your test. This, however, does not enable you to "
+"test the parent actor in isolation."
+msgstr ""
+
+#: ../../java/testing.rst:516
+msgid "Externalize child making from the parent"
+msgstr ""
+
+#: ../../java/testing.rst:518
 msgid ""
 "Alternatively, you can tell the parent how to create its child. There are"
 " two ways to do this: by giving it a :class:`Props` object or by giving "
 "it a function which takes care of creating the child actor:"
 msgstr ""
 
-#: ../../java/testing.rst:498
+#: ../../java/testing.rst:524
 msgid ""
 "Creating the :class:`Actor` is straightforward and the function may look "
 "like this in your test code:"
 msgstr ""
 
-#: ../../java/testing.rst:502
+#: ../../java/testing.rst:528
 msgid "And like this in your application code:"
 msgstr ""
 
-#: ../../java/testing.rst:507
-msgid "Using a fabricated parent"
-msgstr ""
-
-#: ../../java/testing.rst:509
-msgid ""
-"If you prefer to avoid modifying the parent or child constructor you can "
-"create a fabricated parent in your test. This, however, does not enable "
-"you to test the parent actor in isolation."
-msgstr ""
-
-#: ../../java/testing.rst:516
+#: ../../java/testing.rst:533
 msgid ""
 "Which of these methods is the best depends on what is most important to "
 "test. The most generic option is to create the parent actor by passing it"
-" a function that is responsible for the Actor creation, but the "
-"fabricated parent is often sufficient."
+" a function that is responsible for the Actor creation, but using "
+"TestProbe or having a fabricated parent is often sufficient."
 msgstr ""
 
-#: ../../java/testing.rst:523
+#: ../../java/testing.rst:540
 msgid "CallingThreadDispatcher"
 msgstr ""
 
-#: ../../java/testing.rst:525
+#: ../../java/testing.rst:542
 msgid ""
 "The :class:`CallingThreadDispatcher` serves good purposes in unit "
 "testing, as described above, but originally it was conceived in order to "
@@ -758,19 +781,19 @@ msgid ""
 "intervening actors run on this dispatcher."
 msgstr ""
 
-#: ../../java/testing.rst:533
+#: ../../java/testing.rst:550
 msgid "How to use it"
 msgstr ""
 
-#: ../../java/testing.rst:535
+#: ../../java/testing.rst:552
 msgid "Just set the dispatcher as you normally would:"
 msgstr ""
 
-#: ../../java/testing.rst:540
+#: ../../java/testing.rst:557
 msgid "How it works"
 msgstr ""
 
-#: ../../java/testing.rst:542
+#: ../../java/testing.rst:559
 msgid ""
 "When receiving an invocation, the :class:`CallingThreadDispatcher` checks"
 " whether the receiving actor is already active on the current thread. The"
@@ -784,14 +807,14 @@ msgid ""
 " scheduled via this dispatcher are also executed immediately."
 msgstr ""
 
-#: ../../java/testing.rst:553
+#: ../../java/testing.rst:570
 msgid ""
 "This scheme makes the :class:`CallingThreadDispatcher` work like a "
 "general purpose dispatcher for any actors which never block on external "
 "events."
 msgstr ""
 
-#: ../../java/testing.rst:556
+#: ../../java/testing.rst:573
 msgid ""
 "In the presence of multiple threads it may happen that two invocations of"
 " an actor running on this dispatcher happen on two different threads at "
@@ -802,7 +825,7 @@ msgid ""
 "to traditional mutex style concurrency."
 msgstr ""
 
-#: ../../java/testing.rst:564
+#: ../../java/testing.rst:581
 msgid ""
 "The other remaining difficulty is correct handling of suspend and resume:"
 " when an actor is suspended, subsequent invocations will be queued in "
@@ -815,11 +838,11 @@ msgid ""
 "threads into its own queue and process them."
 msgstr ""
 
-#: ../../java/testing.rst:574
+#: ../../java/testing.rst:591
 msgid "Limitations"
 msgstr ""
 
-#: ../../java/testing.rst:578
+#: ../../java/testing.rst:595
 msgid ""
 "In case the CallingThreadDispatcher is used for top-level actors, but "
 "without going through TestActorRef, then there is a time window during "
@@ -829,7 +852,7 @@ msgid ""
 " caller’s thread. To avoid this, use TestActorRef."
 msgstr ""
 
-#: ../../java/testing.rst:585
+#: ../../java/testing.rst:602
 msgid ""
 "If an actor's behavior blocks on a something which would normally be "
 "affected by the calling actor after having sent the message, this will "
@@ -837,14 +860,14 @@ msgid ""
 " in actor tests based on :class:`CountDownLatch` for synchronization:"
 msgstr ""
 
-#: ../../java/testing.rst:597
+#: ../../java/testing.rst:614
 msgid ""
 "The example would hang indefinitely within the message processing "
 "initiated on the second line and never reach the fourth line, which would"
 " unblock it on a normal dispatcher."
 msgstr ""
 
-#: ../../java/testing.rst:601
+#: ../../java/testing.rst:618
 msgid ""
 "Thus, keep in mind that the :class:`CallingThreadDispatcher` is not a "
 "general-purpose replacement for the normal dispatchers. On the other hand"
@@ -853,7 +876,7 @@ msgid ""
 "will not dead-lock in production."
 msgstr ""
 
-#: ../../java/testing.rst:609
+#: ../../java/testing.rst:626
 msgid ""
 "The above sentence is unfortunately not a strong guarantee, because your "
 "code might directly or indirectly change its behavior when running on a "
@@ -863,11 +886,11 @@ msgid ""
 " well as false positives."
 msgstr ""
 
-#: ../../java/testing.rst:617
+#: ../../java/testing.rst:634
 msgid "Thread Interruptions"
 msgstr ""
 
-#: ../../java/testing.rst:619
+#: ../../java/testing.rst:636
 msgid ""
 "If the CallingThreadDispatcher sees that the current thread has its "
 "``isInterrupted()`` flag set when message processing returns, it will "
@@ -878,7 +901,7 @@ msgid ""
 "the thread’s interrupted status will be set again."
 msgstr ""
 
-#: ../../java/testing.rst:627
+#: ../../java/testing.rst:644
 msgid ""
 "If during message processing an :class:`InterruptedException` is thrown "
 "then it will be caught inside the CallingThreadDispatcher’s message "
@@ -886,7 +909,7 @@ msgid ""
 "continues normally."
 msgstr ""
 
-#: ../../java/testing.rst:633
+#: ../../java/testing.rst:650
 msgid ""
 "The summary of these two paragraphs is that if the current thread is "
 "interrupted while doing work under the CallingThreadDispatcher, then that"
@@ -894,37 +917,37 @@ msgid ""
 "message send returns and no :class:`InterruptedException` will be thrown."
 msgstr ""
 
-#: ../../java/testing.rst:639
+#: ../../java/testing.rst:656
 msgid "Benefits"
 msgstr ""
 
-#: ../../java/testing.rst:641
+#: ../../java/testing.rst:658
 msgid ""
 "To summarize, these are the features with the "
 ":class:`CallingThreadDispatcher` has to offer:"
 msgstr ""
 
-#: ../../java/testing.rst:644
+#: ../../java/testing.rst:661
 msgid ""
 "Deterministic execution of single-threaded tests while retaining nearly "
 "full actor semantics"
 msgstr ""
 
-#: ../../java/testing.rst:646
+#: ../../java/testing.rst:663
 msgid ""
 "Full message processing history leading up to the point of failure in "
 "exception stack traces"
 msgstr ""
 
-#: ../../java/testing.rst:648
+#: ../../java/testing.rst:665
 msgid "Exclusion of certain classes of dead-lock scenarios"
 msgstr ""
 
-#: ../../java/testing.rst:653
+#: ../../java/testing.rst:670
 msgid "Tracing Actor Invocations"
 msgstr ""
 
-#: ../../java/testing.rst:655
+#: ../../java/testing.rst:672
 msgid ""
 "The testing facilities described up to this point were aiming at "
 "formulating assertions about a system’s behavior. If a test fails, it is "
@@ -933,21 +956,21 @@ msgid ""
 " toolkit offers the following options:"
 msgstr ""
 
-#: ../../java/testing.rst:661
+#: ../../java/testing.rst:678
 msgid "*Logging of exceptions thrown within Actor instances*"
 msgstr ""
 
-#: ../../java/testing.rst:663
+#: ../../java/testing.rst:680
 msgid ""
 "This is always on; in contrast to the other logging mechanisms, this logs"
 " at ``ERROR`` level."
 msgstr ""
 
-#: ../../java/testing.rst:666
+#: ../../java/testing.rst:683
 msgid "*Logging of special messages*"
 msgstr ""
 
-#: ../../java/testing.rst:668
+#: ../../java/testing.rst:685
 msgid ""
 "Actors handle certain special messages automatically, e.g. :obj:`Kill`, "
 ":obj:`PoisonPill`, etc. Tracing of these message invocations is enabled "
@@ -955,31 +978,64 @@ msgid ""
 "all actors."
 msgstr ""
 
-#: ../../java/testing.rst:673
+#: ../../java/testing.rst:690
 msgid "*Logging of the actor lifecycle*"
 msgstr ""
 
-#: ../../java/testing.rst:675
+#: ../../java/testing.rst:692
 msgid ""
 "Actor creation, start, restart, monitor start, monitor stop and stop may "
 "be traced by enabling the setting ``akka.actor.debug.lifecycle``; this, "
 "too, is enabled uniformly on all actors."
 msgstr ""
 
-#: ../../java/testing.rst:679
+#: ../../java/testing.rst:696
 msgid ""
 "All these messages are logged at ``DEBUG`` level. To summarize, you can "
 "enable full logging of actor activities using this configuration "
 "fragment::"
 msgstr ""
 
-#: ../../java/testing.rst:693
+#: ../../java/testing.rst:710
 msgid "Configuration"
 msgstr ""
 
-#: ../../java/testing.rst:695
+#: ../../java/testing.rst:712
 msgid ""
 "There are several configuration properties for the TestKit module, please"
 " refer to the :ref:`reference configuration <config-akka-testkit>`."
 msgstr ""
+
+#~ msgid ""
+#~ "The parent of an actor is always"
+#~ " the actor that created it. At "
+#~ "times this leads to a coupling "
+#~ "between the two that may not be"
+#~ " straightforward to test. Broadly, there"
+#~ " are three approaches to improve "
+#~ "testability of parent-child relationships:"
+#~ msgstr ""
+
+#~ msgid "Using dependency-injection"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you prefer to avoid modifying "
+#~ "the parent or child constructor you "
+#~ "can create a fabricated parent in "
+#~ "your test. This, however, does not "
+#~ "enable you to test the parent "
+#~ "actor in isolation."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Which of these methods is the best"
+#~ " depends on what is most important"
+#~ " to test. The most generic option "
+#~ "is to create the parent actor by"
+#~ " passing it a function that is "
+#~ "responsible for the Actor creation, but"
+#~ " the fabricated parent is often "
+#~ "sufficient."
+#~ msgstr ""
 

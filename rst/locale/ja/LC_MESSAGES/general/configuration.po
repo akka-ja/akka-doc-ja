@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -504,23 +504,27 @@ msgstr ""
 msgid "akka-remote"
 msgstr ""
 
-#: ../../general/configuration.rst:493
+#: ../../general/configuration.rst:495
+msgid "akka-remote (artery)"
+msgstr ""
+
+#: ../../general/configuration.rst:504
 msgid "akka-testkit"
 msgstr ""
 
-#: ../../general/configuration.rst:500
+#: ../../general/configuration.rst:511
 msgid "akka-cluster-metrics ~~~~~~~~~~~~--------"
 msgstr ""
 
-#: ../../general/configuration.rst:508
+#: ../../general/configuration.rst:519
 msgid "akka-cluster-tools ~~~~~~~~~~~~------"
 msgstr ""
 
-#: ../../general/configuration.rst:516
+#: ../../general/configuration.rst:527
 msgid "akka-cluster-sharding ~~~~~~~~~~~~---------"
 msgstr ""
 
-#: ../../general/configuration.rst:524
+#: ../../general/configuration.rst:535
 msgid "akka-distributed-data ~~~~~~~~~~~~---------"
 msgstr ""
 

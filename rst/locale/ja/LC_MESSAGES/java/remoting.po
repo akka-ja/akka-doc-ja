@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,17 +17,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.3.4\n"
 
-#: ../../java/remoting.rst:5
+#: ../../java/remoting.rst:4
 msgid "Remoting"
 msgstr ""
 
-#: ../../java/remoting.rst:7
+#: ../../java/remoting.rst:6
 msgid ""
 "For an introduction of remoting capabilities of Akka please see "
 ":ref:`remoting`."
 msgstr ""
 
-#: ../../java/remoting.rst:11
+#: ../../java/remoting.rst:10
 msgid ""
 "As explained in that chapter Akka remoting is designed for communication "
 "in a peer-to-peer fashion and it has limitations for client-server "
@@ -38,35 +38,33 @@ msgid ""
 "communication`."
 msgstr ""
 
-#: ../../java/remoting.rst:19
+#: ../../java/remoting.rst:18
 msgid "Preparing your ActorSystem for Remoting"
 msgstr ""
 
-#: ../../java/remoting.rst:21
+#: ../../java/remoting.rst:20
 msgid ""
 "The Akka remoting is a separate jar file. Make sure that you have the "
 "following dependency in your project::"
 msgstr ""
 
-#: ../../java/remoting.rst:29
+#: ../../java/remoting.rst:28
 msgid ""
 "To enable remote capabilities in your Akka project you should, at a "
 "minimum, add the following changes to your ``application.conf`` file::"
 msgstr ""
 
-#: ../../java/remoting.rst:45
+#: ../../java/remoting.rst:44
 msgid ""
 "As you can see in the example above there are four things you need to add"
 " to get started:"
 msgstr ""
 
-#: ../../java/remoting.rst:47
-msgid ""
-"Change provider from ``akka.actor.LocalActorRefProvider`` to "
-"``akka.remote.RemoteActorRefProvider``"
+#: ../../java/remoting.rst:46
+msgid "Change provider from ``local`` to ``remote``"
 msgstr ""
 
-#: ../../java/remoting.rst:48
+#: ../../java/remoting.rst:47
 msgid ""
 "Add host name - the machine you want to run the actor system on; this "
 "host name is exactly what is passed to remote systems in order to "
@@ -75,13 +73,13 @@ msgid ""
 "name in case you want to communicate across the network."
 msgstr ""
 
-#: ../../java/remoting.rst:53
+#: ../../java/remoting.rst:52
 msgid ""
 "Add port number - the port the actor system should listen on, set to 0 to"
 " have it chosen automatically"
 msgstr ""
 
-#: ../../java/remoting.rst:56
+#: ../../java/remoting.rst:55
 msgid ""
 "The port number needs to be unique for each actor system on the same "
 "machine even if the actor systems have different names. This is because "
@@ -89,36 +87,36 @@ msgid ""
 " and handling messages as not to interfere with other actor systems."
 msgstr ""
 
-#: ../../java/remoting.rst:60
+#: ../../java/remoting.rst:59
 msgid ""
 "The example above only illustrates the bare minimum of properties you "
 "have to add to enable remoting. All settings are described in :ref"
 ":`remote-configuration-java`."
 msgstr ""
 
-#: ../../java/remoting.rst:64
+#: ../../java/remoting.rst:63
 msgid "Looking up Remote Actors"
 msgstr ""
 
-#: ../../java/remoting.rst:66
+#: ../../java/remoting.rst:65
 msgid ""
 "``actorSelection(path)`` will obtain an ``ActorSelection`` to an Actor on"
 " a remote node::"
 msgstr ""
 
-#: ../../java/remoting.rst:71
+#: ../../java/remoting.rst:70
 msgid ""
 "As you can see from the example above the following pattern is used to "
 "find an actor on a remote node::"
 msgstr ""
 
-#: ../../java/remoting.rst:75
+#: ../../java/remoting.rst:74
 msgid ""
 "Once you obtained a selection to the actor you can interact with it they "
 "same way you would with a local actor, e.g.::"
 msgstr ""
 
-#: ../../java/remoting.rst:79
+#: ../../java/remoting.rst:78
 msgid ""
 "To acquire an :class:`ActorRef` for an :class:`ActorSelection` you need "
 "to send a message to the selection and use the ``getSender`` reference of"
@@ -129,20 +127,20 @@ msgid ""
 "which returns a ``Future`` of the matching :class:`ActorRef`."
 msgstr ""
 
-#: ../../java/remoting.rst:89
+#: ../../java/remoting.rst:88
 msgid ""
 "For more details on how actor addresses and paths are formed and used, "
 "please refer to :ref:`addressing`."
 msgstr ""
 
-#: ../../java/remoting.rst:93
+#: ../../java/remoting.rst:92
 msgid ""
 "Message sends to actors that are actually in the sending actor system do "
 "not get delivered via the remote actor ref provider. They're delivered "
 "directly, by the local actor ref provider."
 msgstr ""
 
-#: ../../java/remoting.rst:97
+#: ../../java/remoting.rst:96
 msgid ""
 "Aside from providing better performance, this also means that if the "
 "hostname you configure remoting to listen as cannot actually be resolved "
@@ -150,18 +148,18 @@ msgid ""
 "counterintuitively) be delivered just fine."
 msgstr ""
 
-#: ../../java/remoting.rst:103
+#: ../../java/remoting.rst:102
 msgid "Creating Actors Remotely"
 msgstr ""
 
-#: ../../java/remoting.rst:105
+#: ../../java/remoting.rst:104
 msgid ""
 "If you want to use the creation functionality in Akka remoting you have "
 "to further amend the ``application.conf`` file in the following way (only"
 " showing deployment section)::"
 msgstr ""
 
-#: ../../java/remoting.rst:118
+#: ../../java/remoting.rst:117
 msgid ""
 "The configuration above instructs Akka to react when an actor with path "
 "``/sampleActor`` is created, i.e. using ``system.actorOf(new Props(...), "
@@ -171,20 +169,20 @@ msgid ""
 "``sampleActorSystem@127.0.0.1:2553``."
 msgstr ""
 
-#: ../../java/remoting.rst:123
+#: ../../java/remoting.rst:122
 msgid ""
 "Once you have configured the properties above you would do the following "
 "in code:"
 msgstr ""
 
-#: ../../java/remoting.rst:127
+#: ../../java/remoting.rst:126
 msgid ""
 "The actor class ``SampleActor`` has to be available to the runtimes using"
 " it, i.e. the classloader of the actor systems has to have a JAR "
 "containing the class."
 msgstr ""
 
-#: ../../java/remoting.rst:132
+#: ../../java/remoting.rst:131
 msgid ""
 "In order to ensure serializability of ``Props`` when passing constructor "
 "arguments to the actor being created, do not make the factory a non-"
@@ -194,14 +192,14 @@ msgid ""
 "Actor>`."
 msgstr ""
 
-#: ../../java/remoting.rst:138
+#: ../../java/remoting.rst:137
 msgid ""
 "Serializability of all Props can be tested by setting the configuration "
 "item ``akka.actor.serialize-creators=on``. Only Props whose ``deploy`` "
 "has ``LocalScope`` are exempt from this check."
 msgstr ""
 
-#: ../../java/remoting.rst:144
+#: ../../java/remoting.rst:143
 msgid ""
 "You can use asterisks as wildcard matches for the actor path sections, so"
 " you could specify: ``/*/sampleActor`` and that would match all "
@@ -214,11 +212,11 @@ msgid ""
 "``/foo*/bar``, ``/f*o/bar`` etc."
 msgstr ""
 
-#: ../../java/remoting.rst:152
+#: ../../java/remoting.rst:151
 msgid "Programmatic Remote Deployment"
 msgstr ""
 
-#: ../../java/remoting.rst:154
+#: ../../java/remoting.rst:153
 msgid ""
 "To allow dynamically deployed systems, it is also possible to include "
 "deployment configuration in the :class:`Props` which are used to create "
@@ -227,23 +225,23 @@ msgid ""
 "configuration takes precedence."
 msgstr ""
 
-#: ../../java/remoting.rst:160
+#: ../../java/remoting.rst:159
 msgid "With these imports:"
 msgstr ""
 
-#: ../../java/remoting.rst:164
+#: ../../java/remoting.rst:163
 msgid "and a remote address like this:"
 msgstr ""
 
-#: ../../java/remoting.rst:168
+#: ../../java/remoting.rst:167
 msgid "you can advise the system to create a child on that remote node like so:"
 msgstr ""
 
-#: ../../java/remoting.rst:174
+#: ../../java/remoting.rst:173
 msgid "Lifecycle and Failure Recovery Model"
 msgstr ""
 
-#: ../../java/remoting.rst:180
+#: ../../java/remoting.rst:179
 msgid ""
 "Each link with a remote system can be in one of the four states as "
 "illustrated above. Before any communication happens with a remote system "
@@ -256,7 +254,7 @@ msgid ""
 "becomes ``Gated``."
 msgstr ""
 
-#: ../../java/remoting.rst:186
+#: ../../java/remoting.rst:185
 msgid ""
 "In this state the system will not attempt to connect to the remote host "
 "and all outbound messages will be dropped. The time while the link is in "
@@ -268,7 +266,7 @@ msgid ""
 "resumes immediately."
 msgstr ""
 
-#: ../../java/remoting.rst:192
+#: ../../java/remoting.rst:191
 msgid ""
 "In the face of communication failures that are unrecoverable because the "
 "state of the participating systems are inconsistent, the remote system "
@@ -278,35 +276,35 @@ msgid ""
 "again."
 msgstr ""
 
-#: ../../java/remoting.rst:197
+#: ../../java/remoting.rst:196
 msgid "Watching Remote Actors"
 msgstr ""
 
-#: ../../java/remoting.rst:199
+#: ../../java/remoting.rst:198
 msgid ""
 "Watching a remote actor is not different than watching a local actor, as "
 "described in :ref:`deathwatch-java`."
 msgstr ""
 
-#: ../../java/remoting.rst:203
+#: ../../java/remoting.rst:202
 msgid "Failure Detector"
 msgstr ""
 
-#: ../../java/remoting.rst:205
+#: ../../java/remoting.rst:204
 msgid ""
 "Under the hood remote death watch uses heartbeat messages and a failure "
 "detector to generate ``Terminated`` message from network failures and JVM"
 " crashes, in addition to graceful termination of watched actor."
 msgstr ""
 
-#: ../../java/remoting.rst:209
+#: ../../java/remoting.rst:208
 msgid ""
 "The heartbeat arrival times is interpreted by an implementation of `The "
 "Phi Accrual Failure Detector "
 "<http://www.jaist.ac.jp/~defago/files/pdf/IS_RR_2004_010.pdf>`_."
 msgstr ""
 
-#: ../../java/remoting.rst:212
+#: ../../java/remoting.rst:211
 msgid ""
 "The suspicion level of failure is given by a value called *phi*. The "
 "basic idea of the phi failure detector is to express the value of *phi* "
@@ -314,25 +312,25 @@ msgid ""
 "conditions."
 msgstr ""
 
-#: ../../java/remoting.rst:216
+#: ../../java/remoting.rst:215
 msgid "The value of *phi* is calculated as::"
 msgstr ""
 
-#: ../../java/remoting.rst:220
+#: ../../java/remoting.rst:219
 msgid ""
 "where F is the cumulative distribution function of a normal distribution "
 "with mean and standard deviation estimated from historical heartbeat "
 "inter-arrival times."
 msgstr ""
 
-#: ../../java/remoting.rst:223
+#: ../../java/remoting.rst:222
 msgid ""
 "In the :ref:`remote-configuration-java` you can adjust the ``akka.remote"
 ".watch-failure-detector.threshold`` to define when a *phi* value is "
 "considered to be a failure."
 msgstr ""
 
-#: ../../java/remoting.rst:226
+#: ../../java/remoting.rst:225
 msgid ""
 "A low ``threshold`` is prone to generate many false positives but ensures"
 " a quick detection in the event of a real crash. Conversely, a high "
@@ -343,13 +341,13 @@ msgid ""
 "that sometimes occur on such platforms."
 msgstr ""
 
-#: ../../java/remoting.rst:233
+#: ../../java/remoting.rst:232
 msgid ""
 "The following chart illustrates how *phi* increase with increasing time "
 "since the previous heartbeat."
 msgstr ""
 
-#: ../../java/remoting.rst:238
+#: ../../java/remoting.rst:237
 msgid ""
 "Phi is calculated from the mean and standard deviation of historical "
 "inter arrival times. The previous chart is an example for standard "
@@ -358,7 +356,7 @@ msgid ""
 "quickly. The curve looks like this for a standard deviation of 100 ms."
 msgstr ""
 
-#: ../../java/remoting.rst:246
+#: ../../java/remoting.rst:245
 msgid ""
 "To be able to survive sudden abnormalities, such as garbage collection "
 "pauses and transient network failures the failure detector is configured "
@@ -368,56 +366,146 @@ msgid ""
 "``acceptable-heartbeat-pause`` configured to 3 seconds."
 msgstr ""
 
-#: ../../java/remoting.rst:256
+#: ../../java/remoting.rst:255
 msgid "Serialization"
 msgstr ""
 
-#: ../../java/remoting.rst:258
+#: ../../java/remoting.rst:257
 msgid ""
 "When using remoting for actors you must ensure that the ``props`` and "
 "``messages`` used for those actors are serializable. Failing to do so "
 "will cause the system to behave in an unintended way."
 msgstr ""
 
-#: ../../java/remoting.rst:261
+#: ../../java/remoting.rst:260
 msgid "For more information please see :ref:`serialization-java`."
 msgstr ""
 
-#: ../../java/remoting.rst:264
+#: ../../java/remoting.rst:263
+msgid "Disabling the Java Serializer"
+msgstr ""
+
+#: ../../java/remoting.rst:265
+msgid ""
+"Since the ``2.4.11`` release of Akka it is possible to entirely disable "
+"the default Java Serialization mechanism. Please note that :ref:`new "
+"remoting implementation (codename Artery) <remoting-artery-java>` does "
+"not use Java serialization for internal messages by default. For "
+"compatibility reasons, the current remoting still uses Java serialization"
+" for some classes, however you can disable it in this remoting "
+"implementation as well by following the steps below."
+msgstr ""
+
+#: ../../java/remoting.rst:271
+msgid ""
+"Java serialization is known to be slow and prone to attacks of various "
+"kinds - it never was designed for high throughput messaging after all. "
+"However it is very convenient to use, thus it remained the default "
+"serialization mechanism that Akka used to serialize user messages as well"
+" as some of its internal messages in previous versions. Since the release"
+" of Artery, Akka internals do not rely on Java serialization anymore (one"
+" exception being ``java.lang.Throwable``)."
+msgstr ""
+
+#: ../../java/remoting.rst:277
+msgid ""
+"When using the new remoting implementation (codename Artery), Akka does "
+"not use Java Serialization for any of it's internal messages. It is "
+"highly encouraged to disable java serialization, so please plan to do so "
+"at the earliest possibility you have in your project."
+msgstr ""
+
+#: ../../java/remoting.rst:280
+msgid ""
+"One may think that network bandwidth and latency limit the performance of"
+" remote messaging, but serialization is a more typical bottleneck."
+msgstr ""
+
+#: ../../java/remoting.rst:282
+msgid ""
+"For user messages, the default serializer, implemented using Java "
+"serialization, remains available and enabled in Artery. We do however "
+"recommend to disable it entirely and utilise a proper serialization "
+"library instead in order effectively utilise the improved performance and"
+" ability for rolling deployments using Artery. Libraries that we "
+"recommend to use include, but are not limited to, `Kryo`_ by using the "
+"`akka-kryo-serialization`_ library or `Google Protocol Buffers`_ if you "
+"want more control over the schema evolution of your messages."
+msgstr ""
+
+#: ../../java/remoting.rst:288
+msgid ""
+"In order to completely disable Java Serialization in your Actor system "
+"you need to add the following configuration to your ``application.conf``:"
+msgstr ""
+
+#: ../../java/remoting.rst:301
+msgid ""
+"Please note that this means that you will have to configure different "
+"serializers which will able to handle all of your remote messages. Please"
+" refer to the :ref:`serialization-scala` documentation as well as "
+":ref:`ByteBuffer based serialization <remote-bytebuffer-serialization-"
+"scala>` to learn how to do this."
+msgstr ""
+
+#: ../../java/remoting.rst:305
+msgid ""
+"Please note that when enabling the additional-serialization-bindings when"
+" using the old remoting, you must do so on all nodes participating in a "
+"cluster, otherwise the mis-aligned serialization configurations will "
+"cause deserialization errors on the receiving nodes."
+msgstr ""
+
+#: ../../java/remoting.rst:309
+msgid ""
+"You can also easily enable additional serialization bindings that are "
+"provided by Akka that are not using Java serialization:"
+msgstr ""
+
+#: ../../java/remoting.rst:320
+msgid ""
+"The reason these are not enabled by default is wire-level compatibility "
+"between any 2.4.x Actor Systems. If you roll out a new cluster, all on "
+"the same Akka version that can enable these serializers it is recommended"
+" to enable this setting. When using :ref:`remoting-artery-scala` these "
+"serializers are enabled by default."
+msgstr ""
+
+#: ../../java/remoting.rst:329
 msgid "Routers with Remote Destinations"
 msgstr ""
 
-#: ../../java/remoting.rst:266
+#: ../../java/remoting.rst:331
 msgid "It is absolutely feasible to combine remoting with :ref:`routing-java`."
 msgstr ""
 
-#: ../../java/remoting.rst:268
+#: ../../java/remoting.rst:333
 msgid "A pool of remote deployed routees can be configured as:"
 msgstr ""
 
-#: ../../java/remoting.rst:272
+#: ../../java/remoting.rst:337
 msgid ""
 "This configuration setting will clone the actor defined in the ``Props`` "
 "of the ``remotePool`` 10 times and deploy it evenly distributed across "
 "the two given target nodes."
 msgstr ""
 
-#: ../../java/remoting.rst:275
+#: ../../java/remoting.rst:340
 msgid "A group of remote actors can be configured as:"
 msgstr ""
 
-#: ../../java/remoting.rst:279
+#: ../../java/remoting.rst:344
 msgid ""
 "This configuration setting will send messages to the defined remote actor"
 " paths. It requires that you create the destination actors on the remote "
 "nodes with matching paths. That is not done by the router."
 msgstr ""
 
-#: ../../java/remoting.rst:286
+#: ../../java/remoting.rst:351
 msgid "Remoting Sample"
 msgstr ""
 
-#: ../../java/remoting.rst:288
+#: ../../java/remoting.rst:353
 msgid ""
 "There is a more extensive remote example that comes with `Lightbend "
 "Activator <http://www.lightbend.com/platform/getstarted>`_. The tutorial "
@@ -426,40 +514,18 @@ msgid ""
 "demonstrates both remote deployment and look-up of remote actors."
 msgstr ""
 
-#: ../../java/remoting.rst:293
-msgid "Pluggable transport support"
-msgstr ""
-
-#: ../../java/remoting.rst:295
-msgid ""
-"Akka can be configured to use various transports to communicate with "
-"remote systems. The core component of this feature is the "
-":meth:`akka.remote.transport.Transport` SPI. Transport implementations "
-"must extend this trait. Transports can be loaded by setting the "
-"``akka.remote.enabled-transports`` configuration key to point to one or "
-"more configuration sections containing driver descriptions."
-msgstr ""
-
-#: ../../java/remoting.rst:300
-msgid "An example of setting up the default Netty based SSL driver as default::"
-msgstr ""
-
-#: ../../java/remoting.rst:319
-msgid "An example of setting up a custom transport implementation::"
-msgstr ""
-
-#: ../../java/remoting.rst:346
+#: ../../java/remoting.rst:358
 msgid "Remote Events"
 msgstr ""
 
-#: ../../java/remoting.rst:348
+#: ../../java/remoting.rst:360
 msgid ""
 "It is possible to listen to events that occur in Akka Remote, and to "
 "subscribe/unsubscribe to these events you simply register as listener to "
 "the below described types in on the ``ActorSystem.eventStream``."
 msgstr ""
 
-#: ../../java/remoting.rst:353
+#: ../../java/remoting.rst:365
 msgid ""
 "To subscribe to any remote event, subscribe to "
 ":meth:`RemotingLifecycleEvent`.  To subscribe to events related only to "
@@ -467,7 +533,7 @@ msgid ""
 ":meth:`akka.remote.AssociationEvent`."
 msgstr ""
 
-#: ../../java/remoting.rst:360
+#: ../../java/remoting.rst:372
 msgid ""
 "The use of term \"Association\" instead of \"Connection\" reflects that "
 "the remoting subsystem may use connectionless transports, but an "
@@ -475,7 +541,7 @@ msgid ""
 "endpoints by the Akka protocol."
 msgstr ""
 
-#: ../../java/remoting.rst:365
+#: ../../java/remoting.rst:377
 msgid ""
 "By default an event listener is registered which logs all of the events "
 "described below. This default was chosen to help setting up a system, but"
@@ -483,20 +549,20 @@ msgid ""
 "project is finished."
 msgstr ""
 
-#: ../../java/remoting.rst:372
+#: ../../java/remoting.rst:384
 msgid ""
 "In order to switch off the logging, set ``akka.remote.log-remote-"
 "lifecycle-events = off`` in your ``application.conf``."
 msgstr ""
 
-#: ../../java/remoting.rst:376
+#: ../../java/remoting.rst:388
 msgid ""
 "To be notified when an association is over (\"disconnected\") listen to "
 "``DisassociatedEvent`` which holds the direction of the association "
 "(inbound or outbound) and the addresses of the involved parties."
 msgstr ""
 
-#: ../../java/remoting.rst:379
+#: ../../java/remoting.rst:391
 msgid ""
 "To be notified  when an association is successfully established "
 "(\"connected\") listen to ``AssociatedEvent`` which holds the direction "
@@ -504,7 +570,7 @@ msgid ""
 "involved parties."
 msgstr ""
 
-#: ../../java/remoting.rst:382
+#: ../../java/remoting.rst:394
 msgid ""
 "To intercept errors directly related to associations, listen to "
 "``AssociationErrorEvent`` which holds the direction of the association "
@@ -512,51 +578,51 @@ msgid ""
 "``Throwable`` cause."
 msgstr ""
 
-#: ../../java/remoting.rst:386
+#: ../../java/remoting.rst:398
 msgid ""
 "To be notified  when the remoting subsystem is ready to accept "
 "associations, listen to ``RemotingListenEvent`` which contains the "
 "addresses the remoting listens on."
 msgstr ""
 
-#: ../../java/remoting.rst:389
+#: ../../java/remoting.rst:401
 msgid ""
 "To be notified  when the remoting subsystem has been shut down, listen to"
 " ``RemotingShutdownEvent``."
 msgstr ""
 
-#: ../../java/remoting.rst:391
+#: ../../java/remoting.rst:403
 msgid ""
 "To be notified when the current system is quarantined by the remote "
 "system, listen to ``ThisActorSystemQuarantinedEvent``, which includes the"
 " addresses of local and remote ActorSystems."
 msgstr ""
 
-#: ../../java/remoting.rst:394
+#: ../../java/remoting.rst:406
 msgid ""
 "To intercept generic remoting related errors, listen to "
 "``RemotingErrorEvent`` which holds the ``Throwable`` cause."
 msgstr ""
 
-#: ../../java/remoting.rst:397
+#: ../../java/remoting.rst:409
 msgid "Remote Security"
 msgstr ""
 
-#: ../../java/remoting.rst:399
+#: ../../java/remoting.rst:411
 msgid ""
 "Akka provides a couple of ways to enhance security between remote nodes "
 "(client/server):"
 msgstr ""
 
-#: ../../java/remoting.rst:401 ../../java/remoting.rst:405
+#: ../../java/remoting.rst:413 ../../java/remoting.rst:417
 msgid "Untrusted Mode"
 msgstr ""
 
-#: ../../java/remoting.rst:402
+#: ../../java/remoting.rst:414
 msgid "Security Cookie Handshake"
 msgstr ""
 
-#: ../../java/remoting.rst:407
+#: ../../java/remoting.rst:419
 msgid ""
 "As soon as an actor system can connect to another remotely, it may in "
 "principle send any possible message to any actor contained within that "
@@ -565,7 +631,7 @@ msgid ""
 "and it can be disabled with the following setting::"
 msgstr ""
 
-#: ../../java/remoting.rst:415
+#: ../../java/remoting.rst:427
 msgid ""
 "This disallows sending of system messages (actor life-cycle commands, "
 "DeathWatch, etc.) and any message extending :class:`PossiblyHarmful` to "
@@ -577,48 +643,48 @@ msgid ""
 "marker trait to user-defined messages."
 msgstr ""
 
-#: ../../java/remoting.rst:423
+#: ../../java/remoting.rst:435
 msgid ""
 "Messages sent with actor selection are by default discarded in untrusted "
 "mode, but permission to receive actor selection messages can be granted "
 "to specific actors defined in configuration::"
 msgstr ""
 
-#: ../../java/remoting.rst:429
+#: ../../java/remoting.rst:441
 msgid "The actual message must still not be of type :class:`PossiblyHarmful`."
 msgstr ""
 
-#: ../../java/remoting.rst:431
+#: ../../java/remoting.rst:443
 msgid ""
 "In summary, the following operations are ignored by a system configured "
 "in untrusted mode when incoming via the remoting layer:"
 msgstr ""
 
-#: ../../java/remoting.rst:434
+#: ../../java/remoting.rst:446
 msgid "remote deployment (which also means no remote supervision)"
 msgstr ""
 
-#: ../../java/remoting.rst:435
+#: ../../java/remoting.rst:447
 msgid "remote DeathWatch"
 msgstr ""
 
-#: ../../java/remoting.rst:436
+#: ../../java/remoting.rst:448
 msgid "``system.stop()``, :class:`PoisonPill`, :class:`Kill`"
 msgstr ""
 
-#: ../../java/remoting.rst:437
+#: ../../java/remoting.rst:449
 msgid ""
 "sending any message which extends from the :class:`PossiblyHarmful` "
 "marker interface, which includes :class:`Terminated`"
 msgstr ""
 
-#: ../../java/remoting.rst:439
+#: ../../java/remoting.rst:451
 msgid ""
 "messages sent with actor selection, unless destination defined in "
 "``trusted-selection-paths``."
 msgstr ""
 
-#: ../../java/remoting.rst:443
+#: ../../java/remoting.rst:455
 msgid ""
 "Enabling the untrusted mode does not remove the capability of the client "
 "to freely choose the target of its message sends, which means that "
@@ -633,11 +699,11 @@ msgid ""
 ":class:`PossiblyHarmful` so that a client cannot forge them."
 msgstr ""
 
-#: ../../java/remoting.rst:455
+#: ../../java/remoting.rst:467
 msgid "SSL"
 msgstr ""
 
-#: ../../java/remoting.rst:457
+#: ../../java/remoting.rst:469
 msgid ""
 "SSL can be used as the remote transport by adding "
 "``akka.remote.netty.ssl`` to the ``enabled-transport`` configuration "
@@ -645,7 +711,11 @@ msgid ""
 "configuration-java` section."
 msgstr ""
 
-#: ../../java/remoting.rst:461
+#: ../../java/remoting.rst:473
+msgid "An example of setting up the default Netty based SSL driver as default::"
+msgstr ""
+
+#: ../../java/remoting.rst:492
 msgid ""
 "The SSL support is implemented with Java Secure Socket Extension, please "
 "consult the official `Java Secure Socket Extension documentation "
@@ -653,7 +723,7 @@ msgid ""
 " and related resources for troubleshooting."
 msgstr ""
 
-#: ../../java/remoting.rst:467
+#: ../../java/remoting.rst:498
 msgid ""
 "When using SHA1PRNG on Linux it's recommended specify "
 "``-Djava.security.egd=file:/dev/./urandom`` as argument to the JVM to "
@@ -662,28 +732,28 @@ msgid ""
 "`Bug ID: 6202721 <http://bugs.sun.com/view_bug.do?bug_id=6202721>`_."
 msgstr ""
 
-#: ../../java/remoting.rst:475
+#: ../../java/remoting.rst:506
 msgid "Remote Configuration"
 msgstr ""
 
-#: ../../java/remoting.rst:477
+#: ../../java/remoting.rst:508
 msgid ""
 "There are lots of configuration properties that are related to remoting "
 "in Akka. We refer to the :ref:`reference configuration <config-akka-"
 "remote>` for more information."
 msgstr ""
 
-#: ../../java/remoting.rst:482
+#: ../../java/remoting.rst:513
 msgid ""
 "Setting properties like the listening IP and port number programmatically"
 " is best done by using something like the following:"
 msgstr ""
 
-#: ../../java/remoting.rst:490
+#: ../../java/remoting.rst:521
 msgid "Akka behind NAT or in a Docker container"
 msgstr ""
 
-#: ../../java/remoting.rst:492
+#: ../../java/remoting.rst:523
 msgid ""
 "In setups involving Network Address Translation (NAT), Load Balancers or "
 "Docker containers the hostname and port pair that Akka binds to will be "
@@ -691,4 +761,30 @@ msgid ""
 "connect to the system from the outside. This requires special "
 "configuration that sets both the logical and the bind pairs for remoting."
 msgstr ""
+
+#~ msgid ""
+#~ "Change provider from "
+#~ "``akka.actor.LocalActorRefProvider`` to "
+#~ "``akka.remote.RemoteActorRefProvider``"
+#~ msgstr ""
+
+#~ msgid "Pluggable transport support"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Akka can be configured to use "
+#~ "various transports to communicate with "
+#~ "remote systems. The core component of"
+#~ " this feature is the "
+#~ ":meth:`akka.remote.transport.Transport` SPI. Transport "
+#~ "implementations must extend this trait. "
+#~ "Transports can be loaded by setting "
+#~ "the ``akka.remote.enabled-transports`` configuration"
+#~ " key to point to one or more"
+#~ " configuration sections containing driver "
+#~ "descriptions."
+#~ msgstr ""
+
+#~ msgid "An example of setting up a custom transport implementation::"
+#~ msgstr ""
 

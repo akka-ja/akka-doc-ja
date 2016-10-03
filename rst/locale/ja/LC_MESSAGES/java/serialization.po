@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,7 +69,17 @@ msgid ""
 " is a subtype of the other, a warning will be issued."
 msgstr ""
 
-#: ../../java/serialization.rst:38
+#: ../../java/serialization.rst:40
+msgid ""
+"If you are using Scala for your message protocol and your messages are "
+"contained inside of a Scala object, then in order to reference those "
+"messages, you will need use the fully qualified Java class name. For a "
+"message named ``Message`` contained inside the Scala object named "
+"``Wrapper`` you would need to reference it as ``Wrapper$Message`` instead"
+" of ``Wrapper.Message``."
+msgstr ""
+
+#: ../../java/serialization.rst:46
 msgid ""
 "Akka provides serializers for :class:`java.io.Serializable` and `protobuf"
 " <http://code.google.com/p/protobuf/>`_ "
@@ -82,66 +92,66 @@ msgid ""
 " order to disable a default serializer, map its marker type to “none”::"
 msgstr ""
 
-#: ../../java/serialization.rst:52
+#: ../../java/serialization.rst:60
 msgid "Verification"
 msgstr ""
 
-#: ../../java/serialization.rst:54
+#: ../../java/serialization.rst:62
 msgid ""
 "If you want to verify that your messages are serializable you can enable "
 "the following config option:"
 msgstr ""
 
-#: ../../java/serialization.rst:60 ../../java/serialization.rst:69
+#: ../../java/serialization.rst:68 ../../java/serialization.rst:77
 msgid ""
 "We only recommend using the config option turned on when you're running "
 "tests. It is completely pointless to have it turned on in other "
 "scenarios."
 msgstr ""
 
-#: ../../java/serialization.rst:63
+#: ../../java/serialization.rst:71
 msgid ""
 "If you want to verify that your ``Props`` are serializable you can enable"
 " the following config option:"
 msgstr ""
 
-#: ../../java/serialization.rst:73
+#: ../../java/serialization.rst:81
 msgid "Programmatic"
 msgstr ""
 
-#: ../../java/serialization.rst:75
+#: ../../java/serialization.rst:83
 msgid ""
 "If you want to programmatically serialize/deserialize using Akka "
 "Serialization, here's some examples:"
 msgstr ""
 
-#: ../../java/serialization.rst:84
+#: ../../java/serialization.rst:92
 msgid ""
 "For more information, have a look at the ``ScalaDoc`` for "
 "``akka.serialization._``"
 msgstr ""
 
-#: ../../java/serialization.rst:88
+#: ../../java/serialization.rst:96
 msgid "Customization"
 msgstr ""
 
-#: ../../java/serialization.rst:90
+#: ../../java/serialization.rst:98
 msgid ""
 "So, lets say that you want to create your own ``Serializer``, you saw the"
 " ``docs.serialization.MyOwnSerializer`` in the config example above?"
 msgstr ""
 
-#: ../../java/serialization.rst:94
+#: ../../java/serialization.rst:102
 msgid "Creating new Serializers"
 msgstr ""
 
-#: ../../java/serialization.rst:96
+#: ../../java/serialization.rst:104
 msgid ""
 "First you need to create a class definition of your ``Serializer``, which"
 " is done by extending ``akka.serialization.JSerializer``, like this:"
 msgstr ""
 
-#: ../../java/serialization.rst:106
+#: ../../java/serialization.rst:114
 msgid ""
 "The manifest is a type hint so that the same serializer can be used for "
 "different classes. The manifest parameter in ``fromBinaryJava`` is the "
@@ -149,18 +159,18 @@ msgid ""
 "on the class and deserialize the bytes to different objects."
 msgstr ""
 
-#: ../../java/serialization.rst:111
+#: ../../java/serialization.rst:119
 msgid ""
 "Then you only need to fill in the blanks, bind it to a name in your "
 ":ref:`configuration` and then list which classes that should be "
 "serialized using it."
 msgstr ""
 
-#: ../../java/serialization.rst:117
+#: ../../java/serialization.rst:125
 msgid "Serializer with String Manifest"
 msgstr ""
 
-#: ../../java/serialization.rst:119
+#: ../../java/serialization.rst:127
 msgid ""
 "The ``Serializer`` illustrated above supports a class based manifest "
 "(type hint). For serialization of data that need to evolve over time the "
@@ -171,14 +181,14 @@ msgid ""
 "especially useful for :ref:`persistence-java`."
 msgstr ""
 
-#: ../../java/serialization.rst:126
+#: ../../java/serialization.rst:134
 msgid ""
 "The manifest string can also encode a version number that can be used in "
 "``fromBinary`` to deserialize in different ways to migrate old data to "
 "new domain objects."
 msgstr ""
 
-#: ../../java/serialization.rst:129
+#: ../../java/serialization.rst:137
 msgid ""
 "If the data was originally serialized with ``Serializer`` and in a later "
 "version of the system you change to ``SerializerWithStringManifest`` the "
@@ -186,21 +196,21 @@ msgid ""
 "``includeManifest=true``, otherwise it will be the empty string."
 msgstr ""
 
-#: ../../java/serialization.rst:133
+#: ../../java/serialization.rst:141
 msgid "This is how a ``SerializerWithStringManifest`` looks like:"
 msgstr ""
 
-#: ../../java/serialization.rst:137
+#: ../../java/serialization.rst:145
 msgid ""
 "You must also bind it to a name in your :ref:`configuration` and then "
 "list which classes that should be serialized using it."
 msgstr ""
 
-#: ../../java/serialization.rst:141
+#: ../../java/serialization.rst:149
 msgid "Serializing ActorRefs"
 msgstr ""
 
-#: ../../java/serialization.rst:143
+#: ../../java/serialization.rst:151
 msgid ""
 "All ActorRefs are serializable using JavaSerializer, but in case you are "
 "writing your own serializer, you might want to know how to serialize and "
@@ -210,7 +220,7 @@ msgid ""
 ":meth:`Serialization.serializedActorPath(actorRef)` like this:"
 msgstr ""
 
-#: ../../java/serialization.rst:155
+#: ../../java/serialization.rst:163
 msgid ""
 "This assumes that serialization happens in the context of sending a "
 "message through the remote transport. There are other uses of "
@@ -227,14 +237,14 @@ msgid ""
 ":meth:`ActorRefProvider.getExternalAddressFor(remoteAddr)` like this:"
 msgstr ""
 
-#: ../../java/serialization.rst:173
+#: ../../java/serialization.rst:181
 msgid ""
 "``ActorPath.toSerializationFormatWithAddress`` differs from ``toString`` "
 "if the address does not already have ``host`` and ``port`` components, "
 "i.e. it only inserts address information for local addresses."
 msgstr ""
 
-#: ../../java/serialization.rst:177
+#: ../../java/serialization.rst:185
 msgid ""
 "``toSerializationFormatWithAddress`` also adds the unique id of the "
 "actor, which will change when the actor is stopped and then created again"
@@ -244,7 +254,7 @@ msgid ""
 " ``toStringWithAddress``, which does not include the unique id."
 msgstr ""
 
-#: ../../java/serialization.rst:185
+#: ../../java/serialization.rst:193
 msgid ""
 "This requires that you know at least which type of address will be "
 "supported by the system which will deserialize the resulting actor "
@@ -254,28 +264,28 @@ msgid ""
 "RemoteActorRefProvider)."
 msgstr ""
 
-#: ../../java/serialization.rst:191
+#: ../../java/serialization.rst:199
 msgid ""
 "There is also a default remote address which is the one used by cluster "
 "support (and typical systems have just this one); you can get it like "
 "this:"
 msgstr ""
 
-#: ../../java/serialization.rst:198
+#: ../../java/serialization.rst:206
 msgid "Deep serialization of Actors"
 msgstr ""
 
-#: ../../java/serialization.rst:200
+#: ../../java/serialization.rst:208
 msgid ""
 "The recommended approach to do deep serialization of internal actor state"
 " is to use Akka :ref:`persistence-java`."
 msgstr ""
 
-#: ../../java/serialization.rst:203
+#: ../../java/serialization.rst:211
 msgid "A Word About Java Serialization"
 msgstr ""
 
-#: ../../java/serialization.rst:205
+#: ../../java/serialization.rst:213
 msgid ""
 "When using Java serialization without employing the "
 ":class:`JavaSerializer` for the task, you must make sure to supply a "
@@ -287,29 +297,29 @@ msgid ""
 "anything which might contain actor references."
 msgstr ""
 
-#: ../../java/serialization.rst:214
+#: ../../java/serialization.rst:222
 msgid "External Akka Serializers"
 msgstr ""
 
-#: ../../java/serialization.rst:216
+#: ../../java/serialization.rst:224
 msgid ""
 "`Akka-protostuff by Roman Levenstein <https://github.com/romix/akka-"
 "protostuff-serialization>`_"
 msgstr ""
 
-#: ../../java/serialization.rst:219
+#: ../../java/serialization.rst:227
 msgid ""
 "`Akka-quickser by Roman Levenstein <https://github.com/romix/akka-"
 "quickser-serialization>`_"
 msgstr ""
 
-#: ../../java/serialization.rst:222
+#: ../../java/serialization.rst:230
 msgid ""
 "`Akka-kryo by Roman Levenstein <https://github.com/romix/akka-kryo-"
 "serialization>`_"
 msgstr ""
 
-#: ../../java/serialization.rst:225
+#: ../../java/serialization.rst:233
 msgid ""
 "`Twitter Chill Scala extensions for Kryo (based on Akka Version 2.3.x but"
 " due to backwards compatibility of the Serializer Interface this "

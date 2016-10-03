@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -798,8 +798,8 @@ msgstr ""
 msgid ""
 "The parent of an actor is always the actor that created it. At times this"
 " leads to a coupling between the two that may not be straightforward to "
-"test. Broadly, there are three approaches to improve testability of "
-"parent-child relationships:"
+"test. There are several approaches to improve testability of a child "
+"actor that needs to refer to its parent:"
 msgstr ""
 
 #: ../../scala/testing.rst:555
@@ -807,7 +807,7 @@ msgid "when creating a child, pass an explicit reference to its parent"
 msgstr ""
 
 #: ../../scala/testing.rst:556
-msgid "when creating a parent, tell the parent how to create its child"
+msgid "create the child with a ``TestProbe`` as parent"
 msgstr ""
 
 #: ../../scala/testing.rst:557
@@ -815,37 +815,39 @@ msgid "create a fabricated parent when testing"
 msgstr ""
 
 #: ../../scala/testing.rst:559
+msgid "Conversely, a parent's binding to its child can be lessened as follows:"
+msgstr ""
+
+#: ../../scala/testing.rst:561
+msgid "when creating a parent, tell the parent how to create its child"
+msgstr ""
+
+#: ../../scala/testing.rst:563
 msgid ""
 "For example, the structure of the code you want to test may follow this "
 "pattern:"
 msgstr ""
 
-#: ../../scala/testing.rst:564
-msgid "Using dependency-injection"
+#: ../../scala/testing.rst:568
+msgid "Introduce child to its parent"
 msgstr ""
 
-#: ../../scala/testing.rst:566
+#: ../../scala/testing.rst:570
 msgid ""
 "The first option is to avoid use of the :meth:`context.parent` function "
 "and create a child with a custom parent by passing an explicit reference "
 "to its parent instead."
 msgstr ""
 
-#: ../../scala/testing.rst:571
-msgid ""
-"Alternatively, you can tell the parent how to create its child. There are"
-" two ways to do this: by giving it a :class:`Props` object or by giving "
-"it a function which takes care of creating the child actor:"
-msgstr ""
-
 #: ../../scala/testing.rst:576
-msgid ""
-"Creating the :class:`Props` is straightforward and the function may look "
-"like this in your test code:"
+msgid "Create the child using TestProbe"
 msgstr ""
 
-#: ../../scala/testing.rst:580
-msgid "And like this in your application code:"
+#: ../../scala/testing.rst:578
+msgid ""
+"The ``TestProbe`` class can in fact create actors that will run with the "
+"test probe as parent. This will cause any messages the the child actor "
+"sends to `context.parent` to end up in the test probe."
 msgstr ""
 
 #: ../../scala/testing.rst:585
@@ -859,7 +861,28 @@ msgid ""
 "you to test the parent actor in isolation."
 msgstr ""
 
-#: ../../scala/testing.rst:593
+#: ../../scala/testing.rst:594
+msgid "Externalize child making from the parent"
+msgstr ""
+
+#: ../../scala/testing.rst:596
+msgid ""
+"Alternatively, you can tell the parent how to create its child. There are"
+" two ways to do this: by giving it a :class:`Props` object or by giving "
+"it a function which takes care of creating the child actor:"
+msgstr ""
+
+#: ../../scala/testing.rst:601
+msgid ""
+"Creating the :class:`Props` is straightforward and the function may look "
+"like this in your test code:"
+msgstr ""
+
+#: ../../scala/testing.rst:605
+msgid "And like this in your application code:"
+msgstr ""
+
+#: ../../scala/testing.rst:610
 msgid ""
 "Which of these methods is the best depends on what is most important to "
 "test. The most generic option is to create the parent actor by passing it"
@@ -867,11 +890,11 @@ msgid ""
 "fabricated parent is often sufficient."
 msgstr ""
 
-#: ../../scala/testing.rst:600
+#: ../../scala/testing.rst:617
 msgid "CallingThreadDispatcher"
 msgstr ""
 
-#: ../../scala/testing.rst:602
+#: ../../scala/testing.rst:619
 msgid ""
 "The :class:`CallingThreadDispatcher` serves good purposes in unit "
 "testing, as described above, but originally it was conceived in order to "
@@ -882,19 +905,19 @@ msgid ""
 "intervening actors run on this dispatcher."
 msgstr ""
 
-#: ../../scala/testing.rst:610
+#: ../../scala/testing.rst:627
 msgid "How to use it"
 msgstr ""
 
-#: ../../scala/testing.rst:612
+#: ../../scala/testing.rst:629
 msgid "Just set the dispatcher as you normally would:"
 msgstr ""
 
-#: ../../scala/testing.rst:617
+#: ../../scala/testing.rst:634
 msgid "How it works"
 msgstr ""
 
-#: ../../scala/testing.rst:619
+#: ../../scala/testing.rst:636
 msgid ""
 "When receiving an invocation, the :class:`CallingThreadDispatcher` checks"
 " whether the receiving actor is already active on the current thread. The"
@@ -908,14 +931,14 @@ msgid ""
 " scheduled via this dispatcher are also executed immediately."
 msgstr ""
 
-#: ../../scala/testing.rst:630
+#: ../../scala/testing.rst:647
 msgid ""
 "This scheme makes the :class:`CallingThreadDispatcher` work like a "
 "general purpose dispatcher for any actors which never block on external "
 "events."
 msgstr ""
 
-#: ../../scala/testing.rst:633
+#: ../../scala/testing.rst:650
 msgid ""
 "In the presence of multiple threads it may happen that two invocations of"
 " an actor running on this dispatcher happen on two different threads at "
@@ -926,7 +949,7 @@ msgid ""
 "to traditional mutex style concurrency."
 msgstr ""
 
-#: ../../scala/testing.rst:641
+#: ../../scala/testing.rst:658
 msgid ""
 "The other remaining difficulty is correct handling of suspend and resume:"
 " when an actor is suspended, subsequent invocations will be queued in "
@@ -939,11 +962,11 @@ msgid ""
 "threads into its own queue and process them."
 msgstr ""
 
-#: ../../scala/testing.rst:651
+#: ../../scala/testing.rst:668
 msgid "Limitations"
 msgstr ""
 
-#: ../../scala/testing.rst:655
+#: ../../scala/testing.rst:672
 msgid ""
 "In case the CallingThreadDispatcher is used for top-level actors, but "
 "without going through TestActorRef, then there is a time window during "
@@ -953,7 +976,7 @@ msgid ""
 " caller’s thread. To avoid this, use TestActorRef."
 msgstr ""
 
-#: ../../scala/testing.rst:662
+#: ../../scala/testing.rst:679
 msgid ""
 "If an actor's behavior blocks on a something which would normally be "
 "affected by the calling actor after having sent the message, this will "
@@ -961,14 +984,14 @@ msgid ""
 " in actor tests based on :class:`CountDownLatch` for synchronization:"
 msgstr ""
 
-#: ../../scala/testing.rst:674
+#: ../../scala/testing.rst:691
 msgid ""
 "The example would hang indefinitely within the message processing "
 "initiated on the second line and never reach the fourth line, which would"
 " unblock it on a normal dispatcher."
 msgstr ""
 
-#: ../../scala/testing.rst:678
+#: ../../scala/testing.rst:695
 msgid ""
 "Thus, keep in mind that the :class:`CallingThreadDispatcher` is not a "
 "general-purpose replacement for the normal dispatchers. On the other hand"
@@ -977,7 +1000,7 @@ msgid ""
 "will not dead-lock in production."
 msgstr ""
 
-#: ../../scala/testing.rst:686
+#: ../../scala/testing.rst:703
 msgid ""
 "The above sentence is unfortunately not a strong guarantee, because your "
 "code might directly or indirectly change its behavior when running on a "
@@ -987,11 +1010,11 @@ msgid ""
 " well as false positives."
 msgstr ""
 
-#: ../../scala/testing.rst:694
+#: ../../scala/testing.rst:711
 msgid "Thread Interruptions"
 msgstr ""
 
-#: ../../scala/testing.rst:696
+#: ../../scala/testing.rst:713
 msgid ""
 "If the CallingThreadDispatcher sees that the current thread has its "
 "``isInterrupted()`` flag set when message processing returns, it will "
@@ -1002,7 +1025,7 @@ msgid ""
 "the thread’s interrupted status will be set again."
 msgstr ""
 
-#: ../../scala/testing.rst:704
+#: ../../scala/testing.rst:721
 msgid ""
 "If during message processing an :class:`InterruptedException` is thrown "
 "then it will be caught inside the CallingThreadDispatcher’s message "
@@ -1010,7 +1033,7 @@ msgid ""
 "continues normally."
 msgstr ""
 
-#: ../../scala/testing.rst:710
+#: ../../scala/testing.rst:727
 msgid ""
 "The summary of these two paragraphs is that if the current thread is "
 "interrupted while doing work under the CallingThreadDispatcher, then that"
@@ -1018,37 +1041,37 @@ msgid ""
 "message send returns and no :class:`InterruptedException` will be thrown."
 msgstr ""
 
-#: ../../scala/testing.rst:716
+#: ../../scala/testing.rst:733
 msgid "Benefits"
 msgstr ""
 
-#: ../../scala/testing.rst:718
+#: ../../scala/testing.rst:735
 msgid ""
 "To summarize, these are the features with the "
 ":class:`CallingThreadDispatcher` has to offer:"
 msgstr ""
 
-#: ../../scala/testing.rst:721
+#: ../../scala/testing.rst:738
 msgid ""
 "Deterministic execution of single-threaded tests while retaining nearly "
 "full actor semantics"
 msgstr ""
 
-#: ../../scala/testing.rst:723
+#: ../../scala/testing.rst:740
 msgid ""
 "Full message processing history leading up to the point of failure in "
 "exception stack traces"
 msgstr ""
 
-#: ../../scala/testing.rst:725
+#: ../../scala/testing.rst:742
 msgid "Exclusion of certain classes of dead-lock scenarios"
 msgstr ""
 
-#: ../../scala/testing.rst:730
+#: ../../scala/testing.rst:747
 msgid "Tracing Actor Invocations"
 msgstr ""
 
-#: ../../scala/testing.rst:732
+#: ../../scala/testing.rst:749
 msgid ""
 "The testing facilities described up to this point were aiming at "
 "formulating assertions about a system’s behavior. If a test fails, it is "
@@ -1057,28 +1080,28 @@ msgid ""
 " toolkit offers the following options:"
 msgstr ""
 
-#: ../../scala/testing.rst:738
+#: ../../scala/testing.rst:755
 msgid "*Logging of exceptions thrown within Actor instances*"
 msgstr ""
 
-#: ../../scala/testing.rst:740
+#: ../../scala/testing.rst:757
 msgid ""
 "This is always on; in contrast to the other logging mechanisms, this logs"
 " at ``ERROR`` level."
 msgstr ""
 
-#: ../../scala/testing.rst:743
+#: ../../scala/testing.rst:760
 msgid "*Logging of message invocations on certain actors*"
 msgstr ""
 
-#: ../../scala/testing.rst:745
+#: ../../scala/testing.rst:762
 msgid ""
 "This is enabled by a setting in the :ref:`configuration` — namely "
 "``akka.actor.debug.receive`` — which enables the :meth:`loggable` "
 "statement to be applied to an actor’s :meth:`receive` function:"
 msgstr ""
 
-#: ../../scala/testing.rst:751
+#: ../../scala/testing.rst:768
 msgid ""
 "If the aforementioned setting is not given in the :ref:`configuration`, "
 "this method will pass through the given :class:`Receive` function "
@@ -1086,7 +1109,7 @@ msgid ""
 "enabled."
 msgstr ""
 
-#: ../../scala/testing.rst:755
+#: ../../scala/testing.rst:772
 msgid ""
 "The logging feature is coupled to this specific local mark-up because "
 "enabling it uniformly on all actors is not usually what you need, and it "
@@ -1094,11 +1117,11 @@ msgid ""
 "listeners."
 msgstr ""
 
-#: ../../scala/testing.rst:759
+#: ../../scala/testing.rst:776
 msgid "*Logging of special messages*"
 msgstr ""
 
-#: ../../scala/testing.rst:761
+#: ../../scala/testing.rst:778
 msgid ""
 "Actors handle certain special messages automatically, e.g. :obj:`Kill`, "
 ":obj:`PoisonPill`, etc. Tracing of these message invocations is enabled "
@@ -1106,29 +1129,29 @@ msgid ""
 "all actors."
 msgstr ""
 
-#: ../../scala/testing.rst:766
+#: ../../scala/testing.rst:783
 msgid "*Logging of the actor lifecycle*"
 msgstr ""
 
-#: ../../scala/testing.rst:768
+#: ../../scala/testing.rst:785
 msgid ""
 "Actor creation, start, restart, monitor start, monitor stop and stop may "
 "be traced by enabling the setting ``akka.actor.debug.lifecycle``; this, "
 "too, is enabled uniformly on all actors."
 msgstr ""
 
-#: ../../scala/testing.rst:772
+#: ../../scala/testing.rst:789
 msgid ""
 "All these messages are logged at ``DEBUG`` level. To summarize, you can "
 "enable full logging of actor activities using this configuration "
 "fragment::"
 msgstr ""
 
-#: ../../scala/testing.rst:787
+#: ../../scala/testing.rst:804
 msgid "Different Testing Frameworks"
 msgstr ""
 
-#: ../../scala/testing.rst:789
+#: ../../scala/testing.rst:806
 msgid ""
 "Akka’s own test suite is written using `ScalaTest "
 "<http://scalatest.org>`_, which also shines through in documentation "
@@ -1137,25 +1160,25 @@ msgid ""
 " best."
 msgstr ""
 
-#: ../../scala/testing.rst:794
+#: ../../scala/testing.rst:811
 msgid ""
 "This section contains a collection of known gotchas with some other "
 "frameworks, which is by no means exhaustive and does not imply "
 "endorsement or special support."
 msgstr ""
 
-#: ../../scala/testing.rst:799
+#: ../../scala/testing.rst:816
 msgid "When you need it to be a trait"
 msgstr ""
 
-#: ../../scala/testing.rst:801
+#: ../../scala/testing.rst:818
 msgid ""
 "If for some reason it is a problem to inherit from :class:`TestKit` due "
 "to it being a concrete class instead of a trait, there’s "
 ":class:`TestKitBase`:"
 msgstr ""
 
-#: ../../scala/testing.rst:808
+#: ../../scala/testing.rst:825
 msgid ""
 "The ``implicit lazy val system`` must be declared exactly like that (you "
 "can of course pass arguments to the actor system factory as needed) "
@@ -1163,23 +1186,23 @@ msgid ""
 "construction."
 msgstr ""
 
-#: ../../scala/testing.rst:814
+#: ../../scala/testing.rst:831
 msgid ""
 "Use of the trait is discouraged because of potential issues with binary "
 "backwards compatibility in the future, use at own risk."
 msgstr ""
 
-#: ../../scala/testing.rst:818
+#: ../../scala/testing.rst:835
 msgid "Specs2"
 msgstr ""
 
-#: ../../scala/testing.rst:820
+#: ../../scala/testing.rst:837
 msgid ""
 "Some `Specs2 <http://specs2.org>`_ users have contributed examples of how"
 " to work around some clashes which may arise:"
 msgstr ""
 
-#: ../../scala/testing.rst:822
+#: ../../scala/testing.rst:839
 msgid ""
 "Mixing TestKit into :class:`org.specs2.mutable.Specification` results in "
 "a name clash involving the ``end`` method (which is a private variable in"
@@ -1189,7 +1212,7 @@ msgid ""
 "the TestKit together with :class:`org.specs2.specification.Scope`."
 msgstr ""
 
-#: ../../scala/testing.rst:828
+#: ../../scala/testing.rst:845
 msgid ""
 "The Specification traits provide a :class:`Duration` DSL which uses "
 "partly the same method names as "
@@ -1198,7 +1221,7 @@ msgid ""
 "workarounds:"
 msgstr ""
 
-#: ../../scala/testing.rst:832
+#: ../../scala/testing.rst:849
 msgid ""
 "either use the Specification variant of Duration and supply an implicit "
 "conversion to the Akka Duration. This conversion is not supplied with the"
@@ -1206,23 +1229,36 @@ msgid ""
 "depend on Specs2, which is not justified by this little feature."
 msgstr ""
 
-#: ../../scala/testing.rst:837
+#: ../../scala/testing.rst:854
 msgid "or mix :class:`org.specs2.time.NoTimeConversions` into the Specification."
 msgstr ""
 
-#: ../../scala/testing.rst:839
+#: ../../scala/testing.rst:856
 msgid ""
 "Specifications are by default executed concurrently, which requires some "
 "care when writing the tests or alternatively the ``sequential`` keyword."
 msgstr ""
 
-#: ../../scala/testing.rst:843
+#: ../../scala/testing.rst:860
 msgid "Configuration"
 msgstr ""
 
-#: ../../scala/testing.rst:845
+#: ../../scala/testing.rst:862
 msgid ""
 "There are several configuration properties for the TestKit module, please"
 " refer to the :ref:`reference configuration <config-akka-testkit>`."
 msgstr ""
+
+#~ msgid ""
+#~ "The parent of an actor is always"
+#~ " the actor that created it. At "
+#~ "times this leads to a coupling "
+#~ "between the two that may not be"
+#~ " straightforward to test. Broadly, there"
+#~ " are three approaches to improve "
+#~ "testability of parent-child relationships:"
+#~ msgstr ""
+
+#~ msgid "Using dependency-injection"
+#~ msgstr ""
 

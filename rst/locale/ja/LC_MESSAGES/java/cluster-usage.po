@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,9 +53,9 @@ msgstr ""
 #: ../../java/cluster-usage.rst:33
 msgid ""
 "To enable cluster capabilities in your Akka project you should, at a "
-"minimum, add the :ref:`remoting-java` settings, but with "
-"``akka.cluster.ClusterActorRefProvider``. The ``akka.cluster.seed-nodes``"
-" should normally also be added to your ``application.conf`` file."
+"minimum, add the :ref:`remoting-java` settings, but with ``cluster``. The"
+" ``akka.cluster.seed-nodes`` should normally also be added to your "
+"``application.conf`` file."
 msgstr ""
 
 #: ../../java/cluster-usage.rst:38
@@ -209,7 +209,7 @@ msgid ""
 msgstr ""
 
 #: ../../java/cluster-usage.rst:130
-msgid "Automatic vs. Manual Downing"
+msgid "Downing"
 msgstr ""
 
 #: ../../java/cluster-usage.rst:132
@@ -230,17 +230,35 @@ msgid ""
 msgstr ""
 
 #: ../../java/cluster-usage.rst:141
-msgid "You can enable automatic downing with configuration::"
+msgid ""
+"A pre-packaged solution for the downing problem is provided by `Split "
+"Brain Resolver <http://doc.akka.io/docs/akka/akka-commercial-"
+"addons-1.0/java/split-brain-resolver.html>`_, which is part of the "
+"`Lightbend Reactive Platform <http://www.lightbend.com/platform>`_. If "
+"you don’t use RP, you should anyway carefully read the `documentation "
+"<http://doc.akka.io/docs/akka/akka-commercial-addons-1.0/java/split-"
+"brain-resolver.html>`_ of the Split Brain Resolver and make sure that the"
+" solution you are using handles the concerns described there."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:145
+#: ../../java/cluster-usage.rst:149
+msgid "Auto-downing (DO NOT USE)"
+msgstr ""
+
+#: ../../java/cluster-usage.rst:151
+msgid ""
+"There is an atomatic downing feature that you should not use in "
+"production. For testing purpose you can enable it with configuration::"
+msgstr ""
+
+#: ../../java/cluster-usage.rst:155
 msgid ""
 "This means that the cluster leader member will change the ``unreachable``"
 " node status to ``down`` automatically after the configured time of "
 "unreachability."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:148
+#: ../../java/cluster-usage.rst:158
 msgid ""
 "This is a naïve approach to remove unreachable nodes from the cluster "
 "membership. It works great for crashes and short transient network "
@@ -252,51 +270,32 @@ msgid ""
 "overload."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:157
+#: ../../java/cluster-usage.rst:167
 msgid ""
 "We recommend against using the auto-down feature of Akka Cluster in "
 "production. This is crucial for correct behavior if you use :ref"
 ":`cluster-singleton-java` or :ref:`cluster_sharding_java`, especially "
-"together with Akka :ref:`persistence-java`."
+"together with Akka :ref:`persistence-java`. For Akka Persistence with "
+"Cluster Sharding it can result in corrupt data in case of network "
+"partitions."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:161
-msgid ""
-"A pre-packaged solution for the downing problem is provided by `Split "
-"Brain Resolver <http://doc.akka.io/docs/akka/rp-16s01p03/java/split-"
-"brain-resolver.html>`_, which is part of the Lightbend Reactive Platform."
-" If you don’t use RP, you should anyway carefully read the `documentation"
-" <http://doc.akka.io/docs/akka/rp-16s01p03/java/split-brain-"
-"resolver.html>`_ of the Split Brain Resolver and make sure that the "
-"solution you are using handles the concerns described there."
-msgstr ""
-
-#: ../../java/cluster-usage.rst:168
-msgid ""
-"If you have *auto-down* enabled and the failure detector triggers, you "
-"can over time end up with a lot of single node clusters if you don't put "
-"measures in place to shut down nodes that have become ``unreachable``. "
-"This follows from the fact that the ``unreachable`` node will likely see "
-"the rest of the cluster as ``unreachable``, become its own leader and "
-"form its own cluster."
-msgstr ""
-
-#: ../../java/cluster-usage.rst:175
+#: ../../java/cluster-usage.rst:174
 msgid "Leaving"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:177
+#: ../../java/cluster-usage.rst:176
 msgid "There are two ways to remove a member from the cluster."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:179
+#: ../../java/cluster-usage.rst:178
 msgid ""
 "You can just stop the actor system (or the JVM process). It will be "
 "detected as unreachable and removed after the automatic or manual downing"
 " as described above."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:183
+#: ../../java/cluster-usage.rst:182
 msgid ""
 "A more graceful exit can be performed if you tell the cluster that a node"
 " shall leave. This can be performed using :ref:`cluster_jmx_java` or "
@@ -304,7 +303,7 @@ msgid ""
 "programmatically with:"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:189
+#: ../../java/cluster-usage.rst:188
 msgid ""
 "Note that this command can be issued to any member in the cluster, not "
 "necessarily the one that is leaving. The cluster extension, but not the "
@@ -316,18 +315,18 @@ msgid ""
 " complete the removal."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:199
+#: ../../java/cluster-usage.rst:198
 msgid "WeaklyUp Members"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:201
+#: ../../java/cluster-usage.rst:200
 msgid ""
 "If a node is ``unreachable`` then gossip convergence is not possible and "
 "therefore any ``leader`` actions are also not possible. However, we still"
 " might want new nodes to join the cluster in this scenario."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:207
+#: ../../java/cluster-usage.rst:206
 msgid ""
 "The WeaklyUp feature is marked as **“experimental”** as of its "
 "introduction in Akka 2.4.0. We will continue to improve this feature "
@@ -336,13 +335,13 @@ msgid ""
 "maintenance releases does not apply this feature."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:211
+#: ../../java/cluster-usage.rst:210
 msgid ""
 "This feature is disabled by default. With a configuration option you can "
 "allow this behavior::"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:215
+#: ../../java/cluster-usage.rst:214
 msgid ""
 "When ``allow-weakly-up-members`` is enabled and there is no gossip "
 "convergence, ``Joining`` members will be promoted to ``WeaklyUp`` and "
@@ -350,7 +349,7 @@ msgid ""
 " the leader will move ``WeaklyUp`` members to ``Up``."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:220
+#: ../../java/cluster-usage.rst:219
 msgid ""
 "You can subscribe to the ``WeaklyUp`` membership event to make use of the"
 " members that are in this state, but you should be aware of that members "
@@ -359,23 +358,23 @@ msgid ""
 "``WeaklyUp`` members in quorum decisions."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:227
+#: ../../java/cluster-usage.rst:226
 msgid ""
 "This feature is only available from Akka 2.4.0 and cannot be used if some"
 " of your cluster members are running an older version of Akka."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:234
+#: ../../java/cluster-usage.rst:233
 msgid "Subscribe to Cluster Events"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:236
+#: ../../java/cluster-usage.rst:235
 msgid ""
 "You can subscribe to change notifications of the cluster membership by "
 "using ``Cluster.get(system).subscribe``."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:241
+#: ../../java/cluster-usage.rst:240
 msgid ""
 "A snapshot of the full state, "
 "``akka.cluster.ClusterEvent.CurrentClusterState``, is sent to the "
@@ -383,7 +382,7 @@ msgid ""
 "updates."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:244
+#: ../../java/cluster-usage.rst:243
 msgid ""
 "Note that you may receive an empty ``CurrentClusterState``, containing no"
 " members, if you start the subscription before the initial join procedure"
@@ -392,7 +391,7 @@ msgid ""
 "other nodes."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:249
+#: ../../java/cluster-usage.rst:248
 msgid ""
 "If you find it inconvenient to handle the ``CurrentClusterState`` you can"
 " use ``ClusterEvent.initialStateAsEvents()`` as parameter to "
@@ -405,56 +404,56 @@ msgid ""
 "cluster."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:258
+#: ../../java/cluster-usage.rst:257
 msgid "The events to track the life-cycle of members are:"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:260
+#: ../../java/cluster-usage.rst:259
 msgid ""
 "``ClusterEvent.MemberJoined`` - A new member has joined the cluster and "
 "its status has been changed to ``Joining``."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:261
+#: ../../java/cluster-usage.rst:260
 msgid ""
 "``ClusterEvent.MemberUp`` - A new member has joined the cluster and its "
 "status has been changed to ``Up``."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:262
+#: ../../java/cluster-usage.rst:261
 msgid ""
 "``ClusterEvent.MemberExited`` - A member is leaving the cluster and its "
 "status has been changed to ``Exiting`` Note that the node might already "
 "have been shutdown when this event is published on another node."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:264
+#: ../../java/cluster-usage.rst:263
 msgid ""
 "``ClusterEvent.MemberRemoved`` - Member completely removed from the "
 "cluster."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:265
+#: ../../java/cluster-usage.rst:264
 msgid ""
 "``ClusterEvent.UnreachableMember`` - A member is considered as "
 "unreachable, detected by the failure detector of at least one other node."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:267
+#: ../../java/cluster-usage.rst:266
 msgid ""
 "``ClusterEvent.ReachableMember`` - A member is considered as reachable "
 "again, after having been unreachable. All nodes that previously detected "
 "it as unreachable has detected it as reachable again."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:270
+#: ../../java/cluster-usage.rst:269
 msgid ""
 "There are more types of change events, consult the API documentation of "
 "classes that extends ``akka.cluster.ClusterEvent.ClusterDomainEvent`` for"
 " details about the events."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:274
+#: ../../java/cluster-usage.rst:273
 msgid ""
 "Instead of subscribing to cluster events it can sometimes be convenient "
 "to only get the full membership state with "
@@ -462,18 +461,18 @@ msgid ""
 "in sync with the events published to a cluster subscription."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:279
+#: ../../java/cluster-usage.rst:278
 msgid "Worker Dial-in Example"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:281
+#: ../../java/cluster-usage.rst:280
 msgid ""
 "Let's take a look at an example that illustrates how workers, here named "
 "*backend*, can detect and register to new master nodes, here named "
 "*frontend*."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:284
+#: ../../java/cluster-usage.rst:283
 msgid ""
 "The example application provides a service to transform text. When some "
 "text is sent to one of the frontend services, it will be delegated to one"
@@ -482,15 +481,15 @@ msgid ""
 "new frontend nodes, can be added or removed to the cluster dynamically."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:290 ../../java/cluster-usage.rst:556
+#: ../../java/cluster-usage.rst:289 ../../java/cluster-usage.rst:555
 msgid "Messages:"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:294
+#: ../../java/cluster-usage.rst:293
 msgid "The backend worker that performs the transformation job:"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:298
+#: ../../java/cluster-usage.rst:297
 msgid ""
 "Note that the ``TransformationBackend`` actor subscribes to cluster "
 "events to detect new, potential, frontend nodes, and send them a "
@@ -498,13 +497,13 @@ msgid ""
 "worker."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:302
+#: ../../java/cluster-usage.rst:301
 msgid ""
 "The frontend that receives user jobs and delegates to one of the "
 "registered backend workers:"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:306
+#: ../../java/cluster-usage.rst:305
 msgid ""
 "Note that the ``TransformationFrontend`` actor watch the registered "
 "backend to be able to remove it from its list of available backend "
@@ -515,7 +514,7 @@ msgid ""
 " node has been downed and removed."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:313
+#: ../../java/cluster-usage.rst:312
 msgid ""
 "The `Lightbend Activator <http://www.lightbend.com/platform/getstarted>`_"
 " tutorial named `Akka Cluster Samples with Java "
@@ -524,11 +523,11 @@ msgid ""
 "**Worker Dial-in Example**."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:318
+#: ../../java/cluster-usage.rst:317
 msgid "Node Roles"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:320
+#: ../../java/cluster-usage.rst:319
 msgid ""
 "Not all nodes of a cluster need to perform the same function: there might"
 " be one sub-set which runs the web front-end, one which runs the data "
@@ -537,72 +536,72 @@ msgid ""
 "achieve this distribution of responsibilities."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:324
+#: ../../java/cluster-usage.rst:323
 msgid ""
 "The roles of a node is defined in the configuration property named "
 "``akka.cluster.roles`` and it is typically defined in the start script as"
 " a system property or environment variable."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:327
+#: ../../java/cluster-usage.rst:326
 msgid ""
 "The roles of the nodes is part of the membership information in "
 "``MemberEvent`` that you can subscribe to."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:330
+#: ../../java/cluster-usage.rst:329
 msgid "How To Startup when Cluster Size Reached"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:332
+#: ../../java/cluster-usage.rst:331
 msgid ""
 "A common use case is to start actors after the cluster has been "
 "initialized, members have joined, and the cluster has reached a certain "
 "size."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:335
+#: ../../java/cluster-usage.rst:334
 msgid ""
 "With a configuration option you can define required number of members "
 "before the leader changes member status of 'Joining' members to 'Up'."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:340
+#: ../../java/cluster-usage.rst:339
 msgid ""
 "In a similar way you can define required number of members of a certain "
 "role before the leader changes member status of 'Joining' members to "
 "'Up'."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:345
+#: ../../java/cluster-usage.rst:344
 msgid ""
 "You can start the actors in a ``registerOnMemberUp`` callback, which will"
 " be invoked when the current member status is changed to 'Up', i.e. the "
 "cluster has at least the defined number of members."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:351
+#: ../../java/cluster-usage.rst:350
 msgid "This callback can be used for other things than starting actors."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:354
+#: ../../java/cluster-usage.rst:353
 msgid "How To Cleanup when Member is Removed"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:356
+#: ../../java/cluster-usage.rst:355
 msgid ""
 "You can do some clean up in a ``registerOnMemberRemoved`` callback, which"
 " will be invoked when the current member status is changed to 'Removed' "
 "or the cluster have been shutdown."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:359
+#: ../../java/cluster-usage.rst:358
 msgid ""
 "For example, this is how to shut down the ``ActorSystem`` and thereafter "
 "exit the JVM:"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:364
+#: ../../java/cluster-usage.rst:363
 msgid ""
 "Register a OnMemberRemoved callback on a cluster that have been shutdown,"
 " the callback will be invoked immediately on the caller thread, otherwise"
@@ -612,89 +611,89 @@ msgid ""
 "when you installing, and depending on the race is not healthy."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:370
+#: ../../java/cluster-usage.rst:369
 msgid "Cluster Singleton"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:372
+#: ../../java/cluster-usage.rst:371
 msgid ""
 "For some use cases it is convenient and sometimes also mandatory to "
 "ensure that you have exactly one actor of a certain type running "
 "somewhere in the cluster."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:375
+#: ../../java/cluster-usage.rst:374
 msgid ""
 "This can be implemented by subscribing to member events, but there are "
 "several corner cases to consider. Therefore, this specific use case is "
 "made easily accessible by the :ref:`cluster-singleton-java`."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:380
+#: ../../java/cluster-usage.rst:379
 msgid "Cluster Sharding"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:382
+#: ../../java/cluster-usage.rst:381
 msgid ""
 "Distributes actors across several nodes in the cluster and supports "
 "interaction with the actors using their logical identifier, but without "
 "having to care about their physical location in the cluster."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:386
+#: ../../java/cluster-usage.rst:385
 msgid "See :ref:`cluster_sharding_java`."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:389
+#: ../../java/cluster-usage.rst:388
 msgid "Distributed Publish Subscribe"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:391
+#: ../../java/cluster-usage.rst:390
 msgid ""
 "Publish-subscribe messaging between actors in the cluster, and point-to-"
 "point messaging using the logical path of the actors, i.e. the sender "
 "does not have to know on which node the destination actor is running."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:395
+#: ../../java/cluster-usage.rst:394
 msgid "See :ref:`distributed-pub-sub-java`."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:398
+#: ../../java/cluster-usage.rst:397
 msgid "Cluster Client"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:400
+#: ../../java/cluster-usage.rst:399
 msgid ""
 "Communication from an actor system that is not part of the cluster to "
 "actors running somewhere in the cluster. The client does not have to know"
 " on which node the destination actor is running."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:404
+#: ../../java/cluster-usage.rst:403
 msgid "See :ref:`cluster-client-java`."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:407
+#: ../../java/cluster-usage.rst:406
 msgid "Distributed Data"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:409
+#: ../../java/cluster-usage.rst:408
 msgid ""
 "*Akka Distributed Data* is useful when you need to share data between "
 "nodes in an Akka Cluster. The data is accessed with an actor providing a "
 "key-value store like API."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:412
+#: ../../java/cluster-usage.rst:411
 msgid "See :ref:`distributed_data_java`."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:415
+#: ../../java/cluster-usage.rst:414
 msgid "Failure Detector"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:417
+#: ../../java/cluster-usage.rst:416
 msgid ""
 "In a cluster each node is monitored by a few (default maximum 5) other "
 "nodes, and when any of these detects the node as ``unreachable`` that "
@@ -703,7 +702,7 @@ msgid ""
 "the rest of the cluster mark that node ``unreachable``."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:422
+#: ../../java/cluster-usage.rst:421
 msgid ""
 "The failure detector will also detect if the node becomes ``reachable`` "
 "again. When all nodes that monitored the ``unreachable`` node detects it "
@@ -711,7 +710,7 @@ msgid ""
 "consider it as ``reachable``."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:426
+#: ../../java/cluster-usage.rst:425
 msgid ""
 "If system messages cannot be delivered to a node it will be quarantined "
 "and then it cannot come back from ``unreachable``. This can happen if the"
@@ -722,7 +721,7 @@ msgid ""
 "restarted before it can join the cluster again."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:433
+#: ../../java/cluster-usage.rst:432
 msgid ""
 "The nodes in the cluster monitor each other by sending heartbeats to "
 "detect if a node is unreachable from the rest of the cluster. The "
@@ -731,7 +730,7 @@ msgid ""
 "<http://www.jaist.ac.jp/~defago/files/pdf/IS_RR_2004_010.pdf>`_."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:438
+#: ../../java/cluster-usage.rst:437
 msgid ""
 "The suspicion level of failure is given by a value called *phi*. The "
 "basic idea of the phi failure detector is to express the value of *phi* "
@@ -739,25 +738,25 @@ msgid ""
 "conditions."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:442
+#: ../../java/cluster-usage.rst:441
 msgid "The value of *phi* is calculated as::"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:446
+#: ../../java/cluster-usage.rst:445
 msgid ""
 "where F is the cumulative distribution function of a normal distribution "
 "with mean and standard deviation estimated from historical heartbeat "
 "inter-arrival times."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:449
+#: ../../java/cluster-usage.rst:448
 msgid ""
 "In the :ref:`cluster_configuration_java` you can adjust the "
 "``akka.cluster.failure-detector.threshold`` to define when a *phi* value "
 "is considered to be a failure."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:452
+#: ../../java/cluster-usage.rst:451
 msgid ""
 "A low ``threshold`` is prone to generate many false positives but ensures"
 " a quick detection in the event of a real crash. Conversely, a high "
@@ -768,13 +767,13 @@ msgid ""
 "that sometimes occur on such platforms."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:459
+#: ../../java/cluster-usage.rst:458
 msgid ""
 "The following chart illustrates how *phi* increase with increasing time "
 "since the previous heartbeat."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:464
+#: ../../java/cluster-usage.rst:463
 msgid ""
 "Phi is calculated from the mean and standard deviation of historical "
 "inter arrival times. The previous chart is an example for standard "
@@ -783,7 +782,7 @@ msgid ""
 "quickly. The curve looks like this for a standard deviation of 100 ms."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:472
+#: ../../java/cluster-usage.rst:471
 msgid ""
 "To be able to survive sudden abnormalities, such as garbage collection "
 "pauses and transient network failures the failure detector is configured "
@@ -793,7 +792,7 @@ msgid ""
 "``acceptable-heartbeat-pause`` configured to 3 seconds."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:481
+#: ../../java/cluster-usage.rst:480
 msgid ""
 "Death watch uses the cluster failure detector for nodes in the cluster, "
 "i.e. it detects network failures and JVM crashes, in addition to graceful"
@@ -802,18 +801,18 @@ msgid ""
 "downed and removed."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:486
+#: ../../java/cluster-usage.rst:485
 msgid ""
 "If you encounter suspicious false positives when the system is under load"
 " you should define a separate dispatcher for the cluster actors as "
 "described in :ref:`cluster_dispatcher_java`."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:490
+#: ../../java/cluster-usage.rst:489
 msgid "Cluster Aware Routers"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:492
+#: ../../java/cluster-usage.rst:491
 msgid ""
 "All :ref:`routers <routing-java>` can be made aware of member nodes in "
 "the cluster, i.e. deploying new routees or looking up routees on nodes in"
@@ -824,17 +823,17 @@ msgid ""
 "becomes reachable again, after having been unreachable."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:499
+#: ../../java/cluster-usage.rst:498
 msgid ""
 "Cluster aware routers make use of members with status :ref:`WeaklyUp "
 "<weakly_up_java>` if that feature is enabled."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:502
+#: ../../java/cluster-usage.rst:501
 msgid "There are two distinct types of routers."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:504
+#: ../../java/cluster-usage.rst:503
 msgid ""
 "**Group - router that sends messages to the specified path using actor "
 "selection** The routees can be shared between routers running on "
@@ -843,7 +842,7 @@ msgid ""
 "used by routers running on front-end nodes in the cluster."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:509
+#: ../../java/cluster-usage.rst:508
 msgid ""
 "**Pool - router that creates routees as child actors and deploys them on "
 "remote nodes.** Each router will have its own routee instances. For "
@@ -855,25 +854,25 @@ msgid ""
 "work to routees running on other nodes in the cluster."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:518
+#: ../../java/cluster-usage.rst:517
 msgid "Router with Group of Routees"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:520
+#: ../../java/cluster-usage.rst:519
 msgid ""
 "When using a ``Group`` you must start the routee actors on the cluster "
 "member nodes. That is not done by the router. The configuration for a "
 "group looks like this:"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:526
+#: ../../java/cluster-usage.rst:525
 msgid ""
 "The routee actors should be started as early as possible when starting "
 "the actor system, because the router will try to use them as soon as the "
 "member status is changed to 'Up'."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:529
+#: ../../java/cluster-usage.rst:528
 msgid ""
 "The actor paths without address information that are defined in "
 "``routees.paths`` are used for selecting the actors to which the messages"
@@ -884,7 +883,7 @@ msgid ""
 "``use-role``."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:534
+#: ../../java/cluster-usage.rst:533
 msgid ""
 "``max-total-nr-of-instances`` defines total number of routees in the "
 "cluster. By default ``max-total-nr-of-instances`` is set to a high value "
@@ -893,27 +892,27 @@ msgid ""
 "number of routees."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:538 ../../java/cluster-usage.rst:601
+#: ../../java/cluster-usage.rst:537 ../../java/cluster-usage.rst:600
 msgid "The same type of router could also have been defined in code:"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:542 ../../java/cluster-usage.rst:605
+#: ../../java/cluster-usage.rst:541 ../../java/cluster-usage.rst:604
 msgid ""
 "See :ref:`cluster_configuration_java` section for further descriptions of"
 " the settings."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:545
+#: ../../java/cluster-usage.rst:544
 msgid "Router Example with Group of Routees"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:547
+#: ../../java/cluster-usage.rst:546
 msgid ""
 "Let's take a look at how to use a cluster aware router with a group of "
 "routees, i.e. router sending to the paths of the routees."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:550
+#: ../../java/cluster-usage.rst:549
 msgid ""
 "The example application provides a service to calculate statistics for a "
 "text. When some text is sent to the service it splits it into words, and "
@@ -923,34 +922,34 @@ msgid ""
 "characters per word when all results have been collected."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:560
+#: ../../java/cluster-usage.rst:559
 msgid "The worker that counts number of characters in each word:"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:564
+#: ../../java/cluster-usage.rst:563
 msgid ""
 "The service that receives text from users and splits it up into words, "
 "delegates to workers and aggregates:"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:571
+#: ../../java/cluster-usage.rst:570
 msgid "Note, nothing cluster specific so far, just plain actors."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:573
+#: ../../java/cluster-usage.rst:572
 msgid ""
 "All nodes start ``StatsService`` and ``StatsWorker`` actors. Remember, "
 "routees are the workers in this case. The router is configured with "
 "``routees.paths``:"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:578
+#: ../../java/cluster-usage.rst:577
 msgid ""
 "This means that user requests can be sent to ``StatsService`` on any node"
 " and it will use ``StatsWorker`` on all nodes."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:581
+#: ../../java/cluster-usage.rst:580
 msgid ""
 "The `Lightbend Activator <http://www.lightbend.com/platform/getstarted>`_"
 " tutorial named `Akka Cluster Samples with Java "
@@ -959,23 +958,23 @@ msgid ""
 "**Router Example with Group of Routees**."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:586
+#: ../../java/cluster-usage.rst:585
 msgid "Router with Pool of Remote Deployed Routees"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:588
+#: ../../java/cluster-usage.rst:587
 msgid ""
 "When using a ``Pool`` with routees created and deployed on the cluster "
 "member nodes the configuration for a router looks like this:"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:593
+#: ../../java/cluster-usage.rst:592
 msgid ""
 "It is possible to limit the deployment of routees to member nodes tagged "
 "with a certain role by specifying ``use-role``."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:596
+#: ../../java/cluster-usage.rst:595
 msgid ""
 "``max-total-nr-of-instances`` defines total number of routees in the "
 "cluster, but the number of routees per node, ``max-nr-of-instances-per-"
@@ -985,11 +984,11 @@ msgid ""
 "to limit total number of routees."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:608
+#: ../../java/cluster-usage.rst:607
 msgid "Router Example with Pool of Remote Deployed Routees"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:610
+#: ../../java/cluster-usage.rst:609
 msgid ""
 "Let's take a look at how to use a cluster aware router on single master "
 "node that creates and deploys workers. To keep track of a single master "
@@ -997,27 +996,27 @@ msgid ""
 "``ClusterSingletonManager`` is started on each node."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:616
+#: ../../java/cluster-usage.rst:615
 msgid ""
 "We also need an actor on each node that keeps track of where current "
 "single master exists and delegates jobs to the ``StatsService``. That is "
 "provided by the ``ClusterSingletonProxy``."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:621
+#: ../../java/cluster-usage.rst:620
 msgid ""
 "The ``ClusterSingletonProxy`` receives text from users and delegates to "
 "the current ``StatsService``, the single master. It listens to cluster "
 "events to lookup the ``StatsService`` on the oldest node."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:624
+#: ../../java/cluster-usage.rst:623
 msgid ""
 "All nodes start ``ClusterSingletonProxy`` and the "
 "``ClusterSingletonManager``. The router is now configured like this:"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:628
+#: ../../java/cluster-usage.rst:627
 msgid ""
 "The `Lightbend Activator <http://www.lightbend.com/platform/getstarted>`_"
 " tutorial named `Akka Cluster Samples with Java "
@@ -1026,79 +1025,79 @@ msgid ""
 "**Router Example with Pool of Remote Deployed Routees**."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:633
+#: ../../java/cluster-usage.rst:632
 msgid "Cluster Metrics"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:635
+#: ../../java/cluster-usage.rst:634
 msgid ""
 "The member nodes of the cluster can collect system health metrics and "
 "publish that to other cluster nodes and to the registered subscribers on "
 "the system event bus with the help of :doc:`cluster-metrics`."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:642
+#: ../../java/cluster-usage.rst:641
 msgid "JMX"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:644
+#: ../../java/cluster-usage.rst:643
 msgid ""
 "Information and management of the cluster is available as JMX MBeans with"
 " the root name ``akka.Cluster``. The JMX information can be displayed "
 "with an ordinary JMX console such as JConsole or JVisualVM."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:647
+#: ../../java/cluster-usage.rst:646
 msgid "From JMX you can:"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:649
+#: ../../java/cluster-usage.rst:648
 msgid "see what members that are part of the cluster"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:650
+#: ../../java/cluster-usage.rst:649
 msgid "see status of this node"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:651
+#: ../../java/cluster-usage.rst:650
 msgid "see roles of each member"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:652
+#: ../../java/cluster-usage.rst:651
 msgid "join this node to another node in cluster"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:653
+#: ../../java/cluster-usage.rst:652
 msgid "mark any node in the cluster as down"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:654
+#: ../../java/cluster-usage.rst:653
 msgid "tell any node in the cluster to leave"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:656
+#: ../../java/cluster-usage.rst:655
 msgid ""
 "Member nodes are identified by their address, in format `akka.<protocol"
 ">://<actor-system-name>@<hostname>:<port>`."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:661
+#: ../../java/cluster-usage.rst:660
 msgid "Command Line Management"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:663
+#: ../../java/cluster-usage.rst:662
 msgid ""
 "The cluster can be managed with the script `bin/akka-cluster` provided in"
 " the Akka distribution."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:666
+#: ../../java/cluster-usage.rst:665
 msgid ""
 "Run it without parameters to see instructions about how to use the "
 "script::"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:691
+#: ../../java/cluster-usage.rst:690
 msgid ""
 "To be able to use the script you must enable remote monitoring and "
 "management when starting the JVMs of the cluster nodes, as described in "
@@ -1106,36 +1105,36 @@ msgid ""
 "<http://docs.oracle.com/javase/6/docs/technotes/guides/management/agent.html>`_"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:694
+#: ../../java/cluster-usage.rst:693
 msgid "Example of system properties to enable remote monitoring and management::"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:703
+#: ../../java/cluster-usage.rst:702
 msgid "Configuration"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:705
+#: ../../java/cluster-usage.rst:704
 msgid ""
 "There are several configuration properties for the cluster. We refer to "
 "the :ref:`reference configuration <config-akka-cluster>` for more "
 "information."
 msgstr ""
 
-#: ../../java/cluster-usage.rst:709
+#: ../../java/cluster-usage.rst:708
 msgid "Cluster Info Logging"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:711
+#: ../../java/cluster-usage.rst:710
 msgid ""
 "You can silence the logging of cluster events at info level with "
 "configuration property::"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:718
+#: ../../java/cluster-usage.rst:717
 msgid "Cluster Dispatcher"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:720
+#: ../../java/cluster-usage.rst:719
 msgid ""
 "Under the hood the cluster extension is implemented with actors and it "
 "can be necessary to create a bulkhead for those actors to avoid "
@@ -1145,7 +1144,7 @@ msgid ""
 "define a separate dispatcher to be used for the cluster actors::"
 msgstr ""
 
-#: ../../java/cluster-usage.rst:738
+#: ../../java/cluster-usage.rst:737
 msgid ""
 "Normally it should not be necessary to configure a separate dispatcher "
 "for the Cluster. The default-dispatcher should be sufficient for "
@@ -1159,4 +1158,62 @@ msgid ""
 ".cluster-dispatcher``. Corresponding default values: ``akka.cluster.use-"
 "dispatcher =``."
 msgstr ""
+
+#~ msgid ""
+#~ "To enable cluster capabilities in your"
+#~ " Akka project you should, at a "
+#~ "minimum, add the :ref:`remoting-java` "
+#~ "settings, but with "
+#~ "``akka.cluster.ClusterActorRefProvider``. The "
+#~ "``akka.cluster.seed-nodes`` should normally "
+#~ "also be added to your "
+#~ "``application.conf`` file."
+#~ msgstr ""
+
+#~ msgid "Automatic vs. Manual Downing"
+#~ msgstr ""
+
+#~ msgid "You can enable automatic downing with configuration::"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "We recommend against using the auto-"
+#~ "down feature of Akka Cluster in "
+#~ "production. This is crucial for correct"
+#~ " behavior if you use :ref:`cluster-"
+#~ "singleton-java` or :ref:`cluster_sharding_java`, "
+#~ "especially together with Akka :ref"
+#~ ":`persistence-java`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "A pre-packaged solution for the "
+#~ "downing problem is provided by `Split"
+#~ " Brain Resolver <http://doc.akka.io/docs/akka/rp-"
+#~ "16s01p03/java/split-brain-resolver.html>`_, which"
+#~ " is part of the Lightbend Reactive"
+#~ " Platform. If you don’t use RP, "
+#~ "you should anyway carefully read the "
+#~ "`documentation <http://doc.akka.io/docs/akka/rp-"
+#~ "16s01p03/java/split-brain-resolver.html>`_ of "
+#~ "the Split Brain Resolver and make "
+#~ "sure that the solution you are "
+#~ "using handles the concerns described "
+#~ "there."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you have *auto-down* enabled "
+#~ "and the failure detector triggers, you"
+#~ " can over time end up with a"
+#~ " lot of single node clusters if "
+#~ "you don't put measures in place to"
+#~ " shut down nodes that have become "
+#~ "``unreachable``. This follows from the "
+#~ "fact that the ``unreachable`` node will"
+#~ " likely see the rest of the "
+#~ "cluster as ``unreachable``, become its "
+#~ "own leader and form its own "
+#~ "cluster."
+#~ msgstr ""
 
