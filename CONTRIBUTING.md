@@ -5,11 +5,40 @@
 
 ## 作業の流れ
 
-1. [Transifex](https://www.transifex.com/akka-ja/)にjoin
-2. ブラウザ上で未翻訳の対象ファイルを選択し翻訳してください
+1. 作業環境を準備する
+2. issue と担当を確認する
+3. 翻訳する
+    * ブラウザ上で未翻訳の対象ファイルを選択し翻訳してください
     * 詳細手順は別途追記予定
 
-## 翻訳する
+## 1.作業環境を準備する
+
+作業には GitHub と Transifex のアカウントが必要です。まだアカウントを持っていない場合は以下よりサインアップして下さい。
+* [GitHub](https://github.com/join) 
+* [Transifex](https://www.transifex.com/akka-ja/)
+※翻訳はTransifexから行うと自動的にGitHubに連携されます（未設定）ので、GitHubからプルリク/push等、直接編集しないでください。
+
+## 2.issue と担当を確認する
+
+### (1)ファイル単位で翻訳する場合
+
+他の翻訳者と作業が衝突しないよう、作業に取り掛かる前に [issues](https://github.com/akka-ja/akka-doc-ja/issues) を確認してください。作業対象ファイル名で [issues を検索する](https://help.github.com/articles/searching-issues/) と効率的です。
+
+- issue が登録されていない場合
+  - 新しく issue を登録してください
+    - タイトルまたは本文に対象ドキュメントへのパスを `Actors - Typed Actors` のように記入してください
+    - Label や Milestones, assignee を設定する必要はありません
+- issue は登録されているが、誰も着手していない場合
+  - コメント欄にて作業に着手する旨を宣言してください。内容はどんなものでも構いません
+  - akka-ja のメンバーは、自分を assignee に設定してください
+- issue が登録されていて、誰か着手している場合
+  - コメント欄にて担当者とコミュニケーションを取り、作業を分担するか、残作業を引き継いでください
+
+### (2)センテンス単位で翻訳する場合
+
+本手順は必要ありません。
+
+## 3.翻訳する
 
 以下のルールに従って翻訳してください。
 
