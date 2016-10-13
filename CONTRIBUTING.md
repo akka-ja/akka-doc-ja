@@ -6,7 +6,7 @@
 ## 作業の流れ
 
 1. 作業環境を準備する
-2. issue と担当を確認する
+2. 担当するissue を決める
 3. 翻訳する
     * ブラウザ上で未翻訳の対象ファイルを選択し翻訳してください
     * 詳細手順は別途追記予定
@@ -18,7 +18,7 @@
 * [GitHub](https://github.com/join) 
 * [Transifex](https://www.transifex.com/akka-ja/)
 
-## 2.issue と担当を確認する
+## 2.担当するissue を決める
 
 ### (1)ファイル単位で翻訳する場合
 
