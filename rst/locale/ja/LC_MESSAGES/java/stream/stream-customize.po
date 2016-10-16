@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../java/stream/stream-customize.rst:5
 msgid "Custom stream processing"
@@ -23,20 +23,19 @@ msgstr ""
 
 #: ../../java/stream/stream-customize.rst:7
 msgid ""
-"While the processing vocabulary of Akka Streams is quite rich (see the "
-":ref:`stream-cookbook-java` for examples) it is sometimes necessary to "
-"define new transformation stages either because some functionality is "
-"missing from the stock operations, or for performance reasons. In this "
-"part we show how to build custom processing stages and graph junctions of"
-" various kinds."
+"While the processing vocabulary of Akka Streams is quite rich (see the :ref"
+":`stream-cookbook-java` for examples) it is sometimes necessary to define "
+"new transformation stages either because some functionality is missing from "
+"the stock operations, or for performance reasons. In this part we show how "
+"to build custom processing stages and graph junctions of various kinds."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:13
 msgid ""
-"A custom graph stage should not be the first tool you reach for, defining"
-" graphs using flows and the graph DSL is in general easier and does to a "
-"larger extent protect you from mistakes that might be easy to make with a"
-" custom :class:`GraphStage`"
+"A custom graph stage should not be the first tool you reach for, defining "
+"graphs using flows and the graph DSL is in general easier and does to a "
+"larger extent protect you from mistakes that might be easy to make with a "
+"custom :class:`GraphStage`"
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:21
@@ -45,77 +44,76 @@ msgstr ""
 
 #: ../../java/stream/stream-customize.rst:23
 msgid ""
-"The :class:`GraphStage` abstraction can be used to create arbitrary graph"
-" processing stages with any number of input or output ports. It is a "
+"The :class:`GraphStage` abstraction can be used to create arbitrary graph "
+"processing stages with any number of input or output ports. It is a "
 "counterpart of the ``GraphDSL.create()`` method which creates new stream "
-"processing stages by composing  others. Where :class:`GraphStage` differs"
-" is that it creates a stage that is itself not divisible into smaller "
-"ones, and allows state to be maintained inside it in a safe way."
+"processing stages by composing  others. Where :class:`GraphStage` differs is"
+" that it creates a stage that is itself not divisible into smaller ones, and"
+" allows state to be maintained inside it in a safe way."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:28
 msgid ""
-"As a first motivating example, we will build a new :class:`Source` that "
-"will simply emit numbers from 1 until it is cancelled. To start, we need "
-"to define the \"interface\" of our stage, which is called *shape* in Akka"
-" Streams terminology (this is explained in more detail in the section "
-":ref:`composition-java`)."
+"As a first motivating example, we will build a new :class:`Source` that will"
+" simply emit numbers from 1 until it is cancelled. To start, we need to "
+"define the \"interface\" of our stage, which is called *shape* in Akka "
+"Streams terminology (this is explained in more detail in the section :ref"
+":`composition-java`)."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:34
 msgid ""
-"As you see, in itself the :class:`GraphStage` only defines the ports of "
-"this stage and a shape that contains the ports. It also has a user "
-"implemented method called ``createLogic``. If you recall, stages are "
-"reusable in multiple materializations, each resulting in a different "
-"executing entity. In the case of :class:`GraphStage` the actual running "
-"logic is modeled as an instance of a :class:`GraphStageLogic` which will "
-"be created by the materializer by calling the ``createLogic`` method. In "
-"other words, all we need to do is to create a suitable logic that will "
-"emit the numbers we want."
+"As you see, in itself the :class:`GraphStage` only defines the ports of this"
+" stage and a shape that contains the ports. It also has a user implemented "
+"method called ``createLogic``. If you recall, stages are reusable in "
+"multiple materializations, each resulting in a different executing entity. "
+"In the case of :class:`GraphStage` the actual running logic is modeled as an"
+" instance of a :class:`GraphStageLogic` which will be created by the "
+"materializer by calling the ``createLogic`` method. In other words, all we "
+"need to do is to create a suitable logic that will emit the numbers we want."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:43
 msgid ""
 "It is very important to keep the GraphStage object itself immutable and "
-"reusable. All mutable state needs to be confined to the GraphStageLogic "
-"that is created for every materialization."
+"reusable. All mutable state needs to be confined to the GraphStageLogic that"
+" is created for every materialization."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:46
 msgid ""
-"In order to emit from a :class:`Source` in a backpressured stream one "
-"needs first to have demand from downstream. To receive the necessary "
-"events one needs to register a subclass of :class:`AbstractOutHandler` "
-"with the output port (:class:`Outlet`). This handler will receive events "
-"related to the lifecycle of the port. In our case we need to override "
-"``onPull()`` which indicates that we are free to emit a single element. "
-"There is another callback, ``onDownstreamFinish()`` which is called if "
-"the downstream cancelled. Since the default behavior of that callback is "
-"to stop the stage, we don't need to override it. In the ``onPull`` "
-"callback we simply emit the next number."
+"In order to emit from a :class:`Source` in a backpressured stream one needs "
+"first to have demand from downstream. To receive the necessary events one "
+"needs to register a subclass of :class:`AbstractOutHandler` with the output "
+"port (:class:`Outlet`). This handler will receive events related to the "
+"lifecycle of the port. In our case we need to override ``onPull()`` which "
+"indicates that we are free to emit a single element. There is another "
+"callback, ``onDownstreamFinish()`` which is called if the downstream "
+"cancelled. Since the default behavior of that callback is to stop the stage,"
+" we don't need to override it. In the ``onPull`` callback we simply emit the"
+" next number."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:53
 msgid ""
 "Instances of the above :class:`GraphStage` are subclasses of "
-"``Graph<SourceShape<Int>,Unit>`` which means that they are already usable"
-" in many situations, but do not provide the DSL methods we usually have "
-"for other :class:`Source` s. In order to convert this :class:`Graph` to a"
-" proper :class:`Source` we need to wrap it using ``Source.fromGraph`` "
-"(see :ref:`composition-java` for more details about graphs and DSLs). Now"
-" we can use the source as any other built-in one:"
+"``Graph<SourceShape<Int>,Unit>`` which means that they are already usable in"
+" many situations, but do not provide the DSL methods we usually have for "
+"other :class:`Source` s. In order to convert this :class:`Graph` to a proper"
+" :class:`Source` we need to wrap it using ``Source.fromGraph`` (see :ref"
+":`composition-java` for more details about graphs and DSLs). Now we can use "
+"the source as any other built-in one:"
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:61
 msgid ""
 "Similarly, to create a custom :class:`Sink` one can register a subclass "
-":class:`InHandler` with the stage :class:`Inlet`. The ``onPush()`` "
-"callback is used to signal the handler a new element has been pushed to "
-"the stage, and can hence be grabbed and used. ``onPush()`` can be "
-"overridden to provide custom behaviour. Please note, most Sinks would "
-"need to request upstream elements as soon as they are created: this can "
-"be done by calling ``pull(inlet)`` in the ``preStart()`` callback."
+":class:`InHandler` with the stage :class:`Inlet`. The ``onPush()`` callback "
+"is used to signal the handler a new element has been pushed to the stage, "
+"and can hence be grabbed and used. ``onPush()`` can be overridden to provide"
+" custom behaviour. Please note, most Sinks would need to request upstream "
+"elements as soon as they are created: this can be done by calling "
+"``pull(inlet)`` in the ``preStart()`` callback."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:70
@@ -124,16 +122,16 @@ msgstr ""
 
 #: ../../java/stream/stream-customize.rst:72
 msgid ""
-"In order to interact with a port (:class:`Inlet` or :class:`Outlet`) of "
-"the stage we need to be able to receive events and generate new events "
-"belonging to the port. From the :class:`GraphStageLogic` the following "
-"operations are available on an output port:"
+"In order to interact with a port (:class:`Inlet` or :class:`Outlet`) of the "
+"stage we need to be able to receive events and generate new events belonging"
+" to the port. From the :class:`GraphStageLogic` the following operations are"
+" available on an output port:"
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:76
 msgid ""
-"``push(out,elem)`` pushes an element to the output port. Only possible "
-"after the port has been pulled by downstream."
+"``push(out,elem)`` pushes an element to the output port. Only possible after"
+" the port has been pulled by downstream."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:77
@@ -159,10 +157,9 @@ msgstr ""
 
 #: ../../java/stream/stream-customize.rst:86
 msgid ""
-"``onDownstreamFinish()`` is called once the downstream has cancelled and "
-"no longer allows messages to be pushed to it. No more ``onPull()`` will "
-"arrive after this event. If not overridden this will default to stopping "
-"the stage."
+"``onDownstreamFinish()`` is called once the downstream has cancelled and no "
+"longer allows messages to be pushed to it. No more ``onPull()`` will arrive "
+"after this event. If not overridden this will default to stopping the stage."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:89
@@ -175,19 +172,18 @@ msgstr ""
 
 #: ../../java/stream/stream-customize.rst:92
 msgid ""
-"``isClosed(out)`` returns true if the port is closed. At this point the "
-"port can not be pushed and will not be pulled anymore."
+"``isClosed(out)`` returns true if the port is closed. At this point the port"
+" can not be pushed and will not be pulled anymore."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:94
 #: ../../java/stream/stream-customize.rst:130
 msgid ""
-"The relationship of the above operations, events and queries are "
-"summarized in the state machine below. Green shows the initial state "
-"while orange indicates the end state. If an operation is not listed for a"
-" state, then it is invalid to call it while the port is in that state. If"
-" an event is not listed for a state, then that event cannot happen in "
-"that state."
+"The relationship of the above operations, events and queries are summarized "
+"in the state machine below. Green shows the initial state while orange "
+"indicates the end state. If an operation is not listed for a state, then it "
+"is invalid to call it while the port is in that state. If an event is not "
+"listed for a state, then that event cannot happen in that state."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:106
@@ -203,8 +199,8 @@ msgstr ""
 #: ../../java/stream/stream-customize.rst:109
 msgid ""
 "``grab(in)`` acquires the element that has been received during an "
-"``onPush()``. It cannot be called again until the port is pushed again by"
-" the upstream."
+"``onPush()``. It cannot be called again until the port is pushed again by "
+"the upstream."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:111
@@ -220,27 +216,26 @@ msgstr ""
 
 #: ../../java/stream/stream-customize.rst:116
 msgid ""
-"``onPush()`` is called when the input port has now a new element. Now it "
-"is possible to acquire this element using ``grab(in)`` and/or call "
-"``pull(in)`` on the port to request the next element. It is not mandatory"
-" to grab the element, but if it is pulled while the element has not been "
-"grabbed it will drop the buffered element."
+"``onPush()`` is called when the input port has now a new element. Now it is "
+"possible to acquire this element using ``grab(in)`` and/or call ``pull(in)``"
+" on the port to request the next element. It is not mandatory to grab the "
+"element, but if it is pulled while the element has not been grabbed it will "
+"drop the buffered element."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:119
 msgid ""
 "``onUpstreamFinish()`` is called once the upstream has completed and no "
 "longer can be pulled for new elements. No more ``onPush()`` will arrive "
-"after this event. If not overridden this will default to stopping the "
-"stage."
+"after this event. If not overridden this will default to stopping the stage."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:121
 msgid ""
-"``onUpstreamFailure()`` is called if the upstream failed with an "
-"exception and no longer can be pulled for new elements. No more "
-"``onPush()`` will arrive after this event. If not overridden this will "
-"default to failing the stage."
+"``onUpstreamFailure()`` is called if the upstream failed with an exception "
+"and no longer can be pulled for new elements. No more ``onPush()`` will "
+"arrive after this event. If not overridden this will default to failing the "
+"stage."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:124
@@ -249,8 +244,8 @@ msgstr ""
 
 #: ../../java/stream/stream-customize.rst:126
 msgid ""
-"``isAvailable(in)`` returns true if a data element can be grabbed from "
-"the port"
+"``isAvailable(in)`` returns true if a data element can be grabbed from the "
+"port"
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:127
@@ -261,8 +256,8 @@ msgstr ""
 
 #: ../../java/stream/stream-customize.rst:128
 msgid ""
-"``isClosed(in)`` returns true if the port is closed. At this point the "
-"port can not be pulled and will not be pushed anymore."
+"``isClosed(in)`` returns true if the port is closed. At this point the port "
+"can not be pulled and will not be pushed anymore."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:142
@@ -273,8 +268,8 @@ msgstr ""
 
 #: ../../java/stream/stream-customize.rst:144
 msgid ""
-"``completeStage()`` is equivalent to closing all output ports and "
-"cancelling all input ports."
+"``completeStage()`` is equivalent to closing all output ports and cancelling"
+" all input ports."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:145
@@ -286,12 +281,12 @@ msgstr ""
 #: ../../java/stream/stream-customize.rst:148
 msgid ""
 "In some cases it is inconvenient and error prone to react on the regular "
-"state machine events with the signal based API described above. For those"
-" cases there is an API which allows for a more declarative sequencing of "
-"actions which will greatly simplify some use cases at the cost of some "
-"extra allocations. The difference between the two APIs could be described"
-" as that the first one is signal driven from the outside, while this API "
-"is more active and drives its surroundings."
+"state machine events with the signal based API described above. For those "
+"cases there is an API which allows for a more declarative sequencing of "
+"actions which will greatly simplify some use cases at the cost of some extra"
+" allocations. The difference between the two APIs could be described as that"
+" the first one is signal driven from the outside, while this API is more "
+"active and drives its surroundings."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:154
@@ -301,33 +296,33 @@ msgstr ""
 #: ../../java/stream/stream-customize.rst:156
 msgid ""
 "``emit(out, elem)`` and ``emitMultiple(out, Iterable(elem1, elem2))`` "
-"replaces the ``OutHandler`` with a handler that emits one or more "
-"elements when there is demand, and then reinstalls the current handlers"
+"replaces the ``OutHandler`` with a handler that emits one or more elements "
+"when there is demand, and then reinstalls the current handlers"
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:158
 msgid ""
 "``read(in)(andThen)`` and ``readN(in, n)(andThen)`` replaces the "
 "``InHandler`` with a handler that reads one or more elements as they are "
-"pushed and allows the handler to react once the requested number of "
-"elements has been read."
+"pushed and allows the handler to react once the requested number of elements"
+" has been read."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:160
 msgid ""
-"``abortEmitting()`` and ``abortReading()`` which will cancel an ongoing "
-"emit or read"
+"``abortEmitting()`` and ``abortReading()`` which will cancel an ongoing emit"
+" or read"
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:162
 msgid ""
-"Note that since the above methods are implemented by temporarily "
-"replacing the handlers of the stage you should never call ``setHandler`` "
-"while they are running ``emit`` or ``read`` as that interferes with how "
-"they are implemented. The following methods are safe to call after "
-"invoking ``emit`` and ``read`` (and will lead to actually running the "
-"operation when those are done): ``complete(out)``, ``completeStage()``, "
-"``emit``, ``emitMultiple``, ``abortEmitting()`` and ``abortReading()``"
+"Note that since the above methods are implemented by temporarily replacing "
+"the handlers of the stage you should never call ``setHandler`` while they "
+"are running ``emit`` or ``read`` as that interferes with how they are "
+"implemented. The following methods are safe to call after invoking ``emit`` "
+"and ``read`` (and will lead to actually running the operation when those are"
+" done): ``complete(out)``, ``completeStage()``, ``emit``, ``emitMultiple``, "
+"``abortEmitting()`` and ``abortReading()``"
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:168
@@ -342,16 +337,15 @@ msgstr ""
 
 #: ../../java/stream/stream-customize.rst:173
 msgid ""
-"Graph stages allows for custom linear processing stages through letting "
-"them have one input and one output and using :class:`FlowShape` as their "
-"shape."
+"Graph stages allows for custom linear processing stages through letting them"
+" have one input and one output and using :class:`FlowShape` as their shape."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:176
 msgid ""
-"Such a stage can be illustrated as a box with two flows as it is seen in "
-"the illustration below. Demand flowing upstream leading to elements "
-"flowing downstream."
+"Such a stage can be illustrated as a box with two flows as it is seen in the"
+" illustration below. Demand flowing upstream leading to elements flowing "
+"downstream."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:189
@@ -363,83 +357,82 @@ msgstr ""
 #: ../../java/stream/stream-customize.rst:199
 msgid ""
 "Map calls ``push(out)`` from the ``onPush()`` handler and it also calls "
-"``pull()`` from the ``onPull`` handler resulting in the conceptual wiring"
-" above, and fully expressed in code below:"
+"``pull()`` from the ``onPull`` handler resulting in the conceptual wiring "
+"above, and fully expressed in code below:"
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:204
 msgid ""
-"Map is a typical example of a one-to-one transformation of a stream where"
-" demand is passed along upstream elements passed on downstream."
+"Map is a typical example of a one-to-one transformation of a stream where "
+"demand is passed along upstream elements passed on downstream."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:207
 msgid ""
-"To demonstrate a many-to-one stage we will implement filter. The "
-"conceptual wiring of ``Filter`` looks like this:"
+"To demonstrate a many-to-one stage we will implement filter. The conceptual "
+"wiring of ``Filter`` looks like this:"
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:219
 msgid ""
-"As we see above, if the given predicate matches the current element we "
-"are propagating it downwards, otherwise we return the “ball” to our "
-"upstream so that we get the new element. This is achieved by modifying "
-"the map example by adding a conditional in the ``onPush`` handler and "
-"decide between a ``pull(in)`` or ``push(out)`` call (and of course not "
-"having a mapping ``f`` function)."
+"As we see above, if the given predicate matches the current element we are "
+"propagating it downwards, otherwise we return the “ball” to our upstream so "
+"that we get the new element. This is achieved by modifying the map example "
+"by adding a conditional in the ``onPush`` handler and decide between a "
+"``pull(in)`` or ``push(out)`` call (and of course not having a mapping ``f``"
+" function)."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:226
 msgid ""
-"To complete the picture we define a one-to-many transformation as the "
-"next step. We chose a straightforward example stage that emits every "
-"upstream element twice downstream. The conceptual wiring of this stage "
-"looks like this:"
+"To complete the picture we define a one-to-many transformation as the next "
+"step. We chose a straightforward example stage that emits every upstream "
+"element twice downstream. The conceptual wiring of this stage looks like "
+"this:"
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:237
 msgid ""
-"This is a stage that has state: an option with the last element it has "
-"seen indicating if it has duplicated this last element already or not. We"
-" must also make sure to emit the extra element if the upstream completes."
+"This is a stage that has state: an option with the last element it has seen "
+"indicating if it has duplicated this last element already or not. We must "
+"also make sure to emit the extra element if the upstream completes."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:243
 msgid ""
-"In this case a pull from downstream might be consumed by the stage itself"
-" rather than passed along upstream as the stage might contain an element "
-"it wants to push. Note that we also need to handle the case where the "
-"upstream closes while the stage still has elements it wants to push "
-"downstream. This is done by overriding `onUpstreamFinish` in the "
-"`AbstractInHandler` and provide custom logic that should happen when the "
-"upstream has been finished."
+"In this case a pull from downstream might be consumed by the stage itself "
+"rather than passed along upstream as the stage might contain an element it "
+"wants to push. Note that we also need to handle the case where the upstream "
+"closes while the stage still has elements it wants to push downstream. This "
+"is done by overriding `onUpstreamFinish` in the `AbstractInHandler` and "
+"provide custom logic that should happen when the upstream has been finished."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:250
 msgid ""
 "This example can be simplified by replacing the usage of a mutable state "
-"with calls to ``emitMultiple`` which will replace the handlers, emit each"
-" of multiple elements and then reinstate the original handlers:"
+"with calls to ``emitMultiple`` which will replace the handlers, emit each of"
+" multiple elements and then reinstate the original handlers:"
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:256
 msgid ""
-"Finally, to demonstrate all of the stages above, we put them together "
-"into a processing chain, which conceptually would correspond to the "
-"following structure:"
+"Finally, to demonstrate all of the stages above, we put them together into a"
+" processing chain, which conceptually would correspond to the following "
+"structure:"
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:268
 msgid ""
-"In code this is only a few lines, using the ``via`` use our custom stages"
-" in a stream:"
+"In code this is only a few lines, using the ``via`` use our custom stages in"
+" a stream:"
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:272
 msgid ""
 "If we attempt to draw the sequence of events, it shows that there is one "
-"\"event token\" in circulation in a potential chain of stages, just like "
-"our conceptual \"railroad tracks\" representation predicts."
+"\"event token\" in circulation in a potential chain of stages, just like our"
+" conceptual \"railroad tracks\" representation predicts."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:286
@@ -449,24 +442,23 @@ msgstr ""
 #: ../../java/stream/stream-customize.rst:288
 msgid ""
 "Completion handling usually (but not exclusively) comes into the picture "
-"when processing stages need to emit a few more elements after their "
-"upstream source has been completed. We have seen an example of this in "
-"our first :class:`Duplicator` implementation where the last element needs"
-" to be doubled even after the upstream neighbor stage has been completed."
-" This can be done by overriding the ``onUpstreamFinish`` method in "
+"when processing stages need to emit a few more elements after their upstream"
+" source has been completed. We have seen an example of this in our first "
+":class:`Duplicator` implementation where the last element needs to be "
+"doubled even after the upstream neighbor stage has been completed. This can "
+"be done by overriding the ``onUpstreamFinish`` method in "
 "``AbstractInHandler``."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:293
 msgid ""
 "Stages by default automatically stop once all of their ports (input and "
-"output) have been closed externally or internally. It is possible to opt "
-"out from this behavior by invoking ``setKeepGoing(true)`` (which is not "
-"supported from the stage’s constructor and usually done in ``preStart``)."
-" In this case the stage **must** be explicitly closed by calling "
-"``completeStage()`` or ``failStage(exception)``. This feature carries the"
-" risk of leaking streams and actors, therefore it should be used with "
-"care."
+"output) have been closed externally or internally. It is possible to opt out"
+" from this behavior by invoking ``setKeepGoing(true)`` (which is not "
+"supported from the stage’s constructor and usually done in ``preStart``). In"
+" this case the stage **must** be explicitly closed by calling "
+"``completeStage()`` or ``failStage(exception)``. This feature carries the "
+"risk of leaking streams and actors, therefore it should be used with care."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:300
@@ -479,13 +471,13 @@ msgid ""
 ":class:`TimerGraphStageLogic` as the base class for the returned logic. "
 "Timers can be scheduled by calling one of ``scheduleOnce(key,delay)``, "
 "``schedulePeriodically(key,period)`` or "
-"``schedulePeriodicallyWithInitialDelay(key,delay,period)`` and passing an"
-" object as a key for that timer (can be any object, for example a "
-":class:`String`). The ``onTimer(key)`` method needs to be overridden and "
-"it will be called once the timer of ``key`` fires. It is possible to "
-"cancel a timer using ``cancelTimer(key)`` and check the status of a timer"
-" with ``isTimerActive(key)``. Timers will be automatically cleaned up "
-"when the stage completes."
+"``schedulePeriodicallyWithInitialDelay(key,delay,period)`` and passing an "
+"object as a key for that timer (can be any object, for example a "
+":class:`String`). The ``onTimer(key)`` method needs to be overridden and it "
+"will be called once the timer of ``key`` fires. It is possible to cancel a "
+"timer using ``cancelTimer(key)`` and check the status of a timer with "
+"``isTimerActive(key)``. Timers will be automatically cleaned up when the "
+"stage completes."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:309
@@ -496,10 +488,10 @@ msgstr ""
 
 #: ../../java/stream/stream-customize.rst:312
 msgid ""
-"In this sample the stage toggles between open and closed, where open "
-"means no elements are passed through. The stage starts out as closed but "
-"as soon as an element is pushed downstream the gate becomes open for a "
-"duration of time during which it will consume and drop upstream messages:"
+"In this sample the stage toggles between open and closed, where open means "
+"no elements are passed through. The stage starts out as closed but as soon "
+"as an element is pushed downstream the gate becomes open for a duration of "
+"time during which it will consume and drop upstream messages:"
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:319
@@ -511,14 +503,13 @@ msgid ""
 "In order to receive asynchronous events that are not arriving as stream "
 "elements (for example a completion of a future or a callback from a 3rd "
 "party API) one must acquire a :class:`AsyncCallback` by calling "
-"``getAsyncCallback()`` from the stage logic. The method "
-"``getAsyncCallback`` takes as a parameter a callback that will be called "
-"once the asynchronous event fires. It is important to **not call the "
-"callback directly**, instead, the external API must call the "
-"``invoke(event)`` method on the returned :class:`AsyncCallback`. The "
-"execution engine will take care of calling the provided callback in a "
-"thread-safe way. The callback can safely access the state of the "
-":class:`GraphStageLogic` implementation."
+"``getAsyncCallback()`` from the stage logic. The method ``getAsyncCallback``"
+" takes as a parameter a callback that will be called once the asynchronous "
+"event fires. It is important to **not call the callback directly**, instead,"
+" the external API must call the ``invoke(event)`` method on the returned "
+":class:`AsyncCallback`. The execution engine will take care of calling the "
+"provided callback in a thread-safe way. The callback can safely access the "
+"state of the :class:`GraphStageLogic` implementation."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:328
@@ -540,25 +531,25 @@ msgstr ""
 
 #: ../../java/stream/stream-customize.rst:341
 msgid ""
-"**This section is a stub and will be extended in the next release** "
-"**This is an experimental feature***"
+"**This section is a stub and will be extended in the next release** **This "
+"is an experimental feature***"
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:344
 msgid ""
-"It is possible to acquire an ActorRef that can be addressed from the "
-"outside of the stage, similarly how :class:`AsyncCallback` allows "
-"injecting asynchronous events into a stage logic. This reference can be "
-"obtained by calling ``getStageActorRef(receive)`` passing in a function "
-"that takes a :class:`Pair` of the sender :class:`ActorRef` and the "
-"received message. This reference can be used to watch other actors by "
-"calling its ``watch(ref)`` or ``unwatch(ref)`` methods. The reference can"
-" be also watched by external actors. The current limitations of this "
-":class:`ActorRef` are:"
+"It is possible to acquire an ActorRef that can be addressed from the outside"
+" of the stage, similarly how :class:`AsyncCallback` allows injecting "
+"asynchronous events into a stage logic. This reference can be obtained by "
+"calling ``getStageActorRef(receive)`` passing in a function that takes a "
+":class:`Pair` of the sender :class:`ActorRef` and the received message. This"
+" reference can be used to watch other actors by calling its ``watch(ref)`` "
+"or ``unwatch(ref)`` methods. The reference can be also watched by external "
+"actors. The current limitations of this :class:`ActorRef` are:"
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:351
-msgid "they are not location transparent, they cannot be accessed via remoting."
+msgid ""
+"they are not location transparent, they cannot be accessed via remoting."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:352
@@ -568,8 +559,8 @@ msgstr ""
 #: ../../java/stream/stream-customize.rst:353
 msgid ""
 "they cannot be accessed from the constructor of the "
-":class:`GraphStageLogic`, but they can be accessed from the "
-"``preStart()`` method."
+":class:`GraphStageLogic`, but they can be accessed from the ``preStart()`` "
+"method."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:357
@@ -580,19 +571,19 @@ msgstr ""
 msgid ""
 "Custom stages can return materialized values instead of ``Unit`` by "
 "inheriting from :class:`GraphStageWithMaterializedValue` instead of the "
-"simpler :class:`GraphStage`. The difference is that in this case the "
-"method ``createLogicAndMaterializedValue(inheritedAttributes)`` needs to "
-"be overridden, and in addition to the stage logic the materialized value "
-"must be provided"
+"simpler :class:`GraphStage`. The difference is that in this case the method "
+"``createLogicAndMaterializedValue(inheritedAttributes)`` needs to be "
+"overridden, and in addition to the stage logic the materialized value must "
+"be provided"
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:365
 msgid ""
-"There is no built-in synchronization of accessing this value from both of"
-" the thread where the logic runs and the thread that got hold of the "
-"materialized value. It is the responsibility of the programmer to add the"
-" necessary (non-blocking) synchronization and visibility guarantees to "
-"this shared object."
+"There is no built-in synchronization of accessing this value from both of "
+"the thread where the logic runs and the thread that got hold of the "
+"materialized value. It is the responsibility of the programmer to add the "
+"necessary (non-blocking) synchronization and visibility guarantees to this "
+"shared object."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:369
@@ -612,11 +603,11 @@ msgstr ""
 #: ../../java/stream/stream-customize.rst:378
 msgid ""
 "Stages can access the :class:`Attributes` object created by the "
-"materializer. This contains all the applied (inherited) attributes "
-"applying to the stage, ordered from least specific (outermost) towards "
-"the most specific (innermost) attribute. It is the responsibility of the "
-"stage to decide how to reconcile this inheritance chain to a final "
-"effective decision."
+"materializer. This contains all the applied (inherited) attributes applying "
+"to the stage, ordered from least specific (outermost) towards the most "
+"specific (innermost) attribute. It is the responsibility of the stage to "
+"decide how to reconcile this inheritance chain to a final effective "
+"decision."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:383
@@ -636,46 +627,45 @@ msgstr ""
 #: ../../java/stream/stream-customize.rst:392
 msgid ""
 "This is achieved in the model by representing a :class:`GraphStage` as a "
-"*boundary* between two regions where the demand sent upstream is "
-"decoupled from the demand that arrives from downstream. One immediate "
-"consequence of this difference is that an ``onPush`` call does not always"
-" lead to calling ``push`` and an ``onPull``  call does not always lead to"
-" calling ``pull``."
+"*boundary* between two regions where the demand sent upstream is decoupled "
+"from the demand that arrives from downstream. One immediate consequence of "
+"this difference is that an ``onPush`` call does not always lead to calling "
+"``push`` and an ``onPull``  call does not always lead to calling ``pull``."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:397
 msgid ""
 "One of the important use-case for this is to build buffer-like entities, "
-"that allow independent progress of upstream and downstream stages when "
-"the buffer is not full or empty, and slowing down the appropriate side if"
-" the buffer becomes empty or full."
+"that allow independent progress of upstream and downstream stages when the "
+"buffer is not full or empty, and slowing down the appropriate side if the "
+"buffer becomes empty or full."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:401
 msgid ""
-"The next diagram illustrates the event sequence for a buffer with "
-"capacity of two elements in a setting where the downstream demand is slow"
-" to start and the buffer will fill up with upstream elements before any "
-"demand is seen from downstream."
+"The next diagram illustrates the event sequence for a buffer with capacity "
+"of two elements in a setting where the downstream demand is slow to start "
+"and the buffer will fill up with upstream elements before any demand is seen"
+" from downstream."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:413
 msgid ""
-"Another scenario would be where the demand from downstream starts coming "
-"in before any element is pushed into the buffer stage."
+"Another scenario would be where the demand from downstream starts coming in "
+"before any element is pushed into the buffer stage."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:426
 msgid ""
 "The first difference we can notice is that our ``Buffer`` stage is "
-"automatically pulling its upstream on initialization. The buffer has "
-"demand for up to two elements without any downstream demand."
+"automatically pulling its upstream on initialization. The buffer has demand "
+"for up to two elements without any downstream demand."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:429
 msgid ""
-"The following code example demonstrates a buffer class corresponding to "
-"the message sequence chart above."
+"The following code example demonstrates a buffer class corresponding to the "
+"message sequence chart above."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:434
@@ -690,8 +680,7 @@ msgstr ""
 
 #: ../../java/stream/stream-customize.rst:437
 msgid ""
-"The callbacks exposed by all of these classes are never called "
-"concurrently."
+"The callbacks exposed by all of these classes are never called concurrently."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:438
@@ -703,17 +692,15 @@ msgstr ""
 #: ../../java/stream/stream-customize.rst:441
 msgid ""
 "In essence, the above guarantees are similar to what :class:`Actor` s "
-"provide, if one thinks of the state of a custom stage as state of an "
-"actor, and the callbacks as the ``receive`` block of the actor."
+"provide, if one thinks of the state of a custom stage as state of an actor, "
+"and the callbacks as the ``receive`` block of the actor."
 msgstr ""
 
 #: ../../java/stream/stream-customize.rst:445
 msgid ""
-"It is **not safe** to access the state of any custom stage outside of the"
-" callbacks that it provides, just like it is unsafe to access the state "
-"of an actor from the outside. This means that Future callbacks should "
-"**not close over** internal state of custom stages because such access "
-"can be concurrent with the provided callbacks, leading to undefined "
-"behavior."
+"It is **not safe** to access the state of any custom stage outside of the "
+"callbacks that it provides, just like it is unsafe to access the state of an"
+" actor from the outside. This means that Future callbacks should **not close"
+" over** internal state of custom stages because such access can be "
+"concurrent with the provided callbacks, leading to undefined behavior."
 msgstr ""
-

@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../scala/http/routing-dsl/directives/security-directives/authenticateBasicAsync.rst:4
 msgid "authenticateBasicAsync"
@@ -31,8 +31,8 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/directives/security-directives/authenticateBasicAsync.rst:16
 msgid ""
-"Wraps the inner route with Http Basic authentication support using a "
-"given ``AsyncAuthenticator[T]``."
+"Wraps the inner route with Http Basic authentication support using a given "
+"``AsyncAuthenticator[T]``."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/directives/security-directives/authenticateBasicAsync.rst:18
@@ -40,8 +40,8 @@ msgid ""
 "This variant of the :ref:`-authenticateBasic-` directive returns a "
 "``Future[Option[T]]`` which allows freeing up the routing layer of Akka "
 "HTTP, freeing it for other requests. It should be used whenever an "
-"authentication is expected to take a longer amount of time (e.g. looking "
-"up the user in a database)."
+"authentication is expected to take a longer amount of time (e.g. looking up "
+"the user in a database)."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/directives/security-directives/authenticateBasicAsync.rst:22
@@ -54,24 +54,22 @@ msgstr ""
 #: ../../scala/http/routing-dsl/directives/security-directives/authenticateBasicAsync.rst:25
 msgid ""
 "Standard HTTP-based authentication which uses the ``WWW-Authenticate`` "
-"header containing challenge data and ``Authorization`` header for "
-"receiving credentials is implemented in subclasses of "
-"``HttpAuthenticator``."
+"header containing challenge data and ``Authorization`` header for receiving "
+"credentials is implemented in subclasses of ``HttpAuthenticator``."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/directives/security-directives/authenticateBasicAsync.rst:28
 msgid ""
-"See :ref:`credentials-and-timing-attacks-scala` for details about "
-"verifying the secret."
+"See :ref:`credentials-and-timing-attacks-scala` for details about verifying "
+"the secret."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/directives/security-directives/authenticateBasicAsync.rst:31
 msgid ""
-"Make sure to use basic authentication only over SSL/TLS because "
-"credentials are transferred in plaintext."
+"Make sure to use basic authentication only over SSL/TLS because credentials "
+"are transferred in plaintext."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/directives/security-directives/authenticateBasicAsync.rst:36
 msgid "Example"
 msgstr ""
-

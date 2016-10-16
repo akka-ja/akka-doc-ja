@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../scala/http/common/xml-support.rst:4
 msgid "XML Support"
@@ -25,14 +25,14 @@ msgstr ""
 msgid ""
 "Akka HTTP's :ref:`marshalling <http-marshalling-scala>` and "
 ":ref:`unmarshalling <http-unmarshalling-scala>` infrastructure makes it "
-"rather easy to seamlessly support specific wire representations of your "
-"data objects, like JSON, XML or even binary encodings."
+"rather easy to seamlessly support specific wire representations of your data"
+" objects, like JSON, XML or even binary encodings."
 msgstr ""
 
 #: ../../scala/http/common/xml-support.rst:10
 msgid ""
-"For XML Akka HTTP currently provides support for `Scala XML`_ right out "
-"of the box through it's ``akka-http-xml`` module."
+"For XML Akka HTTP currently provides support for `Scala XML`_ right out of "
+"the box through it's ``akka-http-xml`` module."
 msgstr ""
 
 #: ../../scala/http/common/xml-support.rst:15
@@ -41,9 +41,8 @@ msgstr ""
 
 #: ../../scala/http/common/xml-support.rst:17
 msgid ""
-"The ScalaXmlSupport_ trait provides a ``FromEntityUnmarshaller[NodeSeq]``"
-" and ``ToEntityMarshaller[NodeSeq]`` that you can use directly or build "
-"upon."
+"The ScalaXmlSupport_ trait provides a ``FromEntityUnmarshaller[NodeSeq]`` "
+"and ``ToEntityMarshaller[NodeSeq]`` that you can use directly or build upon."
 msgstr ""
 
 #: ../../scala/http/common/xml-support.rst:20
@@ -53,7 +52,6 @@ msgid ""
 msgstr ""
 
 #: ../../scala/http/common/xml-support.rst:22
-#, python-format
 msgid ""
 "Add a library dependency onto ``\"com.typesafe.akka\" %% \"akka-http-xml-"
 "experimental\" % \"1.x\"``."
@@ -61,8 +59,8 @@ msgstr ""
 
 #: ../../scala/http/common/xml-support.rst:24
 msgid ""
-"``import akka.http.scaladsl.marshallers.xml.ScalaXmlSupport._`` or mix in"
-" the ``akka.http.scaladsl.marshallers.xml.ScalaXmlSupport`` trait."
+"``import akka.http.scaladsl.marshallers.xml.ScalaXmlSupport._`` or mix in "
+"the ``akka.http.scaladsl.marshallers.xml.ScalaXmlSupport`` trait."
 msgstr ""
 
 #: ../../scala/http/common/xml-support.rst:27
@@ -70,4 +68,3 @@ msgid ""
 "Once you have done this (un)marshalling between XML and ``NodeSeq`` "
 "instances should work nicely and transparently."
 msgstr ""
-

@@ -1,184 +1,203 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Last-Translator: Yang Xiao <xtracalley@gmail.com>, 2016\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../general/jmm.rst:4
 msgid "Akka and the Java Memory Model"
-msgstr ""
+msgstr "Akka と Java メモリモデル"
 
 #: ../../general/jmm.rst:6
 msgid ""
-"A major benefit of using the Lightbend Platform, including Scala and "
-"Akka, is that it simplifies the process of writing concurrent software.  "
-"This article discusses how the Lightbend Platform, and Akka in "
-"particular, approaches shared memory in concurrent applications."
+"A major benefit of using the Lightbend Platform, including Scala and Akka, "
+"is that it simplifies the process of writing concurrent software.  This "
+"article discusses how the Lightbend Platform, and Akka in particular, "
+"approaches shared memory in concurrent applications."
 msgstr ""
+"Lightbend プラットフォーム、Scala、Akkaを含む、を使用しての主な利点は並行ソフトウェアを記述するプロセスが簡単になります。 "
+"この資料では、Lightbend プラットフォーム、特にAkkaは、並行アプリケーションで共有メモリに取り掛かる方法について説明します。"
 
 #: ../../general/jmm.rst:11
 msgid "The Java Memory Model"
-msgstr ""
+msgstr "Java メモリモデル"
 
 #: ../../general/jmm.rst:12
 msgid ""
 "Prior to Java 5, the Java Memory Model (JMM) was ill defined. It was "
-"possible to get all kinds of strange results when shared memory was "
-"accessed by multiple threads, such as:"
+"possible to get all kinds of strange results when shared memory was accessed"
+" by multiple threads, such as:"
 msgstr ""
+"Java 5 以前、Java メモリモデル (JMM) "
+"は不明瞭でした。共有メモリが複数のスレッドによってアクセスされたとき、すべての種類の奇妙な結果を得ることは可能でした。例えば、"
 
 #: ../../general/jmm.rst:15
-msgid "a thread not seeing values written by other threads: a visibility problem"
-msgstr ""
+msgid ""
+"a thread not seeing values written by other threads: a visibility problem"
+msgstr "スレッドは他のスレッドによって書き込まれる値を見えない: 可視性の問題"
 
 #: ../../general/jmm.rst:16
 msgid ""
 "a thread observing 'impossible' behavior of other threads, caused by "
 "instructions not being executed in the order expected: an instruction "
 "reordering problem."
-msgstr ""
+msgstr "命令が予想される順序で実行されていないによって、スレッドは他のスレッドの '不可能' 行動を観察できる: 命令の並べ替え問題。"
 
 #: ../../general/jmm.rst:20
 msgid ""
 "With the implementation of JSR 133 in Java 5, a lot of these issues have "
 "been resolved. The JMM is a set of rules based on the \"happens-before\" "
-"relation, which constrain when one memory access must happen before "
-"another, and conversely, when they are allowed to happen out of order. "
-"Two examples of these rules are:"
+"relation, which constrain when one memory access must happen before another,"
+" and conversely, when they are allowed to happen out of order. Two examples "
+"of these rules are:"
 msgstr ""
+"Java 5 の JSR 133 の実装によって、これらの問題の多くは解決されてました。JMM は \"happens-before\" "
+"の関係に基づいて、一連の規則です。これらによって、いつ一つのメモリアクセスはもう一つの前に実行しなければならない、そして、いつメモリアクセスは順不同で起こることが許可されているのは制限されています。これらの規則の"
+" 2 つの例は以下のとおりです。"
 
 #: ../../general/jmm.rst:24
 msgid ""
 "**The monitor lock rule:** a release of a lock happens before every "
 "subsequent acquire of the same lock."
-msgstr ""
+msgstr "** モニターロックルール: ** ロックの解除が同じロックのすべての後続の取得前に発生します。"
 
 #: ../../general/jmm.rst:25
 msgid ""
 "**The volatile variable rule:** a write of a volatile variable happens "
 "before every subsequent read of the same volatile variable"
 msgstr ""
+"** volatile変数ルールは：** volatile変数の書き込みは、同じvolatile変数のすべての後続の読み取りの前に起こります。"
 
 #: ../../general/jmm.rst:27
 msgid ""
 "Although the JMM can seem complicated, the specification tries to find a "
-"balance between ease of use and the ability to write performant and "
-"scalable concurrent data structures."
-msgstr ""
+"balance between ease of use and the ability to write performant and scalable"
+" concurrent data structures."
+msgstr "JMM は複雑に見えますが、仕様は使いやすさと、パフォーマンスと拡張性の高い並行データ構造を記述する能力のバランスを見つけようとします。"
 
 #: ../../general/jmm.rst:31
 msgid "Actors and the Java Memory Model"
-msgstr ""
+msgstr "アクターと Java メモリモデル"
 
 #: ../../general/jmm.rst:32
 msgid ""
-"With the Actors implementation in Akka, there are two ways multiple "
-"threads can execute actions on shared memory:"
-msgstr ""
+"With the Actors implementation in Akka, there are two ways multiple threads "
+"can execute actions on shared memory:"
+msgstr "Akkaのアクターの実装では、複数のスレッドが共有メモリ上のアクションを実行できる二つの方法があります。"
 
 #: ../../general/jmm.rst:34
 msgid ""
 "if a message is sent to an actor (e.g. by another actor). In most cases "
-"messages are immutable, but if that message is not a properly constructed"
-" immutable object, without a \"happens before\" rule, it would be "
-"possible for the receiver to see partially initialized data structures "
-"and possibly even values out of thin air (longs/doubles)."
+"messages are immutable, but if that message is not a properly constructed "
+"immutable object, without a \"happens before\" rule, it would be possible "
+"for the receiver to see partially initialized data structures and possibly "
+"even values out of thin air (longs/doubles)."
 msgstr ""
+"メッセージは (例えば、別のアクターから) "
+"アクターに送信される場合。ほとんどの場合メッセージは不変ですが、そのメッセージが適切に初期化された不変オブジェクトでない時、\"happens "
+"before\" のルールがないなら、受信側が部分的に初期化されたデータ構造、さらに存在不可能の値 (long/double型の場合) "
+"を観察する可能性があります。"
 
 #: ../../general/jmm.rst:37
 msgid ""
-"if an actor makes changes to its internal state while processing a "
-"message, and accesses that state while processing another message moments"
-" later. It is important to realize that with the actor model you don't "
-"get any guarantee that the same thread will be executing the same actor "
-"for different messages."
+"if an actor makes changes to its internal state while processing a message, "
+"and accesses that state while processing another message moments later. It "
+"is important to realize that with the actor model you don't get any "
+"guarantee that the same thread will be executing the same actor for "
+"different messages."
 msgstr ""
+"アクターはメッセージの処理中に、内部状態への変更を行い、後で別のメッセージモーメントを処理している間、その状態にアクセスする場合。アクターモデルでは、同じスレッドが同じアクターの異なるメッセージに対してを実行されるの保証はありませんことを認識するのが重要です。"
 
 #: ../../general/jmm.rst:41
 msgid ""
-"To prevent visibility and reordering problems on actors, Akka guarantees "
-"the following two \"happens before\" rules:"
-msgstr ""
+"To prevent visibility and reordering problems on actors, Akka guarantees the"
+" following two \"happens before\" rules:"
+msgstr "アクター上で可視性と命令の並べ替え問題を防ぐため、Akka は次の二つの \"happens before\" ルールを保証します。"
 
 #: ../../general/jmm.rst:43
 msgid ""
-"**The actor send rule:** the send of the message to an actor happens "
-"before the receive of that message by the same actor."
-msgstr ""
+"**The actor send rule:** the send of the message to an actor happens before "
+"the receive of that message by the same actor."
+msgstr "**アクター送信ルール:** アクターへのメッセージの送信は同じアクターによってそのメッセージの受信前に行われます。"
 
 #: ../../general/jmm.rst:44
 msgid ""
-"**The actor subsequent processing rule:** processing of one message "
-"happens before processing of the next message by the same actor."
-msgstr ""
+"**The actor subsequent processing rule:** processing of one message happens "
+"before processing of the next message by the same actor."
+msgstr "**アクター後続処理ルール:** 一つのメッセージの処理が同じアクターによって次のメッセージの処理の前に行われます。"
 
 #: ../../general/jmm.rst:48
 msgid ""
-"In layman's terms this means that changes to internal fields of the actor"
-" are visible when the next message is processed by that actor. So fields "
-"in your actor need not be volatile or equivalent."
+"In layman's terms this means that changes to internal fields of the actor "
+"are visible when the next message is processed by that actor. So fields in "
+"your actor need not be volatile or equivalent."
 msgstr ""
+"普通の言葉では、これは次のメッセージがそのアクターによって処理されたときに、アクターの内部フィールドへの変更が可視化されていることを意味します。あなたのアクターのフィールドは"
+" volatile 又は同等である必要はありません。"
 
 #: ../../general/jmm.rst:52
 msgid ""
 "Both rules only apply for the same actor instance and are not valid if "
 "different actors are used."
-msgstr ""
+msgstr "両方のルールは、同じアクターのインスタンスに対して適用され、別のアクターが使用されている場合は有効ではありません。"
 
 #: ../../general/jmm.rst:55
 msgid "Futures and the Java Memory Model"
-msgstr ""
+msgstr "Futures と Java メモリモデル"
 
 #: ../../general/jmm.rst:57
 msgid ""
 "The completion of a Future \"happens before\" the invocation of any "
 "callbacks registered to it are executed."
-msgstr ""
+msgstr "Future の完了は、それに登録されたコールバックの呼び出しが実行される「前に発生します」。"
 
 #: ../../general/jmm.rst:59
 msgid ""
-"We recommend not to close over non-final fields (final in Java and val in"
-" Scala), and if you *do* choose to close over non-final fields, they must"
-" be marked *volatile* in order for the current value of the field to be "
-"visible to the callback."
+"We recommend not to close over non-final fields (final in Java and val in "
+"Scala), and if you *do* choose to close over non-final fields, they must be "
+"marked *volatile* in order for the current value of the field to be visible "
+"to the callback."
 msgstr ""
+"我々は非finalフィールド (Javaでのfinal、Scalaでのval) の上に閉じないようにお勧めします、あなたは *どうしても* "
+"非finalフィールド上を閉じることを選択したい場合、現在の値がコールバックに見えるために *volatile* を付ける必要があります。"
 
 #: ../../general/jmm.rst:62
 msgid ""
-"If you close over a reference, you must also ensure that the instance "
-"that is referred to is thread safe. We highly recommend staying away from"
-" objects that use locking, since it can introduce performance problems "
-"and in the worst case, deadlocks. Such are the perils of synchronized."
+"If you close over a reference, you must also ensure that the instance that "
+"is referred to is thread safe. We highly recommend staying away from objects"
+" that use locking, since it can introduce performance problems and in the "
+"worst case, deadlocks. Such are the perils of synchronized."
 msgstr ""
+"参照を閉じる場合、参照先のインスタンスがスレッドセーフであることを確認する必要があります。我々はロックを使用するオブジェクトを使わないことを勧めします、パフォーマンスの問題が生じますので、そして最悪の場合、デッドロック。そして同じ危険な同期もそうです。"
 
 #: ../../general/jmm.rst:69
 msgid "Actors and shared mutable state"
-msgstr ""
+msgstr "アクターと共有可変状態"
 
 #: ../../general/jmm.rst:71
 msgid "Since Akka runs on the JVM there are still some rules to be followed."
-msgstr ""
+msgstr "Akka は JVM 上で動作するので、従うべきルールがいくつか残っています。"
 
 #: ../../general/jmm.rst:73
 msgid "Closing over internal Actor state and exposing it to other threads"
-msgstr ""
+msgstr "内部アクター状態の上に閉じると、他のスレッドにそれをさらします"
 
 #: ../../general/jmm.rst:105
 msgid ""
-"Messages **should** be immutable, this is to avoid the shared mutable "
-"state trap."
-msgstr ""
-
+"Messages **should** be immutable, this is to avoid the shared mutable state "
+"trap."
+msgstr "メッセージは不変である **必要** があり、これは、共有可変状態トラップを回避することです。"

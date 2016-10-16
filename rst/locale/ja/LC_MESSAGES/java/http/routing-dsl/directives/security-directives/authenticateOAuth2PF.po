@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../java/http/routing-dsl/directives/security-directives/authenticateOAuth2PF.rst:4
 msgid "authenticateOAuth2PF"
@@ -23,8 +23,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/security-directives/authenticateOAuth2PF.rst:5
 msgid ""
-"Wraps the inner route with OAuth Bearer Token authentication support "
-"using a given ``AuthenticatorPF<T>``."
+"Wraps the inner route with OAuth Bearer Token authentication support using a"
+" given ``AuthenticatorPF<T>``."
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/security-directives/authenticateOAuth2PF.rst:8
@@ -33,22 +33,22 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/security-directives/authenticateOAuth2PF.rst:9
 msgid ""
-"Provides support for extracting the so-called \"*Bearer Token*\" from the"
-" :class:`Authorization` HTTP Header, which is used to initiate an OAuth2 "
+"Provides support for extracting the so-called \"*Bearer Token*\" from the "
+":class:`Authorization` HTTP Header, which is used to initiate an OAuth2 "
 "authorization."
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/security-directives/authenticateOAuth2PF.rst:13
 msgid ""
-"This directive does not implement the complete OAuth2 protocol, but "
-"instead enables implementing it, by extracting the needed token from the "
-"HTTP headers."
+"This directive does not implement the complete OAuth2 protocol, but instead "
+"enables implementing it, by extracting the needed token from the HTTP "
+"headers."
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/security-directives/authenticateOAuth2PF.rst:16
 msgid ""
-"Refer to :ref:`-authenticateOAuth2-java-` for a detailed description of "
-"this directive."
+"Refer to :ref:`-authenticateOAuth2-java-` for a detailed description of this"
+" directive."
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/security-directives/authenticateOAuth2PF.rst:18
@@ -61,15 +61,15 @@ msgstr ""
 #: ../../java/http/routing-dsl/directives/security-directives/authenticateOAuth2PF.rst:21
 msgid ""
 "Longer-running authentication tasks (like looking up credentials in a "
-"database) should use the :ref:`-authenticateOAuth2Async-java-` variant of"
-" this directive which allows it to run without blocking routing layer of "
-"Akka HTTP, freeing it for other requests."
+"database) should use the :ref:`-authenticateOAuth2Async-java-` variant of "
+"this directive which allows it to run without blocking routing layer of Akka"
+" HTTP, freeing it for other requests."
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/security-directives/authenticateOAuth2PF.rst:24
 msgid ""
-"See :ref:`credentials-and-timing-attacks-java` for details about "
-"verifying the secret."
+"See :ref:`credentials-and-timing-attacks-java` for details about verifying "
+"the secret."
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/security-directives/authenticateOAuth2PF.rst:26
@@ -82,8 +82,7 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/security-directives/authenticateOAuth2PF.rst:33
 msgid ""
-"Usage in code is exactly the same as :ref:`-authenticateBasicPF-java-`, "
-"with the difference that one must validate the token as OAuth2 dictates "
-"(which is currently not part of Akka HTTP itself)."
+"Usage in code is exactly the same as :ref:`-authenticateBasicPF-java-`, with"
+" the difference that one must validate the token as OAuth2 dictates (which "
+"is currently not part of Akka HTTP itself)."
 msgstr ""
-

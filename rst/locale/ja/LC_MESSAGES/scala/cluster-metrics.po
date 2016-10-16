@@ -1,21 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Last-Translator: Takaichi Kubo <tk.qubo@gmail.com>, 2016\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../scala/cluster-metrics.rst:5
 msgid "Cluster Metrics Extension"
@@ -23,21 +24,20 @@ msgstr ""
 
 #: ../../scala/cluster-metrics.rst:8
 msgid "Introduction"
-msgstr ""
+msgstr "イントロダクション"
 
 #: ../../scala/cluster-metrics.rst:10
 msgid ""
 "The member nodes of the cluster can collect system health metrics and "
-"publish that to other cluster nodes and to the registered subscribers on "
-"the system event bus with the help of Cluster Metrics Extension."
+"publish that to other cluster nodes and to the registered subscribers on the"
+" system event bus with the help of Cluster Metrics Extension."
 msgstr ""
 
 #: ../../scala/cluster-metrics.rst:13
 msgid ""
-"Cluster metrics information is primarily used for load-balancing routers,"
-" and can also be used to implement advanced metrics-based node life "
-"cycles, such as \"Node Let-it-crash\" when CPU steal time becomes "
-"excessive."
+"Cluster metrics information is primarily used for load-balancing routers, "
+"and can also be used to implement advanced metrics-based node life cycles, "
+"such as \"Node Let-it-crash\" when CPU steal time becomes excessive."
 msgstr ""
 
 #: ../../scala/cluster-metrics.rst:17
@@ -48,12 +48,13 @@ msgstr ""
 
 #: ../../scala/cluster-metrics.rst:19
 msgid ""
-"To enable usage of the extension you need to add the following dependency"
-" to your project: ::"
+"To enable usage of the extension you need to add the following dependency to"
+" your project: ::"
 msgstr ""
 
 #: ../../scala/cluster-metrics.rst:24
-msgid "and add the following configuration stanza to your ``application.conf`` ::"
+msgid ""
+"and add the following configuration stanza to your ``application.conf`` ::"
 msgstr ""
 
 #: ../../scala/cluster-metrics.rst:29
@@ -83,14 +84,13 @@ msgstr ""
 #: ../../scala/cluster-metrics.rst:40
 msgid ""
 "Different collector implementations provide different subsets of metrics "
-"published to the cluster. Certain message routing and let-it-crash "
-"functions may not work when Sigar is not provisioned."
+"published to the cluster. Certain message routing and let-it-crash functions"
+" may not work when Sigar is not provisioned."
 msgstr ""
 
 #: ../../scala/cluster-metrics.rst:43
 msgid ""
-"Cluster metrics extension comes with two built-in collector "
-"implementations:"
+"Cluster metrics extension comes with two built-in collector implementations:"
 msgstr ""
 
 #: ../../scala/cluster-metrics.rst:45
@@ -101,8 +101,8 @@ msgstr ""
 
 #: ../../scala/cluster-metrics.rst:46
 msgid ""
-"``akka.cluster.metrics.JmxMetricsCollector``, which is used as fall back,"
-" and is less rich/precise"
+"``akka.cluster.metrics.JmxMetricsCollector``, which is used as fall back, "
+"and is less rich/precise"
 msgstr ""
 
 #: ../../scala/cluster-metrics.rst:48
@@ -111,8 +111,8 @@ msgstr ""
 
 #: ../../scala/cluster-metrics.rst:50
 msgid ""
-"By default, metrics extension will use collector provider fall back and "
-"will try to load them in this order:"
+"By default, metrics extension will use collector provider fall back and will"
+" try to load them in this order:"
 msgstr ""
 
 #: ../../scala/cluster-metrics.rst:52
@@ -139,22 +139,21 @@ msgstr ""
 
 #: ../../scala/cluster-metrics.rst:61
 msgid ""
-"The publication period is controlled by the "
-"``akka.cluster.metrics.collector.sample-period`` setting."
+"The publication period is controlled by the ``akka.cluster.metrics.collector"
+".sample-period`` setting."
 msgstr ""
 
 #: ../../scala/cluster-metrics.rst:63
 msgid ""
-"The payload of the ``akka.cluster.metrics.ClusterMetricsChanged`` event "
-"will contain latest metrics of the node as well as other cluster member "
-"nodes metrics gossip which was received during the collector sample "
-"period."
+"The payload of the ``akka.cluster.metrics.ClusterMetricsChanged`` event will"
+" contain latest metrics of the node as well as other cluster member nodes "
+"metrics gossip which was received during the collector sample period."
 msgstr ""
 
 #: ../../scala/cluster-metrics.rst:67
 msgid ""
-"You can subscribe your metrics listener actors to these events in order "
-"to implement custom node lifecycle ::"
+"You can subscribe your metrics listener actors to these events in order to "
+"implement custom node lifecycle ::"
 msgstr ""
 
 #: ../../scala/cluster-metrics.rst:73
@@ -171,52 +170,52 @@ msgstr ""
 
 #: ../../scala/cluster-metrics.rst:78
 msgid ""
-"Sigar is using a native o/s library, and requires library provisioning, "
-"i.e. deployment, extraction and loading of the o/s native library into "
-"JVM at runtime."
+"Sigar is using a native o/s library, and requires library provisioning, i.e."
+" deployment, extraction and loading of the o/s native library into JVM at "
+"runtime."
 msgstr ""
 
 #: ../../scala/cluster-metrics.rst:81
 msgid ""
-"User can provision Sigar classes and native library in one of the "
-"following ways:"
+"User can provision Sigar classes and native library in one of the following "
+"ways:"
 msgstr ""
 
 #: ../../scala/cluster-metrics.rst:83
 msgid ""
-"Use `Kamon sigar-loader <https://github.com/kamon-io/sigar-loader>`_ as a"
-" project dependency for the user project. Metrics extension will extract "
-"and load sigar library on demand with help of Kamon sigar provisioner."
+"Use `Kamon sigar-loader <https://github.com/kamon-io/sigar-loader>`_ as a "
+"project dependency for the user project. Metrics extension will extract and "
+"load sigar library on demand with help of Kamon sigar provisioner."
 msgstr ""
 
 #: ../../scala/cluster-metrics.rst:85
 msgid ""
-"Use `Kamon sigar-loader <https://github.com/kamon-io/sigar-loader>`_ as "
-"java agent: ``java -javaagent:/path/to/sigar-loader.jar``. Kamon sigar "
-"loader agent will extract and load sigar library during JVM start."
+"Use `Kamon sigar-loader <https://github.com/kamon-io/sigar-loader>`_ as java"
+" agent: ``java -javaagent:/path/to/sigar-loader.jar``. Kamon sigar loader "
+"agent will extract and load sigar library during JVM start."
 msgstr ""
 
 #: ../../scala/cluster-metrics.rst:87
 msgid ""
-"Place ``sigar.jar`` on the ``classpath`` and Sigar native library for the"
-" o/s on the ``java.library.path``. User is required to manage both "
-"project dependency and library deployment manually."
+"Place ``sigar.jar`` on the ``classpath`` and Sigar native library for the "
+"o/s on the ``java.library.path``. User is required to manage both project "
+"dependency and library deployment manually."
 msgstr ""
 
 #: ../../scala/cluster-metrics.rst:92
 msgid ""
-"When using `Kamon sigar-loader <https://github.com/kamon-io/sigar-"
-"loader>`_ and running multiple instances of the same application on the "
-"same host, you have to make sure that sigar library is extracted to a "
-"unique per instance directory. You can control the extract directory with"
-" the ``akka.cluster.metrics.native-library-extract-folder`` configuration"
-" setting."
+"When using `Kamon sigar-loader <https://github.com/kamon-io/sigar-loader>`_ "
+"and running multiple instances of the same application on the same host, you"
+" have to make sure that sigar library is extracted to a unique per instance "
+"directory. You can control the extract directory with the "
+"``akka.cluster.metrics.native-library-extract-folder`` configuration "
+"setting."
 msgstr ""
 
 #: ../../scala/cluster-metrics.rst:97
 msgid ""
-"To enable usage of Sigar you can add the following dependency to the user"
-" project ::"
+"To enable usage of Sigar you can add the following dependency to the user "
+"project ::"
 msgstr ""
 
 #: ../../scala/cluster-metrics.rst:102
@@ -231,24 +230,23 @@ msgstr ""
 
 #: ../../scala/cluster-metrics.rst:108
 msgid ""
-"The ``AdaptiveLoadBalancingPool`` / ``AdaptiveLoadBalancingGroup`` "
-"performs load balancing of messages to cluster nodes based on the cluster"
-" metrics data. It uses random selection of routees with probabilities "
-"derived from the remaining capacity of the corresponding node. It can be "
-"configured to use a specific MetricsSelector to produce the "
-"probabilities, a.k.a. weights:"
+"The ``AdaptiveLoadBalancingPool`` / ``AdaptiveLoadBalancingGroup`` performs "
+"load balancing of messages to cluster nodes based on the cluster metrics "
+"data. It uses random selection of routees with probabilities derived from "
+"the remaining capacity of the corresponding node. It can be configured to "
+"use a specific MetricsSelector to produce the probabilities, a.k.a. weights:"
 msgstr ""
 
 #: ../../scala/cluster-metrics.rst:112
 msgid ""
-"``heap`` / ``HeapMetricsSelector`` - Used and max JVM heap memory. "
-"Weights based on remaining heap capacity; (max - used) / max"
+"``heap`` / ``HeapMetricsSelector`` - Used and max JVM heap memory. Weights "
+"based on remaining heap capacity; (max - used) / max"
 msgstr ""
 
 #: ../../scala/cluster-metrics.rst:113
 msgid ""
-"``load`` / ``SystemLoadAverageMetricsSelector`` - System load average for"
-" the past 1 minute, corresponding value can be found in ``top`` of Linux "
+"``load`` / ``SystemLoadAverageMetricsSelector`` - System load average for "
+"the past 1 minute, corresponding value can be found in ``top`` of Linux "
 "systems. The system is possibly nearing a bottleneck if the system load "
 "average is nearing number of cpus/cores. Weights based on remaining load "
 "capacity; 1 - (load / processors)"
@@ -273,17 +271,17 @@ msgstr ""
 
 #: ../../scala/cluster-metrics.rst:118
 msgid ""
-"The collected metrics values are smoothed with `exponential weighted "
-"moving average "
-"<http://en.wikipedia.org/wiki/Moving_average#Exponential_moving_average>`_."
-" In the :ref:`cluster_configuration_scala` you can adjust how quickly "
-"past data is decayed compared to new data."
+"The collected metrics values are smoothed with `exponential weighted moving "
+"average "
+"<http://en.wikipedia.org/wiki/Moving_average#Exponential_moving_average>`_. "
+"In the :ref:`cluster_configuration_scala` you can adjust how quickly past "
+"data is decayed compared to new data."
 msgstr ""
 
 #: ../../scala/cluster-metrics.rst:120
 msgid ""
-"Let's take a look at this router in action. What can be more demanding "
-"than calculating factorials?"
+"Let's take a look at this router in action. What can be more demanding than "
+"calculating factorials?"
 msgstr ""
 
 #: ../../scala/cluster-metrics.rst:122
@@ -292,21 +290,20 @@ msgstr ""
 
 #: ../../scala/cluster-metrics.rst:126
 msgid ""
-"The frontend that receives user jobs and delegates to the backends via "
-"the router:"
+"The frontend that receives user jobs and delegates to the backends via the "
+"router:"
 msgstr ""
 
 #: ../../scala/cluster-metrics.rst:131
 msgid ""
-"As you can see, the router is defined in the same way as other routers, "
-"and in this case it is configured as follows:"
+"As you can see, the router is defined in the same way as other routers, and "
+"in this case it is configured as follows:"
 msgstr ""
 
 #: ../../scala/cluster-metrics.rst:135
 msgid ""
-"It is only ``router`` type and the ``metrics-selector`` parameter that is"
-" specific to this router, other things work in the same way as other "
-"routers."
+"It is only ``router`` type and the ``metrics-selector`` parameter that is "
+"specific to this router, other things work in the same way as other routers."
 msgstr ""
 
 #: ../../scala/cluster-metrics.rst:138
@@ -315,11 +312,11 @@ msgstr ""
 
 #: ../../scala/cluster-metrics.rst:144
 msgid ""
-"The `Lightbend Activator <http://www.lightbend.com/platform/getstarted>`_"
-" tutorial named `Akka Cluster Samples with Scala "
-"<http://www.lightbend.com/activator/template/akka-sample-cluster-"
-"scala>`_. contains the full source code and instructions of how to run "
-"the **Adaptive Load Balancing** sample."
+"The `Lightbend Activator <http://www.lightbend.com/platform/getstarted>`_ "
+"tutorial named `Akka Cluster Samples with Scala "
+"<http://www.lightbend.com/activator/template/akka-sample-cluster-scala>`_. "
+"contains the full source code and instructions of how to run the **Adaptive "
+"Load Balancing** sample."
 msgstr ""
 
 #: ../../scala/cluster-metrics.rst:149
@@ -368,4 +365,3 @@ msgid ""
 "The Cluster metrics extension can be configured with the following "
 "properties:"
 msgstr ""
-

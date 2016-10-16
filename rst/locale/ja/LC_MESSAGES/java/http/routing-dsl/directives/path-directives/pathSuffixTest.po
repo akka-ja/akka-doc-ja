@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../java/http/routing-dsl/directives/path-directives/pathSuffixTest.rst:4
 msgid "pathSuffixTest"
@@ -29,17 +29,17 @@ msgstr ""
 msgid ""
 "Checks whether the unmatched path of the ``RequestContext`` has a suffix "
 "matched by the given ``PathMatcher``. Potentially extracts one or more "
-"values (depending on the type of the argument) but doesn't consume its "
-"match from the unmatched path."
+"values (depending on the type of the argument) but doesn't consume its match"
+" from the unmatched path."
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/path-directives/pathSuffixTest.rst:12
 msgid ""
 "This directive is very similar to the :ref:`-pathSuffix-java-` directive "
-"with the one difference that the path suffix it matched (if it matched) "
-"is *not* consumed. The unmatched path of the ``RequestContext`` is "
-"therefore left as is even in the case that the directive successfully "
-"matched and the request is passed on to its inner route."
+"with the one difference that the path suffix it matched (if it matched) is "
+"*not* consumed. The unmatched path of the ``RequestContext`` is therefore "
+"left as is even in the case that the directive successfully matched and the "
+"request is passed on to its inner route."
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/path-directives/pathSuffixTest.rst:16
@@ -51,20 +51,18 @@ msgstr ""
 #: ../../java/http/routing-dsl/directives/path-directives/pathSuffixTest.rst:18
 msgid ""
 "For efficiency reasons, the given ``PathMatcher`` must match the desired "
-"suffix in reversed-segment order, i.e. ``pathSuffixTest(\"baz\" / "
-"\"bar\")`` would match ``/foo/bar/baz``! The order within a segment match"
-" is not reversed."
+"suffix in reversed-segment order, i.e. ``pathSuffixTest(\"baz\" / \"bar\")``"
+" would match ``/foo/bar/baz``! The order within a segment match is not "
+"reversed."
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/path-directives/pathSuffixTest.rst:22
 msgid ""
-"Depending on the type of its ``PathMatcher`` argument the "
-"``pathSuffixTest`` directive extracts zero or more values from the URI. "
-"If the match fails the request is rejected with an :ref:`empty rejection "
-"set <empty rejections>`."
+"Depending on the type of its ``PathMatcher`` argument the ``pathSuffixTest``"
+" directive extracts zero or more values from the URI. If the match fails the"
+" request is rejected with an :ref:`empty rejection set <empty rejections>`."
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/path-directives/pathSuffixTest.rst:27
 msgid "Example"
 msgstr ""
-

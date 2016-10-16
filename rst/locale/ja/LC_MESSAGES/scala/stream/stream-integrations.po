@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../scala/stream/stream-integrations.rst:5
 msgid "Integration"
@@ -27,8 +27,8 @@ msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:10
 msgid ""
-"For piping the elements of a stream as messages to an ordinary actor you "
-"can use the ``Sink.actorRef``. Messages can be sent to a stream via the "
+"For piping the elements of a stream as messages to an ordinary actor you can"
+" use the ``Sink.actorRef``. Messages can be sent to a stream via the "
 ":class:`ActorRef` that is materialized by ``Source.actorRef``."
 msgstr ""
 
@@ -42,8 +42,8 @@ msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:18
 msgid ""
-"These can be consumed by other Reactive Stream libraries or used as an "
-"Akka Streams :class:`Source` or :class:`Sink`."
+"These can be consumed by other Reactive Stream libraries or used as an Akka "
+"Streams :class:`Source` or :class:`Sink`."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:23
@@ -59,18 +59,18 @@ msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:30
 msgid ""
-"Messages sent to the actor that is materialized by ``Source.actorRef`` "
-"will be emitted to the stream if there is demand from downstream, "
-"otherwise they will be buffered until request for demand is received."
+"Messages sent to the actor that is materialized by ``Source.actorRef`` will "
+"be emitted to the stream if there is demand from downstream, otherwise they "
+"will be buffered until request for demand is received."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:34
 msgid ""
-"Depending on the defined :class:`OverflowStrategy` it might drop elements"
-" if there is no space available in the buffer. The strategy "
-"``OverflowStrategy.backpressure`` is not supported for this Source type, "
-"you should consider using ``ActorPublisher`` if you want a backpressured "
-"actor interface."
+"Depending on the defined :class:`OverflowStrategy` it might drop elements if"
+" there is no space available in the buffer. The strategy "
+"``OverflowStrategy.backpressure`` is not supported for this Source type, you"
+" should consider using ``ActorPublisher`` if you want a backpressured actor "
+"interface."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:39
@@ -88,9 +88,8 @@ msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:45
 msgid ""
-"The actor will be stopped when the stream is completed, failed or "
-"cancelled from downstream, i.e. you can watch it to get notified when "
-"that happens."
+"The actor will be stopped when the stream is completed, failed or cancelled "
+"from downstream, i.e. you can watch it to get notified when that happens."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:49
@@ -99,21 +98,20 @@ msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:51
 msgid ""
-"The sink sends the elements of the stream to the given :class:`ActorRef`."
-" If the target actor terminates the stream will be cancelled. When the "
-"stream is completed successfully the given ``onCompleteMessage`` will be "
-"sent to the destination actor. When the stream is completed with failure "
-"a ``akka.actor.Status.Failure`` message will be sent to the destination "
-"actor."
+"The sink sends the elements of the stream to the given :class:`ActorRef`. If"
+" the target actor terminates the stream will be cancelled. When the stream "
+"is completed successfully the given ``onCompleteMessage`` will be sent to "
+"the destination actor. When the stream is completed with failure a "
+"``akka.actor.Status.Failure`` message will be sent to the destination actor."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:58
 msgid ""
 "There is no back-pressure signal from the destination actor, i.e. if the "
 "actor is not consuming the messages fast enough the mailbox of the actor "
-"will grow. For potentially slow consumer actors it is recommended to use "
-"a bounded mailbox with zero `mailbox-push-timeout-time` or use a rate "
-"limiting stage in front of this stage."
+"will grow. For potentially slow consumer actors it is recommended to use a "
+"bounded mailbox with zero `mailbox-push-timeout-time` or use a rate limiting"
+" stage in front of this stage."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:64
@@ -135,48 +133,47 @@ msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:73
 msgid ""
-"You send elements to the stream by calling ``onNext``. You are allowed to"
-" send as many elements as have been requested by the stream subscriber. "
-"This amount can be inquired with ``totalDemand``. It is only allowed to "
-"use ``onNext`` when ``isActive`` and ``totalDemand>0``, otherwise "
-"``onNext`` will throw ``IllegalStateException``."
+"You send elements to the stream by calling ``onNext``. You are allowed to "
+"send as many elements as have been requested by the stream subscriber. This "
+"amount can be inquired with ``totalDemand``. It is only allowed to use "
+"``onNext`` when ``isActive`` and ``totalDemand>0``, otherwise ``onNext`` "
+"will throw ``IllegalStateException``."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:78
 msgid ""
 "When the stream subscriber requests more elements the "
-"``ActorPublisherMessage.Request`` message is delivered to this actor, and"
-" you can act on that event. The ``totalDemand`` is updated automatically."
+"``ActorPublisherMessage.Request`` message is delivered to this actor, and "
+"you can act on that event. The ``totalDemand`` is updated automatically."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:82
 msgid ""
 "When the stream subscriber cancels the subscription the "
-"``ActorPublisherMessage.Cancel`` message is delivered to this actor. "
-"After that subsequent calls to ``onNext`` will be ignored."
+"``ActorPublisherMessage.Cancel`` message is delivered to this actor. After "
+"that subsequent calls to ``onNext`` will be ignored."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:85
 msgid ""
-"You can complete the stream by calling ``onComplete``. After that you are"
-" not allowed to call ``onNext``, ``onError`` and ``onComplete``."
+"You can complete the stream by calling ``onComplete``. After that you are "
+"not allowed to call ``onNext``, ``onError`` and ``onComplete``."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:88
 msgid ""
-"You can terminate the stream with failure by calling ``onError``. After "
-"that you are not allowed to call ``onNext``, ``onError`` and "
-"``onComplete``."
+"You can terminate the stream with failure by calling ``onError``. After that"
+" you are not allowed to call ``onNext``, ``onError`` and ``onComplete``."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:91
 msgid ""
-"If you suspect that this ``ActorPublisher`` may never get subscribed to, "
-"you can override the ``subscriptionTimeout`` method to provide a timeout "
-"after which this Publisher should be considered canceled. The actor will "
-"be notified when the timeout triggers via an "
-"``ActorPublisherMessage.SubscriptionTimeoutExceeded`` message and MUST "
-"then perform cleanup and stop itself."
+"If you suspect that this ``ActorPublisher`` may never get subscribed to, you"
+" can override the ``subscriptionTimeout`` method to provide a timeout after "
+"which this Publisher should be considered canceled. The actor will be "
+"notified when the timeout triggers via an "
+"``ActorPublisherMessage.SubscriptionTimeoutExceeded`` message and MUST then "
+"perform cleanup and stop itself."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:96
@@ -191,14 +188,15 @@ msgid "More detailed information can be found in the API documentation."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:101
-msgid "This is how it can be used as input :class:`Source` to a :class:`Flow`:"
+msgid ""
+"This is how it can be used as input :class:`Source` to a :class:`Flow`:"
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:105
 msgid ""
-"A publisher that is created with ``Sink.asPublisher`` supports a "
-"specified number of subscribers. Additional subscription attempts will be"
-" rejected with an :class:`IllegalStateException`."
+"A publisher that is created with ``Sink.asPublisher`` supports a specified "
+"number of subscribers. Additional subscription attempts will be rejected "
+"with an :class:`IllegalStateException`."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:109
@@ -208,45 +206,45 @@ msgstr ""
 #: ../../scala/stream/stream-integrations.rst:111
 msgid ""
 "Extend/mixin :class:`akka.stream.actor.ActorSubscriber` in your "
-":class:`Actor` to make it a stream subscriber with full control of stream"
-" back pressure. It will receive ``ActorSubscriberMessage.OnNext``, "
-"``ActorSubscriberMessage.OnComplete`` and "
-"``ActorSubscriberMessage.OnError`` messages from the stream. It can also "
-"receive other, non-stream messages, in the same way as any actor."
+":class:`Actor` to make it a stream subscriber with full control of stream "
+"back pressure. It will receive ``ActorSubscriberMessage.OnNext``, "
+"``ActorSubscriberMessage.OnComplete`` and ``ActorSubscriberMessage.OnError``"
+" messages from the stream. It can also receive other, non-stream messages, "
+"in the same way as any actor."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:116
 msgid ""
-"Here is an example of such an actor. It dispatches incoming jobs to child"
-" worker actors:"
+"Here is an example of such an actor. It dispatches incoming jobs to child "
+"worker actors:"
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:120
 msgid ""
 "Subclass must define the ``RequestStrategy`` to control stream back "
 "pressure. After each incoming message the ``ActorSubscriber`` will "
-"automatically invoke the ``RequestStrategy.requestDemand`` and propagate "
-"the returned demand to the stream."
+"automatically invoke the ``RequestStrategy.requestDemand`` and propagate the"
+" returned demand to the stream."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:124
 msgid ""
-"The provided ``WatermarkRequestStrategy`` is a good strategy if the actor"
-" performs work itself."
+"The provided ``WatermarkRequestStrategy`` is a good strategy if the actor "
+"performs work itself."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:125
 msgid ""
-"The provided ``MaxInFlightRequestStrategy`` is useful if messages are "
-"queued internally or delegated to other actors."
+"The provided ``MaxInFlightRequestStrategy`` is useful if messages are queued"
+" internally or delegated to other actors."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:127
 msgid ""
 "You can also implement a custom ``RequestStrategy`` or call ``request`` "
-"manually together with ``ZeroRequestStrategy`` or some other strategy. In"
-" that case you must also call ``request`` when the actor is started or "
-"when it is ready, otherwise it will not receive any elements."
+"manually together with ``ZeroRequestStrategy`` or some other strategy. In "
+"that case you must also call ``request`` when the actor is started or when "
+"it is ready, otherwise it will not receive any elements."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:134
@@ -259,9 +257,8 @@ msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:141
 msgid ""
-"Stream transformations and side effects involving external non-stream "
-"based services can be performed with ``mapAsync`` or "
-"``mapAsyncUnordered``."
+"Stream transformations and side effects involving external non-stream based "
+"services can be performed with ``mapAsync`` or ``mapAsyncUnordered``."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:144
@@ -280,8 +277,8 @@ msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:157
 msgid ""
-"Transforming the stream of authors to a stream of email addresses by "
-"using the ``lookupEmail`` service can be done with ``mapAsync``:"
+"Transforming the stream of authors to a stream of email addresses by using "
+"the ``lookupEmail`` service can be done with ``mapAsync``:"
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:162
@@ -293,8 +290,8 @@ msgid ""
 "``mapAsync`` is applying the given function that is calling out to the "
 "external service to each of the elements as they pass through this "
 "processing step. The function returns a :class:`Future` and the value of "
-"that future will be emitted downstreams. The number of Futures that shall"
-" run in parallel is given as the first argument to ``mapAsync``. These "
+"that future will be emitted downstreams. The number of Futures that shall "
+"run in parallel is given as the first argument to ``mapAsync``. These "
 "Futures may complete in any order, but the elements that are emitted "
 "downstream are in the same order as received from upstream."
 msgstr ""
@@ -308,28 +305,28 @@ msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:177
 msgid ""
-"The final piece of this pipeline is to generate the demand that pulls the"
-" tweet authors information through the emailing pipeline: we attach a "
-"``Sink.ignore`` which makes it all run. If our email process would return"
-" some interesting data for further transformation then we would of course"
-" not ignore it but send that result stream onwards for further processing"
-" or storage."
+"The final piece of this pipeline is to generate the demand that pulls the "
+"tweet authors information through the emailing pipeline: we attach a "
+"``Sink.ignore`` which makes it all run. If our email process would return "
+"some interesting data for further transformation then we would of course not"
+" ignore it but send that result stream onwards for further processing or "
+"storage."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:183
 msgid ""
-"Note that ``mapAsync`` preserves the order of the stream elements. In "
-"this example the order is not important and then we can use the more "
-"efficient ``mapAsyncUnordered``:"
+"Note that ``mapAsync`` preserves the order of the stream elements. In this "
+"example the order is not important and then we can use the more efficient "
+"``mapAsyncUnordered``:"
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:188
 msgid ""
-"In the above example the services conveniently returned a :class:`Future`"
-" of the result. If that is not the case you need to wrap the call in a "
-":class:`Future`. If the service call involves blocking you must also make"
-" sure that you run it on a dedicated execution context, to avoid "
-"starvation and disturbance of other tasks in the system."
+"In the above example the services conveniently returned a :class:`Future` of"
+" the result. If that is not the case you need to wrap the call in a "
+":class:`Future`. If the service call involves blocking you must also make "
+"sure that you run it on a dedicated execution context, to avoid starvation "
+"and disturbance of other tasks in the system."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:195
@@ -340,15 +337,15 @@ msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:199
 msgid ""
-"An alternative for blocking calls is to perform them in a ``map`` "
-"operation, still using a dedicated dispatcher for that operation."
+"An alternative for blocking calls is to perform them in a ``map`` operation,"
+" still using a dedicated dispatcher for that operation."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:204
 msgid ""
 "However, that is not exactly the same as ``mapAsync``, since the "
-"``mapAsync`` may run several calls concurrently, but ``map`` performs "
-"them one at a time."
+"``mapAsync`` may run several calls concurrently, but ``map`` performs them "
+"one at a time."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:207
@@ -360,8 +357,8 @@ msgstr ""
 #: ../../scala/stream/stream-integrations.rst:212
 msgid ""
 "Note that if the ``ask`` is not completed within the given timeout the "
-"stream is completed with failure. If that is not desired outcome you can "
-"use ``recover`` on the ``ask`` :class:`Future`."
+"stream is completed with failure. If that is not desired outcome you can use"
+" ``recover`` on the ``ask`` :class:`Future`."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:216
@@ -370,35 +367,34 @@ msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:218
 msgid ""
-"Let us look at another example to get a better understanding of the "
-"ordering and parallelism characteristics of ``mapAsync`` and "
-"``mapAsyncUnordered``."
+"Let us look at another example to get a better understanding of the ordering"
+" and parallelism characteristics of ``mapAsync`` and ``mapAsyncUnordered``."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:221
 msgid ""
-"Several ``mapAsync`` and ``mapAsyncUnordered`` futures may run "
-"concurrently. The number of concurrent futures are limited by the "
-"downstream demand. For example, if 5 elements have been requested by "
-"downstream there will be at most 5 futures in progress."
+"Several ``mapAsync`` and ``mapAsyncUnordered`` futures may run concurrently."
+" The number of concurrent futures are limited by the downstream demand. For "
+"example, if 5 elements have been requested by downstream there will be at "
+"most 5 futures in progress."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:226
 msgid ""
 "``mapAsync`` emits the future results in the same order as the input "
-"elements were received. That means that completed results are only "
-"emitted downstream when earlier results have been completed and emitted. "
-"One slow call will thereby delay the results of all successive calls, "
-"even though they are completed before the slow call."
+"elements were received. That means that completed results are only emitted "
+"downstream when earlier results have been completed and emitted. One slow "
+"call will thereby delay the results of all successive calls, even though "
+"they are completed before the slow call."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:232
 msgid ""
 "``mapAsyncUnordered`` emits the future results as soon as they are "
-"completed, i.e. it is possible that the elements are not emitted "
-"downstream in the same order as received from upstream. One slow call "
-"will thereby not delay the results of faster successive calls as long as "
-"there is downstream demand of several elements."
+"completed, i.e. it is possible that the elements are not emitted downstream "
+"in the same order as received from upstream. One slow call will thereby not "
+"delay the results of faster successive calls as long as there is downstream "
+"demand of several elements."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:237
@@ -407,8 +403,8 @@ msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:241
 msgid ""
-"Elements starting with a lower case character are simulated to take "
-"longer time to process."
+"Elements starting with a lower case character are simulated to take longer "
+"time to process."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:244
@@ -422,17 +418,17 @@ msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:293
 msgid ""
-"Note that ``after`` lines are in the same order as the ``before`` lines "
-"even though elements are ``completed`` in a different order. For example "
-"``H`` is ``completed`` before ``g``, but still emitted afterwards."
+"Note that ``after`` lines are in the same order as the ``before`` lines even"
+" though elements are ``completed`` in a different order. For example ``H`` "
+"is ``completed`` before ``g``, but still emitted afterwards."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:297
 #: ../../scala/stream/stream-integrations.rst:353
 msgid ""
-"The numbers in parenthesis illustrates how many calls that are in "
-"progress at the same time. Here the downstream demand and thereby the "
-"number of concurrent calls are limited by the buffer size (4) of the "
+"The numbers in parenthesis illustrates how many calls that are in progress "
+"at the same time. Here the downstream demand and thereby the number of "
+"concurrent calls are limited by the buffer size (4) of the "
 ":class:`ActorMaterializerSettings`."
 msgstr ""
 
@@ -442,8 +438,8 @@ msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:350
 msgid ""
-"Note that ``after`` lines are not in the same order as the ``before`` "
-"lines. For example ``H`` overtakes the slow ``G``."
+"Note that ``after`` lines are not in the same order as the ``before`` lines."
+" For example ``H`` overtakes the slow ``G``."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:360
@@ -452,8 +448,8 @@ msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:362
 msgid ""
-"`Reactive Streams`_ defines a standard for asynchronous stream processing"
-" with non-blocking back pressure. It makes it possible to plug together "
+"`Reactive Streams`_ defines a standard for asynchronous stream processing "
+"with non-blocking back pressure. It makes it possible to plug together "
 "stream libraries that adhere to the standard. Akka Streams is one such "
 "library."
 msgstr ""
@@ -494,48 +490,46 @@ msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:391
 msgid ""
-"Using an Akka Streams :class:`Flow` we can transform the stream and "
-"connect those:"
+"Using an Akka Streams :class:`Flow` we can transform the stream and connect "
+"those:"
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:396
 msgid ""
-"The :class:`Publisher` is used as an input :class:`Source` to the flow "
-"and the :class:`Subscriber` is used as an output :class:`Sink`."
+"The :class:`Publisher` is used as an input :class:`Source` to the flow and "
+"the :class:`Subscriber` is used as an output :class:`Sink`."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:399
 msgid ""
 "A :class:`Flow` can also be also converted to a "
 ":class:`RunnableGraph[Processor[In, Out]]` which materializes to a "
-":class:`Processor` when ``run()`` is called. ``run()`` itself can be "
-"called multiple times, resulting in a new :class:`Processor` instance "
-"each time."
+":class:`Processor` when ``run()`` is called. ``run()`` itself can be called "
+"multiple times, resulting in a new :class:`Processor` instance each time."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:405
 msgid ""
-"A publisher can be connected to a subscriber with the ``subscribe`` "
-"method."
+"A publisher can be connected to a subscriber with the ``subscribe`` method."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:407
 msgid ""
-"It is also possible to expose a :class:`Source` as a :class:`Publisher` "
-"by using the Publisher-:class:`Sink`:"
+"It is also possible to expose a :class:`Source` as a :class:`Publisher` by "
+"using the Publisher-:class:`Sink`:"
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:412
 msgid ""
 "A publisher that is created with ``Sink.asPublisher(fanout = false)`` "
-"supports only a single subscription. Additional subscription attempts "
-"will be rejected with an :class:`IllegalStateException`."
+"supports only a single subscription. Additional subscription attempts will "
+"be rejected with an :class:`IllegalStateException`."
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:415
 msgid ""
-"A publisher that supports multiple subscribers using fan-out/broadcasting"
-" is created as follows:"
+"A publisher that supports multiple subscribers using fan-out/broadcasting is"
+" created as follows:"
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:422
@@ -547,9 +541,8 @@ msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:425
 msgid ""
-"To make the picture complete, it is also possible to expose a "
-":class:`Sink` as a :class:`Subscriber` by using the "
-"Subscriber-:class:`Source`:"
+"To make the picture complete, it is also possible to expose a :class:`Sink` "
+"as a :class:`Subscriber` by using the Subscriber-:class:`Source`:"
 msgstr ""
 
 #: ../../scala/stream/stream-integrations.rst:430
@@ -564,4 +557,3 @@ msgid ""
 "Please note that a factory is necessary to achieve reusability of the "
 "resulting :class:`Flow`."
 msgstr ""
-

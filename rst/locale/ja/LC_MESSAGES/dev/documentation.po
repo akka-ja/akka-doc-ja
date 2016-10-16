@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../dev/documentation.rst:7
 msgid "Documentation Guidelines"
@@ -23,8 +23,8 @@ msgstr ""
 
 #: ../../dev/documentation.rst:9
 msgid ""
-"The Akka documentation uses `reStructuredText`_ as its markup language "
-"and is built using `Sphinx`_."
+"The Akka documentation uses `reStructuredText`_ as its markup language and "
+"is built using `Sphinx`_."
 msgstr ""
 
 #: ../../dev/documentation.rst:17
@@ -53,8 +53,8 @@ msgstr ""
 
 #: ../../dev/documentation.rst:29
 msgid ""
-"Section headings are very flexible in reST. We use the following "
-"convention in the Akka documentation:"
+"Section headings are very flexible in reST. We use the following convention "
+"in the Akka documentation:"
 msgstr ""
 
 #: ../../dev/documentation.rst:32
@@ -84,9 +84,9 @@ msgstr ""
 #: ../../dev/documentation.rst:42
 msgid ""
 "Sections that may be cross-referenced across the documentation should be "
-"marked with a reference. To mark a section use ``.. _ref-name:`` before "
-"the section heading. The section can then be linked with ``:ref:`ref-"
-"name```. These are unique references across the entire documentation."
+"marked with a reference. To mark a section use ``.. _ref-name:`` before the "
+"section heading. The section can then be linked with ``:ref:`ref-name```. "
+"These are unique references across the entire documentation."
 msgstr ""
 
 #: ../../dev/documentation.rst:47
@@ -127,14 +127,14 @@ msgstr ""
 
 #: ../../dev/documentation.rst:101
 msgid ""
-"Homebrew will automatically add Python executable to your $PATH and pip "
-"is a part of the default Python installation with Homebrew."
+"Homebrew will automatically add Python executable to your $PATH and pip is a"
+" part of the default Python installation with Homebrew."
 msgstr ""
 
 #: ../../dev/documentation.rst:103
 msgid ""
-"More information in case of trouble: "
-"https://github.com/mxcl/homebrew/wiki/Homebrew-and-Python"
+"More information in case of trouble: https://github.com/mxcl/homebrew/wiki"
+"/Homebrew-and-Python"
 msgstr ""
 
 #: ../../dev/documentation.rst:106
@@ -142,7 +142,8 @@ msgid "Install sphinx:"
 msgstr ""
 
 #: ../../dev/documentation.rst:112
-msgid "Install BasicTeX package from: http://www.tug.org/mactex/morepackages.html"
+msgid ""
+"Install BasicTeX package from: http://www.tug.org/mactex/morepackages.html"
 msgstr ""
 
 #: ../../dev/documentation.rst:115
@@ -156,7 +157,5 @@ msgstr ""
 #: ../../dev/documentation.rst:140
 msgid ""
 "If you get the error \"unknown locale: UTF-8\" when generating the "
-"documentation the solution is to define the following environment "
-"variables:"
+"documentation the solution is to define the following environment variables:"
 msgstr ""
-

@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/index.rst:4
 msgid "BasicDirectives"
@@ -23,9 +23,9 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/index.rst:6
 msgid ""
-"Basic directives are building blocks for building :ref:`Custom "
-"Directives`. As such they usually aren't used in a route directly but "
-"rather in the definition of new directives."
+"Basic directives are building blocks for building :ref:`Custom Directives`. "
+"As such they usually aren't used in a route directly but rather in the "
+"definition of new directives."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/index.rst:13
@@ -34,10 +34,10 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/index.rst:15
 msgid ""
-"These directives provide values to the inner routes with extractions. "
-"They can be distinguished on two axes: a) provide a constant value or "
-"extract a value from the ``RequestContext`` b) provide a single value or "
-"a tuple of values."
+"These directives provide values to the inner routes with extractions. They "
+"can be distinguished on two axes: a) provide a constant value or extract a "
+"value from the ``RequestContext`` b) provide a single value or a tuple of "
+"values."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/index.rst:19
@@ -171,7 +171,8 @@ msgid "Transforming the RouteResult"
 msgstr ""
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/index.rst:71
-msgid "These directives allow to transform the RouteResult of the inner route."
+msgid ""
+"These directives allow to transform the RouteResult of the inner route."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/index.rst:73
@@ -229,4 +230,3 @@ msgstr ""
 #: ../../scala/http/routing-dsl/directives/basic-directives/index.rst:93
 msgid "Alphabetically"
 msgstr ""
-

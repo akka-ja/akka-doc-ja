@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../java/routing.rst:5
 msgid "Routing"
@@ -23,17 +23,17 @@ msgstr ""
 
 #: ../../java/routing.rst:7
 msgid ""
-"Messages can be sent via a router to efficiently route them to "
-"destination actors, known as its *routees*. A ``Router`` can be used "
-"inside or outside of an actor, and you can manage the routees yourselves "
-"or use a self contained router actor with configuration capabilities."
+"Messages can be sent via a router to efficiently route them to destination "
+"actors, known as its *routees*. A ``Router`` can be used inside or outside "
+"of an actor, and you can manage the routees yourselves or use a self "
+"contained router actor with configuration capabilities."
 msgstr ""
 
 #: ../../java/routing.rst:11
 msgid ""
-"Different routing strategies can be used, according to your application's"
-" needs. Akka comes with several useful routing strategies right out of "
-"the box. But, as you will see in this chapter, it is also possible to "
+"Different routing strategies can be used, according to your application's "
+"needs. Akka comes with several useful routing strategies right out of the "
+"box. But, as you will see in this chapter, it is also possible to "
 ":ref:`create your own <custom-router-java>`."
 msgstr ""
 
@@ -88,8 +88,8 @@ msgstr ""
 #: ../../java/routing.rst:37
 msgid ""
 "We create the routees as ordinary child actors wrapped in "
-"``ActorRefRoutee``. We watch the routees to be able to replace them if "
-"they are terminated."
+"``ActorRefRoutee``. We watch the routees to be able to replace them if they "
+"are terminated."
 msgstr ""
 
 #: ../../java/routing.rst:40
@@ -100,17 +100,17 @@ msgstr ""
 
 #: ../../java/routing.rst:43
 msgid ""
-"The ``Router`` is immutable and the ``RoutingLogic`` is thread safe; "
-"meaning that they can also be used outside of actors."
+"The ``Router`` is immutable and the ``RoutingLogic`` is thread safe; meaning"
+" that they can also be used outside of actors."
 msgstr ""
 
 #: ../../java/routing.rst:48
 msgid ""
 "In general, any message sent to a router will be sent onwards to its "
-"routees, but there is one exception. The special :ref:`broadcast-"
-"messages-java` will send to *all* of a router's routees. However, do not "
-"use :ref:`broadcast-messages-java` when you use :ref:`balancing-pool-"
-"java` for routees as described in :ref:`router-special-messages-java`."
+"routees, but there is one exception. The special :ref:`broadcast-messages-"
+"java` will send to *all* of a router's routees. However, do not use :ref"
+":`broadcast-messages-java` when you use :ref:`balancing-pool-java` for "
+"routees as described in :ref:`router-special-messages-java`."
 msgstr ""
 
 #: ../../java/routing.rst:54
@@ -130,35 +130,35 @@ msgstr ""
 
 #: ../../java/routing.rst:61
 msgid ""
-"Pool - The router creates routees as child actors and removes them from "
-"the router if they terminate."
+"Pool - The router creates routees as child actors and removes them from the "
+"router if they terminate."
 msgstr ""
 
 #: ../../java/routing.rst:64
 msgid ""
 "Group - The routee actors are created externally to the router and the "
-"router sends messages to the specified path using actor selection, "
-"without watching for termination."
+"router sends messages to the specified path using actor selection, without "
+"watching for termination."
 msgstr ""
 
 #: ../../java/routing.rst:67
 msgid ""
 "The settings for a router actor can be defined in configuration or "
 "programmatically. In order to make an actor to make use of an externally "
-"configurable router the ``FromConfig`` props wrapper must be used to "
-"denote that the actor accepts routing settings from configuration. This "
-"is in contrast with Remote Deployment where such marker props is not "
-"necessary. If the props of an actor is NOT wrapped in ``FromConfig`` it "
-"will ignore the router section of the deployment configuration."
+"configurable router the ``FromConfig`` props wrapper must be used to denote "
+"that the actor accepts routing settings from configuration. This is in "
+"contrast with Remote Deployment where such marker props is not necessary. If"
+" the props of an actor is NOT wrapped in ``FromConfig`` it will ignore the "
+"router section of the deployment configuration."
 msgstr ""
 
 #: ../../java/routing.rst:73
 msgid ""
-"You send messages to the routees via the router actor in the same way as "
-"for ordinary actors, i.e. via its ``ActorRef``. The router actor forwards"
-" messages onto its routees without changing the original sender. When a "
-"routee replies to a routed message, the reply will be sent to the "
-"original sender, not to the router actor."
+"You send messages to the routees via the router actor in the same way as for"
+" ordinary actors, i.e. via its ``ActorRef``. The router actor forwards "
+"messages onto its routees without changing the original sender. When a "
+"routee replies to a routed message, the reply will be sent to the original "
+"sender, not to the router actor."
 msgstr ""
 
 #: ../../java/routing.rst:80
@@ -175,8 +175,8 @@ msgstr ""
 #: ../../java/routing.rst:86
 msgid ""
 "The following code and configuration snippets show how to create a :ref"
-":`round-robin <round-robin-router-java>` router that forwards messages to"
-" five ``Worker`` routees. The routees will be created as the router's "
+":`round-robin <round-robin-router-java>` router that forwards messages to "
+"five ``Worker`` routees. The routees will be created as the router's "
 "children."
 msgstr ""
 
@@ -193,12 +193,11 @@ msgstr ""
 #: ../../java/routing.rst:102
 msgid ""
 "In addition to being able to create local actors as routees, you can "
-"instruct the router to deploy its created children on a set of remote "
-"hosts. Routees will be deployed in round-robin fashion. In order to "
-"deploy routees remotely, wrap the router configuration in a "
-"``RemoteRouterConfig``, attaching the remote addresses of the nodes to "
-"deploy to. Remote deployment requires the ``akka-remote`` module to be "
-"included in the classpath."
+"instruct the router to deploy its created children on a set of remote hosts."
+" Routees will be deployed in round-robin fashion. In order to deploy routees"
+" remotely, wrap the router configuration in a ``RemoteRouterConfig``, "
+"attaching the remote addresses of the nodes to deploy to. Remote deployment "
+"requires the ``akka-remote`` module to be included in the classpath."
 msgstr ""
 
 #: ../../java/routing.rst:111
@@ -213,10 +212,10 @@ msgstr ""
 
 #: ../../java/routing.rst:119
 msgid ""
-"However, it is often useful for routees to set the *router* as a sender. "
-"For example, you might want to set the router as the sender if you want "
-"to hide the details of the routees behind the router. The following code "
-"snippet shows how to set the parent router as sender."
+"However, it is often useful for routees to set the *router* as a sender. For"
+" example, you might want to set the router as the sender if you want to hide"
+" the details of the routees behind the router. The following code snippet "
+"shows how to set the parent router as sender."
 msgstr ""
 
 #: ../../java/routing.rst:127
@@ -225,8 +224,8 @@ msgstr ""
 
 #: ../../java/routing.rst:129
 msgid ""
-"Routees that are created by a pool router will be created as the router's"
-" children. The router is therefore also the children's supervisor."
+"Routees that are created by a pool router will be created as the router's "
+"children. The router is therefore also the children's supervisor."
 msgstr ""
 
 #: ../../java/routing.rst:132
@@ -255,14 +254,14 @@ msgstr ""
 
 #: ../../java/routing.rst:144
 msgid ""
-"This means that if you have not specified :meth:`supervisorStrategy` of "
-"the router or its parent a failure in a routee will escalate to the "
-"parent of the router, which will by default restart the router, which "
-"will restart all routees (it uses Escalate and does not stop routees "
-"during restart). The reason is to make the default behave such that "
-"adding :meth:`.withRouter` to a child’s definition does not change the "
-"supervision strategy applied to the child. This might be an inefficiency "
-"that you can avoid by specifying the strategy when defining the router."
+"This means that if you have not specified :meth:`supervisorStrategy` of the "
+"router or its parent a failure in a routee will escalate to the parent of "
+"the router, which will by default restart the router, which will restart all"
+" routees (it uses Escalate and does not stop routees during restart). The "
+"reason is to make the default behave such that adding :meth:`.withRouter` to"
+" a child’s definition does not change the supervision strategy applied to "
+"the child. This might be an inefficiency that you can avoid by specifying "
+"the strategy when defining the router."
 msgstr ""
 
 #: ../../java/routing.rst:151
@@ -272,8 +271,8 @@ msgstr ""
 #: ../../java/routing.rst:159
 msgid ""
 "If the child of a pool router terminates, the pool router will not "
-"automatically spawn a new child. In the event that all children of a pool"
-" router have terminated the router will terminate itself unless it is a "
+"automatically spawn a new child. In the event that all children of a pool "
+"router have terminated the router will terminate itself unless it is a "
 "dynamic router, e.g. using a resizer."
 msgstr ""
 
@@ -284,16 +283,15 @@ msgstr ""
 #: ../../java/routing.rst:167
 msgid ""
 "Sometimes, rather than having the router actor create its routees, it is "
-"desirable to create routees separately and provide them to the router for"
-" its use. You can do this by passing an paths of the routees to the "
-"router's configuration. Messages will be sent with ``ActorSelection`` to "
-"these paths."
+"desirable to create routees separately and provide them to the router for "
+"its use. You can do this by passing an paths of the routees to the router's "
+"configuration. Messages will be sent with ``ActorSelection`` to these paths."
 msgstr ""
 
 #: ../../java/routing.rst:172
 msgid ""
-"The example below shows how to create a router by providing it with the "
-"path strings of three routee actors."
+"The example below shows how to create a router by providing it with the path"
+" strings of three routee actors."
 msgstr ""
 
 #: ../../java/routing.rst:184
@@ -302,9 +300,9 @@ msgstr ""
 
 #: ../../java/routing.rst:190
 msgid ""
-"The paths may contain protocol and address information for actors running"
-" on remote hosts. Remoting requires the ``akka-remote`` module to be "
-"included in the classpath."
+"The paths may contain protocol and address information for actors running on"
+" remote hosts. Remoting requires the ``akka-remote`` module to be included "
+"in the classpath."
 msgstr ""
 
 #: ../../java/routing.rst:196
@@ -313,15 +311,15 @@ msgstr ""
 
 #: ../../java/routing.rst:198
 msgid ""
-"In this section we will describe how to create the different types of "
-"router actors."
+"In this section we will describe how to create the different types of router"
+" actors."
 msgstr ""
 
 #: ../../java/routing.rst:200
 msgid ""
-"The router actors in this section are created from within a top level "
-"actor named ``parent``. Note that deployment paths in the configuration "
-"starts with ``/parent/`` followed by the name of the router actor."
+"The router actors in this section are created from within a top level actor "
+"named ``parent``. Note that deployment paths in the configuration starts "
+"with ``/parent/`` followed by the name of the router actor."
 msgstr ""
 
 #: ../../java/routing.rst:209
@@ -387,26 +385,25 @@ msgstr ""
 #: ../../java/routing.rst:270
 msgid ""
 "The BalancingPool has the property that its routees do not have truly "
-"distinct identity: they have different names, but talking to them will "
-"not end up at the right actor in most cases. Therefore you cannot use it "
-"for workflows that require state to be kept within the routee, you would "
-"in this case have to include the whole state in the messages."
+"distinct identity: they have different names, but talking to them will not "
+"end up at the right actor in most cases. Therefore you cannot use it for "
+"workflows that require state to be kept within the routee, you would in this"
+" case have to include the whole state in the messages."
 msgstr ""
 
 #: ../../java/routing.rst:276
 msgid ""
-"With a `SmallestMailboxPool`_ you can have a vertically scaling service "
-"that can interact in a stateful fashion with other services in the back-"
-"end before replying to the original client. The other advantage is that "
-"it does not place a restriction on the message queue implementation as "
-"BalancingPool does."
+"With a `SmallestMailboxPool`_ you can have a vertically scaling service that"
+" can interact in a stateful fashion with other services in the back-end "
+"before replying to the original client. The other advantage is that it does "
+"not place a restriction on the message queue implementation as BalancingPool"
+" does."
 msgstr ""
 
 #: ../../java/routing.rst:282
 msgid ""
-"Do not use :ref:`broadcast-messages-java` when you use :ref:`balancing-"
-"pool-java` for routers, as described in :ref:`router-special-messages-"
-"java`."
+"Do not use :ref:`broadcast-messages-java` when you use :ref:`balancing-pool-"
+"java` for routers, as described in :ref:`router-special-messages-java`."
 msgstr ""
 
 #: ../../java/routing.rst:285
@@ -419,47 +416,45 @@ msgstr ""
 
 #: ../../java/routing.rst:295
 msgid ""
-"Addition configuration for the balancing dispatcher, which is used by the"
-" pool, can be configured in the ``pool-dispatcher`` section of the router"
-" deployment configuration."
+"Addition configuration for the balancing dispatcher, which is used by the "
+"pool, can be configured in the ``pool-dispatcher`` section of the router "
+"deployment configuration."
 msgstr ""
 
 #: ../../java/routing.rst:301
 msgid ""
-"The ``BalancingPool`` automatically uses a special "
-"``BalancingDispatcher`` for its routees - disregarding any dispatcher "
-"that is set on the routee Props object. This is needed in order to "
-"implement the balancing semantics via sharing the same mailbox by all the"
-" routees."
+"The ``BalancingPool`` automatically uses a special ``BalancingDispatcher`` "
+"for its routees - disregarding any dispatcher that is set on the routee "
+"Props object. This is needed in order to implement the balancing semantics "
+"via sharing the same mailbox by all the routees."
 msgstr ""
 
 #: ../../java/routing.rst:306
 msgid ""
-"While it is not possible to change the dispatcher used by the routees, it"
-" is possible to fine tune the used *executor*. By default the ``fork-"
-"join-dispatcher`` is used and can be configured as explained in :ref"
-":`dispatchers-java`. In situations where the routees are expected to "
-"perform blocking operations it may be useful to replace it with a "
-"``thread-pool-executor`` hinting the number of allocated threads "
-"explicitly:"
+"While it is not possible to change the dispatcher used by the routees, it is"
+" possible to fine tune the used *executor*. By default the ``fork-join-"
+"dispatcher`` is used and can be configured as explained in :ref"
+":`dispatchers-java`. In situations where the routees are expected to perform"
+" blocking operations it may be useful to replace it with a ``thread-pool-"
+"executor`` hinting the number of allocated threads explicitly:"
 msgstr ""
 
 #: ../../java/routing.rst:314
 msgid ""
 "It is also possible to change the ``mailbox`` used by the balancing "
 "dispatcher for scenarios where the default unbounded mailbox is not well "
-"suited. An example of such a scenario could arise whether there exists "
-"the need to manage priority for each message. You can then implement a "
-"priority mailbox and configure your dispatcher:"
+"suited. An example of such a scenario could arise whether there exists the "
+"need to manage priority for each message. You can then implement a priority "
+"mailbox and configure your dispatcher:"
 msgstr ""
 
 #: ../../java/routing.rst:323
 msgid ""
-"Bear in mind that ``BalancingDispatcher`` requires a message queue that "
-"must be thread-safe for multiple concurrent consumers. So it is mandatory"
-" for the message queue backing a custom mailbox for this kind of "
-"dispatcher to implement akka.dispatch.MultipleConsumerSemantics. See "
-"details on how to implement your custom mailbox in :ref:`mailboxes-java`."
+"Bear in mind that ``BalancingDispatcher`` requires a message queue that must"
+" be thread-safe for multiple concurrent consumers. So it is mandatory for "
+"the message queue backing a custom mailbox for this kind of dispatcher to "
+"implement akka.dispatch.MultipleConsumerSemantics. See details on how to "
+"implement your custom mailbox in :ref:`mailboxes-java`."
 msgstr ""
 
 #: ../../java/routing.rst:328
@@ -472,8 +467,8 @@ msgstr ""
 
 #: ../../java/routing.rst:333
 msgid ""
-"A Router that tries to send to the non-suspended child routee with fewest"
-" messages in mailbox. The selection is done in this order:"
+"A Router that tries to send to the non-suspended child routee with fewest "
+"messages in mailbox. The selection is done in this order:"
 msgstr ""
 
 #: ../../java/routing.rst:336
@@ -490,8 +485,8 @@ msgstr ""
 
 #: ../../java/routing.rst:339
 msgid ""
-"pick any remote routee, remote actors are consider lowest priority, since"
-" their mailbox size is unknown"
+"pick any remote routee, remote actors are consider lowest priority, since "
+"their mailbox size is unknown"
 msgstr ""
 
 #: ../../java/routing.rst:342
@@ -504,9 +499,9 @@ msgstr ""
 
 #: ../../java/routing.rst:352
 msgid ""
-"There is no Group variant of the SmallestMailboxPool because the size of "
-"the mailbox and the internal dispatching state of the actor is not "
-"practically available from the paths of the routees."
+"There is no Group variant of the SmallestMailboxPool because the size of the"
+" mailbox and the internal dispatching state of the actor is not practically "
+"available from the paths of the routees."
 msgstr ""
 
 #: ../../java/routing.rst:357
@@ -514,7 +509,8 @@ msgid "BroadcastPool and BroadcastGroup"
 msgstr ""
 
 #: ../../java/routing.rst:359
-msgid "A broadcast router forwards the message it receives to *all* its routees."
+msgid ""
+"A broadcast router forwards the message it receives to *all* its routees."
 msgstr ""
 
 #: ../../java/routing.rst:361
@@ -535,9 +531,9 @@ msgstr ""
 
 #: ../../java/routing.rst:384
 msgid ""
-"Broadcast routers always broadcast *every* message to their routees. If "
-"you do not want to broadcast every message, then you can use a non-"
-"broadcasting router and use :ref:`broadcast-messages-java` as needed."
+"Broadcast routers always broadcast *every* message to their routees. If you "
+"do not want to broadcast every message, then you can use a non-broadcasting "
+"router and use :ref:`broadcast-messages-java` as needed."
 msgstr ""
 
 #: ../../java/routing.rst:390
@@ -546,15 +542,15 @@ msgstr ""
 
 #: ../../java/routing.rst:392
 msgid ""
-"The ScatterGatherFirstCompletedRouter will send the message on to all its"
-" routees. It then waits for first reply it gets back. This result will be"
-" sent back to original sender. Other replies are discarded."
+"The ScatterGatherFirstCompletedRouter will send the message on to all its "
+"routees. It then waits for first reply it gets back. This result will be "
+"sent back to original sender. Other replies are discarded."
 msgstr ""
 
 #: ../../java/routing.rst:396
 msgid ""
-"It is expecting at least one reply within a configured duration, "
-"otherwise it will reply with ``akka.pattern.AskTimeoutException`` in a "
+"It is expecting at least one reply within a configured duration, otherwise "
+"it will reply with ``akka.pattern.AskTimeoutException`` in a "
 "``akka.actor.Status.Failure``."
 msgstr ""
 
@@ -580,18 +576,17 @@ msgstr ""
 
 #: ../../java/routing.rst:423
 msgid ""
-"The TailChoppingRouter will first send the message to one, randomly "
-"picked, routee and then after a small delay to a second routee (picked "
-"randomly from the remaining routees) and so on. It waits for first reply "
-"it gets back and forwards it back to original sender. Other replies are "
-"discarded."
+"The TailChoppingRouter will first send the message to one, randomly picked, "
+"routee and then after a small delay to a second routee (picked randomly from"
+" the remaining routees) and so on. It waits for first reply it gets back and"
+" forwards it back to original sender. Other replies are discarded."
 msgstr ""
 
 #: ../../java/routing.rst:427
 msgid ""
 "The goal of this router is to decrease latency by performing redundant "
-"queries to multiple routees, assuming that one of the other actors may "
-"still be faster to respond than the initial one."
+"queries to multiple routees, assuming that one of the other actors may still"
+" be faster to respond than the initial one."
 msgstr ""
 
 #: ../../java/routing.rst:430
@@ -625,43 +620,44 @@ msgstr ""
 #: ../../java/routing.rst:457
 msgid ""
 "The ConsistentHashingPool uses `consistent hashing "
-"<http://en.wikipedia.org/wiki/Consistent_hashing>`_ to select a routee "
-"based on the sent message. This `article "
+"<http://en.wikipedia.org/wiki/Consistent_hashing>`_ to select a routee based"
+" on the sent message. This `article "
 "<http://weblogs.java.net/blog/tomwhite/archive/2007/11/consistent_hash.html>`_"
 " gives good insight into how consistent hashing is implemented."
 msgstr ""
 
 #: ../../java/routing.rst:462
-msgid "There is 3 ways to define what data to use for the consistent hash key."
+msgid ""
+"There is 3 ways to define what data to use for the consistent hash key."
 msgstr ""
 
 #: ../../java/routing.rst:464
 msgid ""
-"You can define ``withHashMapper`` of the router to map incoming messages "
-"to their consistent hash key. This makes the decision transparent for the"
-" sender."
+"You can define ``withHashMapper`` of the router to map incoming messages to "
+"their consistent hash key. This makes the decision transparent for the "
+"sender."
 msgstr ""
 
 #: ../../java/routing.rst:468
 msgid ""
 "The messages may implement "
-"``akka.routing.ConsistentHashingRouter.ConsistentHashable``. The key is "
-"part of the message and it's convenient to define it together with the "
-"message definition."
+"``akka.routing.ConsistentHashingRouter.ConsistentHashable``. The key is part"
+" of the message and it's convenient to define it together with the message "
+"definition."
 msgstr ""
 
 #: ../../java/routing.rst:472
 msgid ""
 "The messages can be wrapped in a "
 "``akka.routing.ConsistentHashingRouter.ConsistentHashableEnvelope`` to "
-"define what data to use for the consistent hash key. The sender knows the"
-" key to use."
+"define what data to use for the consistent hash key. The sender knows the "
+"key to use."
 msgstr ""
 
 #: ../../java/routing.rst:476
 msgid ""
-"These ways to define the consistent hash key can be use together and at "
-"the same time for one router. The ``withHashMapper`` is tried first."
+"These ways to define the consistent hash key can be use together and at the "
+"same time for one router. The ``withHashMapper`` is tried first."
 msgstr ""
 
 #: ../../java/routing.rst:480
@@ -671,9 +667,9 @@ msgstr ""
 #: ../../java/routing.rst:486
 msgid ""
 "In the above example you see that the ``Get`` message implements "
-"``ConsistentHashable`` itself, while the ``Entry`` message is wrapped in "
-"a ``ConsistentHashableEnvelope``. The ``Evict`` message is handled by the"
-" ``hashMapping`` partial function."
+"``ConsistentHashable`` itself, while the ``Entry`` message is wrapped in a "
+"``ConsistentHashableEnvelope``. The ``Evict`` message is handled by the "
+"``hashMapping`` partial function."
 msgstr ""
 
 #: ../../java/routing.rst:490
@@ -694,9 +690,8 @@ msgstr ""
 
 #: ../../java/routing.rst:512
 msgid ""
-"``virtual-nodes-factor`` is the number of virtual nodes per routee that "
-"is used in the consistent hash node ring to make the distribution more "
-"uniform."
+"``virtual-nodes-factor`` is the number of virtual nodes per routee that is "
+"used in the consistent hash node ring to make the distribution more uniform."
 msgstr ""
 
 #: ../../java/routing.rst:518
@@ -706,14 +701,14 @@ msgstr ""
 #: ../../java/routing.rst:520
 msgid ""
 "Most messages sent to router actors will be forwarded according to the "
-"routers' routing logic. However there are a few types of messages that "
-"have special behavior."
+"routers' routing logic. However there are a few types of messages that have "
+"special behavior."
 msgstr ""
 
 #: ../../java/routing.rst:523
 msgid ""
-"Note that these special messages, except for the ``Broadcast`` message, "
-"are only handled by self contained router actors and not by the "
+"Note that these special messages, except for the ``Broadcast`` message, are "
+"only handled by self contained router actors and not by the "
 "``akka.routing.Router`` component described in :ref:`simple-router-java`."
 msgstr ""
 
@@ -723,32 +718,32 @@ msgstr ""
 
 #: ../../java/routing.rst:532
 msgid ""
-"A ``Broadcast`` message can be used to send a message to *all* of a "
-"router's routees. When a router receives a ``Broadcast`` message, it will"
-" broadcast that message's *payload* to all routees, no matter how that "
-"router would normally route its messages."
+"A ``Broadcast`` message can be used to send a message to *all* of a router's"
+" routees. When a router receives a ``Broadcast`` message, it will broadcast "
+"that message's *payload* to all routees, no matter how that router would "
+"normally route its messages."
 msgstr ""
 
 #: ../../java/routing.rst:536
 msgid ""
-"The example below shows how you would use a ``Broadcast`` message to send"
-" a very important message to every routee of a router."
+"The example below shows how you would use a ``Broadcast`` message to send a "
+"very important message to every routee of a router."
 msgstr ""
 
 #: ../../java/routing.rst:541
 msgid ""
-"In this example the router receives the ``Broadcast`` message, extracts "
-"its payload (``\"Watch out for Davy Jones' locker\"``), and then sends "
-"the payload on to all of the router's routees. It is up to each routee "
-"actor to handle the received payload message."
+"In this example the router receives the ``Broadcast`` message, extracts its "
+"payload (``\"Watch out for Davy Jones' locker\"``), and then sends the "
+"payload on to all of the router's routees. It is up to each routee actor to "
+"handle the received payload message."
 msgstr ""
 
 #: ../../java/routing.rst:546
 msgid ""
-"Do not use :ref:`broadcast-messages-java` when you use :ref:`balancing-"
-"pool-java` for routers. Routees on :ref:`balancing-pool-java` shares the "
-"same mailbox instance, thus some routees can possibly get the broadcast "
-"message multiple times, while other routees get no broadcast message."
+"Do not use :ref:`broadcast-messages-java` when you use :ref:`balancing-pool-"
+"java` for routers. Routees on :ref:`balancing-pool-java` shares the same "
+"mailbox instance, thus some routees can possibly get the broadcast message "
+"multiple times, while other routees get no broadcast message."
 msgstr ""
 
 #: ../../java/routing.rst:551
@@ -757,40 +752,38 @@ msgstr ""
 
 #: ../../java/routing.rst:553
 msgid ""
-"A ``PoisonPill`` message has special handling for all actors, including "
-"for routers. When any actor receives a ``PoisonPill`` message, that actor"
-" will be stopped. See the :ref:`poison-pill-java` documentation for "
-"details."
+"A ``PoisonPill`` message has special handling for all actors, including for "
+"routers. When any actor receives a ``PoisonPill`` message, that actor will "
+"be stopped. See the :ref:`poison-pill-java` documentation for details."
 msgstr ""
 
 #: ../../java/routing.rst:559
 msgid ""
-"For a router, which normally passes on messages to routees, it is "
-"important to realise that ``PoisonPill`` messages are processed by the "
-"router only. ``PoisonPill`` messages sent to a router will *not* be sent "
-"on to routees."
+"For a router, which normally passes on messages to routees, it is important "
+"to realise that ``PoisonPill`` messages are processed by the router only. "
+"``PoisonPill`` messages sent to a router will *not* be sent on to routees."
 msgstr ""
 
 #: ../../java/routing.rst:563
 msgid ""
 "However, a ``PoisonPill`` message sent to a router may still affect its "
-"routees, because it will stop the router and when the router stops it "
-"also stops its children. Stopping children is normal actor behavior. The "
-"router will stop routees that it has created as children. Each child will"
-" process its current message and then stop. This may lead to some "
-"messages being unprocessed. See the documentation on :ref:`stopping-"
-"actors-java` for more information."
+"routees, because it will stop the router and when the router stops it also "
+"stops its children. Stopping children is normal actor behavior. The router "
+"will stop routees that it has created as children. Each child will process "
+"its current message and then stop. This may lead to some messages being "
+"unprocessed. See the documentation on :ref:`stopping-actors-java` for more "
+"information."
 msgstr ""
 
 #: ../../java/routing.rst:569
 msgid ""
-"If you wish to stop a router and its routees, but you would like the "
-"routees to first process all the messages currently in their mailboxes, "
-"then you should not send a ``PoisonPill`` message to the router. Instead "
-"you should wrap a ``PoisonPill`` message inside a ``Broadcast`` message "
-"so that each routee will receive the ``PoisonPill`` message. Note that "
-"this will stop all routees, even if the routees aren't children of the "
-"router, i.e. even routees programmatically provided to the router."
+"If you wish to stop a router and its routees, but you would like the routees"
+" to first process all the messages currently in their mailboxes, then you "
+"should not send a ``PoisonPill`` message to the router. Instead you should "
+"wrap a ``PoisonPill`` message inside a ``Broadcast`` message so that each "
+"routee will receive the ``PoisonPill`` message. Note that this will stop all"
+" routees, even if the routees aren't children of the router, i.e. even "
+"routees programmatically provided to the router."
 msgstr ""
 
 #: ../../java/routing.rst:577
@@ -798,18 +791,18 @@ msgid ""
 "With the code shown above, each routee will receive a ``PoisonPill`` "
 "message. Each routee will continue to process its messages as normal, "
 "eventually processing the ``PoisonPill``. This will cause the routee to "
-"stop. After all routees have stopped the router will itself be "
-":ref:`stopped automatically <note-router-terminated-children-java>` "
-"unless it is a dynamic router, e.g. using a resizer."
+"stop. After all routees have stopped the router will itself be :ref:`stopped"
+" automatically <note-router-terminated-children-java>` unless it is a "
+"dynamic router, e.g. using a resizer."
 msgstr ""
 
 #: ../../java/routing.rst:585
 msgid ""
-"Brendan W McAdams' excellent blog post `Distributing Akka Workloads - And"
-" Shutting Down Afterwards "
+"Brendan W McAdams' excellent blog post `Distributing Akka Workloads - And "
+"Shutting Down Afterwards "
 "<http://bytes.codes/2013/01/17/Distributing_Akka_Workloads_And_Shutting_Down_After/>`_"
-" discusses in more detail how ``PoisonPill`` messages can be used to shut"
-" down routers and routees."
+" discusses in more detail how ``PoisonPill`` messages can be used to shut "
+"down routers and routees."
 msgstr ""
 
 #: ../../java/routing.rst:590
@@ -818,34 +811,34 @@ msgstr ""
 
 #: ../../java/routing.rst:592
 msgid ""
-"``Kill`` messages are another type of message that has special handling. "
-"See :ref:`killing-actors-java` for general information about how actors "
-"handle ``Kill`` messages."
+"``Kill`` messages are another type of message that has special handling. See"
+" :ref:`killing-actors-java` for general information about how actors handle "
+"``Kill`` messages."
 msgstr ""
 
 #: ../../java/routing.rst:595
 msgid ""
-"When a ``Kill`` message is sent to a router the router processes the "
-"message internally, and does *not* send it on to its routees. The router "
-"will throw an ``ActorKilledException`` and fail. It will then be either "
-"resumed, restarted or terminated, depending how it is supervised."
+"When a ``Kill`` message is sent to a router the router processes the message"
+" internally, and does *not* send it on to its routees. The router will throw"
+" an ``ActorKilledException`` and fail. It will then be either resumed, "
+"restarted or terminated, depending how it is supervised."
 msgstr ""
 
 #: ../../java/routing.rst:599
 msgid ""
-"Routees that are children of the router will also be suspended, and will "
-"be affected by the supervision directive that is applied to the router. "
-"Routees that are not the routers children, i.e. those that were created "
-"externally to the router, will not be affected."
+"Routees that are children of the router will also be suspended, and will be "
+"affected by the supervision directive that is applied to the router. Routees"
+" that are not the routers children, i.e. those that were created externally "
+"to the router, will not be affected."
 msgstr ""
 
 #: ../../java/routing.rst:605
 msgid ""
-"As with the ``PoisonPill`` message, there is a distinction between "
-"killing a router, which indirectly kills its children (who happen to be "
-"routees), and killing routees directly (some of whom may not be "
-"children.) To kill routees directly the router should be sent a ``Kill`` "
-"message wrapped in a ``Broadcast`` message."
+"As with the ``PoisonPill`` message, there is a distinction between killing a"
+" router, which indirectly kills its children (who happen to be routees), and"
+" killing routees directly (some of whom may not be children.) To kill "
+"routees directly the router should be sent a ``Kill`` message wrapped in a "
+"``Broadcast`` message."
 msgstr ""
 
 #: ../../java/routing.rst:613
@@ -854,14 +847,14 @@ msgstr ""
 
 #: ../../java/routing.rst:615
 msgid ""
-"Sending ``akka.routing.GetRoutees`` to a router actor will make it send "
-"back its currently used routees in a ``akka.routing.Routees`` message."
+"Sending ``akka.routing.GetRoutees`` to a router actor will make it send back"
+" its currently used routees in a ``akka.routing.Routees`` message."
 msgstr ""
 
 #: ../../java/routing.rst:617
 msgid ""
-"Sending ``akka.routing.AddRoutee`` to a router actor will add that routee"
-" to its collection of routees."
+"Sending ``akka.routing.AddRoutee`` to a router actor will add that routee to"
+" its collection of routees."
 msgstr ""
 
 #: ../../java/routing.rst:618
@@ -872,19 +865,18 @@ msgstr ""
 
 #: ../../java/routing.rst:619
 msgid ""
-"Sending ``akka.routing.AdjustPoolSize`` to a pool router actor will add "
-"or remove that number of routees to its collection of routees."
+"Sending ``akka.routing.AdjustPoolSize`` to a pool router actor will add or "
+"remove that number of routees to its collection of routees."
 msgstr ""
 
 #: ../../java/routing.rst:622
 msgid ""
 "These management messages may be handled after other messages, so if you "
-"send ``AddRoutee`` immediately followed by an ordinary message you are "
-"not guaranteed that the routees have been changed when the ordinary "
-"message is routed. If you need to know when the change has been applied "
-"you can send ``AddRoutee`` followed by ``GetRoutees`` and when you "
-"receive the ``Routees`` reply you know that the preceding change has been"
-" applied."
+"send ``AddRoutee`` immediately followed by an ordinary message you are not "
+"guaranteed that the routees have been changed when the ordinary message is "
+"routed. If you need to know when the change has been applied you can send "
+"``AddRoutee`` followed by ``GetRoutees`` and when you receive the "
+"``Routees`` reply you know that the preceding change has been applied."
 msgstr ""
 
 #: ../../java/routing.rst:630
@@ -909,11 +901,10 @@ msgstr ""
 
 #: ../../java/routing.rst:640
 msgid ""
-"The default resizer ramps up and down pool size based on pressure, "
-"measured by the percentage of busy routees in the pool. It ramps up pool "
-"size if the pressure is higher than a certain threshold and backs off if "
-"the pressure is lower than certain threshold. Both thresholds are "
-"configurable."
+"The default resizer ramps up and down pool size based on pressure, measured "
+"by the percentage of busy routees in the pool. It ramps up pool size if the "
+"pressure is higher than a certain threshold and backs off if the pressure is"
+" lower than certain threshold. Both thresholds are configurable."
 msgstr ""
 
 #: ../../java/routing.rst:644
@@ -944,54 +935,51 @@ msgstr ""
 
 #: ../../java/routing.rst:663
 msgid ""
-"The ``OptimalSizeExploringResizer`` resizes the pool to an optimal size "
-"that provides the most message throughput."
+"The ``OptimalSizeExploringResizer`` resizes the pool to an optimal size that"
+" provides the most message throughput."
 msgstr ""
 
 #: ../../java/routing.rst:665
 msgid ""
-"It achieves this by keeping track of message throughput at each pool size"
-" and performing one of the following three resizing operations "
-"periodically:"
+"It achieves this by keeping track of message throughput at each pool size "
+"and performing one of the following three resizing operations periodically:"
 msgstr ""
 
 #: ../../java/routing.rst:668
 msgid ""
-"Downsize if it hasn't seen all routees ever fully utilized for a period "
-"of time."
+"Downsize if it hasn't seen all routees ever fully utilized for a period of "
+"time."
 msgstr ""
 
 #: ../../java/routing.rst:669
 msgid ""
-"Explore to a random nearby pool size to try and collect throughput "
-"metrics."
+"Explore to a random nearby pool size to try and collect throughput metrics."
 msgstr ""
 
 #: ../../java/routing.rst:670
 msgid ""
-"Optimize to a nearby pool size with a better (than any other nearby "
-"sizes) throughput metrics."
+"Optimize to a nearby pool size with a better (than any other nearby sizes) "
+"throughput metrics."
 msgstr ""
 
 #: ../../java/routing.rst:672
 msgid ""
 "When the pool is fully-utilized (i.e. all routees are busy), it randomly "
-"choose between exploring and optimizing. When the pool has not been "
-"fully-utilized for a period of time, it will downsize the pool to the "
-"last seen max utilization multiplied by a configurable ratio."
+"choose between exploring and optimizing. When the pool has not been fully-"
+"utilized for a period of time, it will downsize the pool to the last seen "
+"max utilization multiplied by a configurable ratio."
 msgstr ""
 
 #: ../../java/routing.rst:676
 msgid ""
-"By constantly exploring and optimizing, the resizer will eventually walk "
-"to the optimal size and remain nearby. When the optimal size changes it "
-"will start walking towards the new one. This resizer works best when you "
-"expect the pool size to performance function to be a convex function. For"
-" example, when you have a CPU bound tasks, the optimal size is bound to "
-"the number of CPU cores. When your task is IO bound, the optimal size is "
-"bound to optimal number of concurrent connections to that IO service - "
-"e.g. a 4 node elastic search cluster may handle 4-8 concurrent requests "
-"at optimal speed."
+"By constantly exploring and optimizing, the resizer will eventually walk to "
+"the optimal size and remain nearby. When the optimal size changes it will "
+"start walking towards the new one. This resizer works best when you expect "
+"the pool size to performance function to be a convex function. For example, "
+"when you have a CPU bound tasks, the optimal size is bound to the number of "
+"CPU cores. When your task is IO bound, the optimal size is bound to optimal "
+"number of concurrent connections to that IO service - e.g. a 4 node elastic "
+"search cluster may handle 4-8 concurrent requests at optimal speed."
 msgstr ""
 
 #: ../../java/routing.rst:683
@@ -1008,19 +996,19 @@ msgstr ""
 #: ../../java/routing.rst:692
 msgid ""
 "Several more configuration options are available and described in "
-"``akka.actor.deployment.default.optimal-size-exploring-resizer`` section "
-"of the reference :ref:`configuration`."
+"``akka.actor.deployment.default.optimal-size-exploring-resizer`` section of "
+"the reference :ref:`configuration`."
 msgstr ""
 
 #: ../../java/routing.rst:697
 msgid ""
-"Resizing is triggered by sending messages to the actor pool, but it is "
-"not completed synchronously; instead a message is sent to the “head” "
-"``RouterActor`` to perform the size change. Thus you cannot rely on "
-"resizing to instantaneously create new workers when all others are busy, "
-"because the message just sent will be queued to the mailbox of a busy "
-"actor. To remedy this, configure the pool to use a balancing dispatcher, "
-"see `Configuring Dispatchers`_ for more information."
+"Resizing is triggered by sending messages to the actor pool, but it is not "
+"completed synchronously; instead a message is sent to the “head” "
+"``RouterActor`` to perform the size change. Thus you cannot rely on resizing"
+" to instantaneously create new workers when all others are busy, because the"
+" message just sent will be queued to the mailbox of a busy actor. To remedy "
+"this, configure the pool to use a balancing dispatcher, see `Configuring "
+"Dispatchers`_ for more information."
 msgstr ""
 
 #: ../../java/routing.rst:708
@@ -1030,29 +1018,27 @@ msgstr ""
 #: ../../java/routing.rst:710
 msgid ""
 "On the surface routers look like normal actors, but they are actually "
-"implemented differently. Routers are designed to be extremely efficient "
-"at receiving messages and passing them quickly on to routees."
+"implemented differently. Routers are designed to be extremely efficient at "
+"receiving messages and passing them quickly on to routees."
 msgstr ""
 
 #: ../../java/routing.rst:714
 msgid ""
 "A normal actor can be used for routing messages, but an actor's single-"
-"threaded processing can become a bottleneck. Routers can achieve much "
-"higher throughput with an optimization to the usual message-processing "
-"pipeline that allows concurrent routing. This is achieved by embedding "
-"routers' routing logic directly in their ``ActorRef`` rather than in the "
-"router actor. Messages sent to a router's ``ActorRef`` can be immediately"
-" routed to the routee, bypassing the single-threaded router actor "
-"entirely."
+"threaded processing can become a bottleneck. Routers can achieve much higher"
+" throughput with an optimization to the usual message-processing pipeline "
+"that allows concurrent routing. This is achieved by embedding routers' "
+"routing logic directly in their ``ActorRef`` rather than in the router "
+"actor. Messages sent to a router's ``ActorRef`` can be immediately routed to"
+" the routee, bypassing the single-threaded router actor entirely."
 msgstr ""
 
 #: ../../java/routing.rst:721
 msgid ""
-"The cost to this is, of course, that the internals of routing code are "
-"more complicated than if routers were implemented with normal actors. "
-"Fortunately all of this complexity is invisible to consumers of the "
-"routing API. However, it is something to be aware of when implementing "
-"your own routers."
+"The cost to this is, of course, that the internals of routing code are more "
+"complicated than if routers were implemented with normal actors. Fortunately"
+" all of this complexity is invisible to consumers of the routing API. "
+"However, it is something to be aware of when implementing your own routers."
 msgstr ""
 
 #: ../../java/routing.rst:729
@@ -1061,23 +1047,21 @@ msgstr ""
 
 #: ../../java/routing.rst:731
 msgid ""
-"You can create your own router should you not find any of the ones "
-"provided by Akka sufficient for your needs. In order to roll your own "
-"router you have to fulfill certain criteria which are explained in this "
-"section."
+"You can create your own router should you not find any of the ones provided "
+"by Akka sufficient for your needs. In order to roll your own router you have"
+" to fulfill certain criteria which are explained in this section."
 msgstr ""
 
 #: ../../java/routing.rst:734
 msgid ""
-"Before creating your own router you should consider whether a normal "
-"actor with router-like behavior might do the job just as well as a full-"
-"blown router. As explained :ref:`above <router-design-java>`, the primary"
-" benefit of routers over normal actors is their higher performance. But "
-"they are somewhat more complicated to write than normal actors. Therefore"
-" if lower maximum throughput is acceptable in your application you may "
-"wish to stick with traditional actors. This section, however, assumes "
-"that you wish to get maximum performance and so demonstrates how you can "
-"create your own router."
+"Before creating your own router you should consider whether a normal actor "
+"with router-like behavior might do the job just as well as a full-blown "
+"router. As explained :ref:`above <router-design-java>`, the primary benefit "
+"of routers over normal actors is their higher performance. But they are "
+"somewhat more complicated to write than normal actors. Therefore if lower "
+"maximum throughput is acceptable in your application you may wish to stick "
+"with traditional actors. This section, however, assumes that you wish to get"
+" maximum performance and so demonstrates how you can create your own router."
 msgstr ""
 
 #: ../../java/routing.rst:742
@@ -1092,17 +1076,17 @@ msgstr ""
 
 #: ../../java/routing.rst:748
 msgid ""
-"``select`` will be called for each message and in this example pick a few"
-" destinations by round-robin, by reusing the existing "
+"``select`` will be called for each message and in this example pick a few "
+"destinations by round-robin, by reusing the existing "
 "``RoundRobinRoutingLogic`` and wrap the result in a ``SeveralRoutees`` "
-"instance.  ``SeveralRoutees`` will send the message to all of the "
-"supplied routes."
+"instance.  ``SeveralRoutees`` will send the message to all of the supplied "
+"routes."
 msgstr ""
 
 #: ../../java/routing.rst:752
 msgid ""
-"The implementation of the routing logic must be thread safe, since it "
-"might be used outside of actors."
+"The implementation of the routing logic must be thread safe, since it might "
+"be used outside of actors."
 msgstr ""
 
 #: ../../java/routing.rst:754
@@ -1117,15 +1101,15 @@ msgstr ""
 
 #: ../../java/routing.rst:761
 msgid ""
-"Let us continue and make this into a self contained, configurable, router"
-" actor."
+"Let us continue and make this into a self contained, configurable, router "
+"actor."
 msgstr ""
 
 #: ../../java/routing.rst:763
 msgid ""
 "Create a class that extends ``PoolBase``, ``GroupBase`` or "
-"``CustomRouterConfig``. That class is a factory for the routing logic and"
-" holds the configuration for the router. Here we make it a ``Group``."
+"``CustomRouterConfig``. That class is a factory for the routing logic and "
+"holds the configuration for the router. Here we make it a ``Group``."
 msgstr ""
 
 #: ../../java/routing.rst:768
@@ -1135,15 +1119,14 @@ msgstr ""
 #: ../../java/routing.rst:772
 msgid ""
 "Note that we added a constructor in ``RedundancyGroup`` that takes a "
-"``Config`` parameter. That makes it possible to define it in "
-"configuration."
+"``Config`` parameter. That makes it possible to define it in configuration."
 msgstr ""
 
 #: ../../java/routing.rst:777
 msgid ""
-"Note the fully qualified class name in the ``router`` property. The "
-"router class must extend ``akka.routing.RouterConfig`` (``Pool``, "
-"``Group`` or ``CustomRouterConfig``) and have constructor with one "
+"Note the fully qualified class name in the ``router`` property. The router "
+"class must extend ``akka.routing.RouterConfig`` (``Pool``, ``Group`` or "
+"``CustomRouterConfig``) and have constructor with one "
 "``com.typesafe.config.Config`` parameter. The deployment section of the "
 "configuration is passed to the constructor."
 msgstr ""
@@ -1154,46 +1137,43 @@ msgstr ""
 
 #: ../../java/routing.rst:787
 msgid ""
-"The dispatcher for created children of the pool will be taken from "
-"``Props`` as described in :ref:`dispatchers-scala`."
+"The dispatcher for created children of the pool will be taken from ``Props``"
+" as described in :ref:`dispatchers-scala`."
 msgstr ""
 
 #: ../../java/routing.rst:790
 msgid ""
-"To make it easy to define the dispatcher of the routees of the pool you "
-"can define the dispatcher inline in the deployment section of the config."
+"To make it easy to define the dispatcher of the routees of the pool you can "
+"define the dispatcher inline in the deployment section of the config."
 msgstr ""
 
 #: ../../java/routing.rst:795
 msgid ""
-"That is the only thing you need to do enable a dedicated dispatcher for a"
-" pool."
+"That is the only thing you need to do enable a dedicated dispatcher for a "
+"pool."
 msgstr ""
 
 #: ../../java/routing.rst:800
 msgid ""
-"If you use a group of actors and route to their paths, then they will "
-"still use the same dispatcher that was configured for them in their "
-"``Props``, it is not possible to change an actors dispatcher after it has"
-" been created."
+"If you use a group of actors and route to their paths, then they will still "
+"use the same dispatcher that was configured for them in their ``Props``, it "
+"is not possible to change an actors dispatcher after it has been created."
 msgstr ""
 
 #: ../../java/routing.rst:804
 msgid ""
-"The “head” router cannot always run on the same dispatcher, because it "
-"does not process the same type of messages, hence this special actor does"
-" not use the dispatcher configured in ``Props``, but takes the "
-"``routerDispatcher`` from the :class:`RouterConfig` instead, which "
-"defaults to the actor system’s default dispatcher. All standard routers "
-"allow setting this property in their constructor or factory method, "
-"custom routers have to implement the method in a suitable way."
+"The “head” router cannot always run on the same dispatcher, because it does "
+"not process the same type of messages, hence this special actor does not use"
+" the dispatcher configured in ``Props``, but takes the ``routerDispatcher`` "
+"from the :class:`RouterConfig` instead, which defaults to the actor system’s"
+" default dispatcher. All standard routers allow setting this property in "
+"their constructor or factory method, custom routers have to implement the "
+"method in a suitable way."
 msgstr ""
 
 #: ../../java/routing.rst:816
 msgid ""
 "It is not allowed to configure the ``routerDispatcher`` to be a "
-":class:`akka.dispatch.BalancingDispatcherConfigurator` since the messages"
-" meant for the special router actor cannot be processed by any other "
-"actor."
+":class:`akka.dispatch.BalancingDispatcherConfigurator` since the messages "
+"meant for the special router actor cannot be processed by any other actor."
 msgstr ""
-

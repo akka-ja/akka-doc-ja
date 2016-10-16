@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../scala/event-bus.rst:5
 msgid "Event Bus"
@@ -30,9 +30,9 @@ msgstr ""
 
 #: ../../scala/event-bus.rst:16
 msgid ""
-"Please note that the EventBus does not preserve the sender of the "
-"published messages. If you need a reference to the original sender you "
-"have to provide it inside the message."
+"Please note that the EventBus does not preserve the sender of the published "
+"messages. If you need a reference to the original sender you have to provide"
+" it inside the message."
 msgstr ""
 
 #: ../../scala/event-bus.rst:20
@@ -52,8 +52,8 @@ msgstr ""
 
 #: ../../scala/event-bus.rst:27
 msgid ""
-":class:`Subscriber` is the type of subscribers allowed to register on "
-"that event bus"
+":class:`Subscriber` is the type of subscribers allowed to register on that "
+"event bus"
 msgstr ""
 
 #: ../../scala/event-bus.rst:30
@@ -75,9 +75,9 @@ msgstr ""
 #: ../../scala/event-bus.rst:39
 msgid ""
 "The classifiers presented here are part of the Akka distribution, but "
-"rolling your own in case you do not find a perfect match is not "
-"difficult, check the implementation of the existing ones on `github "
-"<@github@/akka-actor/src/main/scala/akka/event/EventBus.scala>`_"
+"rolling your own in case you do not find a perfect match is not difficult, "
+"check the implementation of the existing ones on `github <@github@/akka-"
+"actor/src/main/scala/akka/event/EventBus.scala>`_"
 msgstr ""
 
 #: ../../scala/event-bus.rst:44
@@ -86,18 +86,18 @@ msgstr ""
 
 #: ../../scala/event-bus.rst:46
 msgid ""
-"The simplest classification is just to extract an arbitrary classifier "
-"from each event and maintaining a set of subscribers for each possible "
-"classifier. This can be compared to tuning in on a radio station. The "
-"trait :class:`LookupClassification` is still generic in that it abstracts"
-" over how to compare subscribers and how exactly to classify."
+"The simplest classification is just to extract an arbitrary classifier from "
+"each event and maintaining a set of subscribers for each possible "
+"classifier. This can be compared to tuning in on a radio station. The trait "
+":class:`LookupClassification` is still generic in that it abstracts over how"
+" to compare subscribers and how exactly to classify."
 msgstr ""
 
 #: ../../scala/event-bus.rst:52 ../../scala/event-bus.rst:73
 #: ../../scala/event-bus.rst:96 ../../scala/event-bus.rst:121
 msgid ""
-"The necessary methods to be implemented are illustrated with the "
-"following example:"
+"The necessary methods to be implemented are illustrated with the following "
+"example:"
 msgstr ""
 
 #: ../../scala/event-bus.rst:56 ../../scala/event-bus.rst:77
@@ -107,8 +107,8 @@ msgstr ""
 
 #: ../../scala/event-bus.rst:60
 msgid ""
-"This classifier is efficient in case no subscribers exist for a "
-"particular event."
+"This classifier is efficient in case no subscribers exist for a particular "
+"event."
 msgstr ""
 
 #: ../../scala/event-bus.rst:63
@@ -120,20 +120,20 @@ msgid ""
 "If classifiers form a hierarchy and it is desired that subscription be "
 "possible not only at the leaf nodes, this classification may be just the "
 "right one. It can be compared to tuning in on (possibly multiple) radio "
-"channels by genre. This classification has been developed for the case "
-"where the classifier is just the JVM class of the event and subscribers "
-"may be interested in subscribing to all subclasses of a certain class, "
-"but it may be used with any classifier hierarchy."
+"channels by genre. This classification has been developed for the case where"
+" the classifier is just the JVM class of the event and subscribers may be "
+"interested in subscribing to all subclasses of a certain class, but it may "
+"be used with any classifier hierarchy."
 msgstr ""
 
 #: ../../scala/event-bus.rst:81
 msgid ""
-"This classifier is also efficient in case no subscribers are found for an"
-" event, but it uses conventional locking to synchronize an internal "
+"This classifier is also efficient in case no subscribers are found for an "
+"event, but it uses conventional locking to synchronize an internal "
 "classifier cache, hence it is not well-suited to use cases in which "
-"subscriptions change with very high frequency (keep in mind that "
-"“opening” a classifier by sending the first message will also have to re-"
-"check all previous subscriptions)."
+"subscriptions change with very high frequency (keep in mind that “opening” a"
+" classifier by sending the first message will also have to re-check all "
+"previous subscriptions)."
 msgstr ""
 
 #: ../../scala/event-bus.rst:88
@@ -142,18 +142,18 @@ msgstr ""
 
 #: ../../scala/event-bus.rst:90
 msgid ""
-"The previous classifier was built for multi-classifier subscriptions "
-"which are strictly hierarchical, this classifier is useful if there are "
-"overlapping classifiers which cover various parts of the event space "
-"without forming a hierarchy. It can be compared to tuning in on (possibly"
-" multiple) radio stations by geographical reachability (for old-school "
-"radio-wave transmission)."
+"The previous classifier was built for multi-classifier subscriptions which "
+"are strictly hierarchical, this classifier is useful if there are "
+"overlapping classifiers which cover various parts of the event space without"
+" forming a hierarchy. It can be compared to tuning in on (possibly multiple)"
+" radio stations by geographical reachability (for old-school radio-wave "
+"transmission)."
 msgstr ""
 
 #: ../../scala/event-bus.rst:104
 msgid ""
-"This classifier takes always a time which is proportional to the number "
-"of subscriptions, independent of how many actually match."
+"This classifier takes always a time which is proportional to the number of "
+"subscriptions, independent of how many actually match."
 msgstr ""
 
 #: ../../scala/event-bus.rst:110
@@ -162,24 +162,24 @@ msgstr ""
 
 #: ../../scala/event-bus.rst:112
 msgid ""
-"This classification was originally developed specifically for "
-"implementing :ref:`DeathWatch <deathwatch-scala>`: subscribers as well as"
-" classifiers are of type :class:`ActorRef`."
+"This classification was originally developed specifically for implementing "
+":ref:`DeathWatch <deathwatch-scala>`: subscribers as well as classifiers are"
+" of type :class:`ActorRef`."
 msgstr ""
 
 #: ../../scala/event-bus.rst:116
 msgid ""
 "This classification requires an :class:`ActorSystem` in order to perform "
-"book-keeping operations related to the subscribers being Actors, which "
-"can terminate without first unsubscribing from the EventBus. "
+"book-keeping operations related to the subscribers being Actors, which can "
+"terminate without first unsubscribing from the EventBus. "
 "ManagedActorClassification maintains a system Actor which takes care of "
 "unsubscribing terminated actors automatically."
 msgstr ""
 
 #: ../../scala/event-bus.rst:129
 msgid ""
-"This classifier is still is generic in the event type, and it is "
-"efficient for all use cases."
+"This classifier is still is generic in the event type, and it is efficient "
+"for all use cases."
 msgstr ""
 
 #: ../../scala/event-bus.rst:135
@@ -188,20 +188,20 @@ msgstr ""
 
 #: ../../scala/event-bus.rst:137
 msgid ""
-"The event stream is the main event bus of each actor system: it is used "
-"for carrying :ref:`log messages <logging-scala>` and `Dead Letters`_ and "
-"may be used by the user code for other purposes as well. It uses "
-"`Subchannel Classification`_ which enables registering to related sets of"
-" channels (as is used for :class:`RemotingLifecycleEvent`). The following"
-" example demonstrates how a simple subscription works:"
+"The event stream is the main event bus of each actor system: it is used for "
+"carrying :ref:`log messages <logging-scala>` and `Dead Letters`_ and may be "
+"used by the user code for other purposes as well. It uses `Subchannel "
+"Classification`_ which enables registering to related sets of channels (as "
+"is used for :class:`RemotingLifecycleEvent`). The following example "
+"demonstrates how a simple subscription works:"
 msgstr ""
 
 #: ../../scala/event-bus.rst:146
 msgid ""
 "It is also worth pointing out that thanks to the way the subchannel "
 "classification is implemented in the event stream, it is possible to "
-"subscribe to a group of events, by subscribing to their common superclass"
-" as demonstrated in the following example:"
+"subscribe to a group of events, by subscribing to their common superclass as"
+" demonstrated in the following example:"
 msgstr ""
 
 #: ../../scala/event-bus.rst:152
@@ -214,10 +214,10 @@ msgstr ""
 msgid ""
 "The event stream is a *local facility*, meaning that it will *not* "
 "distribute events to other nodes in a clustered environment (unless you "
-"subscribe a Remote Actor to the stream explicitly). If you need to "
-"broadcast events in an Akka cluster, *without* knowing your recipients "
-"explicitly (i.e. obtaining their ActorRefs), you may want to look into: "
-":ref:`distributed-pub-sub-scala`."
+"subscribe a Remote Actor to the stream explicitly). If you need to broadcast"
+" events in an Akka cluster, *without* knowing your recipients explicitly "
+"(i.e. obtaining their ActorRefs), you may want to look into: :ref"
+":`distributed-pub-sub-scala`."
 msgstr ""
 
 #: ../../scala/event-bus.rst:159
@@ -226,17 +226,17 @@ msgstr ""
 
 #: ../../scala/event-bus.rst:161
 msgid ""
-"Upon start-up the actor system creates and subscribes actors to the event"
-" stream for logging: these are the handlers which are configured for "
-"example in ``application.conf``:"
+"Upon start-up the actor system creates and subscribes actors to the event "
+"stream for logging: these are the handlers which are configured for example "
+"in ``application.conf``:"
 msgstr ""
 
 #: ../../scala/event-bus.rst:171
 msgid ""
-"The handlers listed here by fully-qualified class name will be subscribed"
-" to all log event classes with priority higher than or equal to the "
-"configured log-level and their subscriptions are kept in sync when "
-"changing the log-level at runtime::"
+"The handlers listed here by fully-qualified class name will be subscribed to"
+" all log event classes with priority higher than or equal to the configured "
+"log-level and their subscriptions are kept in sync when changing the log-"
+"level at runtime::"
 msgstr ""
 
 #: ../../scala/event-bus.rst:178
@@ -252,27 +252,27 @@ msgstr ""
 
 #: ../../scala/event-bus.rst:185
 msgid ""
-"As described at :ref:`stopping-actors-scala`, messages queued when an "
-"actor terminates or sent after its death are re-routed to the dead letter"
-" mailbox, which by default will publish the messages wrapped in "
-":class:`DeadLetter`. This wrapper holds the original sender, receiver and"
-" message of the envelope which was redirected."
+"As described at :ref:`stopping-actors-scala`, messages queued when an actor "
+"terminates or sent after its death are re-routed to the dead letter mailbox,"
+" which by default will publish the messages wrapped in :class:`DeadLetter`. "
+"This wrapper holds the original sender, receiver and message of the envelope"
+" which was redirected."
 msgstr ""
 
 #: ../../scala/event-bus.rst:191
 msgid ""
 "Some internal messages (marked with the :class:`DeadLetterSuppression` "
-"trait) will not end up as dead letters like normal messages. These are by"
-" design safe and expected to sometimes arrive at a terminated actor and "
-"since they are nothing to worry about, they are suppressed from the "
-"default dead letters logging mechanism."
+"trait) will not end up as dead letters like normal messages. These are by "
+"design safe and expected to sometimes arrive at a terminated actor and since"
+" they are nothing to worry about, they are suppressed from the default dead "
+"letters logging mechanism."
 msgstr ""
 
 #: ../../scala/event-bus.rst:195
 msgid ""
-"However, in case you find yourself in need of debugging these kinds of "
-"low level suppressed dead letters, it's still possible to subscribe to "
-"them explicitly:"
+"However, in case you find yourself in need of debugging these kinds of low "
+"level suppressed dead letters, it's still possible to subscribe to them "
+"explicitly:"
 msgstr ""
 
 #: ../../scala/event-bus.rst:200
@@ -285,8 +285,7 @@ msgstr ""
 
 #: ../../scala/event-bus.rst:207
 msgid ""
-"The event stream is always there and ready to be used, just publish your "
-"own events (it accepts ``AnyRef``) and subscribe listeners to the "
-"corresponding JVM classes."
+"The event stream is always there and ready to be used, just publish your own"
+" events (it accepts ``AnyRef``) and subscribe listeners to the corresponding"
+" JVM classes."
 msgstr ""
-

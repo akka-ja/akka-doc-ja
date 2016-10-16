@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../java/fsm.rst:5
 msgid "Building Finite State Machine Actors"
@@ -43,17 +43,17 @@ msgstr ""
 
 #: ../../java/fsm.rst:20
 msgid ""
-"*If we are in state S and the event E occurs, we should perform the "
-"actions A and make a transition to the state S'.*"
+"*If we are in state S and the event E occurs, we should perform the actions "
+"A and make a transition to the state S'.*"
 msgstr ""
 
 #: ../../java/fsm.rst:23
 msgid ""
 "While the Scala programming language enables the formulation of a nice "
 "internal DSL (domain specific language) for formulating finite state "
-"machines (see :ref:`fsm-scala`), Java’s verbosity does not lend itself "
-"well to the same approach. This chapter describes ways to effectively "
-"achieve the same separation of concerns through self-discipline."
+"machines (see :ref:`fsm-scala`), Java’s verbosity does not lend itself well "
+"to the same approach. This chapter describes ways to effectively achieve the"
+" same separation of concerns through self-discipline."
 msgstr ""
 
 #: ../../java/fsm.rst:30
@@ -62,18 +62,18 @@ msgstr ""
 
 #: ../../java/fsm.rst:32
 msgid ""
-"All mutable fields (or transitively mutable data structures) referenced "
-"by the FSM actor’s implementation should be collected in one place and "
-"only mutated using a small well-defined set of methods. One way to "
-"achieve this is to assemble all mutable state in a superclass which keeps"
-" it private and offers protected methods for mutating it."
+"All mutable fields (or transitively mutable data structures) referenced by "
+"the FSM actor’s implementation should be collected in one place and only "
+"mutated using a small well-defined set of methods. One way to achieve this "
+"is to assemble all mutable state in a superclass which keeps it private and "
+"offers protected methods for mutating it."
 msgstr ""
 
 #: ../../java/fsm.rst:42
 msgid ""
-"The benefit of this approach is that state changes can be acted upon in "
-"one central place, which makes it impossible to forget inserting code for"
-" reacting to state transitions when adding to the FSM’s machinery."
+"The benefit of this approach is that state changes can be acted upon in one "
+"central place, which makes it impossible to forget inserting code for "
+"reacting to state transitions when adding to the FSM’s machinery."
 msgstr ""
 
 #: ../../java/fsm.rst:47
@@ -82,24 +82,24 @@ msgstr ""
 
 #: ../../java/fsm.rst:49
 msgid ""
-"The base class shown above is designed to support a similar example as "
-"for the Scala FSM documentation: an actor which receives and queues "
-"messages, to be delivered in batches to a configurable target actor. The "
-"messages involved are:"
+"The base class shown above is designed to support a similar example as for "
+"the Scala FSM documentation: an actor which receives and queues messages, to"
+" be delivered in batches to a configurable target actor. The messages "
+"involved are:"
 msgstr ""
 
 #: ../../java/fsm.rst:55
 msgid ""
 "This actor has only the two states ``IDLE`` and ``ACTIVE``, making their "
-"handling quite straight-forward in the concrete actor derived from the "
-"base class:"
+"handling quite straight-forward in the concrete actor derived from the base "
+"class:"
 msgstr ""
 
 #: ../../java/fsm.rst:63
 msgid ""
 "The trick here is to factor out common functionality like "
-":meth:`whenUnhandled` and :meth:`transition` in order to obtain a few "
-"well-defined points for reacting to change or insert logging."
+":meth:`whenUnhandled` and :meth:`transition` in order to obtain a few well-"
+"defined points for reacting to change or insert logging."
 msgstr ""
 
 #: ../../java/fsm.rst:68
@@ -114,7 +114,6 @@ msgid ""
 "Depending on how evenly the matrix of possible states and events is "
 "populated, it may be more practical to handle different events first and "
 "distinguish the states in the second tier. An example would be a state "
-"machine which has a multitude of internal states but handles only very "
-"few distinct events."
+"machine which has a multitude of internal states but handles only very few "
+"distinct events."
 msgstr ""
-

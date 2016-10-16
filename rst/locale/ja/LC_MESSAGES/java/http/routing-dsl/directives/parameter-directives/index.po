@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../java/http/routing-dsl/directives/parameter-directives/index.rst:4
 msgid "ParameterDirectives"
@@ -27,10 +27,10 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/parameter-directives/index.rst:20
 msgid ""
-"Usually, you want to use the high-level :ref:`-parameter-java-` "
-"directive. When you need more low-level access you can use the table "
-"below to decide which directive to use which shows properties of "
-"different parameter directives."
+"Usually, you want to use the high-level :ref:`-parameter-java-` directive. "
+"When you need more low-level access you can use the table below to decide "
+"which directive to use which shows properties of different parameter "
+"directives."
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/parameter-directives/index.rst:25
@@ -61,6 +61,8 @@ msgid "high"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/parameter-directives/index.rst:27
+#: ../../java/http/routing-dsl/directives/parameter-directives/index.rst:27
+#: ../../java/http/routing-dsl/directives/parameter-directives/index.rst:28
 #: ../../java/http/routing-dsl/directives/parameter-directives/index.rst:28
 #: ../../java/http/routing-dsl/directives/parameter-directives/index.rst:29
 msgid "no"
@@ -82,6 +84,7 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/parameter-directives/index.rst:29
 #: ../../java/http/routing-dsl/directives/parameter-directives/index.rst:30
+#: ../../java/http/routing-dsl/directives/parameter-directives/index.rst:30
 msgid "yes"
 msgstr ""
 
@@ -91,10 +94,10 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/parameter-directives/index.rst:34
 msgid ""
-"high-level parameter directives extract subset of all parameters by name "
-"and allow conversions and automatically report errors if expectations are"
-" not met, low-level directives give you all parameters at once, leaving "
-"all further processing to you"
+"high-level parameter directives extract subset of all parameters by name and"
+" allow conversions and automatically report errors if expectations are not "
+"met, low-level directives give you all parameters at once, leaving all "
+"further processing to you"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/parameter-directives/index.rst:39
@@ -110,4 +113,3 @@ msgid ""
 "If you need to extract multiple parameters, apply the ``parameter`` "
 "directive multiple times."
 msgstr ""
-

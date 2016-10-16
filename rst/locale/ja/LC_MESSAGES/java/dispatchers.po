@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../java/dispatchers.rst:4
 msgid "Dispatchers"
@@ -23,10 +23,10 @@ msgstr ""
 
 #: ../../java/dispatchers.rst:6
 msgid ""
-"An Akka ``MessageDispatcher`` is what makes Akka Actors \"tick\", it is "
-"the engine of the machine so to speak. All ``MessageDispatcher`` "
-"implementations are also an ``ExecutionContext``, which means that they "
-"can be used to execute arbitrary code, for instance :ref:`futures-java`."
+"An Akka ``MessageDispatcher`` is what makes Akka Actors \"tick\", it is the "
+"engine of the machine so to speak. All ``MessageDispatcher`` implementations"
+" are also an ``ExecutionContext``, which means that they can be used to "
+"execute arbitrary code, for instance :ref:`futures-java`."
 msgstr ""
 
 #: ../../java/dispatchers.rst:11
@@ -35,16 +35,15 @@ msgstr ""
 
 #: ../../java/dispatchers.rst:13
 msgid ""
-"Every ``ActorSystem`` will have a default dispatcher that will be used in"
-" case nothing else is configured for an ``Actor``. The default dispatcher"
-" can be configured, and is by default a ``Dispatcher`` with the specified"
-" ``default-executor``. If an ActorSystem is created with an "
-"ExecutionContext passed in, this ExecutionContext will be used as the "
-"default executor for all dispatchers in this ActorSystem. If no "
-"ExecutionContext is given, it will fallback to the executor specified in "
-"``akka.actor.default-dispatcher.default-executor.fallback``. By default "
-"this is a \"fork-join-executor\", which gives excellent performance in "
-"most cases."
+"Every ``ActorSystem`` will have a default dispatcher that will be used in "
+"case nothing else is configured for an ``Actor``. The default dispatcher can"
+" be configured, and is by default a ``Dispatcher`` with the specified "
+"``default-executor``. If an ActorSystem is created with an ExecutionContext "
+"passed in, this ExecutionContext will be used as the default executor for "
+"all dispatchers in this ActorSystem. If no ExecutionContext is given, it "
+"will fallback to the executor specified in ``akka.actor.default-dispatcher"
+".default-executor.fallback``. By default this is a \"fork-join-executor\", "
+"which gives excellent performance in most cases."
 msgstr ""
 
 #: ../../java/dispatchers.rst:23
@@ -53,8 +52,8 @@ msgstr ""
 
 #: ../../java/dispatchers.rst:25
 msgid ""
-"Dispatchers implement the :class:`ExecutionContext` interface and can "
-"thus be used to run :class:`Future` invocations etc."
+"Dispatchers implement the :class:`ExecutionContext` interface and can thus "
+"be used to run :class:`Future` invocations etc."
 msgstr ""
 
 #: ../../java/dispatchers.rst:30
@@ -63,19 +62,18 @@ msgstr ""
 
 #: ../../java/dispatchers.rst:32
 msgid ""
-"So in case you want to give your ``Actor`` a different dispatcher than "
-"the default, you need to do two things, of which the first is is to "
-"configure the dispatcher:"
+"So in case you want to give your ``Actor`` a different dispatcher than the "
+"default, you need to do two things, of which the first is is to configure "
+"the dispatcher:"
 msgstr ""
 
 #: ../../java/dispatchers.rst:38
 msgid ""
-"Note that the ``parallelism-max`` does not set the upper bound on the "
-"total number of threads allocated by the ForkJoinPool. It is a setting "
-"specifically talking about the number of *hot* threads the pool keep "
-"running in order to reduce the latency of handling a new incoming task. "
-"You can read more about parallelism in the JDK's `ForkJoinPool "
-"documentation`_."
+"Note that the ``parallelism-max`` does not set the upper bound on the total "
+"number of threads allocated by the ForkJoinPool. It is a setting "
+"specifically talking about the number of *hot* threads the pool keep running"
+" in order to reduce the latency of handling a new incoming task. You can "
+"read more about parallelism in the JDK's `ForkJoinPool documentation`_."
 msgstr ""
 
 #: ../../java/dispatchers.rst:43
@@ -85,8 +83,8 @@ msgstr ""
 #: ../../java/dispatchers.rst:48
 msgid ""
 "The thread pool executor dispatcher is implemented using by a "
-"``java.util.concurrent.ThreadPoolExecutor``. You can read more about it "
-"in the JDK's `ThreadPoolExecutor documentation`_."
+"``java.util.concurrent.ThreadPoolExecutor``. You can read more about it in "
+"the JDK's `ThreadPoolExecutor documentation`_."
 msgstr ""
 
 #: ../../java/dispatchers.rst:51
@@ -103,19 +101,18 @@ msgstr ""
 
 #: ../../java/dispatchers.rst:59
 msgid ""
-"An alternative to the deployment configuration is to define the "
-"dispatcher in code. If you define the ``dispatcher`` in the deployment "
-"configuration then this value will be used instead of programmatically "
-"provided parameter."
+"An alternative to the deployment configuration is to define the dispatcher "
+"in code. If you define the ``dispatcher`` in the deployment configuration "
+"then this value will be used instead of programmatically provided parameter."
 msgstr ""
 
 #: ../../java/dispatchers.rst:66
 msgid ""
 "The dispatcher you specify in ``withDispatcher`` and the ``dispatcher`` "
 "property in the deployment configuration is in fact a path into your "
-"configuration. So in this example it's a top-level section, but you could"
-" for instance put it as a sub-section, where you'd use periods to denote "
-"sub-sections, like this: ``\"foo.bar.my-dispatcher\"``"
+"configuration. So in this example it's a top-level section, but you could "
+"for instance put it as a sub-section, where you'd use periods to denote sub-"
+"sections, like this: ``\"foo.bar.my-dispatcher\"``"
 msgstr ""
 
 #: ../../java/dispatchers.rst:75
@@ -155,8 +152,7 @@ msgstr ""
 #: ../../java/dispatchers.rst:90
 msgid ""
 "specify using \"executor\" using \"fork-join-executor\", \"thread-pool-"
-"executor\" or the FQCN of an "
-"``akka.dispatcher.ExecutorServiceConfigurator``"
+"executor\" or the FQCN of an ``akka.dispatcher.ExecutorServiceConfigurator``"
 msgstr ""
 
 #: ../../java/dispatchers.rst:94
@@ -165,9 +161,8 @@ msgstr ""
 
 #: ../../java/dispatchers.rst:96
 msgid ""
-"This dispatcher dedicates a unique thread for each actor using it; i.e. "
-"each actor will have its own thread pool with only one thread in the "
-"pool."
+"This dispatcher dedicates a unique thread for each actor using it; i.e. each"
+" actor will have its own thread pool with only one thread in the pool."
 msgstr ""
 
 #: ../../java/dispatchers.rst:98
@@ -192,10 +187,10 @@ msgstr ""
 
 #: ../../java/dispatchers.rst:109
 msgid ""
-"This dispatcher runs invocations on the current thread only. This "
-"dispatcher does not create any new threads, but it can be used from "
-"different threads concurrently for the same actor. See :ref:`Java-"
-"CallingThreadDispatcher` for details and restrictions."
+"This dispatcher runs invocations on the current thread only. This dispatcher"
+" does not create any new threads, but it can be used from different threads "
+"concurrently for the same actor. See :ref:`Java-CallingThreadDispatcher` for"
+" details and restrictions."
 msgstr ""
 
 #: ../../java/dispatchers.rst:115
@@ -216,8 +211,8 @@ msgstr ""
 
 #: ../../java/dispatchers.rst:124
 msgid ""
-"Configuring a dispatcher with fixed thread pool size, e.g. for actors "
-"that perform blocking IO:"
+"Configuring a dispatcher with fixed thread pool size, e.g. for actors that "
+"perform blocking IO:"
 msgstr ""
 
 #: ../../java/dispatchers.rst:128 ../../java/dispatchers.rst:137
@@ -231,17 +226,16 @@ msgstr ""
 #: ../../java/dispatchers.rst:141
 msgid ""
 "Note that ``thread-pool-executor`` configuration as per the above ``my-"
-"thread-pool-dispatcher`` example is NOT applicable. This is because every"
-" actor will have its own thread pool when using ``PinnedDispatcher``, and"
-" that pool will have only one thread."
+"thread-pool-dispatcher`` example is NOT applicable. This is because every "
+"actor will have its own thread pool when using ``PinnedDispatcher``, and "
+"that pool will have only one thread."
 msgstr ""
 
 #: ../../java/dispatchers.rst:145
 msgid ""
 "Note that it's not guaranteed that the *same* thread is used over time, "
 "since the core pool timeout is used for ``PinnedDispatcher`` to keep "
-"resource usage down in case of idle actors. To use the same thread all "
-"the time you need to add ``thread-pool-executor.allow-core-timeout=off`` "
-"to the configuration of the ``PinnedDispatcher``."
+"resource usage down in case of idle actors. To use the same thread all the "
+"time you need to add ``thread-pool-executor.allow-core-timeout=off`` to the "
+"configuration of the ``PinnedDispatcher``."
 msgstr ""
-

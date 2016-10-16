@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../scala/scheduler.rst:6
 msgid "Scheduler"
@@ -23,30 +23,28 @@ msgstr ""
 
 #: ../../scala/scheduler.rst:8
 msgid ""
-"Sometimes the need for making things happen in the future arises, and "
-"where do you go look then?  Look no further than ``ActorSystem``! There "
-"you find the :meth:`scheduler` method that returns an instance of "
-":class:`akka.actor.Scheduler`, this instance is unique per ActorSystem "
-"and is used internally for scheduling things to happen at specific points"
-" in time."
+"Sometimes the need for making things happen in the future arises, and where "
+"do you go look then?  Look no further than ``ActorSystem``! There you find "
+"the :meth:`scheduler` method that returns an instance of "
+":class:`akka.actor.Scheduler`, this instance is unique per ActorSystem and "
+"is used internally for scheduling things to happen at specific points in "
+"time."
 msgstr ""
 
 #: ../../scala/scheduler.rst:14
 msgid ""
 "You can schedule sending of messages to actors and execution of tasks "
-"(functions or Runnable).  You will get a ``Cancellable`` back that you "
-"can call :meth:`cancel` on to cancel the execution of the scheduled "
-"operation."
+"(functions or Runnable).  You will get a ``Cancellable`` back that you can "
+"call :meth:`cancel` on to cancel the execution of the scheduled operation."
 msgstr ""
 
 #: ../../scala/scheduler.rst:20
 msgid ""
 "The default implementation of ``Scheduler`` used by Akka is based on job "
 "buckets which are emptied according to a fixed schedule.  It does not "
-"execute tasks at the exact time, but on every tick, it will run "
-"everything that is (over)due.  The accuracy of the default Scheduler can "
-"be modified by the ``akka.scheduler.tick-duration`` configuration "
-"property."
+"execute tasks at the exact time, but on every tick, it will run everything "
+"that is (over)due.  The accuracy of the default Scheduler can be modified by"
+" the ``akka.scheduler.tick-duration`` configuration property."
 msgstr ""
 
 #: ../../scala/scheduler.rst:27
@@ -55,13 +53,13 @@ msgstr ""
 
 #: ../../scala/scheduler.rst:40
 msgid ""
-"If you schedule functions or Runnable instances you should be extra "
-"careful to not close over unstable references. In practice this means not"
-" using ``this`` inside the closure in the scope of an Actor instance, not"
-" accessing ``sender()`` directly and not calling the methods of the Actor"
-" instance directly. If you need to schedule an invocation schedule a "
-"message to ``self`` instead (containing the necessary parameters) and "
-"then call the method when the message is received."
+"If you schedule functions or Runnable instances you should be extra careful "
+"to not close over unstable references. In practice this means not using "
+"``this`` inside the closure in the scope of an Actor instance, not accessing"
+" ``sender()`` directly and not calling the methods of the Actor instance "
+"directly. If you need to schedule an invocation schedule a message to "
+"``self`` instead (containing the necessary parameters) and then call the "
+"method when the message is received."
 msgstr ""
 
 #: ../../scala/scheduler.rst:48
@@ -70,8 +68,8 @@ msgstr ""
 
 #: ../../scala/scheduler.rst:55
 msgid ""
-"All scheduled task will be executed when the ``ActorSystem`` is "
-"terminated, i.e. the task may execute before its timeout."
+"All scheduled task will be executed when the ``ActorSystem`` is terminated, "
+"i.e. the task may execute before its timeout."
 msgstr ""
 
 #: ../../scala/scheduler.rst:59
@@ -81,10 +79,9 @@ msgstr ""
 #: ../../scala/scheduler.rst:61
 msgid ""
 "The actual scheduler implementation is loaded reflectively upon "
-":class:`ActorSystem` start-up, which means that it is possible to provide"
-" a different one using the ``akka.scheduler.implementation`` "
-"configuration property. The referenced class must implement the following"
-" interface:"
+":class:`ActorSystem` start-up, which means that it is possible to provide a "
+"different one using the ``akka.scheduler.implementation`` configuration "
+"property. The referenced class must implement the following interface:"
 msgstr ""
 
 #: ../../scala/scheduler.rst:70
@@ -94,9 +91,8 @@ msgstr ""
 #: ../../scala/scheduler.rst:72
 msgid ""
 "Scheduling a task will result in a :class:`Cancellable` (or throw an "
-":class:`IllegalStateException` if attempted after the scheduler’s "
-"shutdown). This allows you to cancel something that has been scheduled "
-"for execution."
+":class:`IllegalStateException` if attempted after the scheduler’s shutdown)."
+" This allows you to cancel something that has been scheduled for execution."
 msgstr ""
 
 #: ../../scala/scheduler.rst:78
@@ -105,4 +101,3 @@ msgid ""
 "started.  Check the return value of ``cancel`` to detect whether the "
 "scheduled task was canceled or will (eventually) have run."
 msgstr ""
-

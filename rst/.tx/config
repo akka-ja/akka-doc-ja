@@ -1,0 +1,2969 @@
+[main]
+host = https://www.transifex.com
+type = PO
+
+[akka-doc-ja_2_4_11.index]
+file_filter = locale/<lang>/LC_MESSAGES/index.po
+source_file = _build/gettext/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java]
+file_filter = locale/<lang>/LC_MESSAGES/java.po
+source_file = _build/gettext/java.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala]
+file_filter = locale/<lang>/LC_MESSAGES/scala.po
+source_file = _build/gettext/scala.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.additional--books]
+file_filter = locale/<lang>/LC_MESSAGES/additional/books.po
+source_file = _build/gettext/additional/books.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.additional--faq]
+file_filter = locale/<lang>/LC_MESSAGES/additional/faq.po
+source_file = _build/gettext/additional/faq.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.additional--index]
+file_filter = locale/<lang>/LC_MESSAGES/additional/index.po
+source_file = _build/gettext/additional/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.additional--osgi]
+file_filter = locale/<lang>/LC_MESSAGES/additional/osgi.po
+source_file = _build/gettext/additional/osgi.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.common--binary-compatibility-rules]
+file_filter = locale/<lang>/LC_MESSAGES/common/binary-compatibility-rules.po
+source_file = _build/gettext/common/binary-compatibility-rules.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.common--circuitbreaker]
+file_filter = locale/<lang>/LC_MESSAGES/common/circuitbreaker.po
+source_file = _build/gettext/common/circuitbreaker.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.common--cluster]
+file_filter = locale/<lang>/LC_MESSAGES/common/cluster.po
+source_file = _build/gettext/common/cluster.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.common--duration]
+file_filter = locale/<lang>/LC_MESSAGES/common/duration.po
+source_file = _build/gettext/common/duration.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.dev--building-akka]
+file_filter = locale/<lang>/LC_MESSAGES/dev/building-akka.po
+source_file = _build/gettext/dev/building-akka.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.dev--developer-guidelines]
+file_filter = locale/<lang>/LC_MESSAGES/dev/developer-guidelines.po
+source_file = _build/gettext/dev/developer-guidelines.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.dev--documentation]
+file_filter = locale/<lang>/LC_MESSAGES/dev/documentation.po
+source_file = _build/gettext/dev/documentation.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.dev--index]
+file_filter = locale/<lang>/LC_MESSAGES/dev/index.po
+source_file = _build/gettext/dev/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.dev--io-layer]
+file_filter = locale/<lang>/LC_MESSAGES/dev/io-layer.po
+source_file = _build/gettext/dev/io-layer.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.dev--multi-jvm-testing]
+file_filter = locale/<lang>/LC_MESSAGES/dev/multi-jvm-testing.po
+source_file = _build/gettext/dev/multi-jvm-testing.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.dev--multi-node-testing]
+file_filter = locale/<lang>/LC_MESSAGES/dev/multi-node-testing.po
+source_file = _build/gettext/dev/multi-node-testing.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.experimental--index-java]
+file_filter = locale/<lang>/LC_MESSAGES/experimental/index-java.po
+source_file = _build/gettext/experimental/index-java.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.experimental--index]
+file_filter = locale/<lang>/LC_MESSAGES/experimental/index.po
+source_file = _build/gettext/experimental/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.general--actor-systems]
+file_filter = locale/<lang>/LC_MESSAGES/general/actor-systems.po
+source_file = _build/gettext/general/actor-systems.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.general--actors]
+file_filter = locale/<lang>/LC_MESSAGES/general/actors.po
+source_file = _build/gettext/general/actors.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.general--addressing]
+file_filter = locale/<lang>/LC_MESSAGES/general/addressing.po
+source_file = _build/gettext/general/addressing.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.general--configuration]
+file_filter = locale/<lang>/LC_MESSAGES/general/configuration.po
+source_file = _build/gettext/general/configuration.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.general--index]
+file_filter = locale/<lang>/LC_MESSAGES/general/index.po
+source_file = _build/gettext/general/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.general--jmm]
+file_filter = locale/<lang>/LC_MESSAGES/general/jmm.po
+source_file = _build/gettext/general/jmm.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.general--message-delivery-reliability]
+file_filter = locale/<lang>/LC_MESSAGES/general/message-delivery-reliability.po
+source_file = _build/gettext/general/message-delivery-reliability.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.general--remoting]
+file_filter = locale/<lang>/LC_MESSAGES/general/remoting.po
+source_file = _build/gettext/general/remoting.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.general--supervision]
+file_filter = locale/<lang>/LC_MESSAGES/general/supervision.po
+source_file = _build/gettext/general/supervision.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.general--terminology]
+file_filter = locale/<lang>/LC_MESSAGES/general/terminology.po
+source_file = _build/gettext/general/terminology.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.general--stream--stream-configuration]
+file_filter = locale/<lang>/LC_MESSAGES/general/stream/stream-configuration.po
+source_file = _build/gettext/general/stream/stream-configuration.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.general--stream--stream-design]
+file_filter = locale/<lang>/LC_MESSAGES/general/stream/stream-design.po
+source_file = _build/gettext/general/stream/stream-design.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.intro--deployment-scenarios]
+file_filter = locale/<lang>/LC_MESSAGES/intro/deployment-scenarios.po
+source_file = _build/gettext/intro/deployment-scenarios.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.intro--getting-started]
+file_filter = locale/<lang>/LC_MESSAGES/intro/getting-started.po
+source_file = _build/gettext/intro/getting-started.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.intro--index-java]
+file_filter = locale/<lang>/LC_MESSAGES/intro/index-java.po
+source_file = _build/gettext/intro/index-java.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.intro--index-scala]
+file_filter = locale/<lang>/LC_MESSAGES/intro/index-scala.po
+source_file = _build/gettext/intro/index-scala.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.intro--use-cases]
+file_filter = locale/<lang>/LC_MESSAGES/intro/use-cases.po
+source_file = _build/gettext/intro/use-cases.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.intro--what-is-akka]
+file_filter = locale/<lang>/LC_MESSAGES/intro/what-is-akka.po
+source_file = _build/gettext/intro/what-is-akka.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.intro--why-akka]
+file_filter = locale/<lang>/LC_MESSAGES/intro/why-akka.po
+source_file = _build/gettext/intro/why-akka.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--agents]
+file_filter = locale/<lang>/LC_MESSAGES/java/agents.po
+source_file = _build/gettext/java/agents.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--camel]
+file_filter = locale/<lang>/LC_MESSAGES/java/camel.po
+source_file = _build/gettext/java/camel.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--cluster-client]
+file_filter = locale/<lang>/LC_MESSAGES/java/cluster-client.po
+source_file = _build/gettext/java/cluster-client.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--cluster-metrics]
+file_filter = locale/<lang>/LC_MESSAGES/java/cluster-metrics.po
+source_file = _build/gettext/java/cluster-metrics.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--cluster-sharding]
+file_filter = locale/<lang>/LC_MESSAGES/java/cluster-sharding.po
+source_file = _build/gettext/java/cluster-sharding.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--cluster-singleton]
+file_filter = locale/<lang>/LC_MESSAGES/java/cluster-singleton.po
+source_file = _build/gettext/java/cluster-singleton.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--cluster-usage]
+file_filter = locale/<lang>/LC_MESSAGES/java/cluster-usage.po
+source_file = _build/gettext/java/cluster-usage.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--dispatchers]
+file_filter = locale/<lang>/LC_MESSAGES/java/dispatchers.po
+source_file = _build/gettext/java/dispatchers.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--distributed-data]
+file_filter = locale/<lang>/LC_MESSAGES/java/distributed-data.po
+source_file = _build/gettext/java/distributed-data.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--distributed-pub-sub]
+file_filter = locale/<lang>/LC_MESSAGES/java/distributed-pub-sub.po
+source_file = _build/gettext/java/distributed-pub-sub.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--event-bus]
+file_filter = locale/<lang>/LC_MESSAGES/java/event-bus.po
+source_file = _build/gettext/java/event-bus.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--extending-akka]
+file_filter = locale/<lang>/LC_MESSAGES/java/extending-akka.po
+source_file = _build/gettext/java/extending-akka.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--fault-tolerance-sample]
+file_filter = locale/<lang>/LC_MESSAGES/java/fault-tolerance-sample.po
+source_file = _build/gettext/java/fault-tolerance-sample.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--fault-tolerance]
+file_filter = locale/<lang>/LC_MESSAGES/java/fault-tolerance.po
+source_file = _build/gettext/java/fault-tolerance.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--fsm]
+file_filter = locale/<lang>/LC_MESSAGES/java/fsm.po
+source_file = _build/gettext/java/fsm.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--futures]
+file_filter = locale/<lang>/LC_MESSAGES/java/futures.po
+source_file = _build/gettext/java/futures.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--hello-world]
+file_filter = locale/<lang>/LC_MESSAGES/java/hello-world.po
+source_file = _build/gettext/java/hello-world.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--howto]
+file_filter = locale/<lang>/LC_MESSAGES/java/howto.po
+source_file = _build/gettext/java/howto.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--index-actors]
+file_filter = locale/<lang>/LC_MESSAGES/java/index-actors.po
+source_file = _build/gettext/java/index-actors.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--index-futures]
+file_filter = locale/<lang>/LC_MESSAGES/java/index-futures.po
+source_file = _build/gettext/java/index-futures.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--index-network]
+file_filter = locale/<lang>/LC_MESSAGES/java/index-network.po
+source_file = _build/gettext/java/index-network.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--index-utilities]
+file_filter = locale/<lang>/LC_MESSAGES/java/index-utilities.po
+source_file = _build/gettext/java/index-utilities.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--io-tcp]
+file_filter = locale/<lang>/LC_MESSAGES/java/io-tcp.po
+source_file = _build/gettext/java/io-tcp.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--io-udp]
+file_filter = locale/<lang>/LC_MESSAGES/java/io-udp.po
+source_file = _build/gettext/java/io-udp.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--io]
+file_filter = locale/<lang>/LC_MESSAGES/java/io.po
+source_file = _build/gettext/java/io.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--lambda-actors]
+file_filter = locale/<lang>/LC_MESSAGES/java/lambda-actors.po
+source_file = _build/gettext/java/lambda-actors.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--lambda-fault-tolerance-sample]
+file_filter = locale/<lang>/LC_MESSAGES/java/lambda-fault-tolerance-sample.po
+source_file = _build/gettext/java/lambda-fault-tolerance-sample.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--lambda-fault-tolerance]
+file_filter = locale/<lang>/LC_MESSAGES/java/lambda-fault-tolerance.po
+source_file = _build/gettext/java/lambda-fault-tolerance.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--lambda-fsm]
+file_filter = locale/<lang>/LC_MESSAGES/java/lambda-fsm.po
+source_file = _build/gettext/java/lambda-fsm.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--lambda-index-actors]
+file_filter = locale/<lang>/LC_MESSAGES/java/lambda-index-actors.po
+source_file = _build/gettext/java/lambda-index-actors.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--lambda-persistence]
+file_filter = locale/<lang>/LC_MESSAGES/java/lambda-persistence.po
+source_file = _build/gettext/java/lambda-persistence.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--logging]
+file_filter = locale/<lang>/LC_MESSAGES/java/logging.po
+source_file = _build/gettext/java/logging.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--mailboxes]
+file_filter = locale/<lang>/LC_MESSAGES/java/mailboxes.po
+source_file = _build/gettext/java/mailboxes.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--persistence-query-leveldb]
+file_filter = locale/<lang>/LC_MESSAGES/java/persistence-query-leveldb.po
+source_file = _build/gettext/java/persistence-query-leveldb.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--persistence-query]
+file_filter = locale/<lang>/LC_MESSAGES/java/persistence-query.po
+source_file = _build/gettext/java/persistence-query.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--persistence-schema-evolution]
+file_filter = locale/<lang>/LC_MESSAGES/java/persistence-schema-evolution.po
+source_file = _build/gettext/java/persistence-schema-evolution.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--persistence]
+file_filter = locale/<lang>/LC_MESSAGES/java/persistence.po
+source_file = _build/gettext/java/persistence.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--remoting-artery]
+file_filter = locale/<lang>/LC_MESSAGES/java/remoting-artery.po
+source_file = _build/gettext/java/remoting-artery.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--remoting]
+file_filter = locale/<lang>/LC_MESSAGES/java/remoting.po
+source_file = _build/gettext/java/remoting.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--routing]
+file_filter = locale/<lang>/LC_MESSAGES/java/routing.po
+source_file = _build/gettext/java/routing.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--scheduler]
+file_filter = locale/<lang>/LC_MESSAGES/java/scheduler.po
+source_file = _build/gettext/java/scheduler.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--serialization]
+file_filter = locale/<lang>/LC_MESSAGES/java/serialization.po
+source_file = _build/gettext/java/serialization.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--testing]
+file_filter = locale/<lang>/LC_MESSAGES/java/testing.po
+source_file = _build/gettext/java/testing.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--typed-actors]
+file_filter = locale/<lang>/LC_MESSAGES/java/typed-actors.po
+source_file = _build/gettext/java/typed-actors.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--untyped-actors]
+file_filter = locale/<lang>/LC_MESSAGES/java/untyped-actors.po
+source_file = _build/gettext/java/untyped-actors.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--configuration]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/configuration.po
+source_file = _build/gettext/java/http/configuration.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--http-model]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/http-model.po
+source_file = _build/gettext/java/http/http-model.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--implications-of-streaming-http-entity]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/implications-of-streaming-http-entity.po
+source_file = _build/gettext/java/http/implications-of-streaming-http-entity.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/index.po
+source_file = _build/gettext/java/http/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--server-side-https-support]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/server-side-https-support.po
+source_file = _build/gettext/java/http/server-side-https-support.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--client-side--client-https-support]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/client-side/client-https-support.po
+source_file = _build/gettext/java/http/client-side/client-https-support.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--client-side--connection-level]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/client-side/connection-level.po
+source_file = _build/gettext/java/http/client-side/connection-level.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--client-side--host-level]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/client-side/host-level.po
+source_file = _build/gettext/java/http/client-side/host-level.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--client-side--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/client-side/index.po
+source_file = _build/gettext/java/http/client-side/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--client-side--request-level]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/client-side/request-level.po
+source_file = _build/gettext/java/http/client-side/request-level.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--client-side--websocket-support]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/client-side/websocket-support.po
+source_file = _build/gettext/java/http/client-side/websocket-support.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--common--de-coding]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/common/de-coding.po
+source_file = _build/gettext/java/http/common/de-coding.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--common--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/common/index.po
+source_file = _build/gettext/java/http/common/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--common--json-support]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/common/json-support.po
+source_file = _build/gettext/java/http/common/json-support.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--common--marshalling]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/common/marshalling.po
+source_file = _build/gettext/java/http/common/marshalling.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--common--timeouts]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/common/timeouts.po
+source_file = _build/gettext/java/http/common/timeouts.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--common--unmarshalling]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/common/unmarshalling.po
+source_file = _build/gettext/java/http/common/unmarshalling.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--exception-handling]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/exception-handling.po
+source_file = _build/gettext/java/http/routing-dsl/exception-handling.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/index.po
+source_file = _build/gettext/java/http/routing-dsl/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--marshalling]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/marshalling.po
+source_file = _build/gettext/java/http/routing-dsl/marshalling.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--overview]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/overview.po
+source_file = _build/gettext/java/http/routing-dsl/overview.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--rejections]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/rejections.po
+source_file = _build/gettext/java/http/routing-dsl/rejections.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--routes]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/routes.po
+source_file = _build/gettext/java/http/routing-dsl/routes.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--source-streaming-support]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/source-streaming-support.po
+source_file = _build/gettext/java/http/routing-dsl/source-streaming-support.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--testkit]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/testkit.po
+source_file = _build/gettext/java/http/routing-dsl/testkit.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--alphabetically]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/alphabetically.po
+source_file = _build/gettext/java/http/routing-dsl/directives/alphabetically.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--by-trait]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/by-trait.po
+source_file = _build/gettext/java/http/routing-dsl/directives/by-trait.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--custom-directives]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/custom-directives.po
+source_file = _build/gettext/java/http/routing-dsl/directives/custom-directives.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/index.po
+source_file = _build/gettext/java/http/routing-dsl/directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--path-directives]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/path-directives.po
+source_file = _build/gettext/java/http/routing-dsl/directives/path-directives.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--cancelRejection]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/cancelRejection.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/cancelRejection.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--cancelRejections]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/cancelRejections.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/cancelRejections.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--extract]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/extract.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/extract.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--extractActorSystem]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/extractActorSystem.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/extractActorSystem.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--extractDataBytes]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/extractDataBytes.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/extractDataBytes.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--extractExecutionContext]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/extractExecutionContext.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/extractExecutionContext.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--extractLog]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/extractLog.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/extractLog.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--extractMaterializer]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/extractMaterializer.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/extractMaterializer.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--extractRequest]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/extractRequest.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/extractRequest.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--extractRequestContext]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/extractRequestContext.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/extractRequestContext.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--extractRequestEntity]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/extractRequestEntity.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/extractRequestEntity.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--extractSettings]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/extractSettings.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/extractSettings.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--extractStrictEntity]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/extractStrictEntity.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/extractStrictEntity.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--extractUnmatchedPath]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/extractUnmatchedPath.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/extractUnmatchedPath.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--extractUri]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/extractUri.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/extractUri.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/index.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--mapInnerRoute]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/mapInnerRoute.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/mapInnerRoute.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--mapRejections]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/mapRejections.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/mapRejections.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--mapRequest]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/mapRequest.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/mapRequest.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--mapRequestContext]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/mapRequestContext.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/mapRequestContext.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--mapResponse]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/mapResponse.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/mapResponse.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--mapResponseEntity]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/mapResponseEntity.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/mapResponseEntity.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--mapResponseHeaders]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/mapResponseHeaders.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/mapResponseHeaders.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--mapRouteResult]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/mapRouteResult.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/mapRouteResult.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--mapRouteResultFuture]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/mapRouteResultFuture.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/mapRouteResultFuture.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--mapRouteResultPF]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/mapRouteResultPF.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/mapRouteResultPF.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--mapRouteResultWith]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/mapRouteResultWith.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/mapRouteResultWith.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--mapRouteResultWithPF]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/mapRouteResultWithPF.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/mapRouteResultWithPF.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--mapSettings]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/mapSettings.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/mapSettings.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--mapUnmatchedPath]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/mapUnmatchedPath.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/mapUnmatchedPath.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--pass]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/pass.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/pass.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--provide]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/provide.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/provide.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--recoverRejections]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/recoverRejections.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/recoverRejections.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--recoverRejectionsWith]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/recoverRejectionsWith.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/recoverRejectionsWith.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--toStrictEntity]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/toStrictEntity.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/toStrictEntity.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--withExecutionContext]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/withExecutionContext.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/withExecutionContext.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--withLog]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/withLog.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/withLog.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--withMaterializer]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/withMaterializer.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/withMaterializer.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--basic-directives--withSettings]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/basic-directives/withSettings.po
+source_file = _build/gettext/java/http/routing-dsl/directives/basic-directives/withSettings.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--cache-condition-directives--conditional]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/cache-condition-directives/conditional.po
+source_file = _build/gettext/java/http/routing-dsl/directives/cache-condition-directives/conditional.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--cache-condition-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/cache-condition-directives/index.po
+source_file = _build/gettext/java/http/routing-dsl/directives/cache-condition-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--coding-directives--decodeRequest]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/coding-directives/decodeRequest.po
+source_file = _build/gettext/java/http/routing-dsl/directives/coding-directives/decodeRequest.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--coding-directives--decodeRequestWith]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/coding-directives/decodeRequestWith.po
+source_file = _build/gettext/java/http/routing-dsl/directives/coding-directives/decodeRequestWith.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--coding-directives--encodeResponse]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/coding-directives/encodeResponse.po
+source_file = _build/gettext/java/http/routing-dsl/directives/coding-directives/encodeResponse.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--coding-directives--encodeResponseWith]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/coding-directives/encodeResponseWith.po
+source_file = _build/gettext/java/http/routing-dsl/directives/coding-directives/encodeResponseWith.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--coding-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/coding-directives/index.po
+source_file = _build/gettext/java/http/routing-dsl/directives/coding-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--coding-directives--requestEncodedWith]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/coding-directives/requestEncodedWith.po
+source_file = _build/gettext/java/http/routing-dsl/directives/coding-directives/requestEncodedWith.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--coding-directives--responseEncodingAccepted]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/coding-directives/responseEncodingAccepted.po
+source_file = _build/gettext/java/http/routing-dsl/directives/coding-directives/responseEncodingAccepted.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--cookie-directives--cookie]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/cookie-directives/cookie.po
+source_file = _build/gettext/java/http/routing-dsl/directives/cookie-directives/cookie.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--cookie-directives--deleteCookie]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/cookie-directives/deleteCookie.po
+source_file = _build/gettext/java/http/routing-dsl/directives/cookie-directives/deleteCookie.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--cookie-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/cookie-directives/index.po
+source_file = _build/gettext/java/http/routing-dsl/directives/cookie-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--cookie-directives--optionalCookie]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/cookie-directives/optionalCookie.po
+source_file = _build/gettext/java/http/routing-dsl/directives/cookie-directives/optionalCookie.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--cookie-directives--setCookie]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/cookie-directives/setCookie.po
+source_file = _build/gettext/java/http/routing-dsl/directives/cookie-directives/setCookie.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--debugging-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/debugging-directives/index.po
+source_file = _build/gettext/java/http/routing-dsl/directives/debugging-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--debugging-directives--logRequest]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/debugging-directives/logRequest.po
+source_file = _build/gettext/java/http/routing-dsl/directives/debugging-directives/logRequest.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--debugging-directives--logRequestResult]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/debugging-directives/logRequestResult.po
+source_file = _build/gettext/java/http/routing-dsl/directives/debugging-directives/logRequestResult.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--debugging-directives--logResult]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/debugging-directives/logResult.po
+source_file = _build/gettext/java/http/routing-dsl/directives/debugging-directives/logResult.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--execution-directives--handleExceptions]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/execution-directives/handleExceptions.po
+source_file = _build/gettext/java/http/routing-dsl/directives/execution-directives/handleExceptions.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--execution-directives--handleRejections]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/execution-directives/handleRejections.po
+source_file = _build/gettext/java/http/routing-dsl/directives/execution-directives/handleRejections.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--execution-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/execution-directives/index.po
+source_file = _build/gettext/java/http/routing-dsl/directives/execution-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--file-and-resource-directives--getFromBrowseableDirectories]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/file-and-resource-directives/getFromBrowseableDirectories.po
+source_file = _build/gettext/java/http/routing-dsl/directives/file-and-resource-directives/getFromBrowseableDirectories.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--file-and-resource-directives--getFromBrowseableDirectory]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/file-and-resource-directives/getFromBrowseableDirectory.po
+source_file = _build/gettext/java/http/routing-dsl/directives/file-and-resource-directives/getFromBrowseableDirectory.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--file-and-resource-directives--getFromDirectory]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/file-and-resource-directives/getFromDirectory.po
+source_file = _build/gettext/java/http/routing-dsl/directives/file-and-resource-directives/getFromDirectory.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--file-and-resource-directives--getFromFile]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/file-and-resource-directives/getFromFile.po
+source_file = _build/gettext/java/http/routing-dsl/directives/file-and-resource-directives/getFromFile.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--file-and-resource-directives--getFromResource]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/file-and-resource-directives/getFromResource.po
+source_file = _build/gettext/java/http/routing-dsl/directives/file-and-resource-directives/getFromResource.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--file-and-resource-directives--getFromResourceDirectory]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/file-and-resource-directives/getFromResourceDirectory.po
+source_file = _build/gettext/java/http/routing-dsl/directives/file-and-resource-directives/getFromResourceDirectory.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--file-and-resource-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/file-and-resource-directives/index.po
+source_file = _build/gettext/java/http/routing-dsl/directives/file-and-resource-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--file-and-resource-directives--listDirectoryContents]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/file-and-resource-directives/listDirectoryContents.po
+source_file = _build/gettext/java/http/routing-dsl/directives/file-and-resource-directives/listDirectoryContents.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--file-upload-directives--fileUpload]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/file-upload-directives/fileUpload.po
+source_file = _build/gettext/java/http/routing-dsl/directives/file-upload-directives/fileUpload.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--file-upload-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/file-upload-directives/index.po
+source_file = _build/gettext/java/http/routing-dsl/directives/file-upload-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--file-upload-directives--uploadedFile]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/file-upload-directives/uploadedFile.po
+source_file = _build/gettext/java/http/routing-dsl/directives/file-upload-directives/uploadedFile.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--form-field-directives--formField]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/form-field-directives/formField.po
+source_file = _build/gettext/java/http/routing-dsl/directives/form-field-directives/formField.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--form-field-directives--formFieldList]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/form-field-directives/formFieldList.po
+source_file = _build/gettext/java/http/routing-dsl/directives/form-field-directives/formFieldList.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--form-field-directives--formFieldMap]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/form-field-directives/formFieldMap.po
+source_file = _build/gettext/java/http/routing-dsl/directives/form-field-directives/formFieldMap.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--form-field-directives--formFieldMultiMap]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/form-field-directives/formFieldMultiMap.po
+source_file = _build/gettext/java/http/routing-dsl/directives/form-field-directives/formFieldMultiMap.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--form-field-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/form-field-directives/index.po
+source_file = _build/gettext/java/http/routing-dsl/directives/form-field-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--future-directives--completeOrRecoverWith]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/future-directives/completeOrRecoverWith.po
+source_file = _build/gettext/java/http/routing-dsl/directives/future-directives/completeOrRecoverWith.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--future-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/future-directives/index.po
+source_file = _build/gettext/java/http/routing-dsl/directives/future-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--future-directives--onComplete]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/future-directives/onComplete.po
+source_file = _build/gettext/java/http/routing-dsl/directives/future-directives/onComplete.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--future-directives--onCompleteWithBreaker]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/future-directives/onCompleteWithBreaker.po
+source_file = _build/gettext/java/http/routing-dsl/directives/future-directives/onCompleteWithBreaker.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--future-directives--onSuccess]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/future-directives/onSuccess.po
+source_file = _build/gettext/java/http/routing-dsl/directives/future-directives/onSuccess.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--header-directives--checkSameOrigin]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/header-directives/checkSameOrigin.po
+source_file = _build/gettext/java/http/routing-dsl/directives/header-directives/checkSameOrigin.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--header-directives--headerValue]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/header-directives/headerValue.po
+source_file = _build/gettext/java/http/routing-dsl/directives/header-directives/headerValue.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--header-directives--headerValueByName]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/header-directives/headerValueByName.po
+source_file = _build/gettext/java/http/routing-dsl/directives/header-directives/headerValueByName.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--header-directives--headerValueByType]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/header-directives/headerValueByType.po
+source_file = _build/gettext/java/http/routing-dsl/directives/header-directives/headerValueByType.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--header-directives--headerValuePF]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/header-directives/headerValuePF.po
+source_file = _build/gettext/java/http/routing-dsl/directives/header-directives/headerValuePF.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--header-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/header-directives/index.po
+source_file = _build/gettext/java/http/routing-dsl/directives/header-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--header-directives--optionalHeaderValue]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/header-directives/optionalHeaderValue.po
+source_file = _build/gettext/java/http/routing-dsl/directives/header-directives/optionalHeaderValue.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--header-directives--optionalHeaderValueByName]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/header-directives/optionalHeaderValueByName.po
+source_file = _build/gettext/java/http/routing-dsl/directives/header-directives/optionalHeaderValueByName.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--header-directives--optionalHeaderValueByType]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/header-directives/optionalHeaderValueByType.po
+source_file = _build/gettext/java/http/routing-dsl/directives/header-directives/optionalHeaderValueByType.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--header-directives--optionalHeaderValuePF]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/header-directives/optionalHeaderValuePF.po
+source_file = _build/gettext/java/http/routing-dsl/directives/header-directives/optionalHeaderValuePF.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--host-directives--extractHostName]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/host-directives/extractHostName.po
+source_file = _build/gettext/java/http/routing-dsl/directives/host-directives/extractHostName.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--host-directives--host]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/host-directives/host.po
+source_file = _build/gettext/java/http/routing-dsl/directives/host-directives/host.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--host-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/host-directives/index.po
+source_file = _build/gettext/java/http/routing-dsl/directives/host-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--marshalling-directives--completeWith]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/marshalling-directives/completeWith.po
+source_file = _build/gettext/java/http/routing-dsl/directives/marshalling-directives/completeWith.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--marshalling-directives--entity]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/marshalling-directives/entity.po
+source_file = _build/gettext/java/http/routing-dsl/directives/marshalling-directives/entity.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--marshalling-directives--handleWith]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/marshalling-directives/handleWith.po
+source_file = _build/gettext/java/http/routing-dsl/directives/marshalling-directives/handleWith.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--marshalling-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/marshalling-directives/index.po
+source_file = _build/gettext/java/http/routing-dsl/directives/marshalling-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--method-directives--delete]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/method-directives/delete.po
+source_file = _build/gettext/java/http/routing-dsl/directives/method-directives/delete.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--method-directives--extractMethod]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/method-directives/extractMethod.po
+source_file = _build/gettext/java/http/routing-dsl/directives/method-directives/extractMethod.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--method-directives--get]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/method-directives/get.po
+source_file = _build/gettext/java/http/routing-dsl/directives/method-directives/get.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--method-directives--head]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/method-directives/head.po
+source_file = _build/gettext/java/http/routing-dsl/directives/method-directives/head.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--method-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/method-directives/index.po
+source_file = _build/gettext/java/http/routing-dsl/directives/method-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--method-directives--method]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/method-directives/method.po
+source_file = _build/gettext/java/http/routing-dsl/directives/method-directives/method.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--method-directives--options]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/method-directives/options.po
+source_file = _build/gettext/java/http/routing-dsl/directives/method-directives/options.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--method-directives--overrideMethodWithParameter]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/method-directives/overrideMethodWithParameter.po
+source_file = _build/gettext/java/http/routing-dsl/directives/method-directives/overrideMethodWithParameter.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--method-directives--patch]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/method-directives/patch.po
+source_file = _build/gettext/java/http/routing-dsl/directives/method-directives/patch.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--method-directives--post]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/method-directives/post.po
+source_file = _build/gettext/java/http/routing-dsl/directives/method-directives/post.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--method-directives--put]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/method-directives/put.po
+source_file = _build/gettext/java/http/routing-dsl/directives/method-directives/put.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--misc-directives--extractClientIP]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/misc-directives/extractClientIP.po
+source_file = _build/gettext/java/http/routing-dsl/directives/misc-directives/extractClientIP.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--misc-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/misc-directives/index.po
+source_file = _build/gettext/java/http/routing-dsl/directives/misc-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--misc-directives--rejectEmptyResponse]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/misc-directives/rejectEmptyResponse.po
+source_file = _build/gettext/java/http/routing-dsl/directives/misc-directives/rejectEmptyResponse.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--misc-directives--requestEntityEmpty]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/misc-directives/requestEntityEmpty.po
+source_file = _build/gettext/java/http/routing-dsl/directives/misc-directives/requestEntityEmpty.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--misc-directives--requestEntityPresent]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/misc-directives/requestEntityPresent.po
+source_file = _build/gettext/java/http/routing-dsl/directives/misc-directives/requestEntityPresent.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--misc-directives--selectPreferredLanguage]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/misc-directives/selectPreferredLanguage.po
+source_file = _build/gettext/java/http/routing-dsl/directives/misc-directives/selectPreferredLanguage.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--misc-directives--validate]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/misc-directives/validate.po
+source_file = _build/gettext/java/http/routing-dsl/directives/misc-directives/validate.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--misc-directives--withoutSizeLimit]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/misc-directives/withoutSizeLimit.po
+source_file = _build/gettext/java/http/routing-dsl/directives/misc-directives/withoutSizeLimit.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--misc-directives--withSizeLimit]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/misc-directives/withSizeLimit.po
+source_file = _build/gettext/java/http/routing-dsl/directives/misc-directives/withSizeLimit.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--parameter-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/parameter-directives/index.po
+source_file = _build/gettext/java/http/routing-dsl/directives/parameter-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--parameter-directives--parameter]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/parameter-directives/parameter.po
+source_file = _build/gettext/java/http/routing-dsl/directives/parameter-directives/parameter.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--parameter-directives--parameterMap]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/parameter-directives/parameterMap.po
+source_file = _build/gettext/java/http/routing-dsl/directives/parameter-directives/parameterMap.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--parameter-directives--parameterMultiMap]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/parameter-directives/parameterMultiMap.po
+source_file = _build/gettext/java/http/routing-dsl/directives/parameter-directives/parameterMultiMap.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--parameter-directives--parameters]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/parameter-directives/parameters.po
+source_file = _build/gettext/java/http/routing-dsl/directives/parameter-directives/parameters.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--parameter-directives--parameterSeq]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/parameter-directives/parameterSeq.po
+source_file = _build/gettext/java/http/routing-dsl/directives/parameter-directives/parameterSeq.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--path-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/path-directives/index.po
+source_file = _build/gettext/java/http/routing-dsl/directives/path-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--path-directives--path]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/path-directives/path.po
+source_file = _build/gettext/java/http/routing-dsl/directives/path-directives/path.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--path-directives--pathEnd]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/path-directives/pathEnd.po
+source_file = _build/gettext/java/http/routing-dsl/directives/path-directives/pathEnd.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--path-directives--pathEndOrSingleSlash]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/path-directives/pathEndOrSingleSlash.po
+source_file = _build/gettext/java/http/routing-dsl/directives/path-directives/pathEndOrSingleSlash.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--path-directives--pathPrefix]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/path-directives/pathPrefix.po
+source_file = _build/gettext/java/http/routing-dsl/directives/path-directives/pathPrefix.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--path-directives--pathPrefixTest]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/path-directives/pathPrefixTest.po
+source_file = _build/gettext/java/http/routing-dsl/directives/path-directives/pathPrefixTest.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--path-directives--pathSingleSlash]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/path-directives/pathSingleSlash.po
+source_file = _build/gettext/java/http/routing-dsl/directives/path-directives/pathSingleSlash.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--path-directives--pathSuffix]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/path-directives/pathSuffix.po
+source_file = _build/gettext/java/http/routing-dsl/directives/path-directives/pathSuffix.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--path-directives--pathSuffixTest]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/path-directives/pathSuffixTest.po
+source_file = _build/gettext/java/http/routing-dsl/directives/path-directives/pathSuffixTest.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--path-directives--rawPathPrefix]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/path-directives/rawPathPrefix.po
+source_file = _build/gettext/java/http/routing-dsl/directives/path-directives/rawPathPrefix.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--path-directives--rawPathPrefixTest]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/path-directives/rawPathPrefixTest.po
+source_file = _build/gettext/java/http/routing-dsl/directives/path-directives/rawPathPrefixTest.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--path-directives--redirectToNoTrailingSlashIfPresent]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/path-directives/redirectToNoTrailingSlashIfPresent.po
+source_file = _build/gettext/java/http/routing-dsl/directives/path-directives/redirectToNoTrailingSlashIfPresent.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--path-directives--redirectToTrailingSlashIfMissing]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/path-directives/redirectToTrailingSlashIfMissing.po
+source_file = _build/gettext/java/http/routing-dsl/directives/path-directives/redirectToTrailingSlashIfMissing.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--range-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/range-directives/index.po
+source_file = _build/gettext/java/http/routing-dsl/directives/range-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--range-directives--withRangeSupport]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/range-directives/withRangeSupport.po
+source_file = _build/gettext/java/http/routing-dsl/directives/range-directives/withRangeSupport.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--respond-with-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/respond-with-directives/index.po
+source_file = _build/gettext/java/http/routing-dsl/directives/respond-with-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--respond-with-directives--respondWithDefaultHeader]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/respond-with-directives/respondWithDefaultHeader.po
+source_file = _build/gettext/java/http/routing-dsl/directives/respond-with-directives/respondWithDefaultHeader.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--respond-with-directives--respondWithDefaultHeaders]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/respond-with-directives/respondWithDefaultHeaders.po
+source_file = _build/gettext/java/http/routing-dsl/directives/respond-with-directives/respondWithDefaultHeaders.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--respond-with-directives--respondWithHeader]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/respond-with-directives/respondWithHeader.po
+source_file = _build/gettext/java/http/routing-dsl/directives/respond-with-directives/respondWithHeader.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--respond-with-directives--respondWithHeaders]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/respond-with-directives/respondWithHeaders.po
+source_file = _build/gettext/java/http/routing-dsl/directives/respond-with-directives/respondWithHeaders.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--route-directives--complete]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/route-directives/complete.po
+source_file = _build/gettext/java/http/routing-dsl/directives/route-directives/complete.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--route-directives--failWith]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/route-directives/failWith.po
+source_file = _build/gettext/java/http/routing-dsl/directives/route-directives/failWith.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--route-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/route-directives/index.po
+source_file = _build/gettext/java/http/routing-dsl/directives/route-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--route-directives--redirect]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/route-directives/redirect.po
+source_file = _build/gettext/java/http/routing-dsl/directives/route-directives/redirect.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--route-directives--reject]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/route-directives/reject.po
+source_file = _build/gettext/java/http/routing-dsl/directives/route-directives/reject.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--scheme-directives--extractScheme]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/scheme-directives/extractScheme.po
+source_file = _build/gettext/java/http/routing-dsl/directives/scheme-directives/extractScheme.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--scheme-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/scheme-directives/index.po
+source_file = _build/gettext/java/http/routing-dsl/directives/scheme-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--scheme-directives--scheme]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/scheme-directives/scheme.po
+source_file = _build/gettext/java/http/routing-dsl/directives/scheme-directives/scheme.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--security-directives--authenticateBasic]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/security-directives/authenticateBasic.po
+source_file = _build/gettext/java/http/routing-dsl/directives/security-directives/authenticateBasic.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--security-directives--authenticateBasicAsync]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/security-directives/authenticateBasicAsync.po
+source_file = _build/gettext/java/http/routing-dsl/directives/security-directives/authenticateBasicAsync.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--security-directives--authenticateBasicPF]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/security-directives/authenticateBasicPF.po
+source_file = _build/gettext/java/http/routing-dsl/directives/security-directives/authenticateBasicPF.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--security-directives--authenticateBasicPFAsync]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/security-directives/authenticateBasicPFAsync.po
+source_file = _build/gettext/java/http/routing-dsl/directives/security-directives/authenticateBasicPFAsync.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--security-directives--authenticateOAuth2]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/security-directives/authenticateOAuth2.po
+source_file = _build/gettext/java/http/routing-dsl/directives/security-directives/authenticateOAuth2.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--security-directives--authenticateOAuth2Async]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/security-directives/authenticateOAuth2Async.po
+source_file = _build/gettext/java/http/routing-dsl/directives/security-directives/authenticateOAuth2Async.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--security-directives--authenticateOAuth2PF]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/security-directives/authenticateOAuth2PF.po
+source_file = _build/gettext/java/http/routing-dsl/directives/security-directives/authenticateOAuth2PF.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--security-directives--authenticateOAuth2PFAsync]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/security-directives/authenticateOAuth2PFAsync.po
+source_file = _build/gettext/java/http/routing-dsl/directives/security-directives/authenticateOAuth2PFAsync.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--security-directives--authenticateOrRejectWithChallenge]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/security-directives/authenticateOrRejectWithChallenge.po
+source_file = _build/gettext/java/http/routing-dsl/directives/security-directives/authenticateOrRejectWithChallenge.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--security-directives--authorize]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/security-directives/authorize.po
+source_file = _build/gettext/java/http/routing-dsl/directives/security-directives/authorize.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--security-directives--authorizeAsync]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/security-directives/authorizeAsync.po
+source_file = _build/gettext/java/http/routing-dsl/directives/security-directives/authorizeAsync.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--security-directives--extractCredentials]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/security-directives/extractCredentials.po
+source_file = _build/gettext/java/http/routing-dsl/directives/security-directives/extractCredentials.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--security-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/security-directives/index.po
+source_file = _build/gettext/java/http/routing-dsl/directives/security-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--timeout-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/timeout-directives/index.po
+source_file = _build/gettext/java/http/routing-dsl/directives/timeout-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--timeout-directives--withoutRequestTimeout]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/timeout-directives/withoutRequestTimeout.po
+source_file = _build/gettext/java/http/routing-dsl/directives/timeout-directives/withoutRequestTimeout.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--timeout-directives--withRequestTimeout]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/timeout-directives/withRequestTimeout.po
+source_file = _build/gettext/java/http/routing-dsl/directives/timeout-directives/withRequestTimeout.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--timeout-directives--withRequestTimeoutResponse]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/timeout-directives/withRequestTimeoutResponse.po
+source_file = _build/gettext/java/http/routing-dsl/directives/timeout-directives/withRequestTimeoutResponse.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--websocket-directives--handleWebSocketMessages]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/websocket-directives/handleWebSocketMessages.po
+source_file = _build/gettext/java/http/routing-dsl/directives/websocket-directives/handleWebSocketMessages.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--websocket-directives--handleWebSocketMessagesForProtocol]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/websocket-directives/handleWebSocketMessagesForProtocol.po
+source_file = _build/gettext/java/http/routing-dsl/directives/websocket-directives/handleWebSocketMessagesForProtocol.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--routing-dsl--directives--websocket-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/routing-dsl/directives/websocket-directives/index.po
+source_file = _build/gettext/java/http/routing-dsl/directives/websocket-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--server-side--low-level-server-side-api]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/server-side/low-level-server-side-api.po
+source_file = _build/gettext/java/http/server-side/low-level-server-side-api.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--http--server-side--websocket-support]
+file_filter = locale/<lang>/LC_MESSAGES/java/http/server-side/websocket-support.po
+source_file = _build/gettext/java/http/server-side/websocket-support.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--stream--index]
+file_filter = locale/<lang>/LC_MESSAGES/java/stream/index.po
+source_file = _build/gettext/java/stream/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--stream--migration-guide-1_0-2_x-java]
+file_filter = locale/<lang>/LC_MESSAGES/java/stream/migration-guide-1.0-2.x-java.po
+source_file = _build/gettext/java/stream/migration-guide-1.0-2.x-java.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--stream--migration-guide-2_0-2_4-java]
+file_filter = locale/<lang>/LC_MESSAGES/java/stream/migration-guide-2.0-2.4-java.po
+source_file = _build/gettext/java/stream/migration-guide-2.0-2.4-java.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--stream--stages-overview]
+file_filter = locale/<lang>/LC_MESSAGES/java/stream/stages-overview.po
+source_file = _build/gettext/java/stream/stages-overview.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--stream--stream-composition]
+file_filter = locale/<lang>/LC_MESSAGES/java/stream/stream-composition.po
+source_file = _build/gettext/java/stream/stream-composition.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--stream--stream-cookbook]
+file_filter = locale/<lang>/LC_MESSAGES/java/stream/stream-cookbook.po
+source_file = _build/gettext/java/stream/stream-cookbook.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--stream--stream-customize]
+file_filter = locale/<lang>/LC_MESSAGES/java/stream/stream-customize.po
+source_file = _build/gettext/java/stream/stream-customize.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--stream--stream-dynamic]
+file_filter = locale/<lang>/LC_MESSAGES/java/stream/stream-dynamic.po
+source_file = _build/gettext/java/stream/stream-dynamic.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--stream--stream-error]
+file_filter = locale/<lang>/LC_MESSAGES/java/stream/stream-error.po
+source_file = _build/gettext/java/stream/stream-error.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--stream--stream-flows-and-basics]
+file_filter = locale/<lang>/LC_MESSAGES/java/stream/stream-flows-and-basics.po
+source_file = _build/gettext/java/stream/stream-flows-and-basics.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--stream--stream-graphs]
+file_filter = locale/<lang>/LC_MESSAGES/java/stream/stream-graphs.po
+source_file = _build/gettext/java/stream/stream-graphs.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--stream--stream-integrations]
+file_filter = locale/<lang>/LC_MESSAGES/java/stream/stream-integrations.po
+source_file = _build/gettext/java/stream/stream-integrations.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--stream--stream-introduction]
+file_filter = locale/<lang>/LC_MESSAGES/java/stream/stream-introduction.po
+source_file = _build/gettext/java/stream/stream-introduction.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--stream--stream-io]
+file_filter = locale/<lang>/LC_MESSAGES/java/stream/stream-io.po
+source_file = _build/gettext/java/stream/stream-io.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--stream--stream-parallelism]
+file_filter = locale/<lang>/LC_MESSAGES/java/stream/stream-parallelism.po
+source_file = _build/gettext/java/stream/stream-parallelism.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--stream--stream-quickstart]
+file_filter = locale/<lang>/LC_MESSAGES/java/stream/stream-quickstart.po
+source_file = _build/gettext/java/stream/stream-quickstart.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--stream--stream-rate]
+file_filter = locale/<lang>/LC_MESSAGES/java/stream/stream-rate.po
+source_file = _build/gettext/java/stream/stream-rate.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.java--stream--stream-testkit]
+file_filter = locale/<lang>/LC_MESSAGES/java/stream/stream-testkit.po
+source_file = _build/gettext/java/stream/stream-testkit.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.project--index]
+file_filter = locale/<lang>/LC_MESSAGES/project/index.po
+source_file = _build/gettext/project/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.project--issue-tracking]
+file_filter = locale/<lang>/LC_MESSAGES/project/issue-tracking.po
+source_file = _build/gettext/project/issue-tracking.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.project--licenses]
+file_filter = locale/<lang>/LC_MESSAGES/project/licenses.po
+source_file = _build/gettext/project/licenses.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.project--links]
+file_filter = locale/<lang>/LC_MESSAGES/project/links.po
+source_file = _build/gettext/project/links.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.project--migration-guide-1_3_x-2_0_x]
+file_filter = locale/<lang>/LC_MESSAGES/project/migration-guide-1.3.x-2.0.x.po
+source_file = _build/gettext/project/migration-guide-1.3.x-2.0.x.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.project--migration-guide-2_0_x-2_1_x]
+file_filter = locale/<lang>/LC_MESSAGES/project/migration-guide-2.0.x-2.1.x.po
+source_file = _build/gettext/project/migration-guide-2.0.x-2.1.x.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.project--migration-guide-2_1_x-2_2_x]
+file_filter = locale/<lang>/LC_MESSAGES/project/migration-guide-2.1.x-2.2.x.po
+source_file = _build/gettext/project/migration-guide-2.1.x-2.2.x.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.project--migration-guide-2_2_x-2_3_x]
+file_filter = locale/<lang>/LC_MESSAGES/project/migration-guide-2.2.x-2.3.x.po
+source_file = _build/gettext/project/migration-guide-2.2.x-2.3.x.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.project--migration-guide-2_3_x-2_4_x]
+file_filter = locale/<lang>/LC_MESSAGES/project/migration-guide-2.3.x-2.4.x.po
+source_file = _build/gettext/project/migration-guide-2.3.x-2.4.x.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.project--migration-guide-2_4_x-2_5_x]
+file_filter = locale/<lang>/LC_MESSAGES/project/migration-guide-2.4.x-2.5.x.po
+source_file = _build/gettext/project/migration-guide-2.4.x-2.5.x.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.project--migration-guide-eventsourced-2_3_x]
+file_filter = locale/<lang>/LC_MESSAGES/project/migration-guide-eventsourced-2.3.x.po
+source_file = _build/gettext/project/migration-guide-eventsourced-2.3.x.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.project--migration-guide-persistence-experimental-2_3_x-2_4_x]
+file_filter = locale/<lang>/LC_MESSAGES/project/migration-guide-persistence-experimental-2.3.x-2.4.x.po
+source_file = _build/gettext/project/migration-guide-persistence-experimental-2.3.x-2.4.x.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.project--migration-guides]
+file_filter = locale/<lang>/LC_MESSAGES/project/migration-guides.po
+source_file = _build/gettext/project/migration-guides.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.project--sponsors]
+file_filter = locale/<lang>/LC_MESSAGES/project/sponsors.po
+source_file = _build/gettext/project/sponsors.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--actordsl]
+file_filter = locale/<lang>/LC_MESSAGES/scala/actordsl.po
+source_file = _build/gettext/scala/actordsl.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--actors]
+file_filter = locale/<lang>/LC_MESSAGES/scala/actors.po
+source_file = _build/gettext/scala/actors.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--agents]
+file_filter = locale/<lang>/LC_MESSAGES/scala/agents.po
+source_file = _build/gettext/scala/agents.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--camel]
+file_filter = locale/<lang>/LC_MESSAGES/scala/camel.po
+source_file = _build/gettext/scala/camel.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--cluster-client]
+file_filter = locale/<lang>/LC_MESSAGES/scala/cluster-client.po
+source_file = _build/gettext/scala/cluster-client.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--cluster-metrics]
+file_filter = locale/<lang>/LC_MESSAGES/scala/cluster-metrics.po
+source_file = _build/gettext/scala/cluster-metrics.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--cluster-sharding]
+file_filter = locale/<lang>/LC_MESSAGES/scala/cluster-sharding.po
+source_file = _build/gettext/scala/cluster-sharding.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--cluster-singleton]
+file_filter = locale/<lang>/LC_MESSAGES/scala/cluster-singleton.po
+source_file = _build/gettext/scala/cluster-singleton.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--cluster-usage]
+file_filter = locale/<lang>/LC_MESSAGES/scala/cluster-usage.po
+source_file = _build/gettext/scala/cluster-usage.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--dispatchers]
+file_filter = locale/<lang>/LC_MESSAGES/scala/dispatchers.po
+source_file = _build/gettext/scala/dispatchers.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--distributed-data]
+file_filter = locale/<lang>/LC_MESSAGES/scala/distributed-data.po
+source_file = _build/gettext/scala/distributed-data.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--distributed-pub-sub]
+file_filter = locale/<lang>/LC_MESSAGES/scala/distributed-pub-sub.po
+source_file = _build/gettext/scala/distributed-pub-sub.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--event-bus]
+file_filter = locale/<lang>/LC_MESSAGES/scala/event-bus.po
+source_file = _build/gettext/scala/event-bus.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--extending-akka]
+file_filter = locale/<lang>/LC_MESSAGES/scala/extending-akka.po
+source_file = _build/gettext/scala/extending-akka.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--fault-tolerance-sample]
+file_filter = locale/<lang>/LC_MESSAGES/scala/fault-tolerance-sample.po
+source_file = _build/gettext/scala/fault-tolerance-sample.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--fault-tolerance]
+file_filter = locale/<lang>/LC_MESSAGES/scala/fault-tolerance.po
+source_file = _build/gettext/scala/fault-tolerance.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--fsm]
+file_filter = locale/<lang>/LC_MESSAGES/scala/fsm.po
+source_file = _build/gettext/scala/fsm.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--futures]
+file_filter = locale/<lang>/LC_MESSAGES/scala/futures.po
+source_file = _build/gettext/scala/futures.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--hello-world]
+file_filter = locale/<lang>/LC_MESSAGES/scala/hello-world.po
+source_file = _build/gettext/scala/hello-world.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--howto]
+file_filter = locale/<lang>/LC_MESSAGES/scala/howto.po
+source_file = _build/gettext/scala/howto.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--index-actors]
+file_filter = locale/<lang>/LC_MESSAGES/scala/index-actors.po
+source_file = _build/gettext/scala/index-actors.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--index-futures]
+file_filter = locale/<lang>/LC_MESSAGES/scala/index-futures.po
+source_file = _build/gettext/scala/index-futures.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--index-network]
+file_filter = locale/<lang>/LC_MESSAGES/scala/index-network.po
+source_file = _build/gettext/scala/index-network.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--index-utilities]
+file_filter = locale/<lang>/LC_MESSAGES/scala/index-utilities.po
+source_file = _build/gettext/scala/index-utilities.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--io-tcp]
+file_filter = locale/<lang>/LC_MESSAGES/scala/io-tcp.po
+source_file = _build/gettext/scala/io-tcp.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--io-udp]
+file_filter = locale/<lang>/LC_MESSAGES/scala/io-udp.po
+source_file = _build/gettext/scala/io-udp.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--io]
+file_filter = locale/<lang>/LC_MESSAGES/scala/io.po
+source_file = _build/gettext/scala/io.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--logging]
+file_filter = locale/<lang>/LC_MESSAGES/scala/logging.po
+source_file = _build/gettext/scala/logging.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--mailboxes]
+file_filter = locale/<lang>/LC_MESSAGES/scala/mailboxes.po
+source_file = _build/gettext/scala/mailboxes.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--persistence-query-leveldb]
+file_filter = locale/<lang>/LC_MESSAGES/scala/persistence-query-leveldb.po
+source_file = _build/gettext/scala/persistence-query-leveldb.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--persistence-query]
+file_filter = locale/<lang>/LC_MESSAGES/scala/persistence-query.po
+source_file = _build/gettext/scala/persistence-query.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--persistence-schema-evolution]
+file_filter = locale/<lang>/LC_MESSAGES/scala/persistence-schema-evolution.po
+source_file = _build/gettext/scala/persistence-schema-evolution.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--persistence]
+file_filter = locale/<lang>/LC_MESSAGES/scala/persistence.po
+source_file = _build/gettext/scala/persistence.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--remoting-artery]
+file_filter = locale/<lang>/LC_MESSAGES/scala/remoting-artery.po
+source_file = _build/gettext/scala/remoting-artery.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--remoting]
+file_filter = locale/<lang>/LC_MESSAGES/scala/remoting.po
+source_file = _build/gettext/scala/remoting.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--routing]
+file_filter = locale/<lang>/LC_MESSAGES/scala/routing.po
+source_file = _build/gettext/scala/routing.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--scheduler]
+file_filter = locale/<lang>/LC_MESSAGES/scala/scheduler.po
+source_file = _build/gettext/scala/scheduler.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--serialization]
+file_filter = locale/<lang>/LC_MESSAGES/scala/serialization.po
+source_file = _build/gettext/scala/serialization.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--testing]
+file_filter = locale/<lang>/LC_MESSAGES/scala/testing.po
+source_file = _build/gettext/scala/testing.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--testkit-example]
+file_filter = locale/<lang>/LC_MESSAGES/scala/testkit-example.po
+source_file = _build/gettext/scala/testkit-example.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--typed-actors]
+file_filter = locale/<lang>/LC_MESSAGES/scala/typed-actors.po
+source_file = _build/gettext/scala/typed-actors.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--typed]
+file_filter = locale/<lang>/LC_MESSAGES/scala/typed.po
+source_file = _build/gettext/scala/typed.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--configuration]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/configuration.po
+source_file = _build/gettext/scala/http/configuration.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--handling-blocking-operations-in-akka-http-routes]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/handling-blocking-operations-in-akka-http-routes.po
+source_file = _build/gettext/scala/http/handling-blocking-operations-in-akka-http-routes.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--implications-of-streaming-http-entity]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/implications-of-streaming-http-entity.po
+source_file = _build/gettext/scala/http/implications-of-streaming-http-entity.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/index.po
+source_file = _build/gettext/scala/http/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--introduction]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/introduction.po
+source_file = _build/gettext/scala/http/introduction.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--low-level-server-side-api]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/low-level-server-side-api.po
+source_file = _build/gettext/scala/http/low-level-server-side-api.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--migration-from-old-http-javadsl]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/migration-from-old-http-javadsl.po
+source_file = _build/gettext/scala/http/migration-from-old-http-javadsl.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--migration-from-spray]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/migration-from-spray.po
+source_file = _build/gettext/scala/http/migration-from-spray.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--migration-guide-2_4_x-experimental]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/migration-guide-2.4.x-experimental.po
+source_file = _build/gettext/scala/http/migration-guide-2.4.x-experimental.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--server-side-https-support]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/server-side-https-support.po
+source_file = _build/gettext/scala/http/server-side-https-support.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--client-side--client-https-support]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/client-side/client-https-support.po
+source_file = _build/gettext/scala/http/client-side/client-https-support.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--client-side--connection-level]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/client-side/connection-level.po
+source_file = _build/gettext/scala/http/client-side/connection-level.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--client-side--host-level]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/client-side/host-level.po
+source_file = _build/gettext/scala/http/client-side/host-level.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--client-side--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/client-side/index.po
+source_file = _build/gettext/scala/http/client-side/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--client-side--request-level]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/client-side/request-level.po
+source_file = _build/gettext/scala/http/client-side/request-level.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--client-side--websocket-support]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/client-side/websocket-support.po
+source_file = _build/gettext/scala/http/client-side/websocket-support.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--common--de-coding]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/common/de-coding.po
+source_file = _build/gettext/scala/http/common/de-coding.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--common--http-model]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/common/http-model.po
+source_file = _build/gettext/scala/http/common/http-model.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--common--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/common/index.po
+source_file = _build/gettext/scala/http/common/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--common--json-support]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/common/json-support.po
+source_file = _build/gettext/scala/http/common/json-support.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--common--marshalling]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/common/marshalling.po
+source_file = _build/gettext/scala/http/common/marshalling.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--common--timeouts]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/common/timeouts.po
+source_file = _build/gettext/scala/http/common/timeouts.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--common--unmarshalling]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/common/unmarshalling.po
+source_file = _build/gettext/scala/http/common/unmarshalling.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--common--xml-support]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/common/xml-support.po
+source_file = _build/gettext/scala/http/common/xml-support.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--case-class-extraction]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/case-class-extraction.po
+source_file = _build/gettext/scala/http/routing-dsl/case-class-extraction.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--exception-handling]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/exception-handling.po
+source_file = _build/gettext/scala/http/routing-dsl/exception-handling.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/index.po
+source_file = _build/gettext/scala/http/routing-dsl/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--overview]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/overview.po
+source_file = _build/gettext/scala/http/routing-dsl/overview.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--path-matchers]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/path-matchers.po
+source_file = _build/gettext/scala/http/routing-dsl/path-matchers.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--rejections]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/rejections.po
+source_file = _build/gettext/scala/http/routing-dsl/rejections.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--routes]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/routes.po
+source_file = _build/gettext/scala/http/routing-dsl/routes.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--source-streaming-support]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/source-streaming-support.po
+source_file = _build/gettext/scala/http/routing-dsl/source-streaming-support.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--testkit]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/testkit.po
+source_file = _build/gettext/scala/http/routing-dsl/testkit.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--websocket-support]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/websocket-support.po
+source_file = _build/gettext/scala/http/routing-dsl/websocket-support.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--alphabetically]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/alphabetically.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/alphabetically.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--by-trait]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/by-trait.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/by-trait.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--custom-directives]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/custom-directives.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/custom-directives.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/index.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--cancelRejection]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/cancelRejection.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/cancelRejection.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--cancelRejections]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/cancelRejections.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/cancelRejections.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--extract]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/extract.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/extract.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--extractActorSystem]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/extractActorSystem.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/extractActorSystem.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--extractDataBytes]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/extractDataBytes.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/extractDataBytes.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--extractExecutionContext]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/extractExecutionContext.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/extractExecutionContext.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--extractLog]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/extractLog.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/extractLog.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--extractMaterializer]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/extractMaterializer.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/extractMaterializer.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--extractRequest]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/extractRequest.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/extractRequest.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--extractRequestContext]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/extractRequestContext.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/extractRequestContext.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--extractRequestEntity]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/extractRequestEntity.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/extractRequestEntity.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--extractSettings]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/extractSettings.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/extractSettings.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--extractStrictEntity]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/extractStrictEntity.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/extractStrictEntity.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--extractUnmatchedPath]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/extractUnmatchedPath.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/extractUnmatchedPath.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--extractUri]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/extractUri.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/extractUri.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/index.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--mapInnerRoute]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/mapInnerRoute.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/mapInnerRoute.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--mapRejections]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/mapRejections.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/mapRejections.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--mapRequest]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/mapRequest.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/mapRequest.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--mapRequestContext]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/mapRequestContext.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/mapRequestContext.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--mapResponse]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/mapResponse.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/mapResponse.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--mapResponseEntity]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/mapResponseEntity.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/mapResponseEntity.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--mapResponseHeaders]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/mapResponseHeaders.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/mapResponseHeaders.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--mapRouteResult]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/mapRouteResult.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/mapRouteResult.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--mapRouteResultFuture]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/mapRouteResultFuture.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/mapRouteResultFuture.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--mapRouteResultPF]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/mapRouteResultPF.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/mapRouteResultPF.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--mapRouteResultWith]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/mapRouteResultWith.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/mapRouteResultWith.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--mapRouteResultWithPF]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/mapRouteResultWithPF.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/mapRouteResultWithPF.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--mapSettings]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/mapSettings.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/mapSettings.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--mapUnmatchedPath]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/mapUnmatchedPath.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/mapUnmatchedPath.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--pass]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/pass.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/pass.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--provide]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/provide.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/provide.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--recoverRejections]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/recoverRejections.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/recoverRejections.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--recoverRejectionsWith]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/recoverRejectionsWith.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/recoverRejectionsWith.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--textract]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/textract.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/textract.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--toStrictEntity]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/toStrictEntity.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/toStrictEntity.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--tprovide]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/tprovide.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/tprovide.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--withExecutionContext]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/withExecutionContext.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/withExecutionContext.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--withLog]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/withLog.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/withLog.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--withMaterializer]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/withMaterializer.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/withMaterializer.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--basic-directives--withSettings]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/basic-directives/withSettings.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/basic-directives/withSettings.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--cache-condition-directives--conditional]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/cache-condition-directives/conditional.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/cache-condition-directives/conditional.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--cache-condition-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/cache-condition-directives/index.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/cache-condition-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--coding-directives--decodeRequest]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/coding-directives/decodeRequest.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/coding-directives/decodeRequest.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--coding-directives--decodeRequestWith]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/coding-directives/decodeRequestWith.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/coding-directives/decodeRequestWith.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--coding-directives--encodeResponse]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/coding-directives/encodeResponse.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/coding-directives/encodeResponse.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--coding-directives--encodeResponseWith]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/coding-directives/encodeResponseWith.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/coding-directives/encodeResponseWith.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--coding-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/coding-directives/index.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/coding-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--coding-directives--requestEncodedWith]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/coding-directives/requestEncodedWith.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/coding-directives/requestEncodedWith.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--coding-directives--responseEncodingAccepted]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/coding-directives/responseEncodingAccepted.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/coding-directives/responseEncodingAccepted.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--cookie-directives--cookie]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/cookie-directives/cookie.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/cookie-directives/cookie.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--cookie-directives--deleteCookie]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/cookie-directives/deleteCookie.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/cookie-directives/deleteCookie.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--cookie-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/cookie-directives/index.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/cookie-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--cookie-directives--optionalCookie]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/cookie-directives/optionalCookie.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/cookie-directives/optionalCookie.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--cookie-directives--setCookie]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/cookie-directives/setCookie.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/cookie-directives/setCookie.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--debugging-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/debugging-directives/index.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/debugging-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--debugging-directives--logRequest]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/debugging-directives/logRequest.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/debugging-directives/logRequest.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--debugging-directives--logRequestResult]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/debugging-directives/logRequestResult.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/debugging-directives/logRequestResult.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--debugging-directives--logResult]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/debugging-directives/logResult.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/debugging-directives/logResult.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--execution-directives--handleExceptions]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/execution-directives/handleExceptions.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/execution-directives/handleExceptions.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--execution-directives--handleRejections]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/execution-directives/handleRejections.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/execution-directives/handleRejections.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--execution-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/execution-directives/index.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/execution-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--file-and-resource-directives--getFromBrowseableDirectories]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/file-and-resource-directives/getFromBrowseableDirectories.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/file-and-resource-directives/getFromBrowseableDirectories.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--file-and-resource-directives--getFromBrowseableDirectory]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/file-and-resource-directives/getFromBrowseableDirectory.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/file-and-resource-directives/getFromBrowseableDirectory.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--file-and-resource-directives--getFromDirectory]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/file-and-resource-directives/getFromDirectory.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/file-and-resource-directives/getFromDirectory.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--file-and-resource-directives--getFromFile]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/file-and-resource-directives/getFromFile.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/file-and-resource-directives/getFromFile.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--file-and-resource-directives--getFromResource]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/file-and-resource-directives/getFromResource.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/file-and-resource-directives/getFromResource.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--file-and-resource-directives--getFromResourceDirectory]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/file-and-resource-directives/getFromResourceDirectory.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/file-and-resource-directives/getFromResourceDirectory.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--file-and-resource-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/file-and-resource-directives/index.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/file-and-resource-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--file-and-resource-directives--listDirectoryContents]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/file-and-resource-directives/listDirectoryContents.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/file-and-resource-directives/listDirectoryContents.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--file-upload-directives--fileUpload]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/file-upload-directives/fileUpload.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/file-upload-directives/fileUpload.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--file-upload-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/file-upload-directives/index.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/file-upload-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--file-upload-directives--uploadedFile]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/file-upload-directives/uploadedFile.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/file-upload-directives/uploadedFile.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--form-field-directives--formField]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/form-field-directives/formField.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/form-field-directives/formField.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--form-field-directives--formFieldMap]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/form-field-directives/formFieldMap.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/form-field-directives/formFieldMap.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--form-field-directives--formFieldMultiMap]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/form-field-directives/formFieldMultiMap.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/form-field-directives/formFieldMultiMap.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--form-field-directives--formFields]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/form-field-directives/formFields.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/form-field-directives/formFields.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--form-field-directives--formFieldSeq]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/form-field-directives/formFieldSeq.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/form-field-directives/formFieldSeq.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--form-field-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/form-field-directives/index.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/form-field-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--future-directives--completeOrRecoverWith]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/future-directives/completeOrRecoverWith.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/future-directives/completeOrRecoverWith.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--future-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/future-directives/index.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/future-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--future-directives--onComplete]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/future-directives/onComplete.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/future-directives/onComplete.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--future-directives--onCompleteWithBreaker]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/future-directives/onCompleteWithBreaker.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/future-directives/onCompleteWithBreaker.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--future-directives--onSuccess]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/future-directives/onSuccess.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/future-directives/onSuccess.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--header-directives--checkSameOrigin]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/header-directives/checkSameOrigin.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/header-directives/checkSameOrigin.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--header-directives--headerValue]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/header-directives/headerValue.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/header-directives/headerValue.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--header-directives--headerValueByName]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/header-directives/headerValueByName.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/header-directives/headerValueByName.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--header-directives--headerValueByType]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/header-directives/headerValueByType.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/header-directives/headerValueByType.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--header-directives--headerValuePF]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/header-directives/headerValuePF.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/header-directives/headerValuePF.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--header-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/header-directives/index.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/header-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--header-directives--optionalHeaderValue]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/header-directives/optionalHeaderValue.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/header-directives/optionalHeaderValue.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--header-directives--optionalHeaderValueByName]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/header-directives/optionalHeaderValueByName.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/header-directives/optionalHeaderValueByName.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--header-directives--optionalHeaderValueByType]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/header-directives/optionalHeaderValueByType.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/header-directives/optionalHeaderValueByType.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--header-directives--optionalHeaderValuePF]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/header-directives/optionalHeaderValuePF.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/header-directives/optionalHeaderValuePF.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--host-directives--extractHost]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/host-directives/extractHost.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/host-directives/extractHost.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--host-directives--host]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/host-directives/host.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/host-directives/host.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--host-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/host-directives/index.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/host-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--marshalling-directives--completeWith]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/marshalling-directives/completeWith.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/marshalling-directives/completeWith.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--marshalling-directives--entity]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/marshalling-directives/entity.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/marshalling-directives/entity.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--marshalling-directives--handleWith]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/marshalling-directives/handleWith.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/marshalling-directives/handleWith.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--marshalling-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/marshalling-directives/index.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/marshalling-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--method-directives--delete]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/method-directives/delete.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/method-directives/delete.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--method-directives--extractMethod]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/method-directives/extractMethod.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/method-directives/extractMethod.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--method-directives--get]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/method-directives/get.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/method-directives/get.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--method-directives--head]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/method-directives/head.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/method-directives/head.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--method-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/method-directives/index.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/method-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--method-directives--method]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/method-directives/method.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/method-directives/method.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--method-directives--options]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/method-directives/options.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/method-directives/options.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--method-directives--overrideMethodWithParameter]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/method-directives/overrideMethodWithParameter.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/method-directives/overrideMethodWithParameter.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--method-directives--patch]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/method-directives/patch.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/method-directives/patch.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--method-directives--post]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/method-directives/post.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/method-directives/post.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--method-directives--put]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/method-directives/put.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/method-directives/put.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--misc-directives--extractClientIP]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/misc-directives/extractClientIP.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/misc-directives/extractClientIP.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--misc-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/misc-directives/index.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/misc-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--misc-directives--rejectEmptyResponse]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/misc-directives/rejectEmptyResponse.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/misc-directives/rejectEmptyResponse.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--misc-directives--requestEntityEmpty]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/misc-directives/requestEntityEmpty.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/misc-directives/requestEntityEmpty.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--misc-directives--requestEntityPresent]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/misc-directives/requestEntityPresent.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/misc-directives/requestEntityPresent.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--misc-directives--selectPreferredLanguage]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/misc-directives/selectPreferredLanguage.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/misc-directives/selectPreferredLanguage.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--misc-directives--validate]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/misc-directives/validate.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/misc-directives/validate.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--misc-directives--withoutSizeLimit]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/misc-directives/withoutSizeLimit.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/misc-directives/withoutSizeLimit.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--misc-directives--withSizeLimit]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/misc-directives/withSizeLimit.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/misc-directives/withSizeLimit.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--parameter-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/parameter-directives/index.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/parameter-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--parameter-directives--parameter]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/parameter-directives/parameter.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/parameter-directives/parameter.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--parameter-directives--parameterMap]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/parameter-directives/parameterMap.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/parameter-directives/parameterMap.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--parameter-directives--parameterMultiMap]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/parameter-directives/parameterMultiMap.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/parameter-directives/parameterMultiMap.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--parameter-directives--parameters]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/parameter-directives/parameters.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/parameter-directives/parameters.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--parameter-directives--parameterSeq]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/parameter-directives/parameterSeq.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/parameter-directives/parameterSeq.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--path-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/path-directives/index.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/path-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--path-directives--path]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/path-directives/path.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/path-directives/path.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--path-directives--pathEnd]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/path-directives/pathEnd.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/path-directives/pathEnd.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--path-directives--pathEndOrSingleSlash]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/path-directives/pathEndOrSingleSlash.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/path-directives/pathEndOrSingleSlash.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--path-directives--pathPrefix]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/path-directives/pathPrefix.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/path-directives/pathPrefix.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--path-directives--pathPrefixTest]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/path-directives/pathPrefixTest.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/path-directives/pathPrefixTest.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--path-directives--pathSingleSlash]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/path-directives/pathSingleSlash.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/path-directives/pathSingleSlash.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--path-directives--pathSuffix]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/path-directives/pathSuffix.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/path-directives/pathSuffix.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--path-directives--pathSuffixTest]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/path-directives/pathSuffixTest.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/path-directives/pathSuffixTest.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--path-directives--rawPathPrefix]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/path-directives/rawPathPrefix.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/path-directives/rawPathPrefix.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--path-directives--rawPathPrefixTest]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/path-directives/rawPathPrefixTest.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/path-directives/rawPathPrefixTest.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--path-directives--redirectToNoTrailingSlashIfPresent]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/path-directives/redirectToNoTrailingSlashIfPresent.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/path-directives/redirectToNoTrailingSlashIfPresent.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--path-directives--redirectToTrailingSlashIfMissing]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/path-directives/redirectToTrailingSlashIfMissing.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/path-directives/redirectToTrailingSlashIfMissing.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--range-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/range-directives/index.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/range-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--range-directives--withRangeSupport]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/range-directives/withRangeSupport.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/range-directives/withRangeSupport.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--respond-with-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/respond-with-directives/index.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/respond-with-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--respond-with-directives--respondWithDefaultHeader]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/respond-with-directives/respondWithDefaultHeader.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/respond-with-directives/respondWithDefaultHeader.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--respond-with-directives--respondWithDefaultHeaders]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/respond-with-directives/respondWithDefaultHeaders.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/respond-with-directives/respondWithDefaultHeaders.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--respond-with-directives--respondWithHeader]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/respond-with-directives/respondWithHeader.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/respond-with-directives/respondWithHeader.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--respond-with-directives--respondWithHeaders]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/respond-with-directives/respondWithHeaders.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/respond-with-directives/respondWithHeaders.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--route-directives--complete]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/route-directives/complete.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/route-directives/complete.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--route-directives--failWith]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/route-directives/failWith.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/route-directives/failWith.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--route-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/route-directives/index.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/route-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--route-directives--redirect]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/route-directives/redirect.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/route-directives/redirect.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--route-directives--reject]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/route-directives/reject.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/route-directives/reject.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--scheme-directives--extractScheme]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/scheme-directives/extractScheme.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/scheme-directives/extractScheme.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--scheme-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/scheme-directives/index.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/scheme-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--scheme-directives--scheme]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/scheme-directives/scheme.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/scheme-directives/scheme.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--security-directives--authenticateBasic]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/security-directives/authenticateBasic.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/security-directives/authenticateBasic.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--security-directives--authenticateBasicAsync]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/security-directives/authenticateBasicAsync.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/security-directives/authenticateBasicAsync.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--security-directives--authenticateBasicPF]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/security-directives/authenticateBasicPF.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/security-directives/authenticateBasicPF.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--security-directives--authenticateBasicPFAsync]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/security-directives/authenticateBasicPFAsync.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/security-directives/authenticateBasicPFAsync.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--security-directives--authenticateOAuth2]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/security-directives/authenticateOAuth2.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/security-directives/authenticateOAuth2.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--security-directives--authenticateOAuth2Async]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/security-directives/authenticateOAuth2Async.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/security-directives/authenticateOAuth2Async.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--security-directives--authenticateOAuth2PF]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/security-directives/authenticateOAuth2PF.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/security-directives/authenticateOAuth2PF.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--security-directives--authenticateOAuth2PFAsync]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/security-directives/authenticateOAuth2PFAsync.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/security-directives/authenticateOAuth2PFAsync.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--security-directives--authenticateOrRejectWithChallenge]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/security-directives/authenticateOrRejectWithChallenge.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/security-directives/authenticateOrRejectWithChallenge.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--security-directives--authorize]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/security-directives/authorize.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/security-directives/authorize.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--security-directives--authorizeAsync]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/security-directives/authorizeAsync.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/security-directives/authorizeAsync.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--security-directives--extractCredentials]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/security-directives/extractCredentials.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/security-directives/extractCredentials.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--security-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/security-directives/index.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/security-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--timeout-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/timeout-directives/index.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/timeout-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--timeout-directives--withoutRequestTimeout]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/timeout-directives/withoutRequestTimeout.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/timeout-directives/withoutRequestTimeout.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--timeout-directives--withRequestTimeout]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/timeout-directives/withRequestTimeout.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/timeout-directives/withRequestTimeout.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--timeout-directives--withRequestTimeoutResponse]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/timeout-directives/withRequestTimeoutResponse.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/timeout-directives/withRequestTimeoutResponse.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--websocket-directives--handleWebSocketMessages]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/websocket-directives/handleWebSocketMessages.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/websocket-directives/handleWebSocketMessages.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--websocket-directives--handleWebSocketMessagesForProtocol]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/websocket-directives/handleWebSocketMessagesForProtocol.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/websocket-directives/handleWebSocketMessagesForProtocol.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--http--routing-dsl--directives--websocket-directives--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/http/routing-dsl/directives/websocket-directives/index.po
+source_file = _build/gettext/scala/http/routing-dsl/directives/websocket-directives/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--stream--index]
+file_filter = locale/<lang>/LC_MESSAGES/scala/stream/index.po
+source_file = _build/gettext/scala/stream/index.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--stream--migration-guide-1_0-2_x-scala]
+file_filter = locale/<lang>/LC_MESSAGES/scala/stream/migration-guide-1.0-2.x-scala.po
+source_file = _build/gettext/scala/stream/migration-guide-1.0-2.x-scala.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--stream--migration-guide-2_0-2_4-scala]
+file_filter = locale/<lang>/LC_MESSAGES/scala/stream/migration-guide-2.0-2.4-scala.po
+source_file = _build/gettext/scala/stream/migration-guide-2.0-2.4-scala.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--stream--stages-overview]
+file_filter = locale/<lang>/LC_MESSAGES/scala/stream/stages-overview.po
+source_file = _build/gettext/scala/stream/stages-overview.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--stream--stream-composition]
+file_filter = locale/<lang>/LC_MESSAGES/scala/stream/stream-composition.po
+source_file = _build/gettext/scala/stream/stream-composition.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--stream--stream-cookbook]
+file_filter = locale/<lang>/LC_MESSAGES/scala/stream/stream-cookbook.po
+source_file = _build/gettext/scala/stream/stream-cookbook.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--stream--stream-customize]
+file_filter = locale/<lang>/LC_MESSAGES/scala/stream/stream-customize.po
+source_file = _build/gettext/scala/stream/stream-customize.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--stream--stream-dynamic]
+file_filter = locale/<lang>/LC_MESSAGES/scala/stream/stream-dynamic.po
+source_file = _build/gettext/scala/stream/stream-dynamic.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--stream--stream-error]
+file_filter = locale/<lang>/LC_MESSAGES/scala/stream/stream-error.po
+source_file = _build/gettext/scala/stream/stream-error.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--stream--stream-flows-and-basics]
+file_filter = locale/<lang>/LC_MESSAGES/scala/stream/stream-flows-and-basics.po
+source_file = _build/gettext/scala/stream/stream-flows-and-basics.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--stream--stream-graphs]
+file_filter = locale/<lang>/LC_MESSAGES/scala/stream/stream-graphs.po
+source_file = _build/gettext/scala/stream/stream-graphs.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--stream--stream-integrations]
+file_filter = locale/<lang>/LC_MESSAGES/scala/stream/stream-integrations.po
+source_file = _build/gettext/scala/stream/stream-integrations.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--stream--stream-introduction]
+file_filter = locale/<lang>/LC_MESSAGES/scala/stream/stream-introduction.po
+source_file = _build/gettext/scala/stream/stream-introduction.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--stream--stream-io]
+file_filter = locale/<lang>/LC_MESSAGES/scala/stream/stream-io.po
+source_file = _build/gettext/scala/stream/stream-io.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--stream--stream-parallelism]
+file_filter = locale/<lang>/LC_MESSAGES/scala/stream/stream-parallelism.po
+source_file = _build/gettext/scala/stream/stream-parallelism.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--stream--stream-quickstart]
+file_filter = locale/<lang>/LC_MESSAGES/scala/stream/stream-quickstart.po
+source_file = _build/gettext/scala/stream/stream-quickstart.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--stream--stream-rate]
+file_filter = locale/<lang>/LC_MESSAGES/scala/stream/stream-rate.po
+source_file = _build/gettext/scala/stream/stream-rate.pot
+source_lang = en
+
+[akka-doc-ja_2_4_11.scala--stream--stream-testkit]
+file_filter = locale/<lang>/LC_MESSAGES/scala/stream/stream-testkit.po
+source_file = _build/gettext/scala/stream/stream-testkit.pot
+source_lang = en
+

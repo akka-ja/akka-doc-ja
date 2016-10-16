@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../java/http/routing-dsl/directives/marshalling-directives/handleWith.rst:4
 msgid "handleWith"
@@ -27,38 +27,37 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/marshalling-directives/handleWith.rst:8
 msgid ""
-"Completes the request using the given function. The input to the function"
-" is produced with the in-scope entity unmarshaller and the result value "
-"of the function is marshalled with the in-scope marshaller.  "
-"``handleWith`` can be a convenient method combining ``entity`` with "
-"``complete``."
+"Completes the request using the given function. The input to the function is"
+" produced with the in-scope entity unmarshaller and the result value of the "
+"function is marshalled with the in-scope marshaller.  ``handleWith`` can be "
+"a convenient method combining ``entity`` with ``complete``."
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/marshalling-directives/handleWith.rst:13
 msgid ""
-"The ``handleWith`` directive is used when you want to handle a route with"
-" a given function of type A ⇒ B.  ``handleWith`` will use both an in-"
-"scope unmarshaller to convert a request into type A and an in-scope "
-"marshaller to convert type B into a response. This is helpful when your "
-"core business logic resides in some other class or you want your business"
-" logic to be independent of the REST interface written with akka-http. "
-"You can use ``handleWith`` to \"hand off\" processing to a given function"
-" without requiring any akka-http-specific functionality."
+"The ``handleWith`` directive is used when you want to handle a route with a "
+"given function of type A ⇒ B.  ``handleWith`` will use both an in-scope "
+"unmarshaller to convert a request into type A and an in-scope marshaller to "
+"convert type B into a response. This is helpful when your core business "
+"logic resides in some other class or you want your business logic to be "
+"independent of the REST interface written with akka-http. You can use "
+"``handleWith`` to \"hand off\" processing to a given function without "
+"requiring any akka-http-specific functionality."
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/marshalling-directives/handleWith.rst:20
 msgid ""
 "``handleWith`` is similar to ``produce``.  The main difference is "
-"``handleWith`` automatically calls ``complete`` when the function passed "
-"to ``handleWith`` returns. Using ``produce`` you must explicity call the "
+"``handleWith`` automatically calls ``complete`` when the function passed to "
+"``handleWith`` returns. Using ``produce`` you must explicity call the "
 "completion function passed from the ``produce`` function."
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/marshalling-directives/handleWith.rst:24
 msgid ""
 "See :ref:`marshalling <http-marshalling-java>` and :ref:`unmarshalling "
-"<http-unmarshalling-java>` for guidance on marshalling entities with "
-"akka-http."
+"<http-unmarshalling-java>` for guidance on marshalling entities with akka-"
+"http."
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/marshalling-directives/handleWith.rst:28
@@ -67,26 +66,24 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/marshalling-directives/handleWith.rst:30
 msgid ""
-"The following example uses an ``updatePerson`` function with a ``Person``"
-" case class as an input and output.  We plug this function into our route"
-" using ``handleWith``. TODO: Example snippets for JavaDSL are subject to "
-"community contributions! Help us complete the docs, read more about it "
-"here: `write example snippets for Akka HTTP Java DSL #20466 "
+"The following example uses an ``updatePerson`` function with a ``Person`` "
+"case class as an input and output.  We plug this function into our route "
+"using ``handleWith``. TODO: Example snippets for JavaDSL are subject to "
+"community contributions! Help us complete the docs, read more about it here:"
+" `write example snippets for Akka HTTP Java DSL #20466 "
 "<https://github.com/akka/akka/issues/20466>`_."
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/marshalling-directives/handleWith.rst:33
 #: ../../java/http/routing-dsl/directives/marshalling-directives/handleWith.rst:37
 msgid ""
-"TODO: Example snippets for JavaDSL are subject to community "
-"contributions! Help us complete the docs, read more about it here: `write"
-" example snippets for Akka HTTP Java DSL #20466 "
-"<https://github.com/akka/akka/issues/20466>`_."
+"TODO: Example snippets for JavaDSL are subject to community contributions! "
+"Help us complete the docs, read more about it here: `write example snippets "
+"for Akka HTTP Java DSL #20466 <https://github.com/akka/akka/issues/20466>`_."
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/marshalling-directives/handleWith.rst:35
 msgid ""
-"The PersonJsonSupport object handles both marshalling and unmarshalling "
-"of the Person case class."
+"The PersonJsonSupport object handles both marshalling and unmarshalling of "
+"the Person case class."
 msgstr ""
-

@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../java/logging.rst:5
 msgid "Logging"
@@ -23,12 +23,11 @@ msgstr ""
 
 #: ../../java/logging.rst:7
 msgid ""
-"Logging in Akka is not tied to a specific logging backend. By default log"
-" messages are printed to STDOUT, but you can plug-in a SLF4J logger or "
-"your own logger. Logging is performed asynchronously to ensure that "
-"logging has minimal performance impact. Logging generally means IO and "
-"locks, which can slow down the operations of your code if it was "
-"performed synchronously."
+"Logging in Akka is not tied to a specific logging backend. By default log "
+"messages are printed to STDOUT, but you can plug-in a SLF4J logger or your "
+"own logger. Logging is performed asynchronously to ensure that logging has "
+"minimal performance impact. Logging generally means IO and locks, which can "
+"slow down the operations of your code if it was performed synchronously."
 msgstr ""
 
 #: ../../java/logging.rst:15
@@ -37,8 +36,8 @@ msgstr ""
 
 #: ../../java/logging.rst:17
 msgid ""
-"Create a ``LoggingAdapter`` and use the ``error``, ``warning``, ``info``,"
-" or ``debug`` methods, as illustrated in this example:"
+"Create a ``LoggingAdapter`` and use the ``error``, ``warning``, ``info``, or"
+" ``debug`` methods, as illustrated in this example:"
 msgstr ""
 
 #: ../../java/logging.rst:26
@@ -46,11 +45,11 @@ msgid ""
 "The first parameter to ``Logging.getLogger`` could also be any "
 ":class:`LoggingBus`, specifically ``system.eventStream()``; in the "
 "demonstrated case, the actor system’s address is included in the "
-"``akkaSource`` representation of the log source (see `Logging Thread, "
-"Akka Source and Actor System in MDC`_) while in the second case this is "
-"not automatically done. The second parameter to ``Logging.getLogger`` is "
-"the source of this logging channel.  The source object is translated to a"
-" String according to the following rules:"
+"``akkaSource`` representation of the log source (see `Logging Thread, Akka "
+"Source and Actor System in MDC`_) while in the second case this is not "
+"automatically done. The second parameter to ``Logging.getLogger`` is the "
+"source of this logging channel.  The source object is translated to a String"
+" according to the following rules:"
 msgstr ""
 
 #: ../../java/logging.rst:34
@@ -72,21 +71,20 @@ msgstr ""
 #: ../../java/logging.rst:39
 msgid ""
 "The log message may contain argument placeholders ``{}``, which will be "
-"substituted if the log level is enabled. Giving more arguments as there "
-"are placeholders results in a warning being appended to the log statement"
-" (i.e. on the same line with the same severity). You may pass a Java "
-"array as the only substitution argument to have its elements be treated "
-"individually:"
+"substituted if the log level is enabled. Giving more arguments as there are "
+"placeholders results in a warning being appended to the log statement (i.e. "
+"on the same line with the same severity). You may pass a Java array as the "
+"only substitution argument to have its elements be treated individually:"
 msgstr ""
 
 #: ../../java/logging.rst:47
 msgid ""
-"The Java :class:`Class` of the log source is also included in the "
-"generated :class:`LogEvent`. In case of a simple string this is replaced "
-"with a “marker” class :class:`akka.event.DummyClassForStringSources` in "
-"order to allow special treatment of this case, e.g. in the SLF4J event "
-"listener which will then use the string instead of the class’ name for "
-"looking up the logger instance to use."
+"The Java :class:`Class` of the log source is also included in the generated "
+":class:`LogEvent`. In case of a simple string this is replaced with a "
+"“marker” class :class:`akka.event.DummyClassForStringSources` in order to "
+"allow special treatment of this case, e.g. in the SLF4J event listener which"
+" will then use the string instead of the class’ name for looking up the "
+"logger instance to use."
 msgstr ""
 
 #: ../../java/logging.rst:55
@@ -95,20 +93,20 @@ msgstr ""
 
 #: ../../java/logging.rst:57
 msgid ""
-"By default messages sent to dead letters are logged at info level. "
-"Existence of dead letters does not necessarily indicate a problem, but it"
-" might be, and therefore they are logged by default. After a few messages"
-" this logging is turned off, to avoid flooding the logs. You can disable "
-"this logging completely or adjust how many dead letters that are logged. "
-"During system shutdown it is likely that you see dead letters, since "
-"pending messages in the actor mailboxes are sent to dead letters. You can"
-" also disable logging of dead letters during shutdown."
+"By default messages sent to dead letters are logged at info level. Existence"
+" of dead letters does not necessarily indicate a problem, but it might be, "
+"and therefore they are logged by default. After a few messages this logging "
+"is turned off, to avoid flooding the logs. You can disable this logging "
+"completely or adjust how many dead letters that are logged. During system "
+"shutdown it is likely that you see dead letters, since pending messages in "
+"the actor mailboxes are sent to dead letters. You can also disable logging "
+"of dead letters during shutdown."
 msgstr ""
 
 #: ../../java/logging.rst:72
 msgid ""
-"To customize the logging further or take other actions for dead letters "
-"you can subscribe to the :ref:`event-stream-java`."
+"To customize the logging further or take other actions for dead letters you "
+"can subscribe to the :ref:`event-stream-java`."
 msgstr ""
 
 #: ../../java/logging.rst:76
@@ -123,14 +121,14 @@ msgstr ""
 
 #: ../../java/logging.rst:81
 msgid ""
-"You almost definitely need to have logging set to DEBUG to use any of the"
-" options below:"
+"You almost definitely need to have logging set to DEBUG to use any of the "
+"options below:"
 msgstr ""
 
 #: ../../java/logging.rst:89
 msgid ""
-"This config option is very good if you want to know what config settings "
-"are loaded by Akka:"
+"This config option is very good if you want to know what config settings are"
+" loaded by Akka:"
 msgstr ""
 
 #: ../../java/logging.rst:99
@@ -151,8 +149,8 @@ msgstr ""
 
 #: ../../java/logging.rst:139
 msgid ""
-"If you want very detailed logging of all events, transitions and timers "
-"of FSM Actors that extend LoggingFSM:"
+"If you want very detailed logging of all events, transitions and timers of "
+"FSM Actors that extend LoggingFSM:"
 msgstr ""
 
 #: ../../java/logging.rst:152
@@ -167,22 +165,22 @@ msgstr ""
 
 #: ../../java/logging.rst:170
 msgid ""
-"If you want to see all messages that are sent through remoting at DEBUG "
-"log level: (This is logged as they are sent by the transport layer, not "
-"by the Actor)"
+"If you want to see all messages that are sent through remoting at DEBUG log "
+"level: (This is logged as they are sent by the transport layer, not by the "
+"Actor)"
 msgstr ""
 
 #: ../../java/logging.rst:183
 msgid ""
-"If you want to see all messages that are received through remoting at "
-"DEBUG log level: (This is logged as they are received by the transport "
-"layer, not by any Actor)"
+"If you want to see all messages that are received through remoting at DEBUG "
+"log level: (This is logged as they are received by the transport layer, not "
+"by any Actor)"
 msgstr ""
 
 #: ../../java/logging.rst:196
 msgid ""
-"If you want to see message types with payload size in bytes larger than a"
-" specified limit at INFO log level:"
+"If you want to see message types with payload size in bytes larger than a "
+"specified limit at INFO log level:"
 msgstr ""
 
 #: ../../java/logging.rst:213
@@ -213,26 +211,25 @@ msgstr ""
 #: ../../java/logging.rst:233
 msgid ""
 "Logging is performed asynchronously through an event bus. Log events are "
-"processed by an event handler actor and it will receive the log events in"
-" the same order as they were emitted."
+"processed by an event handler actor and it will receive the log events in "
+"the same order as they were emitted."
 msgstr ""
 
 #: ../../java/logging.rst:237
 msgid ""
 "The event handler actor does not have a bounded inbox and is run on the "
 "default dispatcher. This means that logging extreme amounts of data may "
-"affect your application badly. It can be somewhat mitigated by making "
-"sure to use an async logging backend though. (See :ref:`slf4j-directly-"
-"java`)"
+"affect your application badly. It can be somewhat mitigated by making sure "
+"to use an async logging backend though. (See :ref:`slf4j-directly-java`)"
 msgstr ""
 
 #: ../../java/logging.rst:241
 msgid ""
-"You can configure which event handlers are created at system start-up and"
-" listen to logging events. That is done using the ``loggers`` element in "
-"the :ref:`configuration`. Here you can also define the log level. More "
-"fine grained filtering based on the log source can be implemented in a "
-"custom ``LoggingFilter``, which can be defined in the ``logging-filter`` "
+"You can configure which event handlers are created at system start-up and "
+"listen to logging events. That is done using the ``loggers`` element in the "
+":ref:`configuration`. Here you can also define the log level. More fine "
+"grained filtering based on the log source can be implemented in a custom "
+"``LoggingFilter``, which can be defined in the ``logging-filter`` "
 "configuration property."
 msgstr ""
 
@@ -255,9 +252,8 @@ msgstr ""
 msgid ""
 "While the actor system is starting up and shutting down the configured "
 "``loggers`` are not used. Instead log messages are printed to stdout "
-"(System.out). The default log level for this stdout logger is ``WARNING``"
-" and it can be silenced completely by setting ``akka.stdout-"
-"loglevel=OFF``."
+"(System.out). The default log level for this stdout logger is ``WARNING`` "
+"and it can be silenced completely by setting ``akka.stdout-loglevel=OFF``."
 msgstr ""
 
 #: ../../java/logging.rst:279
@@ -266,29 +262,28 @@ msgstr ""
 
 #: ../../java/logging.rst:281
 msgid ""
-"Akka provides a logger for `SL4FJ <http://www.slf4j.org/>`_. This module "
-"is available in the 'akka-slf4j.jar'. It has one single dependency; the "
-"slf4j-api jar. In runtime you also need a SLF4J backend, we recommend "
-"`Logback <http://logback.qos.ch/>`_:"
+"Akka provides a logger for `SL4FJ <http://www.slf4j.org/>`_. This module is "
+"available in the 'akka-slf4j.jar'. It has one single dependency; the slf4j-"
+"api jar. In runtime you also need a SLF4J backend, we recommend `Logback "
+"<http://logback.qos.ch/>`_:"
 msgstr ""
 
 #: ../../java/logging.rst:292
 msgid ""
 "You need to enable the Slf4jLogger in the ``loggers`` element in the "
-":ref:`configuration`. Here you can also define the log level of the event"
-" bus. More fine grained log levels can be defined in the configuration of"
-" the SLF4J backend (e.g. logback.xml). You should also define "
+":ref:`configuration`. Here you can also define the log level of the event "
+"bus. More fine grained log levels can be defined in the configuration of the"
+" SLF4J backend (e.g. logback.xml). You should also define "
 "``akka.event.slf4j.Slf4jLoggingFilter`` in the ``logging-filter`` "
 "configuration property. It will filter the log events using the backend "
-"configuration (e.g. logback.xml) before they are published to the event "
-"bus."
+"configuration (e.g. logback.xml) before they are published to the event bus."
 msgstr ""
 
 #: ../../java/logging.rst:300
 msgid ""
 "If you set the ``loglevel`` to a higher level than \"DEBUG\", any DEBUG "
-"events will be filtered out already at the source and will never reach "
-"the logging backend, regardless of how the backend is configured."
+"events will be filtered out already at the source and will never reach the "
+"logging backend, regardless of how the backend is configured."
 msgstr ""
 
 #: ../../java/logging.rst:312
@@ -301,18 +296,17 @@ msgstr ""
 msgid ""
 "The SLF4J logger selected for each log event is chosen based on the "
 ":class:`Class` of the log source specified when creating the "
-":class:`LoggingAdapter`, unless that was given directly as a string in "
-"which case that string is used (i.e. ``LoggerFactory.getLogger(Class c)``"
-" is used in the first case and ``LoggerFactory.getLogger(String s)`` in "
-"the second)."
+":class:`LoggingAdapter`, unless that was given directly as a string in which"
+" case that string is used (i.e. ``LoggerFactory.getLogger(Class c)`` is used"
+" in the first case and ``LoggerFactory.getLogger(String s)`` in the second)."
 msgstr ""
 
 #: ../../java/logging.rst:322
 msgid ""
 "Beware that the actor system’s name is appended to a :class:`String` log "
-"source if the LoggingAdapter was created giving an :class:`ActorSystem` "
-"to the factory. If this is not intended, give a :class:`LoggingBus` "
-"instead as shown below:"
+"source if the LoggingAdapter was created giving an :class:`ActorSystem` to "
+"the factory. If this is not intended, give a :class:`LoggingBus` instead as "
+"shown below:"
 msgstr ""
 
 #: ../../java/logging.rst:334
@@ -322,14 +316,14 @@ msgstr ""
 #: ../../java/logging.rst:335
 msgid ""
 "If you use the SLF4J API directly in your application, remember that the "
-"logging operations will block while the underlying infrastructure writes "
-"the log statements."
+"logging operations will block while the underlying infrastructure writes the"
+" log statements."
 msgstr ""
 
 #: ../../java/logging.rst:338
 msgid ""
-"This can be avoided by configuring the logging implementation to use a "
-"non-blocking appender. Logback provides `AsyncAppender "
+"This can be avoided by configuring the logging implementation to use a non-"
+"blocking appender. Logback provides `AsyncAppender "
 "<http://logback.qos.ch/manual/appenders.html#AsyncAppender>`_ that does "
 "this. It also contains a feature which will drop ``INFO`` and ``DEBUG`` "
 "messages if the logging load is high."
@@ -340,19 +334,17 @@ msgid "Logging Thread, Akka Source and Actor System in MDC"
 msgstr ""
 
 #: ../../java/logging.rst:346
-#, python-format
 msgid ""
-"Since the logging is done asynchronously the thread in which the logging "
-"was performed is captured in Mapped Diagnostic Context (MDC) with "
-"attribute name ``sourceThread``. With Logback the thread name is "
-"available with ``%X{sourceThread}`` specifier within the pattern layout "
-"configuration::"
+"Since the logging is done asynchronously the thread in which the logging was"
+" performed is captured in Mapped Diagnostic Context (MDC) with attribute "
+"name ``sourceThread``. With Logback the thread name is available with "
+"``%X{sourceThread}`` specifier within the pattern layout configuration::"
 msgstr ""
 
 #: ../../java/logging.rst:358
 msgid ""
-"It will probably be a good idea to use the ``sourceThread`` MDC value "
-"also in non-Akka parts of the application in order to have this property "
+"It will probably be a good idea to use the ``sourceThread`` MDC value also "
+"in non-Akka parts of the application in order to have this property "
 "consistently available in the logs."
 msgstr ""
 
@@ -360,21 +352,21 @@ msgstr ""
 msgid ""
 "Another helpful facility is that Akka captures the actor’s address when "
 "instantiating a logger within it, meaning that the full instance "
-"identification is available for associating log messages e.g. with "
-"members of a router. This information is available in the MDC with "
-"attribute name ``akkaSource``::"
+"identification is available for associating log messages e.g. with members "
+"of a router. This information is available in the MDC with attribute name "
+"``akkaSource``::"
 msgstr ""
 
 #: ../../java/logging.rst:373
 msgid ""
-"Finally, the actor system in which the logging was performed is available"
-" in the MDC with attribute name ``sourceActorSystem``::"
+"Finally, the actor system in which the logging was performed is available in"
+" the MDC with attribute name ``sourceActorSystem``::"
 msgstr ""
 
 #: ../../java/logging.rst:382
 msgid ""
-"For more details on what this attribute contains—also for non-"
-"actors—please see `How to Log`_."
+"For more details on what this attribute contains—also for non-actors—please "
+"see `How to Log`_."
 msgstr ""
 
 #: ../../java/logging.rst:386
@@ -383,10 +375,10 @@ msgstr ""
 
 #: ../../java/logging.rst:388
 msgid ""
-"Akka's logging is asynchronous which means that the timestamp of a log "
-"entry is taken from when the underlying logger implementation is called, "
-"which can be surprising at first. If you want to more accurately output "
-"the timestamp, use the MDC attribute ``akkaTimestamp``::"
+"Akka's logging is asynchronous which means that the timestamp of a log entry"
+" is taken from when the underlying logger implementation is called, which "
+"can be surprising at first. If you want to more accurately output the "
+"timestamp, use the MDC attribute ``akkaTimestamp``::"
 msgstr ""
 
 #: ../../java/logging.rst:400
@@ -398,23 +390,22 @@ msgid ""
 "One useful feature available in Slf4j is `MDC "
 "<http://logback.qos.ch/manual/mdc.html>`_, Akka has a way for let the "
 "application specify custom values, you just need to get a specialized "
-":class:`LoggingAdapter`, the :class:`DiagnosticLoggingAdapter`. In order "
-"to get it you will use the factory receiving an UntypedActor as "
-"logSource:"
+":class:`LoggingAdapter`, the :class:`DiagnosticLoggingAdapter`. In order to "
+"get it you will use the factory receiving an UntypedActor as logSource:"
 msgstr ""
 
 #: ../../java/logging.rst:412
 msgid ""
-"Once you have the logger, you just need to add the custom values before "
-"you log something. This way, the values will be put in the SLF4J MDC "
-"right before appending the log and removed after."
+"Once you have the logger, you just need to add the custom values before you "
+"log something. This way, the values will be put in the SLF4J MDC right "
+"before appending the log and removed after."
 msgstr ""
 
 #: ../../java/logging.rst:417
 msgid ""
 "The cleanup (removal) should be done in the actor at the end, otherwise, "
-"next message will log with same mdc values, if it is not set to a new "
-"map. Use ``log.clearMDC()``."
+"next message will log with same mdc values, if it is not set to a new map. "
+"Use ``log.clearMDC()``."
 msgstr ""
 
 #: ../../java/logging.rst:427
@@ -422,4 +413,3 @@ msgid ""
 "Now, the values will be available in the MDC, so you can use them in the "
 "layout pattern::"
 msgstr ""
-

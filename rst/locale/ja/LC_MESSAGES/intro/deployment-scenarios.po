@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../intro/deployment-scenarios.rst:5
 msgid "Use-case and Deployment Scenarios"
@@ -31,8 +31,8 @@ msgstr ""
 
 #: ../../intro/deployment-scenarios.rst:12
 msgid ""
-"As a library: used as a regular JAR on the classpath and/or in a web app,"
-" to be put into ``WEB-INF/lib``"
+"As a library: used as a regular JAR on the classpath and/or in a web app, to"
+" be put into ``WEB-INF/lib``"
 msgstr ""
 
 #: ../../intro/deployment-scenarios.rst:15
@@ -64,8 +64,8 @@ msgstr ""
 
 #: ../../intro/deployment-scenarios.rst:32
 msgid ""
-"Add `sbt-native-packager <https://github.com/sbt/sbt-native-packager>`_ "
-"in ``project/plugins.sbt`` file:"
+"Add `sbt-native-packager <https://github.com/sbt/sbt-native-packager>`_ in "
+"``project/plugins.sbt`` file:"
 msgstr ""
 
 #: ../../intro/deployment-scenarios.rst:38
@@ -106,15 +106,14 @@ msgstr ""
 
 #: ../../intro/deployment-scenarios.rst:65
 msgid ""
-"You can use both Akka remoting and Akka Cluster inside of Docker "
-"containers. But note that you will need to take special care with the "
-"network configuration when using Docker, described here: :ref:`remote-"
-"configuration-nat`"
+"You can use both Akka remoting and Akka Cluster inside of Docker containers."
+" But note that you will need to take special care with the network "
+"configuration when using Docker, described here: :ref:`remote-configuration-"
+"nat`"
 msgstr ""
 
 #: ../../intro/deployment-scenarios.rst:69
 msgid ""
-"For an example of how to set up a project using Akka Cluster and Docker "
-"take a look at the `\"akka-docker-cluster\" activator template`__."
+"For an example of how to set up a project using Akka Cluster and Docker take"
+" a look at the `\"akka-docker-cluster\" activator template`__."
 msgstr ""
-

@@ -1,28 +1,29 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../dev/building-akka.rst:8 ../../dev/building-akka.rst:56
 msgid "Building Akka"
 msgstr ""
 
 #: ../../dev/building-akka.rst:10
-msgid "This page describes how to build and run Akka from the latest source code."
+msgid ""
+"This page describes how to build and run Akka from the latest source code."
 msgstr ""
 
 #: ../../dev/building-akka.rst:14
@@ -35,8 +36,8 @@ msgstr ""
 
 #: ../../dev/building-akka.rst:21
 msgid ""
-"You first need Git installed on your machine. You can then clone the "
-"source repository from http://github.com/akka/akka."
+"You first need Git installed on your machine. You can then clone the source "
+"repository from http://github.com/akka/akka."
 msgstr ""
 
 #: ../../dev/building-akka.rst:24
@@ -45,8 +46,8 @@ msgstr ""
 
 #: ../../dev/building-akka.rst:28
 msgid ""
-"If you have already cloned the repository previously then you can update "
-"the code with ``git pull``::"
+"If you have already cloned the repository previously then you can update the"
+" code with ``git pull``::"
 msgstr ""
 
 #: ../../dev/building-akka.rst:35
@@ -55,23 +56,23 @@ msgstr ""
 
 #: ../../dev/building-akka.rst:37
 msgid ""
-"Akka is using the excellent `sbt`_ build system. So the first thing you "
-"have to do is to download and install sbt. You can read more about how to"
-" do that in the `sbt setup`_ documentation."
+"Akka is using the excellent `sbt`_ build system. So the first thing you have"
+" to do is to download and install sbt. You can read more about how to do "
+"that in the `sbt setup`_ documentation."
 msgstr ""
 
 #: ../../dev/building-akka.rst:44
 msgid ""
-"The sbt commands that you'll need to build Akka are all included below. "
-"If you want to find out more about sbt and using it for your own projects"
-" do read the `sbt documentation`_."
+"The sbt commands that you'll need to build Akka are all included below. If "
+"you want to find out more about sbt and using it for your own projects do "
+"read the `sbt documentation`_."
 msgstr ""
 
 #: ../../dev/building-akka.rst:50
 msgid ""
 "The main Akka sbt build file is ``project/AkkaBuild.scala``, with a "
-"`build.sbt` in each subproject’s directory. It is advisable to allocate "
-"at least 2GB of heap size to the JVM that runs sbt, otherwise you may "
+"`build.sbt` in each subproject’s directory. It is advisable to allocate at "
+"least 2GB of heap size to the JVM that runs sbt, otherwise you may "
 "experience some spurious failures when running the tests."
 msgstr ""
 
@@ -93,8 +94,8 @@ msgstr ""
 
 #: ../../dev/building-akka.rst:74
 msgid ""
-"If compiling and testing are successful then you have everything working "
-"for the latest Akka development version."
+"If compiling and testing are successful then you have everything working for"
+" the latest Akka development version."
 msgstr ""
 
 #: ../../dev/building-akka.rst:79
@@ -104,9 +105,9 @@ msgstr ""
 #: ../../dev/building-akka.rst:81
 msgid ""
 "By default the tests are executed sequentially. They can be executed in "
-"parallel to reduce build times, if hardware can handle the increased "
-"memory and cpu usage. Add the following system property to sbt launch "
-"script to activate parallel execution::"
+"parallel to reduce build times, if hardware can handle the increased memory "
+"and cpu usage. Add the following system property to sbt launch script to "
+"activate parallel execution::"
 msgstr ""
 
 #: ../../dev/building-akka.rst:88
@@ -116,8 +117,8 @@ msgstr ""
 #: ../../dev/building-akka.rst:90
 msgid ""
 "By default are the long running tests (mainly cluster tests) and time "
-"sensitive tests (dependent on the performance of the machine it is "
-"running on) disabled. You can enable them by adding one of the flags::"
+"sensitive tests (dependent on the performance of the machine it is running "
+"on) disabled. You can enable them by adding one of the flags::"
 msgstr ""
 
 #: ../../dev/building-akka.rst:96
@@ -143,8 +144,8 @@ msgid ""
 "Note that in the examples above we are calling ``sbt compile`` and ``sbt "
 "test`` and so on, but sbt also has an interactive mode. If you just run "
 "``sbt`` you enter the interactive sbt prompt and can enter the commands "
-"directly. This saves starting up a new JVM instance for each command and "
-"can be much faster and more convenient."
+"directly. This saves starting up a new JVM instance for each command and can"
+" be much faster and more convenient."
 msgstr ""
 
 #: ../../dev/building-akka.rst:118
@@ -158,8 +159,7 @@ msgstr ""
 #: ../../dev/building-akka.rst:132
 msgid ""
 "It's also possible to combine commands in a single call. For example, "
-"testing, and publishing Akka to the local Ivy repository can be done "
-"with::"
+"testing, and publishing Akka to the local Ivy repository can be done with::"
 msgstr ""
 
 #: ../../dev/building-akka.rst:141
@@ -168,12 +168,12 @@ msgstr ""
 
 #: ../../dev/building-akka.rst:143
 msgid ""
-"You can look at the Ivy dependency resolution information that is created"
-" on ``sbt update`` and found in ``~/.ivy2/cache``. For example, the "
-"``~/.ivy2/cache/com.typesafe.akka-akka-remote-compile.xml`` file contains"
-" the resolution information for the akka-remote module compile "
-"dependencies. If you open this file in a web browser you will get an easy"
-" to navigate view of dependencies."
+"You can look at the Ivy dependency resolution information that is created on"
+" ``sbt update`` and found in ``~/.ivy2/cache``. For example, the "
+"``~/.ivy2/cache/com.typesafe.akka-akka-remote-compile.xml`` file contains "
+"the resolution information for the akka-remote module compile dependencies. "
+"If you open this file in a web browser you will get an easy to navigate view"
+" of dependencies."
 msgstr ""
 
 #: ../../dev/building-akka.rst:151
@@ -182,11 +182,9 @@ msgstr ""
 
 #: ../../dev/building-akka.rst:153
 msgid ""
-"Akka generates class diagrams for the API documentation using ScalaDoc. "
-"This needs the ``dot`` command from the Graphviz software package to be "
-"installed to avoid errors. You can disable the diagram generation by "
-"adding the flag ``-Dakka.scaladoc.diagrams=false``. After installing "
-"Graphviz, make sure you add the toolset to the PATH (definitely on "
-"Windows)."
+"Akka generates class diagrams for the API documentation using ScalaDoc. This"
+" needs the ``dot`` command from the Graphviz software package to be "
+"installed to avoid errors. You can disable the diagram generation by adding "
+"the flag ``-Dakka.scaladoc.diagrams=false``. After installing Graphviz, make"
+" sure you add the toolset to the PATH (definitely on Windows)."
 msgstr ""
-

@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../common/duration.rst:5
 msgid "Duration"
@@ -23,11 +23,11 @@ msgstr ""
 
 #: ../../common/duration.rst:7
 msgid ""
-"Durations are used throughout the Akka library, wherefore this concept is"
-" represented by a special data type, "
+"Durations are used throughout the Akka library, wherefore this concept is "
+"represented by a special data type, "
 ":class:`scala.concurrent.duration.Duration`. Values of this type may "
-"represent infinite (:obj:`Duration.Inf`, :obj:`Duration.MinusInf`) or "
-"finite durations, or be :obj:`Duration.Undefined`."
+"represent infinite (:obj:`Duration.Inf`, :obj:`Duration.MinusInf`) or finite"
+" durations, or be :obj:`Duration.Undefined`."
 msgstr ""
 
 #: ../../common/duration.rst:13
@@ -36,15 +36,15 @@ msgstr ""
 
 #: ../../common/duration.rst:15
 msgid ""
-"Since trying to convert an infinite duration into a concrete time unit "
-"like seconds will throw an exception, there are different types available"
-" for distinguishing the two kinds at compile time:"
+"Since trying to convert an infinite duration into a concrete time unit like "
+"seconds will throw an exception, there are different types available for "
+"distinguishing the two kinds at compile time:"
 msgstr ""
 
 #: ../../common/duration.rst:19
 msgid ""
-":class:`FiniteDuration` is guaranteed to be finite, calling "
-":meth:`toNanos` and friends is safe"
+":class:`FiniteDuration` is guaranteed to be finite, calling :meth:`toNanos` "
+"and friends is safe"
 msgstr ""
 
 #: ../../common/duration.rst:21
@@ -67,9 +67,9 @@ msgstr ""
 #: ../../common/duration.rst:34
 msgid ""
 "You may leave out the dot if the expression is clearly delimited (e.g. "
-"within parentheses or in an argument list), but it is recommended to use "
-"it if the time unit is the last token on a line, otherwise semi-colon "
-"inference might go wrong, depending on what starts the next line."
+"within parentheses or in an argument list), but it is recommended to use it "
+"if the time unit is the last token on a line, otherwise semi-colon inference"
+" might go wrong, depending on what starts the next line."
 msgstr ""
 
 #: ../../common/duration.rst:40
@@ -78,8 +78,8 @@ msgstr ""
 
 #: ../../common/duration.rst:42
 msgid ""
-"Java provides less syntactic sugar, so you have to spell out the "
-"operations as method calls instead:"
+"Java provides less syntactic sugar, so you have to spell out the operations "
+"as method calls instead:"
 msgstr ""
 
 #: ../../common/duration.rst:49
@@ -88,15 +88,13 @@ msgstr ""
 
 #: ../../common/duration.rst:51
 msgid ""
-"Durations have a brother named :class:`Deadline`, which is a class "
-"holding a representation of an absolute point in time, and support "
-"deriving a duration from this by calculating the difference between now "
-"and the deadline. This is useful when you want to keep one overall "
-"deadline without having to take care of the book-keeping wrt. the passing"
-" of time yourself:"
+"Durations have a brother named :class:`Deadline`, which is a class holding a"
+" representation of an absolute point in time, and support deriving a "
+"duration from this by calculating the difference between now and the "
+"deadline. This is useful when you want to keep one overall deadline without "
+"having to take care of the book-keeping wrt. the passing of time yourself:"
 msgstr ""
 
 #: ../../common/duration.rst:58
 msgid "In Java you create these from durations:"
 msgstr ""
-

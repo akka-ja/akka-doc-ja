@@ -1,8 +1,8 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,12 +10,12 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../common/circuitbreaker.rst:5
 msgid "Circuit Breaker"
@@ -28,46 +28,43 @@ msgstr ""
 #: ../../common/circuitbreaker.rst:10
 msgid ""
 "A circuit breaker is used to provide stability and prevent cascading "
-"failures in distributed systems.  These should be used in conjunction "
-"with judicious timeouts at the interfaces between remote systems to "
-"prevent the failure of a single component from bringing down all "
-"components."
+"failures in distributed systems.  These should be used in conjunction with "
+"judicious timeouts at the interfaces between remote systems to prevent the "
+"failure of a single component from bringing down all components."
 msgstr ""
 
 #: ../../common/circuitbreaker.rst:14
 msgid ""
 "As an example, we have a web application interacting with a remote third "
-"party web service. Let's say the third party has oversold their capacity "
-"and their database melts down under load. Assume that the database fails "
-"in such a way that it takes a very long time to hand back an error to the"
-" third party web service.  This in turn makes calls fail after a long "
-"period of time.  Back to our web application, the users have noticed that"
-" their form submissions take much longer seeming to hang.  Well the users"
-" do what they know to do which is use the refresh button, adding more "
-"requests to their already running requests.  This eventually causes the "
-"failure of the web application due to resource exhaustion.  This will "
-"affect all users, even those who are not using functionality dependent on"
-" this third party web service."
+"party web service. Let's say the third party has oversold their capacity and"
+" their database melts down under load. Assume that the database fails in "
+"such a way that it takes a very long time to hand back an error to the third"
+" party web service.  This in turn makes calls fail after a long period of "
+"time.  Back to our web application, the users have noticed that their form "
+"submissions take much longer seeming to hang.  Well the users do what they "
+"know to do which is use the refresh button, adding more requests to their "
+"already running requests.  This eventually causes the failure of the web "
+"application due to resource exhaustion.  This will affect all users, even "
+"those who are not using functionality dependent on this third party web "
+"service."
 msgstr ""
 
 #: ../../common/circuitbreaker.rst:24
 msgid ""
 "Introducing circuit breakers on the web service call would cause the "
 "requests to begin to fail-fast, letting the user know that something is "
-"wrong and that they need not refresh their request.  This also confines "
-"the failure behavior to only those users that are using functionality "
-"dependent on the third party, other users are no longer affected as there"
-" is no resource exhaustion.  Circuit breakers can also allow savvy "
-"developers to mark portions of the site that use the functionality "
-"unavailable, or perhaps show some cached content as appropriate while the"
-" breaker is open."
+"wrong and that they need not refresh their request.  This also confines the "
+"failure behavior to only those users that are using functionality dependent "
+"on the third party, other users are no longer affected as there is no "
+"resource exhaustion.  Circuit breakers can also allow savvy developers to "
+"mark portions of the site that use the functionality unavailable, or perhaps"
+" show some cached content as appropriate while the breaker is open."
 msgstr ""
 
 #: ../../common/circuitbreaker.rst:32
 msgid ""
 "The Akka library provides an implementation of a circuit breaker called "
-":class:`akka.pattern.CircuitBreaker` which has the behavior described "
-"below."
+":class:`akka.pattern.CircuitBreaker` which has the behavior described below."
 msgstr ""
 
 #: ../../common/circuitbreaker.rst:37
@@ -122,14 +119,14 @@ msgstr ""
 
 #: ../../common/circuitbreaker.rst:48
 msgid ""
-"If the first call succeeds, the breaker is reset back to `Closed` state "
-"and the `resetTimeout` is reset"
+"If the first call succeeds, the breaker is reset back to `Closed` state and "
+"the `resetTimeout` is reset"
 msgstr ""
 
 #: ../../common/circuitbreaker.rst:49
 msgid ""
-"If the first call fails, the breaker is tripped again into the `Open` "
-"state (as for exponential backoff circuit breaker, the `resetTimeout` is "
+"If the first call fails, the breaker is tripped again into the `Open` state "
+"(as for exponential backoff circuit breaker, the `resetTimeout` is "
 "multiplied by the exponential backoff factor)"
 msgstr ""
 
@@ -139,8 +136,8 @@ msgstr ""
 
 #: ../../common/circuitbreaker.rst:51
 msgid ""
-"Callbacks can be provided for every state entry via `onOpen`, `onClose`, "
-"and `onHalfOpen`"
+"Callbacks can be provided for every state entry via `onOpen`, `onClose`, and"
+" `onHalfOpen`"
 msgstr ""
 
 #: ../../common/circuitbreaker.rst:52
@@ -194,10 +191,10 @@ msgstr ""
 #: ../../common/circuitbreaker.rst:106
 msgid ""
 "Using the :class:`CircuitBreaker` companion object's `apply` or `create` "
-"methods will return a :class:`CircuitBreaker` where callbacks are "
-"executed in the caller's thread. This can be useful if the asynchronous "
-":class:`Future` behavior is unnecessary, for example invoking a "
-"synchronous-only API."
+"methods will return a :class:`CircuitBreaker` where callbacks are executed "
+"in the caller's thread. This can be useful if the asynchronous "
+":class:`Future` behavior is unnecessary, for example invoking a synchronous-"
+"only API."
 msgstr ""
 
 #: ../../common/circuitbreaker.rst:114
@@ -207,28 +204,16 @@ msgstr ""
 #: ../../common/circuitbreaker.rst:116
 msgid ""
 "The above ``Call Protection`` pattern works well when the return from a "
-"remote call is wrapped in a ``Future``. However, when a remote call sends"
-" back a message or timeout to the caller ``Actor``, the ``Call "
-"Protection`` pattern is awkward. CircuitBreaker doesn't support it "
-"natively at the moment, so you need to use below low-level power-user "
-"APIs, ``succeed``  and  ``fail`` methods, as well as ``isClose``, "
-"``isOpen``, ``isHalfOpen``."
+"remote call is wrapped in a ``Future``. However, when a remote call sends "
+"back a message or timeout to the caller ``Actor``, the ``Call Protection`` "
+"pattern is awkward. CircuitBreaker doesn't support it natively at the "
+"moment, so you need to use below low-level power-user APIs, ``succeed``  and"
+"  ``fail`` methods, as well as ``isClose``, ``isOpen``, ``isHalfOpen``."
 msgstr ""
 
 #: ../../common/circuitbreaker.rst:123
 msgid ""
-"The below examples doesn't make a remote call when the state is "
-"`HalfOpen`. Using the power-user APIs, it is your responsibility to judge"
-" when to make remote calls in `HalfOpen`."
+"The below examples doesn't make a remote call when the state is `HalfOpen`. "
+"Using the power-user APIs, it is your responsibility to judge when to make "
+"remote calls in `HalfOpen`."
 msgstr ""
-
-#~ msgid "If the first call succeeds, the breaker is reset back to `Closed` state"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "If the first call fails, the "
-#~ "breaker is tripped again into the "
-#~ "`Open` state for another full "
-#~ "`resetTimeout`"
-#~ msgstr ""
-

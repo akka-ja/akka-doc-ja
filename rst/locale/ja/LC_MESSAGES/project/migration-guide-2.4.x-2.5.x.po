@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../project/migration-guide-2.4.x-2.5.x.rst:5
 msgid "Upcoming Migration Guide 2.4.x to 2.5.x"
@@ -31,12 +31,11 @@ msgstr ""
 
 #: ../../project/migration-guide-2.4.x-2.5.x.rst:13
 msgid ""
-"A new :ref:`persistence plugin proxy<persistence-plugin-proxy>` was "
-"added, that allows sharing of an otherwise non-sharable journal or "
-"snapshot store. The proxy is available by setting "
-"``akka.persistence.journal.plugin`` or ``akka.persistence.snapshot-"
-"store.plugin`` to ``akka.persistence.journal.proxy`` or "
-"``akka.persistence.snapshot-store.proxy``, respectively. The proxy "
-"supplants the :ref:`Shared LevelDB journal<shared-leveldb-journal>`."
+"A new :ref:`persistence plugin proxy<persistence-plugin-proxy>` was added, "
+"that allows sharing of an otherwise non-sharable journal or snapshot store. "
+"The proxy is available by setting ``akka.persistence.journal.plugin`` or "
+"``akka.persistence.snapshot-store.plugin`` to "
+"``akka.persistence.journal.proxy`` or ``akka.persistence.snapshot-"
+"store.proxy``, respectively. The proxy supplants the :ref:`Shared LevelDB "
+"journal<shared-leveldb-journal>`."
 msgstr ""
-

@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../java/http/routing-dsl/directives/security-directives/authorizeAsync.rst:4
 msgid "authorizeAsync"
@@ -32,26 +32,26 @@ msgstr ""
 #: ../../java/http/routing-dsl/directives/security-directives/authorizeAsync.rst:10
 msgid ""
 "The user-defined authorization check can either be supplied as a ``=> "
-"Future[Boolean]`` value which is calculated just from information out of "
-"the lexical scope, or as a function ``RequestContext => Future[Boolean]``"
-" which can also take information from the request itself into account."
+"Future[Boolean]`` value which is calculated just from information out of the"
+" lexical scope, or as a function ``RequestContext => Future[Boolean]`` which"
+" can also take information from the request itself into account."
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/security-directives/authorizeAsync.rst:14
 msgid ""
 "If the check returns ``true`` or the ``Future`` is failed the request is "
 "passed on to the inner route unchanged, otherwise an "
-"``AuthorizationFailedRejection`` is created, triggering a ``403 "
-"Forbidden`` response by default (the same as in the case of an "
+"``AuthorizationFailedRejection`` is created, triggering a ``403 Forbidden`` "
+"response by default (the same as in the case of an "
 "``AuthenticationFailedRejection``)."
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/security-directives/authorizeAsync.rst:18
 msgid ""
-"In a common use-case you would check if a user (e.g. supplied by any of "
-"the ``authenticate*`` family of directives, e.g. :ref"
-":`-authenticateBasic-java-`) is allowed to access the inner routes, e.g. "
-"by checking if the user has the needed permissions."
+"In a common use-case you would check if a user (e.g. supplied by any of the "
+"``authenticate*`` family of directives, e.g. :ref:`-authenticateBasic-"
+"java-`) is allowed to access the inner routes, e.g. by checking if the user "
+"has the needed permissions."
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/security-directives/authorizeAsync.rst:21
@@ -69,4 +69,3 @@ msgstr ""
 #: ../../java/http/routing-dsl/directives/security-directives/authorizeAsync.rst:27
 msgid "Example"
 msgstr ""
-

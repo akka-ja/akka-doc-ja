@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../java/http/routing-dsl/directives/header-directives/optionalHeaderValueByType.rst:4
 msgid "optionalHeaderValueByType"
@@ -27,23 +27,21 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/header-directives/optionalHeaderValueByType.rst:8
 msgid ""
-"Optionally extracts the value of the HTTP request header of the given "
-"type."
+"Optionally extracts the value of the HTTP request header of the given type."
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/header-directives/optionalHeaderValueByType.rst:10
 msgid ""
 "The ``optionalHeaderValueByType`` directive is similar to the :ref"
-":`-headerValueByType-java-` directive but always extracts an ``Optional``"
-" value instead of rejecting the request if no matching header could be "
-"found."
+":`-headerValueByType-java-` directive but always extracts an ``Optional`` "
+"value instead of rejecting the request if no matching header could be found."
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/header-directives/optionalHeaderValueByType.rst:14
 msgid ""
 "Custom headers will only be matched by this directive if they extend "
-"``ModeledCustomHeader`` from the Scala DSL and there is currently no API "
-"for the Java DSL (Ticket #20415)"
+"``ModeledCustomHeader`` from the Scala DSL and there is currently no API for"
+" the Java DSL (Ticket #20415)"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/header-directives/optionalHeaderValueByType.rst:17
@@ -55,4 +53,3 @@ msgstr ""
 #: ../../java/http/routing-dsl/directives/header-directives/optionalHeaderValueByType.rst:20
 msgid "Example"
 msgstr ""
-

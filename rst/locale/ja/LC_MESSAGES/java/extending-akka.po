@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../java/extending-akka.rst:5
 msgid "Akka Extensions"
@@ -23,24 +23,24 @@ msgstr ""
 
 #: ../../java/extending-akka.rst:8
 msgid ""
-"If you want to add features to Akka, there is a very elegant, but "
-"powerful mechanism for doing so. It's called Akka Extensions and is "
-"comprised of 2 basic components: an ``Extension`` and an ``ExtensionId``."
+"If you want to add features to Akka, there is a very elegant, but powerful "
+"mechanism for doing so. It's called Akka Extensions and is comprised of 2 "
+"basic components: an ``Extension`` and an ``ExtensionId``."
 msgstr ""
 
 #: ../../java/extending-akka.rst:11
 msgid ""
 "Extensions will only be loaded once per ``ActorSystem``, which will be "
-"managed by Akka. You can choose to have your Extension loaded on-demand "
-"or at ``ActorSystem`` creation time through the Akka configuration. "
-"Details on how to make that happens are below, in the \"Loading from "
-"Configuration\" section."
+"managed by Akka. You can choose to have your Extension loaded on-demand or "
+"at ``ActorSystem`` creation time through the Akka configuration. Details on "
+"how to make that happens are below, in the \"Loading from Configuration\" "
+"section."
 msgstr ""
 
 #: ../../java/extending-akka.rst:17
 msgid ""
-"Since an extension is a way to hook into Akka itself, the implementor of "
-"the extension needs to ensure the thread safety of his/her extension."
+"Since an extension is a way to hook into Akka itself, the implementor of the"
+" extension needs to ensure the thread safety of his/her extension."
 msgstr ""
 
 #: ../../java/extending-akka.rst:22
@@ -59,8 +59,8 @@ msgstr ""
 
 #: ../../java/extending-akka.rst:34
 msgid ""
-"Then we need to create an ``ExtensionId`` for our extension so we can "
-"grab a hold of it."
+"Then we need to create an ``ExtensionId`` for our extension so we can grab a"
+" hold of it."
 msgstr ""
 
 #: ../../java/extending-akka.rst:42
@@ -83,8 +83,8 @@ msgstr ""
 msgid ""
 "To be able to load extensions from your Akka configuration you must add "
 "FQCNs of implementations of either ``ExtensionId`` or "
-"``ExtensionIdProvider`` in the \"akka.extensions\" section of the config "
-"you provide to your ``ActorSystem``."
+"``ExtensionIdProvider`` in the \"akka.extensions\" section of the config you"
+" provide to your ``ActorSystem``."
 msgstr ""
 
 #: ../../java/extending-akka.rst:67
@@ -93,9 +93,8 @@ msgstr ""
 
 #: ../../java/extending-akka.rst:69
 msgid ""
-"The sky is the limit! By the way, did you know that Akka's ``Typed "
-"Actors``, ``Serialization`` and other features are implemented as Akka "
-"Extensions?"
+"The sky is the limit! By the way, did you know that Akka's ``Typed Actors``,"
+" ``Serialization`` and other features are implemented as Akka Extensions?"
 msgstr ""
 
 #: ../../java/extending-akka.rst:75
@@ -104,8 +103,8 @@ msgstr ""
 
 #: ../../java/extending-akka.rst:77
 msgid ""
-"The :ref:`configuration` can be used for application specific settings. A"
-" good practice is to place those settings in an Extension."
+"The :ref:`configuration` can be used for application specific settings. A "
+"good practice is to place those settings in an Extension."
 msgstr ""
 
 #: ../../java/extending-akka.rst:79
@@ -126,17 +125,17 @@ msgstr ""
 
 #: ../../java/extending-akka.rst:99
 msgid ""
-"A third part library may register it's extension for auto-loading on "
-"actor system startup by appending it to ``akka.library-extensions`` in "
-"its ``reference.conf``."
+"A third part library may register it's extension for auto-loading on actor "
+"system startup by appending it to ``akka.library-extensions`` in its "
+"``reference.conf``."
 msgstr ""
 
 #: ../../java/extending-akka.rst:107
 msgid ""
-"As there is no way to selectively remove such extensions, it should be "
-"used with care and only when there is no case where the user would ever "
-"want it disabled or have specific support for disabling such sub-"
-"features. One example where this could be important is in tests."
+"As there is no way to selectively remove such extensions, it should be used "
+"with care and only when there is no case where the user would ever want it "
+"disabled or have specific support for disabling such sub-features. One "
+"example where this could be important is in tests."
 msgstr ""
 
 #: ../../java/extending-akka.rst:112
@@ -145,4 +144,3 @@ msgid ""
 "[\"Extension\"]``) instead of appending as this will break the library-"
 "extension mechanism and make behavior depend on class path ordering."
 msgstr ""
-

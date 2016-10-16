@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../scala/fault-tolerance-sample.rst:4
 msgid "Diagrams of the Fault Tolerance Sample"
@@ -66,9 +66,9 @@ msgstr ""
 #: ../../scala/fault-tolerance-sample.rst:19
 msgid ""
 "When receiving ``Do`` the ``Worker`` tells the ``CounterService`` to "
-"increment the counter, three times. The ``Increment`` message is "
-"forwarded to the ``Counter``, which updates its counter variable and "
-"sends current value to the ``Storage``."
+"increment the counter, three times. The ``Increment`` message is forwarded "
+"to the ``Counter``, which updates its counter variable and sends current "
+"value to the ``Storage``."
 msgstr ""
 
 #: ../../scala/fault-tolerance-sample.rst:23
@@ -77,12 +77,13 @@ msgstr ""
 
 #: ../../scala/fault-tolerance-sample.rst:23
 msgid ""
-"The ``Worker`` asks the ``CounterService`` of current value of the "
-"counter and pipes the result back to the ``Listener``."
+"The ``Worker`` asks the ``CounterService`` of current value of the counter "
+"and pipes the result back to the ``Listener``."
 msgstr ""
 
 #: ../../scala/fault-tolerance-sample.rst:30
-msgid "*The above diagram illustrates what happens in case of storage failure.*"
+msgid ""
+"*The above diagram illustrates what happens in case of storage failure.*"
 msgstr ""
 
 #: ../../scala/fault-tolerance-sample.rst:32
@@ -113,8 +114,8 @@ msgstr ""
 
 #: ../../scala/fault-tolerance-sample.rst:41
 msgid ""
-"After 3 failures and restarts within 5 seconds the ``Storage`` is stopped"
-" by its supervisor, i.e. the ``CounterService``."
+"After 3 failures and restarts within 5 seconds the ``Storage`` is stopped by"
+" its supervisor, i.e. the ``CounterService``."
 msgstr ""
 
 #: ../../scala/fault-tolerance-sample.rst:43
@@ -123,9 +124,9 @@ msgstr ""
 
 #: ../../scala/fault-tolerance-sample.rst:43
 msgid ""
-"The ``CounterService`` is also watching the ``Storage`` for termination "
-"and receives the ``Terminated`` message when the ``Storage`` has been "
-"stopped ..."
+"The ``CounterService`` is also watching the ``Storage`` for termination and "
+"receives the ``Terminated`` message when the ``Storage`` has been stopped "
+"..."
 msgstr ""
 
 #: ../../scala/fault-tolerance-sample.rst:45
@@ -150,8 +151,7 @@ msgstr ""
 
 #: ../../scala/fault-tolerance-sample.rst:47
 msgid ""
-"When it receives the ``Reconnect`` message it creates a new ``Storage`` "
-"..."
+"When it receives the ``Reconnect`` message it creates a new ``Storage`` ..."
 msgstr ""
 
 #: ../../scala/fault-tolerance-sample.rst:48
@@ -165,4 +165,3 @@ msgstr ""
 #: ../../scala/fault-tolerance-sample.rst:52
 msgid "Full Source Code of the Fault Tolerance Sample"
 msgstr ""
-

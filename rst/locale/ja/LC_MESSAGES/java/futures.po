@@ -1,8 +1,8 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,12 +10,13 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Last-Translator: Takaichi Kubo <tk.qubo@gmail.com>, 2016\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../java/futures.rst:4
 msgid "Futures"
@@ -23,16 +24,16 @@ msgstr ""
 
 #: ../../java/futures.rst:7
 msgid "Introduction"
-msgstr ""
+msgstr "イントロダクション"
 
 #: ../../java/futures.rst:9
 msgid ""
 "In the Scala Standard Library, a `Future "
-"<http://en.wikipedia.org/wiki/Futures_and_promises>`_ is a data structure"
-" used to retrieve the result of some concurrent operation. This result "
-"can be accessed synchronously (blocking) or asynchronously (non-"
-"blocking). To be able to use this from Java, Akka provides a java "
-"friendly interface in ``akka.dispatch.Futures``."
+"<http://en.wikipedia.org/wiki/Futures_and_promises>`_ is a data structure "
+"used to retrieve the result of some concurrent operation. This result can be"
+" accessed synchronously (blocking) or asynchronously (non-blocking). To be "
+"able to use this from Java, Akka provides a java friendly interface in "
+"``akka.dispatch.Futures``."
 msgstr ""
 
 #: ../../java/futures.rst:14
@@ -45,13 +46,12 @@ msgstr ""
 
 #: ../../java/futures.rst:19
 msgid ""
-"In order to execute callbacks and operations, Futures need something "
-"called an ``ExecutionContext``, which is very similar to a "
-"``java.util.concurrent.Executor``. if you have an ``ActorSystem`` in "
-"scope, it will use its default dispatcher as the ``ExecutionContext``, or"
-" you can use the factory methods provided by the ``ExecutionContexts`` "
-"class to wrap ``Executors`` and ``ExecutorServices``, or even create your"
-" own."
+"In order to execute callbacks and operations, Futures need something called "
+"an ``ExecutionContext``, which is very similar to a "
+"``java.util.concurrent.Executor``. if you have an ``ActorSystem`` in scope, "
+"it will use its default dispatcher as the ``ExecutionContext``, or you can "
+"use the factory methods provided by the ``ExecutionContexts`` class to wrap "
+"``Executors`` and ``ExecutorServices``, or even create your own."
 msgstr ""
 
 #: ../../java/futures.rst:31
@@ -60,44 +60,43 @@ msgstr ""
 
 #: ../../java/futures.rst:33
 msgid ""
-"There are generally two ways of getting a reply from an ``UntypedActor``:"
-" the first is by a sent message (``actorRef.tell(msg, sender)``), which "
-"only works if the original sender was an ``UntypedActor``) and the second"
-" is through a ``Future``."
+"There are generally two ways of getting a reply from an ``UntypedActor``: "
+"the first is by a sent message (``actorRef.tell(msg, sender)``), which only "
+"works if the original sender was an ``UntypedActor``) and the second is "
+"through a ``Future``."
 msgstr ""
 
 #: ../../java/futures.rst:36
 msgid ""
-"Using the ``ActorRef``\\'s ``ask`` method to send a message will return a"
-" ``Future``. To wait for and retrieve the actual result the simplest "
-"method is:"
+"Using the ``ActorRef``\\'s ``ask`` method to send a message will return a "
+"``Future``. To wait for and retrieve the actual result the simplest method "
+"is:"
 msgstr ""
 
 #: ../../java/futures.rst:45
 msgid ""
 "This will cause the current thread to block and wait for the "
-"``UntypedActor`` to 'complete' the ``Future`` with it's reply. Blocking "
-"is discouraged though as it can cause performance problem. The blocking "
-"operations are located in ``Await.result`` and ``Await.ready`` to make it"
-" easy to spot where blocking occurs. Alternatives to blocking are "
-"discussed further within this documentation. Also note that the "
-"``Future`` returned by an ``UntypedActor`` is a ``Future<Object>`` since "
-"an ``UntypedActor`` is dynamic. That is why the cast to ``String`` is "
-"used in the above sample."
+"``UntypedActor`` to 'complete' the ``Future`` with it's reply. Blocking is "
+"discouraged though as it can cause performance problem. The blocking "
+"operations are located in ``Await.result`` and ``Await.ready`` to make it "
+"easy to spot where blocking occurs. Alternatives to blocking are discussed "
+"further within this documentation. Also note that the ``Future`` returned by"
+" an ``UntypedActor`` is a ``Future<Object>`` since an ``UntypedActor`` is "
+"dynamic. That is why the cast to ``String`` is used in the above sample."
 msgstr ""
 
 #: ../../java/futures.rst:54
 msgid ""
-"``Await.result`` and ``Await.ready`` are provided for exceptional "
-"situations where you **must** block, a good rule of thumb is to only use "
-"them if you know why you **must** block. For all other cases, use "
-"asynchronous composition as described below."
+"``Await.result`` and ``Await.ready`` are provided for exceptional situations"
+" where you **must** block, a good rule of thumb is to only use them if you "
+"know why you **must** block. For all other cases, use asynchronous "
+"composition as described below."
 msgstr ""
 
 #: ../../java/futures.rst:58
 msgid ""
-"To send the result of a ``Future`` to an ``Actor``, you can use the "
-"``pipe`` construct:"
+"To send the result of a ``Future`` to an ``Actor``, you can use the ``pipe``"
+" construct:"
 msgstr ""
 
 #: ../../java/futures.rst:64
@@ -107,26 +106,26 @@ msgstr ""
 #: ../../java/futures.rst:66
 msgid ""
 "A common use case within Akka is to have some computation performed "
-"concurrently without needing the extra utility of an ``UntypedActor``. If"
-" you find yourself creating a pool of ``UntypedActor``\\s for the sole "
-"reason of performing a calculation in parallel, there is an easier (and "
-"faster) way:"
+"concurrently without needing the extra utility of an ``UntypedActor``. If "
+"you find yourself creating a pool of ``UntypedActor``\\s for the sole reason"
+" of performing a calculation in parallel, there is an easier (and faster) "
+"way:"
 msgstr ""
 
 #: ../../java/futures.rst:76
 msgid ""
 "In the above code the block passed to ``future`` will be executed by the "
-"default ``Dispatcher``, with the return value of the block used to "
-"complete the ``Future`` (in this case, the result would be the string: "
+"default ``Dispatcher``, with the return value of the block used to complete "
+"the ``Future`` (in this case, the result would be the string: "
 "\"HelloWorld\"). Unlike a ``Future`` that is returned from an "
-"``UntypedActor``, this ``Future`` is properly typed, and we also avoid "
-"the overhead of managing an ``UntypedActor``."
+"``UntypedActor``, this ``Future`` is properly typed, and we also avoid the "
+"overhead of managing an ``UntypedActor``."
 msgstr ""
 
 #: ../../java/futures.rst:81
 msgid ""
-"You can also create already completed Futures using the ``Futures`` "
-"class, which can be either successes:"
+"You can also create already completed Futures using the ``Futures`` class, "
+"which can be either successes:"
 msgstr ""
 
 #: ../../java/futures.rst:86
@@ -135,8 +134,8 @@ msgstr ""
 
 #: ../../java/futures.rst:91
 msgid ""
-"It is also possible to create an empty ``Promise``, to be filled later, "
-"and obtain the corresponding ``Future``:"
+"It is also possible to create an empty ``Promise``, to be filled later, and "
+"obtain the corresponding ``Future``:"
 msgstr ""
 
 #: ../../java/futures.rst:95
@@ -149,9 +148,9 @@ msgstr ""
 
 #: ../../java/futures.rst:103
 msgid ""
-"Scala's ``Future`` has several monadic methods that are very similar to "
-"the ones used by ``Scala``'s collections. These allow you to create "
-"'pipelines' or 'streams' that the result will travel through."
+"Scala's ``Future`` has several monadic methods that are very similar to the "
+"ones used by ``Scala``'s collections. These allow you to create 'pipelines' "
+"or 'streams' that the result will travel through."
 msgstr ""
 
 #: ../../java/futures.rst:107
@@ -160,31 +159,29 @@ msgstr ""
 
 #: ../../java/futures.rst:109
 msgid ""
-"The first method for working with ``Future`` functionally is ``map``. "
-"This method takes a ``Mapper`` which performs some operation on the "
-"result of the ``Future``, and returning a new result. The return value of"
-" the ``map`` method is another ``Future`` that will contain the new "
-"result:"
+"The first method for working with ``Future`` functionally is ``map``. This "
+"method takes a ``Mapper`` which performs some operation on the result of the"
+" ``Future``, and returning a new result. The return value of the ``map`` "
+"method is another ``Future`` that will contain the new result:"
 msgstr ""
 
 #: ../../java/futures.rst:119
 msgid ""
 "In this example we are joining two strings together within a ``Future``. "
-"Instead of waiting for f1 to complete, we apply our function that "
-"calculates the length of the string using the ``map`` method. Now we have"
-" a second ``Future``, f2, that will eventually contain an ``Integer``. "
-"When our original ``Future``, f1, completes, it will also apply our "
-"function and complete the second ``Future`` with its result. When we "
-"finally ``get`` the result, it will contain the number 10. Our original "
-"``Future`` still contains the string \"HelloWorld\" and is unaffected by "
-"the ``map``."
+"Instead of waiting for f1 to complete, we apply our function that calculates"
+" the length of the string using the ``map`` method. Now we have a second "
+"``Future``, f2, that will eventually contain an ``Integer``. When our "
+"original ``Future``, f1, completes, it will also apply our function and "
+"complete the second ``Future`` with its result. When we finally ``get`` the "
+"result, it will contain the number 10. Our original ``Future`` still "
+"contains the string \"HelloWorld\" and is unaffected by the ``map``."
 msgstr ""
 
 #: ../../java/futures.rst:126
 msgid ""
-"Something to note when using these methods: passed work is always "
-"dispatched on the provided ``ExecutionContext``. Even if the ``Future`` "
-"has already been completed, when one of these methods is called."
+"Something to note when using these methods: passed work is always dispatched"
+" on the provided ``ExecutionContext``. Even if the ``Future`` has already "
+"been completed, when one of these methods is called."
 msgstr ""
 
 #: ../../java/futures.rst:130
@@ -193,9 +190,9 @@ msgstr ""
 
 #: ../../java/futures.rst:132
 msgid ""
-"It is very often desirable to be able to combine different Futures with "
-"each other, below are some examples on how that can be done in a non-"
-"blocking fashion."
+"It is very often desirable to be able to combine different Futures with each"
+" other, below are some examples on how that can be done in a non-blocking "
+"fashion."
 msgstr ""
 
 #: ../../java/futures.rst:141
@@ -209,10 +206,10 @@ msgstr ""
 
 #: ../../java/futures.rst:145
 msgid ""
-"The ``traverse`` method is similar to ``sequence``, but it takes a "
-"sequence of ``A`` and applies a function from ``A`` to ``Future<B>`` and "
-"returns a ``Future<Iterable<B>>``, enabling parallel ``map`` over the "
-"sequence, if you use ``Futures.future`` to create the ``Future``."
+"The ``traverse`` method is similar to ``sequence``, but it takes a sequence "
+"of ``A`` and applies a function from ``A`` to ``Future<B>`` and returns a "
+"``Future<Iterable<B>>``, enabling parallel ``map`` over the sequence, if you"
+" use ``Futures.future`` to create the ``Future``."
 msgstr ""
 
 #: ../../java/futures.rst:154
@@ -222,11 +219,11 @@ msgstr ""
 #: ../../java/futures.rst:156
 msgid ""
 "Then there's a method that's called ``fold`` that takes a start-value, a "
-"sequence of ``Future``:s and a function from the type of the start-value,"
-" a timeout, and the type of the futures and returns something with the "
-"same type as the start-value, and then applies the function to all "
-"elements in the sequence of futures, non-blockingly, the execution will "
-"be started when the last of the Futures is completed."
+"sequence of ``Future``:s and a function from the type of the start-value, a "
+"timeout, and the type of the futures and returns something with the same "
+"type as the start-value, and then applies the function to all elements in "
+"the sequence of futures, non-blockingly, the execution will be started when "
+"the last of the Futures is completed."
 msgstr ""
 
 #: ../../java/futures.rst:168
@@ -235,19 +232,19 @@ msgstr ""
 
 #: ../../java/futures.rst:171
 msgid ""
-"If the sequence passed to ``fold`` is empty, it will return the start-"
-"value, in the case above, that will be empty String. In some cases you "
-"don't have a start-value and you're able to use the value of the first "
-"completing ``Future`` in the sequence as the start-value, you can use "
-"``reduce``, it works like this:"
+"If the sequence passed to ``fold`` is empty, it will return the start-value,"
+" in the case above, that will be empty String. In some cases you don't have "
+"a start-value and you're able to use the value of the first completing "
+"``Future`` in the sequence as the start-value, you can use ``reduce``, it "
+"works like this:"
 msgstr ""
 
 #: ../../java/futures.rst:181
 msgid ""
-"Same as with ``fold``, the execution will be started when the last of the"
-" Futures is completed, you can also parallelize it by chunking your "
-"futures into sub-sequences and reduce them, and then reduce the reduced "
-"results again."
+"Same as with ``fold``, the execution will be started when the last of the "
+"Futures is completed, you can also parallelize it by chunking your futures "
+"into sub-sequences and reduce them, and then reduce the reduced results "
+"again."
 msgstr ""
 
 #: ../../java/futures.rst:184
@@ -260,10 +257,10 @@ msgstr ""
 
 #: ../../java/futures.rst:189
 msgid ""
-"Sometimes you just want to listen to a ``Future`` being completed, and "
-"react to that not by creating a new Future, but by side-effecting. For "
-"this Scala supports ``onComplete``, ``onSuccess`` and ``onFailure``, of "
-"which the last two are specializations of the first."
+"Sometimes you just want to listen to a ``Future`` being completed, and react"
+" to that not by creating a new Future, but by side-effecting. For this Scala"
+" supports ``onComplete``, ``onSuccess`` and ``onFailure``, of which the last"
+" two are specializations of the first."
 msgstr ""
 
 #: ../../java/futures.rst:202
@@ -272,12 +269,12 @@ msgstr ""
 
 #: ../../java/futures.rst:204
 msgid ""
-"Since callbacks are executed in any order and potentially in parallel, it"
-" can be tricky at the times when you need sequential ordering of "
-"operations. But there's a solution! And it's name is ``andThen``, and it "
-"creates a new ``Future`` with the specified callback, a ``Future`` that "
-"will have the same result as the ``Future`` it's called on, which allows "
-"for ordering like in the following sample:"
+"Since callbacks are executed in any order and potentially in parallel, it "
+"can be tricky at the times when you need sequential ordering of operations. "
+"But there's a solution! And it's name is ``andThen``, and it creates a new "
+"``Future`` with the specified callback, a ``Future`` that will have the same"
+" result as the ``Future`` it's called on, which allows for ordering like in "
+"the following sample:"
 msgstr ""
 
 #: ../../java/futures.rst:214
@@ -286,9 +283,9 @@ msgstr ""
 
 #: ../../java/futures.rst:216
 msgid ""
-"``Future`` ``fallbackTo`` combines 2 Futures into a new ``Future``, and "
-"will hold the successful value of the second ``Future`` if the first "
-"``Future`` fails."
+"``Future`` ``fallbackTo`` combines 2 Futures into a new ``Future``, and will"
+" hold the successful value of the second ``Future`` if the first ``Future`` "
+"fails."
 msgstr ""
 
 #: ../../java/futures.rst:222
@@ -303,11 +300,11 @@ msgstr ""
 
 #: ../../java/futures.rst:231
 msgid ""
-"Since the result of a ``Future`` is created concurrently to the rest of "
-"the program, exceptions must be handled differently. It doesn't matter if"
-" an ``UntypedActor`` or the dispatcher is completing the ``Future``, if "
-"an ``Exception`` is caught the ``Future`` will contain it instead of a "
-"valid result. If a ``Future`` does contain an ``Exception``, calling "
+"Since the result of a ``Future`` is created concurrently to the rest of the "
+"program, exceptions must be handled differently. It doesn't matter if an "
+"``UntypedActor`` or the dispatcher is completing the ``Future``, if an "
+"``Exception`` is caught the ``Future`` will contain it instead of a valid "
+"result. If a ``Future`` does contain an ``Exception``, calling "
 "``Await.result`` will cause it to be thrown again so it can be handled "
 "properly."
 msgstr ""
@@ -320,19 +317,18 @@ msgstr ""
 
 #: ../../java/futures.rst:242
 msgid ""
-"In this example, if the actor replied with a "
-"``akka.actor.Status.Failure`` containing the ``ArithmeticException``, our"
-" ``Future`` would have a result of 0. The ``recover`` method works very "
-"similarly to the standard try/catch blocks, so multiple ``Exception``\\s "
-"can be handled in this manner, and if an ``Exception`` is not handled "
-"this way it will behave as if we hadn't used the ``recover`` method."
+"In this example, if the actor replied with a ``akka.actor.Status.Failure`` "
+"containing the ``ArithmeticException``, our ``Future`` would have a result "
+"of 0. The ``recover`` method works very similarly to the standard try/catch "
+"blocks, so multiple ``Exception``\\s can be handled in this manner, and if "
+"an ``Exception`` is not handled this way it will behave as if we hadn't used"
+" the ``recover`` method."
 msgstr ""
 
 #: ../../java/futures.rst:247
 msgid ""
-"You can also use the ``recoverWith`` method, which has the same "
-"relationship to ``recover`` as ``flatMap`` has to ``map``, and is use "
-"like this:"
+"You can also use the ``recoverWith`` method, which has the same relationship"
+" to ``recover`` as ``flatMap`` has to ``map``, and is use like this:"
 msgstr ""
 
 #: ../../java/futures.rst:254
@@ -341,18 +337,6 @@ msgstr ""
 
 #: ../../java/futures.rst:256
 msgid ""
-"``akka.pattern.Patterns.after`` makes it easy to complete a ``Future`` "
-"with a value or exception after a timeout."
+"``akka.pattern.Patterns.after`` makes it easy to complete a ``Future`` with "
+"a value or exception after a timeout."
 msgstr ""
-
-#~ msgid ""
-#~ "Sometimes you just want to listen "
-#~ "to a ``Future`` being completed, and "
-#~ "react to that not by creating a"
-#~ " new Future, but by side-effecting."
-#~ " For this Scala supports ``onComplete``,"
-#~ " ``onSuccess`` and ``onFailure``, of which"
-#~ " the latter two are specializations "
-#~ "of the first."
-#~ msgstr ""
-

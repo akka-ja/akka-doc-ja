@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../java/io-udp.rst:4
 msgid "Using UDP"
@@ -23,8 +23,8 @@ msgstr ""
 
 #: ../../java/io-udp.rst:6
 msgid ""
-"UDP is a connectionless datagram protocol which offers two different ways"
-" of communication on the JDK level:"
+"UDP is a connectionless datagram protocol which offers two different ways of"
+" communication on the JDK level:"
 msgstr ""
 
 #: ../../java/io-udp.rst:9
@@ -41,10 +41,10 @@ msgstr ""
 
 #: ../../java/io-udp.rst:15
 msgid ""
-"In the low-level API the distinction is made—confusingly—by whether or "
-"not :meth:`connect` has been called on the socket (even when connect has "
-"been called the protocol is still connectionless). These two forms of UDP"
-" usage are offered using distinct IO extensions described below."
+"In the low-level API the distinction is made—confusingly—by whether or not "
+":meth:`connect` has been called on the socket (even when connect has been "
+"called the protocol is still connectionless). These two forms of UDP usage "
+"are offered using distinct IO extensions described below."
 msgstr ""
 
 #: ../../java/io-udp.rst:21
@@ -57,22 +57,21 @@ msgstr ""
 
 #: ../../java/io-udp.rst:28
 msgid ""
-"The simplest form of UDP usage is to just send datagrams without the need"
-" of getting a reply. To this end a “simple sender” facility is provided "
-"as demonstrated above. The UDP extension is queried using the "
+"The simplest form of UDP usage is to just send datagrams without the need of"
+" getting a reply. To this end a “simple sender” facility is provided as "
+"demonstrated above. The UDP extension is queried using the "
 ":meth:`simpleSender` message, which is answered by a "
-":class:`SimpleSenderReady` notification. The sender of this message is "
-"the newly created sender actor which from this point onward can be used "
-"to send datagrams to arbitrary destinations; in this example it will just"
-" send any UTF-8 encoded :class:`String` it receives to a predefined "
-"remote address."
+":class:`SimpleSenderReady` notification. The sender of this message is the "
+"newly created sender actor which from this point onward can be used to send "
+"datagrams to arbitrary destinations; in this example it will just send any "
+"UTF-8 encoded :class:`String` it receives to a predefined remote address."
 msgstr ""
 
 #: ../../java/io-udp.rst:39
 msgid ""
-"The simple sender will not shut itself down because it cannot know when "
-"you are done with it. You will need to send it a :class:`PoisonPill` when"
-" you want to close the ephemeral port the sender is bound to."
+"The simple sender will not shut itself down because it cannot know when you "
+"are done with it. You will need to send it a :class:`PoisonPill` when you "
+"want to close the ephemeral port the sender is bound to."
 msgstr ""
 
 #: ../../java/io-udp.rst:44
@@ -81,28 +80,27 @@ msgstr ""
 
 #: ../../java/io-udp.rst:48
 msgid ""
-"If you want to implement a UDP server which listens on a socket for "
-"incoming datagrams then you need to use the :meth:`bind` command as shown"
-" above. The local address specified may have a zero port in which case "
-"the operating system will automatically choose a free port and assign it "
-"to the new socket. Which port was actually bound can be found out by "
-"inspecting the :class:`Bound` message."
+"If you want to implement a UDP server which listens on a socket for incoming"
+" datagrams then you need to use the :meth:`bind` command as shown above. The"
+" local address specified may have a zero port in which case the operating "
+"system will automatically choose a free port and assign it to the new "
+"socket. Which port was actually bound can be found out by inspecting the "
+":class:`Bound` message."
 msgstr ""
 
 #: ../../java/io-udp.rst:55
 msgid ""
-"The sender of the :class:`Bound` message is the actor which manages the "
-"new socket. Sending datagrams is achieved by using the :meth:`send` "
-"message type and the socket can be closed by sending a :meth:`unbind` "
-"command, in which case the socket actor will reply with a "
-":class:`Unbound` notification."
+"The sender of the :class:`Bound` message is the actor which manages the new "
+"socket. Sending datagrams is achieved by using the :meth:`send` message type"
+" and the socket can be closed by sending a :meth:`unbind` command, in which "
+"case the socket actor will reply with a :class:`Unbound` notification."
 msgstr ""
 
 #: ../../java/io-udp.rst:60
 msgid ""
 "Received datagrams are sent to the actor designated in the :meth:`bind` "
-"message, whereas the :class:`Bound` message will be sent to the sender of"
-" the :meth:`bind`."
+"message, whereas the :class:`Bound` message will be sent to the sender of "
+"the :meth:`bind`."
 msgstr ""
 
 #: ../../java/io-udp.rst:65
@@ -111,27 +109,27 @@ msgstr ""
 
 #: ../../java/io-udp.rst:67
 msgid ""
-"The service provided by the connection based UDP API is similar to the "
-"bind-and-send service we saw earlier, but the main difference is that a "
-"connection is only able to send to the ``remoteAddress`` it was connected"
-" to, and will receive datagrams only from that address."
+"The service provided by the connection based UDP API is similar to the bind-"
+"and-send service we saw earlier, but the main difference is that a "
+"connection is only able to send to the ``remoteAddress`` it was connected "
+"to, and will receive datagrams only from that address."
 msgstr ""
 
 #: ../../java/io-udp.rst:74
 msgid ""
-"Consequently the example shown here looks quite similar to the previous "
-"one, the biggest difference is the absence of remote address information "
-"in :meth:`send` and :class:`Received` messages."
+"Consequently the example shown here looks quite similar to the previous one,"
+" the biggest difference is the absence of remote address information in "
+":meth:`send` and :class:`Received` messages."
 msgstr ""
 
 #: ../../java/io-udp.rst:80
 msgid ""
-"There is a small performance benefit in using connection based UDP API "
-"over the connectionless one.  If there is a SecurityManager enabled on "
-"the system, every connectionless message send has to go through a "
-"security check, while in the case of connection-based UDP the security "
-"check is cached after connect, thus writes do not suffer an additional "
-"performance penalty."
+"There is a small performance benefit in using connection based UDP API over "
+"the connectionless one.  If there is a SecurityManager enabled on the "
+"system, every connectionless message send has to go through a security "
+"check, while in the case of connection-based UDP the security check is "
+"cached after connect, thus writes do not suffer an additional performance "
+"penalty."
 msgstr ""
 
 #: ../../java/io-udp.rst:87
@@ -140,18 +138,18 @@ msgstr ""
 
 #: ../../java/io-udp.rst:89
 msgid ""
-"If you want to use UDP multicast you will need to use Java 7. Akka "
-"provides a way to control various options of ``DatagramChannel`` through "
-"the ``akka.io.Inet.SocketOption`` interface. The example below shows how "
-"to setup a receiver of multicast messages using IPv6 protocol."
+"If you want to use UDP multicast you will need to use Java 7. Akka provides "
+"a way to control various options of ``DatagramChannel`` through the "
+"``akka.io.Inet.SocketOption`` interface. The example below shows how to "
+"setup a receiver of multicast messages using IPv6 protocol."
 msgstr ""
 
 #: ../../java/io-udp.rst:94
 msgid ""
 "To select a Protocol Family you must extend "
 "``akka.io.Inet.DatagramChannelCreator`` class which implements "
-"``akka.io.Inet.SocketOption``. Provide custom logic for opening a "
-"datagram channel by overriding :meth:`create` method."
+"``akka.io.Inet.SocketOption``. Provide custom logic for opening a datagram "
+"channel by overriding :meth:`create` method."
 msgstr ""
 
 #: ../../java/io-udp.rst:100
@@ -161,4 +159,3 @@ msgstr ""
 #: ../../java/io-udp.rst:104
 msgid "Socket options must be provided to :meth:`UdpMessage.bind` command."
 msgstr ""
-

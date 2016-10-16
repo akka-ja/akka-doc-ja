@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:5
 msgid "Migration Guide 2.0.x to 2.4.x"
@@ -31,27 +31,26 @@ msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:13
 msgid ""
-"In order to provide a top-notch Java API we switched from Scala’s Future "
-"and Akka’s ``akka.japi.Option`` interim solutions to the JDK’s own types "
-"for deferred computation and optional results. This has been done "
-"throughout Streams & HTTP, most notably changing most materialized types,"
-" but also the signature of the ``mapAsync`` combinator and the "
-"asynchronous route result combinators in the HTTP DSL."
+"In order to provide a top-notch Java API we switched from Scala’s Future and"
+" Akka’s ``akka.japi.Option`` interim solutions to the JDK’s own types for "
+"deferred computation and optional results. This has been done throughout "
+"Streams & HTTP, most notably changing most materialized types, but also the "
+"signature of the ``mapAsync`` combinator and the asynchronous route result "
+"combinators in the HTTP DSL."
 msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:19
 msgid ""
 "The ``akka.pattern`` package has been updated with a new set of "
-"implementations within the ``PatternCS`` class that provide the ability "
-"to interact between Actors and Futures (or streams) for "
-"``CompletionStage``."
+"implementations within the ``PatternCS`` class that provide the ability to "
+"interact between Actors and Futures (or streams) for ``CompletionStage``."
 msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:23
 msgid ""
 "Should you have the need to use Scala Futures with these new Java APIs "
-"please use the ``scala-java8-compat`` library that comes as a dependency "
-"of Akka. For more information see `the documentation`__."
+"please use the ``scala-java8-compat`` library that comes as a dependency of "
+"Akka. For more information see `the documentation`__."
 msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:30
@@ -60,31 +59,31 @@ msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:32
 msgid ""
-"To provide more clear signatures and have a unified API for both Java and"
-" Scala two new types have been introduced:"
+"To provide more clear signatures and have a unified API for both Java and "
+"Scala two new types have been introduced:"
 msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:35
 msgid ""
 "``akka.NotUsed`` is meant to be used instead of ``Unit`` in Scala and "
-"``BoxedUnit`` in Java to signify that the type parameter is required but "
-"not actually used. This is commonly the case with ``Source``, ``Flow`` "
-"and ``Sink`` that do not materialize into any value."
+"``BoxedUnit`` in Java to signify that the type parameter is required but not"
+" actually used. This is commonly the case with ``Source``, ``Flow`` and "
+"``Sink`` that do not materialize into any value."
 msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:40
 msgid ""
 "``akka.Done`` is added for the use case where it is boxed inside another "
-"object to signify completion but there is no actual value attached to the"
-" completion. It is used to replace occurrences of ``Future<BoxedUnit>`` "
-"with ``Future<Done>`` in Java and ``Future[Unit]`` with ``Future[Done]`` "
-"in Scala."
+"object to signify completion but there is no actual value attached to the "
+"completion. It is used to replace occurrences of ``Future<BoxedUnit>`` with "
+"``Future<Done>`` in Java and ``Future[Unit]`` with ``Future[Done]`` in "
+"Scala."
 msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:45
 msgid ""
-"All previous usage of ``Unit`` and ``BoxedUnit`` for these two cases in "
-"the Akka Streams APIs has been updated."
+"All previous usage of ``Unit`` and ``BoxedUnit`` for these two cases in the "
+"Akka Streams APIs has been updated."
 msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:48
@@ -97,8 +96,8 @@ msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:58
 msgid ""
-"These changes apply to all the places where streams are used, which means"
-" that signatures in the persistent query APIs also are affected."
+"These changes apply to all the places where streams are used, which means "
+"that signatures in the persistent query APIs also are affected."
 msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:62
@@ -111,11 +110,11 @@ msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:67
 msgid ""
-"Previously the ``expand`` combinator required two functions as input: the"
-" first one lifted incoming values into an extrapolation state and the "
-"second one extracted values from that, possibly evolving that state. This"
-" has been simplified into a single function that turns the incoming "
-"element into an Iterator."
+"Previously the ``expand`` combinator required two functions as input: the "
+"first one lifted incoming values into an extrapolation state and the second "
+"one extracted values from that, possibly evolving that state. This has been "
+"simplified into a single function that turns the incoming element into an "
+"Iterator."
 msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:73
@@ -130,9 +129,9 @@ msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:82
 msgid ""
-"If state needs to be be kept during the expansion process then this state"
-" will need to be managed by the Iterator. The example of counting the "
-"number of expansions might previously have looked like::"
+"If state needs to be be kept during the expansion process then this state "
+"will need to be managed by the Iterator. The example of counting the number "
+"of expansions might previously have looked like::"
 msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:91
@@ -152,8 +151,7 @@ msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:103
 msgid ""
-"Which is the same as using ``conflateWithSeed`` with an identity "
-"function::"
+"Which is the same as using ``conflateWithSeed`` with an identity function::"
 msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:109
@@ -165,8 +163,8 @@ msgid ""
 "``async()`` is available from ``Sink``, ``Source``, ``Flow`` and the sub "
 "flows. It provides a shortcut for setting the attribute "
 "``Attributes.asyncBoundary`` on a flow. The existing methods "
-"``Flow.viaAsync`` and ``Flow.viaAsyncMat`` has been removed to make "
-"marking out asynchronous boundaries more consistent::"
+"``Flow.viaAsync`` and ``Flow.viaAsyncMat`` has been removed to make marking "
+"out asynchronous boundaries more consistent::"
 msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:117
@@ -213,24 +211,24 @@ msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:144
 msgid ""
-"have been changed from ``Long`` to ``akka.stream.io.IOResult``. This "
-"allows to signal more complicated completion scenarios. For example, on "
-"failure it is now possible to return the exception and the number of "
-"bytes written until that exception occured."
+"have been changed from ``Long`` to ``akka.stream.io.IOResult``. This allows "
+"to signal more complicated completion scenarios. For example, on failure it "
+"is now possible to return the exception and the number of bytes written "
+"until that exception occured."
 msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:149
 msgid ""
-"PushStage, PushPullStage and DetachedStage have been deprecated in favor "
-"of GraphStage"
+"PushStage, PushPullStage and DetachedStage have been deprecated in favor of "
+"GraphStage"
 msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:151
 msgid ""
 "The :class:`PushStage` :class:`PushPullStage` and :class:`DetachedStage` "
-"classes have been deprecated and should be replaced by "
-":class:`GraphStage` (:ref:`graphstage-java`) which is now a single "
-"powerful API for custom stream processing."
+"classes have been deprecated and should be replaced by :class:`GraphStage` "
+"(:ref:`graphstage-java`) which is now a single powerful API for custom "
+"stream processing."
 msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:156
@@ -256,9 +254,9 @@ msgstr ""
 msgid ""
 "``RoutingSettings`` were previously the only setting available on "
 "``RequestContext``, and were accessible via ``settings``. We now made it "
-"possible to configure the parsers settings as well, so "
-"``RoutingSettings`` is now ``routingSettings`` and ``ParserSettings`` is "
-"now accessible via ``parserSettings``."
+"possible to configure the parsers settings as well, so ``RoutingSettings`` "
+"is now ``routingSettings`` and ``ParserSettings`` is now accessible via "
+"``parserSettings``."
 msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:176
@@ -267,12 +265,11 @@ msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:178
 msgid ""
-"Previously if request or response were cancelled or consumed only "
-"partially (e.g. by using ``take`` combinator) the remaining data was "
-"silently drained to prevent stalling the connection, since there could "
-"still be more requests / responses incoming. Now the default behaviour is"
-" to close the connection in order to prevent using excessive resource "
-"usage in case of huge entities."
+"Previously if request or response were cancelled or consumed only partially "
+"(e.g. by using ``take`` combinator) the remaining data was silently drained "
+"to prevent stalling the connection, since there could still be more requests"
+" / responses incoming. Now the default behaviour is to close the connection "
+"in order to prevent using excessive resource usage in case of huge entities."
 msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:184
@@ -289,12 +286,11 @@ msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:191
 msgid ""
-"The DSL to access a TLS (or SSL) :class:`BidiFlow` have now split between"
-" the ``javadsl`` and ``scaladsl`` packages and have been renamed to "
+"The DSL to access a TLS (or SSL) :class:`BidiFlow` have now split between "
+"the ``javadsl`` and ``scaladsl`` packages and have been renamed to "
 ":class:`TLS`. Common option types (closing modes, authentication modes, "
-"etc.) have been moved to the top level ``stream`` package, and the common"
-" message types are accessible in the class "
-":class:`akka.stream.TLSProtocol`"
+"etc.) have been moved to the top level ``stream`` package, and the common "
+"message types are accessible in the class :class:`akka.stream.TLSProtocol`"
 msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:196
@@ -304,15 +300,15 @@ msgstr ""
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:198
 msgid ""
 "Previously we had a mix of methods and classes called ``websocket`` or "
-"``Websocket``, which was in contradiction with how the word is spelled in"
-" the spec and some other places of Akka HTTP."
+"``Websocket``, which was in contradiction with how the word is spelled in "
+"the spec and some other places of Akka HTTP."
 msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:201
 msgid ""
 "Methods and classes using the word WebSocket now consistently use it as "
-"``WebSocket``, so updating is as simple as find-and-replacing the lower-"
-"case ``s`` to an upper-case ``S`` wherever the word WebSocket appeared."
+"``WebSocket``, so updating is as simple as find-and-replacing the lower-case"
+" ``s`` to an upper-case ``S`` wherever the word WebSocket appeared."
 msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:205
@@ -321,18 +317,17 @@ msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:207
 msgid ""
-"In order to minimise the number of needed overloads for each method "
-"defined on the ``Http`` extension a new mini-DSL has been introduced for "
-"connecting to hosts given a hostname, port and optional "
-"``ConnectionContext``."
+"In order to minimise the number of needed overloads for each method defined "
+"on the ``Http`` extension a new mini-DSL has been introduced for connecting "
+"to hosts given a hostname, port and optional ``ConnectionContext``."
 msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:210
 msgid ""
 "The availability of the connection context (if it's set to "
-"``HttpsConnectionContext``) makes the server be bound as an HTTPS server,"
-" and for outgoing connections those settings are used instead of the "
-"default ones if provided."
+"``HttpsConnectionContext``) makes the server be bound as an HTTPS server, "
+"and for outgoing connections those settings are used instead of the default "
+"ones if provided."
 msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:213
@@ -349,9 +344,8 @@ msgstr ""
 
 #: ../../java/stream/migration-guide-2.0-2.4-java.rst:227
 msgid ""
-"The ``Framing`` object which can be used to chunk up ``ByteString`` "
-"streams into framing dependent chunks (such as lines) has moved to "
-"``akka.stream.scaladsl.Framing``, and has gotten a Java DSL equivalent "
-"type in ``akka.stream.javadsl.Framing``."
+"The ``Framing`` object which can be used to chunk up ``ByteString`` streams "
+"into framing dependent chunks (such as lines) has moved to "
+"``akka.stream.scaladsl.Framing``, and has gotten a Java DSL equivalent type "
+"in ``akka.stream.javadsl.Framing``."
 msgstr ""
-

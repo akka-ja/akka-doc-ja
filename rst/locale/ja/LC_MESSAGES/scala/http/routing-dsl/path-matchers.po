@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:4
 msgid "The PathMatcher DSL"
@@ -23,9 +23,9 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:6
 msgid ""
-"For being able to work with the :ref:`PathDirectives` effectively you "
-"should have some understanding of the ``PathMatcher`` mini-DSL that Akka "
-"HTTP provides for elegantly defining URI matching behavior."
+"For being able to work with the :ref:`PathDirectives` effectively you should"
+" have some understanding of the ``PathMatcher`` mini-DSL that Akka HTTP "
+"provides for elegantly defining URI matching behavior."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:10
@@ -34,12 +34,12 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:12
 msgid ""
-"When a request (or rather the respective ``RequestContext`` instance) "
-"enters the route structure it has an \"unmatched path\" that is identical"
-" to the ``request.uri.path``. As it descends the routing tree and passes "
-"through one or more :ref:`-pathPrefix-` or :ref:`-path-` directives the "
-"\"unmatched path\" progressively gets \"eaten into\" from the left until,"
-" in most cases, it eventually has been consumed completely."
+"When a request (or rather the respective ``RequestContext`` instance) enters"
+" the route structure it has an \"unmatched path\" that is identical to the "
+"``request.uri.path``. As it descends the routing tree and passes through one"
+" or more :ref:`-pathPrefix-` or :ref:`-path-` directives the \"unmatched "
+"path\" progressively gets \"eaten into\" from the left until, in most cases,"
+" it eventually has been consumed completely."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:17
@@ -51,13 +51,12 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:24
 msgid ""
-"The number and types of the values extracted by a ``PathMatcher`` "
-"instance is represented by the ``L`` type parameter which needs to be one"
-" of Scala's TupleN types or ``Unit`` (which is designated by the "
-"``Tuple`` context bound). The convenience alias ``PathMatcher0`` can be "
-"used for all matchers which don't extract anything while "
-"``PathMatcher1[T]`` defines a matcher which only extracts a single value "
-"of type ``T``."
+"The number and types of the values extracted by a ``PathMatcher`` instance "
+"is represented by the ``L`` type parameter which needs to be one of Scala's "
+"TupleN types or ``Unit`` (which is designated by the ``Tuple`` context "
+"bound). The convenience alias ``PathMatcher0`` can be used for all matchers "
+"which don't extract anything while ``PathMatcher1[T]`` defines a matcher "
+"which only extracts a single value of type ``T``."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:29
@@ -65,17 +64,16 @@ msgid "Here is an example of a more complex ``PathMatcher`` expression:"
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:34
-msgid "This will match paths like ``foo/bar/X42/edit`` or ``foo/bar/X/create``."
+msgid ""
+"This will match paths like ``foo/bar/X42/edit`` or ``foo/bar/X/create``."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:36
-#, python-format
 msgid ""
-"The path matching DSL describes what paths to accept **after** URL "
-"decoding. This is why the path-separating slashes have special status and"
-" cannot simply be specified as part of a string! The string \"foo/bar\" "
-"would match the raw URI path \"foo%2Fbar\", which is most likely not what"
-" you want!"
+"The path matching DSL describes what paths to accept **after** URL decoding."
+" This is why the path-separating slashes have special status and cannot "
+"simply be specified as part of a string! The string \"foo/bar\" would match "
+"the raw URI path \"foo%2Fbar\", which is most likely not what you want!"
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:42
@@ -84,9 +82,9 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:44
 msgid ""
-"A complex ``PathMatcher`` can be constructed by combining or modifying "
-"more basic ones. Here are the basic matchers that Akka HTTP already "
-"provides for you:"
+"A complex ``PathMatcher`` can be constructed by combining or modifying more "
+"basic ones. Here are the basic matchers that Akka HTTP already provides for "
+"you:"
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:50
@@ -94,12 +92,11 @@ msgid "String"
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:48
-#, python-format
 msgid ""
 "You can use a ``String`` instance as a ``PathMatcher0``. Strings simply "
-"match themselves and extract no value. Note that strings are interpreted "
-"as the decoded representation of the path, so if they include a '/' "
-"character this character will match \"%2F\" in the encoded raw URI!"
+"match themselves and extract no value. Note that strings are interpreted as "
+"the decoded representation of the path, so if they include a '/' character "
+"this character will match \"%2F\" in the encoded raw URI!"
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:56
@@ -111,10 +108,10 @@ msgid ""
 "You can use a ``Regex`` instance as a ``PathMatcher1[String]``, which "
 "matches whatever the regex matches and extracts one ``String`` value. A "
 "``PathMatcher`` created from a regular expression extracts either the "
-"complete match (if the regex doesn't contain a capture group) or the "
-"capture group (if the regex contains exactly one capture group). If the "
-"regex contains more than one capture group an "
-"``IllegalArgumentException`` will be thrown."
+"complete match (if the regex doesn't contain a capture group) or the capture"
+" group (if the regex contains exactly one capture group). If the regex "
+"contains more than one capture group an ``IllegalArgumentException`` will be"
+" thrown."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:60
@@ -123,8 +120,8 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:59
 msgid ""
-"You can use a ``Map[String, T]`` instance as a ``PathMatcher1[T]``, which"
-" matches any of the keys and extracts the respective map value for it."
+"You can use a ``Map[String, T]`` instance as a ``PathMatcher1[T]``, which "
+"matches any of the keys and extracts the respective map value for it."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:63
@@ -143,8 +140,8 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:66
 msgid ""
-"Matches if the unmatched path starts with a path segment (i.e. not a "
-"slash). If so the path segment is extracted as a ``String`` instance."
+"Matches if the unmatched path starts with a path segment (i.e. not a slash)."
+" If so the path segment is extracted as a ``String`` instance."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:70
@@ -153,8 +150,8 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:70
 msgid ""
-"Matches the very end of the path, similar to ``$`` in regular expressions"
-" and extracts nothing."
+"Matches the very end of the path, similar to ``$`` in regular expressions "
+"and extracts nothing."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:74
@@ -163,9 +160,9 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:73
 msgid ""
-"Matches and extracts the complete remaining unmatched part of the "
-"request's URI path as an (encoded!) String. If you need access to the "
-"remaining *decoded* elements of the path use ``RemainingPath`` instead."
+"Matches and extracts the complete remaining unmatched part of the request's "
+"URI path as an (encoded!) String. If you need access to the remaining "
+"*decoded* elements of the path use ``RemainingPath`` instead."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:77
@@ -174,8 +171,8 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:77
 msgid ""
-"Matches and extracts the complete remaining, unmatched part of the "
-"request's URI path."
+"Matches and extracts the complete remaining, unmatched part of the request's"
+" URI path."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:81
@@ -184,10 +181,10 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:80
 msgid ""
-"Efficiently matches a number of decimal digits (unsigned) and extracts "
-"their (non-negative) ``Int`` value. The matcher will not match zero "
-"digits or a sequence of digits that would represent an ``Int`` value "
-"larger than ``Int.MaxValue``."
+"Efficiently matches a number of decimal digits (unsigned) and extracts their"
+" (non-negative) ``Int`` value. The matcher will not match zero digits or a "
+"sequence of digits that would represent an ``Int`` value larger than "
+"``Int.MaxValue``."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:85
@@ -196,10 +193,10 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:84
 msgid ""
-"Efficiently matches a number of decimal digits (unsigned) and extracts "
-"their (non-negative) ``Long`` value. The matcher will not match zero "
-"digits or a sequence of digits that would represent an ``Long`` value "
-"larger than ``Long.MaxValue``."
+"Efficiently matches a number of decimal digits (unsigned) and extracts their"
+" (non-negative) ``Long`` value. The matcher will not match zero digits or a "
+"sequence of digits that would represent an ``Long`` value larger than "
+"``Long.MaxValue``."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:89
@@ -208,10 +205,9 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:88
 msgid ""
-"Efficiently matches a number of hex digits and extracts their (non-"
-"negative) ``Int`` value. The matcher will not match zero digits or a "
-"sequence of digits that would represent an ``Int`` value larger than "
-"``Int.MaxValue``."
+"Efficiently matches a number of hex digits and extracts their (non-negative)"
+" ``Int`` value. The matcher will not match zero digits or a sequence of "
+"digits that would represent an ``Int`` value larger than ``Int.MaxValue``."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:93
@@ -220,10 +216,9 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:92
 msgid ""
-"Efficiently matches a number of hex digits and extracts their (non-"
-"negative) ``Long`` value. The matcher will not match zero digits or a "
-"sequence of digits that would represent an ``Long`` value larger than "
-"``Long.MaxValue``."
+"Efficiently matches a number of hex digits and extracts their (non-negative)"
+" ``Long`` value. The matcher will not match zero digits or a sequence of "
+"digits that would represent an ``Long`` value larger than ``Long.MaxValue``."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:97
@@ -232,9 +227,9 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:96
 msgid ""
-"Matches and extracts a ``Double`` value. The matched string "
-"representation is the pure decimal, optionally signed form of a double "
-"value, i.e. without exponent."
+"Matches and extracts a ``Double`` value. The matched string representation "
+"is the pure decimal, optionally signed form of a double value, i.e. without "
+"exponent."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:100
@@ -252,8 +247,7 @@ msgstr ""
 #: ../../scala/http/routing-dsl/path-matchers.rst:103
 msgid ""
 "A matcher that always matches, doesn't consume anything and extracts "
-"nothing. Serves mainly as a neutral element in ``PathMatcher`` "
-"composition."
+"nothing. Serves mainly as a neutral element in ``PathMatcher`` composition."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:109
@@ -262,10 +256,10 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:107
 msgid ""
-"Matches all remaining segments as a list of strings. Note that this can "
-"also be \"no segments\" resulting in the empty list. If the path has a "
-"trailing slash this slash will *not* be matched, i.e. remain unmatched "
-"and to be consumed by potentially nested directives."
+"Matches all remaining segments as a list of strings. Note that this can also"
+" be \"no segments\" resulting in the empty list. If the path has a trailing "
+"slash this slash will *not* be matched, i.e. remain unmatched and to be "
+"consumed by potentially nested directives."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:113
@@ -273,7 +267,6 @@ msgid "separateOnSlashes(string: String): PathMatcher0"
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:112
-#, python-format
 msgid ""
 "Converts a path string containing slashes into a ``PathMatcher0`` that "
 "interprets slashes as path segment separators. This means that a matcher "
@@ -296,8 +289,8 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:119
 msgid ""
-"Matches and consumes the given path prefix and extracts the given list of"
-" extractions. If the given prefix is empty the returned matcher matches "
+"Matches and consumes the given path prefix and extracts the given list of "
+"extractions. If the given prefix is empty the returned matcher matches "
 "always and consumes nothing."
 msgstr ""
 
@@ -307,8 +300,8 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:126
 msgid ""
-"Path matchers can be combined with these combinators to form higher-level"
-" constructs:"
+"Path matchers can be combined with these combinators to form higher-level "
+"constructs:"
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:131
@@ -317,11 +310,11 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:129
 msgid ""
-"The tilde is the most basic combinator. It simply concatenates two "
-"matchers into one, i.e if the first one matched (and consumed) the second"
-" one is tried. The extractions of both matchers are combined type-safely."
-" For example: ``\"foo\" ~ \"bar\"`` yields a matcher that is identical to"
-" ``\"foobar\"``."
+"The tilde is the most basic combinator. It simply concatenates two matchers "
+"into one, i.e if the first one matched (and consumed) the second one is "
+"tried. The extractions of both matchers are combined type-safely. For "
+"example: ``\"foo\" ~ \"bar\"`` yields a matcher that is identical to "
+"``\"foobar\"``."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:135
@@ -330,9 +323,9 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:134
 msgid ""
-"This operator concatenates two matchers and inserts a ``Slash`` matcher "
-"in between them. For example: ``\"foo\" / \"bar\"`` is identical to "
-"``\"foo\" ~ Slash ~ \"bar\"``."
+"This operator concatenates two matchers and inserts a ``Slash`` matcher in "
+"between them. For example: ``\"foo\" / \"bar\"`` is identical to ``\"foo\" ~"
+" Slash ~ \"bar\"``."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:141
@@ -341,10 +334,10 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:138
 msgid ""
-"This operator combines two matcher alternatives in that the second one is"
-" only tried if the first one did *not* match. The two sub-matchers must "
-"have compatible types. For example: ``\"foo\" | \"bar\"`` will match "
-"either \"foo\" *or* \"bar\"."
+"This operator combines two matcher alternatives in that the second one is "
+"only tried if the first one did *not* match. The two sub-matchers must have "
+"compatible types. For example: ``\"foo\" | \"bar\"`` will match either "
+"\"foo\" *or* \"bar\"."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:144
@@ -362,8 +355,8 @@ msgstr ""
 #: ../../scala/http/routing-dsl/path-matchers.rst:149
 msgid ""
 "The slash operator cannot only be used as combinator for combining two "
-"matcher instances, it can also be used as a postfix call. ``matcher /`` "
-"is identical to ``matcher ~ Slash`` but shorter and easier to read."
+"matcher instances, it can also be used as a postfix call. ``matcher /`` is "
+"identical to ``matcher ~ Slash`` but shorter and easier to read."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:164
@@ -372,10 +365,10 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:153
 msgid ""
-"By postfixing a matcher with ``?`` you can turn any ``PathMatcher`` into "
-"one that always matches, optionally consumes and potentially extracts an "
-"``Option`` of the underlying matchers extraction. The result type depends"
-" on the type of the underlying matcher:"
+"By postfixing a matcher with ``?`` you can turn any ``PathMatcher`` into one"
+" that always matches, optionally consumes and potentially extracts an "
+"``Option`` of the underlying matchers extraction. The result type depends on"
+" the type of the underlying matcher:"
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:158
@@ -388,6 +381,8 @@ msgid "then ``matcher.?`` is of type"
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:160
+#: ../../scala/http/routing-dsl/path-matchers.rst:160
+#: ../../scala/http/routing-dsl/path-matchers.rst:174
 #: ../../scala/http/routing-dsl/path-matchers.rst:174
 msgid "``PathMatcher0``"
 msgstr ""
@@ -417,10 +412,10 @@ msgstr ""
 #: ../../scala/http/routing-dsl/path-matchers.rst:167
 msgid ""
 "By postfixing a matcher with ``repeat(separator)`` you can turn any "
-"``PathMatcher`` into one that always matches, consumes zero or more times"
-" (with the given separator) and potentially extracts a ``List`` of the "
-"underlying matcher's extractions. The result type depends on the type of "
-"the underlying matcher:"
+"``PathMatcher`` into one that always matches, consumes zero or more times "
+"(with the given separator) and potentially extracts a ``List`` of the "
+"underlying matcher's extractions. The result type depends on the type of the"
+" underlying matcher:"
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:172
@@ -441,9 +436,8 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:181
 msgid ""
-"By prefixing a matcher with ``!`` it can be turned into a "
-"``PathMatcher0`` that only matches if the underlying matcher does *not* "
-"match and vice versa."
+"By prefixing a matcher with ``!`` it can be turned into a ``PathMatcher0`` "
+"that only matches if the underlying matcher does *not* match and vice versa."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:190
@@ -452,15 +446,13 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:186
 msgid ""
-"These modifiers allow you to append your own \"post-application\" logic "
-"to another matcher in order to form a custom one. You can map over the "
+"These modifiers allow you to append your own \"post-application\" logic to "
+"another matcher in order to form a custom one. You can map over the "
 "extraction(s), turn mismatches into matches or vice-versa or do anything "
-"else with the results of the underlying matcher. Take a look at the "
-"method signatures and implementations for more guidance as to how to use "
-"them."
+"else with the results of the underlying matcher. Take a look at the method "
+"signatures and implementations for more guidance as to how to use them."
 msgstr ""
 
 #: ../../scala/http/routing-dsl/path-matchers.rst:193
 msgid "Examples"
 msgstr ""
-

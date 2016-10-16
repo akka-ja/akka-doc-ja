@@ -1,21 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Last-Translator: Kentaro Maeda <many.front@gmail.com>, 2016\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../project/links.rst:5
 msgid "Project"
@@ -23,13 +24,13 @@ msgstr ""
 
 #: ../../project/links.rst:8
 msgid "Commercial Support"
-msgstr ""
+msgstr "商用サポート"
 
 #: ../../project/links.rst:10
 msgid ""
-"Commercial support is provided by `Lightbend "
-"<http://www.lightbend.com>`_. Akka is part of the `Lightbend Reactive "
-"Platform <http://www.lightbend.com/platform>`_."
+"Commercial support is provided by `Lightbend <http://www.lightbend.com>`_. "
+"Akka is part of the `Lightbend Reactive Platform "
+"<http://www.lightbend.com/platform>`_."
 msgstr ""
 
 #: ../../project/links.rst:14
@@ -41,7 +42,8 @@ msgid "`Akka User Google Group <http://groups.google.com/group/akka-user>`_"
 msgstr ""
 
 #: ../../project/links.rst:18
-msgid "`Akka Developer Google Group <http://groups.google.com/group/akka-dev>`_"
+msgid ""
+"`Akka Developer Google Group <http://groups.google.com/group/akka-dev>`_"
 msgstr ""
 
 #: ../../project/links.rst:22
@@ -69,12 +71,11 @@ msgid "Releases Repository"
 msgstr ""
 
 #: ../../project/links.rst:38
-#, python-format
 msgid ""
 "All Akka releases are published via Sonatype to Maven Central, see "
 "`search.maven.org "
-"<http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.typesafe.akka%22>`_"
-" or `search.maven.org (Akka versions before 2.4.3) "
+"<http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.typesafe.akka%22>`_ "
+"or `search.maven.org (Akka versions before 2.4.3) "
 "<http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.typesafe.akka%22>`_"
 msgstr ""
 
@@ -91,9 +92,8 @@ msgstr ""
 #: ../../project/links.rst:51
 msgid ""
 "For timestamped versions, pick a timestamp from "
-"http://repo.akka.io/snapshots/com/lightbend/akka/akka-"
-"actor_@binVersion@/. All Akka modules that belong to the same build have "
-"the same timestamp."
+"http://repo.akka.io/snapshots/com/lightbend/akka/akka-actor_@binVersion@/. "
+"All Akka modules that belong to the same build have the same timestamp."
 msgstr ""
 
 #: ../../project/links.rst:56
@@ -106,8 +106,7 @@ msgstr ""
 
 #: ../../project/links.rst:62 ../../project/links.rst:81
 msgid ""
-"Define the library dependencies with the timestamp as version. For "
-"example::"
+"Define the library dependencies with the timestamp as version. For example::"
 msgstr ""
 
 #: ../../project/links.rst:68
@@ -116,7 +115,5 @@ msgstr ""
 
 #: ../../project/links.rst:70
 msgid ""
-"Make sure that you add the repository to the maven repositories in "
-"pom.xml::"
+"Make sure that you add the repository to the maven repositories in pom.xml::"
 msgstr ""
-

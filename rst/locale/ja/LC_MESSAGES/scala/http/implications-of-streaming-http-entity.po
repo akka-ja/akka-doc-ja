@@ -1,8 +1,8 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,12 +10,12 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../scala/http/implications-of-streaming-http-entity.rst:4
 msgid "Implications of the streaming nature of Request/Response Entities"
@@ -25,29 +25,28 @@ msgstr ""
 msgid ""
 "Akka HTTP is streaming *all the way through*, which means that the back-"
 "pressure mechanisms enabled by Akka Streams are exposed through all "
-"layers–from the TCP layer, through the HTTP server, all the way up to the"
-" user-facing ``HttpRequest`` and ``HttpResponse`` and their "
-"``HttpEntity`` APIs."
+"layers–from the TCP layer, through the HTTP server, all the way up to the "
+"user-facing ``HttpRequest`` and ``HttpResponse`` and their ``HttpEntity`` "
+"APIs."
 msgstr ""
 
 #: ../../scala/http/implications-of-streaming-http-entity.rst:10
 msgid ""
 "This has surprising implications if you are used to non-streaming / not-"
-"reactive HTTP clients. Specifically it means that: \"*lack of consumption"
-" of the HTTP Entity, is signaled as back-pressure to the other side of "
-"the connection*\". This is a feature, as it allows one only to consume "
-"the entity, and back-pressure servers/clients from overwhelming our "
-"application, possibly causing un-necessary buffering of the entity in "
-"memory."
+"reactive HTTP clients. Specifically it means that: \"*lack of consumption of"
+" the HTTP Entity, is signaled as back-pressure to the other side of the "
+"connection*\". This is a feature, as it allows one only to consume the "
+"entity, and back-pressure servers/clients from overwhelming our application,"
+" possibly causing un-necessary buffering of the entity in memory."
 msgstr ""
 
 #: ../../scala/http/implications-of-streaming-http-entity.rst:16
 msgid ""
 "Consuming (or discarding) the Entity of a request is mandatory! If "
-"*accidentally* left neither consumed or discarded Akka HTTP will assume "
-"the incoming data should remain back-pressured, and will stall the "
-"incoming data via TCP back-pressure mechanisms. A client should consume "
-"the Entity regardless of the status of the ``HttpResponse``."
+"*accidentally* left neither consumed or discarded Akka HTTP will assume the "
+"incoming data should remain back-pressured, and will stall the incoming data"
+" via TCP back-pressure mechanisms. A client should consume the Entity "
+"regardless of the status of the ``HttpResponse``."
 msgstr ""
 
 #: ../../scala/http/implications-of-streaming-http-entity.rst:22
@@ -60,27 +59,26 @@ msgstr ""
 
 #: ../../scala/http/implications-of-streaming-http-entity.rst:27
 msgid ""
-"The most common use-case of course is consuming the response entity, "
-"which can be done via running the underlying ``dataBytes`` Source. This "
-"is as simple as running the dataBytes source, (or on the server-side "
-"using directives such as ``BasicDirectives.extractDataBytes``)."
+"The most common use-case of course is consuming the response entity, which "
+"can be done via running the underlying ``dataBytes`` Source. This is as "
+"simple as running the dataBytes source, (or on the server-side using "
+"directives such as ``BasicDirectives.extractDataBytes``)."
 msgstr ""
 
 #: ../../scala/http/implications-of-streaming-http-entity.rst:31
 msgid ""
 "It is encouraged to use various streaming techniques to utilise the "
 "underlying infrastructure to its fullest, for example by framing the "
-"incoming chunks, parsing them line-by-line and then connecting the flow "
-"into another destination Sink, such as a File or other Akka Streams "
-"connector:"
+"incoming chunks, parsing them line-by-line and then connecting the flow into"
+" another destination Sink, such as a File or other Akka Streams connector:"
 msgstr ""
 
 #: ../../scala/http/implications-of-streaming-http-entity.rst:38
 msgid ""
 "however sometimes the need may arise to consume the entire entity as "
-"``Strict`` entity (which means that it is completely loaded into memory)."
-" Akka HTTP provides a special ``toStrict(timeout)`` method which can be "
-"used to eagerly consume the entity and make it available in memory:"
+"``Strict`` entity (which means that it is completely loaded into memory). "
+"Akka HTTP provides a special ``toStrict(timeout)`` method which can be used "
+"to eagerly consume the entity and make it available in memory:"
 msgstr ""
 
 #: ../../scala/http/implications-of-streaming-http-entity.rst:47
@@ -97,15 +95,15 @@ msgstr ""
 
 #: ../../scala/http/implications-of-streaming-http-entity.rst:52
 msgid ""
-"The ``discardEntityBytes`` convenience method serves the purpose of "
-"easily discarding the entity if it has no purpose for us. It does so by "
-"piping the incoming bytes directly into an ``Sink.ignore``."
+"The ``discardEntityBytes`` convenience method serves the purpose of easily "
+"discarding the entity if it has no purpose for us. It does so by piping the "
+"incoming bytes directly into an ``Sink.ignore``."
 msgstr ""
 
 #: ../../scala/http/implications-of-streaming-http-entity.rst:55
 msgid ""
-"The two snippets below are equivalent, and work the same way on the "
-"server-side for incoming HTTP Requests:"
+"The two snippets below are equivalent, and work the same way on the server-"
+"side for incoming HTTP Requests:"
 msgstr ""
 
 #: ../../scala/http/implications-of-streaming-http-entity.rst:60
@@ -120,15 +118,15 @@ msgstr ""
 msgid ""
 "Similarily as with the Client-side, HTTP Entities are directly linked to "
 "Streams which are fed by the underlying TCP connection. Thus, if request "
-"entities remain not consumed, the server will back-pressure the "
-"connection, expecting that the user-code will eventually decide what to "
-"do with the incoming data."
+"entities remain not consumed, the server will back-pressure the connection, "
+"expecting that the user-code will eventually decide what to do with the "
+"incoming data."
 msgstr ""
 
 #: ../../scala/http/implications-of-streaming-http-entity.rst:72
 msgid ""
-"Note that some directives force an implicit ``toStrict`` operation, such "
-"as ``entity(as[String])`` and similar ones."
+"Note that some directives force an implicit ``toStrict`` operation, such as "
+"``entity(as[String])`` and similar ones."
 msgstr ""
 
 #: ../../scala/http/implications-of-streaming-http-entity.rst:75
@@ -144,10 +142,9 @@ msgstr ""
 
 #: ../../scala/http/implications-of-streaming-http-entity.rst:83
 msgid ""
-"Of course you can access the raw dataBytes as well and run the underlying"
-" stream, for example piping it into an FileIO Sink, that signals "
-"completion via a ``Future[IoResult]`` once all the data has been written "
-"into the file:"
+"Of course you can access the raw dataBytes as well and run the underlying "
+"stream, for example piping it into an FileIO Sink, that signals completion "
+"via a ``Future[IoResult]`` once all the data has been written into the file:"
 msgstr ""
 
 #: ../../scala/http/implications-of-streaming-http-entity.rst:90
@@ -163,12 +160,12 @@ msgstr ""
 
 #: ../../scala/http/implications-of-streaming-http-entity.rst:95
 msgid ""
-"Please note that discarding means that the entire upload will proceed, "
-"even though you are not interested in the data being streamed to the "
-"server - this may be useful if you are simply not interested in the given"
-" entity, however you don't want to abort the entire connection (which "
-"we'll demonstrate as well), since there may be more requests pending on "
-"the same connection still."
+"Please note that discarding means that the entire upload will proceed, even "
+"though you are not interested in the data being streamed to the server - "
+"this may be useful if you are simply not interested in the given entity, "
+"however you don't want to abort the entire connection (which we'll "
+"demonstrate as well), since there may be more requests pending on the same "
+"connection still."
 msgstr ""
 
 #: ../../scala/http/implications-of-streaming-http-entity.rst:100
@@ -179,15 +176,15 @@ msgstr ""
 
 #: ../../scala/http/implications-of-streaming-http-entity.rst:105
 msgid ""
-"A related concept is *cancelling* the incoming ``entity.dataBytes`` "
-"stream, which results in Akka HTTP *abruptly closing the connection from "
-"the Client*. This may be useful when you detect that the given user "
-"should not be allowed to make any uploads at all, and you want to drop "
-"the connection (instead of reading and ignoring the incoming data). This "
-"can be done by attaching the incoming ``entity.dataBytes`` to a "
-"``Sink.cancelled`` which will cancel the entity stream, which in turn "
-"will cause the underlying connection to be shut-down by the server – "
-"effectively hard-aborting the incoming request:"
+"A related concept is *cancelling* the incoming ``entity.dataBytes`` stream, "
+"which results in Akka HTTP *abruptly closing the connection from the "
+"Client*. This may be useful when you detect that the given user should not "
+"be allowed to make any uploads at all, and you want to drop the connection "
+"(instead of reading and ignoring the incoming data). This can be done by "
+"attaching the incoming ``entity.dataBytes`` to a ``Sink.cancelled`` which "
+"will cancel the entity stream, which in turn will cause the underlying "
+"connection to be shut-down by the server – effectively hard-aborting the "
+"incoming request:"
 msgstr ""
 
 #: ../../scala/http/implications-of-streaming-http-entity.rst:115
@@ -202,61 +199,23 @@ msgstr ""
 
 #: ../../scala/http/implications-of-streaming-http-entity.rst:120
 msgid ""
-"Under certain conditions it is possible to detect an entity is very "
-"unlikely to be used by the user for a given request, and issue warnings "
-"or discard the entity automatically. This advanced feature has not been "
-"implemented yet, see the below note and issues for further discussion and"
-" ideas."
+"Under certain conditions it is possible to detect an entity is very unlikely"
+" to be used by the user for a given request, and issue warnings or discard "
+"the entity automatically. This advanced feature has not been implemented "
+"yet, see the below note and issues for further discussion and ideas."
 msgstr ""
 
 #: ../../scala/http/implications-of-streaming-http-entity.rst:125
 msgid ""
 "An advanced feature code named \"auto draining\" has been discussed and "
-"proposed for Akka HTTP, and we're hoping to implement or help the "
-"community implement it."
+"proposed for Akka HTTP, and we're hoping to implement or help the community "
+"implement it."
 msgstr ""
 
 #: ../../scala/http/implications-of-streaming-http-entity.rst:128
 msgid ""
 "You can read more about it in `issue #18716 "
 "<https://github.com/akka/akka/issues/18716>`_ as well as `issue #18540 "
-"<https://github.com/akka/akka/issues/18540>`_ ; as always, contributions "
-"are very welcome!"
+"<https://github.com/akka/akka/issues/18540>`_ ; as always, contributions are"
+" very welcome!"
 msgstr ""
-
-#~ msgid ""
-#~ "This has suprising implications if you"
-#~ " are used to non-streaming / "
-#~ "not-reactive HTTP clients. Specifically it"
-#~ " means that: \"*lack of consumption "
-#~ "of the HTTP Entity, is signaled as"
-#~ " back-pressure to the other side "
-#~ "of the connection*\". This is a "
-#~ "feature, as it allows one only to"
-#~ " consume the entity, and back-"
-#~ "pressure servers/clients from overwhelming our"
-#~ " application, possibly causing un-necessary"
-#~ " buffering of the entity in memory."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Consuming (or discarding) the Entity of"
-#~ " a request is mandatory! If "
-#~ "*accidentally* left neither consumed or "
-#~ "discarded Akka HTTP will asume the "
-#~ "incoming data should remain back-"
-#~ "pressured, and will stall the incoming"
-#~ " data via TCP back-pressure "
-#~ "mechanisms."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "The most common use-case of course"
-#~ " is consuming the response entity, "
-#~ "which can be done via running the"
-#~ " underlying ``dataBytes`` Source. This is"
-#~ " as simple as running the dataBytes"
-#~ " source, (or on the server-side "
-#~ "using directives such as"
-#~ msgstr ""
-

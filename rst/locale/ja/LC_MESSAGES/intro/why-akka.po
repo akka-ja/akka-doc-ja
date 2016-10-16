@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../intro/why-akka.rst:2
 msgid "Why Akka?"
@@ -46,26 +46,26 @@ msgid "Fault tolerance"
 msgstr ""
 
 #: ../../intro/why-akka.rst:15
-msgid "One thing to learn and admin, with high cohesion and coherent semantics."
+msgid ""
+"One thing to learn and admin, with high cohesion and coherent semantics."
 msgstr ""
 
 #: ../../intro/why-akka.rst:17
 msgid ""
 "Akka is a very scalable piece of software, not only in the context of "
-"performance but also in the size of applications it is useful for. The "
-"core of Akka, akka-actor, is very small and easily dropped into an "
-"existing project where you need asynchronicity and lockless concurrency "
-"without hassle."
+"performance but also in the size of applications it is useful for. The core "
+"of Akka, akka-actor, is very small and easily dropped into an existing "
+"project where you need asynchronicity and lockless concurrency without "
+"hassle."
 msgstr ""
 
 #: ../../intro/why-akka.rst:22
 msgid ""
 "You can choose to include only the parts of Akka you need in your "
-"application. With CPUs growing more and more cores every cycle, Akka is "
-"the alternative that provides outstanding performance even if you're only"
-" running it on one machine. Akka also supplies a wide array of "
-"concurrency-paradigms, allowing users to choose the right tool for the "
-"job."
+"application. With CPUs growing more and more cores every cycle, Akka is the "
+"alternative that provides outstanding performance even if you're only "
+"running it on one machine. Akka also supplies a wide array of concurrency-"
+"paradigms, allowing users to choose the right tool for the job."
 msgstr ""
 
 #: ../../intro/why-akka.rst:30
@@ -112,15 +112,15 @@ msgstr ""
 
 #: ../../intro/why-akka.rst:43
 msgid ""
-"and much more. Any system with the need for high-throughput and low "
-"latency is a good candidate for using Akka."
+"and much more. Any system with the need for high-throughput and low latency "
+"is a good candidate for using Akka."
 msgstr ""
 
 #: ../../intro/why-akka.rst:46
 msgid ""
-"Actors let you manage service failures (Supervisors), load management "
-"(back-off strategies, timeouts and processing-isolation), as well as both"
-" horizontal and vertical scalability (add more cores and/or add more "
+"Actors let you manage service failures (Supervisors), load management (back-"
+"off strategies, timeouts and processing-isolation), as well as both "
+"horizontal and vertical scalability (add more cores and/or add more "
 "machines)."
 msgstr ""
 
@@ -133,4 +133,3 @@ msgstr ""
 #: ../../intro/why-akka.rst:53
 msgid "All this in the ApacheV2-licensed open source project."
 msgstr ""
-

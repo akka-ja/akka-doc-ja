@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../dev/multi-node-testing.rst:5
 msgid "Multi Node Testing"
@@ -27,13 +27,14 @@ msgstr ""
 
 #: ../../dev/multi-node-testing.rst:10
 msgid ""
-"When we talk about multi node testing in Akka we mean the process of "
-"running coordinated tests on multiple actor systems in different JVMs. "
-"The multi node testing kit consist of three main parts."
+"When we talk about multi node testing in Akka we mean the process of running"
+" coordinated tests on multiple actor systems in different JVMs. The multi "
+"node testing kit consist of three main parts."
 msgstr ""
 
 #: ../../dev/multi-node-testing.rst:13
-msgid "`The Test Conductor`_. that coordinates and controls the nodes under test."
+msgid ""
+"`The Test Conductor`_. that coordinates and controls the nodes under test."
 msgstr ""
 
 #: ../../dev/multi-node-testing.rst:14
@@ -44,8 +45,8 @@ msgstr ""
 
 #: ../../dev/multi-node-testing.rst:16
 msgid ""
-"`The SbtMultiJvm Plugin`_. that starts tests in multiple JVMs possibly on"
-" multiple machines."
+"`The SbtMultiJvm Plugin`_. that starts tests in multiple JVMs possibly on "
+"multiple machines."
 msgstr ""
 
 #: ../../dev/multi-node-testing.rst:19
@@ -54,16 +55,15 @@ msgstr ""
 
 #: ../../dev/multi-node-testing.rst:21
 msgid ""
-"The basis for the multi node testing is the ``TestConductor``. It is an "
-"Akka Extension that plugs in to the network stack and it is used to "
-"coordinate the nodes participating in the test and provides several "
-"features including:"
+"The basis for the multi node testing is the ``TestConductor``. It is an Akka"
+" Extension that plugs in to the network stack and it is used to coordinate "
+"the nodes participating in the test and provides several features including:"
 msgstr ""
 
 #: ../../dev/multi-node-testing.rst:25
 msgid ""
-"Node Address Lookup: Finding out the full path to another test node (No "
-"need to share configuration between test nodes)"
+"Node Address Lookup: Finding out the full path to another test node (No need"
+" to share configuration between test nodes)"
 msgstr ""
 
 #: ../../dev/multi-node-testing.rst:27
@@ -72,8 +72,8 @@ msgstr ""
 
 #: ../../dev/multi-node-testing.rst:28
 msgid ""
-"Network Failure Injection: Throttling traffic, dropping packets, "
-"unplugging and plugging nodes back in."
+"Network Failure Injection: Throttling traffic, dropping packets, unplugging "
+"and plugging nodes back in."
 msgstr ""
 
 #: ../../dev/multi-node-testing.rst:30
@@ -84,8 +84,8 @@ msgstr ""
 msgid ""
 "The test conductor server is responsible for coordinating barriers and "
 "sending commands to the test conductor clients that act upon them, e.g. "
-"throttling network traffic to/from another client. More information on "
-"the possible operations is available in the "
+"throttling network traffic to/from another client. More information on the "
+"possible operations is available in the "
 "``akka.remote.testconductor.Conductor`` API documentation."
 msgstr ""
 
@@ -95,20 +95,19 @@ msgstr ""
 
 #: ../../dev/multi-node-testing.rst:41
 msgid ""
-"The Multi Node Spec consists of two parts. The ``MultiNodeConfig`` that "
-"is responsible for common configuration and enumerating and naming the "
-"nodes under test. The ``MultiNodeSpec`` that contains a number of "
-"convenience functions for making the test nodes interact with each other."
-" More information on the possible operations is available in the "
+"The Multi Node Spec consists of two parts. The ``MultiNodeConfig`` that is "
+"responsible for common configuration and enumerating and naming the nodes "
+"under test. The ``MultiNodeSpec`` that contains a number of convenience "
+"functions for making the test nodes interact with each other. More "
+"information on the possible operations is available in the "
 "``akka.remote.testkit.MultiNodeSpec`` API documentation."
 msgstr ""
 
 #: ../../dev/multi-node-testing.rst:46
 msgid ""
 "The setup of the ``MultiNodeSpec`` is configured through java system "
-"properties that you set on all JVMs that's going to run a node under "
-"test. These can easily be set on the JVM command line with "
-"``-Dproperty=value``."
+"properties that you set on all JVMs that's going to run a node under test. "
+"These can easily be set on the JVM command line with ``-Dproperty=value``."
 msgstr ""
 
 #: ../../dev/multi-node-testing.rst:73
@@ -138,7 +137,8 @@ msgid "``multinode.port``"
 msgstr ""
 
 #: ../../dev/multi-node-testing.rst:60
-msgid "The port number for this node. Defaults to 0 which will use a random port."
+msgid ""
+"The port number for this node. Defaults to 0 which will use a random port."
 msgstr ""
 
 #: ../../dev/multi-node-testing.rst:62
@@ -165,8 +165,8 @@ msgstr ""
 
 #: ../../dev/multi-node-testing.rst:72
 msgid ""
-"The index of this node in the sequence of roles defined for the test. The"
-" index 0 is special and that machine will be the server. All failure "
+"The index of this node in the sequence of roles defined for the test. The "
+"index 0 is special and that machine will be the server. All failure "
 "injection and throttling must be done from this node."
 msgstr ""
 
@@ -178,11 +178,11 @@ msgstr ""
 msgid ""
 "The :ref:`SbtMultiJvm Plugin <multi-jvm-testing>` has been updated to be "
 "able to run multi node tests, by automatically generating the relevant "
-"``multinode.*`` properties. This means that you can easily run multi node"
-" tests on a single machine without any special configuration by just "
-"running them as normal multi-jvm tests. These tests can then be run "
-"distributed over multiple machines without any changes simply by using "
-"the multi-node additions to the plugin."
+"``multinode.*`` properties. This means that you can easily run multi node "
+"tests on a single machine without any special configuration by just running "
+"them as normal multi-jvm tests. These tests can then be run distributed over"
+" multiple machines without any changes simply by using the multi-node "
+"additions to the plugin."
 msgstr ""
 
 #: ../../dev/multi-node-testing.rst:85
@@ -191,18 +191,18 @@ msgstr ""
 
 #: ../../dev/multi-node-testing.rst:87
 msgid ""
-"The plugin also has a number of new ``multi-node-*`` sbt tasks and "
-"settings to support running tests on multiple machines. The necessary "
-"test classes and dependencies are packaged for distribution to other "
-"machines with `SbtAssembly <https://github.com/sbt/sbt-assembly>`_ into a"
-" jar file with a name on the format "
-"``<projectName>_<scalaVersion>-<projectVersion>-multi-jvm-assembly.jar``"
+"The plugin also has a number of new ``multi-node-*`` sbt tasks and settings "
+"to support running tests on multiple machines. The necessary test classes "
+"and dependencies are packaged for distribution to other machines with "
+"`SbtAssembly <https://github.com/sbt/sbt-assembly>`_ into a jar file with a "
+"name on the format ``<projectName>_<scalaVersion>-<projectVersion>-multi-"
+"jvm-assembly.jar``"
 msgstr ""
 
 #: ../../dev/multi-node-testing.rst:94
 msgid ""
-"To be able to distribute and kick off the tests on multiple machines, it "
-"is assumed that both host and target systems are POSIX like systems with "
+"To be able to distribute and kick off the tests on multiple machines, it is "
+"assumed that both host and target systems are POSIX like systems with "
 "``ssh`` and ``rsync`` available."
 msgstr ""
 
@@ -227,9 +227,9 @@ msgstr ""
 
 #: ../../dev/multi-node-testing.rst:105
 msgid ""
-"A file to use for reading in the hosts to use for running the test. One "
-"per line on the same format as above. Defaults to ``multi-node-"
-"test.hosts`` in the base project directory."
+"A file to use for reading in the hosts to use for running the test. One per "
+"line on the same format as above. Defaults to ``multi-node-test.hosts`` in "
+"the base project directory."
 msgstr ""
 
 #: ../../dev/multi-node-testing.rst:108
@@ -238,9 +238,9 @@ msgstr ""
 
 #: ../../dev/multi-node-testing.rst:110
 msgid ""
-"A name for the directory on the target machine, where to copy the jar "
-"file. Defaults to ``multi-node-test`` in the base directory of the ssh "
-"user used to rsync the jar file."
+"A name for the directory on the target machine, where to copy the jar file. "
+"Defaults to ``multi-node-test`` in the base directory of the ssh user used "
+"to rsync the jar file."
 msgstr ""
 
 #: ../../dev/multi-node-testing.rst:113
@@ -249,8 +249,8 @@ msgstr ""
 
 #: ../../dev/multi-node-testing.rst:115
 msgid ""
-"The name of the default Java executable on the target machines. Defaults "
-"to ``java``."
+"The name of the default Java executable on the target machines. Defaults to "
+"``java``."
 msgstr ""
 
 #: ../../dev/multi-node-testing.rst:132
@@ -295,15 +295,15 @@ msgstr ""
 
 #: ../../dev/multi-node-testing.rst:137
 msgid ""
-"To run all the multi node test in multi-node mode (i.e. distributing the "
-"jar files and kicking off the tests remotely) from inside sbt, use the "
-"``multi-node-test`` task:"
+"To run all the multi node test in multi-node mode (i.e. distributing the jar"
+" files and kicking off the tests remotely) from inside sbt, use the ``multi-"
+"node-test`` task:"
 msgstr ""
 
 #: ../../dev/multi-node-testing.rst:144
 msgid ""
-"To run all of them in multi-jvm mode (i.e. all JVMs on the local machine)"
-" do:"
+"To run all of them in multi-jvm mode (i.e. all JVMs on the local machine) "
+"do:"
 msgstr ""
 
 #: ../../dev/multi-node-testing.rst:150
@@ -316,8 +316,8 @@ msgstr ""
 
 #: ../../dev/multi-node-testing.rst:162
 msgid ""
-"More than one test name can be listed to run multiple specific tests. Tab"
-" completion in sbt makes it easy to complete the test names."
+"More than one test name can be listed to run multiple specific tests. Tab "
+"completion in sbt makes it easy to complete the test names."
 msgstr ""
 
 #: ../../dev/multi-node-testing.rst:166
@@ -326,16 +326,16 @@ msgstr ""
 
 #: ../../dev/multi-node-testing.rst:168
 msgid ""
-"The multi node testing kit is a separate jar file. Make sure that you "
-"have the following dependency in your project:"
+"The multi node testing kit is a separate jar file. Make sure that you have "
+"the following dependency in your project:"
 msgstr ""
 
 #: ../../dev/multi-node-testing.rst:174
 msgid ""
-"If you are using the latest nightly build you should pick a timestamped "
-"Akka version from `<http://repo.akka.io/snapshots/com/typesafe/akka/akka-"
-"multi-node-testkit_@binVersion@/>`_. We recommend against using "
-"``SNAPSHOT`` in order to obtain stable builds."
+"If you are using the latest nightly build you should pick a timestamped Akka"
+" version from `<http://repo.akka.io/snapshots/com/typesafe/akka/akka-multi-"
+"node-testkit_@binVersion@/>`_. We recommend against using ``SNAPSHOT`` in "
+"order to obtain stable builds."
 msgstr ""
 
 #: ../../dev/multi-node-testing.rst:179
@@ -344,15 +344,15 @@ msgstr ""
 
 #: ../../dev/multi-node-testing.rst:181
 msgid ""
-"First we need some scaffolding to hook up the ``MultiNodeSpec`` with your"
-" favorite test framework. Lets define a trait ``STMultiNodeSpec`` that "
-"uses ScalaTest to start and stop ``MultiNodeSpec``."
+"First we need some scaffolding to hook up the ``MultiNodeSpec`` with your "
+"favorite test framework. Lets define a trait ``STMultiNodeSpec`` that uses "
+"ScalaTest to start and stop ``MultiNodeSpec``."
 msgstr ""
 
 #: ../../dev/multi-node-testing.rst:186
 msgid ""
-"Then we need to define a configuration. Lets use two nodes ``\"node1`` "
-"and ``\"node2\"`` and call it ``MultiNodeSampleConfig``."
+"Then we need to define a configuration. Lets use two nodes ``\"node1`` and "
+"``\"node2\"`` and call it ``MultiNodeSampleConfig``."
 msgstr ""
 
 #: ../../dev/multi-node-testing.rst:192
@@ -376,33 +376,33 @@ msgstr ""
 
 #: ../../dev/multi-node-testing.rst:204
 msgid ""
-"There are a couple of things to keep in mind when writing multi node "
-"tests or else your tests might behave in surprising ways."
+"There are a couple of things to keep in mind when writing multi node tests "
+"or else your tests might behave in surprising ways."
 msgstr ""
 
 #: ../../dev/multi-node-testing.rst:207
 msgid ""
-"Don't issue a shutdown of the first node. The first node is the "
-"controller and if it shuts down your test will break."
+"Don't issue a shutdown of the first node. The first node is the controller "
+"and if it shuts down your test will break."
 msgstr ""
 
 #: ../../dev/multi-node-testing.rst:209
 msgid ""
-"To be able to use ``blackhole``, ``passThrough``, and ``throttle`` you "
-"must activate the failure injector and throttler transport adapters by "
-"specifying ``testTransport(on = true)`` in your MultiNodeConfig."
+"To be able to use ``blackhole``, ``passThrough``, and ``throttle`` you must "
+"activate the failure injector and throttler transport adapters by specifying"
+" ``testTransport(on = true)`` in your MultiNodeConfig."
 msgstr ""
 
 #: ../../dev/multi-node-testing.rst:212
 msgid ""
-"Throttling, shutdown and other failure injections can only be done from "
-"the first node, which again is the controller."
+"Throttling, shutdown and other failure injections can only be done from the "
+"first node, which again is the controller."
 msgstr ""
 
 #: ../../dev/multi-node-testing.rst:214
 msgid ""
-"Don't ask for the address of a node using ``node(address)`` after the "
-"node has been shut down. Grab the address before shutting down the node."
+"Don't ask for the address of a node using ``node(address)`` after the node "
+"has been shut down. Grab the address before shutting down the node."
 msgstr ""
 
 #: ../../dev/multi-node-testing.rst:217
@@ -422,4 +422,3 @@ msgid ""
 "module, please refer to the :ref:`reference configuration <config-akka-"
 "multi-node-testkit>`."
 msgstr ""
-

@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:4
 msgid "Predefined Directives (alphabetically)"
@@ -35,8 +35,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:9
 msgid ""
-"Wraps the inner route with Http Basic authentication support using a "
-"given ``Authenticator<T>``"
+"Wraps the inner route with Http Basic authentication support using a given "
+"``Authenticator<T>``"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:10
@@ -45,8 +45,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:10
 msgid ""
-"Wraps the inner route with Http Basic authentication support using a "
-"given ``AsyncAuthenticator<T>``"
+"Wraps the inner route with Http Basic authentication support using a given "
+"``AsyncAuthenticator<T>``"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:11
@@ -55,8 +55,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:11
 msgid ""
-"Wraps the inner route with Http Basic authentication support using a "
-"given ``AuthenticatorPF<T>``"
+"Wraps the inner route with Http Basic authentication support using a given "
+"``AuthenticatorPF<T>``"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:12
@@ -65,8 +65,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:12
 msgid ""
-"Wraps the inner route with Http Basic authentication support using a "
-"given ``AsyncAuthenticatorPF<T>``"
+"Wraps the inner route with Http Basic authentication support using a given "
+"``AsyncAuthenticatorPF<T>``"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:13
@@ -76,8 +76,8 @@ msgstr ""
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:13
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:15
 msgid ""
-"Wraps the inner route with OAuth Bearer Token authentication support "
-"using a given ``AuthenticatorPF<T>``"
+"Wraps the inner route with OAuth Bearer Token authentication support using a"
+" given ``AuthenticatorPF<T>``"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:14
@@ -86,8 +86,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:14
 msgid ""
-"Wraps the inner route with OAuth Bearer Token authentication support "
-"using a given ``AsyncAuthenticator<T>``"
+"Wraps the inner route with OAuth Bearer Token authentication support using a"
+" given ``AsyncAuthenticator<T>``"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:15
@@ -100,8 +100,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:16
 msgid ""
-"Wraps the inner route with OAuth Bearer Token authentication support "
-"using a given ``AsyncAuthenticatorPF<T>``"
+"Wraps the inner route with OAuth Bearer Token authentication support using a"
+" given ``AsyncAuthenticatorPF<T>``"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:17
@@ -134,9 +134,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:20
 msgid ""
-"Adds a ``TransformationRejection`` cancelling all rejections equal to the"
-" given one to the rejections potentially coming back from the inner "
-"route."
+"Adds a ``TransformationRejection`` cancelling all rejections equal to the "
+"given one to the rejections potentially coming back from the inner route."
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:21
@@ -145,8 +144,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:21
 msgid ""
-"Adds a ``TransformationRejection`` cancelling all matching rejections to "
-"the rejections potentially coming back from the inner route"
+"Adds a ``TransformationRejection`` cancelling all matching rejections to the"
+" rejections potentially coming back from the inner route"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:22
@@ -189,8 +188,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:26
 msgid ""
-"Wraps its inner route with support for conditional requests as defined by"
-" http://tools.ietf.org/html/rfc7232"
+"Wraps its inner route with support for conditional requests as defined by "
+"http://tools.ietf.org/html/rfc7232"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:27
@@ -239,9 +238,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:32
 msgid ""
-"Encodes the response with the encoding that is requested by the client "
-"via the ``Accept-Encoding`` header (``NoCoding``, ``Gzip`` and "
-"``Deflate``)"
+"Encodes the response with the encoding that is requested by the client via "
+"the ``Accept-Encoding`` header (``NoCoding``, ``Gzip`` and ``Deflate``)"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:33
@@ -250,8 +248,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:33
 msgid ""
-"Encodes the response with the encoding that is requested by the client "
-"via the ``Accept-Encoding`` header (from a user-defined set)"
+"Encodes the response with the encoding that is requested by the client via "
+"the ``Accept-Encoding`` header (from a user-defined set)"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:34
@@ -384,8 +382,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:49
 msgid ""
-"Bubbles the given error up the response chain where it is dealt with by "
-"the closest :ref:`-handleExceptions-java-` directive and its "
+"Bubbles the given error up the response chain where it is dealt with by the "
+"closest :ref:`-handleExceptions-java-` directive and its "
 "``ExceptionHandler``"
 msgstr ""
 
@@ -449,8 +447,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:56
 msgid ""
-"Serves the content of the given directories as a file-system browser, "
-"i.e. files are sent and directories served as browseable listings"
+"Serves the content of the given directories as a file-system browser, i.e. "
+"files are sent and directories served as browseable listings"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:57
@@ -469,8 +467,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:58
 msgid ""
-"Completes GET requests with the content of a file underneath a given "
-"file-system directory"
+"Completes GET requests with the content of a file underneath a given file-"
+"system directory"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:59
@@ -505,8 +503,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:62
 msgid ""
-"Transforms exceptions thrown during evaluation of the inner route using "
-"the given ``ExceptionHandler``"
+"Transforms exceptions thrown during evaluation of the inner route using the "
+"given ``ExceptionHandler``"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:63
@@ -525,8 +523,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:64
 msgid ""
-"Handles websocket requests with the given handler and rejects other "
-"requests with an ``ExpectedWebSocketRequestRejection``"
+"Handles websocket requests with the given handler and rejects other requests"
+" with an ``ExpectedWebSocketRequestRejection``"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:65
@@ -535,10 +533,9 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:65
 msgid ""
-"Handles websocket requests with the given handler if the subprotocol "
-"matches and rejects other requests with an "
-"``ExpectedWebSocketRequestRejection`` or an "
-"``UnsupportedWebSocketSubprotocolRejection``."
+"Handles websocket requests with the given handler if the subprotocol matches"
+" and rejects other requests with an ``ExpectedWebSocketRequestRejection`` or"
+" an ``UnsupportedWebSocketSubprotocolRejection``."
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:66
@@ -589,8 +586,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:71
 msgid ""
-"Extracts an HTTP header value using a given ``PartialFunction<HttpHeader,"
-" T>``"
+"Extracts an HTTP header value using a given ``PartialFunction<HttpHeader, "
+"T>``"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:72
@@ -607,8 +604,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:73
 msgid ""
-"Completes GET requests with a unified listing of the contents of all "
-"given file-system directories"
+"Completes GET requests with a unified listing of the contents of all given "
+"file-system directories"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:74
@@ -676,7 +673,8 @@ msgid ":ref:`-mapResponse-java-`"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:81
-msgid "Transforms the response with an ``HttpResponse => HttpResponse`` function"
+msgid ""
+"Transforms the response with an ``HttpResponse => HttpResponse`` function"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:82
@@ -685,8 +683,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:82
 msgid ""
-"Transforms the response entity with an ``ResponseEntity ⇒ "
-"ResponseEntity`` function"
+"Transforms the response entity with an ``ResponseEntity ⇒ ResponseEntity`` "
+"function"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:83
@@ -705,8 +703,7 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:84
 msgid ""
-"Transforms the ``RouteResult`` with a ``RouteResult ⇒ RouteResult`` "
-"function"
+"Transforms the ``RouteResult`` with a ``RouteResult ⇒ RouteResult`` function"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:85
@@ -715,8 +712,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:85
 msgid ""
-"Transforms the ``RouteResult`` future with a "
-"``CompletionStage<RouteResult] ⇒ CompletionStage<RouteResult>`` function"
+"Transforms the ``RouteResult`` future with a ``CompletionStage<RouteResult] "
+"⇒ CompletionStage<RouteResult>`` function"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:86
@@ -783,9 +780,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:92
 msgid ""
-"\"Unwraps\" a ``CompletionStage<T>`` and runs the inner route after "
-"future completion with the future's value as an extraction of type "
-"``Try<T>``"
+"\"Unwraps\" a ``CompletionStage<T>`` and runs the inner route after future "
+"completion with the future's value as an extraction of type ``Try<T>``"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:93
@@ -794,8 +790,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:93
 msgid ""
-"\"Unwraps\" a ``CompletionStage<T>`` inside a ``CircuitBreaker`` and runs"
-" the inner route after future completion with the future's value as an "
+"\"Unwraps\" a ``CompletionStage<T>`` inside a ``CircuitBreaker`` and runs "
+"the inner route after future completion with the future's value as an "
 "extraction of type ``Try<T>``"
 msgstr ""
 
@@ -805,8 +801,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:94
 msgid ""
-"\"Unwraps\" a ``CompletionStage<T>`` and runs the inner route after "
-"future completion with the future's value as an extraction of type ``T``"
+"\"Unwraps\" a ``CompletionStage<T>`` and runs the inner route after future "
+"completion with the future's value as an extraction of type ``T``"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:95
@@ -835,8 +831,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:97
 msgid ""
-"Extracts the value of the first optional HTTP request header with a given"
-" name"
+"Extracts the value of the first optional HTTP request header with a given "
+"name"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:98
@@ -870,7 +866,8 @@ msgid ":ref:`-overrideMethodWithParameter-java-`"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:101
-msgid "Changes the request method to the value of the specified query parameter"
+msgid ""
+"Changes the request method to the value of the specified query parameter"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:102
@@ -894,7 +891,8 @@ msgid ":ref:`-parameterMultiMap-java-`"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:104
-msgid "Extracts the request's query parameters as a ``Map<String, List<String>>``"
+msgid ""
+"Extracts the request's query parameters as a ``Map<String, List<String>>``"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:105
@@ -902,7 +900,8 @@ msgid ":ref:`-parameterList-java-`"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:105
-msgid "Extracts the request's query parameters as a ``Seq<Pair<String, String>>``"
+msgid ""
+"Extracts the request's query parameters as a ``Seq<Pair<String, String>>``"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:106
@@ -939,8 +938,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:109
 msgid ""
-"Only passes on the request to its inner route if the request path has "
-"been matched completely"
+"Only passes on the request to its inner route if the request path has been "
+"matched completely"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:110
@@ -949,8 +948,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:110
 msgid ""
-"Only passes on the request to its inner route if the request path has "
-"been matched completely or only consists of exactly one remaining slash"
+"Only passes on the request to its inner route if the request path has been "
+"matched completely or only consists of exactly one remaining slash"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:111
@@ -979,8 +978,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:113
 msgid ""
-"Only passes on the request to its inner route if the request path "
-"consists of exactly one remaining slash"
+"Only passes on the request to its inner route if the request path consists "
+"of exactly one remaining slash"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:114
@@ -1033,8 +1032,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:119
 msgid ""
-"Applies the given matcher directly to a prefix of the unmatched path of "
-"the ``RequestContext``, without implicitly consuming a leading slash"
+"Applies the given matcher directly to a prefix of the unmatched path of the "
+"``RequestContext``, without implicitly consuming a leading slash"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:120
@@ -1093,8 +1092,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:125
 msgid ""
-"If the request path doesn't end with a slash, redirects to the same uri "
-"with trailing slash in the path"
+"If the request path doesn't end with a slash, redirects to the same uri with"
+" trailing slash in the path"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:126
@@ -1119,8 +1118,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:128
 msgid ""
-"Rejects the request with an ``UnsupportedRequestEncodingRejection`` if "
-"its encoding doesn't match the given one"
+"Rejects the request with an ``UnsupportedRequestEncodingRejection`` if its "
+"encoding doesn't match the given one"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:129
@@ -1137,8 +1136,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:130
 msgid ""
-"Rejects with a ``RequestEntityExpectedRejection`` if the request entity "
-"is empty"
+"Rejects with a ``RequestEntityExpectedRejection`` if the request entity is "
+"empty"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:131
@@ -1157,8 +1156,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:132
 msgid ""
-"Adds the subset of the given headers to the response which doesn't "
-"already have a header with the respective name present in the response"
+"Adds the subset of the given headers to the response which doesn't already "
+"have a header with the respective name present in the response"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:133
@@ -1183,8 +1182,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:135
 msgid ""
-"Rejects the request with an ``UnacceptedResponseEncodingRejection`` if "
-"the given response encoding is not accepted by the client"
+"Rejects the request with an ``UnacceptedResponseEncodingRejection`` if the "
+"given response encoding is not accepted by the client"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:136
@@ -1201,8 +1200,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:137
 msgid ""
-"Inspects the request's ``Accept-Language`` header and determines, which "
-"of a given set of language alternatives is preferred by the client"
+"Inspects the request's ``Accept-Language`` header and determines, which of a"
+" given set of language alternatives is preferred by the client"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:138
@@ -1234,7 +1233,8 @@ msgid ":ref:`-withoutRequestTimeout-java-`"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:141
-msgid "Disables :ref:`request timeouts <request-timeout-java>` for a given route."
+msgid ""
+"Disables :ref:`request timeouts <request-timeout-java>` for a given route."
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:142
@@ -1275,9 +1275,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:146
 msgid ""
-"Adds ``Accept-Ranges: bytes`` to responses to GET requests, produces "
-"partial responses if the initial request contained a valid ``Range`` "
-"header"
+"Adds ``Accept-Ranges: bytes`` to responses to GET requests, produces partial"
+" responses if the initial request contained a valid ``Range`` header"
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:147
@@ -1286,8 +1285,8 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:147
 msgid ""
-"Configures the :ref:`request timeouts <request-timeout-java>` for a given"
-" route."
+"Configures the :ref:`request timeouts <request-timeout-java>` for a given "
+"route."
 msgstr ""
 
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:148
@@ -1315,4 +1314,3 @@ msgstr ""
 #: ../../java/http/routing-dsl/directives/alphabetically.rst:150
 msgid "Applies request entity size check"
 msgstr ""
-

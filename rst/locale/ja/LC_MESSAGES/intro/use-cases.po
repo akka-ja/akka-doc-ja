@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../intro/use-cases.rst:6
 msgid "Examples of use-cases for Akka"
@@ -26,25 +26,26 @@ msgid ""
 "We see Akka being adopted by many large organizations in a big range of "
 "industries all from investment and merchant banking, retail and social "
 "media, simulation, gaming and betting, automobile and traffic systems, "
-"health care, data analytics and much more. Any system that have the need "
-"for high-throughput and low latency is a good candidate for using Akka."
+"health care, data analytics and much more. Any system that have the need for"
+" high-throughput and low latency is a good candidate for using Akka."
 msgstr ""
 
 #: ../../intro/use-cases.rst:14
 msgid ""
-"There is a great discussion on use-cases for Akka with some good write-"
-"ups by production users `here <http://stackoverflow.com/questions/4493001"
-"/good-use-case-for-akka/4494512#4494512>`_"
+"There is a great discussion on use-cases for Akka with some good write-ups "
+"by production users `here <http://stackoverflow.com/questions/4493001/good-"
+"use-case-for-akka/4494512#4494512>`_"
 msgstr ""
 
 #: ../../intro/use-cases.rst:18
-msgid "Here are some of the areas where Akka is being deployed into production"
+msgid ""
+"Here are some of the areas where Akka is being deployed into production"
 msgstr ""
 
 #: ../../intro/use-cases.rst:21
 msgid ""
-"Transaction processing (Online Gaming, Finance/Banking, Trading, "
-"Statistics, Betting, Social Media, Telecom)"
+"Transaction processing (Online Gaming, Finance/Banking, Trading, Statistics,"
+" Betting, Social Media, Telecom)"
 msgstr ""
 
 #: ../../intro/use-cases.rst:22 ../../intro/use-cases.rst:47
@@ -59,8 +60,8 @@ msgstr ""
 
 #: ../../intro/use-cases.rst:26
 msgid ""
-"Service REST, SOAP, Cometd, WebSockets etc Act as message hub / "
-"integration layer Scale up, scale out, fault-tolerance / HA"
+"Service REST, SOAP, Cometd, WebSockets etc Act as message hub / integration "
+"layer Scale up, scale out, fault-tolerance / HA"
 msgstr ""
 
 #: ../../intro/use-cases.rst:31
@@ -106,4 +107,3 @@ msgstr ""
 #: ../../intro/use-cases.rst:58
 msgid "Complex Event Stream Processing"
 msgstr ""
-

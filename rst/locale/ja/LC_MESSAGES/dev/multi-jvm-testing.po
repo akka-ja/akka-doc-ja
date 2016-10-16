@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../dev/multi-jvm-testing.rst:6
 msgid "Multi JVM Testing"
@@ -47,15 +47,15 @@ msgstr ""
 #: ../../dev/multi-jvm-testing.rst:20
 msgid ""
 "You can then add multi-JVM testing to ``build.sbt`` or "
-"``project/Build.scala`` by including the ``MultiJvm`` settings and "
-"config. Please note that MultiJvm test sources are located in ``src"
-"/multi-jvm/...``, and not in ``src/test/...``."
+"``project/Build.scala`` by including the ``MultiJvm`` settings and config. "
+"Please note that MultiJvm test sources are located in ``src/multi-jvm/...``,"
+" and not in ``src/test/...``."
 msgstr ""
 
 #: ../../dev/multi-jvm-testing.rst:24
 msgid ""
-"Here is an example ``build.sbt`` file for sbt 0.13 that uses the MultiJvm"
-" plugin:"
+"Here is an example ``build.sbt`` file for sbt 0.13 that uses the MultiJvm "
+"plugin:"
 msgstr ""
 
 #: ../../dev/multi-jvm-testing.rst:28
@@ -74,14 +74,14 @@ msgstr ""
 
 #: ../../dev/multi-jvm-testing.rst:39
 msgid ""
-"So in Akka, to run all the multi-JVM tests in the akka-remote project use"
-" (at the sbt prompt):"
+"So in Akka, to run all the multi-JVM tests in the akka-remote project use "
+"(at the sbt prompt):"
 msgstr ""
 
 #: ../../dev/multi-jvm-testing.rst:46
 msgid ""
-"Or one can change to the ``akka-remote-tests`` project first, and then "
-"run the tests:"
+"Or one can change to the ``akka-remote-tests`` project first, and then run "
+"the tests:"
 msgstr ""
 
 #: ../../dev/multi-jvm-testing.rst:54
@@ -90,14 +90,14 @@ msgstr ""
 
 #: ../../dev/multi-jvm-testing.rst:60
 msgid ""
-"More than one test name can be listed to run multiple specific tests. "
-"Tab-completion in sbt makes it easy to complete the test names."
+"More than one test name can be listed to run multiple specific tests. Tab-"
+"completion in sbt makes it easy to complete the test names."
 msgstr ""
 
 #: ../../dev/multi-jvm-testing.rst:63
 msgid ""
-"It's also possible to specify JVM options with ``test-only`` by including"
-" those options after the test names and ``--``. For example:"
+"It's also possible to specify JVM options with ``test-only`` by including "
+"those options after the test names and ``--``. For example:"
 msgstr ""
 
 #: ../../dev/multi-jvm-testing.rst:72
@@ -107,8 +107,8 @@ msgstr ""
 #: ../../dev/multi-jvm-testing.rst:74
 msgid ""
 "The tests are discovered, and combined, through a naming convention. "
-"MultiJvm test sources are located in ``src/multi-jvm/...``. A test is "
-"named with the following pattern:"
+"MultiJvm test sources are located in ``src/multi-jvm/...``. A test is named "
+"with the following pattern:"
 msgstr ""
 
 #: ../../dev/multi-jvm-testing.rst:81
@@ -127,8 +127,8 @@ msgstr ""
 
 #: ../../dev/multi-jvm-testing.rst:109
 msgid ""
-"When you call ``multi-jvm:run sample.Sample`` at the sbt prompt, three "
-"JVMs will be spawned, one for each node. It will look like this:"
+"When you call ``multi-jvm:run sample.Sample`` at the sbt prompt, three JVMs "
+"will be spawned, one for each node. It will look like this:"
 msgstr ""
 
 #: ../../dev/multi-jvm-testing.rst:124
@@ -137,14 +137,14 @@ msgstr ""
 
 #: ../../dev/multi-jvm-testing.rst:126
 msgid ""
-"You can change the name of the multi-JVM test source directory by adding "
-"the following configuration to your project:"
+"You can change the name of the multi-JVM test source directory by adding the"
+" following configuration to your project:"
 msgstr ""
 
 #: ../../dev/multi-jvm-testing.rst:135
 msgid ""
-"You can change what the ``MultiJvm`` identifier is. For example, to "
-"change it to ``ClusterTest`` use the ``multiJvmMarker`` setting:"
+"You can change what the ``MultiJvm`` identifier is. For example, to change "
+"it to ``ClusterTest`` use the ``multiJvmMarker`` setting:"
 msgstr ""
 
 #: ../../dev/multi-jvm-testing.rst:143
@@ -165,8 +165,8 @@ msgstr ""
 #: ../../dev/multi-jvm-testing.rst:153
 msgid ""
 "For example, to feed the JVM options ``-Dakka.remote.port=9991`` and "
-"``-Xmx256m`` to the ``SampleMultiJvmNode1`` let's create three ``*.opts``"
-" files and add the options to them. Separate multiple options with space."
+"``-Xmx256m`` to the ``SampleMultiJvmNode1`` let's create three ``*.opts`` "
+"files and add the options to them. Separate multiple options with space."
 msgstr ""
 
 #: ../../dev/multi-jvm-testing.rst:157
@@ -187,17 +187,17 @@ msgstr ""
 
 #: ../../dev/multi-jvm-testing.rst:172
 msgid ""
-"There is also support for creating ScalaTest tests rather than "
-"applications. To do this use the same naming convention as above, but "
-"create ScalaTest suites rather than objects with main methods. You need "
-"to have ScalaTest on the classpath. Here is a similar example to the one "
-"above but using ScalaTest::"
+"There is also support for creating ScalaTest tests rather than applications."
+" To do this use the same naming convention as above, but create ScalaTest "
+"suites rather than objects with main methods. You need to have ScalaTest on "
+"the classpath. Here is a similar example to the one above but using "
+"ScalaTest::"
 msgstr ""
 
 #: ../../dev/multi-jvm-testing.rst:200
 msgid ""
-"To run just these tests you would call ``multi-jvm:test-only "
-"sample.Spec`` at the sbt prompt."
+"To run just these tests you would call ``multi-jvm:test-only sample.Spec`` "
+"at the sbt prompt."
 msgstr ""
 
 #: ../../dev/multi-jvm-testing.rst:204
@@ -207,7 +207,6 @@ msgstr ""
 #: ../../dev/multi-jvm-testing.rst:206
 msgid ""
 "There has also been some additions made to the ``SbtMultiJvm`` plugin to "
-"accommodate the :ref:`experimental <experimental>` module :ref:`multi "
-"node testing <multi-node-testing>`, described in that section."
+"accommodate the :ref:`experimental <experimental>` module :ref:`multi node "
+"testing <multi-node-testing>`, described in that section."
 msgstr ""
-

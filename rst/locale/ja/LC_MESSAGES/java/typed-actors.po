@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../java/typed-actors.rst:2
 msgid "Typed Actors"
@@ -24,39 +24,39 @@ msgstr ""
 #: ../../java/typed-actors.rst:4
 msgid ""
 "Akka Typed Actors is an implementation of the `Active Objects "
-"<http://en.wikipedia.org/wiki/Active_object>`_ pattern. Essentially "
-"turning method invocations into asynchronous dispatch instead of "
-"synchronous that has been the default way since Smalltalk came out."
+"<http://en.wikipedia.org/wiki/Active_object>`_ pattern. Essentially turning "
+"method invocations into asynchronous dispatch instead of synchronous that "
+"has been the default way since Smalltalk came out."
 msgstr ""
 
 #: ../../java/typed-actors.rst:7
 msgid ""
 "Typed Actors consist of 2 \"parts\", a public interface and an "
 "implementation, and if you've done any work in \"enterprise\" Java, this "
-"will be very familiar to you. As with normal Actors you have an external "
-"API (the public interface instance) that will delegate method calls "
+"will be very familiar to you. As with normal Actors you have an external API"
+" (the public interface instance) that will delegate method calls "
 "asynchronously to a private instance of the implementation."
 msgstr ""
 
 #: ../../java/typed-actors.rst:10
 msgid ""
-"The advantage of Typed Actors vs. Actors is that with TypedActors you "
-"have a static contract, and don't need to define your own messages, the "
-"downside is that it places some limitations on what you can do and what "
-"you can't, i.e. you can't use become/unbecome."
+"The advantage of Typed Actors vs. Actors is that with TypedActors you have a"
+" static contract, and don't need to define your own messages, the downside "
+"is that it places some limitations on what you can do and what you can't, "
+"i.e. you can't use become/unbecome."
 msgstr ""
 
 #: ../../java/typed-actors.rst:12
 msgid ""
 "Typed Actors are implemented using `JDK Proxies "
-"<http://docs.oracle.com/javase/6/docs/api/java/lang/reflect/Proxy.html>`_"
-" which provide a pretty easy-worked API to intercept method calls."
+"<http://docs.oracle.com/javase/6/docs/api/java/lang/reflect/Proxy.html>`_ "
+"which provide a pretty easy-worked API to intercept method calls."
 msgstr ""
 
 #: ../../java/typed-actors.rst:16
 msgid ""
-"Just as with regular Akka Untyped Actors, Typed Actors process one call "
-"at a time."
+"Just as with regular Akka Untyped Actors, Typed Actors process one call at a"
+" time."
 msgstr ""
 
 #: ../../java/typed-actors.rst:19
@@ -65,23 +65,23 @@ msgstr ""
 
 #: ../../java/typed-actors.rst:21
 msgid ""
-"Typed actors are nice for bridging between actor systems (the “inside”) "
-"and non-actor code (the “outside”), because they allow you to write "
-"normal OO-looking code on the outside. Think of them like doors: their "
-"practicality lies in interfacing between private sphere and the public, "
-"but you don’t want that many doors inside your house, do you? For a "
-"longer discussion see `this blog post "
-"<http://letitcrash.com/post/19074284309/when-to-use-typedactors>`_."
+"Typed actors are nice for bridging between actor systems (the “inside”) and "
+"non-actor code (the “outside”), because they allow you to write normal OO-"
+"looking code on the outside. Think of them like doors: their practicality "
+"lies in interfacing between private sphere and the public, but you don’t "
+"want that many doors inside your house, do you? For a longer discussion see "
+"`this blog post <http://letitcrash.com/post/19074284309/when-to-use-"
+"typedactors>`_."
 msgstr ""
 
 #: ../../java/typed-actors.rst:28
 msgid ""
-"A bit more background: TypedActors can easily be abused as RPC, and that "
-"is an abstraction which is `well-known "
+"A bit more background: TypedActors can easily be abused as RPC, and that is "
+"an abstraction which is `well-known "
 "<http://doc.akka.io/docs/misc/smli_tr-94-29.pdf>`_ to be leaky. Hence "
-"TypedActors are not what we think of first when we talk about making "
-"highly scalable concurrent software easier to write correctly. They have "
-"their niche, use them sparingly."
+"TypedActors are not what we think of first when we talk about making highly "
+"scalable concurrent software easier to write correctly. They have their "
+"niche, use them sparingly."
 msgstr ""
 
 #: ../../java/typed-actors.rst:36
@@ -90,18 +90,17 @@ msgstr ""
 
 #: ../../java/typed-actors.rst:38
 msgid ""
-"Before we create our first Typed Actor we should first go through the "
-"tools that we have at our disposal, it's located in "
-"``akka.actor.TypedActor``."
+"Before we create our first Typed Actor we should first go through the tools "
+"that we have at our disposal, it's located in ``akka.actor.TypedActor``."
 msgstr ""
 
 #: ../../java/typed-actors.rst:46
 msgid ""
-"Same as not exposing ``this`` of an Akka Actor, it's important not to "
-"expose ``this`` of a Typed Actor, instead you should pass the external "
-"proxy reference, which is obtained from within your Typed Actor as "
-"``TypedActor.self()``, this is your external identity, as the "
-"``ActorRef`` is the external identity of an Akka Actor."
+"Same as not exposing ``this`` of an Akka Actor, it's important not to expose"
+" ``this`` of a Typed Actor, instead you should pass the external proxy "
+"reference, which is obtained from within your Typed Actor as "
+"``TypedActor.self()``, this is your external identity, as the ``ActorRef`` "
+"is the external identity of an Akka Actor."
 msgstr ""
 
 #: ../../java/typed-actors.rst:52
@@ -128,35 +127,34 @@ msgstr ""
 
 #: ../../java/typed-actors.rst:73
 msgid ""
-"The most trivial way of creating a Typed Actor instance of our "
-"``Squarer``:"
+"The most trivial way of creating a Typed Actor instance of our ``Squarer``:"
 msgstr ""
 
 #: ../../java/typed-actors.rst:79
 msgid ""
 "First type is the type of the proxy, the second type is the type of the "
-"implementation. If you need to call a specific constructor you do it like"
-" this:"
+"implementation. If you need to call a specific constructor you do it like "
+"this:"
 msgstr ""
 
 #: ../../java/typed-actors.rst:85
 msgid ""
-"Since you supply a ``Props``, you can specify which dispatcher to use, "
-"what the default timeout should be used and more. Now, our ``Squarer`` "
-"doesn't have any methods, so we'd better add those."
+"Since you supply a ``Props``, you can specify which dispatcher to use, what "
+"the default timeout should be used and more. Now, our ``Squarer`` doesn't "
+"have any methods, so we'd better add those."
 msgstr ""
 
 #: ../../java/typed-actors.rst:91
 msgid ""
-"Alright, now we've got some methods we can call, but we need to implement"
-" those in ``SquarerImpl``."
+"Alright, now we've got some methods we can call, but we need to implement "
+"those in ``SquarerImpl``."
 msgstr ""
 
 #: ../../java/typed-actors.rst:96
 msgid ""
-"Excellent, now we have an interface and an implementation of that "
-"interface, and we know how to create a Typed Actor from that, so let's "
-"look at calling these methods."
+"Excellent, now we have an interface and an implementation of that interface,"
+" and we know how to create a Typed Actor from that, so let's look at calling"
+" these methods."
 msgstr ""
 
 #: ../../java/typed-actors.rst:100
@@ -169,35 +167,35 @@ msgstr ""
 
 #: ../../java/typed-actors.rst:104
 msgid ""
-"``void`` will be dispatched with ``fire-and-forget`` semantics, exactly "
-"like ``ActorRef.tell``"
+"``void`` will be dispatched with ``fire-and-forget`` semantics, exactly like"
+" ``ActorRef.tell``"
 msgstr ""
 
 #: ../../java/typed-actors.rst:105
 msgid ""
-"``scala.concurrent.Future<?>`` will use ``send-request-reply`` semantics,"
-" exactly like ``ActorRef.ask``"
+"``scala.concurrent.Future<?>`` will use ``send-request-reply`` semantics, "
+"exactly like ``ActorRef.ask``"
 msgstr ""
 
 #: ../../java/typed-actors.rst:106
 msgid ""
 "``akka.japi.Option<?>`` will use ``send-request-reply`` semantics, but "
-"*will* block to wait for an answer, and return ``akka.japi.Option.None`` "
-"if no answer was produced within the timeout, or "
-"``akka.japi.Option.Some<?>`` containing the result otherwise. Any "
-"exception that was thrown during this call will be rethrown."
+"*will* block to wait for an answer, and return ``akka.japi.Option.None`` if "
+"no answer was produced within the timeout, or ``akka.japi.Option.Some<?>`` "
+"containing the result otherwise. Any exception that was thrown during this "
+"call will be rethrown."
 msgstr ""
 
 #: ../../java/typed-actors.rst:109
 msgid ""
 "Any other type of value will use ``send-request-reply`` semantics, but "
 "*will* block to wait for an answer, throwing "
-"``java.util.concurrent.TimeoutException`` if there was a timeout or "
-"rethrow any exception that was thrown during this call. Note that due to "
-"the Java exception and reflection mechanisms, such a ``TimeoutException``"
-" will be wrapped in a ``java.lang.reflect.UndeclaredThrowableException`` "
-"unless the interface method explicitly declares the ``TimeoutException`` "
-"as a thrown checked exception."
+"``java.util.concurrent.TimeoutException`` if there was a timeout or rethrow "
+"any exception that was thrown during this call. Note that due to the Java "
+"exception and reflection mechanisms, such a ``TimeoutException`` will be "
+"wrapped in a ``java.lang.reflect.UndeclaredThrowableException`` unless the "
+"interface method explicitly declares the ``TimeoutException`` as a thrown "
+"checked exception."
 msgstr ""
 
 #: ../../java/typed-actors.rst:115
@@ -206,9 +204,9 @@ msgstr ""
 
 #: ../../java/typed-actors.rst:117
 msgid ""
-"While Akka cannot enforce that the parameters to the methods of your "
-"Typed Actors are immutable, we *strongly* recommend that parameters "
-"passed are immutable."
+"While Akka cannot enforce that the parameters to the methods of your Typed "
+"Actors are immutable, we *strongly* recommend that parameters passed are "
+"immutable."
 msgstr ""
 
 #: ../../java/typed-actors.rst:121
@@ -227,19 +225,18 @@ msgstr ""
 
 #: ../../java/typed-actors.rst:134
 msgid ""
-"This will block for as long as the timeout that was set in the ``Props`` "
-"of the Typed Actor, if needed. It will return ``None`` if a timeout "
-"occurs."
+"This will block for as long as the timeout that was set in the ``Props`` of "
+"the Typed Actor, if needed. It will return ``None`` if a timeout occurs."
 msgstr ""
 
 #: ../../java/typed-actors.rst:140
 msgid ""
-"This will block for as long as the timeout that was set in the ``Props`` "
-"of the Typed Actor, if needed. It will throw a "
+"This will block for as long as the timeout that was set in the ``Props`` of "
+"the Typed Actor, if needed. It will throw a "
 "``java.util.concurrent.TimeoutException`` if a timeout occurs. Note that "
 "here, such a ``TimeoutException`` will be wrapped in a "
-"``java.lang.reflect.UndeclaredThrowableException`` by the Java reflection"
-" mechanism, because the interface method does not explicitly declare the "
+"``java.lang.reflect.UndeclaredThrowableException`` by the Java reflection "
+"mechanism, because the interface method does not explicitly declare the "
 "``TimeoutException`` as a thrown checked exception. To get the "
 "``TimeoutException`` directly, declare ``throws "
 "java.util.concurrent.TimeoutException`` at the interface method."
@@ -290,8 +287,8 @@ msgstr ""
 
 #: ../../java/typed-actors.rst:181
 msgid ""
-"You can also create a child Typed Actor in regular Akka Actors by giving "
-"the ``UntypedActorContext`` as an input parameter to TypedActor.get(…)."
+"You can also create a child Typed Actor in regular Akka Actors by giving the"
+" ``UntypedActorContext`` as an input parameter to TypedActor.get(…)."
 msgstr ""
 
 #: ../../java/typed-actors.rst:185
@@ -301,9 +298,9 @@ msgstr ""
 #: ../../java/typed-actors.rst:187
 msgid ""
 "By having your Typed Actor implementation class implement "
-"``TypedActor.Supervisor`` you can define the strategy to use for "
-"supervising child actors, as described in :ref:`supervision` and :ref"
-":`fault-tolerance-java`."
+"``TypedActor.Supervisor`` you can define the strategy to use for supervising"
+" child actors, as described in :ref:`supervision` and :ref:`fault-tolerance-"
+"java`."
 msgstr ""
 
 #: ../../java/typed-actors.rst:192
@@ -313,8 +310,8 @@ msgstr ""
 #: ../../java/typed-actors.rst:194
 msgid ""
 "If your implementation class of your TypedActor extends "
-"``akka.actor.TypedActor.Receiver``, all messages that are not "
-"``MethodCall`` instances will be passed into the ``onReceive``-method."
+"``akka.actor.TypedActor.Receiver``, all messages that are not ``MethodCall``"
+" instances will be passed into the ``onReceive``-method."
 msgstr ""
 
 #: ../../java/typed-actors.rst:197
@@ -329,8 +326,8 @@ msgstr ""
 
 #: ../../java/typed-actors.rst:203
 msgid ""
-"By having your Typed Actor implementation class implement any and all of "
-"the following:"
+"By having your Typed Actor implementation class implement any and all of the"
+" following:"
 msgstr ""
 
 #: ../../java/typed-actors.rst:205
@@ -359,10 +356,10 @@ msgstr ""
 
 #: ../../java/typed-actors.rst:215
 msgid ""
-"You can use the ``typedActorOf`` that takes a TypedProps and an ActorRef "
-"to proxy the given ActorRef as a TypedActor. This is usable if you want "
-"to communicate remotely with TypedActors on other machines, just pass the"
-" ``ActorRef`` to ``typedActorOf``."
+"You can use the ``typedActorOf`` that takes a TypedProps and an ActorRef to "
+"proxy the given ActorRef as a TypedActor. This is usable if you want to "
+"communicate remotely with TypedActors on other machines, just pass the "
+"``ActorRef`` to ``typedActorOf``."
 msgstr ""
 
 #: ../../java/typed-actors.rst:219
@@ -382,28 +379,26 @@ msgstr ""
 
 #: ../../java/typed-actors.rst:228
 msgid ""
-"Sometimes you want to spread messages between multiple actors. The "
-"easiest way to achieve this in Akka is to use a :ref:`Router <routing-"
-"java>`, which can implement a specific routing logic, such as ``smallest-"
-"mailbox`` or ``consistent-hashing`` etc."
+"Sometimes you want to spread messages between multiple actors. The easiest "
+"way to achieve this in Akka is to use a :ref:`Router <routing-java>`, which "
+"can implement a specific routing logic, such as ``smallest-mailbox`` or "
+"``consistent-hashing`` etc."
 msgstr ""
 
 #: ../../java/typed-actors.rst:231
 msgid ""
-"Routers are not provided directly for typed actors, but it is really easy"
-" to leverage an untyped router and use a typed proxy in front of it. To "
-"showcase this let's create typed actors that assign themselves some "
-"random ``id``, so we know that in fact, the router has sent the message "
-"to different actors:"
+"Routers are not provided directly for typed actors, but it is really easy to"
+" leverage an untyped router and use a typed proxy in front of it. To "
+"showcase this let's create typed actors that assign themselves some random "
+"``id``, so we know that in fact, the router has sent the message to "
+"different actors:"
 msgstr ""
 
 #: ../../java/typed-actors.rst:236
 msgid ""
-"In order to round robin among a few instances of such actors, you can "
-"simply create a plain untyped router, and then facade it with a "
-"``TypedActor`` like shown in the example below. This works because typed "
-"actors of course communicate using the same mechanisms as normal actors, "
-"and methods calls on them get transformed into message sends of "
-"``MethodCall`` messages."
+"In order to round robin among a few instances of such actors, you can simply"
+" create a plain untyped router, and then facade it with a ``TypedActor`` "
+"like shown in the example below. This works because typed actors of course "
+"communicate using the same mechanisms as normal actors, and methods calls on"
+" them get transformed into message sends of ``MethodCall`` messages."
 msgstr ""
-

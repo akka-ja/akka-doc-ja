@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../scala/http/migration-from-spray.rst:2
 msgid "Migration Guide from Spray"
@@ -32,22 +32,22 @@ msgstr ""
 #: ../../scala/http/migration-from-spray.rst:9
 msgid ""
 "``respondWithStatus`` also known as ``overrideStatusCode`` has not been "
-"forward ported to Akka HTTP, as it has been seen mostly as an anti-"
-"pattern. More information here: https://github.com/akka/akka/issues/18626"
+"forward ported to Akka HTTP, as it has been seen mostly as an anti-pattern. "
+"More information here: https://github.com/akka/akka/issues/18626"
 msgstr ""
 
 #: ../../scala/http/migration-from-spray.rst:11
 msgid ""
-"``respondWithMediaType`` was considered an anti-pattern in spray and is "
-"not ported to Akka HTTP. Instead users should rely on content type "
-"negotiation as Akka HTTP implements it. More information here: "
+"``respondWithMediaType`` was considered an anti-pattern in spray and is not "
+"ported to Akka HTTP. Instead users should rely on content type negotiation "
+"as Akka HTTP implements it. More information here: "
 "https://github.com/akka/akka/issues/18625"
 msgstr ""
 
 #: ../../scala/http/migration-from-spray.rst:14
 msgid ""
-":ref:`registeringCustomMediaTypes` changed from Spray in order not to "
-"rely on global state."
+":ref:`registeringCustomMediaTypes` changed from Spray in order not to rely "
+"on global state."
 msgstr ""
 
 #: ../../scala/http/migration-from-spray.rst:17
@@ -56,8 +56,7 @@ msgstr ""
 
 #: ../../scala/http/migration-from-spray.rst:19
 msgid ""
-"Spray’s ``HttpService`` was removed. This means that scala code like "
-"this::"
+"Spray’s ``HttpService`` was removed. This means that scala code like this::"
 msgstr ""
 
 #: ../../scala/http/migration-from-spray.rst:24
@@ -71,7 +70,8 @@ msgid "Changes in Marshalling"
 msgstr ""
 
 #: ../../scala/http/migration-from-spray.rst:31
-msgid "Marshaller.of can be replaced with ``Marshaller.withFixedContentType``."
+msgid ""
+"Marshaller.of can be replaced with ``Marshaller.withFixedContentType``."
 msgstr ""
 
 #: ../../scala/http/migration-from-spray.rst:33
@@ -86,8 +86,8 @@ msgstr ""
 
 #: ../../scala/http/migration-from-spray.rst:45
 msgid ""
-"Akka HTTP marshallers support content negotiation, now it's not necessary"
-" to specify content type when creating one “super” marshaller from other "
+"Akka HTTP marshallers support content negotiation, now it's not necessary to"
+" specify content type when creating one “super” marshaller from other "
 "marshallers:"
 msgstr ""
 
@@ -107,8 +107,8 @@ msgstr ""
 
 #: ../../scala/http/migration-from-spray.rst:68
 msgid ""
-"Akka Http contains a set of predefined unmarshallers. This means that "
-"scala code like this::"
+"Akka Http contains a set of predefined unmarshallers. This means that scala "
+"code like this::"
 msgstr ""
 
 #: ../../scala/http/migration-from-spray.rst:83
@@ -117,8 +117,8 @@ msgstr ""
 
 #: ../../scala/http/migration-from-spray.rst:85
 msgid ""
-"``MediaType.custom`` can be replaced with specific methods in "
-"``MediaType`` object."
+"``MediaType.custom`` can be replaced with specific methods in ``MediaType`` "
+"object."
 msgstr ""
 
 #: ../../scala/http/migration-from-spray.rst:96
@@ -135,8 +135,8 @@ msgstr ""
 
 #: ../../scala/http/migration-from-spray.rst:133
 msgid ""
-"The Spray-client pipeline was removed. Http’s ``singleRequest`` should be"
-" used instead of ``sendReceive``::"
+"The Spray-client pipeline was removed. Http’s ``singleRequest`` should be "
+"used instead of ``sendReceive``::"
 msgstr ""
 
 #: ../../scala/http/migration-from-spray.rst:158
@@ -155,13 +155,12 @@ msgstr ""
 
 #: ../../scala/http/migration-from-spray.rst:166
 msgid ""
-"With the streaming nature of http entity, it’s important to have a strict"
-" http entity before accessing multiple form fields or use file upload "
-"directives. One solution might be using next directive before working "
-"with form fields::"
+"With the streaming nature of http entity, it’s important to have a strict "
+"http entity before accessing multiple form fields or use file upload "
+"directives. One solution might be using next directive before working with "
+"form fields::"
 msgstr ""
 
 #: ../../scala/http/migration-from-spray.rst:178
 msgid "And one can use it like this::"
 msgstr ""
-

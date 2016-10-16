@@ -1,127 +1,137 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Last-Translator: Kentaro Maeda <many.front@gmail.com>, 2016\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../intro/what-is-akka.rst:5
 msgid "What is Akka?"
-msgstr ""
+msgstr "Akka とは何か?"
 
 #: ../../intro/what-is-akka.rst:7
 msgid "**«resilient elastic distributed real-time transaction processing»**"
-msgstr ""
+msgstr "* * «レジリエントで弾力性のある分散リアルタイム トランザクション処理» * *"
 
 #: ../../intro/what-is-akka.rst:9
 msgid ""
-"We believe that writing correct distributed, concurrent, fault-tolerant "
-"and scalable applications is too hard. Most of the time it's because we "
-"are using the wrong tools and the wrong level of abstraction. Akka is "
-"here to change that. Using the Actor Model we raise the abstraction level"
-" and provide a better platform to build scalable, resilient and "
-"responsive applications—see the `Reactive Manifesto "
-"<http://reactivemanifesto.org/>`_ for more details. For fault-tolerance "
-"we adopt the \"let it crash\" model which the telecom industry has used "
-"with great success to build applications that self-heal and systems that "
-"never stop. Actors also provide the abstraction for transparent "
-"distribution and the basis for truly scalable and fault-tolerant "
-"applications."
+"We believe that writing correct distributed, concurrent, fault-tolerant and "
+"scalable applications is too hard. Most of the time it's because we are "
+"using the wrong tools and the wrong level of abstraction. Akka is here to "
+"change that. Using the Actor Model we raise the abstraction level and "
+"provide a better platform to build scalable, resilient and responsive "
+"applications—see the `Reactive Manifesto <http://reactivemanifesto.org/>`_ "
+"for more details. For fault-tolerance we adopt the \"let it crash\" model "
+"which the telecom industry has used with great success to build applications"
+" that self-heal and systems that never stop. Actors also provide the "
+"abstraction for transparent distribution and the basis for truly scalable "
+"and fault-tolerant applications."
 msgstr ""
+"私たちは分散型で、並行性を持ち、障害耐性のある、スケーラブルなアプリケーションを正しく記述することは非常に難しいことだと確信しています。\n"
+"ほとんどの場合それは間違ったツールと間違った抽象化のレベルを用いることが原因です。アクターモデルを用いて抽象化のレベルを引き上げ、スケラーブルでレジリエントかつ即応性を持つアプリケーション - 詳細は `リアクティブマニフェスト <http://reactivemanifesto.org/>`_ を参照 - を構築するより良い基盤を提供します。\n"
+"耐障害性のために \"let it crash\" モデルを採用します。このモデルで、通信産業では自己回復するアプリケーションと決して止まらないシステムを作ることに成功しています。\n"
+"アクターは、分散透過性のための抽象化と、正しくスケールし耐障害性を持つアプリーケションを構築するための基礎も提供します。"
 
 #: ../../intro/what-is-akka.rst:20
 msgid "Akka is Open Source and available under the Apache 2 License."
-msgstr ""
+msgstr "Akka はオープンソースで、Apache 2 ライセンスで利用できます。"
 
 #: ../../intro/what-is-akka.rst:22
 msgid "Download from http://akka.io/downloads."
-msgstr ""
+msgstr "http://akka.io/downloads からダウンロードできます。"
 
 #: ../../intro/what-is-akka.rst:24
 msgid ""
-"Please note that all code samples compile, so if you want direct access "
-"to the sources, have a look over at the Akka Docs subproject on github: "
-"for `Java <@github@/akka-docs/rst/java/code/docs>`_ and `Scala <@github"
-"@/akka-docs/rst/scala/code/docs>`_."
+"Please note that all code samples compile, so if you want direct access to "
+"the sources, have a look over at the Akka Docs subproject on github: for "
+"`Java <@github@/akka-docs/rst/java/code/docs>`_ and `Scala <@github@/akka-"
+"docs/rst/scala/code/docs>`_."
 msgstr ""
+"すべてのサンプルコードはソースに直接アクセスすることでコンパイルできることに注意してください。github  にある Akka "
+"ドキュメントのサブプロジェクトである `Java <@github@/akka-docs/rst/java/code/docs>`_ と `Scala "
+"<@github@/akka-docs/rst/scala/code/docs>`_ を見てください。"
 
 #: ../../intro/what-is-akka.rst:30
 msgid "Akka implements a unique hybrid"
-msgstr ""
+msgstr "Akka の特徴"
 
 #: ../../intro/what-is-akka.rst:33
 msgid "Actors"
-msgstr ""
+msgstr "アクター"
 
 #: ../../intro/what-is-akka.rst:35
 msgid "Actors give you:"
-msgstr ""
+msgstr "アクターは以下を提供します。"
 
 #: ../../intro/what-is-akka.rst:37
 msgid ""
 "Simple and high-level abstractions for distribution, concurrency and "
 "parallelism."
-msgstr ""
+msgstr "分散性、並行性、並列性のためのシンプルで高レベルの抽象化。"
 
 #: ../../intro/what-is-akka.rst:38
 msgid ""
-"Asynchronous, non-blocking and highly performant message-driven "
-"programming model."
-msgstr ""
+"Asynchronous, non-blocking and highly performant message-driven programming "
+"model."
+msgstr "非同期でノンブロッキング、かつ、高性能のメッセージ駆動プログラミングモデル。"
 
 #: ../../intro/what-is-akka.rst:39
 msgid ""
-"Very lightweight event-driven processes (several million actors per GB of"
-" heap memory)."
-msgstr ""
+"Very lightweight event-driven processes (several million actors per GB of "
+"heap memory)."
+msgstr "とても軽量なイベント駆動処理(1 ギガバイトのヒープメモリにつき数百万のアクター)。"
 
 #: ../../intro/what-is-akka.rst:41
 msgid ""
 "See the chapter for :ref:`Scala <actors-scala>` or :ref:`Java <untyped-"
 "actors-java>`."
 msgstr ""
+":ref:`Scala <actors-scala>` または :ref:`Java <untyped-actors-java>` の章を見てください。"
 
 #: ../../intro/what-is-akka.rst:44
 msgid "Fault Tolerance"
-msgstr ""
+msgstr "耐障害性"
 
 #: ../../intro/what-is-akka.rst:46
 msgid "Supervisor hierarchies with \"let-it-crash\" semantics."
-msgstr ""
+msgstr "\"let-it-crash\" 方式による スーパーバイザー階層。"
 
 #: ../../intro/what-is-akka.rst:47
 msgid ""
-"Actor systems can span over multiple JVMs to provide truly fault-tolerant"
-" systems."
-msgstr ""
+"Actor systems can span over multiple JVMs to provide truly fault-tolerant "
+"systems."
+msgstr "アクターシステムは、精密な耐障害性システムを提供するため複数の JVM にまたがることができます。"
 
 #: ../../intro/what-is-akka.rst:48
 msgid ""
-"Excellent for writing highly fault-tolerant systems that self-heal and "
-"never stop."
-msgstr ""
+"Excellent for writing highly fault-tolerant systems that self-heal and never"
+" stop."
+msgstr "自己回復と無停止を備えた高度な耐障害性を持つシステムを洗練された方法で記述できます。"
 
 #: ../../intro/what-is-akka.rst:50
 msgid ""
-"See :ref:`Fault Tolerance (Scala) <fault-tolerance-scala>` and "
-":ref:`Fault Tolerance (Java) <fault-tolerance-java>`."
+"See :ref:`Fault Tolerance (Scala) <fault-tolerance-scala>` and :ref:`Fault "
+"Tolerance (Java) <fault-tolerance-java>`."
 msgstr ""
+":ref:`耐障害性 (Scala) <fault-tolerance-scala>` または :ref:`耐障害性 (Java) <fault-"
+"tolerance-java>` を見てください。"
 
 #: ../../intro/what-is-akka.rst:53
 msgid "Location Transparency"
-msgstr ""
+msgstr "位置透過性"
 
 #: ../../intro/what-is-akka.rst:54
 msgid ""
@@ -129,17 +139,21 @@ msgid ""
 "interactions of actors use pure message passing and everything is "
 "asynchronous."
 msgstr ""
+"Akka "
+"の全ては分散環境で動作するように設計されています。全てのアクター同士の相互作用は純粋なメッセージパッシングで行われ、それはは全て非同期で行われます。"
 
 #: ../../intro/what-is-akka.rst:57
 msgid ""
 "For an overview of the cluster support see the :ref:`Java "
-"<cluster_usage_java>` and :ref:`Scala <cluster_usage_scala>` "
-"documentation chapters."
+"<cluster_usage_java>` and :ref:`Scala <cluster_usage_scala>` documentation "
+"chapters."
 msgstr ""
+"クラスタサポートの概要については :ref:`Java <cluster_usage_java>` または :ref:`Scala "
+"<cluster_usage_scala>` のドキュメントを見てください。"
 
 #: ../../intro/what-is-akka.rst:61
 msgid "Persistence"
-msgstr ""
+msgstr "永続化"
 
 #: ../../intro/what-is-akka.rst:63
 msgid ""
@@ -148,58 +162,68 @@ msgid ""
 "recover their state, even after JVM crashes or when being migrated to "
 "another node."
 msgstr ""
+"アクターが積み重ねた状態の変更は必要に応じて永続化され、アクターが開始または再起動するときに再生されます。これは JVM "
+"のクラッシュや、他のノードへの移動が起きたときでさえも、アクターは自身の状態を復元できることを指します。"
 
 #: ../../intro/what-is-akka.rst:67
 msgid ""
 "You can find more details in the respective chapter for :ref:`Java "
 "<persistence-java>` or :ref:`Scala <persistence-scala>`."
 msgstr ""
+"より詳細な内容については、 :ref:`Java <persistence-java>` または :ref:`Scala <persistence-"
+"scala>` のそれぞれの章を見てください。"
 
 #: ../../intro/what-is-akka.rst:70
 msgid "Scala and Java APIs"
-msgstr ""
+msgstr "Scala と Java の API"
 
 #: ../../intro/what-is-akka.rst:72
 msgid "Akka has both a :ref:`scala-api` and a :ref:`java-api`."
-msgstr ""
+msgstr "Akka には :ref:`scala-api`  と :ref:`java-api` の2種類の API があります。"
 
 #: ../../intro/what-is-akka.rst:76
 msgid "Akka can be used in different ways"
-msgstr ""
+msgstr "Akka の様々な利用方法"
 
 #: ../../intro/what-is-akka.rst:78
 msgid ""
-"Akka is a toolkit, not a framework: you integrate it into your build like"
-" any other library without having to follow a particular source code "
-"layout. When expressing your systems as collaborating Actors you may feel"
-" pushed more towards proper encapsulation of internal state, you may find"
-" that there is a natural separation between business logic and inter-"
-"component communication."
+"Akka is a toolkit, not a framework: you integrate it into your build like "
+"any other library without having to follow a particular source code layout. "
+"When expressing your systems as collaborating Actors you may feel pushed "
+"more towards proper encapsulation of internal state, you may find that there"
+" is a natural separation between business logic and inter-component "
+"communication."
 msgstr ""
+"Akka "
+"はツールキットであり、フレームワークではありません。特定のソースコードの構成に強制されることなく、その他のライブラリのようにビルドに統合できます。内部状態の適切なカプセル化をアクターのコラボレーションによって促進したシステムを表現するとき、ビジネスロジックとコンポーネント間通信が自然に分離されていることが発見できるでしょう。"
 
 #: ../../intro/what-is-akka.rst:83
 msgid "Akka applications are typically deployed as follows:"
-msgstr ""
+msgstr "Akka アプリケーションは一般的に以下の方法でデプロイします。"
 
 #: ../../intro/what-is-akka.rst:85
 msgid "as a library: used as a regular JAR on the classpath or in a web app."
-msgstr ""
+msgstr "通常の JAR ファイルとして、クラスパスや Web アプリケーションのライブラリに含めます。"
 
 #: ../../intro/what-is-akka.rst:87
 msgid ""
 "packaged with `sbt-native-packager <https://github.com/sbt/sbt-native-"
 "packager>`_."
 msgstr ""
+"`sbt-native-packager <https://github.com/sbt/sbt-native-packager>`_ "
+"によりパッケージ化します。"
 
 #: ../../intro/what-is-akka.rst:89
 msgid ""
 "packaged and deployed using `Lightbend ConductR "
 "<http://www.lightbend.com/products/conductr>`_."
 msgstr ""
+"`Lightbend ConductR <http://www.lightbend.com/products/conductr>`_ "
+"を使ってパッケージ化とデプロイを行います。"
 
 #: ../../intro/what-is-akka.rst:92
 msgid "Commercial Support"
-msgstr ""
+msgstr "商用サポート"
 
 #: ../../intro/what-is-akka.rst:94
 msgid ""
@@ -207,4 +231,5 @@ msgid ""
 "includes development or production support, read more `here "
 "<http://www.lightbend.com/how/subscription>`_."
 msgstr ""
-
+"Akka はLightbend 社による 開発と製品サポートを含む商用ライセンスも利用可能です。詳細は "
+"`こちら<http://www.lightbend.com/how/subscription>`_. にあります。"

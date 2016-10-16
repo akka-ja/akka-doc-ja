@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../scala/http/server-side-https-support.rst:4
 msgid "Server-Side HTTPS Support"
@@ -23,8 +23,8 @@ msgstr ""
 
 #: ../../scala/http/server-side-https-support.rst:6
 msgid ""
-"Akka HTTP supports TLS encryption on the server-side as well as on the "
-":ref:`client-side <clientSideHTTPS>`."
+"Akka HTTP supports TLS encryption on the server-side as well as on the :ref"
+":`client-side <clientSideHTTPS>`."
 msgstr ""
 
 #: ../../scala/http/server-side-https-support.rst:8
@@ -39,8 +39,8 @@ msgid ""
 "On the server-side the ``bind``, and ``bindAndHandleXXX`` methods of the "
 "`akka.http.scaladsl.Http`_ extension define an optional ``httpsContext`` "
 "parameter, which can receive the HTTPS configuration in the form of an "
-"``HttpsContext`` instance. If defined encryption is enabled on all "
-"accepted connections. Otherwise it is disabled (which is the default)."
+"``HttpsContext`` instance. If defined encryption is enabled on all accepted "
+"connections. Otherwise it is disabled (which is the default)."
 msgstr ""
 
 #: ../../scala/http/server-side-https-support.rst:19
@@ -55,10 +55,9 @@ msgstr ""
 
 #: ../../scala/http/server-side-https-support.rst:30
 msgid ""
-"Akka HTTP heavily relies on, and delegates most configuration of any "
-"SSL/TLS related options to `Lightbend SSL-Config`_, which is a library "
-"specialized in providing an secure-by-default SSLContext and related "
-"options."
+"Akka HTTP heavily relies on, and delegates most configuration of any SSL/TLS"
+" related options to `Lightbend SSL-Config`_, which is a library specialized "
+"in providing an secure-by-default SSLContext and related options."
 msgstr ""
 
 #: ../../scala/http/server-side-https-support.rst:34
@@ -69,25 +68,25 @@ msgstr ""
 
 #: ../../scala/http/server-side-https-support.rst:36
 msgid ""
-"SSL Config settings used by Akka HTTP (as well as Streaming TCP) are "
-"located under the `akka.ssl-config` namespace."
+"SSL Config settings used by Akka HTTP (as well as Streaming TCP) are located"
+" under the `akka.ssl-config` namespace."
 msgstr ""
 
 #: ../../scala/http/server-side-https-support.rst:40
 msgid ""
-"In order to use SSL-Config in Akka so it logs to the right ActorSystem-"
-"wise logger etc., the ``AkkaSSLConfig`` extension is provided. Obtaining "
-"it is as simple as:"
+"In order to use SSL-Config in Akka so it logs to the right ActorSystem-wise "
+"logger etc., the ``AkkaSSLConfig`` extension is provided. Obtaining it is as"
+" simple as:"
 msgstr ""
 
 #: ../../scala/http/server-side-https-support.rst:46
 msgid ""
-"While typical usage, for example for configuring http client settings "
-"would be applied globally by configuring ssl-config in "
-"``application.conf``, it's possible to obtain the extension and ``copy`` "
-"it while modifying any configuration that you might need to change and "
-"then use that specific ``AkkaSSLConfig`` instance while establishing "
-"connections be it client or server-side."
+"While typical usage, for example for configuring http client settings would "
+"be applied globally by configuring ssl-config in ``application.conf``, it's "
+"possible to obtain the extension and ``copy`` it while modifying any "
+"configuration that you might need to change and then use that specific "
+"``AkkaSSLConfig`` instance while establishing connections be it client or "
+"server-side."
 msgstr ""
 
 #: ../../scala/http/server-side-https-support.rst:52
@@ -97,26 +96,24 @@ msgstr ""
 #: ../../scala/http/server-side-https-support.rst:53
 msgid ""
 "In order to run an HTTPS server a certificate has to be provided, which "
-"usually is either obtained from a signing authority or created by "
-"yourself for local or staging environment purposes."
+"usually is either obtained from a signing authority or created by yourself "
+"for local or staging environment purposes."
 msgstr ""
 
 #: ../../scala/http/server-side-https-support.rst:56
 msgid ""
 "Signing authorities often provide instructions on how to create a Java "
-"keystore (typically with reference to Tomcat configuration). If you want "
-"to generate your own certificates, the official Oracle documentation on "
-"how to generate keystores using the JDK keytool utility can be found "
-"`here "
+"keystore (typically with reference to Tomcat configuration). If you want to "
+"generate your own certificates, the official Oracle documentation on how to "
+"generate keystores using the JDK keytool utility can be found `here "
 "<https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html>`_."
 msgstr ""
 
 #: ../../scala/http/server-side-https-support.rst:60
 msgid ""
-"SSL-Config provides a more targeted guide on generating certificates, so "
-"we recommend you start with the guide titled `Generating X.509 "
-"Certificates <http://typesafehub.github.io/ssl-"
-"config/CertificateGeneration.html>`_."
+"SSL-Config provides a more targeted guide on generating certificates, so we "
+"recommend you start with the guide titled `Generating X.509 Certificates "
+"<http://typesafehub.github.io/ssl-config/CertificateGeneration.html>`_."
 msgstr ""
 
 #: ../../scala/http/server-side-https-support.rst:67
@@ -126,9 +123,9 @@ msgstr ""
 #: ../../scala/http/server-side-https-support.rst:69
 msgid ""
 "Once you have obtained the server certificate, using it is as simple as "
-"preparing an ``HttpsConnectionContext`` and either setting it as the "
-"default one to be used by all servers started by the given ``Http`` "
-"extension or passing it in explicitly when binding the server:"
+"preparing an ``HttpsConnectionContext`` and either setting it as the default"
+" one to be used by all servers started by the given ``Http`` extension or "
+"passing it in explicitly when binding the server:"
 msgstr ""
 
 #: ../../scala/http/server-side-https-support.rst:80
@@ -147,9 +144,8 @@ msgstr ""
 
 #: ../../scala/http/server-side-https-support.rst:93
 msgid ""
-"If you want to run HTTP and HTTPS servers in a single application, you "
-"can call ``bind...`` methods twice, one for HTTPS, and the other for "
-"HTTP."
+"If you want to run HTTP and HTTPS servers in a single application, you can "
+"call ``bind...`` methods twice, one for HTTPS, and the other for HTTP."
 msgstr ""
 
 #: ../../scala/http/server-side-https-support.rst:96
@@ -176,18 +172,18 @@ msgstr ""
 msgid ""
 "The topic of properly configuring HTTPS for your web server is an always "
 "changing one, thus we recommend staying up to date with various security "
-"breach news and of course keep your JVM at the latest version possible, "
-"as the default settings are often updated by Oracle in reaction to "
-"various security updates and known issues."
+"breach news and of course keep your JVM at the latest version possible, as "
+"the default settings are often updated by Oracle in reaction to various "
+"security updates and known issues."
 msgstr ""
 
 #: ../../scala/http/server-side-https-support.rst:116
 msgid ""
-"We also recommend having a look at the `Play documentation about securing"
-" your app`_, as well as the techniques described in the Play "
-"documentation about setting up a `reverse proxy to terminate TLS in front"
-" of your application`_ instead of terminating TLS inside the JVM, and "
-"therefore Akka HTTP, itself."
+"We also recommend having a look at the `Play documentation about securing "
+"your app`_, as well as the techniques described in the Play documentation "
+"about setting up a `reverse proxy to terminate TLS in front of your "
+"application`_ instead of terminating TLS inside the JVM, and therefore Akka "
+"HTTP, itself."
 msgstr ""
 
 #: ../../scala/http/server-side-https-support.rst:120
@@ -211,4 +207,3 @@ msgid ""
 "`Fixing X.509 Certificates "
 "<https://tersesystems.com/2014/03/20/fixing-x509-certificates/>`_"
 msgstr ""
-

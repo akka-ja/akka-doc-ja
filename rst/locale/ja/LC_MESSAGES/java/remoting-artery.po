@@ -1,8 +1,8 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,12 +10,12 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../java/remoting-artery.rst:5
 msgid "Remoting (codename Artery)"
@@ -23,33 +23,32 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:9
 msgid ""
-"This page describes the experimental remoting subsystem, codenamed "
-"*Artery* that will eventually replace the old remoting implementation. "
-"For the current stable remoting system please refer to :ref:`remoting-"
-"java`."
+"This page describes the experimental remoting subsystem, codenamed *Artery* "
+"that will eventually replace the old remoting implementation. For the "
+"current stable remoting system please refer to :ref:`remoting-java`."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:12
 msgid ""
 "Remoting enables Actor systems on different hosts or JVMs to communicate "
-"with each other. By enabling remoting the system will start listening on "
-"a provided network address and also gains the ability to connect to other"
-" systems through the network. From the application's perspective there is"
-" no API difference between local or remote systems, :class:`ActorRef` "
-"instances that point to remote systems look exactly the same as local "
-"ones: they can be sent messages to, watched, etc. Every :class:`ActorRef`"
-" contains hostname and port information and can be passed around even on "
-"the network. This means that on a network every :class:`ActorRef` is a "
-"unique identifier of an actor on that network."
+"with each other. By enabling remoting the system will start listening on a "
+"provided network address and also gains the ability to connect to other "
+"systems through the network. From the application's perspective there is no "
+"API difference between local or remote systems, :class:`ActorRef` instances "
+"that point to remote systems look exactly the same as local ones: they can "
+"be sent messages to, watched, etc. Every :class:`ActorRef` contains hostname"
+" and port information and can be passed around even on the network. This "
+"means that on a network every :class:`ActorRef` is a unique identifier of an"
+" actor on that network."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:20
 msgid ""
-"Remoting is not a server-client technology. All systems using remoting "
-"can contact any other system on the network if they possess an "
-":class:`ActorRef` pointing to those system. This means that every system "
-"that is remoting enabled acts as a \"server\" to which arbitrary systems "
-"on the same network can connect to."
+"Remoting is not a server-client technology. All systems using remoting can "
+"contact any other system on the network if they possess an :class:`ActorRef`"
+" pointing to those system. This means that every system that is remoting "
+"enabled acts as a \"server\" to which arbitrary systems on the same network "
+"can connect to."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:25
@@ -58,16 +57,15 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:27
 msgid ""
-"Artery is a reimplementation of the old remoting module aimed at "
-"improving performance and stability. It is mostly source compatible with "
-"the old implementation and it is a drop-in replacement in many cases. "
-"Main features of Artery compared to the previous implementation:"
+"Artery is a reimplementation of the old remoting module aimed at improving "
+"performance and stability. It is mostly source compatible with the old "
+"implementation and it is a drop-in replacement in many cases. Main features "
+"of Artery compared to the previous implementation:"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:31
 msgid ""
-"Based on `Aeron <https://github.com/real-logic/Aeron>`_ (UDP) instead of "
-"TCP"
+"Based on `Aeron <https://github.com/real-logic/Aeron>`_ (UDP) instead of TCP"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:32
@@ -77,8 +75,8 @@ msgstr ""
 #: ../../java/remoting-artery.rst:33
 msgid ""
 "Isolation of internal control messages from user messages improving "
-"stability and reducing false failure detection in case of heavy traffic "
-"by using a dedicated subchannel."
+"stability and reducing false failure detection in case of heavy traffic by "
+"using a dedicated subchannel."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:35
@@ -87,8 +85,8 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:36
 msgid ""
-"Support for a separate subchannel for large messages to avoid "
-"interference with smaller messages"
+"Support for a separate subchannel for large messages to avoid interference "
+"with smaller messages"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:37
@@ -99,8 +97,7 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:38
 msgid ""
-"Support for faster serialization/deserialization using ByteBuffers "
-"directly"
+"Support for faster serialization/deserialization using ByteBuffers directly"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:39
@@ -111,16 +108,16 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:41
 msgid ""
-"Providing protocol stability across major Akka versions to support "
-"rolling updates of large-scale systems"
+"Providing protocol stability across major Akka versions to support rolling "
+"updates of large-scale systems"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:43
 msgid ""
 "The main incompatible change from the previous implementation that the "
 "protocol field of the string representation of an :class:`ActorRef` is "
-"always `akka` instead of the previously used `akka.tcp` or "
-"`akka.ssl.tcp`. Configuration properties are also different."
+"always `akka` instead of the previously used `akka.tcp` or `akka.ssl.tcp`. "
+"Configuration properties are also different."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:48
@@ -135,14 +132,14 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:54
 msgid ""
-"To enable remote capabilities in your Akka project you should, at a "
-"minimum, add the following changes to your ``application.conf`` file::"
+"To enable remote capabilities in your Akka project you should, at a minimum,"
+" add the following changes to your ``application.conf`` file::"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:70
 msgid ""
-"As you can see in the example above there are four things you need to add"
-" to get started:"
+"As you can see in the example above there are four things you need to add to"
+" get started:"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:72
@@ -155,33 +152,32 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:74
 msgid ""
-"Add host name - the machine you want to run the actor system on; this "
-"host name is exactly what is passed to remote systems in order to "
-"identify this system and consequently used for connecting back to this "
-"system if need be, hence set it to a reachable IP address or resolvable "
-"name in case you want to communicate across the network."
+"Add host name - the machine you want to run the actor system on; this host "
+"name is exactly what is passed to remote systems in order to identify this "
+"system and consequently used for connecting back to this system if need be, "
+"hence set it to a reachable IP address or resolvable name in case you want "
+"to communicate across the network."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:79
 msgid ""
-"Add port number - the port the actor system should listen on, set to 0 to"
-" have it chosen automatically"
+"Add port number - the port the actor system should listen on, set to 0 to "
+"have it chosen automatically"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:83
 msgid ""
-"The port number needs to be unique for each actor system on the same "
-"machine even if the actor systems have different names. This is because "
-"each actor system has its own networking subsystem listening for "
-"connections and handling messages as not to interfere with other actor "
-"systems."
+"The port number needs to be unique for each actor system on the same machine"
+" even if the actor systems have different names. This is because each actor "
+"system has its own networking subsystem listening for connections and "
+"handling messages as not to interfere with other actor systems."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:87
 msgid ""
-"The example above only illustrates the bare minimum of properties you "
-"have to add to enable remoting. All settings are described in :ref"
-":`remote-configuration-artery-java`."
+"The example above only illustrates the bare minimum of properties you have "
+"to add to enable remoting. All settings are described in :ref:`remote-"
+"configuration-artery-java`."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:91
@@ -190,33 +186,31 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:93
 msgid ""
-"In order to remoting to work properly, where each system can send "
-"messages to any other system on the same network (for example a system "
-"forwards a message to a third system, and the third replies directly to "
-"the sender system) it is essential for every system to have a *unique, "
-"globally reachable* address and port. This address is part of the unique "
-"name of the system and will be used by other systems to open a connection"
-" to it and send messages. This means that if a host has multiple names "
-"(different DNS records pointing to the same IP address) then only one of "
-"these can be *canonical*. If a message arrives to a system but it "
-"contains a different hostname than the expected canonical name then the "
-"message will be dropped. If multiple names for a system would be allowed,"
-" then equality checks among :class:`ActorRef` instances would no longer "
-"to be trusted and this would violate the fundamental assumption that an "
-"actor has a globally unique reference on a given network. As a "
-"consequence, this also means that localhost addresses (e.g. `127.0.0.1`) "
-"cannot be used in general (apart from local development) since they are "
-"not unique addresses in a real network."
+"In order to remoting to work properly, where each system can send messages "
+"to any other system on the same network (for example a system forwards a "
+"message to a third system, and the third replies directly to the sender "
+"system) it is essential for every system to have a *unique, globally "
+"reachable* address and port. This address is part of the unique name of the "
+"system and will be used by other systems to open a connection to it and send"
+" messages. This means that if a host has multiple names (different DNS "
+"records pointing to the same IP address) then only one of these can be "
+"*canonical*. If a message arrives to a system but it contains a different "
+"hostname than the expected canonical name then the message will be dropped. "
+"If multiple names for a system would be allowed, then equality checks among "
+":class:`ActorRef` instances would no longer to be trusted and this would "
+"violate the fundamental assumption that an actor has a globally unique "
+"reference on a given network. As a consequence, this also means that "
+"localhost addresses (e.g. `127.0.0.1`) cannot be used in general (apart from"
+" local development) since they are not unique addresses in a real network."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:105
 msgid ""
-"In cases, where Network Address Translation (NAT) is used or other "
-"network bridging is involved, it is important to configure the system so "
-"that it understands that there is a difference between his externally "
-"visible, canonical address and between the host-port pair that is used to"
-" listen for connections. See :ref:`remote-configuration-nat-artery-java` "
-"for details."
+"In cases, where Network Address Translation (NAT) is used or other network "
+"bridging is involved, it is important to configure the system so that it "
+"understands that there is a difference between his externally visible, "
+"canonical address and between the host-port pair that is used to listen for "
+"connections. See :ref:`remote-configuration-nat-artery-java` for details."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:111
@@ -226,22 +220,22 @@ msgstr ""
 #: ../../java/remoting-artery.rst:113
 msgid ""
 "In order to communicate with an actor, it is necessary to have its "
-":class:`ActorRef`. In the local case it is usually the creator of the "
-"actor (the caller of ``actorOf()``) is who gets the :class:`ActorRef` for"
-" an actor that it can then send to other actors. In other words:"
+":class:`ActorRef`. In the local case it is usually the creator of the actor "
+"(the caller of ``actorOf()``) is who gets the :class:`ActorRef` for an actor"
+" that it can then send to other actors. In other words:"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:117
 msgid ""
-"An Actor can get a remote Actor's reference simply by receiving a message"
-" from it (as it's available as `sender()` then), or inside of a remote "
+"An Actor can get a remote Actor's reference simply by receiving a message "
+"from it (as it's available as `sender()` then), or inside of a remote "
 "message (e.g. `PleaseReply(message: String, remoteActorRef: ActorRef)`)"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:120
 msgid ""
-"Alternatively, an actor can look up another located at a known path using"
-" :class:`ActorSelection`. These methods are available even in remoting "
+"Alternatively, an actor can look up another located at a known path using "
+":class:`ActorSelection`. These methods are available even in remoting "
 "enabled systems:"
 msgstr ""
 
@@ -267,14 +261,14 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:132
 msgid ""
-"``actorSelection(path)`` will obtain an ``ActorSelection`` to an Actor on"
-" a remote node, e.g.::"
+"``actorSelection(path)`` will obtain an ``ActorSelection`` to an Actor on a "
+"remote node, e.g.::"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:137
 msgid ""
-"As you can see from the example above the following pattern is used to "
-"find an actor on a remote node::"
+"As you can see from the example above the following pattern is used to find "
+"an actor on a remote node::"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:143
@@ -285,19 +279,19 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:145
 msgid ""
-"Once you obtained a selection to the actor you can interact with it in "
-"the same way you would with a local actor, e.g.::"
+"Once you obtained a selection to the actor you can interact with it in the "
+"same way you would with a local actor, e.g.::"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:149
 msgid ""
-"To acquire an :class:`ActorRef` for an :class:`ActorSelection` you need "
-"to send a message to the selection and use the ``sender`` reference of "
-"the reply from the actor. There is a built-in ``Identify`` message that "
-"all Actors will understand and automatically reply to with a "
-"``ActorIdentity`` message containing the :class:`ActorRef`. This can also"
-" be done with the ``resolveOne`` method of the :class:`ActorSelection`, "
-"which returns a ``Future`` of the matching :class:`ActorRef`."
+"To acquire an :class:`ActorRef` for an :class:`ActorSelection` you need to "
+"send a message to the selection and use the ``sender`` reference of the "
+"reply from the actor. There is a built-in ``Identify`` message that all "
+"Actors will understand and automatically reply to with a ``ActorIdentity`` "
+"message containing the :class:`ActorRef`. This can also be done with the "
+"``resolveOne`` method of the :class:`ActorSelection`, which returns a "
+"``Future`` of the matching :class:`ActorRef`."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:157
@@ -308,8 +302,8 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:161
 msgid ""
-"Message sends to actors that are actually in the sending actor system do "
-"not get delivered via the remote actor ref provider. They're delivered "
+"Message sends to actors that are actually in the sending actor system do not"
+" get delivered via the remote actor ref provider. They're delivered "
 "directly, by the local actor ref provider."
 msgstr ""
 
@@ -327,32 +321,32 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:174
 msgid ""
-"If you want to use the creation functionality in Akka remoting you have "
-"to further amend the ``application.conf`` file in the following way (only"
-" showing deployment section)::"
+"If you want to use the creation functionality in Akka remoting you have to "
+"further amend the ``application.conf`` file in the following way (only "
+"showing deployment section)::"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:187
 msgid ""
 "The configuration above instructs Akka to react when an actor with path "
 "``/sampleActor`` is created, i.e. using ``system.actorOf(Props(...), "
-"\"sampleActor\")``. This specific actor will not be directly "
-"instantiated, but instead the remote daemon of the remote system will be "
-"asked to create the actor, which in this sample corresponds to "
+"\"sampleActor\")``. This specific actor will not be directly instantiated, "
+"but instead the remote daemon of the remote system will be asked to create "
+"the actor, which in this sample corresponds to "
 "``sampleActorSystem@127.0.0.1:2553``."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:192
 msgid ""
-"Once you have configured the properties above you would do the following "
-"in code:"
+"Once you have configured the properties above you would do the following in "
+"code:"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:196
 msgid ""
-"The actor class ``SampleActor`` has to be available to the runtimes using"
-" it, i.e. the classloader of the actor systems has to have a JAR "
-"containing the class."
+"The actor class ``SampleActor`` has to be available to the runtimes using "
+"it, i.e. the classloader of the actor systems has to have a JAR containing "
+"the class."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:201
@@ -366,22 +360,21 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:207
 msgid ""
-"Serializability of all Props can be tested by setting the configuration "
-"item ``akka.actor.serialize-creators=on``. Only Props whose ``deploy`` "
-"has ``LocalScope`` are exempt from this check."
+"Serializability of all Props can be tested by setting the configuration item"
+" ``akka.actor.serialize-creators=on``. Only Props whose ``deploy`` has "
+"``LocalScope`` are exempt from this check."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:211
 msgid ""
-"You can use asterisks as wildcard matches for the actor paths, so you "
-"could specify: ``/*/sampleActor`` and that would match all "
-"``sampleActor`` on that level in the hierarchy. You can also use wildcard"
-" in the last position to match all actors at a certain level: "
-"``/someParent/*``. Non-wildcard matches always have higher priority to "
-"match than wildcards, so: ``/foo/bar`` is considered **more specific** "
-"than ``/foo/*`` and only the highest priority match is used. Please note "
-"that it **cannot** be used to partially match section, like this: "
-"``/foo*/bar``, ``/f*o/bar`` etc."
+"You can use asterisks as wildcard matches for the actor paths, so you could "
+"specify: ``/*/sampleActor`` and that would match all ``sampleActor`` on that"
+" level in the hierarchy. You can also use wildcard in the last position to "
+"match all actors at a certain level: ``/someParent/*``. Non-wildcard matches"
+" always have higher priority to match than wildcards, so: ``/foo/bar`` is "
+"considered **more specific** than ``/foo/*`` and only the highest priority "
+"match is used. Please note that it **cannot** be used to partially match "
+"section, like this: ``/foo*/bar``, ``/f*o/bar`` etc."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:219
@@ -391,10 +384,10 @@ msgstr ""
 #: ../../java/remoting-artery.rst:221
 msgid ""
 "To allow dynamically deployed systems, it is also possible to include "
-"deployment configuration in the :class:`Props` which are used to create "
-"an actor: this information is the equivalent of a deployment section from"
-" the configuration file, and if both are given, the external "
-"configuration takes precedence."
+"deployment configuration in the :class:`Props` which are used to create an "
+"actor: this information is the equivalent of a deployment section from the "
+"configuration file, and if both are given, the external configuration takes "
+"precedence."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:227
@@ -406,7 +399,8 @@ msgid "and a remote address like this:"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:235
-msgid "you can advise the system to create a child on that remote node like so:"
+msgid ""
+"you can advise the system to create a child on that remote node like so:"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:240
@@ -418,27 +412,26 @@ msgid ""
 "As soon as an actor system can connect to another remotely, it may in "
 "principle send any possible message to any actor contained within that "
 "remote system. One example may be sending a :class:`PoisonPill` to the "
-"system guardian, shutting that system down. This is not always desired, "
-"and it can be disabled with the following setting::"
+"system guardian, shutting that system down. This is not always desired, and "
+"it can be disabled with the following setting::"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:250
 msgid ""
 "This disallows sending of system messages (actor life-cycle commands, "
-"DeathWatch, etc.) and any message extending :class:`PossiblyHarmful` to "
-"the system on which this flag is set. Should a client send them "
-"nonetheless they are dropped and logged (at DEBUG level in order to "
-"reduce the possibilities for a denial of service attack). "
-":class:`PossiblyHarmful` covers the predefined messages like "
-":class:`PoisonPill` and :class:`Kill`, but it can also be added as a "
-"marker trait to user-defined messages."
+"DeathWatch, etc.) and any message extending :class:`PossiblyHarmful` to the "
+"system on which this flag is set. Should a client send them nonetheless they"
+" are dropped and logged (at DEBUG level in order to reduce the possibilities"
+" for a denial of service attack). :class:`PossiblyHarmful` covers the "
+"predefined messages like :class:`PoisonPill` and :class:`Kill`, but it can "
+"also be added as a marker trait to user-defined messages."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:258
 msgid ""
 "Messages sent with actor selection are by default discarded in untrusted "
-"mode, but permission to receive actor selection messages can be granted "
-"to specific actors defined in configuration::"
+"mode, but permission to receive actor selection messages can be granted to "
+"specific actors defined in configuration::"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:264
@@ -447,8 +440,8 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:266
 msgid ""
-"In summary, the following operations are ignored by a system configured "
-"in untrusted mode when incoming via the remoting layer:"
+"In summary, the following operations are ignored by a system configured in "
+"untrusted mode when incoming via the remoting layer:"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:269
@@ -465,29 +458,29 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:272
 msgid ""
-"sending any message which extends from the :class:`PossiblyHarmful` "
-"marker interface, which includes :class:`Terminated`"
+"sending any message which extends from the :class:`PossiblyHarmful` marker "
+"interface, which includes :class:`Terminated`"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:274
 msgid ""
-"messages sent with actor selection, unless destination defined in "
-"``trusted-selection-paths``."
+"messages sent with actor selection, unless destination defined in ``trusted-"
+"selection-paths``."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:278
 msgid ""
-"Enabling the untrusted mode does not remove the capability of the client "
-"to freely choose the target of its message sends, which means that "
-"messages not prohibited by the above rules can be sent to any actor in "
-"the remote system. It is good practice for a client-facing system to only"
-" contain a well-defined set of entry point actors, which then forward "
-"requests (possibly after performing validation) to another actor system "
-"containing the actual worker actors. If messaging between these two "
-"server-side systems is done using local :class:`ActorRef` (they can be "
-"exchanged safely between actor systems within the same JVM), you can "
-"restrict the messages on this interface by marking them "
-":class:`PossiblyHarmful` so that a client cannot forge them."
+"Enabling the untrusted mode does not remove the capability of the client to "
+"freely choose the target of its message sends, which means that messages not"
+" prohibited by the above rules can be sent to any actor in the remote "
+"system. It is good practice for a client-facing system to only contain a "
+"well-defined set of entry point actors, which then forward requests "
+"(possibly after performing validation) to another actor system containing "
+"the actual worker actors. If messaging between these two server-side systems"
+" is done using local :class:`ActorRef` (they can be exchanged safely between"
+" actor systems within the same JVM), you can restrict the messages on this "
+"interface by marking them :class:`PossiblyHarmful` so that a client cannot "
+"forge them."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:291
@@ -496,13 +489,13 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:293
 msgid ""
-"Akka remoting is using Aeron as underlying message transport. Aeron is "
-"using UDP and adds among other things reliable delivery and session "
-"semantics, very similar to TCP. This means that the order of the messages"
-" are preserved, which is needed for the :ref:`Actor message ordering "
-"guarantees <message-ordering>`. Under normal circumstances all messages "
-"will be delivered but there are cases when messages may not be delivered "
-"to the destination:"
+"Akka remoting is using Aeron as underlying message transport. Aeron is using"
+" UDP and adds among other things reliable delivery and session semantics, "
+"very similar to TCP. This means that the order of the messages are "
+"preserved, which is needed for the :ref:`Actor message ordering guarantees "
+"<message-ordering>`. Under normal circumstances all messages will be "
+"delivered but there are cases when messages may not be delivered to the "
+"destination:"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:299
@@ -513,14 +506,14 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:300
 msgid ""
-"when sending too many messages without flow control and thereby filling "
-"up the outbound send queue (``outbound-message-queue-size`` config)"
+"when sending too many messages without flow control and thereby filling up "
+"the outbound send queue (``outbound-message-queue-size`` config)"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:301
 msgid ""
-"if serialization or deserialization of a message fails (only that message"
-" will be dropped)"
+"if serialization or deserialization of a message fails (only that message "
+"will be dropped)"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:302
@@ -535,33 +528,33 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:306
 msgid ""
-"Some messages in Akka are called system messages and those cannot be "
-"dropped because that would result in an inconsistent state between the "
-"systems. Such messages are used for essentially two features; remote "
-"death watch and remote deployment. These messages are delivered by Akka "
-"remoting with “exactly-once” guarantee by confirming each message and "
-"resending unconfirmed messages. If a system message anyway cannot be "
-"delivered the association with the destination system is irrecoverable "
-"failed, and Terminated is signaled for all watched actors on the remote "
-"system. It is placed in a so called quarantined state. Quarantine usually"
-" does not happen if remote watch or remote deployment is not used."
+"Some messages in Akka are called system messages and those cannot be dropped"
+" because that would result in an inconsistent state between the systems. "
+"Such messages are used for essentially two features; remote death watch and "
+"remote deployment. These messages are delivered by Akka remoting with "
+"“exactly-once” guarantee by confirming each message and resending "
+"unconfirmed messages. If a system message anyway cannot be delivered the "
+"association with the destination system is irrecoverable failed, and "
+"Terminated is signaled for all watched actors on the remote system. It is "
+"placed in a so called quarantined state. Quarantine usually does not happen "
+"if remote watch or remote deployment is not used."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:314
 msgid ""
 "Each ``ActorSystem`` instance has an unique identifier (UID), which is "
-"important for differentiating between incarnations of a system when it is"
-" restarted with the same hostname and port. It is the specific "
-"incarnation (UID) that is quarantined. The only way to recover from this "
-"state is to restart one of the actor systems."
+"important for differentiating between incarnations of a system when it is "
+"restarted with the same hostname and port. It is the specific incarnation "
+"(UID) that is quarantined. The only way to recover from this state is to "
+"restart one of the actor systems."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:319
 msgid ""
 "Messages that are sent to and received from a quarantined system will be "
-"dropped. However, it is possible to send messages with ``actorSelection``"
-" to the address of a quarantined system, which is useful to probe if the "
-"system has been restarted."
+"dropped. However, it is possible to send messages with ``actorSelection`` to"
+" the address of a quarantined system, which is useful to probe if the system"
+" has been restarted."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:323
@@ -584,8 +577,7 @@ msgstr ""
 #: ../../java/remoting-artery.rst:329
 msgid ""
 "Overflow of the system message delivery buffer, e.g. because of too many "
-"``watch`` requests at the same time (``system-message-buffer-size`` "
-"config)."
+"``watch`` requests at the same time (``system-message-buffer-size`` config)."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:331
@@ -596,15 +588,14 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:333
 msgid ""
-"The UID of the ``ActorSystem`` is exchanged in a two-way handshake when "
-"the first message is sent to a destination. The handshake will be retried"
-" until the other system replies and no other messages will pass through "
-"until the handshake is completed. If the handshake cannot be established "
-"within a timeout (``handshake-timeout`` config) the association is "
-"stopped (freeing up resources). Queued messages will be dropped if the "
-"handshake cannot be established. It will not be quarantined, because the "
-"UID is unknown. New handshake attempt will start when next message is "
-"sent to the destination."
+"The UID of the ``ActorSystem`` is exchanged in a two-way handshake when the "
+"first message is sent to a destination. The handshake will be retried until "
+"the other system replies and no other messages will pass through until the "
+"handshake is completed. If the handshake cannot be established within a "
+"timeout (``handshake-timeout`` config) the association is stopped (freeing "
+"up resources). Queued messages will be dropped if the handshake cannot be "
+"established. It will not be quarantined, because the UID is unknown. New "
+"handshake attempt will start when next message is sent to the destination."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:340
@@ -621,12 +612,12 @@ msgstr ""
 #: ../../java/remoting-artery.rst:346
 msgid ""
 "Watching a remote actor is API wise not different than watching a local "
-"actor, as described in :ref:`deathwatch-java`. However, it is important "
-"to note, that unlike in the local case, remoting has to handle when a "
-"remote actor does not terminate in a graceful way sending a system "
-"message to notify the watcher actor about the event, but instead being "
-"hosted on a system which stopped abruptly (crashed). These situations are"
-" handled by the built-in failure detector."
+"actor, as described in :ref:`deathwatch-java`. However, it is important to "
+"note, that unlike in the local case, remoting has to handle when a remote "
+"actor does not terminate in a graceful way sending a system message to "
+"notify the watcher actor about the event, but instead being hosted on a "
+"system which stopped abruptly (crashed). These situations are handled by the"
+" built-in failure detector."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:353
@@ -636,23 +627,22 @@ msgstr ""
 #: ../../java/remoting-artery.rst:355
 msgid ""
 "Under the hood remote death watch uses heartbeat messages and a failure "
-"detector to generate ``Terminated`` message from network failures and JVM"
-" crashes, in addition to graceful termination of watched actor."
+"detector to generate ``Terminated`` message from network failures and JVM "
+"crashes, in addition to graceful termination of watched actor."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:359
 msgid ""
-"The heartbeat arrival times is interpreted by an implementation of `The "
-"Phi Accrual Failure Detector "
+"The heartbeat arrival times is interpreted by an implementation of `The Phi "
+"Accrual Failure Detector "
 "<http://www.jaist.ac.jp/~defago/files/pdf/IS_RR_2004_010.pdf>`_."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:362
 msgid ""
-"The suspicion level of failure is given by a value called *phi*. The "
-"basic idea of the phi failure detector is to express the value of *phi* "
-"on a scale that is dynamically adjusted to reflect current network "
-"conditions."
+"The suspicion level of failure is given by a value called *phi*. The basic "
+"idea of the phi failure detector is to express the value of *phi* on a scale"
+" that is dynamically adjusted to reflect current network conditions."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:366
@@ -662,8 +652,8 @@ msgstr ""
 #: ../../java/remoting-artery.rst:370
 msgid ""
 "where F is the cumulative distribution function of a normal distribution "
-"with mean and standard deviation estimated from historical heartbeat "
-"inter-arrival times."
+"with mean and standard deviation estimated from historical heartbeat inter-"
+"arrival times."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:373
@@ -675,13 +665,13 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:376
 msgid ""
-"A low ``threshold`` is prone to generate many false positives but ensures"
-" a quick detection in the event of a real crash. Conversely, a high "
-"``threshold`` generates fewer mistakes but needs more time to detect "
-"actual crashes. The default ``threshold`` is 10 and is appropriate for "
-"most situations. However in cloud environments, such as Amazon EC2, the "
-"value could be increased to 12 in order to account for network issues "
-"that sometimes occur on such platforms."
+"A low ``threshold`` is prone to generate many false positives but ensures a "
+"quick detection in the event of a real crash. Conversely, a high "
+"``threshold`` generates fewer mistakes but needs more time to detect actual "
+"crashes. The default ``threshold`` is 10 and is appropriate for most "
+"situations. However in cloud environments, such as Amazon EC2, the value "
+"could be increased to 12 in order to account for network issues that "
+"sometimes occur on such platforms."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:383
@@ -692,11 +682,11 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:388
 msgid ""
-"Phi is calculated from the mean and standard deviation of historical "
-"inter arrival times. The previous chart is an example for standard "
-"deviation of 200 ms. If the heartbeats arrive with less deviation the "
-"curve becomes steeper, i.e. it is possible to determine failure more "
-"quickly. The curve looks like this for a standard deviation of 100 ms."
+"Phi is calculated from the mean and standard deviation of historical inter "
+"arrival times. The previous chart is an example for standard deviation of "
+"200 ms. If the heartbeats arrive with less deviation the curve becomes "
+"steeper, i.e. it is possible to determine failure more quickly. The curve "
+"looks like this for a standard deviation of 100 ms."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:396
@@ -704,9 +694,9 @@ msgid ""
 "To be able to survive sudden abnormalities, such as garbage collection "
 "pauses and transient network failures the failure detector is configured "
 "with a margin, ``akka.remote.watch-failure-detector.acceptable-heartbeat-"
-"pause``. You may want to adjust the :ref:`remote-configuration-artery-"
-"java` of this depending on you environment. This is how the curve looks "
-"like for ``acceptable-heartbeat-pause`` configured to 3 seconds."
+"pause``. You may want to adjust the :ref:`remote-configuration-artery-java` "
+"of this depending on you environment. This is how the curve looks like for "
+"``acceptable-heartbeat-pause`` configured to 3 seconds."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:406
@@ -716,8 +706,8 @@ msgstr ""
 #: ../../java/remoting-artery.rst:408
 msgid ""
 "When using remoting for actors you must ensure that the ``props`` and "
-"``messages`` used for those actors are serializable. Failing to do so "
-"will cause the system to behave in an unintended way."
+"``messages`` used for those actors are serializable. Failing to do so will "
+"cause the system to behave in an unintended way."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:411
@@ -732,47 +722,46 @@ msgstr ""
 msgid ""
 "Artery introduces a new serialization mechanism which allows the "
 "``ByteBufferSerializer`` to directly write into a shared "
-":class:`java.nio.ByteBuffer` instead of being forced to allocate and "
-"return an ``Array[Byte]`` for each serialized message. For high-"
-"throughput messaging this API change can yield significant performance "
-"benefits, so we recommend changing your serializers to use this new "
-"mechanism."
+":class:`java.nio.ByteBuffer` instead of being forced to allocate and return "
+"an ``Array[Byte]`` for each serialized message. For high-throughput "
+"messaging this API change can yield significant performance benefits, so we "
+"recommend changing your serializers to use this new mechanism."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:423
 msgid ""
-"This new API also plays well with new versions of Google Protocol Buffers"
-" and other serialization libraries, which gained the ability to serialize"
-" directly into and from ByteBuffers."
+"This new API also plays well with new versions of Google Protocol Buffers "
+"and other serialization libraries, which gained the ability to serialize "
+"directly into and from ByteBuffers."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:426
 msgid ""
-"As the new feature only changes how bytes are read and written, and the "
-"rest of the serializatio infrastructure remained the same, we recommend "
-"reading the :ref:`serialization-java` documentation first."
+"As the new feature only changes how bytes are read and written, and the rest"
+" of the serializatio infrastructure remained the same, we recommend reading "
+"the :ref:`serialization-java` documentation first."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:429
 msgid ""
-"Implementing an :class:`akka.serialization.ByteBufferSerializer` works "
-"the same way as any other serializer,"
+"Implementing an :class:`akka.serialization.ByteBufferSerializer` works the "
+"same way as any other serializer,"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:433
 msgid ""
-"Implementing a serializer for Artery is therefore as simple as "
-"implementing this interface, and binding the serializer as usual (which "
-"is explained in :ref:`serialization-java`)."
+"Implementing a serializer for Artery is therefore as simple as implementing "
+"this interface, and binding the serializer as usual (which is explained in "
+":ref:`serialization-java`)."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:436
 msgid ""
-"Implementations should typically extend ``SerializerWithStringManifest`` "
-"and in addition to the ``ByteBuffer`` based ``toBinary`` and "
-"``fromBinary`` methods also implement the array based ``toBinary`` and "
-"``fromBinary`` methods. The array based methods will be used when "
-"``ByteBuffer`` is not used, e.g. in Akka Persistence."
+"Implementations should typically extend ``SerializerWithStringManifest`` and"
+" in addition to the ``ByteBuffer`` based ``toBinary`` and ``fromBinary`` "
+"methods also implement the array based ``toBinary`` and ``fromBinary`` "
+"methods. The array based methods will be used when ``ByteBuffer`` is not "
+"used, e.g. in Akka Persistence."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:440
@@ -787,61 +776,59 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:447
 msgid ""
-"With Artery it is possible to completely disable Java Serialization for "
-"the entire Actor system."
+"With Artery it is possible to completely disable Java Serialization for the "
+"entire Actor system."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:449
 msgid ""
-"Java serialization is known to be slow and prone to attacks of various "
-"kinds - it never was designed for high throughput messaging after all. "
-"However it is very convenient to use, thus it remained the default "
-"serialization mechanism that Akka used to serialize user messages as well"
-" as some of its internal messages in previous versions. Since the release"
-" of Artery, Akka internals do not rely on Java serialization anymore "
-"(exceptions to that being ``java.lang.Throwable`` and \"remote "
-"deployment\")."
+"Java serialization is known to be slow and prone to attacks of various kinds"
+" - it never was designed for high throughput messaging after all. However it"
+" is very convenient to use, thus it remained the default serialization "
+"mechanism that Akka used to serialize user messages as well as some of its "
+"internal messages in previous versions. Since the release of Artery, Akka "
+"internals do not rely on Java serialization anymore (exceptions to that "
+"being ``java.lang.Throwable`` and \"remote deployment\")."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:455
 msgid ""
 "When using Artery, Akka does not use Java Serialization for any of it's "
-"internal messages. It is highly encouraged to disable java serialization,"
-" so please plan to do so at the earliest possibility you have in your "
-"project."
+"internal messages. It is highly encouraged to disable java serialization, so"
+" please plan to do so at the earliest possibility you have in your project."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:458
 msgid ""
-"One may think that network bandwidth and latency limit the performance of"
-" remote messaging, but serialization is a more typical bottleneck."
+"One may think that network bandwidth and latency limit the performance of "
+"remote messaging, but serialization is a more typical bottleneck."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:460
 msgid ""
 "For user messages, the default serializer, implemented using Java "
 "serialization, remains available and enabled in Artery. We do however "
-"recommend to disable it entirely and utilise a proper serialization "
-"library instead in order effectively utilise the improved performance and"
-" ability for rolling deployments using Artery. Libraries that we "
-"recommend to use include, but are not limited to, `Kryo`_ by using the "
-"`akka-kryo-serialization`_ library or `Google Protocol Buffers`_ if you "
-"want more control over the schema evolution of your messages."
+"recommend to disable it entirely and utilise a proper serialization library "
+"instead in order effectively utilise the improved performance and ability "
+"for rolling deployments using Artery. Libraries that we recommend to use "
+"include, but are not limited to, `Kryo`_ by using the `akka-kryo-"
+"serialization`_ library or `Google Protocol Buffers`_ if you want more "
+"control over the schema evolution of your messages."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:466
 msgid ""
-"In order to completely disable Java Serialization in your Actor system "
-"you need to add the following configuration to your ``application.conf``:"
+"In order to completely disable Java Serialization in your Actor system you "
+"need to add the following configuration to your ``application.conf``:"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:479
 msgid ""
 "Please note that this means that you will have to configure different "
-"serializers which will able to handle all of your remote messages. Please"
-" refer to the :ref:`serialization-java` documentation as well as "
-":ref:`ByteBuffer based serialization <remote-bytebuffer-serialization-"
-"java>` to learn how to do this."
+"serializers which will able to handle all of your remote messages. Please "
+"refer to the :ref:`serialization-java` documentation as well as "
+":ref:`ByteBuffer based serialization <remote-bytebuffer-serialization-java>`"
+" to learn how to do this."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:487
@@ -849,7 +836,8 @@ msgid "Routers with Remote Destinations"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:489
-msgid "It is absolutely feasible to combine remoting with :ref:`routing-java`."
+msgid ""
+"It is absolutely feasible to combine remoting with :ref:`routing-java`."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:491
@@ -858,9 +846,9 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:495
 msgid ""
-"This configuration setting will clone the actor defined in the ``Props`` "
-"of the ``remotePool`` 10 times and deploy it evenly distributed across "
-"the two given target nodes."
+"This configuration setting will clone the actor defined in the ``Props`` of "
+"the ``remotePool`` 10 times and deploy it evenly distributed across the two "
+"given target nodes."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:498
@@ -869,8 +857,8 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:502
 msgid ""
-"This configuration setting will send messages to the defined remote actor"
-" paths. It requires that you create the destination actors on the remote "
+"This configuration setting will send messages to the defined remote actor "
+"paths. It requires that you create the destination actors on the remote "
 "nodes with matching paths. That is not done by the router."
 msgstr ""
 
@@ -897,31 +885,30 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:521
 msgid ""
-"All the communication between user defined remote actors are isolated "
-"from the channel of Akka internal messages so a large user message cannot"
-" block an urgent system message. While this provides good isolation for "
-"Akka services, all user communications by default happen through a shared"
-" network connection (an Aeron stream). When some actors send large "
-"messages this can cause other messages to suffer higher latency as they "
-"need to wait until the full message has been transported on the shared "
-"channel (and hence, shared bottleneck). In these cases it is usually "
-"helpful to separate actors that have different QoS requirements: large "
-"messages vs. low latency."
+"All the communication between user defined remote actors are isolated from "
+"the channel of Akka internal messages so a large user message cannot block "
+"an urgent system message. While this provides good isolation for Akka "
+"services, all user communications by default happen through a shared network"
+" connection (an Aeron stream). When some actors send large messages this can"
+" cause other messages to suffer higher latency as they need to wait until "
+"the full message has been transported on the shared channel (and hence, "
+"shared bottleneck). In these cases it is usually helpful to separate actors "
+"that have different QoS requirements: large messages vs. low latency."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:528
 msgid ""
-"Akka remoting provides a dedicated channel for large messages if "
-"configured. Since actor message ordering must not be violated the channel"
-" is actually dedicated for *actors* instead of messages, to ensure all of"
-" the messages arrive in send order. It is possible to assign actors on "
-"given paths to use this dedicated channel by using path patterns::"
+"Akka remoting provides a dedicated channel for large messages if configured."
+" Since actor message ordering must not be violated the channel is actually "
+"dedicated for *actors* instead of messages, to ensure all of the messages "
+"arrive in send order. It is possible to assign actors on given paths to use "
+"this dedicated channel by using path patterns::"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:540
 msgid ""
-"This means that all messages sent to the following actors will pass "
-"through the dedicated, large messages channel:"
+"This means that all messages sent to the following actors will pass through "
+"the dedicated, large messages channel:"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:542
@@ -966,29 +953,29 @@ msgstr ""
 msgid ""
 "The Aeron transport is running in a so called `media driver "
 "<https://github.com/real-logic/Aeron/wiki/Media-Driver-Operation>`_. By "
-"default, Akka starts the media driver embedded in the same JVM process as"
-" application. This is convenient and simplifies operational concerns by "
-"only having one process to start and monitor."
+"default, Akka starts the media driver embedded in the same JVM process as "
+"application. This is convenient and simplifies operational concerns by only "
+"having one process to start and monitor."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:559
 msgid ""
-"The media driver may use rather much CPU resources. If you run more than "
-"one Akka application JVM on the same machine it can therefore be wise to "
-"share the media driver by running it as a separate process."
+"The media driver may use rather much CPU resources. If you run more than one"
+" Akka application JVM on the same machine it can therefore be wise to share "
+"the media driver by running it as a separate process."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:562
 msgid ""
-"The media driver has also different resource usage characteristics than a"
-" normal application and it can therefore be more efficient and stable to "
-"run the media driver as a separate process."
+"The media driver has also different resource usage characteristics than a "
+"normal application and it can therefore be more efficient and stable to run "
+"the media driver as a separate process."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:565
 msgid ""
-"Given that Aeron jar files are in the classpath the standalone media "
-"driver can be started with::"
+"Given that Aeron jar files are in the classpath the standalone media driver "
+"can be started with::"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:569
@@ -997,8 +984,8 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:573
 msgid ""
-"You find those jar files on `maven central <http://search.maven.org/>`_, "
-"or you can create a package with your preferred build tool."
+"You find those jar files on `maven central <http://search.maven.org/>`_, or "
+"you can create a package with your preferred build tool."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:576
@@ -1041,8 +1028,8 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:620
 msgid ""
-"Note that if the media driver process is stopped the Akka applications "
-"that are using it will also be stopped."
+"Note that if the media driver process is stopped the Akka applications that "
+"are using it will also be stopped."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:623
@@ -1051,8 +1038,8 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:625
 msgid ""
-"See Aeron documentation about `Performance Testing <https://github.com"
-"/real-logic/Aeron/wiki/Performance-Testing>`_."
+"See Aeron documentation about `Performance Testing <https://github.com/real-"
+"logic/Aeron/wiki/Performance-Testing>`_."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:628
@@ -1062,29 +1049,29 @@ msgstr ""
 #: ../../java/remoting-artery.rst:630
 msgid ""
 "Artery has been designed for low latency and as a result it can be CPU "
-"hungry when the system is mostly idle. This is not always desirable. It "
-"is possible to tune the tradeoff between CPU usage and latency with the "
+"hungry when the system is mostly idle. This is not always desirable. It is "
+"possible to tune the tradeoff between CPU usage and latency with the "
 "following configuration:"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:634
 msgid ""
-"# Values can be from 1 to 10, where 10 strongly prefers low latency # and"
-" 1 strongly prefers less CPU usage akka.remote.artery.advanced.idle-cpu-"
-"level = 1"
+"# Values can be from 1 to 10, where 10 strongly prefers low latency # and 1 "
+"strongly prefers less CPU usage akka.remote.artery.advanced.idle-cpu-level ="
+" 1"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:638
 msgid ""
 "By setting this value to a lower number, it tells Akka to do longer "
 "\"sleeping\" periods on its thread dedicated for `spin-waiting "
-"<https://en.wikipedia.org/wiki/Busy_waiting>`_ and hence reducing CPU "
-"load when there is no immediate task to execute at the cost of a longer "
-"reaction time to an event when it actually happens. It is worth to be "
-"noted though that during a continuously high-throughput period this "
-"setting makes not much difference as the thread mostly has tasks to "
-"execute. This also means that under high throughput (but below maximum "
-"capacity) the system might have less latency than at low message rates."
+"<https://en.wikipedia.org/wiki/Busy_waiting>`_ and hence reducing CPU load "
+"when there is no immediate task to execute at the cost of a longer reaction "
+"time to an event when it actually happens. It is worth to be noted though "
+"that during a continuously high-throughput period this setting makes not "
+"much difference as the thread mostly has tasks to execute. This also means "
+"that under high throughput (but below maximum capacity) the system might "
+"have less latency than at low message rates."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:646
@@ -1094,36 +1081,35 @@ msgstr ""
 #: ../../java/remoting-artery.rst:649
 msgid ""
 "In this version (@version@) the flight-recorder is disabled by default "
-"because there is no automatic file name and path calculation implemented "
-"to make it possible to reuse the same file for every restart of the same "
-"actor system without clashing with files produced by other systems "
-"(possibly running on the same machine). Currently, you have to set the "
-"path and file names yourself to avoid creating an unbounded number of "
-"files and enable flight recorder manually by adding "
-"`akka.remote.artery.advanced.flight-recorder.enabled=on` to your "
-"configuration file. This a limitation of the current version and will not"
-" be necessary in the future."
+"because there is no automatic file name and path calculation implemented to "
+"make it possible to reuse the same file for every restart of the same actor "
+"system without clashing with files produced by other systems (possibly "
+"running on the same machine). Currently, you have to set the path and file "
+"names yourself to avoid creating an unbounded number of files and enable "
+"flight recorder manually by adding `akka.remote.artery.advanced.flight-"
+"recorder.enabled=on` to your configuration file. This a limitation of the "
+"current version and will not be necessary in the future."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:656
 msgid ""
-"Emitting event information (logs) from internals is always a tradeoff. "
-"The events that are usable for the Akka developers are usually too low "
-"level to be of any use for users and usually need to be fine-grained "
-"enough to provide enough information to be able to debug issues in the "
-"internal implementation. This usually means that these logs are hidden "
-"behind special flags and emitted at low log levels to not clutter the log"
-" output of the user system. Unfortunately this means that during "
-"production or integration testing these flags are usually off and events "
-"are not available when an actual failure happens - leaving maintainers in"
-" the dark about details of the event. To solve this contradiction, "
-"remoting has an internal, high-performance event store for debug events "
-"which is always on. This log and the events that it contains are highly "
-"specialized and not directly exposed to users, their primary purpose is "
-"to help the maintainers of Akka to identify and solve issues discovered "
-"during daily usage. When you encounter production issues involving "
-"remoting, you can include the flight recorder log file in your bug report"
-" to give us more insight into the nature of the failure."
+"Emitting event information (logs) from internals is always a tradeoff. The "
+"events that are usable for the Akka developers are usually too low level to "
+"be of any use for users and usually need to be fine-grained enough to "
+"provide enough information to be able to debug issues in the internal "
+"implementation. This usually means that these logs are hidden behind special"
+" flags and emitted at low log levels to not clutter the log output of the "
+"user system. Unfortunately this means that during production or integration "
+"testing these flags are usually off and events are not available when an "
+"actual failure happens - leaving maintainers in the dark about details of "
+"the event. To solve this contradiction, remoting has an internal, high-"
+"performance event store for debug events which is always on. This log and "
+"the events that it contains are highly specialized and not directly exposed "
+"to users, their primary purpose is to help the maintainers of Akka to "
+"identify and solve issues discovered during daily usage. When you encounter "
+"production issues involving remoting, you can include the flight recorder "
+"log file in your bug report to give us more insight into the nature of the "
+"failure."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:668
@@ -1139,8 +1125,8 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:672
 msgid ""
-"This file is crash resistant, i.e. its contents can be recovered even if "
-"the JVM hosting the :class:`ActorSystem` crashes unexpectedly."
+"This file is crash resistant, i.e. its contents can be recovered even if the"
+" JVM hosting the :class:`ActorSystem` crashes unexpectedly."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:674
@@ -1152,12 +1138,12 @@ msgstr ""
 #: ../../java/remoting-artery.rst:677
 msgid ""
 "The location of the file can be controlled via the "
-"`akka.remote.artery.advanced.flight-recoder.destination` setting (see "
-":ref:`config-akka-remote-artery` for details). By default, a file with "
-"the `.afr` extension is produced in the temporary directory of the "
-"operating system. In cases where the flight recorder casuses issues, it "
-"can be disabled by adding the setting `akka.remote.artery.advanced"
-".flight-recorder.enabled=off`, although this is not recommended."
+"`akka.remote.artery.advanced.flight-recoder.destination` setting (see :ref"
+":`config-akka-remote-artery` for details). By default, a file with the "
+"`.afr` extension is produced in the temporary directory of the operating "
+"system. In cases where the flight recorder casuses issues, it can be "
+"disabled by adding the setting `akka.remote.artery.advanced.flight-"
+"recorder.enabled=off`, although this is not recommended."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:685
@@ -1166,15 +1152,15 @@ msgstr ""
 
 #: ../../java/remoting-artery.rst:687
 msgid ""
-"There are lots of configuration properties that are related to remoting "
-"in Akka. We refer to the :ref:`reference configuration <config-akka-"
-"remote-artery>` for more information."
+"There are lots of configuration properties that are related to remoting in "
+"Akka. We refer to the :ref:`reference configuration <config-akka-remote-"
+"artery>` for more information."
 msgstr ""
 
 #: ../../java/remoting-artery.rst:692
 msgid ""
-"Setting properties like the listening IP and port number programmatically"
-" is best done by using something like the following:"
+"Setting properties like the listening IP and port number programmatically is"
+" best done by using something like the following:"
 msgstr ""
 
 #: ../../java/remoting-artery.rst:701
@@ -1186,7 +1172,6 @@ msgid ""
 "In setups involving Network Address Translation (NAT), Load Balancers or "
 "Docker containers the hostname and port pair that Akka binds to will be "
 "different than the \"logical\" host name and port pair that is used to "
-"connect to the system from the outside. This requires special "
-"configuration that sets both the logical and the bind pairs for remoting."
+"connect to the system from the outside. This requires special configuration "
+"that sets both the logical and the bind pairs for remoting."
 msgstr ""
-

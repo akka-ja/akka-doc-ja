@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2011-2016, Lightbend Inc
 # This file is distributed under the same license as the Akka package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../dev/developer-guidelines.rst:4
 msgid "Developer Guidelines"
@@ -38,8 +38,8 @@ msgstr ""
 #: ../../dev/developer-guidelines.rst:26
 msgid ""
 "Akka is using ``Scalariform`` to format the source code as part of the "
-"build. So just hack away and then run ``sbt compile`` and it will "
-"reformat the code according to Akka standards."
+"build. So just hack away and then run ``sbt compile`` and it will reformat "
+"the code according to Akka standards."
 msgstr ""
 
 #: ../../dev/developer-guidelines.rst:29
@@ -59,25 +59,25 @@ msgid ""
 msgstr ""
 
 #: ../../dev/developer-guidelines.rst:34
-msgid "Pick a ticket, if there is no ticket for your work then create one first."
+msgid ""
+"Pick a ticket, if there is no ticket for your work then create one first."
 msgstr ""
 
 #: ../../dev/developer-guidelines.rst:35
 msgid ""
-"Fork `akka/akka <https://github.com/akka/akka>`_. Start working in a "
-"feature branch."
+"Fork `akka/akka <https://github.com/akka/akka>`_. Start working in a feature"
+" branch."
 msgstr ""
 
 #: ../../dev/developer-guidelines.rst:36
 msgid ""
-"When you are done, create a GitHub Pull-Request towards the targeted "
-"branch."
+"When you are done, create a GitHub Pull-Request towards the targeted branch."
 msgstr ""
 
 #: ../../dev/developer-guidelines.rst:37
 msgid ""
-"When there's consensus on the review, someone from the Akka Core Team "
-"will merge it."
+"When there's consensus on the review, someone from the Akka Core Team will "
+"merge it."
 msgstr ""
 
 #: ../../dev/developer-guidelines.rst:40
@@ -96,14 +96,14 @@ msgstr ""
 
 #: ../../dev/developer-guidelines.rst:47
 msgid ""
-"All code that is checked in **should** have tests. All testing is done "
-"with ``ScalaTest`` and ``ScalaCheck``."
+"All code that is checked in **should** have tests. All testing is done with "
+"``ScalaTest`` and ``ScalaCheck``."
 msgstr ""
 
 #: ../../dev/developer-guidelines.rst:49
 msgid ""
-"Name tests as **Test.scala** if they do not depend on any external stuff."
-" That keeps surefire happy."
+"Name tests as **Test.scala** if they do not depend on any external stuff. "
+"That keeps surefire happy."
 msgstr ""
 
 #: ../../dev/developer-guidelines.rst:50
@@ -116,10 +116,10 @@ msgstr ""
 
 #: ../../dev/developer-guidelines.rst:55
 msgid ""
-"There is a useful test kit for testing actors: `akka.util.TestKit "
-"<@github@/akka-testkit/src/main/scala/akka/testkit/TestKit.scala>`_. It "
-"enables assertions concerning replies received and their timing, there is"
-" more documentation in the :ref:`akka-testkit` module."
+"There is a useful test kit for testing actors: `akka.util.TestKit <@github"
+"@/akka-testkit/src/main/scala/akka/testkit/TestKit.scala>`_. It enables "
+"assertions concerning replies received and their timing, there is more "
+"documentation in the :ref:`akka-testkit` module."
 msgstr ""
 
 #: ../../dev/developer-guidelines.rst:58
@@ -129,8 +129,8 @@ msgstr ""
 #: ../../dev/developer-guidelines.rst:60
 msgid ""
 "Included in the example is an sbt trait for multi-JVM testing which will "
-"fork JVMs for multi-node testing. There is support for running "
-"applications (objects with main methods) and running ScalaTest tests."
+"fork JVMs for multi-node testing. There is support for running applications "
+"(objects with main methods) and running ScalaTest tests."
 msgstr ""
 
 #: ../../dev/developer-guidelines.rst:65
@@ -140,4 +140,3 @@ msgstr ""
 #: ../../dev/developer-guidelines.rst:67
 msgid "You can use the 'NetworkFailureTest' trait to test network failure."
 msgstr ""
-
