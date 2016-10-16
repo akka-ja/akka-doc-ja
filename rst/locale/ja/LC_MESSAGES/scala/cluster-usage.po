@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,9 +53,9 @@ msgstr ""
 #: ../../scala/cluster-usage.rst:27
 msgid ""
 "To enable cluster capabilities in your Akka project you should, at a "
-"minimum, add the :ref:`remoting-scala` settings, but with "
-"``akka.cluster.ClusterActorRefProvider``. The ``akka.cluster.seed-nodes``"
-" should normally also be added to your ``application.conf`` file."
+"minimum, add the :ref:`remoting-scala` settings, but with ``cluster``. "
+"The ``akka.cluster.seed-nodes`` should normally also be added to your "
+"``application.conf`` file."
 msgstr ""
 
 #: ../../scala/cluster-usage.rst:32
@@ -210,7 +210,7 @@ msgid ""
 msgstr ""
 
 #: ../../scala/cluster-usage.rst:125
-msgid "Automatic vs. Manual Downing"
+msgid "Downing"
 msgstr ""
 
 #: ../../scala/cluster-usage.rst:127
@@ -231,17 +231,35 @@ msgid ""
 msgstr ""
 
 #: ../../scala/cluster-usage.rst:136
-msgid "You can enable automatic downing with configuration::"
+msgid ""
+"A pre-packaged solution for the downing problem is provided by `Split "
+"Brain Resolver <http://doc.akka.io/docs/akka/akka-commercial-"
+"addons-1.0/scala/split-brain-resolver.html>`_, which is part of the "
+"`Lightbend Reactive Platform <http://www.lightbend.com/platform>`_. If "
+"you don’t use RP, you should anyway carefully read the `documentation "
+"<http://doc.akka.io/docs/akka/akka-commercial-addons-1.0/scala/split-"
+"brain-resolver.html>`_ of the Split Brain Resolver and make sure that the"
+" solution you are using handles the concerns described there."
 msgstr ""
 
-#: ../../scala/cluster-usage.rst:140
+#: ../../scala/cluster-usage.rst:144
+msgid "Auto-downing (DO NOT USE)"
+msgstr ""
+
+#: ../../scala/cluster-usage.rst:146
+msgid ""
+"There is an atomatic downing feature that you should not use in "
+"production. For testing purpose you can enable it with configuration::"
+msgstr ""
+
+#: ../../scala/cluster-usage.rst:150
 msgid ""
 "This means that the cluster leader member will change the ``unreachable``"
 " node status to ``down`` automatically after the configured time of "
 "unreachability."
 msgstr ""
 
-#: ../../scala/cluster-usage.rst:143
+#: ../../scala/cluster-usage.rst:153
 msgid ""
 "This is a naïve approach to remove unreachable nodes from the cluster "
 "membership. It works great for crashes and short transient network "
@@ -253,33 +271,14 @@ msgid ""
 "overload."
 msgstr ""
 
-#: ../../scala/cluster-usage.rst:152
+#: ../../scala/cluster-usage.rst:162
 msgid ""
 "We recommend against using the auto-down feature of Akka Cluster in "
 "production. This is crucial for correct behavior if you use :ref"
 ":`cluster-singleton-scala` or :ref:`cluster_sharding_scala`, especially "
-"together with Akka :ref:`persistence-scala`."
-msgstr ""
-
-#: ../../scala/cluster-usage.rst:156
-msgid ""
-"A pre-packaged solution for the downing problem is provided by `Split "
-"Brain Resolver <http://doc.akka.io/docs/akka/rp-16s01p03/scala/split-"
-"brain-resolver.html>`_, which is part of the Lightbend Reactive Platform."
-" If you don’t use RP, you should anyway carefully read the `documentation"
-" <http://doc.akka.io/docs/akka/rp-16s01p03/scala/split-brain-"
-"resolver.html>`_ of the Split Brain Resolver and make sure that the "
-"solution you are using handles the concerns described there."
-msgstr ""
-
-#: ../../scala/cluster-usage.rst:163
-msgid ""
-"If you have *auto-down* enabled and the failure detector triggers, you "
-"can over time end up with a lot of single node clusters if you don't put "
-"measures in place to shut down nodes that have become ``unreachable``. "
-"This follows from the fact that the ``unreachable`` node will likely see "
-"the rest of the cluster as ``unreachable``, become its own leader and "
-"form its own cluster."
+"together with Akka :ref:`persistence-scala`. For Akka Persistence with "
+"Cluster Sharding it can result in corrupt data in case of network "
+"partitions."
 msgstr ""
 
 #: ../../scala/cluster-usage.rst:170
@@ -1251,4 +1250,62 @@ msgid ""
 ".cluster-dispatcher``. Corresponding default values: ``akka.cluster.use-"
 "dispatcher =``."
 msgstr ""
+
+#~ msgid ""
+#~ "To enable cluster capabilities in your"
+#~ " Akka project you should, at a "
+#~ "minimum, add the :ref:`remoting-scala` "
+#~ "settings, but with "
+#~ "``akka.cluster.ClusterActorRefProvider``. The "
+#~ "``akka.cluster.seed-nodes`` should normally "
+#~ "also be added to your "
+#~ "``application.conf`` file."
+#~ msgstr ""
+
+#~ msgid "Automatic vs. Manual Downing"
+#~ msgstr ""
+
+#~ msgid "You can enable automatic downing with configuration::"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "We recommend against using the auto-"
+#~ "down feature of Akka Cluster in "
+#~ "production. This is crucial for correct"
+#~ " behavior if you use :ref:`cluster-"
+#~ "singleton-scala` or :ref:`cluster_sharding_scala`, "
+#~ "especially together with Akka :ref"
+#~ ":`persistence-scala`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "A pre-packaged solution for the "
+#~ "downing problem is provided by `Split"
+#~ " Brain Resolver <http://doc.akka.io/docs/akka/rp-"
+#~ "16s01p03/scala/split-brain-resolver.html>`_, which"
+#~ " is part of the Lightbend Reactive"
+#~ " Platform. If you don’t use RP, "
+#~ "you should anyway carefully read the "
+#~ "`documentation <http://doc.akka.io/docs/akka/rp-"
+#~ "16s01p03/scala/split-brain-resolver.html>`_ of "
+#~ "the Split Brain Resolver and make "
+#~ "sure that the solution you are "
+#~ "using handles the concerns described "
+#~ "there."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you have *auto-down* enabled "
+#~ "and the failure detector triggers, you"
+#~ " can over time end up with a"
+#~ " lot of single node clusters if "
+#~ "you don't put measures in place to"
+#~ " shut down nodes that have become "
+#~ "``unreachable``. This follows from the "
+#~ "fact that the ``unreachable`` node will"
+#~ " likely see the rest of the "
+#~ "cluster as ``unreachable``, become its "
+#~ "own leader and form its own "
+#~ "cluster."
+#~ msgstr ""
 

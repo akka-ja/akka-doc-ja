@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -235,7 +235,7 @@ msgid ""
 "completed it will use the new behavior."
 msgstr ""
 
-#: ../../java/persistence.rst:143 ../../java/persistence.rst:525
+#: ../../java/persistence.rst:143 ../../java/persistence.rst:564
 msgid "Identifiers"
 msgstr ""
 
@@ -246,11 +246,20 @@ msgid ""
 "``persistenceId`` method."
 msgstr ""
 
-#: ../../java/persistence.rst:154 ../../java/persistence.rst:516
+#: ../../java/persistence.rst:152
+msgid ""
+"``persistenceId`` must be unique to a given entity in the journal "
+"(database table/keyspace). When replaying messages persisted to the "
+"journal, you query messages with a ``persistenceId``. So, if two "
+"different entities share the same ``persistenceId``, message-replaying "
+"behavior is corrupted."
+msgstr ""
+
+#: ../../java/persistence.rst:160 ../../java/persistence.rst:555
 msgid "Recovery"
 msgstr ""
 
-#: ../../java/persistence.rst:156
+#: ../../java/persistence.rst:162
 msgid ""
 "By default, a persistent actor is automatically recovered on start and on"
 " restart by replaying journaled messages. New messages sent to a "
@@ -259,7 +268,7 @@ msgid ""
 "completes."
 msgstr ""
 
-#: ../../java/persistence.rst:161
+#: ../../java/persistence.rst:167
 msgid ""
 "Accessing the ``sender()`` for replayed messages will always result in a "
 "``deadLetters`` reference, as the original sender is presumed to be long "
@@ -267,11 +276,11 @@ msgid ""
 "future, store its ``ActorPath`` explicitly in your persisted events."
 msgstr ""
 
-#: ../../java/persistence.rst:166
+#: ../../java/persistence.rst:172
 msgid "Recovery customization"
 msgstr ""
 
-#: ../../java/persistence.rst:168
+#: ../../java/persistence.rst:174
 msgid ""
 "Applications may also customise how recovery is performed by returning a "
 "customised ``Recovery`` object in the ``recovery`` method of a "
@@ -280,21 +289,21 @@ msgid ""
 "past\" instead to its most up to date state:"
 msgstr ""
 
-#: ../../java/persistence.rst:174
+#: ../../java/persistence.rst:180
 msgid ""
 "Recovery can be disabled by returning ``Recovery.none()`` in the "
 "``recovery`` method of a ``PersistentActor``:"
 msgstr ""
 
-#: ../../java/persistence.rst:179
+#: ../../java/persistence.rst:185
 msgid "Recovery status"
 msgstr ""
 
-#: ../../java/persistence.rst:181
+#: ../../java/persistence.rst:187
 msgid "A persistent actor can query its own recovery status via the methods"
 msgstr ""
 
-#: ../../java/persistence.rst:185
+#: ../../java/persistence.rst:191
 msgid ""
 "Sometimes there is a need for performing additional initialization when "
 "the recovery has completed before processing any other message sent to "
@@ -303,18 +312,18 @@ msgid ""
 "other received messages."
 msgstr ""
 
-#: ../../java/persistence.rst:192
+#: ../../java/persistence.rst:198
 msgid ""
 "If there is a problem with recovering the state of the actor from the "
 "journal, ``onRecoveryFailure`` is called (logging the error by default) "
 "and the actor will be stopped."
 msgstr ""
 
-#: ../../java/persistence.rst:198
+#: ../../java/persistence.rst:204
 msgid "Internal stash"
 msgstr ""
 
-#: ../../java/persistence.rst:200
+#: ../../java/persistence.rst:206
 msgid ""
 "The persistent actor has a private :ref:`stash <stash-java>` for "
 "internally caching incoming messages during :ref:`recovery <recovery-"
@@ -325,7 +334,7 @@ msgid ""
 "maintain ordering guarantees."
 msgstr ""
 
-#: ../../java/persistence.rst:205
+#: ../../java/persistence.rst:211
 msgid ""
 "You should be careful to not send more messages to a persistent actor "
 "than it can keep up with, otherwise the number of stashed messages will "
@@ -334,7 +343,7 @@ msgid ""
 "configuration::"
 msgstr ""
 
-#: ../../java/persistence.rst:211
+#: ../../java/persistence.rst:217
 msgid ""
 "Note that the stash capacity is per actor. If you have many persistent "
 "actors, e.g. when using cluster sharding, you may need to define a small "
@@ -352,30 +361,30 @@ msgid ""
 "``StashOverflowStrategyConfigurator``, in the persistence configuration::"
 msgstr ""
 
-#: ../../java/persistence.rst:224
+#: ../../java/persistence.rst:230
 msgid ""
 "The ``DiscardToDeadLetterStrategy`` strategy also has a pre-packaged "
 "companion configurator ``akka.persistence.DiscardConfigurator``."
 msgstr ""
 
-#: ../../java/persistence.rst:227
+#: ../../java/persistence.rst:233
 msgid ""
 "You can also query default strategy via the Akka persistence extension "
 "singleton::"
 msgstr ""
 
-#: ../../java/persistence.rst:232
+#: ../../java/persistence.rst:238
 msgid ""
 "The bounded mailbox should be avoided in the persistent actor, by which "
 "the messages come from storage backends may be discarded. You can use "
 "bounded stash instead of it."
 msgstr ""
 
-#: ../../java/persistence.rst:239
+#: ../../java/persistence.rst:245
 msgid "Relaxed local consistency requirements and high throughput use-cases"
 msgstr ""
 
-#: ../../java/persistence.rst:241
+#: ../../java/persistence.rst:247
 msgid ""
 "If faced with relaxed local consistency requirements and high throughput "
 "demands sometimes ``PersistentActor`` and its ``persist`` may not be "
@@ -389,7 +398,7 @@ msgid ""
 "to persistence failures if needed."
 msgstr ""
 
-#: ../../java/persistence.rst:248
+#: ../../java/persistence.rst:254
 msgid ""
 "The ``persistAsync`` method provides a tool for implementing high-"
 "throughput persistent actors. It will *not* stash incoming Commands while"
@@ -397,7 +406,7 @@ msgid ""
 " event callbacks."
 msgstr ""
 
-#: ../../java/persistence.rst:251
+#: ../../java/persistence.rst:257
 msgid ""
 "In the below example, the event callbacks may be called \"at any time\", "
 "even after the next Command has been processed. The ordering between "
@@ -405,25 +414,25 @@ msgid ""
 "which will be sent after \"evt-a-1\" etc.)."
 msgstr ""
 
-#: ../../java/persistence.rst:257
+#: ../../java/persistence.rst:263
 msgid ""
 "In order to implement the pattern known as \"*command sourcing*\" simply "
 "``persistAsync`` all incoming messages right away and handle them in the "
 "callback."
 msgstr ""
 
-#: ../../java/persistence.rst:261
+#: ../../java/persistence.rst:267
 msgid ""
 "The callback will not be invoked if the actor is restarted (or stopped) "
 "in between the call to ``persistAsync`` and the journal has confirmed the"
 " write."
 msgstr ""
 
-#: ../../java/persistence.rst:267
+#: ../../java/persistence.rst:273
 msgid "Deferring actions until preceding persist handlers have executed"
 msgstr ""
 
-#: ../../java/persistence.rst:269
+#: ../../java/persistence.rst:275
 msgid ""
 "Sometimes when working with ``persistAsync`` you may find that it would "
 "be nice to define some actions in terms of ''happens-after the previous "
@@ -434,32 +443,32 @@ msgid ""
 "have corresponding events in your domain model."
 msgstr ""
 
-#: ../../java/persistence.rst:274
+#: ../../java/persistence.rst:280
 msgid ""
 "Using this method is very similar to the persist family of methods, yet "
 "it does **not** persist the passed in event. It will be kept in memory "
 "and used when invoking the handler."
 msgstr ""
 
-#: ../../java/persistence.rst:279
+#: ../../java/persistence.rst:285
 msgid ""
 "Notice that the ``sender()`` is **safe** to access in the handler "
 "callback, and will be pointing to the original sender of the command for "
 "which this ``deferAsync`` handler was called."
 msgstr ""
 
-#: ../../java/persistence.rst:285
+#: ../../java/persistence.rst:291
 msgid ""
 "The callback will not be invoked if the actor is restarted (or stopped) "
 "in between the call to ``deferAsync`` and the journal has processed and "
 "confirmed all preceding writes."
 msgstr ""
 
-#: ../../java/persistence.rst:291
+#: ../../java/persistence.rst:297
 msgid "Nested persist calls"
 msgstr ""
 
-#: ../../java/persistence.rst:292
+#: ../../java/persistence.rst:298
 msgid ""
 "It is possible to call ``persist`` and ``persistAsync`` inside their "
 "respective callback blocks and they will properly retain both the thread "
@@ -467,7 +476,7 @@ msgid ""
 "guarantees."
 msgstr ""
 
-#: ../../java/persistence.rst:295
+#: ../../java/persistence.rst:301
 msgid ""
 "In general it is encouraged to create command handlers which do not need "
 "to resort to nested event persisting, however there are situations where "
@@ -478,13 +487,13 @@ msgid ""
 "persist inside its callback:"
 msgstr ""
 
-#: ../../java/persistence.rst:302
+#: ../../java/persistence.rst:308
 msgid ""
 "When sending two commands to this ``PersistentActor``, the persist "
 "handlers will be executed in the following order:"
 msgstr ""
 
-#: ../../java/persistence.rst:306
+#: ../../java/persistence.rst:312
 msgid ""
 "First the \"outer layer\" of persist calls is issued and their callbacks "
 "are applied. After these have successfully completed, the inner callbacks"
@@ -496,37 +505,37 @@ msgid ""
 "extended until all nested ``persist`` callbacks have been handled."
 msgstr ""
 
-#: ../../java/persistence.rst:312
+#: ../../java/persistence.rst:318
 msgid ""
 "It is also possible to nest ``persistAsync`` calls, using the same "
 "pattern:"
 msgstr ""
 
-#: ../../java/persistence.rst:316
+#: ../../java/persistence.rst:322
 msgid ""
 "In this case no stashing is happening, yet events are still persisted and"
 " callbacks are executed in the expected order:"
 msgstr ""
 
-#: ../../java/persistence.rst:320
+#: ../../java/persistence.rst:326
 msgid ""
 "While it is possible to nest mixed ``persist`` and ``persistAsync`` with "
 "keeping their respective semantics it is not a recommended practice, as "
 "it may lead to overly complex nesting."
 msgstr ""
 
-#: ../../java/persistence.rst:326
+#: ../../java/persistence.rst:332
 msgid "Failures"
 msgstr ""
 
-#: ../../java/persistence.rst:328
+#: ../../java/persistence.rst:334
 msgid ""
 "If persistence of an event fails, ``onPersistFailure`` will be invoked "
 "(logging the error by default), and the actor will unconditionally be "
 "stopped."
 msgstr ""
 
-#: ../../java/persistence.rst:331
+#: ../../java/persistence.rst:337
 msgid ""
 "The reason that it cannot resume when persist fails is that it is unknown"
 " if the event was actually persisted or not, and therefore it is in an "
@@ -537,25 +546,25 @@ msgid ""
 "restarts."
 msgstr ""
 
-#: ../../java/persistence.rst:339
+#: ../../java/persistence.rst:345
 msgid ""
 "If persistence of an event is rejected before it is stored, e.g. due to "
 "serialization error, ``onPersistRejected`` will be invoked (logging a "
 "warning by default), and the actor continues with next message."
 msgstr ""
 
-#: ../../java/persistence.rst:343
+#: ../../java/persistence.rst:349
 msgid ""
 "If there is a problem with recovering the state of the actor from the "
 "journal when the actor is started, ``onRecoveryFailure`` is called "
 "(logging the error by default), and the actor will be stopped."
 msgstr ""
 
-#: ../../java/persistence.rst:347
+#: ../../java/persistence.rst:353
 msgid "Atomic writes"
 msgstr ""
 
-#: ../../java/persistence.rst:349
+#: ../../java/persistence.rst:355
 msgid ""
 "Each event is of course stored atomically, but it is also possible to "
 "store several events atomically by using the ``persistAll`` or "
@@ -563,13 +572,13 @@ msgid ""
 "method are stored or none of them are stored if there is an error."
 msgstr ""
 
-#: ../../java/persistence.rst:353
+#: ../../java/persistence.rst:359
 msgid ""
 "The recovery of a persistent actor will therefore never be done partially"
 " with only a subset of events persisted by `persistAll`."
 msgstr ""
 
-#: ../../java/persistence.rst:356
+#: ../../java/persistence.rst:362
 msgid ""
 "Some journals may not support atomic writes of several events and they "
 "will then reject the ``persistAll`` command, i.e. ``onPersistRejected`` "
@@ -577,11 +586,11 @@ msgid ""
 "``UnsupportedOperationException``)."
 msgstr ""
 
-#: ../../java/persistence.rst:360
+#: ../../java/persistence.rst:366
 msgid "Batch writes"
 msgstr ""
 
-#: ../../java/persistence.rst:362
+#: ../../java/persistence.rst:368
 msgid ""
 "In order to optimize throughput when using ``persistAsync``, a persistent"
 " actor internally batches events to be stored under high load before "
@@ -593,18 +602,18 @@ msgid ""
 "latencies at a minimum."
 msgstr ""
 
-#: ../../java/persistence.rst:371
+#: ../../java/persistence.rst:377
 msgid "Message deletion"
 msgstr ""
 
-#: ../../java/persistence.rst:373
+#: ../../java/persistence.rst:379
 msgid ""
 "It is possible to delete all messages (journaled by a single persistent "
 "actor) up to a specified sequence number; Persistent actors may call the "
 "``deleteMessages`` method to this end."
 msgstr ""
 
-#: ../../java/persistence.rst:376
+#: ../../java/persistence.rst:382
 msgid ""
 "Deleting messages in event sourcing based applications is typically "
 "either not used at all, or used in conjunction with :ref:`snapshotting "
@@ -615,93 +624,93 @@ msgid ""
 "loading the snapshot."
 msgstr ""
 
-#: ../../java/persistence.rst:381
+#: ../../java/persistence.rst:387
 msgid ""
 "The result of the ``deleteMessages`` request is signaled to the "
 "persistent actor with a ``DeleteMessagesSuccess`` message if the delete "
 "was successful or a ``DeleteMessagesFailure`` message if it failed."
 msgstr ""
 
-#: ../../java/persistence.rst:384
+#: ../../java/persistence.rst:390
 msgid ""
 "Message deletion doesn't affect the highest sequence number of the "
 "journal, even if all messages were deleted from it after "
 "``deleteMessages`` invocation."
 msgstr ""
 
-#: ../../java/persistence.rst:387
+#: ../../java/persistence.rst:393
 msgid "Persistence status handling"
 msgstr ""
 
-#: ../../java/persistence.rst:388
+#: ../../java/persistence.rst:394
 msgid "Persisting, deleting, and replaying messages can either succeed or fail."
 msgstr ""
 
-#: ../../java/persistence.rst:391 ../../java/persistence.rst:589
+#: ../../java/persistence.rst:397 ../../java/persistence.rst:628
 msgid "**Method**"
 msgstr ""
 
-#: ../../java/persistence.rst:391 ../../java/persistence.rst:589
+#: ../../java/persistence.rst:397 ../../java/persistence.rst:628
 msgid "**Success**"
 msgstr ""
 
-#: ../../java/persistence.rst:391
+#: ../../java/persistence.rst:397
 msgid "**Failure / Rejection**"
 msgstr ""
 
-#: ../../java/persistence.rst:391
+#: ../../java/persistence.rst:397
 msgid "**After failure handler invoked**"
 msgstr ""
 
-#: ../../java/persistence.rst:393
+#: ../../java/persistence.rst:399
 msgid "``persist`` / ``persistAsync``"
 msgstr ""
 
-#: ../../java/persistence.rst:393
+#: ../../java/persistence.rst:399
 msgid "persist handler invoked"
 msgstr ""
 
-#: ../../java/persistence.rst:393
+#: ../../java/persistence.rst:399
 msgid "``onPersistFailure``"
 msgstr ""
 
-#: ../../java/persistence.rst:393 ../../java/persistence.rst:397
+#: ../../java/persistence.rst:399 ../../java/persistence.rst:403
 msgid "Actor is stopped."
 msgstr ""
 
-#: ../../java/persistence.rst:395
+#: ../../java/persistence.rst:401
 msgid "``onPersistRejected``"
 msgstr ""
 
-#: ../../java/persistence.rst:395 ../../java/persistence.rst:399
+#: ../../java/persistence.rst:401 ../../java/persistence.rst:405
 msgid "No automatic actions."
 msgstr ""
 
-#: ../../java/persistence.rst:397
+#: ../../java/persistence.rst:403
 msgid "``recovery``"
 msgstr ""
 
-#: ../../java/persistence.rst:397
+#: ../../java/persistence.rst:403
 msgid "``RecoverySuccess``"
 msgstr ""
 
-#: ../../java/persistence.rst:397
+#: ../../java/persistence.rst:403
 msgid "``onRecoveryFailure``"
 msgstr ""
 
-#: ../../java/persistence.rst:399
+#: ../../java/persistence.rst:405
 msgid "``deleteMessages``"
 msgstr ""
 
-#: ../../java/persistence.rst:399
+#: ../../java/persistence.rst:405
 msgid "``DeleteMessagesSuccess``"
 msgstr ""
 
-#: ../../java/persistence.rst:399
+#: ../../java/persistence.rst:405
 msgid "``DeleteMessagesFailure``"
 msgstr ""
 
-#: ../../java/persistence.rst:402
+#: ../../java/persistence.rst:408
 msgid ""
 "The most important operations (``persist`` and ``recovery``) have failure"
 " handlers modelled as explicit callbacks which the user can override in "
@@ -711,7 +720,7 @@ msgid ""
 "which message caused the failure."
 msgstr ""
 
-#: ../../java/persistence.rst:407
+#: ../../java/persistence.rst:413
 msgid ""
 "For critical failures such as recovery or persisting events failing the "
 "persistent actor will be stopped after the failure handler is invoked. "
@@ -727,7 +736,7 @@ msgid ""
 "persistent actor."
 msgstr ""
 
-#: ../../java/persistence.rst:416
+#: ../../java/persistence.rst:422
 msgid ""
 "Journal implementations may choose to implement a retry mechanism, e.g. "
 "such that only after a write fails N number of times a persistence "
@@ -736,17 +745,17 @@ msgid ""
 "persistent actor which caused the failure will be stopped."
 msgstr ""
 
-#: ../../java/persistence.rst:420
+#: ../../java/persistence.rst:426
 msgid ""
 "Check the documentation of the journal implementation you are using for "
 "details if/how it is using this technique."
 msgstr ""
 
-#: ../../java/persistence.rst:427
+#: ../../java/persistence.rst:433
 msgid "Safely shutting down persistent actors"
 msgstr ""
 
-#: ../../java/persistence.rst:429
+#: ../../java/persistence.rst:435
 msgid ""
 "Special care should be given when shutting down persistent actors from "
 "the outside. With normal Actors it is often acceptable to use the special"
@@ -756,7 +765,7 @@ msgid ""
 " to refuse stopping itself when given a poison pill."
 msgstr ""
 
-#: ../../java/persistence.rst:434
+#: ../../java/persistence.rst:440
 msgid ""
 "This can be dangerous when used with :class:`PersistentActor` due to the "
 "fact that incoming commands are *stashed* while the persistent actor is "
@@ -769,13 +778,13 @@ msgid ""
 "shutdown of the Actor."
 msgstr ""
 
-#: ../../java/persistence.rst:441
+#: ../../java/persistence.rst:447
 msgid ""
 "Consider using explicit shut-down messages instead of :class:`PoisonPill`"
 " when working with persistent actors."
 msgstr ""
 
-#: ../../java/persistence.rst:443
+#: ../../java/persistence.rst:449
 msgid ""
 "The example below highlights how messages arrive in the Actor's mailbox "
 "and how they interact with its internal stashing mechanism when "
@@ -783,11 +792,52 @@ msgid ""
 "``PoisonPill`` is used:"
 msgstr ""
 
-#: ../../java/persistence.rst:453
+#: ../../java/persistence.rst:460
+msgid "Replay Filter"
+msgstr ""
+
+#: ../../java/persistence.rst:461
+msgid ""
+"There could be cases where event streams are corrupted and multiple "
+"writers (i.e. multiple persistent actor instances) journaled different "
+"messages with the same sequence number. In such a case, you can configure"
+" how you filter replayed messages from multiple writers, upon recovery."
+msgstr ""
+
+#: ../../java/persistence.rst:465
+msgid ""
+"In your configuration, under the ``akka.persistence.journal.xxx.replay-"
+"filter`` section (where ``xxx`` is your journal plugin id), you can "
+"select the replay filter ``mode`` from one of the following values:"
+msgstr ""
+
+#: ../../java/persistence.rst:468
+msgid "repair-by-discard-old"
+msgstr ""
+
+#: ../../java/persistence.rst:469
+msgid "fail"
+msgstr ""
+
+#: ../../java/persistence.rst:470
+msgid "warn"
+msgstr ""
+
+#: ../../java/persistence.rst:471
+msgid "off"
+msgstr ""
+
+#: ../../java/persistence.rst:473
+msgid ""
+"For example, if you configure the replay filter for leveldb plugin, it "
+"looks like this::"
+msgstr ""
+
+#: ../../java/persistence.rst:492
 msgid "Persistent Views"
 msgstr ""
 
-#: ../../java/persistence.rst:457
+#: ../../java/persistence.rst:496
 msgid ""
 "``UntypedPersistentView`` is deprecated. Use :ref:`persistence-query-"
 "java` instead. The corresponding query type is ``EventsByPersistenceId``."
@@ -795,38 +845,38 @@ msgid ""
 " corresponding to a previous ``UntypedPersistentView`` actor:"
 msgstr ""
 
-#: ../../java/persistence.rst:461
+#: ../../java/persistence.rst:500
 msgid ""
 "`Sink.actorRef`_ is simple, but has the disadvantage that there is no "
 "back-pressure signal from the destination actor, i.e. if the actor is not"
 " consuming the messages fast enough the mailbox of the actor will grow"
 msgstr ""
 
-#: ../../java/persistence.rst:463
+#: ../../java/persistence.rst:502
 msgid ""
 "`mapAsync`_ combined with :ref:`actors-ask-lambda` is almost as simple "
 "with the advantage of back-pressure being propagated all the way"
 msgstr ""
 
-#: ../../java/persistence.rst:465
+#: ../../java/persistence.rst:504
 msgid "`ActorSubscriber`_ in case you need more fine grained control"
 msgstr ""
 
-#: ../../java/persistence.rst:467
+#: ../../java/persistence.rst:506
 msgid ""
 "The consuming actor may be a plain ``UntypedActor`` or an "
 "``UntypedPersistentActor`` if it needs to store its own state (e.g. "
 "fromSequenceNr offset)."
 msgstr ""
 
-#: ../../java/persistence.rst:474
+#: ../../java/persistence.rst:513
 msgid ""
 "Persistent views can be implemented by extending the "
 "``UntypedPersistentView`` trait  and implementing the ``onReceive`` and "
 "the ``persistenceId`` methods."
 msgstr ""
 
-#: ../../java/persistence.rst:479
+#: ../../java/persistence.rst:518
 msgid ""
 "The ``persistenceId`` identifies the persistent actor from which the view"
 " receives journaled messages. It is not necessary that the referenced "
@@ -836,7 +886,7 @@ msgid ""
 " is updated automatically."
 msgstr ""
 
-#: ../../java/persistence.rst:484
+#: ../../java/persistence.rst:523
 msgid ""
 "It is possible to determine if a message was sent from the Journal or "
 "from another actor in user-land by calling the ``isPersistent`` method. "
@@ -845,17 +895,17 @@ msgid ""
 "isPersistent`` check)."
 msgstr ""
 
-#: ../../java/persistence.rst:489
+#: ../../java/persistence.rst:528
 msgid "Updates"
 msgstr ""
 
-#: ../../java/persistence.rst:491
+#: ../../java/persistence.rst:530
 msgid ""
 "The default update interval of all persistent views of an actor system is"
 " configurable:"
 msgstr ""
 
-#: ../../java/persistence.rst:495
+#: ../../java/persistence.rst:534
 msgid ""
 "``UntypedPersistentView`` implementation classes may also override the "
 "``autoUpdateInterval`` method to return a custom update interval for a "
@@ -863,7 +913,7 @@ msgid ""
 "additional updates at any time by sending a view an ``Update`` message."
 msgstr ""
 
-#: ../../java/persistence.rst:501
+#: ../../java/persistence.rst:540
 msgid ""
 "If the ``await`` parameter is set to ``true``, messages that follow the "
 "``Update`` request are processed when the incremental message replay, "
@@ -873,13 +923,13 @@ msgid ""
 "false``."
 msgstr ""
 
-#: ../../java/persistence.rst:506
+#: ../../java/persistence.rst:545
 msgid ""
 "Automated updates of all persistent views of an actor system can be "
 "turned off by configuration:"
 msgstr ""
 
-#: ../../java/persistence.rst:510
+#: ../../java/persistence.rst:549
 msgid ""
 "Implementation classes may override the configured default value by "
 "overriding the ``autoUpdate`` method. To limit the number of replayed "
@@ -890,7 +940,7 @@ msgid ""
 "``Update`` message."
 msgstr ""
 
-#: ../../java/persistence.rst:518
+#: ../../java/persistence.rst:557
 msgid ""
 "Initial recovery of persistent views works the very same way as for "
 "persistent actors (i.e. by sending a ``Recover`` message to self). The "
@@ -899,32 +949,32 @@ msgid ""
 "recovery are explained in section :ref:`recovery-java`."
 msgstr ""
 
-#: ../../java/persistence.rst:527
+#: ../../java/persistence.rst:566
 msgid ""
 "A persistent view must have an identifier that doesn't change across "
 "different actor incarnations. The identifier must be defined with the "
 "``viewId`` method."
 msgstr ""
 
-#: ../../java/persistence.rst:530
+#: ../../java/persistence.rst:569
 msgid ""
 "The ``viewId`` must differ from the referenced ``persistenceId``, unless "
 ":ref:`snapshots-java` of a view and its persistent actor should be shared"
 " (which is what applications usually do not want)."
 msgstr ""
 
-#: ../../java/persistence.rst:536
+#: ../../java/persistence.rst:575
 msgid "Snapshots"
 msgstr ""
 
-#: ../../java/persistence.rst:538
+#: ../../java/persistence.rst:577
 msgid ""
 "Snapshots can dramatically reduce recovery times of persistent actors and"
 " views. The following discusses snapshots in context of persistent actors"
 " but this is also applicable to persistent views."
 msgstr ""
 
-#: ../../java/persistence.rst:541
+#: ../../java/persistence.rst:580
 msgid ""
 "Persistent actors can save snapshots of internal state by calling the  "
 "``saveSnapshot`` method. If saving of a snapshot succeeds, the persistent"
@@ -932,21 +982,21 @@ msgid ""
 "``SaveSnapshotFailure`` message."
 msgstr ""
 
-#: ../../java/persistence.rst:546
+#: ../../java/persistence.rst:585
 msgid ""
 "During recovery, the persistent actor is offered a previously saved "
 "snapshot via a ``SnapshotOffer`` message from which it can initialize "
 "internal state."
 msgstr ""
 
-#: ../../java/persistence.rst:551
+#: ../../java/persistence.rst:590
 msgid ""
 "The replayed messages that follow the ``SnapshotOffer`` message, if any, "
 "are younger than the offered snapshot. They finally recover the "
 "persistent actor to its current (i.e. latest) state."
 msgstr ""
 
-#: ../../java/persistence.rst:554
+#: ../../java/persistence.rst:593
 msgid ""
 "In general, a persistent actor is only offered a snapshot if that "
 "persistent actor has previously saved one or more snapshots and at least "
@@ -954,7 +1004,7 @@ msgid ""
 " be specified for recovery."
 msgstr ""
 
-#: ../../java/persistence.rst:559
+#: ../../java/persistence.rst:598
 msgid ""
 "If not specified, they default to ``SnapshotSelectionCriteria.latest()`` "
 "which selects the latest (= youngest) snapshot. To disable snapshot-based"
@@ -963,7 +1013,7 @@ msgid ""
 "``SnapshotSelectionCriteria`` will replay all journaled messages."
 msgstr ""
 
-#: ../../java/persistence.rst:564
+#: ../../java/persistence.rst:603
 msgid ""
 "In order to use snapshots, a default snapshot-store (``akka.persistence"
 ".snapshot-store.plugin``) must be configured, or the persistent actor can"
@@ -971,7 +1021,7 @@ msgid ""
 "snapshotPluginId()``."
 msgstr ""
 
-#: ../../java/persistence.rst:567
+#: ../../java/persistence.rst:606
 msgid ""
 "Since it is acceptable for some applications to not use any snapshotting,"
 " it is legal to not configure a snapshot store. However, Akka will log a "
@@ -981,86 +1031,86 @@ msgid ""
 "example)."
 msgstr ""
 
-#: ../../java/persistence.rst:571
+#: ../../java/persistence.rst:610
 msgid ""
 "Note that :ref:`cluster_sharding_java` is using snapshots, so if you use "
 "Cluster Sharding you need to define a snapshot store plugin."
 msgstr ""
 
-#: ../../java/persistence.rst:574
+#: ../../java/persistence.rst:613
 msgid "Snapshot deletion"
 msgstr ""
 
-#: ../../java/persistence.rst:576
+#: ../../java/persistence.rst:615
 msgid ""
 "A persistent actor can delete individual snapshots by calling the "
 "``deleteSnapshot`` method with the sequence number of when the snapshot "
 "was taken."
 msgstr ""
 
-#: ../../java/persistence.rst:579
+#: ../../java/persistence.rst:618
 msgid ""
 "To bulk-delete a range of snapshots matching "
 "``SnapshotSelectionCriteria``, persistent actors should use the "
 "``deleteSnapshots`` method."
 msgstr ""
 
-#: ../../java/persistence.rst:583
+#: ../../java/persistence.rst:622
 msgid "Snapshot status handling"
 msgstr ""
 
-#: ../../java/persistence.rst:585
+#: ../../java/persistence.rst:624
 msgid ""
 "Saving or deleting snapshots can either succeed or fail – this "
 "information is reported back to the persistent actor via status messages "
 "as illustrated in the following table."
 msgstr ""
 
-#: ../../java/persistence.rst:589
+#: ../../java/persistence.rst:628
 msgid "**Failure message**"
 msgstr ""
 
-#: ../../java/persistence.rst:591
+#: ../../java/persistence.rst:630
 msgid "``saveSnapshot(Any)``"
 msgstr ""
 
-#: ../../java/persistence.rst:591
+#: ../../java/persistence.rst:630
 msgid "``SaveSnapshotSuccess``"
 msgstr ""
 
-#: ../../java/persistence.rst:591
+#: ../../java/persistence.rst:630
 msgid "``SaveSnapshotFailure``"
 msgstr ""
 
-#: ../../java/persistence.rst:592
+#: ../../java/persistence.rst:631
 msgid "``deleteSnapshot(Long)``"
 msgstr ""
 
-#: ../../java/persistence.rst:592
+#: ../../java/persistence.rst:631
 msgid "``DeleteSnapshotSuccess``"
 msgstr ""
 
-#: ../../java/persistence.rst:592
+#: ../../java/persistence.rst:631
 msgid "``DeleteSnapshotFailure``"
 msgstr ""
 
-#: ../../java/persistence.rst:593
+#: ../../java/persistence.rst:632
 msgid "``deleteSnapshots(SnapshotSelectionCriteria)``"
 msgstr ""
 
-#: ../../java/persistence.rst:593
+#: ../../java/persistence.rst:632
 msgid "``DeleteSnapshotsSuccess``"
 msgstr ""
 
-#: ../../java/persistence.rst:593
+#: ../../java/persistence.rst:632
 msgid "``DeleteSnapshotsFailure``"
 msgstr ""
 
-#: ../../java/persistence.rst:599
+#: ../../java/persistence.rst:638
 msgid "At-Least-Once Delivery"
 msgstr ""
 
-#: ../../java/persistence.rst:601
+#: ../../java/persistence.rst:640
 msgid ""
 "To send messages with at-least-once delivery semantics to destinations "
 "you can extend the ``UntypedPersistentActorWithAtLeastOnceDelivery`` "
@@ -1069,7 +1119,7 @@ msgid ""
 "within a configurable timeout."
 msgstr ""
 
-#: ../../java/persistence.rst:605
+#: ../../java/persistence.rst:644
 msgid ""
 "The state of the sending actor, including which messages have been sent "
 "that have not been confirmed by the recipient must be persistent so that "
@@ -1079,7 +1129,7 @@ msgid ""
 "a message is sent and that a confirmation has been received."
 msgstr ""
 
-#: ../../java/persistence.rst:613
+#: ../../java/persistence.rst:652
 msgid ""
 "At-least-once delivery implies that original message sending order is not"
 " always preserved, and the destination may receive duplicate messages. "
@@ -1087,23 +1137,23 @@ msgid ""
 "operation:"
 msgstr ""
 
-#: ../../java/persistence.rst:616
+#: ../../java/persistence.rst:655
 msgid "it is not at-most-once delivery"
 msgstr ""
 
-#: ../../java/persistence.rst:618
+#: ../../java/persistence.rst:657
 msgid ""
 "message order for the same sender–receiver pair is not preserved due to "
 "possible resends"
 msgstr ""
 
-#: ../../java/persistence.rst:621
+#: ../../java/persistence.rst:660
 msgid ""
 "after a crash and restart of the destination messages are still delivered"
 " to the new actor incarnation"
 msgstr ""
 
-#: ../../java/persistence.rst:624
+#: ../../java/persistence.rst:663
 msgid ""
 "These semantics are similar to what an :class:`ActorPath` represents (see"
 " :ref:`actor-lifecycle-scala`), therefore you need to supply a path and "
@@ -1111,24 +1161,24 @@ msgid ""
 "path with an actor selection."
 msgstr ""
 
-#: ../../java/persistence.rst:629
+#: ../../java/persistence.rst:668
 msgid ""
 "Use the ``deliver`` method to send a message to a destination. Call the "
 "``confirmDelivery`` method when the destination has replied with a "
 "confirmation message."
 msgstr ""
 
-#: ../../java/persistence.rst:633
+#: ../../java/persistence.rst:672
 msgid "Relationship between deliver and confirmDelivery"
 msgstr ""
 
-#: ../../java/persistence.rst:635
+#: ../../java/persistence.rst:674
 msgid ""
 "To send messages to the destination path, use the ``deliver`` method "
 "after you have persisted the intent to send the message."
 msgstr ""
 
-#: ../../java/persistence.rst:638
+#: ../../java/persistence.rst:677
 msgid ""
 "The destination actor must send back a confirmation message. When the "
 "sending actor receives this confirmation message you should persist the "
@@ -1136,7 +1186,7 @@ msgid ""
 "``confirmDelivery`` method."
 msgstr ""
 
-#: ../../java/persistence.rst:642
+#: ../../java/persistence.rst:681
 msgid ""
 "If the persistent actor is not currently recovering, the ``deliver`` "
 "method will send the message to the destination actor. When recovering, "
@@ -1147,7 +1197,7 @@ msgid ""
 "messages."
 msgstr ""
 
-#: ../../java/persistence.rst:647
+#: ../../java/persistence.rst:686
 msgid ""
 "Deliver requires a ``deliveryIdToMessage`` function to pass the provided "
 "``deliveryId`` into the message so that the correlation between "
@@ -1158,7 +1208,7 @@ msgid ""
 "``confirmDelivery`` method to complete the delivery routine."
 msgstr ""
 
-#: ../../java/persistence.rst:654
+#: ../../java/persistence.rst:693
 msgid ""
 "The ``deliveryId`` generated by the persistence module is a strictly "
 "monotonically increasing sequence number without gaps. The same sequence "
@@ -1174,7 +1224,7 @@ msgid ""
 "receiver of your message has replied with your custom correlation id."
 msgstr ""
 
-#: ../../java/persistence.rst:663
+#: ../../java/persistence.rst:702
 msgid ""
 "The ``UntypedPersistentActorWithAtLeastOnceDelivery`` class has a state "
 "consisting of unconfirmed messages and a sequence number. It does not "
@@ -1188,7 +1238,7 @@ msgid ""
 "matching ``confirmDelivery`` will have been performed."
 msgstr ""
 
-#: ../../java/persistence.rst:671
+#: ../../java/persistence.rst:710
 msgid ""
 "Support for snapshots is provided by ``getDeliverySnapshot`` and "
 "``setDeliverySnapshot``. The ``AtLeastOnceDeliverySnapshot`` contains the"
@@ -1200,7 +1250,7 @@ msgid ""
 "snapshot."
 msgstr ""
 
-#: ../../java/persistence.rst:678
+#: ../../java/persistence.rst:717
 msgid ""
 "The interval between redelivery attempts is defined by the "
 "``redeliverInterval`` method. The default value can be configured with "
@@ -1209,7 +1259,7 @@ msgid ""
 " to return non-default values."
 msgstr ""
 
-#: ../../java/persistence.rst:682
+#: ../../java/persistence.rst:721
 msgid ""
 "The maximum number of messages that will be sent at each redelivery burst"
 " is defined by the ``redeliveryBurstLimit`` method (burst frequency is "
@@ -1221,7 +1271,7 @@ msgid ""
 "be overridden by implementation classes to return non-default values."
 msgstr ""
 
-#: ../../java/persistence.rst:689
+#: ../../java/persistence.rst:728
 msgid ""
 "After a number of delivery attempts a "
 "``AtLeastOnceDelivery.UnconfirmedWarning`` message will be sent to "
@@ -1234,7 +1284,7 @@ msgid ""
 "be overridden by implementation classes to return non-default values."
 msgstr ""
 
-#: ../../java/persistence.rst:696
+#: ../../java/persistence.rst:735
 msgid ""
 "The ``UntypedPersistentActorWithAtLeastOnceDelivery`` class holds "
 "messages in memory until their successful delivery has been confirmed. "
@@ -1248,21 +1298,21 @@ msgid ""
 "can be overridden by implementation classes to return non-default values."
 msgstr ""
 
-#: ../../java/persistence.rst:706
+#: ../../java/persistence.rst:745
 msgid "Event Adapters"
 msgstr ""
 
-#: ../../java/persistence.rst:708
+#: ../../java/persistence.rst:747
 msgid ""
 "In long running projects using event sourcing sometimes the need arises "
 "to detach the data model from the domain model completely."
 msgstr ""
 
-#: ../../java/persistence.rst:711
+#: ../../java/persistence.rst:750
 msgid "Event Adapters help in situations where:"
 msgstr ""
 
-#: ../../java/persistence.rst:713
+#: ../../java/persistence.rst:752
 msgid ""
 "**Version Migrations** – existing events stored in *Version 1* should be "
 "\"upcasted\" to a new *Version 2* representation, and the process of "
@@ -1274,7 +1324,7 @@ msgid ""
 "\"upcasting\" in other CQRS libraries."
 msgstr ""
 
-#: ../../java/persistence.rst:718
+#: ../../java/persistence.rst:757
 msgid ""
 "**Separating Domain and Data models** – thanks to EventAdapters it is "
 "possible to completely separate the domain model from the model used to "
@@ -1286,7 +1336,7 @@ msgid ""
 "this feature."
 msgstr ""
 
-#: ../../java/persistence.rst:722
+#: ../../java/persistence.rst:761
 msgid ""
 "**Journal Specialized Data Types** – exposing data types understood by "
 "the underlying Journal, for example for data stores which understand JSON"
@@ -1295,17 +1345,17 @@ msgid ""
 " object to its binary representation."
 msgstr ""
 
-#: ../../java/persistence.rst:726
+#: ../../java/persistence.rst:765
 msgid "Implementing an EventAdapter is rather stright forward:"
 msgstr ""
 
-#: ../../java/persistence.rst:730
+#: ../../java/persistence.rst:769
 msgid ""
 "Then in order for it to be used on events coming to and from the journal "
 "you must bind it using the below configuration syntax:"
 msgstr ""
 
-#: ../../java/persistence.rst:734
+#: ../../java/persistence.rst:773
 msgid ""
 "It is possible to bind multiple adapters to one class *for recovery*, in "
 "which case the ``fromJournal`` methods of all bound adapters will be "
@@ -1318,36 +1368,36 @@ msgid ""
 "delivered in-order to the ``PersistentActor`` during replay."
 msgstr ""
 
-#: ../../java/persistence.rst:741 ../../java/persistence.rst:1015
+#: ../../java/persistence.rst:780 ../../java/persistence.rst:1054
 msgid ""
 "For more advanced schema evolution techniques refer to the :ref"
 ":`persistence-schema-evolution-scala` documentation."
 msgstr ""
 
-#: ../../java/persistence.rst:744
+#: ../../java/persistence.rst:783
 msgid "Storage plugins"
 msgstr ""
 
-#: ../../java/persistence.rst:746
+#: ../../java/persistence.rst:785
 msgid ""
 "Storage backends for journals and snapshot stores are pluggable in the "
 "Akka persistence extension."
 msgstr ""
 
-#: ../../java/persistence.rst:748
+#: ../../java/persistence.rst:787
 msgid ""
 "A directory of persistence journal and snapshot store plugins is "
 "available at the Akka Community Projects page, see `Community plugins`_"
 msgstr ""
 
-#: ../../java/persistence.rst:750
+#: ../../java/persistence.rst:789
 msgid ""
 "Plugins can be selected either by \"default\", for all persistent actors "
 "and views, or \"individually\", when a persistent actor or view defines "
 "its own set of plugins."
 msgstr ""
 
-#: ../../java/persistence.rst:753
+#: ../../java/persistence.rst:792
 msgid ""
 "When a persistent actor or view does NOT override the ``journalPluginId``"
 " and ``snapshotPluginId`` methods, the persistence extension will use the"
@@ -1355,7 +1405,7 @@ msgid ""
 "``reference.conf``::"
 msgstr ""
 
-#: ../../java/persistence.rst:759
+#: ../../java/persistence.rst:798
 msgid ""
 "However, these entries are provided as empty \"\", and require explicit "
 "user configuration via override in the user ``application.conf``. For an "
@@ -1365,18 +1415,18 @@ msgid ""
 ":ref:`local-snapshot-store-java`."
 msgstr ""
 
-#: ../../java/persistence.rst:763
+#: ../../java/persistence.rst:802
 msgid ""
 "Applications can provide their own plugins by implementing a plugin API "
 "and activating them by configuration. Plugin development requires the "
 "following imports:"
 msgstr ""
 
-#: ../../java/persistence.rst:769
+#: ../../java/persistence.rst:808
 msgid "Eager initialization of persistence plugin"
 msgstr ""
 
-#: ../../java/persistence.rst:771
+#: ../../java/persistence.rst:810
 msgid ""
 "By default, persistence plugins are started on-demand, as they are used. "
 "In some case, however, it might be beneficial to start a certain plugin "
@@ -1387,37 +1437,37 @@ msgid ""
 ".snapshot-store.auto-start-snapshot-stores``."
 msgstr ""
 
-#: ../../java/persistence.rst:779
+#: ../../java/persistence.rst:818
 msgid "Journal plugin API"
 msgstr ""
 
-#: ../../java/persistence.rst:781
+#: ../../java/persistence.rst:820
 msgid "A journal plugin extends ``AsyncWriteJournal``."
 msgstr ""
 
-#: ../../java/persistence.rst:783
+#: ../../java/persistence.rst:822
 msgid "``AsyncWriteJournal`` is an actor and the methods to be implemented are:"
 msgstr ""
 
-#: ../../java/persistence.rst:787
+#: ../../java/persistence.rst:826
 msgid ""
 "If the storage backend API only supports synchronous, blocking writes, "
 "the methods should be implemented as:"
 msgstr ""
 
-#: ../../java/persistence.rst:791
+#: ../../java/persistence.rst:830
 msgid ""
 "A journal plugin must also implement the methods defined in "
 "``AsyncRecovery`` for replays and sequence number recovery:"
 msgstr ""
 
-#: ../../java/persistence.rst:795
+#: ../../java/persistence.rst:834
 msgid ""
 "A journal plugin can be activated with the following minimal "
 "configuration:"
 msgstr ""
 
-#: ../../java/persistence.rst:799 ../../java/persistence.rst:822
+#: ../../java/persistence.rst:838 ../../java/persistence.rst:861
 msgid ""
 "The specified plugin ``class`` must have a no-arg constructor. The "
 "``plugin-dispatcher`` is the dispatcher used for the plugin actor. If not"
@@ -1425,7 +1475,7 @@ msgid ""
 "dispatcher``."
 msgstr ""
 
-#: ../../java/persistence.rst:802
+#: ../../java/persistence.rst:841
 msgid ""
 "The journal plugin instance is an actor so the methods corresponding to "
 "requests from persistent actors are executed sequentially. It may "
@@ -1433,7 +1483,7 @@ msgid ""
 "actors to achive parallelism."
 msgstr ""
 
-#: ../../java/persistence.rst:806
+#: ../../java/persistence.rst:845
 msgid ""
 "The journal plugin class must have a constructor without parameters or a "
 "constructor with one ``com.typesafe.config.Config`` parameter. The plugin"
@@ -1441,29 +1491,29 @@ msgid ""
 "constructor parameter."
 msgstr ""
 
-#: ../../java/persistence.rst:809
+#: ../../java/persistence.rst:848
 msgid ""
 "Don't run journal tasks/futures on the system default dispatcher, since "
 "that might starve other tasks."
 msgstr ""
 
-#: ../../java/persistence.rst:812
+#: ../../java/persistence.rst:851
 msgid "Snapshot store plugin API"
 msgstr ""
 
-#: ../../java/persistence.rst:814
+#: ../../java/persistence.rst:853
 msgid ""
 "A snapshot store plugin must extend the ``SnapshotStore`` actor and "
 "implement the following methods:"
 msgstr ""
 
-#: ../../java/persistence.rst:818
+#: ../../java/persistence.rst:857
 msgid ""
 "A snapshot store plugin can be activated with the following minimal "
 "configuration:"
 msgstr ""
 
-#: ../../java/persistence.rst:825
+#: ../../java/persistence.rst:864
 msgid ""
 "The snapshot store instance is an actor so the methods corresponding to "
 "requests from persistent actors are executed sequentially. It may "
@@ -1471,7 +1521,7 @@ msgid ""
 "actors to achive parallelism."
 msgstr ""
 
-#: ../../java/persistence.rst:829
+#: ../../java/persistence.rst:868
 msgid ""
 "The snapshot store plugin class must have a constructor without "
 "parameters or constructor with one ``com.typesafe.config.Config`` "
@@ -1479,36 +1529,36 @@ msgid ""
 " in the config constructor parameter."
 msgstr ""
 
-#: ../../java/persistence.rst:832
+#: ../../java/persistence.rst:871
 msgid ""
 "Don't run snapshot store tasks/futures on the system default dispatcher, "
 "since that might starve other tasks."
 msgstr ""
 
-#: ../../java/persistence.rst:835
+#: ../../java/persistence.rst:874
 msgid "Plugin TCK"
 msgstr ""
 
-#: ../../java/persistence.rst:836
+#: ../../java/persistence.rst:875
 msgid ""
 "In order to help developers build correct and high quality storage "
 "plugins, we provide a Technology Compatibility Kit (`TCK "
 "<http://en.wikipedia.org/wiki/Technology_Compatibility_Kit>`_ for short)."
 msgstr ""
 
-#: ../../java/persistence.rst:838
+#: ../../java/persistence.rst:877
 msgid ""
 "The TCK is usable from Java as well as Scala projects. For Java you need "
 "to include the akka-persistence-tck dependency::"
 msgstr ""
 
-#: ../../java/persistence.rst:847
+#: ../../java/persistence.rst:886
 msgid ""
 "To include the Journal TCK tests in your test suite simply extend the "
 "provided ``JavaJournalSpec``:"
 msgstr ""
 
-#: ../../java/persistence.rst:851
+#: ../../java/persistence.rst:890
 msgid ""
 "Please note that some of the tests are optional, and by overriding the "
 "``supports...`` methods you give the TCK the needed information about "
@@ -1516,7 +1566,7 @@ msgid ""
 "``CapabilityFlag.on`` / ``CapabilityFlag.off`` values."
 msgstr ""
 
-#: ../../java/persistence.rst:855
+#: ../../java/persistence.rst:894
 msgid ""
 "We also provide a simple benchmarking class ``JavaJournalPerfSpec`` which"
 " includes all the tests that ``JavaJournalSpec`` has, and also performs "
@@ -1526,48 +1576,48 @@ msgid ""
 "the most typical scenarios."
 msgstr ""
 
-#: ../../java/persistence.rst:860
+#: ../../java/persistence.rst:899
 msgid ""
 "In order to include the ``SnapshotStore`` TCK tests in your test suite "
 "simply extend the ``SnapshotStoreSpec``:"
 msgstr ""
 
-#: ../../java/persistence.rst:864
+#: ../../java/persistence.rst:903
 msgid ""
 "In case your plugin requires some setting up (starting a mock database, "
 "removing temporary files etc.) you can override the ``beforeAll`` and "
 "``afterAll`` methods to hook into the tests lifecycle:"
 msgstr ""
 
-#: ../../java/persistence.rst:869
+#: ../../java/persistence.rst:908
 msgid ""
 "We *highly recommend* including these specifications in your test suite, "
 "as they cover a broad range of cases you might have otherwise forgotten "
 "to test for when writing a plugin from scratch."
 msgstr ""
 
-#: ../../java/persistence.rst:873
+#: ../../java/persistence.rst:912
 msgid "Pre-packaged plugins"
 msgstr ""
 
-#: ../../java/persistence.rst:878
+#: ../../java/persistence.rst:917
 msgid "Local LevelDB journal"
 msgstr ""
 
-#: ../../java/persistence.rst:880
+#: ../../java/persistence.rst:919
 msgid ""
 "The LevelDB journal plugin config entry is "
 "``akka.persistence.journal.leveldb``. It writes messages to a local "
 "LevelDB instance. Enable this plugin by defining config property:"
 msgstr ""
 
-#: ../../java/persistence.rst:885
+#: ../../java/persistence.rst:924
 msgid ""
 "LevelDB based plugins will also require the following additional "
 "dependency declaration::"
 msgstr ""
 
-#: ../../java/persistence.rst:898
+#: ../../java/persistence.rst:937
 msgid ""
 "The default location of the LevelDB files is a directory named "
 "``journal`` in the current working directory. This location can be "
@@ -1575,15 +1625,15 @@ msgid ""
 "absolute:"
 msgstr ""
 
-#: ../../java/persistence.rst:903
+#: ../../java/persistence.rst:942
 msgid "With this plugin, each actor system runs its own private LevelDB instance."
 msgstr ""
 
-#: ../../java/persistence.rst:908
+#: ../../java/persistence.rst:947
 msgid "Shared LevelDB journal"
 msgstr ""
 
-#: ../../java/persistence.rst:910
+#: ../../java/persistence.rst:949
 msgid ""
 "A LevelDB instance can also be shared by multiple actor systems (on the "
 "same or on different nodes). This, for example, allows persistent actors "
@@ -1591,39 +1641,39 @@ msgid ""
 "instance from the backup node."
 msgstr ""
 
-#: ../../java/persistence.rst:916
+#: ../../java/persistence.rst:955
 msgid ""
 "A shared LevelDB instance is a single point of failure and should "
 "therefore only be used for testing purposes. Highly-available, replicated"
 " journals are available as `Community plugins`_."
 msgstr ""
 
-#: ../../java/persistence.rst:921
+#: ../../java/persistence.rst:960
 msgid ""
 "This plugin has been supplanted by :ref:`Persistence Plugin Proxy"
 "<persistence-plugin-proxy-java>`."
 msgstr ""
 
-#: ../../java/persistence.rst:923
+#: ../../java/persistence.rst:962
 msgid ""
 "A shared LevelDB instance is started by instantiating the "
 "``SharedLeveldbStore`` actor."
 msgstr ""
 
-#: ../../java/persistence.rst:927
+#: ../../java/persistence.rst:966
 msgid ""
 "By default, the shared instance writes journaled messages to a local "
 "directory named ``journal`` in the current working directory. The storage"
 " location can be changed by configuration:"
 msgstr ""
 
-#: ../../java/persistence.rst:932
+#: ../../java/persistence.rst:971
 msgid ""
 "Actor systems that use a shared LevelDB store must activate the "
 "``akka.persistence.journal.leveldb-shared`` plugin."
 msgstr ""
 
-#: ../../java/persistence.rst:937
+#: ../../java/persistence.rst:976
 msgid ""
 "This plugin must be initialized by injecting the (remote) "
 "``SharedLeveldbStore`` actor reference. Injection is done by calling the "
@@ -1631,42 +1681,42 @@ msgid ""
 "argument."
 msgstr ""
 
-#: ../../java/persistence.rst:942
+#: ../../java/persistence.rst:981
 msgid ""
 "Internal journal commands (sent by persistent actors) are buffered until "
 "injection completes. Injection is idempotent i.e. only the first "
 "injection is used."
 msgstr ""
 
-#: ../../java/persistence.rst:948
+#: ../../java/persistence.rst:987
 msgid "Local snapshot store"
 msgstr ""
 
-#: ../../java/persistence.rst:950
+#: ../../java/persistence.rst:989
 msgid ""
 "The local snapshot store plugin config entry is ``akka.persistence"
 ".snapshot-store.local``. It writes snapshot files to the local "
 "filesystem. Enable this plugin by defining config property:"
 msgstr ""
 
-#: ../../java/persistence.rst:955
+#: ../../java/persistence.rst:994
 msgid ""
 "The default storage location is a directory named ``snapshots`` in the "
 "current working directory. This can be changed by configuration where the"
 " specified path can be relative or absolute:"
 msgstr ""
 
-#: ../../java/persistence.rst:960
+#: ../../java/persistence.rst:999
 msgid ""
 "Note that it is not mandatory to specify a snapshot store plugin. If you "
 "don't use snapshots you don't have to configure it."
 msgstr ""
 
-#: ../../java/persistence.rst:966
+#: ../../java/persistence.rst:1005
 msgid "Persistence Plugin Proxy"
 msgstr ""
 
-#: ../../java/persistence.rst:968
+#: ../../java/persistence.rst:1007
 msgid ""
 "A persistence plugin proxy allows sharing of journals and snapshot stores"
 " across multiple actor systems (on the same or on different nodes). This,"
@@ -1677,14 +1727,14 @@ msgid ""
 "use case supported by the proxied plugin."
 msgstr ""
 
-#: ../../java/persistence.rst:975
+#: ../../java/persistence.rst:1014
 msgid ""
 "A shared journal/snapshot store is a single point of failure and should "
 "therefore only be used for testing purposes. Highly-available, replicated"
 " persistence plugins are available as `Community plugins`_."
 msgstr ""
 
-#: ../../java/persistence.rst:978
+#: ../../java/persistence.rst:1017
 msgid ""
 "The journal and snapshot store proxies are controlled via the "
 "``akka.persistence.journal.proxy`` and ``akka.persistence.snapshot-"
@@ -1701,7 +1751,7 @@ msgid ""
 "``PersistencePluginProxy.setTargetLocation`` method."
 msgstr ""
 
-#: ../../java/persistence.rst:989
+#: ../../java/persistence.rst:1028
 msgid ""
 "Akka starts extensions lazily when they are required, and this includes "
 "the proxy. This means that in order for the proxy to work, the "
@@ -1711,46 +1761,46 @@ msgid ""
 "``PersistencePluginProxy.start`` method."
 msgstr ""
 
-#: ../../java/persistence.rst:995
+#: ../../java/persistence.rst:1034
 msgid ""
 "The proxied persistence plugin can (and should) be configured using its "
 "original configuration keys."
 msgstr ""
 
-#: ../../java/persistence.rst:1001
+#: ../../java/persistence.rst:1040
 msgid "Custom serialization"
 msgstr ""
 
-#: ../../java/persistence.rst:1003
+#: ../../java/persistence.rst:1042
 msgid ""
 "Serialization of snapshots and payloads of ``Persistent`` messages is "
 "configurable with Akka's :ref:`serialization-java` infrastructure. For "
 "example, if an application wants to serialize"
 msgstr ""
 
-#: ../../java/persistence.rst:1006
+#: ../../java/persistence.rst:1045
 msgid "payloads of type ``MyPayload`` with a custom ``MyPayloadSerializer`` and"
 msgstr ""
 
-#: ../../java/persistence.rst:1007
+#: ../../java/persistence.rst:1046
 msgid "snapshots of type ``MySnapshot`` with a custom ``MySnapshotSerializer``"
 msgstr ""
 
-#: ../../java/persistence.rst:1009
+#: ../../java/persistence.rst:1048
 msgid "it must add"
 msgstr ""
 
-#: ../../java/persistence.rst:1013
+#: ../../java/persistence.rst:1052
 msgid ""
 "to the application configuration. If not specified, a default serializer "
 "is used."
 msgstr ""
 
-#: ../../java/persistence.rst:1018
+#: ../../java/persistence.rst:1057
 msgid "Testing"
 msgstr ""
 
-#: ../../java/persistence.rst:1020
+#: ../../java/persistence.rst:1059
 msgid ""
 "When running tests with LevelDB default settings in ``sbt``, make sure to"
 " set ``fork := true`` in your sbt project. Otherwise, you'll see an "
@@ -1758,17 +1808,17 @@ msgid ""
 " port by setting"
 msgstr ""
 
-#: ../../java/persistence.rst:1025
+#: ../../java/persistence.rst:1064
 msgid "or"
 msgstr ""
 
-#: ../../java/persistence.rst:1029
+#: ../../java/persistence.rst:1068
 msgid ""
 "in your Akka configuration. The LevelDB Java port is for testing purposes"
 " only."
 msgstr ""
 
-#: ../../java/persistence.rst:1032
+#: ../../java/persistence.rst:1071
 msgid ""
 "It is not possible to test persistence provided classes (i.e. "
 ":ref:`PersistentActor <event-sourcing-java>` and "
@@ -1778,48 +1828,48 @@ msgid ""
 "internal persistence related events."
 msgstr ""
 
-#: ../../java/persistence.rst:1037
+#: ../../java/persistence.rst:1076
 msgid ""
 "When testing Persistence based projects always rely on :ref:`asynchronous"
 " messaging using the TestKit <async-integration-testing-java>`."
 msgstr ""
 
-#: ../../java/persistence.rst:1040
+#: ../../java/persistence.rst:1079
 msgid "Configuration"
 msgstr ""
 
-#: ../../java/persistence.rst:1042
+#: ../../java/persistence.rst:1081
 msgid ""
 "There are several configuration properties for the persistence module, "
 "please refer to the :ref:`reference configuration <config-akka-"
 "persistence>`."
 msgstr ""
 
-#: ../../java/persistence.rst:1046
+#: ../../java/persistence.rst:1085
 msgid "Multiple persistence plugin configurations"
 msgstr ""
 
-#: ../../java/persistence.rst:1048
+#: ../../java/persistence.rst:1087
 msgid ""
 "By default, a persistent actor or view will use the \"default\" journal "
 "and snapshot store plugins configured in the following sections of the "
 "``reference.conf`` configuration resource:"
 msgstr ""
 
-#: ../../java/persistence.rst:1053
+#: ../../java/persistence.rst:1092
 msgid ""
 "Note that in this case the actor or view overrides only ``persistenceId``"
 " method:"
 msgstr ""
 
-#: ../../java/persistence.rst:1057
+#: ../../java/persistence.rst:1096
 msgid ""
 "When a persistent actor or view overrides the ``journalPluginId`` and "
 "``snapshotPluginId`` methods, the actor or view will be serviced by these"
 " specific persistence plugins instead of the defaults:"
 msgstr ""
 
-#: ../../java/persistence.rst:1062
+#: ../../java/persistence.rst:1101
 msgid ""
 "Note that ``journalPluginId`` and ``snapshotPluginId`` must refer to "
 "properly configured ``reference.conf`` plugin entries with a standard "

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,20 +89,17 @@ msgstr ""
 
 #: ../../scala/typed.rst:55
 msgid ""
-"Now we want to try out this Actor, so we must start an Actor system to "
+"Now we want to try out this Actor, so we must start an ActorSystem to "
 "host it:"
 msgstr ""
 
 #: ../../scala/typed.rst:59
 msgid ""
 "After importing the Actor’s protocol definition we start an Actor system "
-"from the defined behavior, wrapping it in :class:`Props` like an actor on"
-" stage. The props we are giving to this one are just the defaults, we "
-"could at this point also configure how and where the Actor should be "
-"deployed in a clustered system."
+"from the defined behavior."
 msgstr ""
 
-#: ../../scala/typed.rst:65
+#: ../../scala/typed.rst:62
 msgid ""
 "As Carl Hewitt said, one Actor is no Actor—it would be quite lonely with "
 "nobody to talk to. In this sense the example is a little cruel because we"
@@ -112,19 +109,19 @@ msgid ""
 "corresponding Future."
 msgstr ""
 
-#: ../../scala/typed.rst:71
+#: ../../scala/typed.rst:68
 msgid ""
 "Note that the :class:`Future` that is returned by the “ask” operation is "
 "properly typed already, no type checks or casts needed. This is possible "
 "due to the type information that is part of the message protocol: the "
 "``?`` operator takes as argument a function that accepts an "
 ":class:`ActorRef[U]` (which explains the ``_`` hole in the expression on "
-"line 6 above) and the ``replyTo`` parameter which we fill in like that is"
-" of type ``ActorRef[Greeted]``, which means that the value that fulfills "
-"the :class:`Promise` can only be of type :class:`Greeted`."
+"line 7 above) and the ``replyTo`` parameter which we fill in is of type "
+"``ActorRef[Greeted]``, which means that the value that fulfills the "
+":class:`Promise` can only be of type :class:`Greeted`."
 msgstr ""
 
-#: ../../scala/typed.rst:80
+#: ../../scala/typed.rst:77
 msgid ""
 "We use this here to send the :class:`Greet` command to the Actor and when"
 " the reply comes back we will print it out and tell the actor system to "
@@ -137,7 +134,7 @@ msgid ""
 "timeout then no ``greeting`` would be extracted and nothing would happen."
 msgstr ""
 
-#: ../../scala/typed.rst:89
+#: ../../scala/typed.rst:86
 msgid ""
 "This shows that there are aspects of Actor messaging that can be type-"
 "checked by the compiler, but this ability is not unlimited, there are "
@@ -146,11 +143,11 @@ msgid ""
 "of the theory behind this."
 msgstr ""
 
-#: ../../scala/typed.rst:95
+#: ../../scala/typed.rst:92
 msgid "A Little Bit of Theory"
 msgstr ""
 
-#: ../../scala/typed.rst:97
+#: ../../scala/typed.rst:94
 msgid ""
 "The `Actor Model`_ as defined by Hewitt, Bishop and Steiger in 1973 is a "
 "computational model that expresses exactly what it means for computation "
@@ -159,19 +156,19 @@ msgid ""
 "following three fundamental actions:"
 msgstr ""
 
-#: ../../scala/typed.rst:105
+#: ../../scala/typed.rst:102
 msgid "send a finite number of messages to Actors it knows"
 msgstr ""
 
-#: ../../scala/typed.rst:107
+#: ../../scala/typed.rst:104
 msgid "create a finite number of new Actors"
 msgstr ""
 
-#: ../../scala/typed.rst:109
+#: ../../scala/typed.rst:106
 msgid "designate the behavior to be applied to the next message"
 msgstr ""
 
-#: ../../scala/typed.rst:111
+#: ../../scala/typed.rst:108
 msgid ""
 "The Akka Typed project expresses these actions using behaviors and "
 "addresses. Messages can be sent to an address and behind this façade "
@@ -180,7 +177,7 @@ msgid ""
 "third point above, but that is not visible on the outside."
 msgstr ""
 
-#: ../../scala/typed.rst:117
+#: ../../scala/typed.rst:114
 msgid ""
 "With this preamble we can get to the unique property of this project, "
 "namely that it introduces static type checking to Actor interactions: "
@@ -195,7 +192,7 @@ msgid ""
 "this Actor."
 msgstr ""
 
-#: ../../scala/typed.rst:128
+#: ../../scala/typed.rst:125
 msgid ""
 "What this enables is that whenever a message is sent to an Actor we can "
 "statically ensure that the type of the message is one that the Actor "
@@ -207,7 +204,7 @@ msgid ""
 "while it translates the source code."
 msgstr ""
 
-#: ../../scala/typed.rst:137
+#: ../../scala/typed.rst:134
 msgid ""
 "This is the same as for normal Java objects with internal variables: when"
 " compiling the program we cannot know what their value will be, and if "
@@ -216,7 +213,7 @@ msgid ""
 "is of a given type."
 msgstr ""
 
-#: ../../scala/typed.rst:143
+#: ../../scala/typed.rst:140
 msgid ""
 "We have seen above that the return type of an Actor command is described "
 "by the type of reply-to address that is contained within the message. "
@@ -229,15 +226,15 @@ msgid ""
 "message type that was received or sent."
 msgstr ""
 
-#: ../../scala/typed.rst:152
+#: ../../scala/typed.rst:149
 msgid "In the next section we demonstrate this on a more realistic example."
 msgstr ""
 
-#: ../../scala/typed.rst:155
+#: ../../scala/typed.rst:152
 msgid "A More Complex Example"
 msgstr ""
 
-#: ../../scala/typed.rst:157
+#: ../../scala/typed.rst:154
 msgid ""
 "Consider an Actor that runs a chat room: client Actors may connect by "
 "sending a message that contains their screen name and then they can post "
@@ -246,7 +243,7 @@ msgid ""
 "like the following:"
 msgstr ""
 
-#: ../../scala/typed.rst:164
+#: ../../scala/typed.rst:161
 msgid ""
 "Initially the client Actors only get access to an "
 "``ActorRef[GetSession]`` which allows them to make the first step. Once a"
@@ -259,7 +256,7 @@ msgid ""
 "subsequent :class:`MessagePosted` events can be sent to it."
 msgstr ""
 
-#: ../../scala/typed.rst:173
+#: ../../scala/typed.rst:170
 msgid ""
 "This illustrates how Actors can express more than just the equivalent of "
 "method calls on Java objects. The declared message types and their "
@@ -268,7 +265,7 @@ msgid ""
 "protocol would be as simple as the following:"
 msgstr ""
 
-#: ../../scala/typed.rst:181
+#: ../../scala/typed.rst:178
 msgid ""
 "The core of this behavior is again static, the chat room itself does not "
 "change into something else when sessions are established, but we "
@@ -283,7 +280,7 @@ msgid ""
 "to the client with the :class:`SessionGranted` result."
 msgstr ""
 
-#: ../../scala/typed.rst:192
+#: ../../scala/typed.rst:189
 msgid ""
 "The behavior that we declare here can handle both subtypes of "
 ":class:`Command`. :class:`GetSession` has been explained already and the "
@@ -292,15 +289,15 @@ msgid ""
 "connected clients. But we do not want to give the ability to send "
 ":class:`PostSessionMessage` commands to arbitrary clients, we reserve "
 "that right to the wrappers we create—otherwise clients could pose as "
-"complete different screen names (imagine the :class:`GetSession` protocol"
-" to include authentication information to further secure this). Therefore"
-" we narrow the behavior down to only accepting :class:`GetSession` "
-"commands before exposing it to the world, hence the type of the "
-"``behavior`` value is :class:`Behavior[GetSession]` instead of "
-":class:`Behavior[Command]`."
+"completely different screen names (imagine the :class:`GetSession` "
+"protocol to include authentication information to further secure this). "
+"Therefore we narrow the behavior down to only accepting "
+":class:`GetSession` commands before exposing it to the world, hence the "
+"type of the ``behavior`` value is :class:`Behavior[GetSession]` instead "
+"of :class:`Behavior[Command]`."
 msgstr ""
 
-#: ../../scala/typed.rst:205
+#: ../../scala/typed.rst:202
 msgid ""
 "Narrowing the type of a behavior is always a safe operation since it only"
 " restricts what clients can do. If we were to widen the type then clients"
@@ -308,7 +305,7 @@ msgid ""
 "source code for the behavior."
 msgstr ""
 
-#: ../../scala/typed.rst:210
+#: ../../scala/typed.rst:207
 msgid ""
 "If we did not care about securing the correspondence between a session "
 "and a screen name then we could change the protocol such that "
@@ -324,7 +321,7 @@ msgid ""
 " required will lead to a type error."
 msgstr ""
 
-#: ../../scala/typed.rst:222
+#: ../../scala/typed.rst:219
 msgid ""
 "The final piece of this behavior definition is the :class:`ContextAware` "
 "decorator that we use in order to obtain access to the "
@@ -334,17 +331,17 @@ msgid ""
 "forward—the decorator is discarded after it has done its job."
 msgstr ""
 
-#: ../../scala/typed.rst:230
+#: ../../scala/typed.rst:227
 msgid "Trying it out"
 msgstr ""
 
-#: ../../scala/typed.rst:232
+#: ../../scala/typed.rst:229
 msgid ""
 "In order to see this chat room in action we need to write a client Actor "
 "that can use it:"
 msgstr ""
 
-#: ../../scala/typed.rst:236
+#: ../../scala/typed.rst:233
 msgid ""
 "From this behavior we can create an Actor that will accept a chat room "
 "session, post a message, wait to see it published, and then terminate. "
@@ -365,7 +362,7 @@ msgid ""
 ":class:`SessionDenied` event."
 msgstr ""
 
-#: ../../scala/typed.rst:252
+#: ../../scala/typed.rst:249
 msgid ""
 "Now to try things out we must start both a chat room and a gabbler and of"
 " course we do this inside an Actor system. Since there can be only one "
@@ -375,12 +372,12 @@ msgid ""
 "Actor—our only sensible choice:"
 msgstr ""
 
-#: ../../scala/typed.rst:261
+#: ../../scala/typed.rst:258
 msgid ""
 "In good tradition we call the ``main`` Actor what it is, it directly "
 "corresponds to the ``main`` method in a traditional Java application. "
 "This Actor will perform its job on its own accord, we do not need to send"
-" messages from the outside, so we declare it to be of type ``Unit``. "
+" messages from the outside, so we declare it to be of type ``NotUsed``. "
 "Actors receive not only external messages, they also are notified of "
 "certain system events, so-called Signals. In order to get access to those"
 " we choose to implement this particular one using the :class:`Full` "
@@ -391,7 +388,7 @@ msgid ""
 ":class:`ActorContext`."
 msgstr ""
 
-#: ../../scala/typed.rst:273
+#: ../../scala/typed.rst:270
 msgid ""
 "This particular main Actor reacts to two signals: when it is started it "
 "will first receive the :class:`PreStart` signal, upon which the chat room"
@@ -402,17 +399,17 @@ msgid ""
 "more to do."
 msgstr ""
 
-#: ../../scala/typed.rst:280
+#: ../../scala/typed.rst:277
 msgid ""
 "Therefore after creating the Actor system with the ``main`` Actor’s "
 ":class:`Props` we just await its termination."
 msgstr ""
 
-#: ../../scala/typed.rst:284
+#: ../../scala/typed.rst:281
 msgid "Status of this Project and Relation to Akka Actors"
 msgstr ""
 
-#: ../../scala/typed.rst:286
+#: ../../scala/typed.rst:283
 msgid ""
 "Akka Typed is the result of many years of research and previous attempts "
 "(including Typed Channels in the 2.2.x series) and it is on its way to "
@@ -422,18 +419,18 @@ msgid ""
 "``akka.actor.Actor`` will not be deprecated or go away anytime soon."
 msgstr ""
 
-#: ../../scala/typed.rst:293
+#: ../../scala/typed.rst:290
 msgid ""
 "Being a research project also entails that the reference documentation is"
 " not as detailed as it will be for a final version, please refer to the "
 "API documentation for greater depth and finer detail."
 msgstr ""
 
-#: ../../scala/typed.rst:298
+#: ../../scala/typed.rst:295
 msgid "Main Differences"
 msgstr ""
 
-#: ../../scala/typed.rst:300
+#: ../../scala/typed.rst:297
 msgid ""
 "The most prominent difference is the removal of the ``sender()`` "
 "functionality. This turned out to be the Achilles heel of the Typed "
@@ -444,7 +441,7 @@ msgid ""
 " protocol design where it belongs."
 msgstr ""
 
-#: ../../scala/typed.rst:307
+#: ../../scala/typed.rst:304
 msgid ""
 "The other prominent difference is the removal of the :class:`Actor` "
 "trait. In order to avoid closing over unstable references from different "
@@ -454,7 +451,7 @@ msgid ""
 "hooks have been converted into Signals."
 msgstr ""
 
-#: ../../scala/typed.rst:314
+#: ../../scala/typed.rst:311
 msgid ""
 "A side-effect of this is that behaviors can now be tested in isolation "
 "without having to be packaged into an Actor, tests can run fully "
@@ -465,4 +462,95 @@ msgid ""
 "internal, new combinators can be written as external libraries or tailor-"
 "made for each project."
 msgstr ""
+
+#~ msgid ""
+#~ "Now we want to try out this "
+#~ "Actor, so we must start an Actor"
+#~ " system to host it:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "After importing the Actor’s protocol "
+#~ "definition we start an Actor system "
+#~ "from the defined behavior, wrapping it"
+#~ " in :class:`Props` like an actor on"
+#~ " stage. The props we are giving "
+#~ "to this one are just the defaults,"
+#~ " we could at this point also "
+#~ "configure how and where the Actor "
+#~ "should be deployed in a clustered "
+#~ "system."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Note that the :class:`Future` that is"
+#~ " returned by the “ask” operation is"
+#~ " properly typed already, no type "
+#~ "checks or casts needed. This is "
+#~ "possible due to the type information "
+#~ "that is part of the message "
+#~ "protocol: the ``?`` operator takes as"
+#~ " argument a function that accepts an"
+#~ " :class:`ActorRef[U]` (which explains the "
+#~ "``_`` hole in the expression on "
+#~ "line 6 above) and the ``replyTo`` "
+#~ "parameter which we fill in like "
+#~ "that is of type ``ActorRef[Greeted]``, "
+#~ "which means that the value that "
+#~ "fulfills the :class:`Promise` can only "
+#~ "be of type :class:`Greeted`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The behavior that we declare here "
+#~ "can handle both subtypes of "
+#~ ":class:`Command`. :class:`GetSession` has been "
+#~ "explained already and the "
+#~ ":class:`PostSessionMessage` commands coming from "
+#~ "the wrapper Actors will trigger the "
+#~ "dissemination of the contained chat room"
+#~ " message to all connected clients. "
+#~ "But we do not want to give "
+#~ "the ability to send "
+#~ ":class:`PostSessionMessage` commands to arbitrary"
+#~ " clients, we reserve that right to"
+#~ " the wrappers we create—otherwise clients"
+#~ " could pose as complete different "
+#~ "screen names (imagine the :class:`GetSession`"
+#~ " protocol to include authentication "
+#~ "information to further secure this). "
+#~ "Therefore we narrow the behavior down"
+#~ " to only accepting :class:`GetSession` "
+#~ "commands before exposing it to the "
+#~ "world, hence the type of the "
+#~ "``behavior`` value is :class:`Behavior[GetSession]`"
+#~ " instead of :class:`Behavior[Command]`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In good tradition we call the "
+#~ "``main`` Actor what it is, it "
+#~ "directly corresponds to the ``main`` "
+#~ "method in a traditional Java "
+#~ "application. This Actor will perform its"
+#~ " job on its own accord, we do"
+#~ " not need to send messages from "
+#~ "the outside, so we declare it to"
+#~ " be of type ``Unit``. Actors receive"
+#~ " not only external messages, they "
+#~ "also are notified of certain system "
+#~ "events, so-called Signals. In order "
+#~ "to get access to those we choose"
+#~ " to implement this particular one "
+#~ "using the :class:`Full` behavior decorator."
+#~ " The name stems from the fact "
+#~ "that within this we have full "
+#~ "access to all aspects of the "
+#~ "Actor. The provided function will be "
+#~ "invoked for signals (wrapped in "
+#~ ":class:`Sig`) or user messages (wrapped "
+#~ "in :class:`Msg`) and the wrapper also"
+#~ " contains a reference to the "
+#~ ":class:`ActorContext`."
+#~ msgstr ""
 

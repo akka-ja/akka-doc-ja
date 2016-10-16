@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -291,7 +291,7 @@ msgid "**completes** when the actor stops"
 msgstr ""
 
 #: ../../scala/stream/stages-overview.rst:146
-#: ../../scala/stream/stages-overview.rst:352
+#: ../../scala/stream/stages-overview.rst:369
 msgid "actorRef"
 msgstr ""
 
@@ -316,7 +316,7 @@ msgid ""
 msgstr ""
 
 #: ../../scala/stream/stages-overview.rst:156
-#: ../../scala/stream/stages-overview.rst:343
+#: ../../scala/stream/stages-overview.rst:360
 msgid "combine"
 msgstr ""
 
@@ -353,7 +353,7 @@ msgid "**completes** when read function returns ``None``"
 msgstr ""
 
 #: ../../scala/stream/stages-overview.rst:172
-msgid "unfoldAsyncResource"
+msgid "unfoldResourceAsync"
 msgstr ""
 
 #: ../../scala/stream/stages-overview.rst:173
@@ -374,6 +374,7 @@ msgid "**completes** when ``Future`` from read function returns ``None``"
 msgstr ""
 
 #: ../../scala/stream/stages-overview.rst:181
+#: ../../scala/stream/stages-overview.rst:325
 msgid "queue"
 msgstr ""
 
@@ -430,8 +431,8 @@ msgstr ""
 
 #: ../../scala/stream/stages-overview.rst:206
 #: ../../scala/stream/stages-overview.rst:214
-#: ../../scala/stream/stages-overview.rst:1119
-#: ../../scala/stream/stages-overview.rst:1130
+#: ../../scala/stream/stages-overview.rst:1212
+#: ../../scala/stream/stages-overview.rst:1223
 msgid "**completes** when any upstream completes"
 msgstr ""
 
@@ -475,7 +476,7 @@ msgstr ""
 #: ../../scala/stream/stages-overview.rst:259
 #: ../../scala/stream/stages-overview.rst:268
 #: ../../scala/stream/stages-overview.rst:313
-#: ../../scala/stream/stages-overview.rst:357
+#: ../../scala/stream/stages-overview.rst:374
 msgid "**backpressures** never"
 msgstr ""
 
@@ -507,8 +508,9 @@ msgstr ""
 #: ../../scala/stream/stages-overview.rst:293
 #: ../../scala/stream/stages-overview.rst:302
 #: ../../scala/stream/stages-overview.rst:311
-#: ../../scala/stream/stages-overview.rst:326
-#: ../../scala/stream/stages-overview.rst:337
+#: ../../scala/stream/stages-overview.rst:320
+#: ../../scala/stream/stages-overview.rst:343
+#: ../../scala/stream/stages-overview.rst:354
 msgid "**cancels** never"
 msgstr ""
 
@@ -611,142 +613,174 @@ msgstr ""
 msgid "Invoke a callback when the stream has completed or failed."
 msgstr ""
 
+#: ../../scala/stream/stages-overview.rst:316
+msgid "lazyInit"
+msgstr ""
+
 #: ../../scala/stream/stages-overview.rst:317
-#: ../../scala/stream/stages-overview.rst:612
+msgid ""
+"Invoke sinkFactory function to create a real sink upon receiving the "
+"first element. Internal ``Sink`` will not be created if there are no "
+"elements, because of completion or error. `fallback` will be invoked if "
+"there was no elements and completed is received from upstream."
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:322
+msgid "**backpressures** when initialized and when created sink backpressures"
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:326
+msgid ""
+"Materialize a ``SinkQueue`` that can be pulled to trigger demand through "
+"the sink. The queue contains a buffer in case stream emitting elements "
+"faster than queue pulling them."
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:329
+msgid "**cancels** when  ``SinkQueue.cancel`` is called"
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:331
+msgid "**backpressures** when buffer has some space"
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:334
+#: ../../scala/stream/stages-overview.rst:640
 msgid "fold"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:318
+#: ../../scala/stream/stages-overview.rst:335
 msgid ""
 "Fold over emitted element with a function, where each invocation will get"
 " the new element and the result from the previous fold invocation. The "
 "first invocation will be provided the ``zero`` value."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:321
+#: ../../scala/stream/stages-overview.rst:338
 msgid ""
 "Materializes into a future that will complete with the last state when "
 "the stream has completed."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:323
+#: ../../scala/stream/stages-overview.rst:340
 msgid ""
 "This stage allows combining values into a result without a global mutable"
 " state by instead passing the state along between invocations."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:328
+#: ../../scala/stream/stages-overview.rst:345
 msgid ""
 "**backpressures** when the previous fold function invocation has not yet "
 "completed"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:331
+#: ../../scala/stream/stages-overview.rst:348
+#: ../../scala/stream/stages-overview.rst:651
 msgid "reduce"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:332
+#: ../../scala/stream/stages-overview.rst:349
 msgid ""
 "Apply a reduction function on the incoming elements and pass the result "
 "to the next invocation. The first invocation receives the two first "
 "elements of the flow."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:335
+#: ../../scala/stream/stages-overview.rst:352
 msgid ""
 "Materializes into a future that will be completed by the last result of "
 "the reduction function."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:339
+#: ../../scala/stream/stages-overview.rst:356
 msgid ""
 "**backpressures** when the previous reduction function invocation has not"
 " yet completed"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:344
+#: ../../scala/stream/stages-overview.rst:361
 msgid "Combine several sinks into one using a user specified strategy"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:346
+#: ../../scala/stream/stages-overview.rst:363
 msgid "**cancels** depends on the strategy"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:348
+#: ../../scala/stream/stages-overview.rst:365
 msgid "**backpressures** depends on the strategy"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:353
+#: ../../scala/stream/stages-overview.rst:370
 msgid ""
 "Send the elements from the stream to an ``ActorRef``. No backpressure so "
 "care must be taken to not overflow the inbox."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:355
-#: ../../scala/stream/stages-overview.rst:365
-#: ../../scala/stream/stages-overview.rst:377
+#: ../../scala/stream/stages-overview.rst:372
+#: ../../scala/stream/stages-overview.rst:382
+#: ../../scala/stream/stages-overview.rst:394
 msgid "**cancels** when the actor terminates"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:361
+#: ../../scala/stream/stages-overview.rst:378
 msgid "actorRefWithAck"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:362
+#: ../../scala/stream/stages-overview.rst:379
 msgid ""
 "Send the elements from the stream to an ``ActorRef`` which must then "
 "acknowledge reception after completing a message, to provide back "
 "pressure onto the sink."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:367
+#: ../../scala/stream/stages-overview.rst:384
 msgid "**backpressures** when the actor acknowledgement has not arrived"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:371
+#: ../../scala/stream/stages-overview.rst:388
 msgid "actorSubscriber"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:372
+#: ../../scala/stream/stages-overview.rst:389
 msgid ""
 "Create an actor from a ``Props`` upon materialization, where the actor "
 "implements ``ActorSubscriber``, which will receive the elements from the "
 "stream."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:375
+#: ../../scala/stream/stages-overview.rst:392
 msgid "Materializes into an ``ActorRef`` to the created actor."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:379
+#: ../../scala/stream/stages-overview.rst:396
 msgid "**backpressures** depends on the actor implementation"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:383
+#: ../../scala/stream/stages-overview.rst:400
 msgid "asPublisher"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:384
+#: ../../scala/stream/stages-overview.rst:401
 msgid ""
 "Integration with Reactive Streams, materializes into a "
 "``org.reactivestreams.Publisher``."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:388
+#: ../../scala/stream/stages-overview.rst:405
 msgid "fromSubscriber"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:389
+#: ../../scala/stream/stages-overview.rst:406
 msgid ""
 "Integration with Reactive Streams, wraps a "
 "``org.reactivestreams.Subscriber`` as a sink"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:395
+#: ../../scala/stream/stages-overview.rst:412
 msgid "Additional Sink and Source converters"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:396
+#: ../../scala/stream/stages-overview.rst:413
 msgid ""
 "Sources and sinks for integrating with ``java.io.InputStream`` and "
 "``java.io.OutputStream`` can be found on ``StreamConverters``. As they "
@@ -755,11 +789,11 @@ msgid ""
 "dispatcher``."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:401
+#: ../../scala/stream/stages-overview.rst:418
 msgid "fromOutputStream"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:402
+#: ../../scala/stream/stages-overview.rst:419
 msgid ""
 "Create a sink that wraps an ``OutputStream``. Takes a function that "
 "produces an ``OutputStream``, when the sink is materialized the function "
@@ -767,50 +801,50 @@ msgid ""
 " ``OutputStream``."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:405
-#: ../../scala/stream/stages-overview.rst:427
+#: ../../scala/stream/stages-overview.rst:422
+#: ../../scala/stream/stages-overview.rst:444
 msgid ""
 "Materializes into a ``Future`` which will complete with a ``IOResult`` "
 "when the stream completes."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:408
+#: ../../scala/stream/stages-overview.rst:425
 msgid ""
 "Note that a flow can be materialized multiple times, so the function "
 "producing the ``OutputStream`` must be able to handle multiple "
 "invocations."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:411
+#: ../../scala/stream/stages-overview.rst:428
 msgid ""
 "The ``OutputStream`` will be closed when the stream that flows into the "
 "``Sink`` is completed, and the ``Sink`` will cancel its inflow when the "
 "``OutputStream`` is no longer writable."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:415
+#: ../../scala/stream/stages-overview.rst:432
 msgid "asInputStream"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:416
+#: ../../scala/stream/stages-overview.rst:433
 msgid ""
 "Create a sink which materializes into an ``InputStream`` that can be read"
 " to trigger demand through the sink. Bytes emitted through the stream "
 "will be available for reading through the ``InputStream``"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:419
+#: ../../scala/stream/stages-overview.rst:436
 msgid ""
 "The ``InputStream`` will be ended when the stream flowing into this "
 "``Sink`` completes, and the closing the ``InputStream`` will cancel the "
 "inflow of this ``Sink``."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:423
+#: ../../scala/stream/stages-overview.rst:440
 msgid "fromInputStream"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:424
+#: ../../scala/stream/stages-overview.rst:441
 msgid ""
 "Create a source that wraps an ``InputStream``. Takes a function that "
 "produces an ``InputStream``, when the source is materialized the function"
@@ -818,49 +852,49 @@ msgid ""
 "the stream."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:430
+#: ../../scala/stream/stages-overview.rst:447
 msgid ""
 "Note that a flow can be materialized multiple times, so the function "
 "producing the ``InputStream`` must be able to handle multiple "
 "invocations."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:433
+#: ../../scala/stream/stages-overview.rst:450
 msgid ""
 "The ``InputStream`` will be closed when the ``Source`` is canceled from "
 "its downstream, and reaching the end of the ``InputStream`` will complete"
 " the ``Source``."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:437
+#: ../../scala/stream/stages-overview.rst:454
 msgid "asOutputStream"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:438
+#: ../../scala/stream/stages-overview.rst:455
 msgid ""
 "Create a source that materializes into an ``OutputStream``. When bytes "
 "are written to the ``OutputStream`` they are emitted from the source."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:441
+#: ../../scala/stream/stages-overview.rst:458
 msgid ""
 "The ``OutputStream`` will no longer be writable when the ``Source`` has "
 "been canceled from its downstream, and closing the ``OutputStream`` will "
 "complete the ``Source``."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:445
+#: ../../scala/stream/stages-overview.rst:462
 msgid "asJavaStream"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:446
+#: ../../scala/stream/stages-overview.rst:463
 msgid ""
 "Create a sink which materializes into Java 8 ``Stream`` that can be run "
 "to trigger demand through the sink. Elements emitted through the stream "
 "will be available for reading through the Java 8 ``Stream``."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:449
+#: ../../scala/stream/stages-overview.rst:466
 msgid ""
 "The Java 8 ``Stream`` will be ended when the stream flowing into this "
 "``Sink`` completes, and closing the Java ``Stream`` will cancel the "
@@ -868,27 +902,27 @@ msgid ""
 "reactive stream failed."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:452
+#: ../../scala/stream/stages-overview.rst:469
 msgid ""
 "Be aware that Java ``Stream`` blocks current thread while waiting on next"
 " element from downstream."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:455
+#: ../../scala/stream/stages-overview.rst:472
 msgid "fromJavaStream"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:456
+#: ../../scala/stream/stages-overview.rst:473
 msgid ""
 "Create a source that wraps a Java 8 ``Stream``. ``Source`` uses a stream "
 "iterator to get all its elements and send them downstream on demand."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:460
+#: ../../scala/stream/stages-overview.rst:477
 msgid "javaCollector"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:461
+#: ../../scala/stream/stages-overview.rst:478
 msgid ""
 "Create a sink which materializes into a ``Future`` which will be "
 "completed with a result of the Java 8 ``Collector`` transformation and "
@@ -900,18 +934,18 @@ msgid ""
 "do reduction at the end. Reduction processing is performed sequentially"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:467
-#: ../../scala/stream/stages-overview.rst:478
+#: ../../scala/stream/stages-overview.rst:484
+#: ../../scala/stream/stages-overview.rst:495
 msgid ""
 "Note that a flow can be materialized multiple times, so the function "
 "producing the ``Collector`` must be able to handle multiple invocations."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:471
+#: ../../scala/stream/stages-overview.rst:488
 msgid "javaCollectorParallelUnordered"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:472
+#: ../../scala/stream/stages-overview.rst:489
 msgid ""
 "Create a sink which materializes into a ``Future`` which will be "
 "completed with a result of the Java 8 ``Collector`` transformation and "
@@ -924,40 +958,40 @@ msgid ""
 "based on graph ``Balance``."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:482
+#: ../../scala/stream/stages-overview.rst:499
 msgid "File IO Sinks and Sources"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:483
+#: ../../scala/stream/stages-overview.rst:500
 msgid ""
 "Sources and sinks for reading and writing files can be found on "
 "``FileIO``."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:486
+#: ../../scala/stream/stages-overview.rst:503
 msgid "fromFile"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:487
+#: ../../scala/stream/stages-overview.rst:504
 msgid ""
 "Emit the contents of a file, as ``ByteString`` s, materializes into a "
 "``Future`` which will be completed with a ``IOResult`` upon reaching the "
 "end of the file or if there is a failure."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:491
+#: ../../scala/stream/stages-overview.rst:508
 msgid "toFile"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:492
+#: ../../scala/stream/stages-overview.rst:509
 msgid "Create a sink which will write incoming ``ByteString`` s to a given file."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:497
+#: ../../scala/stream/stages-overview.rst:514
 msgid "Flow stages"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:499
+#: ../../scala/stream/stages-overview.rst:516
 msgid ""
 "All flows by default backpressure if the computation they encapsulate is "
 "not fast enough to keep up with the rate of incoming elements from the "
@@ -965,7 +999,7 @@ msgid ""
 "handle when some of their downstream stages backpressure them."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:503
+#: ../../scala/stream/stages-overview.rst:520
 msgid ""
 "Most stages stop and propagate the failure downstream as soon as any of "
 "their upstreams emit a failure. This happens to ensure reliable teardown "
@@ -977,11 +1011,11 @@ msgid ""
 " can express error or success states (for example ``Try`` in Scala)."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:512
+#: ../../scala/stream/stages-overview.rst:529
 msgid "Simple processing stages"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:514
+#: ../../scala/stream/stages-overview.rst:531
 msgid ""
 "These stages can transform the rate of incoming elements since there are "
 "stages that emit multiple elements for a single input (e.g. `mapConcat') "
@@ -993,109 +1027,123 @@ msgid ""
 "or not."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:521
+#: ../../scala/stream/stages-overview.rst:538
 msgid "map"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:522
+#: ../../scala/stream/stages-overview.rst:539
 msgid ""
 "Transform each element in the stream by calling a mapping function with "
 "it and passing the returned value downstream."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:524
+#: ../../scala/stream/stages-overview.rst:541
 msgid "**emits** when the mapping function returns an element"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:526
-#: ../../scala/stream/stages-overview.rst:607
-#: ../../scala/stream/stages-overview.rst:618
-#: ../../scala/stream/stages-overview.rst:638
-#: ../../scala/stream/stages-overview.rst:650
-#: ../../scala/stream/stages-overview.rst:690
-#: ../../scala/stream/stages-overview.rst:702
-#: ../../scala/stream/stages-overview.rst:764
-#: ../../scala/stream/stages-overview.rst:876
-#: ../../scala/stream/stages-overview.rst:973
-#: ../../scala/stream/stages-overview.rst:985
-#: ../../scala/stream/stages-overview.rst:1002
-#: ../../scala/stream/stages-overview.rst:1015
-#: ../../scala/stream/stages-overview.rst:1029
-#: ../../scala/stream/stages-overview.rst:1043
-#: ../../scala/stream/stages-overview.rst:1055
-#: ../../scala/stream/stages-overview.rst:1086
-#: ../../scala/stream/stages-overview.rst:1097
-#: ../../scala/stream/stages-overview.rst:1107
-#: ../../scala/stream/stages-overview.rst:1117
-#: ../../scala/stream/stages-overview.rst:1128
-#: ../../scala/stream/stages-overview.rst:1138
-#: ../../scala/stream/stages-overview.rst:1150
+#: ../../scala/stream/stages-overview.rst:543
+#: ../../scala/stream/stages-overview.rst:635
+#: ../../scala/stream/stages-overview.rst:646
+#: ../../scala/stream/stages-overview.rst:657
+#: ../../scala/stream/stages-overview.rst:677
+#: ../../scala/stream/stages-overview.rst:689
+#: ../../scala/stream/stages-overview.rst:729
+#: ../../scala/stream/stages-overview.rst:741
+#: ../../scala/stream/stages-overview.rst:751
+#: ../../scala/stream/stages-overview.rst:761
+#: ../../scala/stream/stages-overview.rst:772
+#: ../../scala/stream/stages-overview.rst:784
+#: ../../scala/stream/stages-overview.rst:795
+#: ../../scala/stream/stages-overview.rst:857
+#: ../../scala/stream/stages-overview.rst:969
+#: ../../scala/stream/stages-overview.rst:1066
+#: ../../scala/stream/stages-overview.rst:1078
+#: ../../scala/stream/stages-overview.rst:1095
+#: ../../scala/stream/stages-overview.rst:1108
+#: ../../scala/stream/stages-overview.rst:1122
+#: ../../scala/stream/stages-overview.rst:1136
+#: ../../scala/stream/stages-overview.rst:1148
+#: ../../scala/stream/stages-overview.rst:1179
+#: ../../scala/stream/stages-overview.rst:1190
+#: ../../scala/stream/stages-overview.rst:1200
+#: ../../scala/stream/stages-overview.rst:1210
+#: ../../scala/stream/stages-overview.rst:1221
+#: ../../scala/stream/stages-overview.rst:1231
+#: ../../scala/stream/stages-overview.rst:1241
+#: ../../scala/stream/stages-overview.rst:1251
+#: ../../scala/stream/stages-overview.rst:1263
+#: ../../scala/stream/stages-overview.rst:1280
 msgid "**backpressures** when downstream backpressures"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:528
-#: ../../scala/stream/stages-overview.rst:560
-#: ../../scala/stream/stages-overview.rst:571
-#: ../../scala/stream/stages-overview.rst:582
-#: ../../scala/stream/stages-overview.rst:594
-#: ../../scala/stream/stages-overview.rst:609
-#: ../../scala/stream/stages-overview.rst:620
-#: ../../scala/stream/stages-overview.rst:630
-#: ../../scala/stream/stages-overview.rst:662
-#: ../../scala/stream/stages-overview.rst:692
-#: ../../scala/stream/stages-overview.rst:704
-#: ../../scala/stream/stages-overview.rst:777
-#: ../../scala/stream/stages-overview.rst:788
-#: ../../scala/stream/stages-overview.rst:820
-#: ../../scala/stream/stages-overview.rst:832
-#: ../../scala/stream/stages-overview.rst:878
-#: ../../scala/stream/stages-overview.rst:1057
-#: ../../scala/stream/stages-overview.rst:1069
-#: ../../scala/stream/stages-overview.rst:1179
-#: ../../scala/stream/stages-overview.rst:1189
-#: ../../scala/stream/stages-overview.rst:1199
-#: ../../scala/stream/stages-overview.rst:1209
-#: ../../scala/stream/stages-overview.rst:1235
-#: ../../scala/stream/stages-overview.rst:1247
+#: ../../scala/stream/stages-overview.rst:545
+#: ../../scala/stream/stages-overview.rst:577
+#: ../../scala/stream/stages-overview.rst:588
+#: ../../scala/stream/stages-overview.rst:599
+#: ../../scala/stream/stages-overview.rst:610
+#: ../../scala/stream/stages-overview.rst:622
+#: ../../scala/stream/stages-overview.rst:637
+#: ../../scala/stream/stages-overview.rst:648
+#: ../../scala/stream/stages-overview.rst:659
+#: ../../scala/stream/stages-overview.rst:669
+#: ../../scala/stream/stages-overview.rst:701
+#: ../../scala/stream/stages-overview.rst:731
+#: ../../scala/stream/stages-overview.rst:743
+#: ../../scala/stream/stages-overview.rst:753
+#: ../../scala/stream/stages-overview.rst:786
+#: ../../scala/stream/stages-overview.rst:870
+#: ../../scala/stream/stages-overview.rst:881
+#: ../../scala/stream/stages-overview.rst:913
+#: ../../scala/stream/stages-overview.rst:925
+#: ../../scala/stream/stages-overview.rst:971
+#: ../../scala/stream/stages-overview.rst:1150
+#: ../../scala/stream/stages-overview.rst:1162
+#: ../../scala/stream/stages-overview.rst:1233
+#: ../../scala/stream/stages-overview.rst:1310
+#: ../../scala/stream/stages-overview.rst:1320
+#: ../../scala/stream/stages-overview.rst:1330
+#: ../../scala/stream/stages-overview.rst:1340
+#: ../../scala/stream/stages-overview.rst:1366
+#: ../../scala/stream/stages-overview.rst:1378
 msgid "**completes** when upstream completes"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:531
+#: ../../scala/stream/stages-overview.rst:548
 msgid "mapConcat"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:532
+#: ../../scala/stream/stages-overview.rst:549
 msgid ""
 "Transform each element into zero or more elements that are individually "
 "passed downstream."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:534
-#: ../../scala/stream/stages-overview.rst:545
+#: ../../scala/stream/stages-overview.rst:551
+#: ../../scala/stream/stages-overview.rst:562
 msgid ""
 "**emits** when the mapping function returns an element or there are still"
 " remaining elements from the previously calculated collection"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:536
-#: ../../scala/stream/stages-overview.rst:547
+#: ../../scala/stream/stages-overview.rst:553
+#: ../../scala/stream/stages-overview.rst:564
 msgid ""
 "**backpressures** when downstream backpressures or there are still "
 "available elements from the previously calculated collection"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:538
-#: ../../scala/stream/stages-overview.rst:549
+#: ../../scala/stream/stages-overview.rst:555
+#: ../../scala/stream/stages-overview.rst:566
 msgid ""
 "**completes** when upstream completes and all remaining elements has been"
 " emitted"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:541
+#: ../../scala/stream/stages-overview.rst:558
 msgid "statefulMapConcat"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:542
+#: ../../scala/stream/stages-overview.rst:559
 msgid ""
 "Transform each element into zero or more elements that are individually "
 "passed downstream. The difference to ``mapConcat`` is that the "
@@ -1103,32 +1151,53 @@ msgid ""
 "materialization of the flow."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:552
+#: ../../scala/stream/stages-overview.rst:569
 msgid "filter"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:553
+#: ../../scala/stream/stages-overview.rst:570
 msgid ""
 "Filter the incoming elements using a predicate. If the predicate returns "
 "true the element is passed downstream, if it returns false the element is"
 " discarded."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:556
+#: ../../scala/stream/stages-overview.rst:573
 msgid "**emits** when the given predicate returns true for the element"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:558
+#: ../../scala/stream/stages-overview.rst:575
 msgid ""
 "**backpressures** when the given predicate returns true for the element "
 "and downstream backpressures"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:563
+#: ../../scala/stream/stages-overview.rst:580
+msgid "filterNot"
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:581
+msgid ""
+"Filter the incoming elements using a predicate. If the predicate returns "
+"false the element is passed downstream, if it returns true the element is"
+" discarded."
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:584
+msgid "**emits** when the given predicate returns false for the element"
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:586
+msgid ""
+"**backpressures** when the given predicate returns false for the element "
+"and downstream backpressures"
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:591
 msgid "collect"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:564
+#: ../../scala/stream/stages-overview.rst:592
 msgid ""
 "Apply a partial function to each incoming element, if the partial "
 "function is defined for a value the returned value is passed downstream. "
@@ -1136,270 +1205,367 @@ msgid ""
 "one single stage."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:567
+#: ../../scala/stream/stages-overview.rst:595
 msgid "**emits** when the provided partial function is defined for the element"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:569
+#: ../../scala/stream/stages-overview.rst:597
 msgid ""
 "**backpressures** the partial function is defined for the element and "
 "downstream backpressures"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:574
+#: ../../scala/stream/stages-overview.rst:602
 msgid "grouped"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:575
+#: ../../scala/stream/stages-overview.rst:603
 msgid ""
 "Accumulate incoming events until the specified number of elements have "
 "been accumulated and then pass the collection of elements downstream."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:578
+#: ../../scala/stream/stages-overview.rst:606
 msgid ""
 "**emits** when the specified number of elements has been accumulated or "
 "upstream completed"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:580
-#: ../../scala/stream/stages-overview.rst:592
+#: ../../scala/stream/stages-overview.rst:608
+#: ../../scala/stream/stages-overview.rst:620
 msgid ""
 "**backpressures** when a group has been assembled and downstream "
 "backpressures"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:585
+#: ../../scala/stream/stages-overview.rst:613
 msgid "sliding"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:586
+#: ../../scala/stream/stages-overview.rst:614
 msgid ""
 "Provide a sliding window over the incoming stream and pass the windows as"
 " groups of elements downstream."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:588
+#: ../../scala/stream/stages-overview.rst:616
 msgid ""
 "Note: the last window might be smaller than the requested size due to end"
 " of stream."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:590
+#: ../../scala/stream/stages-overview.rst:618
 msgid ""
 "**emits** the specified number of elements has been accumulated or "
 "upstream completed"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:598
+#: ../../scala/stream/stages-overview.rst:626
 msgid "scan"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:599
+#: ../../scala/stream/stages-overview.rst:627
 msgid ""
 "Emit its current value which starts at ``zero`` and then applies the "
 "current and next value to the given function emitting the next current "
 "value."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:602
+#: ../../scala/stream/stages-overview.rst:630
 msgid ""
 "Note that this means that scan emits one element downstream before and "
 "upstream elements will not be requested until the second element is "
 "required from downstream."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:605
+#: ../../scala/stream/stages-overview.rst:633
 msgid "**emits** when the function scanning the element returns a new element"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:613
+#: ../../scala/stream/stages-overview.rst:641
 msgid ""
 "Start with current value ``zero`` and then apply the current and next "
 "value to the given function, when upstream complete the current value is "
 "emitted downstream."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:616
+#: ../../scala/stream/stages-overview.rst:644
+#: ../../scala/stream/stages-overview.rst:655
 msgid "**emits** when upstream completes"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:623
+#: ../../scala/stream/stages-overview.rst:652
+msgid ""
+"Start with first element and then apply the current and next value to the"
+" given function, when upstream complete the current value is emitted "
+"downstream. Similar to ``fold``."
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:662
 msgid "drop"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:624
+#: ../../scala/stream/stages-overview.rst:663
 msgid "Drop ``n`` elements and then pass any subsequent element downstream."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:626
+#: ../../scala/stream/stages-overview.rst:665
 msgid "**emits** when the specified number of elements has been dropped already"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:628
+#: ../../scala/stream/stages-overview.rst:667
 msgid ""
 "**backpressures** when the specified number of elements has been dropped "
 "and downstream backpressures"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:633
+#: ../../scala/stream/stages-overview.rst:672
 msgid "take"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:634
+#: ../../scala/stream/stages-overview.rst:673
 msgid "Pass ``n`` incoming elements downstream and then complete"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:636
+#: ../../scala/stream/stages-overview.rst:675
 msgid ""
 "**emits** while the specified number of elements to take has not yet been"
 " reached"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:640
+#: ../../scala/stream/stages-overview.rst:679
 msgid ""
 "**completes** when the defined number of elements has been taken or "
 "upstream completes"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:644
+#: ../../scala/stream/stages-overview.rst:683
 msgid "takeWhile"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:645
+#: ../../scala/stream/stages-overview.rst:684
 msgid ""
 "Pass elements downstream as long as a predicate function return true for "
 "the element include the element when the predicate first return false and"
 " then complete."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:648
+#: ../../scala/stream/stages-overview.rst:687
 msgid "**emits** while the predicate is true and until the first false result"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:652
+#: ../../scala/stream/stages-overview.rst:691
 msgid "**completes** when predicate returned false or upstream completes"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:655
+#: ../../scala/stream/stages-overview.rst:694
 msgid "dropWhile"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:656
+#: ../../scala/stream/stages-overview.rst:695
 msgid "Drop elements as long as a predicate function return true for the element"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:658
+#: ../../scala/stream/stages-overview.rst:697
 msgid ""
 "**emits** when the predicate returned false and for all following stream "
 "elements"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:660
+#: ../../scala/stream/stages-overview.rst:699
 msgid "**backpressures** predicate returned false and downstream backpressures"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:665
+#: ../../scala/stream/stages-overview.rst:704
 msgid "recover"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:666
+#: ../../scala/stream/stages-overview.rst:705
 msgid ""
 "Allow sending of one last element downstream when a failure has happened "
 "upstream."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:668
+#: ../../scala/stream/stages-overview.rst:707
 msgid ""
 "**emits** when the element is available from the upstream or upstream is "
 "failed and pf returns an element"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:670
+#: ../../scala/stream/stages-overview.rst:709
 msgid "**backpressures** when downstream backpressures, not when failure happened"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:672
+#: ../../scala/stream/stages-overview.rst:711
 msgid ""
 "**completes** when upstream completes or upstream failed with exception "
 "pf can handle"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:675
+#: ../../scala/stream/stages-overview.rst:714
 msgid "recoverWith"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:676
+#: ../../scala/stream/stages-overview.rst:715
 msgid ""
 "Allow switching to alternative Source when a failure has happened "
 "upstream."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:678
+#: ../../scala/stream/stages-overview.rst:717
 msgid ""
 "**emits** the element is available from the upstream or upstream is "
 "failed and pf returns alternative Source"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:680
+#: ../../scala/stream/stages-overview.rst:719
 msgid ""
 "**backpressures** downstream backpressures, after failure happened it "
 "backprssures to alternative Source"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:682
+#: ../../scala/stream/stages-overview.rst:721
 msgid ""
 "**completes** upstream completes or upstream failed with exception pf can"
 " handle"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:685
+#: ../../scala/stream/stages-overview.rst:724
 msgid "detach"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:686
+#: ../../scala/stream/stages-overview.rst:725
 msgid ""
 "Detach upstream demand from downstream demand without detaching the "
 "stream rates."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:688
+#: ../../scala/stream/stages-overview.rst:727
 msgid "**emits** when the upstream stage has emitted and there is demand"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:696
+#: ../../scala/stream/stages-overview.rst:735
 msgid "throttle"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:697
+#: ../../scala/stream/stages-overview.rst:736
 msgid ""
 "Limit the throughput to a specific number of elements per time unit, or a"
 " specific total cost per time unit, where a function has to be provided "
 "to calculate the individual cost of each element."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:700
+#: ../../scala/stream/stages-overview.rst:739
 msgid ""
 "**emits** when upstream emits an element and configured time per each "
 "element elapsed"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:708
+#: ../../scala/stream/stages-overview.rst:746
+msgid "intersperse"
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:747
+msgid ""
+"Intersperse stream with provided element similar to ``List.mkString``. It"
+" can inject start and end marker elements to stream."
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:749
+msgid ""
+"**emits** when upstream emits an element or before with the `start` "
+"element if provided"
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:756
+msgid "limit"
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:757
+msgid "Limit number of element from upstream to given ``max`` number."
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:759
+#: ../../scala/stream/stages-overview.rst:770
+msgid ""
+"**emits** when upstream emits and the number of emitted elements has not "
+"reached max"
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:763
+#: ../../scala/stream/stages-overview.rst:774
+msgid ""
+"**completes** when upstream completes and the number of emitted elements "
+"has not reached max"
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:766
+msgid "limitWeighted"
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:767
+msgid ""
+"Ensure stream boundedness by evaluating the cost of incoming elements "
+"using a cost function. Evaluated cost of each element defines how many "
+"elements will be allowed to travel downstream."
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:777
+msgid "log"
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:778
+msgid ""
+"Log elements flowing through the stream as well as completion and "
+"erroring. By default element and completion signals are logged on debug "
+"level, and errors are logged on Error level. This can be changed by "
+"calling ``Attributes.logLevels(...)`` on the given Flow."
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:782
+msgid "**emits** when upstream emits"
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:789
+msgid "recoverWithRetries"
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:790
+msgid ""
+"Switch to alternative Source on flow failure. It stays in effect after a "
+"failure has been recovered up to ``attempts`` number of times. Each time "
+"a failure is fed into the partial function and a new Source may be "
+"materialized."
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:793
+msgid ""
+"**emits** when element is available from the upstream or upstream is "
+"failed and element is available from alternative Source"
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:797
+msgid ""
+"**completes** when upstream completes or upstream failed with exception "
+"provided partial function can handle"
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:801
 msgid "Asynchronous processing stages"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:710
+#: ../../scala/stream/stages-overview.rst:803
 msgid ""
 "These stages encapsulate an asynchronous computation, properly handling "
 "backpressure while taking care of the asynchronous operation at the same "
 "time (usually handling the completion of a Future)."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:715
+#: ../../scala/stream/stages-overview.rst:808
 msgid "mapAsync"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:716
+#: ../../scala/stream/stages-overview.rst:809
 msgid ""
 "Pass incoming elements to a function that return a ``Future`` result. "
 "When the future arrives the result is passed downstream. Up to ``n`` "
@@ -1409,183 +1575,183 @@ msgid ""
 "used."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:720
-#: ../../scala/stream/stages-overview.rst:733
+#: ../../scala/stream/stages-overview.rst:813
+#: ../../scala/stream/stages-overview.rst:826
 msgid ""
 "If a Future fails, the stream also fails (unless a different supervision "
 "strategy is applied)"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:722
+#: ../../scala/stream/stages-overview.rst:815
 msgid ""
 "**emits** when the Future returned by the provided function finishes for "
 "the next element in sequence"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:724
-#: ../../scala/stream/stages-overview.rst:737
+#: ../../scala/stream/stages-overview.rst:817
+#: ../../scala/stream/stages-overview.rst:830
 msgid ""
 "**backpressures** when the number of futures reaches the configured "
 "parallelism and the downstream backpressures"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:726
+#: ../../scala/stream/stages-overview.rst:819
 msgid ""
 "**completes** when upstream completes and all futures has been completed "
 "and all elements has been emitted"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:729
+#: ../../scala/stream/stages-overview.rst:822
 msgid "mapAsyncUnordered"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:730
+#: ../../scala/stream/stages-overview.rst:823
 msgid ""
 "Like ``mapAsync`` but ``Future`` results are passed downstream as they "
 "arrive regardless of the order of the elements that triggered them."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:735
+#: ../../scala/stream/stages-overview.rst:828
 msgid "**emits** any of the Futures returned by the provided function complete"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:739
+#: ../../scala/stream/stages-overview.rst:832
 msgid ""
 "**completes** upstream completes and all futures has been completed  and "
 "all elements has been emitted"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:743
+#: ../../scala/stream/stages-overview.rst:836
 msgid "Timer driven stages"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:745
+#: ../../scala/stream/stages-overview.rst:838
 msgid ""
 "These stages process elements using timers, delaying, dropping or "
 "grouping elements for certain time durations."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:748
+#: ../../scala/stream/stages-overview.rst:841
 msgid "takeWithin"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:749
+#: ../../scala/stream/stages-overview.rst:842
 msgid "Pass elements downstream within a timeout and then complete."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:751
+#: ../../scala/stream/stages-overview.rst:844
 msgid "**emits** when an upstream element arrives"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:753
+#: ../../scala/stream/stages-overview.rst:846
 msgid "**backpressures** downstream backpressures"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:755
+#: ../../scala/stream/stages-overview.rst:848
 msgid "**completes** upstream completes or timer fires"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:759
+#: ../../scala/stream/stages-overview.rst:852
 msgid "dropWithin"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:760
+#: ../../scala/stream/stages-overview.rst:853
 msgid "Drop elements until a timeout has fired"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:762
+#: ../../scala/stream/stages-overview.rst:855
 msgid "**emits** after the timer fired and a new upstream element arrives"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:766
+#: ../../scala/stream/stages-overview.rst:859
 msgid "**completes** upstream completes"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:769
+#: ../../scala/stream/stages-overview.rst:862
 msgid "groupedWithin"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:770
+#: ../../scala/stream/stages-overview.rst:863
 msgid ""
 "Chunk up the stream into groups of elements received within a time "
 "window, or limited by the given number of elements, whichever happens "
 "first."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:773
+#: ../../scala/stream/stages-overview.rst:866
 msgid ""
 "**emits** when the configured time elapses since the last group has been "
 "emitted"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:775
+#: ../../scala/stream/stages-overview.rst:868
 msgid ""
 "**backpressures** when the group has been assembled (the duration "
 "elapsed) and downstream backpressures"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:781
-#: ../../scala/stream/stages-overview.rst:1062
+#: ../../scala/stream/stages-overview.rst:874
+#: ../../scala/stream/stages-overview.rst:1155
 msgid "initialDelay"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:782
+#: ../../scala/stream/stages-overview.rst:875
 msgid ""
 "Delay the initial element by a user specified duration from stream "
 "materialization."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:784
+#: ../../scala/stream/stages-overview.rst:877
 msgid "**emits** upstream emits an element if the initial delay already elapsed"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:786
+#: ../../scala/stream/stages-overview.rst:879
 msgid ""
 "**backpressures** downstream backpressures or initial delay not yet "
 "elapsed"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:792
+#: ../../scala/stream/stages-overview.rst:885
 msgid "delay"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:793
+#: ../../scala/stream/stages-overview.rst:886
 msgid "Delay every element passed through with a specific duration."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:795
+#: ../../scala/stream/stages-overview.rst:888
 msgid ""
 "**emits** there is a pending element in the buffer and configured time "
 "for this element elapsed"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:797
+#: ../../scala/stream/stages-overview.rst:890
 msgid "**backpressures** differs, depends on ``OverflowStrategy`` set"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:799
-#: ../../scala/stream/stages-overview.rst:889
-#: ../../scala/stream/stages-overview.rst:916
+#: ../../scala/stream/stages-overview.rst:892
+#: ../../scala/stream/stages-overview.rst:982
+#: ../../scala/stream/stages-overview.rst:1009
 msgid ""
 "**completes** when upstream completes and buffered elements has been "
 "drained"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:806
+#: ../../scala/stream/stages-overview.rst:899
 msgid "Backpressure aware stages"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:808
+#: ../../scala/stream/stages-overview.rst:901
 msgid ""
 "These stages are aware of the backpressure provided by their downstreams "
 "and able to adapt their behavior to that signal."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:811
+#: ../../scala/stream/stages-overview.rst:904
 msgid "conflate"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:812
+#: ../../scala/stream/stages-overview.rst:905
 msgid ""
 "Allow for a slower downstream by passing incoming elements and a summary "
 "into an aggregate function as long as there is backpressure. The summary "
@@ -1594,24 +1760,24 @@ msgid ""
 "different type ``conflateWithSeed`` can be used:"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:816
-#: ../../scala/stream/stages-overview.rst:828
+#: ../../scala/stream/stages-overview.rst:909
+#: ../../scala/stream/stages-overview.rst:921
 msgid ""
 "**emits** when downstream stops backpressuring and there is a conflated "
 "element available"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:818
+#: ../../scala/stream/stages-overview.rst:911
 msgid ""
 "**backpressures** when the aggregate function cannot keep up with "
 "incoming elements"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:823
+#: ../../scala/stream/stages-overview.rst:916
 msgid "conflateWithSeed"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:824
+#: ../../scala/stream/stages-overview.rst:917
 msgid ""
 "Allow for a slower downstream by passing incoming elements and a summary "
 "into an aggregate function as long as there is backpressure. When "
@@ -1619,17 +1785,17 @@ msgid ""
 "``seed`` function to transform it to the summary type."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:830
+#: ../../scala/stream/stages-overview.rst:923
 msgid ""
 "**backpressures** when the aggregate or seed functions cannot keep up "
 "with incoming elements"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:835
+#: ../../scala/stream/stages-overview.rst:928
 msgid "batch"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:836
+#: ../../scala/stream/stages-overview.rst:929
 msgid ""
 "Allow for a slower downstream by passing incoming elements and a summary "
 "into an aggregate function as long as there is backpressure and a maximum"
@@ -1638,42 +1804,42 @@ msgid ""
 "backpressure."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:840
+#: ../../scala/stream/stages-overview.rst:933
 msgid ""
 "When backpressure starts or there is no backpressure element is passed "
 "into a ``seed`` function to transform it to the summary type."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:843
-#: ../../scala/stream/stages-overview.rst:860
+#: ../../scala/stream/stages-overview.rst:936
+#: ../../scala/stream/stages-overview.rst:953
 msgid ""
 "Will eagerly pull elements, this behavior may result in a single pending "
 "(i.e. buffered) element which cannot be aggregated to the batched value."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:846
+#: ../../scala/stream/stages-overview.rst:939
 msgid ""
 "**emits** when downstream stops backpressuring and there is a batched "
 "element available"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:848
+#: ../../scala/stream/stages-overview.rst:941
 msgid ""
 "**backpressures** when batched elements reached the max limit of allowed "
 "batched elements & downstream backpressures"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:850
+#: ../../scala/stream/stages-overview.rst:943
 msgid ""
 "**completes** when upstream completes and a \"possibly pending\" element "
 "was drained"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:854
+#: ../../scala/stream/stages-overview.rst:947
 msgid "batchWeighted"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:855
+#: ../../scala/stream/stages-overview.rst:948
 msgid ""
 "Allow for a slower downstream by passing incoming elements and a summary "
 "into an aggregate function as long as there is backpressure and a maximum"
@@ -1682,135 +1848,135 @@ msgid ""
 "reached and downstream still backpressures batch will also backpressure."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:863
+#: ../../scala/stream/stages-overview.rst:956
 msgid ""
 "**emits** downstream stops backpressuring and there is a batched element "
 "available"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:865
+#: ../../scala/stream/stages-overview.rst:958
 msgid ""
 "**backpressures** batched elements reached the max weight limit of "
 "allowed batched elements & downstream backpressures"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:867
+#: ../../scala/stream/stages-overview.rst:960
 msgid ""
 "**completes** upstream completes and a \"possibly pending\" element was "
 "drained"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:870
+#: ../../scala/stream/stages-overview.rst:963
 msgid "expand"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:871
+#: ../../scala/stream/stages-overview.rst:964
 msgid ""
 "Allow for a faster downstream by expanding the last incoming element to "
 "an ``Iterator``. For example ``Iterator.continually(element)`` to keep "
 "repating the last incoming element."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:874
+#: ../../scala/stream/stages-overview.rst:967
 msgid "**emits** when downstream stops backpressuring"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:881
+#: ../../scala/stream/stages-overview.rst:974
 msgid "buffer (Backpressure)"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:882
+#: ../../scala/stream/stages-overview.rst:975
 msgid ""
 "Allow for a temporarily faster upstream events by buffering ``size`` "
 "elements. When the buffer is full backpressure is applied."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:885
-#: ../../scala/stream/stages-overview.rst:901
-#: ../../scala/stream/stages-overview.rst:912
+#: ../../scala/stream/stages-overview.rst:978
+#: ../../scala/stream/stages-overview.rst:994
+#: ../../scala/stream/stages-overview.rst:1005
 msgid ""
 "**emits** when downstream stops backpressuring and there is a pending "
 "element in the buffer"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:887
+#: ../../scala/stream/stages-overview.rst:980
 msgid "**backpressures** when buffer is full"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:892
+#: ../../scala/stream/stages-overview.rst:985
 msgid "buffer (Drop)"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:893
+#: ../../scala/stream/stages-overview.rst:986
 msgid ""
 "Allow for a temporarily faster upstream events by buffering ``size`` "
 "elements. When the buffer is full elements are dropped according to the "
 "specified ``OverflowStrategy``:"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:896
+#: ../../scala/stream/stages-overview.rst:989
 msgid ""
 "``dropHead`` drops the oldest element in the buffer to make space for the"
 " new element"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:897
+#: ../../scala/stream/stages-overview.rst:990
 msgid ""
 "``dropTail`` drops the youngest element in the buffer to make space for "
 "the new element"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:898
+#: ../../scala/stream/stages-overview.rst:991
 msgid "``dropBuffer`` drops the entire buffer and buffers the new element"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:899
+#: ../../scala/stream/stages-overview.rst:992
 msgid "``dropNew`` drops the new element"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:903
+#: ../../scala/stream/stages-overview.rst:996
 msgid ""
 "**backpressures** never (when dropping cannot keep up with incoming "
 "elements)"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:905
+#: ../../scala/stream/stages-overview.rst:998
 msgid "**completes** upstream completes and buffered elements has been drained"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:908
+#: ../../scala/stream/stages-overview.rst:1001
 msgid "buffer (Fail)"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:909
+#: ../../scala/stream/stages-overview.rst:1002
 msgid ""
 "Allow for a temporarily faster upstream events by buffering ``size`` "
 "elements. When the buffer is full the stage fails the flow with a "
 "``BufferOverflowException``."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:914
+#: ../../scala/stream/stages-overview.rst:1007
 msgid ""
 "**backpressures** never, fails the stream instead of backpressuring when "
 "buffer is full"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:920
+#: ../../scala/stream/stages-overview.rst:1013
 msgid "Nesting and flattening stages"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:922
+#: ../../scala/stream/stages-overview.rst:1015
 msgid ""
 "These stages either take a stream and turn it into a stream of streams "
 "(nesting) or they take a stream that contains nested streams and turn "
 "them into a stream of elements instead (flattening)."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:926
+#: ../../scala/stream/stages-overview.rst:1019
 msgid "prefixAndTail"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:927
+#: ../../scala/stream/stages-overview.rst:1020
 msgid ""
 "Take up to `n` elements from the stream (less than `n` only if the "
 "upstream completes before emitting `n` elements) and returns a pair "
@@ -1818,185 +1984,185 @@ msgid ""
 "representing the remaining elements."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:930
+#: ../../scala/stream/stages-overview.rst:1023
 msgid ""
 "**emits** when the configured number of prefix elements are available. "
 "Emits this prefix, and the rest as a substream"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:932
+#: ../../scala/stream/stages-overview.rst:1025
 msgid "**backpressures** when downstream backpressures or substream backpressures"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:934
+#: ../../scala/stream/stages-overview.rst:1027
 msgid ""
 "**completes** when prefix elements has been consumed and substream has "
 "been consumed"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:938
+#: ../../scala/stream/stages-overview.rst:1031
 msgid "groupBy"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:939
+#: ../../scala/stream/stages-overview.rst:1032
 msgid "Demultiplex the incoming stream into separate output streams."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:941
+#: ../../scala/stream/stages-overview.rst:1034
 msgid ""
 "**emits** an element for which the grouping function returns a group that"
 " has not yet been created. Emits the new group there is an element "
 "pending for a group whose substream backpressures"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:944
-#: ../../scala/stream/stages-overview.rst:954
-#: ../../scala/stream/stages-overview.rst:964
+#: ../../scala/stream/stages-overview.rst:1037
+#: ../../scala/stream/stages-overview.rst:1047
+#: ../../scala/stream/stages-overview.rst:1057
 msgid ""
 "**completes** when upstream completes (Until the end of stream it is not "
 "possible to know whether new substreams will be needed or not)"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:947
+#: ../../scala/stream/stages-overview.rst:1040
 msgid "splitWhen"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:948
+#: ../../scala/stream/stages-overview.rst:1041
 msgid ""
 "Split off elements into a new substream whenever a predicate function "
 "return ``true``."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:950
+#: ../../scala/stream/stages-overview.rst:1043
 msgid ""
 "**emits** an element for which the provided predicate is true, opening "
 "and emitting a new substream for subsequent elements"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:952
-#: ../../scala/stream/stages-overview.rst:962
+#: ../../scala/stream/stages-overview.rst:1045
+#: ../../scala/stream/stages-overview.rst:1055
 msgid ""
 "**backpressures** when there is an element pending for the next "
 "substream, but the previous is not fully consumed yet, or the substream "
 "backpressures"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:957
+#: ../../scala/stream/stages-overview.rst:1050
 msgid "splitAfter"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:958
+#: ../../scala/stream/stages-overview.rst:1051
 msgid ""
 "End the current substream whenever a predicate returns ``true``, starting"
 " a new substream for the next element."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:960
+#: ../../scala/stream/stages-overview.rst:1053
 msgid ""
 "**emits** when an element passes through. When the provided predicate is "
 "true it emits the element * and opens a new substream for subsequent "
 "element"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:967
+#: ../../scala/stream/stages-overview.rst:1060
 msgid "flatMapConcat"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:968
+#: ../../scala/stream/stages-overview.rst:1061
 msgid ""
 "Transform each input element into a ``Source`` whose elements are then "
 "flattened into the output stream through concatenation. This means each "
 "source is fully consumed before consumption of the next source starts."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:971
+#: ../../scala/stream/stages-overview.rst:1064
 msgid "**emits** when the current consumed substream has an element available"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:975
-#: ../../scala/stream/stages-overview.rst:987
+#: ../../scala/stream/stages-overview.rst:1068
+#: ../../scala/stream/stages-overview.rst:1080
 msgid "**completes** when upstream completes and all consumed substreams complete"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:979
+#: ../../scala/stream/stages-overview.rst:1072
 msgid "flatMapMerge"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:980
+#: ../../scala/stream/stages-overview.rst:1073
 msgid ""
 "Transform each input element into a ``Source`` whose elements are then "
 "flattened into the output stream through merging. The maximum number of "
 "merged sources has to be specified."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:983
+#: ../../scala/stream/stages-overview.rst:1076
 msgid ""
 "**emits** when one of the currently consumed substreams has an element "
 "available"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:991
+#: ../../scala/stream/stages-overview.rst:1084
 msgid "Time aware stages"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:993
+#: ../../scala/stream/stages-overview.rst:1086
 msgid "Those stages operate taking time into consideration."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:996
+#: ../../scala/stream/stages-overview.rst:1089
 msgid "initialTimeout"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:997
+#: ../../scala/stream/stages-overview.rst:1090
 msgid ""
 "If the first element has not passed through this stage before the "
 "provided timeout, the stream is failed with a ``TimeoutException``."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1000
-#: ../../scala/stream/stages-overview.rst:1013
-#: ../../scala/stream/stages-overview.rst:1027
-#: ../../scala/stream/stages-overview.rst:1041
-#: ../../scala/stream/stages-overview.rst:1243
+#: ../../scala/stream/stages-overview.rst:1093
+#: ../../scala/stream/stages-overview.rst:1106
+#: ../../scala/stream/stages-overview.rst:1120
+#: ../../scala/stream/stages-overview.rst:1134
+#: ../../scala/stream/stages-overview.rst:1374
 msgid "**emits** when upstream emits an element"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1004
+#: ../../scala/stream/stages-overview.rst:1097
 msgid ""
 "**completes** when upstream completes or fails if timeout elapses before "
 "first element arrives"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1006
-#: ../../scala/stream/stages-overview.rst:1019
-#: ../../scala/stream/stages-overview.rst:1033
-#: ../../scala/stream/stages-overview.rst:1047
-#: ../../scala/stream/stages-overview.rst:1059
-#: ../../scala/stream/stages-overview.rst:1071
+#: ../../scala/stream/stages-overview.rst:1099
+#: ../../scala/stream/stages-overview.rst:1112
+#: ../../scala/stream/stages-overview.rst:1126
+#: ../../scala/stream/stages-overview.rst:1140
+#: ../../scala/stream/stages-overview.rst:1152
+#: ../../scala/stream/stages-overview.rst:1164
 msgid "**cancels** when downstream cancels"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1009
+#: ../../scala/stream/stages-overview.rst:1102
 msgid "completionTimeout"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1010
+#: ../../scala/stream/stages-overview.rst:1103
 msgid ""
 "If the completion of the stream does not happen until the provided "
 "timeout, the stream is failed with a ``TimeoutException``."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1017
+#: ../../scala/stream/stages-overview.rst:1110
 msgid ""
 "**completes** when upstream completes or fails if timeout elapses before "
 "upstream completes"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1022
+#: ../../scala/stream/stages-overview.rst:1115
 msgid "idleTimeout"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1023
+#: ../../scala/stream/stages-overview.rst:1116
 msgid ""
 "If the time between two processed elements exceeds the provided timeout, "
 "the stream is failed with a ``TimeoutException``. The timeout is checked "
@@ -2004,17 +2170,17 @@ msgid ""
 "timeout value)."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1031
+#: ../../scala/stream/stages-overview.rst:1124
 msgid ""
 "**completes** when upstream completes or fails if timeout elapses between"
 " two emitted elements"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1036
+#: ../../scala/stream/stages-overview.rst:1129
 msgid "backpressureTimeout"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1037
+#: ../../scala/stream/stages-overview.rst:1130
 msgid ""
 "If the time between the emission of an element and the following "
 "downstream demand exceeds the provided timeout, the stream is failed with"
@@ -2022,317 +2188,378 @@ msgid ""
 "resolution of the check is one period (equals to timeout value)."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1045
+#: ../../scala/stream/stages-overview.rst:1138
 msgid ""
 "**completes** when upstream completes or fails if timeout elapses between"
 " element emission and downstream demand."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1050
+#: ../../scala/stream/stages-overview.rst:1143
 msgid "keepAlive"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1051
+#: ../../scala/stream/stages-overview.rst:1144
 msgid ""
 "Injects additional (configured) elements if upstream does not emit for a "
 "configured amount of time."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1053
+#: ../../scala/stream/stages-overview.rst:1146
 msgid ""
 "**emits** when upstream emits an element or if the upstream was idle for "
 "the configured period"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1063
+#: ../../scala/stream/stages-overview.rst:1156
 msgid "Delays the initial element by the specified duration."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1065
+#: ../../scala/stream/stages-overview.rst:1158
 msgid ""
 "**emits** when upstream emits an element if the initial delay is already "
 "elapsed"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1067
+#: ../../scala/stream/stages-overview.rst:1160
 msgid ""
 "**backpressures** when downstream backpressures or initial delay is not "
 "yet elapsed"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1075
+#: ../../scala/stream/stages-overview.rst:1168
 msgid "Fan-in stages"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1077
+#: ../../scala/stream/stages-overview.rst:1170
 msgid ""
 "These stages take multiple streams as their input and provide a single "
 "output combining the elements from all of the inputs in different ways."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1081
+#: ../../scala/stream/stages-overview.rst:1174
 msgid "merge"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1082
+#: ../../scala/stream/stages-overview.rst:1175
 msgid ""
 "Merge multiple sources. Picks elements randomly if all sources has "
 "elements ready."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1084
+#: ../../scala/stream/stages-overview.rst:1177
 msgid "**emits** when one of the inputs has an element available"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1088
-#: ../../scala/stream/stages-overview.rst:1109
+#: ../../scala/stream/stages-overview.rst:1181
+#: ../../scala/stream/stages-overview.rst:1202
 msgid ""
 "**completes** when all upstreams complete (This behavior is changeable to"
 " completing when any upstream completes by setting "
 "``eagerComplete=true``.)"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1091
+#: ../../scala/stream/stages-overview.rst:1184
 msgid "mergeSorted"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1092
+#: ../../scala/stream/stages-overview.rst:1185
 msgid ""
 "Merge multiple sources. Waits for one element to be ready from each input"
 " stream and emits the smallest element."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1095
-#: ../../scala/stream/stages-overview.rst:1115
-#: ../../scala/stream/stages-overview.rst:1126
+#: ../../scala/stream/stages-overview.rst:1188
+#: ../../scala/stream/stages-overview.rst:1208
+#: ../../scala/stream/stages-overview.rst:1219
 msgid "**emits** when all of the inputs have an element available"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1099
-#: ../../scala/stream/stages-overview.rst:1140
-#: ../../scala/stream/stages-overview.rst:1152
+#: ../../scala/stream/stages-overview.rst:1192
+#: ../../scala/stream/stages-overview.rst:1243
+#: ../../scala/stream/stages-overview.rst:1253
+#: ../../scala/stream/stages-overview.rst:1265
 msgid "**completes** when all upstreams complete"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1102
+#: ../../scala/stream/stages-overview.rst:1195
 msgid "mergePreferred"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1103
+#: ../../scala/stream/stages-overview.rst:1196
 msgid ""
 "Merge multiple sources. Prefer one source if all sources has elements "
 "ready."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1105
+#: ../../scala/stream/stages-overview.rst:1198
 msgid ""
 "**emits** when one of the inputs has an element available, preferring a "
 "defined input if multiple have elements available"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1112
+#: ../../scala/stream/stages-overview.rst:1205
 msgid "zip"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1113
+#: ../../scala/stream/stages-overview.rst:1206
 msgid ""
 "Combines elements from each of multiple sources into tuples and passes "
 "the tuples downstream."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1122
+#: ../../scala/stream/stages-overview.rst:1215
 msgid "zipWith"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1123
+#: ../../scala/stream/stages-overview.rst:1216
 msgid ""
 "Combines elements from multiple sources through a ``combine`` function "
 "and passes the returned value downstream."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1133
+#: ../../scala/stream/stages-overview.rst:1226
+msgid "zipWithIndex"
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:1227
+msgid "Zips elements of current flow with its indices."
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:1229
+msgid "**emits** upstream emits an element and is paired with their index"
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:1236
 msgid "concat"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1134
+#: ../../scala/stream/stages-overview.rst:1237
 msgid ""
 "After completion of the original upstream the elements of the given "
 "source will be emitted."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1136
+#: ../../scala/stream/stages-overview.rst:1239
+#: ../../scala/stream/stages-overview.rst:1249
 msgid ""
 "**emits** when the current stream has an element available; if the "
 "current input completes, it tries the next one"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1143
+#: ../../scala/stream/stages-overview.rst:1246
+msgid "++"
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:1247
+msgid "Just a shorthand for concat"
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:1256
 msgid "prepend"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1144
+#: ../../scala/stream/stages-overview.rst:1257
 msgid ""
 "Prepends the given source to the flow, consuming it until completion "
 "before the original source is consumed."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1146
+#: ../../scala/stream/stages-overview.rst:1259
 msgid "If materialized values needs to be collected ``prependMat`` is available."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1148
+#: ../../scala/stream/stages-overview.rst:1261
 msgid ""
 "**emits** when the given stream has an element available; if the given "
 "input completes, it tries the current one"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1155
+#: ../../scala/stream/stages-overview.rst:1268
+msgid "orElse"
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:1269
+msgid ""
+"If the primary source completes without emitting any elements, the "
+"elements from the secondary source are emitted. If the primary source "
+"emits any elements the secondary source is cancelled."
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:1272
+msgid ""
+"Note that both sources are materialized directly and the secondary source"
+" is backpressured until it becomes the source of elements or is "
+"cancelled."
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:1275
+msgid ""
+"Signal errors downstream, regardless which of the two sources emitted the"
+" error."
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:1277
+msgid ""
+"**emits** when an element is available from first stream or first stream "
+"closed without emitting any elements and an element is available from the"
+" second stream"
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:1282
+msgid ""
+"**completes** the primary stream completes after emitting at least one "
+"element, when the primary stream completes without emitting and the "
+"secondary stream already has completed or when the secondary stream "
+"completes"
+msgstr ""
+
+#: ../../scala/stream/stages-overview.rst:1286
 msgid "interleave"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1156
+#: ../../scala/stream/stages-overview.rst:1287
 msgid ""
 "Emits a specifiable number of elements from the original source, then "
 "from the provided source and repeats. If one source completes the rest of"
 " the other stream will be emitted."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1159
+#: ../../scala/stream/stages-overview.rst:1290
 msgid "**emits** when element is available from the currently consumed upstream"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1161
+#: ../../scala/stream/stages-overview.rst:1292
 msgid "**backpressures** when upstream backpressures"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1163
+#: ../../scala/stream/stages-overview.rst:1294
 msgid "**completes** when both upstreams have completed"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1166
+#: ../../scala/stream/stages-overview.rst:1297
 msgid "Fan-out stages"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1168
+#: ../../scala/stream/stages-overview.rst:1299
 msgid ""
 "These have one input and multiple outputs. They might route the elements "
 "between different outputs, or emit elements on multiple outputs at the "
 "same time."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1172
+#: ../../scala/stream/stages-overview.rst:1303
 msgid "unzip"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1173
+#: ../../scala/stream/stages-overview.rst:1304
 msgid ""
 "Takes a stream of two element tuples and unzips the two elements ino two "
 "different downstreams."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1175
-#: ../../scala/stream/stages-overview.rst:1185
-#: ../../scala/stream/stages-overview.rst:1195
+#: ../../scala/stream/stages-overview.rst:1306
+#: ../../scala/stream/stages-overview.rst:1316
+#: ../../scala/stream/stages-overview.rst:1326
 msgid ""
 "**emits** when all of the outputs stops backpressuring and there is an "
 "input element available"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1177
-#: ../../scala/stream/stages-overview.rst:1187
-#: ../../scala/stream/stages-overview.rst:1197
+#: ../../scala/stream/stages-overview.rst:1308
+#: ../../scala/stream/stages-overview.rst:1318
+#: ../../scala/stream/stages-overview.rst:1328
 msgid "**backpressures** when any of the outputs backpressures"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1182
+#: ../../scala/stream/stages-overview.rst:1313
 msgid "unzipWith"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1183
+#: ../../scala/stream/stages-overview.rst:1314
 msgid "Splits each element of input into multiple downstreams using a function"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1192
+#: ../../scala/stream/stages-overview.rst:1323
 msgid "broadcast"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1193
+#: ../../scala/stream/stages-overview.rst:1324
 msgid "Emit each incoming element each of ``n`` outputs."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1202
+#: ../../scala/stream/stages-overview.rst:1333
 msgid "balance"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1203
+#: ../../scala/stream/stages-overview.rst:1334
 msgid ""
 "Fan-out the stream to several streams. Each upstream element is emitted "
 "to the first available downstream consumer."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1205
+#: ../../scala/stream/stages-overview.rst:1336
 msgid ""
 "**emits** when any of the outputs stops backpressuring; emits the element"
 " to the first available output"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1207
+#: ../../scala/stream/stages-overview.rst:1338
 msgid "**backpressures** when all of the outputs backpressure"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1212
+#: ../../scala/stream/stages-overview.rst:1343
 msgid "partition"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1213
+#: ../../scala/stream/stages-overview.rst:1344
 msgid ""
 "Fan-out the stream to several streams. Each upstream element is emitted "
 "to one downstream consumer according to the partitioner function applied "
 "to the element."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1216
+#: ../../scala/stream/stages-overview.rst:1347
 msgid ""
 "**emits** when the chosen output stops backpressuring and there is an "
 "input element available"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1218
+#: ../../scala/stream/stages-overview.rst:1349
 msgid "**backpressures** when the chosen output backpressures"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1220
+#: ../../scala/stream/stages-overview.rst:1351
 msgid "**completes** when upstream completes and no output is pending"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1224
+#: ../../scala/stream/stages-overview.rst:1355
 msgid "Watching status stages"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1227
+#: ../../scala/stream/stages-overview.rst:1358
 msgid "watchTermination"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1228
+#: ../../scala/stream/stages-overview.rst:1359
 msgid ""
 "Materializes to a ``Future`` that will be completed with Done or failed "
 "depending whether the upstream of the stage has been completed or failed."
 " The stage otherwise passes through elements unchanged."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1231
+#: ../../scala/stream/stages-overview.rst:1362
 msgid "**emits** when input has an element available"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1233
+#: ../../scala/stream/stages-overview.rst:1364
 msgid "**backpressures** when output backpressures"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1238
+#: ../../scala/stream/stages-overview.rst:1369
 msgid "monitor"
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1239
+#: ../../scala/stream/stages-overview.rst:1370
 msgid ""
 "Materializes to a ``FlowMonitor`` that monitors messages flowing through "
 "or completion of the stage. The stage otherwise passes through elements "
@@ -2340,7 +2567,10 @@ msgid ""
 "time it processes an event, and may therefore affect performance."
 msgstr ""
 
-#: ../../scala/stream/stages-overview.rst:1245
+#: ../../scala/stream/stages-overview.rst:1376
 msgid "**backpressures** when downstream **backpressures**"
 msgstr ""
+
+#~ msgid "unfoldAsyncResource"
+#~ msgstr ""
 

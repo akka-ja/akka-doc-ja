@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Akka @version@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-03 22:29+0900\n"
+"POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -121,13 +121,16 @@ msgid "All other calls fail-fast with an exception just as in `Open` state"
 msgstr ""
 
 #: ../../common/circuitbreaker.rst:48
-msgid "If the first call succeeds, the breaker is reset back to `Closed` state"
+msgid ""
+"If the first call succeeds, the breaker is reset back to `Closed` state "
+"and the `resetTimeout` is reset"
 msgstr ""
 
 #: ../../common/circuitbreaker.rst:49
 msgid ""
 "If the first call fails, the breaker is tripped again into the `Open` "
-"state for another full `resetTimeout`"
+"state (as for exponential backoff circuit breaker, the `resetTimeout` is "
+"multiplied by the exponential backoff factor)"
 msgstr ""
 
 #: ../../common/circuitbreaker.rst:52
@@ -169,10 +172,12 @@ msgid "a reset timeout of 1 minute"
 msgstr ""
 
 #: ../../common/circuitbreaker.rst:71 ../../common/circuitbreaker.rst:92
+#: ../../common/circuitbreaker.rst:129
 msgid "Scala"
 msgstr ""
 
 #: ../../common/circuitbreaker.rst:78 ../../common/circuitbreaker.rst:99
+#: ../../common/circuitbreaker.rst:136
 msgid "Java"
 msgstr ""
 
@@ -194,4 +199,36 @@ msgid ""
 ":class:`Future` behavior is unnecessary, for example invoking a "
 "synchronous-only API."
 msgstr ""
+
+#: ../../common/circuitbreaker.rst:114
+msgid "Tell Pattern"
+msgstr ""
+
+#: ../../common/circuitbreaker.rst:116
+msgid ""
+"The above ``Call Protection`` pattern works well when the return from a "
+"remote call is wrapped in a ``Future``. However, when a remote call sends"
+" back a message or timeout to the caller ``Actor``, the ``Call "
+"Protection`` pattern is awkward. CircuitBreaker doesn't support it "
+"natively at the moment, so you need to use below low-level power-user "
+"APIs, ``succeed``  and  ``fail`` methods, as well as ``isClose``, "
+"``isOpen``, ``isHalfOpen``."
+msgstr ""
+
+#: ../../common/circuitbreaker.rst:123
+msgid ""
+"The below examples doesn't make a remote call when the state is "
+"`HalfOpen`. Using the power-user APIs, it is your responsibility to judge"
+" when to make remote calls in `HalfOpen`."
+msgstr ""
+
+#~ msgid "If the first call succeeds, the breaker is reset back to `Closed` state"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If the first call fails, the "
+#~ "breaker is tripped again into the "
+#~ "`Open` state for another full "
+#~ "`resetTimeout`"
+#~ msgstr ""
 
