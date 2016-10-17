@@ -55,6 +55,15 @@
 
 - 句点: `、`
 
+### スペース
+
+reStructuredText 記法でマークアップするテキストの前後には、半角スペースを挿入してください。
+reStructuredText 記法の詳細は [reStructuredText入門](http://docs.sphinx-users.jp/rest.html) を参照してください。
+
+```
+アクターは :class:`Actor` という基本 trait を拡張することで実装することができます。
+```
+
 最後に、可読性向上のため、原則として全角文字と半角文字の間に半角スペースをひとつ挿入してください。ただし、以下は例外とします。
 
 - 全角句読点と (reStructuredText 記法ではない) 半角英数字が続く場合
