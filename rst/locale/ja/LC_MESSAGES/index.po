@@ -21,4 +21,4 @@ msgstr ""
 # c0711256bef24cceba56e72338fd77b6
 #: ../../index.rst:2
 msgid "Contents"
-msgstr "日本語ドキュメント"
+msgstr "日本語のコンテンツ"
