@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Kentaro Maeda <many.front@gmail.com>, 2016\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,36 +20,36 @@ msgstr ""
 
 #: ../../intro/why-akka.rst:2
 msgid "Why Akka?"
-msgstr ""
+msgstr "なぜ Akka なのか?"
 
 #: ../../intro/why-akka.rst:5
 msgid "What features can the Akka platform offer, over the competition?"
-msgstr ""
+msgstr "Akka プラットフォームが提供する競合よりも優れた機能は何でしょうか?"
 
 #: ../../intro/why-akka.rst:7
 msgid "Akka provides scalable real-time transaction processing."
-msgstr ""
+msgstr "Akka はスケーラブルなリアルタイムトランザクション処理を提供します。"
 
 #: ../../intro/why-akka.rst:9
 msgid "Akka is an unified runtime and programming model for:"
-msgstr ""
+msgstr "Akka は以下の事柄に対する、統一的なランタイムとプログラミングモデルです。"
 
 #: ../../intro/why-akka.rst:11
 msgid "Scale up (Concurrency)"
-msgstr ""
+msgstr "スケールアップ(並行性)"
 
 #: ../../intro/why-akka.rst:12
 msgid "Scale out (Remoting)"
-msgstr ""
+msgstr "スケールアウト(リモーティング)"
 
 #: ../../intro/why-akka.rst:13
 msgid "Fault tolerance"
-msgstr ""
+msgstr "耐障害性"
 
 #: ../../intro/why-akka.rst:15
 msgid ""
 "One thing to learn and admin, with high cohesion and coherent semantics."
-msgstr ""
+msgstr "1つの事を学んで、高凝集性と一貫した方式を管理します。"
 
 #: ../../intro/why-akka.rst:17
 msgid ""
@@ -58,6 +59,8 @@ msgid ""
 "project where you need asynchronicity and lockless concurrency without "
 "hassle."
 msgstr ""
+"Akka はパフォーマンスの面だけではなくアプリケーションの規模についてもソフトウェアをスケーラブルにする有効な部品です。Akka の中核である "
+"akka-actor は非常に小さく、非同期性やロック不要の並行性を欲している既存のプロジェクトに簡単に、困難なく落とし込めます。"
 
 #: ../../intro/why-akka.rst:22
 msgid ""
@@ -67,54 +70,57 @@ msgid ""
 "running it on one machine. Akka also supplies a wide array of concurrency-"
 "paradigms, allowing users to choose the right tool for the job."
 msgstr ""
+"アプリケーションで必要としてる Akka の一部だけを選択して含めることができます。 CPUのコア周期的にますます発達しているので、Akka "
+"は一台のマシンのみで動いているとしても優れたパフォーマンスを提供する選択肢になります。また、Akka "
+"は多彩な並列性のパラダイムを供給するので、ジョブのための正しいツールを選択するのに役立ちます。"
 
 #: ../../intro/why-akka.rst:30
 msgid "What's a good use-case for Akka?"
-msgstr ""
+msgstr "Akka が向いている事例は何か?"
 
 #: ../../intro/why-akka.rst:32
 msgid ""
 "We see Akka being adopted by many large organizations in a big range of "
 "industries:"
-msgstr ""
+msgstr "私たちは Akka が多くの大きな組織や広範囲の業種で適用できると見ています。"
 
 #: ../../intro/why-akka.rst:34
 msgid "Investment and Merchant Banking"
-msgstr ""
+msgstr "投資銀行やマーチャントバンク"
 
 #: ../../intro/why-akka.rst:35
 msgid "Retail"
-msgstr ""
+msgstr "小売業"
 
 #: ../../intro/why-akka.rst:36
 msgid "Social Media"
-msgstr ""
+msgstr "ソーシャルメディア"
 
 #: ../../intro/why-akka.rst:37
 msgid "Simulation"
-msgstr ""
+msgstr "シミュレーション"
 
 #: ../../intro/why-akka.rst:38
 msgid "Gaming and Betting"
-msgstr ""
+msgstr "ゲームや賭け事"
 
 #: ../../intro/why-akka.rst:39
 msgid "Automobile and Traffic Systems"
-msgstr ""
+msgstr "自動車や交通システム"
 
 #: ../../intro/why-akka.rst:40
 msgid "Health Care"
-msgstr ""
+msgstr "ヘルスケア"
 
 #: ../../intro/why-akka.rst:41
 msgid "Data Analytics"
-msgstr ""
+msgstr "データ分析"
 
 #: ../../intro/why-akka.rst:43
 msgid ""
 "and much more. Any system with the need for high-throughput and low latency "
 "is a good candidate for using Akka."
-msgstr ""
+msgstr "他にもたくさんあります。高スループットや低レイテンシが必要などのようなシステムでも、 Akka を使うことが良い候補となるでしょう。"
 
 #: ../../intro/why-akka.rst:46
 msgid ""
@@ -123,13 +129,17 @@ msgid ""
 "horizontal and vertical scalability (add more cores and/or add more "
 "machines)."
 msgstr ""
+"Akka では、水平方向と垂直方向のスケーラビリティ(コアの追加やマシンの追加)だけでなく、サービス障害 (スーパーバイザ) "
+"や、負荷調整(バックオフ戦略、タイムアウト、プロセス分離) も管理します。"
 
 #: ../../intro/why-akka.rst:50
 msgid ""
 "Here's what some of the Akka users have to say about how they are using "
 "Akka: http://stackoverflow.com/questions/4493001/good-use-case-for-akka"
 msgstr ""
+"こちらに、 Akka のユーザーが Akka をどのように使用しているかを述べているものがあります。\n"
+"http://stackoverflow.com/questions/4493001/good-use-case-for-akka"
 
 #: ../../intro/why-akka.rst:53
 msgid "All this in the ApacheV2-licensed open source project."
-msgstr ""
+msgstr "これら全ては、Apache 2 ライセンスのもとのオープンソースプロジェクトです。"
