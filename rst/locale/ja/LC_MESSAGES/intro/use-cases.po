@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Yugo Maede <yugo.maede@gmail.com>, 2016\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 
 #: ../../intro/use-cases.rst:6
 msgid "Examples of use-cases for Akka"
-msgstr ""
+msgstr "Akka によるユースケースの事例"
 
 #: ../../intro/use-cases.rst:8
 msgid ""
@@ -29,6 +30,9 @@ msgid ""
 "health care, data analytics and much more. Any system that have the need for"
 " high-throughput and low latency is a good candidate for using Akka."
 msgstr ""
+"私たちは Akka "
+"が幅広い産業の多数の組織で採用されるのを知っています。投資銀行やマーチャントバンク、小売業、ソーシャルメディア、シミュレーション、ゲーム、賭け事、自動車や交通システム、ヘルスケア、データ解析、その他に沢山あります。どのシステムも高スループットと低レイテンシが必要であったため、"
+" Akka を使うことが良い選択肢になります。"
 
 #: ../../intro/use-cases.rst:14
 msgid ""
@@ -36,74 +40,80 @@ msgid ""
 "by production users `here <http://stackoverflow.com/questions/4493001/good-"
 "use-case-for-akka/4494512#4494512>`_"
 msgstr ""
+"Akka を実際に使用したユーザーによる Akka "
+"の評価と、それに対する大きな議論は、`こちら<http://stackoverflow.com/questions/4493001/good-use-"
+"case-for-akka/4494512#4494512>`_  にあります。 "
 
 #: ../../intro/use-cases.rst:18
 msgid ""
 "Here are some of the areas where Akka is being deployed into production"
-msgstr ""
+msgstr "プロダクトに Akka を採用した分野の一部"
 
 #: ../../intro/use-cases.rst:21
 msgid ""
 "Transaction processing (Online Gaming, Finance/Banking, Trading, Statistics,"
 " Betting, Social Media, Telecom)"
-msgstr ""
+msgstr "トランザクション処理( オンラインゲーム、 金融/銀行、株式取引、統計、賭け事、ソーシャルメディア、通信)"
 
 #: ../../intro/use-cases.rst:22 ../../intro/use-cases.rst:47
 #: ../../intro/use-cases.rst:51 ../../intro/use-cases.rst:55
 #: ../../intro/use-cases.rst:59
 msgid "Scale up, scale out, fault-tolerance / HA"
-msgstr ""
+msgstr "スケールアップ、スケールアウト、耐障害性 / 高可用性"
 
 #: ../../intro/use-cases.rst:25
 msgid "Service backend (any industry, any app)"
-msgstr ""
+msgstr "バックエンドシステム (あらゆる業界やアプリケーション)"
 
 #: ../../intro/use-cases.rst:26
 msgid ""
 "Service REST, SOAP, Cometd, WebSockets etc Act as message hub / integration "
 "layer Scale up, scale out, fault-tolerance / HA"
 msgstr ""
+"REST、SOAP サービス、 Comet、 WebSocket など、メッセージハブやインテグレーション層の スケールアップ、スケールアウト、耐障害性"
+" / 高可用性"
 
 #: ../../intro/use-cases.rst:31
 msgid "Concurrency/parallelism (any app)"
-msgstr ""
+msgstr "並行性 / 並列性 (あらゆるアプリケーション)"
 
 #: ../../intro/use-cases.rst:32
 msgid ""
 "Correct Simple to work with and understand Just add the jars to your "
 "existing JVM project (use Scala, Java, Groovy or JRuby)"
 msgstr ""
+"正確で簡単に動作します。また、既存の JVMプロジェクト( Scala、Java、Groove、JRubyなど) にJar を追加するだけです。"
 
 #: ../../intro/use-cases.rst:37
 msgid "Simulation"
-msgstr ""
+msgstr "シミュレーション"
 
 #: ../../intro/use-cases.rst:38
 msgid "Master/Worker, Compute Grid, MapReduce etc."
-msgstr ""
+msgstr "マスタとワーカーによる分散構成、 グリッドコンピューティング、 MapReduce など"
 
 #: ../../intro/use-cases.rst:41
 msgid "Batch processing (any industry)"
-msgstr ""
+msgstr "バッチ処理 (あらゆる業種)"
 
 #: ../../intro/use-cases.rst:42
 msgid ""
 "Camel integration to hook up with batch data sources Actors divide and "
 "conquer the batch workloads"
-msgstr ""
+msgstr "Apache Camel との統合により バッチデータソースとアクターを接続し、バッチの作業量を分割統治します。"
 
 #: ../../intro/use-cases.rst:46
 msgid "Communications Hub (Telecom, Web media, Mobile media)"
-msgstr ""
+msgstr "通信ハブ(通信業、Web メディア、モバイルメディア)"
 
 #: ../../intro/use-cases.rst:50
 msgid "Gaming and Betting (MOM, online gaming, betting)"
-msgstr ""
+msgstr "ゲームや賭け事 (MOM、オンラインゲーム、賭け事)"
 
 #: ../../intro/use-cases.rst:54
 msgid "Business Intelligence/Data Mining/general purpose crunching"
-msgstr ""
+msgstr "BI / データマイニング / 多目的解析"
 
 #: ../../intro/use-cases.rst:58
 msgid "Complex Event Stream Processing"
-msgstr ""
+msgstr "複雑なイベントストリームの処理"
