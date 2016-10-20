@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Yugo Maede <yugo.maede@gmail.com>, 2016\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,11 +20,11 @@ msgstr ""
 
 #: ../../intro/getting-started.rst:2
 msgid "Getting Started"
-msgstr ""
+msgstr "はじめてみましょう"
 
 #: ../../intro/getting-started.rst:5
 msgid "Prerequisites"
-msgstr ""
+msgstr "前提条件"
 
 #: ../../intro/getting-started.rst:7
 msgid ""
@@ -31,6 +32,9 @@ msgid ""
 "<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_ or "
 "later installed on your machine."
 msgstr ""
+"Akka は `Java 8 "
+"<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_ "
+"以降のものがマシンにインストールされている必要があります。"
 
 #: ../../intro/getting-started.rst:10
 msgid ""
@@ -40,10 +44,14 @@ msgid ""
 "available for Java 6 in case your project can not upgrade to Java 8 just "
 "yet. It also includes additional commercial features or libraries."
 msgstr ""
+"`Lightbend Inc. <http://www.lightbend.com>`_ では、Akka や 関連プロジェクトである Scala や "
+"Play を含む `Lightbend Reactive Platform <http://www.lightbend.com/platform>`_ "
+"を提供しています。 これは現時点では Java 8 にアップグレードできない Java 6 "
+"のプロジェクトにも利用可能です。他にも商用機能やライブラリが追加で含まれています。"
 
 #: ../../intro/getting-started.rst:15
 msgid "Getting Started Guides and Template Projects"
-msgstr ""
+msgstr "ガイドとテンプレートプロジェクトからはじめる"
 
 #: ../../intro/getting-started.rst:17
 msgid ""
@@ -51,10 +59,13 @@ msgid ""
 "<http://www.lightbend.com/platform/getstarted>`_ and try out one of Akka "
 "Template Projects."
 msgstr ""
+"Akka の学習を始める最も良い方法は、 `Lightbend Activator "
+"<http://www.lightbend.com/platform/getstarted>`_ をダウンロードし、 Akka "
+"テンプレートプロジェクトのどれかひとつを試してみることです。"
 
 #: ../../intro/getting-started.rst:21
 msgid "Download"
-msgstr ""
+msgstr "ダウンロード"
 
 #: ../../intro/getting-started.rst:23
 msgid ""
@@ -63,56 +74,58 @@ msgid ""
 "distribution, which includes all modules. Or you can use a build tool like "
 "Maven or SBT to download dependencies from the Akka Maven repository."
 msgstr ""
+"Akka をダウンロードするにはいくつかの方法があります。 Lightbend Platform (前述) の一部としてダウンロードできます。全てのモジュールを含んだ完全な状態でのダウンロードもできます。\n"
+"または、 Maven や SBT のようなビルドツールを使って、Akka の Maven リポジトリから、依存性をダウンロードすることも可能です。"
 
 #: ../../intro/getting-started.rst:28
 msgid "Modules"
-msgstr ""
+msgstr "モジュール"
 
 #: ../../intro/getting-started.rst:30
 msgid ""
 "Akka is very modular and consists of several JARs containing different "
 "features."
-msgstr ""
+msgstr "Akka は非常にモジュール性を意識していて、様々な機能を含めた複数の Jar から成り立っています。"
 
 #: ../../intro/getting-started.rst:32
 msgid "``akka-actor`` – Classic Actors, Typed Actors, IO Actor etc."
-msgstr ""
+msgstr "``akka-actor`` – 典型的なアクター, Typed Actors, IO Actor など"
 
 #: ../../intro/getting-started.rst:34
 msgid "``akka-agent`` – Agents, integrated with Scala STM"
-msgstr ""
+msgstr "``akka-agent`` – Scala STM と統合された エージェント"
 
 #: ../../intro/getting-started.rst:36
 msgid "``akka-camel`` – Apache Camel integration"
-msgstr ""
+msgstr "``akka-camel`` – Apache Camel との統合"
 
 #: ../../intro/getting-started.rst:38
 msgid "``akka-cluster`` – Cluster membership management, elastic routers."
-msgstr ""
+msgstr "``akka-cluster`` – クラスタの構成管理や、弾力性のあるルーター"
 
 #: ../../intro/getting-started.rst:40
 msgid "``akka-osgi`` – Utilities for using Akka in OSGi containers"
-msgstr ""
+msgstr "``akka-osgi`` – OSGIコンテナで Akka で使うためのユーティリティ"
 
 #: ../../intro/getting-started.rst:42
 msgid "``akka-osgi-aries`` – Aries blueprint for provisioning actor systems"
-msgstr ""
+msgstr "``akka-osgi-aries`` – Aries blueprint にアクターシステムを提供します。"
 
 #: ../../intro/getting-started.rst:44
 msgid "``akka-remote`` – Remote Actors"
-msgstr ""
+msgstr "``akka-remote`` – リモートアクター"
 
 #: ../../intro/getting-started.rst:46
 msgid "``akka-slf4j`` – SLF4J Logger (event bus listener)"
-msgstr ""
+msgstr "``akka-slf4j`` – SLF4J のロガー(イベントバスノリスナー)"
 
 #: ../../intro/getting-started.rst:48
 msgid "``akka-stream`` – Reactive stream processing"
-msgstr ""
+msgstr "``akka-stream`` – リアクティブストリームの処理"
 
 #: ../../intro/getting-started.rst:50
 msgid "``akka-testkit`` – Toolkit for testing Actor systems"
-msgstr ""
+msgstr "``akka-testkit`` – アクターシステムをテストするためのツールキット"
 
 #: ../../intro/getting-started.rst:52
 msgid ""
@@ -123,37 +136,42 @@ msgid ""
 "frozen. You can help accelerating this process by giving feedback on these "
 "modules on our mailing list."
 msgstr ""
+"これらの安定しているモジュールに加えて、現時点では “experimental” "
+"とマークされた安定に向かっている途中であるモジュールがいくつかあります。これはこれらが意図したとおりに機能しないというわけではなく、 API "
+"を凍結するにはまた十分ではなく検討が必要であることを意味しています。このプロセスを早めるために、あなたはこれらのモジュールのメーリングリストでフィードバックを提供することができます。"
 
 #: ../../intro/getting-started.rst:59
 msgid ""
 "``akka-contrib`` – an assortment of contributions which may or may not be "
 "moved into core modules, see :ref:`akka-contrib` for more details."
 msgstr ""
+"``akka-contrib`` – コアモジュールに移動するかもしれないししないかもしれないコントリビューションの集まりです。詳細は :ref"
+":`akka-contrib`  を見てください。"
 
 #: ../../intro/getting-started.rst:62
 msgid ""
 "The filename of the actual JAR is for example ``@jarName@`` (and analog for "
 "the other modules)."
-msgstr ""
+msgstr "実際の JAR ファイルの名前は、 ``@jarName@`` (その他もモジュールも同様) のようになります。"
 
 #: ../../intro/getting-started.rst:65
 msgid ""
 "How to see the JARs dependencies of each Akka module is described in the "
 ":ref:`dependencies` section."
-msgstr ""
+msgstr "各 Akka モジュールの JAR の依存性の調べ方は、 :ref:`dependencies`  セクションに書いてあります。"
 
 #: ../../intro/getting-started.rst:69
 msgid "Using a release distribution"
-msgstr ""
+msgstr "リリース済みの配布物を使用する"
 
 #: ../../intro/getting-started.rst:71
 msgid ""
 "Download the release you need from http://akka.io/downloads and unzip it."
-msgstr ""
+msgstr "http://akka.io/downloads から必要なリリースをダウンロードし、zip を解凍してください。"
 
 #: ../../intro/getting-started.rst:74
 msgid "Using a snapshot version"
-msgstr ""
+msgstr "スナップショットのバージョンを使用する"
 
 #: ../../intro/getting-started.rst:76
 msgid ""
@@ -162,44 +180,47 @@ msgid ""
 "timestamped version to work with and can decide when to update to a newer "
 "version."
 msgstr ""
+"Akka の夜間ビルドのスナップショットは、http://repo.akka.io/snapshots/ に公開され、``SNAPSHOT`` "
+"とタイムスタンプの両方でバージョン付けされています。 "
+"使用するタイムスタンプのバージョンを選ぶことができますし、新しいバージョンに更新する時を決めることができます。"
 
 #: ../../intro/getting-started.rst:82
 msgid ""
 "The use of Akka SNAPSHOTs, nightlies and milestone releases is discouraged "
 "unless you know what you are doing."
-msgstr ""
+msgstr "スナップショット、夜間ビルド、マイルストーンリリースの Akka を使うことは、何をしたいかが明確でない限りは推奨しません。"
 
 #: ../../intro/getting-started.rst:87
 msgid "Using a build tool"
-msgstr ""
+msgstr "ビルドツールを使用する"
 
 #: ../../intro/getting-started.rst:89
 msgid "Akka can be used with build tools that support Maven repositories."
-msgstr ""
+msgstr "Akka は Maven リポジトリをサポートしているビルドツールを使用できます。"
 
 #: ../../intro/getting-started.rst:92
 msgid "Maven repositories"
-msgstr ""
+msgstr "Maven リポジトリ"
 
 #: ../../intro/getting-started.rst:94
 msgid "For Akka version 2.1-M2 and onwards:"
-msgstr ""
+msgstr "バージョン 2.1-M2以降のAkka の場合は以下です。"
 
 #: ../../intro/getting-started.rst:96
 msgid "`Maven Central <https://repo1.maven.org/maven2/>`_"
-msgstr ""
+msgstr "`Maven Central <https://repo1.maven.org/maven2/>`_"
 
 #: ../../intro/getting-started.rst:98
 msgid "For previous Akka versions:"
-msgstr ""
+msgstr "それよりも以前のバージョンの Akka は以下です。"
 
 #: ../../intro/getting-started.rst:100
 msgid "`Akka Repo <http://repo.akka.io/releases/>`_"
-msgstr ""
+msgstr "`Akka Repo <http://repo.akka.io/releases/>`_"
 
 #: ../../intro/getting-started.rst:103
 msgid "Using Akka with Maven"
-msgstr ""
+msgstr "Akka を Maven で使用する"
 
 #: ../../intro/getting-started.rst:105
 msgid ""
@@ -208,6 +229,10 @@ msgid ""
 "tutorial named `Akka Main in Java "
 "<http://www.lightbend.com/activator/template/akka-sample-main-java>`_."
 msgstr ""
+"Akka と Maven を始める最もシンプルな方法は、 `Lightbend Activator "
+"<http://www.lightbend.com/platform/getstarted>`_ をチェックアウトし、 `Akka Main in "
+"Java <http://www.lightbend.com/activator/template/akka-sample-main-java>`_ "
+"という名前のチュートリアルを開始することです。"
 
 #: ../../intro/getting-started.rst:109
 msgid ""
@@ -215,22 +240,24 @@ msgid ""
 "enough to add the Akka dependencies to the POM. For example, here is the "
 "dependency for akka-actor:"
 msgstr ""
+"Akka は Maven のセントラルリポジトリに公開(バージョン 2.1-M2から)されていますので、 POM に Akka "
+"の依存性を追加するだけで充分です。たとえは、 akka-actor の依存性をの例を見てみましょう。"
 
 #: ../../intro/getting-started.rst:121 ../../intro/getting-started.rst:168
 #: ../../intro/getting-started.rst:202
 msgid ""
 "For snapshot versions, the snapshot repository needs to be added as well:"
-msgstr ""
+msgstr "スナップショットバージョンを使うには、次のようにスナップショットノリポジトリの追加が必要です。"
 
 #: ../../intro/getting-started.rst:135
 msgid ""
 "**Note**: for snapshot versions both ``SNAPSHOT`` and timestamped versions "
 "are published."
-msgstr ""
+msgstr "**注意**: スナップショットバージョンには、 ``SNAPSHOT`` と タイムスタンプ付きバージョンの両方が公開されています。"
 
 #: ../../intro/getting-started.rst:139
 msgid "Using Akka with SBT"
-msgstr ""
+msgstr "Akka を SBT で使用する"
 
 #: ../../intro/getting-started.rst:141
 msgid ""
@@ -238,10 +265,13 @@ msgid ""
 "Activator <http://www.lightbend.com/platform/getstarted>`_ with one of the "
 "SBT `templates <https://www.lightbend.com/activator/templates>`_."
 msgstr ""
+"Akka と SBT を始める最も簡単な方法は、 `Lightbend Activator "
+"<http://www.lightbend.com/platform/getstarted>`_ にある、 SBT  `テンプレート "
+"<https://www.lightbend.com/activator/templates>`_ のどれか1つを使うことです。"
 
 #: ../../intro/getting-started.rst:144
 msgid "Summary of the essential parts for using Akka with SBT:"
-msgstr ""
+msgstr "SBT で Akka を使うにあたり重要な部分の要約です。"
 
 #: ../../intro/getting-started.rst:146
 msgid ""
@@ -249,10 +279,12 @@ msgid ""
 "sbt.org/release/tutorial/Setup.html <http://www.scala-"
 "sbt.org/release/tutorial/Setup.html>`_"
 msgstr ""
+"SBT のインストール手順は `http://www.scala-sbt.org/release/tutorial/Setup.html "
+"<http://www.scala-sbt.org/release/tutorial/Setup.html>`_ にあります。"
 
 #: ../../intro/getting-started.rst:148
 msgid "``build.sbt`` file:"
-msgstr ""
+msgstr "``build.sbt`` ファイルです。:"
 
 #: ../../intro/getting-started.rst:161
 msgid ""
@@ -260,20 +292,25 @@ msgid ""
 "and higher.  If you are using an older version of SBT, the "
 "libraryDependencies should look like this:"
 msgstr ""
+"**注意**: 上記の libraryDependencies の設定は、 SBT の バージョン 0.12.x 以降で有効です。もし古いバージョンの "
+"SBT を使っている場合、 libraryDependencies はこのようになるはずです。"
 
 #: ../../intro/getting-started.rst:176
 msgid "Using Akka with Gradle"
-msgstr ""
+msgstr "Akka を Gradle で使用する"
 
 #: ../../intro/getting-started.rst:178
 msgid ""
 "Requires at least `Gradle <https://gradle.org>`_ 1.4 Uses the `Scala plugin "
 "<http://www.gradle.org/docs/current/userguide/scala_plugin.html>`_"
 msgstr ""
+"最低限 `Scala plugin "
+"<http://www.gradle.org/docs/current/userguide/scala_plugin.html>`_ を導入した  "
+"`Gradle <https://gradle.org>`_ 1.4 が必要です。"
 
 #: ../../intro/getting-started.rst:215
 msgid "Using Akka with Eclipse"
-msgstr ""
+msgstr "Eclipse で Akka を使用する"
 
 #: ../../intro/getting-started.rst:217
 msgid ""
@@ -281,74 +318,86 @@ msgid ""
 "<https://github.com/typesafehub/sbteclipse>`_ to generate an Eclipse "
 "project."
 msgstr ""
+"SBT のプロジェクトをセットアップしてから、  `sbteclipse "
+"<https://github.com/typesafehub/sbteclipse>`_ を使って、Eclipse プロジェクトを生成します。"
 
 #: ../../intro/getting-started.rst:220
 msgid "Using Akka with IntelliJ IDEA"
-msgstr ""
+msgstr "Akk を IntellJ IDEA で使用する"
 
 #: ../../intro/getting-started.rst:222
 msgid ""
 "Setup SBT project and then use `sbt-idea <https://github.com/mpeltonen/sbt-"
 "idea>`_ to generate an IntelliJ IDEA project."
 msgstr ""
+"SBT のプロジェクトをセットアップしてから、 `sbt-idea <https://github.com/mpeltonen/sbt-idea>`_ "
+"を使って、 IntellJ IDEA プロジェクトを生成します。"
 
 #: ../../intro/getting-started.rst:225
 msgid "Using Akka with NetBeans"
-msgstr ""
+msgstr "Akka を NetBeans で使用する"
 
 #: ../../intro/getting-started.rst:227
 msgid ""
 "Setup SBT project and then use `nbsbt <https://github.com/dcaoyuan/nbsbt>`_ "
 "to generate a NetBeans project."
 msgstr ""
+"SBT のプロジェクトをセットアップしてから、 `nbsbt <https://github.com/dcaoyuan/nbsbt>`_ を使って、 "
+"NetBeans プロジェクトを生成します。"
 
 #: ../../intro/getting-started.rst:229
 msgid ""
 "You should also use `nbscala <https://github.com/dcaoyuan/nbscala>`_ for "
 "general scala support in the IDE."
 msgstr ""
+"加えて、 IDE で Scala をサポートするために `nbscala <https://github.com/dcaoyuan/nbscala>`_"
+" も使用するべきでしょう。"
 
 #: ../../intro/getting-started.rst:232
 msgid "Do not use -optimize Scala compiler flag"
-msgstr ""
+msgstr "Scala コンパイラの -optimize フラグを使用してはいけません"
 
 #: ../../intro/getting-started.rst:236
 msgid ""
 "Akka has not been compiled or tested with -optimize Scala compiler flag. "
 "Strange behavior has been reported by users that have tried it."
 msgstr ""
+"Akka は Scala コンパイラの -optimize "
+"フラグを使用してコンパイルもテストもされていません。それを試したユーザから、奇妙な挙動を示すことが報告されています。"
 
 #: ../../intro/getting-started.rst:241
 msgid "Build from sources"
-msgstr ""
+msgstr "ソースからビルドする"
 
 #: ../../intro/getting-started.rst:243
 msgid "Akka uses Git and is hosted at `Github <https://github.com>`_."
-msgstr ""
+msgstr "Akka は Git を使用し、 `Github <https://github.com>`_ でホストしています。"
 
 #: ../../intro/getting-started.rst:245
 msgid "Akka: clone the Akka repository from `<https://github.com/akka/akka>`_"
-msgstr ""
+msgstr "Akka: `<https://github.com/akka/akka>`_ から Akka のリポジトリをクローンしてください。"
 
 #: ../../intro/getting-started.rst:247
 msgid "Continue reading the page on :ref:`building-akka`"
-msgstr ""
+msgstr "続きは、 :ref:`building-akka` を見てください。"
 
 #: ../../intro/getting-started.rst:250
 msgid "Need help?"
-msgstr ""
+msgstr "助けが必要ですか?"
 
 #: ../../intro/getting-started.rst:252
 msgid ""
 "If you have questions you can get help on the `Akka Mailing List "
 "<https://groups.google.com/group/akka-user>`_."
 msgstr ""
+"もし質問があるなら、`Akka Mailing List <https://groups.google.com/group/akka-user>`_ "
+"が助けになります。"
 
 #: ../../intro/getting-started.rst:254
 msgid ""
 "You can also ask for `commercial support <https://www.lightbend.com>`_."
-msgstr ""
+msgstr "他にも `商用サポート<https://www.lightbend.com>`_ に依頼ができます。 "
 
 #: ../../intro/getting-started.rst:256
 msgid "Thanks for being a part of the Akka community."
-msgstr ""
+msgstr "Akka コミュニティの一員になってくれて、ありがとうございます。"
