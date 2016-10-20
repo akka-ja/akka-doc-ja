@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Yugo Maede <yugo.maede@gmail.com>, 2016\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,37 +20,42 @@ msgstr ""
 
 #: ../../intro/deployment-scenarios.rst:5
 msgid "Use-case and Deployment Scenarios"
-msgstr ""
+msgstr "ユースケースとデプロイの概要"
 
 #: ../../intro/deployment-scenarios.rst:8
 msgid "How can I use and deploy Akka?"
-msgstr ""
+msgstr "どうやって Akka を使用しデプロイするか"
 
 #: ../../intro/deployment-scenarios.rst:10
 msgid "Akka can be used in different ways:"
-msgstr ""
+msgstr "Akka は色々な方法で使用できます。"
 
 #: ../../intro/deployment-scenarios.rst:12
 msgid ""
 "As a library: used as a regular JAR on the classpath and/or in a web app, to"
 " be put into ``WEB-INF/lib``"
 msgstr ""
+"ライブラリとして: 通常の JAR のように、クラスパスや web アプリケーションであれば ``WEB-INF/lib`` に置いて使用します。"
 
 #: ../../intro/deployment-scenarios.rst:15
 msgid ""
 "Package with `sbt-native-packager <https://github.com/sbt/sbt-native-"
 "packager>`_"
 msgstr ""
+"`sbt-native-packager <https://github.com/sbt/sbt-native-packager>`_ "
+"でパッケージ化します。"
 
 #: ../../intro/deployment-scenarios.rst:17
 msgid ""
 "Package and deploy using `Lightbend ConductR "
 "<http://www.lightbend.com/products/conductr>`_."
 msgstr ""
+"`Lightbend ConductR <http://www.lightbend.com/products/conductr>`_ "
+"でパッケージ化しデプロイします。"
 
 #: ../../intro/deployment-scenarios.rst:21
 msgid "Native Packager"
-msgstr ""
+msgstr "Native Packager"
 
 #: ../../intro/deployment-scenarios.rst:23
 msgid ""
@@ -57,22 +63,26 @@ msgid ""
 "tool for creating distributions of any type of application, including an "
 "Akka applications."
 msgstr ""
+"`sbt-native-packager <https://github.com/sbt/sbt-native-packager>`_ "
+"は配布物を生成するためのツールで、Akka アプリケーションを含むあらゆるタイプのアプリケーションで使えます。"
 
 #: ../../intro/deployment-scenarios.rst:26
 msgid "Define sbt version in ``project/build.properties`` file:"
-msgstr ""
+msgstr "`project/build.properties`` file に sbt のバージョンを定義します。:"
 
 #: ../../intro/deployment-scenarios.rst:32
 msgid ""
 "Add `sbt-native-packager <https://github.com/sbt/sbt-native-packager>`_ in "
 "``project/plugins.sbt`` file:"
 msgstr ""
+"``project/plugins.sbt`` ファイルに `sbt-native-packager <https://github.com/sbt"
+"/sbt-native-packager>`_ を追加します。"
 
 #: ../../intro/deployment-scenarios.rst:38
 msgid ""
 "Use the package settings and optionally specify the mainClass in "
 "``build.sbt`` file:"
-msgstr ""
+msgstr "パッケージ設定を使用し、必要に応じて ``build.sbt`` ファイルに mainClass を明示します。"
 
 #: ../../intro/deployment-scenarios.rst:43
 msgid ""
@@ -81,28 +91,31 @@ msgid ""
 "``packageArchetype.akka_application``), since it doesn't have the same "
 "flexibility and quality as the ``JavaServerAppPackaging``."
 msgstr ""
+"``JavaServerAppPackaging`` を使用してください。非推奨の ``AkkaAppPackaging``  ( 以前は "
+"``packageArchetype.akka_application`` という名前でした) は、``JavaServerAppPackaging``"
+" と同様の柔軟性と品質を持っていないため、使用しないでください。"
 
 #: ../../intro/deployment-scenarios.rst:47
 msgid "Use sbt task ``dist`` package the application."
-msgstr ""
+msgstr "アプリケーションをパッケージ化するために、 sbt の ``dist`` タスクを使用します。 "
 
 #: ../../intro/deployment-scenarios.rst:49
 msgid "To start the application (on a unix-based system):"
-msgstr ""
+msgstr "アプリケーションを開始します。(Unix システムの場合)"
 
 #: ../../intro/deployment-scenarios.rst:58
 msgid "Use ``Ctrl-C`` to interrupt and exit the application."
-msgstr ""
+msgstr "アプリケーションに割り込み、終了するためには、 ``Ctrl-C`` を使います。"
 
 #: ../../intro/deployment-scenarios.rst:60
 msgid ""
 "On a Windows machine you can also use the ``bin\\akka-sample-main-"
 "scala.bat`` script."
-msgstr ""
+msgstr "Windows  マシンでは、 ``bin\\akka-sample-main-scala.bat``  というスクリプを使用できます。"
 
 #: ../../intro/deployment-scenarios.rst:64
 msgid "In a Docker container"
-msgstr ""
+msgstr "Docker コンテナで"
 
 #: ../../intro/deployment-scenarios.rst:65
 msgid ""
@@ -111,9 +124,13 @@ msgid ""
 "configuration when using Docker, described here: :ref:`remote-configuration-"
 "nat`"
 msgstr ""
+"Akka remoting と Akka Cluster の両方を、Docker コンテナで使用できます。ですが Docker "
+"を使う上で、ネットワークの設定には特に注意を払う必要があります。:ref:`remote-configuration-nat` に記述してあります。"
 
 #: ../../intro/deployment-scenarios.rst:69
 msgid ""
 "For an example of how to set up a project using Akka Cluster and Docker take"
 " a look at the `\"akka-docker-cluster\" activator template`__."
 msgstr ""
+"Akka Cluster と Docker を使ったプロジェクトのセットアップの方法の一例は、 `\"akka-docker-cluster\" "
+"activator template`__ を見てください。"
