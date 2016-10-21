@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Kentaro Maeda <many.front@gmail.com>, 2016\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 
 #: ../../general/terminology.rst:4
 msgid "Terminology, Concepts"
-msgstr ""
+msgstr "用語・コンセプト"
 
 #: ../../general/terminology.rst:6
 msgid ""
@@ -29,10 +30,13 @@ msgid ""
 "agreed definition. We simply seek to give working definitions that will be "
 "used in the scope of the Akka documentation."
 msgstr ""
+"この章では、Akka "
+"が対象としている並行・分散システムに関してコミュニケーションするための土台を固めるため共通の用語について確立することを試みます。これらの用語の多くが定義が１つだけであるとは限らないことに注意してください。"
+" 単純にAkka のドキュメントの範囲で有効な定義を設定するまでにしておきます。"
 
 #: ../../general/terminology.rst:11
 msgid "Concurrency vs. Parallelism"
-msgstr ""
+msgstr "並行性 対 並列性"
 
 #: ../../general/terminology.rst:13
 msgid ""
@@ -43,10 +47,13 @@ msgid ""
 "sequentially and mixed with parts of other tasks. *Parallelism* on the other"
 " hand arise when the execution can be truly simultaneous."
 msgstr ""
+"並行性と並列性は同じような概念ですが、違う部分も少しあります。 *並行性* とは "
+"2つあるいはそれ以上のタスクが同時に実行されなくても進行していくことを意味します。これはたとえばタイムスライシングのような、タスクの一部が他のタスクと混ざり合って順次実行される形式で見ることができます。一方、"
+" *並行性* とは本当に同時で実行されるものです。"
 
 #: ../../general/terminology.rst:19
 msgid "Asynchronous vs. Synchronous"
-msgstr ""
+msgstr "非同期 対 同期"
 
 #: ../../general/terminology.rst:21
 msgid ""
@@ -57,6 +64,9 @@ msgid ""
 "additional mechanism (it might be a registered callback, a Future, or a "
 "message)."
 msgstr ""
+"メソッドの呼び出しは *同期* であると考えられ、呼び出し側はメソッドが値を返すか例外を投げるまで先に進むことができません。 一方、 *非同期* "
+"呼び出しでは呼び出し側が有限個のステップを進めることができ、メソッドの完了はいくつかの追加手段(コールバックの登録、 Future、 "
+"あるいはメッセージなどかもしれません) を通して通知されます。"
 
 #: ../../general/terminology.rst:26
 msgid ""
@@ -67,10 +77,13 @@ msgid ""
 "nature: an actor can progress after a message send without waiting for the "
 "actual delivery to happen."
 msgstr ""
+"同期 API は同期を実装するためにブロッキングを使うかもしれませんが、これは必要ではありません。 非常に CPU "
+"に集中したタスクは、ブロッキングと同じような振る舞いをするかもしれません。一般的に、システムが進行できることを保証するためには非同期 API "
+"を使うことが好まれます。 Actor は最初から非同期であるため、アクターがメッセージを送った後、実際に送信が起きるのを待たずに先に進むことができます。"
 
 #: ../../general/terminology.rst:32
 msgid "Non-blocking vs. Blocking"
-msgstr ""
+msgstr "ノンブロッキング 対 ブロッキング"
 
 #: ../../general/terminology.rst:34
 msgid ""
@@ -81,6 +94,9 @@ msgid ""
 "loop) other threads waiting on the resource can not progress. In contrast, "
 "*non-blocking* means that no thread is able to indefinitely delay others."
 msgstr ""
+"*ブロッキング* について取り上げます。もし1 "
+"つのスレッドが遅延したら、他のスレッドも無期限に遅延するものです。この好例は、排他処理を使った、１つのスレッドが独占的に使用できるリソースです。もし、１つのスレッドがリソースを無限に確保(例えば、誤って無限ループを走らせた場合など)すると、リソースを待ち続けているその他のスレッドは先に進むことができません。対照的に、"
+" *ノンブロッキング* は他のスレッドによって無限に遅延することが無いことを意味します。"
 
 #: ../../general/terminology.rst:39
 msgid ""
@@ -88,10 +104,11 @@ msgid ""
 "progress of the system is not trivially guaranteed when it contains blocking"
 " operations."
 msgstr ""
+"ブロッキングな操作を含んでいるとき、システム全体の進行は自明的に保証されないため、ノンブロッキングな操作はブロッキングな操作より好まれます。"
 
 #: ../../general/terminology.rst:43
 msgid "Deadlock vs. Starvation vs. Live-lock"
-msgstr ""
+msgstr "デットロック 対 スタベーション 対 ライブロック"
 
 #: ../../general/terminology.rst:45
 msgid ""
@@ -102,6 +119,9 @@ msgid ""
 "*blocking*, as it is necessary that a participant thread be able to delay "
 "the progression of other threads indefinitely."
 msgstr ""
+"*デッドロック* は複数の参加者が、先に進めるために特定の状態に変化するのをお互いに待っている状況で発生します。 "
+"特定の状態に変化する参加者が誰もいないため、誰も先に進むことはできず(行き詰まり状態) 、全てのサブシステムが影響を受けます。 "
+"参加者のスレッドが他のスレッドの進行を無限に遅らせることは必然であることから、デッドロックは、 *ブロッキング* と密接な関係にあります。"
 
 #: ../../general/terminology.rst:50
 msgid ""
@@ -112,6 +132,8 @@ msgid ""
 "tasks over low-priority ones. If the number of incoming high-priority tasks "
 "is constantly high enough, no low-priority ones will be ever finished."
 msgstr ""
+"*デッドロック* の場合は参加者の誰も先に進むことができません。対照的に、 *スタベーション* "
+"が起きときは、先に進むことができる参加者がいます。ただし、１人または複数の参加者はできないかもしれません。ネイティブのスケジューリングのアルゴリズムの事例のよくあるシナリオでは、低優先度のタスクよりも高優先度のタスクの方をいつでも選択します。もし、高優先度のタスクの発生数が常に高い状況であるなら、低優先度のタスクは終了しなくなります。"
 
 #: ../../general/terminology.rst:55
 msgid ""
@@ -126,10 +148,13 @@ msgid ""
 "between the two resources, never acquiring it, but always yielding to the "
 "other."
 msgstr ""
+"*ライブロック* は、参加者が誰も先に進めないという点で *デッドロック* "
+"と似ています。その違いは先に進むために他者を待ったままの状態で凍結するのではなく、参加者同士が絶えず状態を変化し続けてしまうことにあります。2人の参加者には利用可能な２つの同一のリソースがある例を挙げます。彼らはそれぞれリソースを取得しようとしますが、同時に他者がリソースを必要としているかもチェックします。もしリソースが他の参加者に要求されている場合は、別のインスタンスのリソースを取得しようとします。不幸な場合では、2人の参加者の間で2つのリソースが、\"行ったり来たり\""
+"  し続けることが起きるかもしれず、永久にリソースを獲得できず、常に他者に譲り続けることになります。"
 
 #: ../../general/terminology.rst:63
 msgid "Race Condition"
-msgstr ""
+msgstr "レースコンディション"
 
 #: ../../general/terminology.rst:65
 msgid ""
@@ -146,6 +171,11 @@ msgid ""
 "to determine by the server that they were sent in a different order. "
 "Depending on the meaning of the packets this can cause race conditions."
 msgstr ""
+"外部の非決定的な作用によって、イベントの集合の順序が乱されるかもしれない状況を、 *レースコンディション* と呼ぶことにします。 "
+"レースコンディションは複数のスレッドが可変の状態を共有しているときにしばしば発生し、状態を扱うスレッドの操作に予想外の挙動を起こす原因を差し込まれるかもしれません。前述の内容は一般的な事例ですが、レースコンディションを引き起こすのに状態の共有は必須ではありません。一例として、クライアントが順不動のパケット(例えば"
+" UDP データグラムなど) ``P1`` と ``P2`` をサーバに送るとします。 "
+"パケットは異なるネットワーク経路を経由して送信される可能性があるため、サーバーは 最初に ``P2`` を受け取り、次に ``P1`` "
+"を受け取ることがありえます。もし、メッセージが送信順序に関する情報を含んでいないなら、サーバーがパケットを違う順番で受け取ったと決定することは不可能です。パケットの意図に従えば、パケットはレースコンディションを引き起こします。"
 
 #: ../../general/terminology.rst:75
 msgid ""
@@ -153,10 +183,12 @@ msgid ""
 "pair of actors is that their order is always preserved. see :ref:`message-"
 "delivery-reliability`"
 msgstr ""
+"Akka では2つのアクター間で送信するメッセージの順序を常に保つことを唯一保証しています。  :ref:`メッセージデリバリーの信頼性` "
+"を見てください。"
 
 #: ../../general/terminology.rst:79
 msgid "Non-blocking Guarantees (Progress Conditions)"
-msgstr ""
+msgstr "ノンブロッキング保証 (進行状況)"
 
 #: ../../general/terminology.rst:81
 msgid ""
@@ -165,10 +197,11 @@ msgid ""
 "system. In the following sections we discuss various non-blocking properties"
 " with different strength."
 msgstr ""
+"前のセクションで述べたとおり、ブロッキングはデッドロックの危険性やシステムのスループットを低下させるなどのいくつかの理由により、望ましくありません。次のセクションでは、強度の異なるいくつかのノンブロッキングの特性について述べます。"
 
 #: ../../general/terminology.rst:86
 msgid "Wait-freedom"
-msgstr ""
+msgstr "ウェイトフリー"
 
 #: ../../general/terminology.rst:88
 msgid ""
@@ -176,6 +209,8 @@ msgid ""
 "number of steps. If a method is *bounded wait-free* then the number of steps"
 " has a finite upper bound."
 msgstr ""
+"どの呼び出しも有限個のステップで終了することができるなら、そのメソッドは *ウェイトフリー* です。 あるメソッドが  *決定的なウェイトフリー* "
+"なら、ステップ数には上限があります。"
 
 #: ../../general/terminology.rst:91
 msgid ""
@@ -184,10 +219,11 @@ msgid ""
 "progress after a finite number of steps (when the call finishes), wait-free "
 "methods are free of starvation."
 msgstr ""
+"この定義から、ウェイトフリーのメソッドは決してブロッキングしないことが導かれます。従って、デッドロックは起きません。さらに、各参加者は有限個のステップの後(呼び出しが終了した時点で)先に進むことができるため、ウェイトフリーのメソッドはスタベーションも起こしません。"
 
 #: ../../general/terminology.rst:96
 msgid "Lock-freedom"
-msgstr ""
+msgstr "ロックフリー"
 
 #: ../../general/terminology.rst:98
 msgid ""
@@ -199,10 +235,14 @@ msgid ""
 "eventually finish*. In other words, lock-freedom is not enough to guarantee "
 "the lack of starvation."
 msgstr ""
+"*ロックフリー* は *ウェイトフリー* よりも弱い特性です。 "
+"ロックフリーの場合、有限個のステップで終了するいくつかのメソッドを無限に呼び出すことがしばしばあります。この定義はロックフリー呼び出しではデットロックが起きる可能性がないということを示します。一方で、"
+" 有限個のステップで *いくつかの呼び出しだけが終了する  という保証は、*すべてが最終的に終了する* "
+"ということを保証するには不十分です。言い換えると、ロックフリーはスタベーションが無いことを保証するには不十分です。"
 
 #: ../../general/terminology.rst:104
 msgid "Obstruction-freedom"
-msgstr ""
+msgstr "オブストラクションフリー"
 
 #: ../../general/terminology.rst:106
 msgid ""
@@ -212,6 +252,10 @@ msgid ""
 "suspended), it finishes in a bounded number of steps. All lock-free objects "
 "are obstruction-free, but the opposite is generally not true."
 msgstr ""
+"*オブストラクションフリー* "
+"はここで述べるもののなかで最も弱いノンブロッキング保証です。あるメソッドが隔離された状態(他のスレッドが停止状態になるなど他のメソッドが実行されない状態)で実行する時がある場合、そのメソッドは"
+" *オブストラクションフリー* "
+"と呼ばれ、決定的なステップ数で終了します。全てのロックフリーなオブジェクトはオブストラクションフリーですが、その反対は成り立ちません。"
 
 #: ../../general/terminology.rst:111
 msgid ""
@@ -222,19 +266,25 @@ msgid ""
 "If there is a point in time, where one of the participants is the only one "
 "trying, the operation will succeed."
 msgstr ""
+"*楽観的並列性制御* (OCC) メソッドは、通常オブストラクションフリーです。 OCC "
+"のアプローチは、全ての参加者が共有オブジェクトへの操作を実行しようと試行しますが、他の参加者からの競合を検知した場合は変更をロールバックし、スケジュールに従って再試行するというものです。1人の参加者だけが試行に成功するポイントがあれば、操作は成功するでしょう。"
 
 #: ../../general/terminology.rst:117
 msgid "Recommended literature"
-msgstr ""
+msgstr "推奨文献"
 
 #: ../../general/terminology.rst:119
 msgid ""
 "The Art of Multiprocessor Programming, M. Herlihy and N Shavit, 2008. ISBN "
 "978-0123705914"
 msgstr ""
+"The Art of Multiprocessor Programming, M. Herlihy and N Shavit, 2008. ISBN "
+"978-0123705914"
 
 #: ../../general/terminology.rst:120
 msgid ""
 "Java Concurrency in Practice, B. Goetz, T. Peierls, J. Bloch, J. Bowbeer, D."
 " Holmes and D. Lea, 2006. ISBN 978-0321349606"
 msgstr ""
+"Java Concurrency in Practice, B. Goetz, T. Peierls, J. Bloch, J. Bowbeer, D."
+" Holmes and D. Lea, 2006. ISBN 978-0321349606"
