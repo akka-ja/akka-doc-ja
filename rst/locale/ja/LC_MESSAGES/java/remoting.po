@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Seiji Yamamura <ythink@mac.com>, 2016\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,13 +20,13 @@ msgstr ""
 
 #: ../../java/remoting.rst:4
 msgid "Remoting"
-msgstr ""
+msgstr "リモート処理"
 
 #: ../../java/remoting.rst:6
 msgid ""
 "For an introduction of remoting capabilities of Akka please see "
 ":ref:`remoting`."
-msgstr ""
+msgstr "Akkaのリモート処理能力の紹介は、「remoting」を見て下さい。"
 
 #: ../../java/remoting.rst:10
 msgid ""
@@ -36,32 +37,35 @@ msgid ""
 "communication in these situations network and/or Akka configuration will "
 "have to be changed as described in :ref:`symmetric-communication`."
 msgstr ""
+"前の章で述べたように、Akkaリモート処理はピアツーピア方式での通信用に設計され、クライアントサーバー型には制限があります。\n"
+"特にAkkaリモート処理はネットワーク アドレス変換やロードバランサ、Dockerコンテナー上の実行に透過的には動作しません。このような状況での対称型通信のために、ネットワークおよび/またはAkka configrationは変更しなけらばならないでしょう。ー『 対称通信 』の記載を参照。"
 
 #: ../../java/remoting.rst:18
 msgid "Preparing your ActorSystem for Remoting"
-msgstr ""
+msgstr "アクターシステムをリモート対応させる準備"
 
 #: ../../java/remoting.rst:20
 msgid ""
 "The Akka remoting is a separate jar file. Make sure that you have the "
 "following dependency in your project::"
-msgstr ""
+msgstr "Akkaリモート処理は、別々 の jar ファイルです。プロジェクトの次の依存関係があることを確認してください。"
 
 #: ../../java/remoting.rst:28
 msgid ""
 "To enable remote capabilities in your Akka project you should, at a minimum,"
 " add the following changes to your ``application.conf`` file::"
 msgstr ""
+"'Application.conf' ファイルに以下の変更を追加する必要があります、少なくとも、安家プロジェクト、リモート機能を有効にします。"
 
 #: ../../java/remoting.rst:44
 msgid ""
 "As you can see in the example above there are four things you need to add to"
 " get started:"
-msgstr ""
+msgstr "4 つ上の例でわかるようにを開始するを追加する必要があります。"
 
 #: ../../java/remoting.rst:46
 msgid "Change provider from ``local`` to ``remote``"
-msgstr ""
+msgstr "'リモート 'に 'ローカル' からプロバイダーを変更します。"
 
 #: ../../java/remoting.rst:47
 msgid ""
@@ -71,12 +75,15 @@ msgid ""
 "hence set it to a reachable IP address or resolvable name in case you want "
 "to communicate across the network."
 msgstr ""
+"アクターシステムを実行するマシンのホスト名を追加します。このホスト名は、まさにこのシステムを識別するためにリモート "
+"システムに渡され、その結果を使用する必要がある場合、このシステムに接続するためしたがって設定到達可能な IP "
+"アドレスまたは解決可能な名前をネットワーク経由で通信する場合。"
 
 #: ../../java/remoting.rst:52
 msgid ""
 "Add port number - the port the actor system should listen on, set to 0 to "
 "have it chosen automatically"
-msgstr ""
+msgstr "それを自動的に選択して 0 に設定 - アクターシステムがリッスン ポートのポート番号を追加します。"
 
 #: ../../java/remoting.rst:55
 msgid ""
@@ -85,6 +92,8 @@ msgid ""
 "system has its own network subsystem listening for connections and handling "
 "messages as not to interfere with other actor systems."
 msgstr ""
+"ポート番号は、アクターシステムは、異なる名前を持つ場合も同じマシン上の各アクターシステムで一意である必要があります。これは、各アクターシステムがある独自のネットワーク"
+" サブシステム接続のリッスンと他アクターシステムと邪魔にならないメッセージを処理するためです。"
 
 #: ../../java/remoting.rst:59
 msgid ""
@@ -92,28 +101,29 @@ msgid ""
 "to add to enable remoting. All settings are described in :ref:`remote-"
 "configuration-java`."
 msgstr ""
+"上記の例はリモート処理を有効にする追加する必要がある最低限のプロパティを示しています。すべての設定については' リモート構成 java'を参照。"
 
 #: ../../java/remoting.rst:63
 msgid "Looking up Remote Actors"
-msgstr ""
+msgstr "リモートアクターを見つける。"
 
 #: ../../java/remoting.rst:65
 msgid ""
 "``actorSelection(path)`` will obtain an ``ActorSelection`` to an Actor on a "
 "remote node::"
-msgstr ""
+msgstr "'actorSelection(path)' はリモート ノードでアクターを 'ActorSelection ' を取得します。"
 
 #: ../../java/remoting.rst:70
 msgid ""
 "As you can see from the example above the following pattern is used to find "
 "an actor on a remote node::"
-msgstr ""
+msgstr "次のパターンを使用してリモート ノードで俳優を検索上記の例からわかるように。"
 
 #: ../../java/remoting.rst:74
 msgid ""
 "Once you obtained a selection to the actor you can interact with it they "
 "same way you would with a local actor, e.g.::"
-msgstr ""
+msgstr "俳優に選択を取得後と対話できるそれ彼らなど現地の俳優と同じ方法:。"
 
 #: ../../java/remoting.rst:78
 msgid ""
@@ -125,12 +135,16 @@ msgid ""
 "``resolveOne`` method of the :class:`ActorSelection`, which returns a "
 "``Future`` of the matching :class:`ActorRef`."
 msgstr ""
+"取得する、: クラス: 'ActorRef' のために: クラス: 'ActorSelection' メッセージを送信選択する俳優からの応答の "
+"'getSender' 参照を使用する必要があります。すべてのアクターが理解し、含まれている 'ActorIdentity' "
+"のメッセージを自動的に返信する組み込み '識別' メッセージがある、: クラス: 'ActorRef'。これは 'resolveOne' "
+"法使うこともできます、: クラス: 'ActorSelection' は、一致する '未来' を返します: クラス: 'ActorRef'。"
 
 #: ../../java/remoting.rst:88
 msgid ""
 "For more details on how actor addresses and paths are formed and used, "
 "please refer to :ref:`addressing`."
-msgstr ""
+msgstr "俳優アドレスとパスが形成され、使用を参照してください方法の詳細について: ref: 'アドレス'。"
 
 #: ../../java/remoting.rst:92
 msgid ""
@@ -138,6 +152,8 @@ msgid ""
 " get delivered via the remote actor ref provider. They're delivered "
 "directly, by the local actor ref provider."
 msgstr ""
+"送信側の俳優システムでは、実際に俳優にメッセージ送信を行うリモート俳優 ref プロバイダー経由で配信されません。彼らは現地の俳優 ref "
+"プロバイダーによってを直接配信しています。"
 
 #: ../../java/remoting.rst:96
 msgid ""
@@ -146,10 +162,12 @@ msgid ""
 "from within the very same actor system, such messages will (perhaps "
 "counterintuitively) be delivered just fine."
 msgstr ""
+"脇より良いパフォーマンスを提供する、これはまた場合はホスト名から非常に同じ俳優システム内で解決することはできません実際に耳を傾けるし、リモート処理を構成すると、このようなメッセージが"
+" (おそらく意外なことに) 配信されることだけで罰金を意味します。"
 
 #: ../../java/remoting.rst:102
 msgid "Creating Actors Remotely"
-msgstr ""
+msgstr "俳優をリモートで作成します。"
 
 #: ../../java/remoting.rst:104
 msgid ""
@@ -157,6 +175,8 @@ msgid ""
 "further amend the ``application.conf`` file in the following way (only "
 "showing deployment section)::"
 msgstr ""
+"安家リモート処理の作成機能を使用する場合がある (唯一の展開セクションを示す) さらに次のように 'application.conf' "
+"ファイルを修正します。"
 
 #: ../../java/remoting.rst:117
 msgid ""
@@ -167,12 +187,16 @@ msgid ""
 "the actor, which in this sample corresponds to "
 "``sampleActorSystem@127.0.0.1:2553``."
 msgstr ""
+"上記の構成パスと俳優の反応する安家に指示します '/sampleActor 'すなわち' system.actorOf (新しい "
+"Props(...)、\"sampleActor\") ' "
+"を使用して、作成されます。この特定の俳優が直接インスタンス化されない、しかし、代わりにこのサンプルでは、'sampleActorSystem@127.0.0.1:2553"
+" ' に対応するアクターを作成するリモート システムのリモート デーモンがあります。"
 
 #: ../../java/remoting.rst:122
 msgid ""
 "Once you have configured the properties above you would do the following in "
 "code:"
-msgstr ""
+msgstr "上記のプロパティの構成を終えたらコードで、次の操作を行います。"
 
 #: ../../java/remoting.rst:126
 msgid ""
@@ -180,6 +204,8 @@ msgid ""
 "it, i.e. the classloader of the actor systems has to have a JAR containing "
 "the class."
 msgstr ""
+"それ、すなわち俳優システム クラスローダを使用してランタイムを使用する 'SampleActor' は俳優クラスは、クラスを含む jar "
+"ファイルを持っています。"
 
 #: ../../java/remoting.rst:131
 msgid ""
@@ -189,6 +215,9 @@ msgid ""
 "object, which in most cases is not serializable. It is best to make a static"
 " inner class which implements :class:`Creator<T extends Actor>`."
 msgstr ""
+"俳優の作成中にコンス トラクター引数を渡すとき、「小道具」の直列化可能性を確保するため行わない工場非静的内部クラス: "
+"これは、本質的にほとんどの場合、シリアル化可能ではないそのの外側のオブジェクトへ参照をキャプチャします。静的な内部クラスが実装をすることが最善です: "
+"クラス:' 作成者 < T は、俳優を拡張> '。"
 
 #: ../../java/remoting.rst:137
 msgid ""
@@ -196,6 +225,8 @@ msgid ""
 " ``akka.actor.serialize-creators=on``. Only Props whose ``deploy`` has "
 "``LocalScope`` are exempt from this check."
 msgstr ""
+"構成項目を設定することによってすべての小道具の直列化可能性をテストことができます ' akka.actor.serialize クリエイターに = "
+"'。だけで、小道具が '展開 '' 結び付けます ' はこのチェックから除外されます。"
 
 #: ../../java/remoting.rst:143
 msgid ""
@@ -209,10 +240,16 @@ msgid ""
 "**cannot** be used to partially match section, like this: ``/foo*/bar``, "
 "``/f*o/bar`` etc."
 msgstr ""
+"指定することができるので、俳優のパス セクションのワイルドカードと一致する、アスタリスクを使用できます: '/*/sampleActor "
+"'階層のレベルにあるすべての 'sampleActor' "
+"と一致するでしょう。特定のレベルですべてのアクターを一致するように、最後の位置にワイルドカードを使用できますまた: '/someParent/* "
+"'。非ワイルドカードの一致が常にあるのでワイルドカードより一致するように優先順位の高い: '/foo/バー ' と見なされます * * 詳細特定の * "
+"* よりも '/foo/* '、最も高い優先順位に一致した文字列だけを使用します。それに注意してください * * できません * *] "
+"セクションで、このような部分的に合わせて使用する: '/foo */バー '、'/f * o/バー」など。"
 
 #: ../../java/remoting.rst:151
 msgid "Programmatic Remote Deployment"
-msgstr ""
+msgstr "プログラム導入"
 
 #: ../../java/remoting.rst:153
 msgid ""
@@ -222,23 +259,25 @@ msgid ""
 "configuration file, and if both are given, the external configuration takes "
 "precedence."
 msgstr ""
+"動的に展開されているシステムを許可することも可能ですの配置構成が含まれる、: クラス: アクターを作成に使用される ' 小道具': "
+"この情報は、構成ファイルから展開部と同等と、両方がある場合外部構成が優先されます。"
 
 #: ../../java/remoting.rst:159
 msgid "With these imports:"
-msgstr ""
+msgstr "これらのインポート。"
 
 #: ../../java/remoting.rst:163
 msgid "and a remote address like this:"
-msgstr ""
+msgstr "このようなリモート アドレス:"
 
 #: ../../java/remoting.rst:167
 msgid ""
 "you can advise the system to create a child on that remote node like so:"
-msgstr ""
+msgstr "リモート ノードに子を作成するシステムをお勧めすることができます次のよう。"
 
 #: ../../java/remoting.rst:173
 msgid "Lifecycle and Failure Recovery Model"
-msgstr ""
+msgstr "ライフ サイクルおよび障害復旧モデル"
 
 #: ../../java/remoting.rst:179
 msgid ""
@@ -251,6 +290,10 @@ msgid ""
 "failures were encountered so far. When a communication failure happens and "
 "the connection is lost between the two systems the link becomes ``Gated``."
 msgstr ""
+"リモート システムと各リンクは、上の図の 4 つの状態のいずれかにすることができます。すべての通信が発生する前に、リモート システム指定の 'アドレス "
+"'アソシエーションのステートには' アイドル ' です。初めてリモートに送信されるメッセージが試行されたシステムまたは着信接続が受け入れられる 2 "
+"つのシステムがメッセージを送信または受信する「アクティブ」を示すリンク遷移の状態と失敗のないこれまでのところ発生しました。通信エラーが発生して、接続が "
+"2 つのシステム間のリンクを切断になる ' ゲート '。"
 
 #: ../../java/remoting.rst:185
 msgid ""
@@ -263,6 +306,10 @@ msgid ""
 "automatically transitions to ``Active`` and communication resumes "
 "immediately."
 msgstr ""
+"この状態で、システムがリモート ホストへの接続をしないし、すべての送信メッセージは削除されます。リンクは、' ゲート '状態の時間は、' "
+"akka.remote.retry-門-閉鎖-の' 設定によって制御されます。 この時間が経過すると再び '' アイドル' にリンク状態遷移。'ゲート'"
+" は意味で一方的に成功するたびに * 受信 * 'ゲート' それ自動的に遷移 'アクティブ' で通信の履歴書にすぐに中にリモート "
+"システムから接続が受け付けられます。"
 
 #: ../../java/remoting.rst:191
 msgid ""
@@ -272,20 +319,23 @@ msgid ""
 "lasts until one of the systems is restarted. After a restart communication "
 "can be resumed again and the link can become ``Active`` again."
 msgstr ""
+"参加システムの状態の一貫性がないため回復不可能な通信障害に直面してリモート システムになる「検疫」。'ゲート ' "
+"とは異なり検疫は永続的とのいずれか、システムを再起動するまで続きます。再起動後通信を再び再開することができ、リンクがなることができます 'Active'"
+" 再び。"
 
 #: ../../java/remoting.rst:196
 msgid "Watching Remote Actors"
-msgstr ""
+msgstr "リモートの俳優を見てください。"
 
 #: ../../java/remoting.rst:198
 msgid ""
 "Watching a remote actor is not different than watching a local actor, as "
 "described in :ref:`deathwatch-java`."
-msgstr ""
+msgstr "リモート俳優を見ては現地の俳優を見ても別に記載: ref:' デス ・ フロント-java'。"
 
 #: ../../java/remoting.rst:202
 msgid "Failure Detector"
-msgstr ""
+msgstr "障害検出器"
 
 #: ../../java/remoting.rst:204
 msgid ""
@@ -293,6 +343,8 @@ msgid ""
 "detector to generate ``Terminated`` message from network failures and JVM "
 "crashes, in addition to graceful termination of watched actor."
 msgstr ""
+"フードの下でリモート死の時計は、ネットワークの障害見た俳優の優雅な契約の終了に加えて、JVM クラッシュから '終了' "
+"のメッセージを生成するのにハートビート メッセージとエラー検出器を使用します。"
 
 #: ../../java/remoting.rst:208
 msgid ""
@@ -300,6 +352,9 @@ msgid ""
 "Accrual Failure Detector "
 "<http://www.jaist.ac.jp/~defago/files/pdf/IS_RR_2004_010.pdf>`_."
 msgstr ""
+"ハートビートの到着時刻は、_ '、ピピ発生障害検出器 < "
+"http://www.jaist.ac.jp/~defago/files/pdf/IS_RR_2004_010.pdf >' "
+"の実装によって解釈されます。"
 
 #: ../../java/remoting.rst:211
 msgid ""
@@ -307,17 +362,19 @@ msgid ""
 "idea of the phi failure detector is to express the value of *phi* on a scale"
 " that is dynamically adjusted to reflect current network conditions."
 msgstr ""
+"障害の疑いレベルですと呼ばれる値で与えられた * ピピ *。ピピ障害検出器の基本的な考え方は、の値を表現する * ピピ * "
+"動的に現在のネットワークの状態を反映するように調整はスケールで。"
 
 #: ../../java/remoting.rst:215
 msgid "The value of *phi* is calculated as::"
-msgstr ""
+msgstr "値 * ピピ * として計算されます。"
 
 #: ../../java/remoting.rst:219
 msgid ""
 "where F is the cumulative distribution function of a normal distribution "
 "with mean and standard deviation estimated from historical heartbeat inter-"
 "arrival times."
-msgstr ""
+msgstr "ここで F は平均と歴史的なハートビート相互到着時間から推定した標準偏差の正規分布の累積分布関数です。"
 
 #: ../../java/remoting.rst:222
 msgid ""
@@ -325,6 +382,8 @@ msgid ""
 ".watch-failure-detector.threshold`` to define when a *phi* value is "
 "considered to be a failure."
 msgstr ""
+": Ref:' 構成-java リモート '、' akka.remote.watch-障害-detector.threshold ' "
+"時期を定義するを調整することができます、* ピピの値はエラーと見なされます。"
 
 #: ../../java/remoting.rst:225
 msgid ""
@@ -336,12 +395,15 @@ msgid ""
 "could be increased to 12 in order to account for network issues that "
 "sometimes occur on such platforms."
 msgstr ""
+"低「しきい値」は多くの偽陽性を生成する傾向がある実際クラッシュが発生した場合迅速な検出を保証。逆に、高「しきい値」は、間違いを少なくを生成しますが、実際のクラッシュを検出するより多く時間必要があります。既定の「しきい値」10"
+" を、ほとんどの状況に適したです。しかし Amazon EC2 のようなクラウド環境の値まで引き上げられるだろう 12 "
+"プラットフォームでこのような時に発生するネットワークの問題に対応するために。"
 
 #: ../../java/remoting.rst:232
 msgid ""
 "The following chart illustrates how *phi* increase with increasing time "
 "since the previous heartbeat."
-msgstr ""
+msgstr "次のグラフを示していますどのように * ピピ * 以前のハートビートから時間の増加とともに増加します。"
 
 #: ../../java/remoting.rst:237
 msgid ""
@@ -351,6 +413,9 @@ msgid ""
 "steeper, i.e. it is possible to determine failure more quickly. The curve "
 "looks like this for a standard deviation of 100 ms."
 msgstr ""
+"ピピは平均から計算され、歴史の標準偏差間の到着時間。以前は 200 "
+"さんハートビート到着少ない偏差曲線の場合の標準偏差の例が急になる、すなわち障害をよりすばやく判断することが可能です。カーブは 100 ms "
+"の標準偏差を求めるようになります。"
 
 #: ../../java/remoting.rst:245
 msgid ""
@@ -361,10 +426,13 @@ msgid ""
 " depending on you environment. This is how the curve looks like for "
 "``acceptable-heartbeat-pause`` configured to 3 seconds."
 msgstr ""
+"ガベージ コレクションの休止や障害検出器が、余裕を持って構成されている一時的なネットワーク エラーなどの突然の異常を生き残るためにできるように ' "
+"akka.remote.watch-障害-detector.acceptable-ハートビート-ポーズ」。調整したい場合があります、: ref:' "
+"リモート構成-java' この場合環境によって。これはどのようにカーブの「許容-ハートビート-一時停止 '' 3 秒に設定されているようです。"
 
 #: ../../java/remoting.rst:255
 msgid "Serialization"
-msgstr ""
+msgstr "シリアル化"
 
 #: ../../java/remoting.rst:257
 msgid ""
@@ -372,14 +440,16 @@ msgid ""
 "``messages`` used for those actors are serializable. Failing to do so will "
 "cause the system to behave in an unintended way."
 msgstr ""
+"俳優のリモート処理を使用する場合 '小道具' と 'メッセージ' "
+"これらの俳優のために使用される、シリアル化を確保する必要があります。これを行うに失敗したシステムが意図しない方法で動作するが発生します。"
 
 #: ../../java/remoting.rst:260
 msgid "For more information please see :ref:`serialization-java`."
-msgstr ""
+msgstr "詳細については次を参照してください: ref:' シリアル化-java'。"
 
 #: ../../java/remoting.rst:263
 msgid "Disabling the Java Serializer"
-msgstr ""
+msgstr "Java シリアライザーを無効にします。"
 
 #: ../../java/remoting.rst:265
 msgid ""
@@ -391,6 +461,10 @@ msgid ""
 " you can disable it in this remoting implementation as well by following the"
 " steps below."
 msgstr ""
+"リリース '2.4.11 ' 以降安家のデフォルト Java シリアル化機構を完全無効にすることが可能です。注意してください: ref:' "
+"新しいリモート処理の実装 (コードネーム動脈) <remoting-artery-java>' 既定で内部メッセージの Java "
+"シリアル化は使用しません。互換性の理由から、まだ現在のリモート処理は、いくつかのクラスの Java "
+"シリアル化を使用するためしかし無効にできますそれこのリモート処理実装でも以下の手順で。"
 
 #: ../../java/remoting.rst:271
 msgid ""
@@ -402,6 +476,10 @@ msgid ""
 "internals do not rely on Java serialization anymore (one exception being "
 "``java.lang.Throwable``)."
 msgstr ""
+"Java シリアル化は遅くなること知られているであり、さまざまな種類の攻撃を受けやすいそれ決して高スループット "
+"メッセージングすべての後。しかし、それは非常に使い便利、従ってそれ残った安家ユーザー "
+"メッセージだけでなく、いくつかの以前のバージョンでその内部メッセージをシリアル化するために使用する既定のシリアル化機構です。動脈のリリース以来安家内部 "
+"Java シリアル化もう (' java.lang.Throwable ' をされている 1 つの例外) に依存しないでください。"
 
 #: ../../java/remoting.rst:277
 msgid ""
@@ -410,12 +488,15 @@ msgid ""
 "encouraged to disable java serialization, so please plan to do so at the "
 "earliest possibility you have in your project."
 msgstr ""
+"新しいリモート処理の実装 (コードネーム動脈) を使用している場合、安家はそれの内部メッセージのいずれかの Java シリアル化を使用しません。だから "
+"java シリアル化を無効にすることを奨励が、最古の可能性があります、プロジェクト内に計画してください。"
 
 #: ../../java/remoting.rst:280
 msgid ""
 "One may think that network bandwidth and latency limit the performance of "
 "remote messaging, but serialization is a more typical bottleneck."
 msgstr ""
+"1 つは、ネットワークの帯域幅と待機時間を制限するリモート メッセージングのパフォーマンスが、シリアル化はより一般的なボトルネックと思うかもしれません。"
 
 #: ../../java/remoting.rst:282
 msgid ""
@@ -428,12 +509,15 @@ msgid ""
 "serialization`_ library or `Google Protocol Buffers`_ if you want more "
 "control over the schema evolution of your messages."
 msgstr ""
+"ユーザー メッセージの Java "
+"シリアル化を使用して実装されている既定のシリアライザーと動脈で有効なままになります。しかしそれを完全に無効にし、効果的に順序の代わりに適切なシリアル化ライブラリを利用をお勧めします利用パフォーマンスの向上と動脈を使用した展開を圧延のための能力を行います。使用するをお勧めしますライブラリなどがあなたのメッセージのスキーマの展開をより細かく制御したい場合に、'Kryo'"
+" _ _ 'Akka kryo-シリアル化' ライブラリを使用してまたは 'Google のプロトコルバッファー' _ に限定されません。"
 
 #: ../../java/remoting.rst:288
 msgid ""
 "In order to completely disable Java Serialization in your Actor system you "
 "need to add the following configuration to your ``application.conf``:"
-msgstr ""
+msgstr "俳優システムで Java シリアル化を完全に無効にするために、'application.conf ' に次の構成を追加する必要があります。"
 
 #: ../../java/remoting.rst:301
 msgid ""
@@ -443,6 +527,9 @@ msgid ""
 ":ref:`ByteBuffer based serialization <remote-bytebuffer-serialization-"
 "scala>` to learn how to do this."
 msgstr ""
+"つまりは、すべてのリモート メッセージを処理することが異なるシリアライザーを構成する必要があるのでご注意ください。参照してください、: ref:' "
+"シリアル化スカラー座 ' ドキュメントと同様: ref: 'ByteBuffer ベース シリアル化 <remote-bytebuffer-"
+"serialization-scala>' これを行う方法を学習します。"
 
 #: ../../java/remoting.rst:305
 msgid ""
@@ -451,12 +538,13 @@ msgid ""
 "cluster, otherwise the mis-aligned serialization configurations will cause "
 "deserialization errors on the receiving nodes."
 msgstr ""
+"古いリモート処理を使用する場合は、追加のシリアル化バインディングを有効にするとき、に、クラスターに参加しているすべてのノードで整合が取れませんのシリアル化の構成が発生受信ノードでシリアル化解除エラーので行う必要があることに注意してください。"
 
 #: ../../java/remoting.rst:309
 msgid ""
 "You can also easily enable additional serialization bindings that are "
 "provided by Akka that are not using Java serialization:"
-msgstr ""
+msgstr "Java のシリアル化を使用していない安家によって提供される追加のシリアルのバインドも簡単にできます。"
 
 #: ../../java/remoting.rst:320
 msgid ""
@@ -466,19 +554,22 @@ msgid ""
 "enable this setting. When using :ref:`remoting-artery-scala` these "
 "serializers are enabled by default."
 msgstr ""
+"これらは既定で有効になっていない理由は、2.4.x "
+"俳優システム間線レベルの互換性です。新しいクラスターを展開する場合すべてこれらのシリアライザーを有効にすることができます同じ安家バージョンがお勧めこの設定を有効にします。使用する場合:"
+" ref:' リモート処理-動脈スカラー ' これらのシリアライザーが既定で有効になっています。"
 
 #: ../../java/remoting.rst:329
 msgid "Routers with Remote Destinations"
-msgstr ""
+msgstr "リモート宛先とルーター"
 
 #: ../../java/remoting.rst:331
 msgid ""
 "It is absolutely feasible to combine remoting with :ref:`routing-java`."
-msgstr ""
+msgstr "絶対にリモート処理を組み合わせることは不可能です: ref:' ルーティング java'。"
 
 #: ../../java/remoting.rst:333
 msgid "A pool of remote deployed routees can be configured as:"
-msgstr ""
+msgstr "リモート配置された routees のプールとして構成できます。"
 
 #: ../../java/remoting.rst:337
 msgid ""
@@ -486,10 +577,12 @@ msgid ""
 "the ``remotePool`` 10 times and deploy it evenly distributed across the two "
 "given target nodes."
 msgstr ""
+"この構成設定は 10 回 'remotePool 'の '小道具' で定義されている俳優のクローンを作成し、2 つの指定されたターゲット "
+"ノードに均等に分散展開します。"
 
 #: ../../java/remoting.rst:340
 msgid "A group of remote actors can be configured as:"
-msgstr ""
+msgstr "リモートの俳優のグループとして構成できます。"
 
 #: ../../java/remoting.rst:344
 msgid ""
@@ -497,10 +590,12 @@ msgid ""
 "paths. It requires that you create the destination actors on the remote "
 "nodes with matching paths. That is not done by the router."
 msgstr ""
+"この構成設定は、定義されたリモート俳優パスにメッセージを送信します。一致するパスとリモート ノードのターゲット "
+"アクターを作成することが必要です。ルーターで実行されていません。"
 
 #: ../../java/remoting.rst:351
 msgid "Remoting Sample"
-msgstr ""
+msgstr "リモート処理のサンプル"
 
 #: ../../java/remoting.rst:353
 msgid ""
@@ -510,10 +605,14 @@ msgid ""
 "<http://www.lightbend.com/activator/template/akka-sample-remote-java>`_ "
 "demonstrates both remote deployment and look-up of remote actors."
 msgstr ""
+"' 活性化 Lightbend < http://www.lightbend.com/platform/getstarted >'_ "
+"が付属してより広範なリモート例があります。名前 ' 安家リモート サンプル java < "
+"http://www.lightbend.com/activator/template/akka-sample-remote-java >'_ "
+"チュートリアルは、リモート展開とリモート俳優の検索の両方を示します。"
 
 #: ../../java/remoting.rst:358
 msgid "Remote Events"
-msgstr ""
+msgstr "リモートのイベント"
 
 #: ../../java/remoting.rst:360
 msgid ""
@@ -521,6 +620,8 @@ msgid ""
 "subscribe/unsubscribe to these events you simply register as listener to the"
 " below described types in on the ``ActorSystem.eventStream``."
 msgstr ""
+"購読/購読解除これらのイベントに、単に登録するリスナーとして、安家リモートで発生するイベントをリッスンすることが可能だ、下 "
+"'ActorSystem.eventStream ' の型を説明します。"
 
 #: ../../java/remoting.rst:365
 msgid ""
@@ -529,6 +630,8 @@ msgid ""
 "lifecycle of associations, subscribe to "
 ":meth:`akka.remote.AssociationEvent`."
 msgstr ""
+"任意のリモートのイベントを購読する購読する: メタンフェタミン: 'RemotingLifecycleEvent'。 アソシエーションのライフ "
+"サイクルに関連するイベントを購読する購読する: meth:'akka.remote.AssociationEvent'。"
 
 #: ../../java/remoting.rst:372
 msgid ""
@@ -537,6 +640,8 @@ msgid ""
 "similar to transport layer connections is maintained between endpoints by "
 "the Akka protocol."
 msgstr ""
+"「接続」代わりに「協会」言葉の使用、remoting サブシステムは、コネクションレス トランス "
+"ポートを使用可能性ありますが、安家プロトコルのエンドポイント間のトランスポート レイヤー接続と同様、関連付け維持に反映されます。"
 
 #: ../../java/remoting.rst:377
 msgid ""
@@ -545,12 +650,15 @@ msgid ""
 " is quite common to switch this logging off once that phase of the project "
 "is finished."
 msgstr ""
+"既定では、イベント "
+"リスナーが登録されているすべての下記イベントのログします。この既定値は、システムの設定に役立つに選ばれたが、プロジェクトのフェーズが終了したら、このログ出力をオフにすることは珍しくありません。"
 
 #: ../../java/remoting.rst:384
 msgid ""
 "In order to switch off the logging, set ``akka.remote.log-remote-lifecycle-"
 "events = off`` in your ``application.conf``."
 msgstr ""
+"ログ記録をオフに設定 'akka.remote.log リモート ライフ サイクル イベント = オフ '、'application.conf' で。"
 
 #: ../../java/remoting.rst:388
 msgid ""
@@ -558,6 +666,8 @@ msgid ""
 "``DisassociatedEvent`` which holds the direction of the association (inbound"
 " or outbound) and the addresses of the involved parties."
 msgstr ""
+"とき、協会に通知するには、が (「切断」) の上に耳を傾ける 'DisassociatedEvent ' 方向 (受信または送信) "
+"の協会および関係者のアドレスを保持します。"
 
 #: ../../java/remoting.rst:391
 msgid ""
@@ -566,6 +676,8 @@ msgid ""
 "the association (inbound or outbound) and the addresses of the involved "
 "parties."
 msgstr ""
+"関連付けが正常に確立されたときに通知するには、(「接続される」) 'AssociatedEvent ' 方向 (受信または送信) "
+"の協会および関係者のアドレスを保持するに耳を傾けます。"
 
 #: ../../java/remoting.rst:394
 msgid ""
@@ -574,6 +686,8 @@ msgid ""
 "(inbound or outbound), the addresses of the involved parties and the "
 "``Throwable`` cause."
 msgstr ""
+"直接の関連付けに関連するエラーを傍受するには、関係者と「Throwable '' 原因アドレス協会の方向 (受信または発信) を保持している '' "
+"AssociationErrorEvent '' を聞きます。"
 
 #: ../../java/remoting.rst:398
 msgid ""
@@ -581,12 +695,14 @@ msgid ""
 " listen to ``RemotingListenEvent`` which contains the addresses the remoting"
 " listens on."
 msgstr ""
+"リモート処理サブシステムはアソシエーションを受け入れる準備ができてとき通知を受ける、remoting "
+"がリッスンするアドレスを含む、'RemotingListenEvent ' に耳を傾けます。"
 
 #: ../../java/remoting.rst:401
 msgid ""
 "To be notified  when the remoting subsystem has been shut down, listen to "
 "``RemotingShutdownEvent``."
-msgstr ""
+msgstr "リモート処理サブシステムのシャット ダウンされているときに通知する、'RemotingShutdownEvent ' に耳を傾けます。"
 
 #: ../../java/remoting.rst:403
 msgid ""
@@ -594,30 +710,34 @@ msgid ""
 "listen to ``ThisActorSystemQuarantinedEvent``, which includes the addresses "
 "of local and remote ActorSystems."
 msgstr ""
+"現在のシステムは、リモート システムで検疫されたときに通知される、'ThisActorSystemQuarantinedEvent ' "
+"は、ローカルおよびリモートの ActorSystems のアドレスを含むに耳を傾けます。"
 
 #: ../../java/remoting.rst:406
 msgid ""
 "To intercept generic remoting related errors, listen to "
 "``RemotingErrorEvent`` which holds the ``Throwable`` cause."
 msgstr ""
+"ジェネリックのリモート処理をインターセプトするには、関連のエラー、'RemotingErrorEvent '' Throwable ' "
+"原因を保持しているに耳を傾けるのです。"
 
 #: ../../java/remoting.rst:409
 msgid "Remote Security"
-msgstr ""
+msgstr "リモート セキュリティ"
 
 #: ../../java/remoting.rst:411
 msgid ""
 "Akka provides a couple of ways to enhance security between remote nodes "
 "(client/server):"
-msgstr ""
+msgstr "安家は、いくつかのリモート ノード (クライアント/サーバー) 間のセキュリティを強化する方法を提供します。"
 
 #: ../../java/remoting.rst:413 ../../java/remoting.rst:417
 msgid "Untrusted Mode"
-msgstr ""
+msgstr "非信頼関係モード"
 
 #: ../../java/remoting.rst:414
 msgid "Security Cookie Handshake"
-msgstr ""
+msgstr "Cookie のセキュリティ ハンドシェイク"
 
 #: ../../java/remoting.rst:419
 msgid ""
@@ -627,6 +747,9 @@ msgid ""
 "system guardian, shutting that system down. This is not always desired, and "
 "it can be disabled with the following setting::"
 msgstr ""
+"俳優システムは別にリモート接続することができますとすぐにそれが原則として可能にメッセージを送ってそのリモート システム内に含まれる任意の俳優。1 "
+"つの例を送信する可能性があります、: クラス: システムのシャット ダウン、システム保護者に ' "
+"PoisonPill'。これは常に必要がないし、それを次の設定で無効にできます。"
 
 #: ../../java/remoting.rst:427
 msgid ""
@@ -638,6 +761,12 @@ msgid ""
 "predefined messages like :class:`PoisonPill` and :class:`Kill`, but it can "
 "also be added as a marker trait to user-defined messages."
 msgstr ""
+"これはシステム ・ メッセージの送信を禁止 (俳優ライフ サイクル コマンド、デス ・ フロント等) および任意のメッセージ拡張: クラス: "
+"このフラグが設定されているシステムに ' "
+"PossiblyHarmful'。クライアントは、それらを送信する必要がありますそれにもかかわらず彼らは削除され "
+"(サービス攻撃の拒否の可能性を減らすためにデバッグ レベル) で記録されます。: クラス: 'PossiblyHarmful' "
+"をカバーするような定義済みメッセージ: クラス: 'PoisonPill' と: クラス: "
+"'殺す'、しかし、それも追加できますマーカーの特性としてユーザー定義のメッセージを。"
 
 #: ../../java/remoting.rst:435
 msgid ""
@@ -645,40 +774,41 @@ msgid ""
 "mode, but permission to receive actor selection messages can be granted to "
 "specific actors defined in configuration::"
 msgstr ""
+"俳優の選択によって送信されたメッセージは、既定で信頼関係のないモードで破棄されますが、構成で定義されている特定の俳優に俳優の選択メッセージを受信するアクセス許可を付与できます。"
 
 #: ../../java/remoting.rst:441
 msgid "The actual message must still not be of type :class:`PossiblyHarmful`."
-msgstr ""
+msgstr "型の実際のメッセージする必要がありますされませんがまだ: クラス: 'PossiblyHarmful'。"
 
 #: ../../java/remoting.rst:443
 msgid ""
 "In summary, the following operations are ignored by a system configured in "
 "untrusted mode when incoming via the remoting layer:"
-msgstr ""
+msgstr "要約すると、次の操作はリモート処理層を介して受信信頼関係のないモードで構成されているシステムによって無視されます。"
 
 #: ../../java/remoting.rst:446
 msgid "remote deployment (which also means no remote supervision)"
-msgstr ""
+msgstr "リモート ・ デプロイメント (これも遠隔で監視を含みません)"
 
 #: ../../java/remoting.rst:447
 msgid "remote DeathWatch"
-msgstr ""
+msgstr "リモート デス ・ フロント"
 
 #: ../../java/remoting.rst:448
 msgid "``system.stop()``, :class:`PoisonPill`, :class:`Kill`"
-msgstr ""
+msgstr "' system.stop() ': クラス: 'PoisonPill': クラス: '殺す'"
 
 #: ../../java/remoting.rst:449
 msgid ""
 "sending any message which extends from the :class:`PossiblyHarmful` marker "
 "interface, which includes :class:`Terminated`"
-msgstr ""
+msgstr "メッセージを送信する、: クラス: 含まれています 'PossiblyHarmful' マーカー インターフェイス: クラス: '終了'"
 
 #: ../../java/remoting.rst:451
 msgid ""
 "messages sent with actor selection, unless destination defined in ``trusted-"
 "selection-paths``."
-msgstr ""
+msgstr "俳優の選択 '信頼できる選択パス' のターゲットが定義されていない場合に送信されるメッセージ。"
 
 #: ../../java/remoting.rst:455
 msgid ""
@@ -694,10 +824,17 @@ msgid ""
 "interface by marking them :class:`PossiblyHarmful` so that a client cannot "
 "forge them."
 msgstr ""
+"非信頼関係モードを有効にするしても、そのメッセージのターゲット送信すると、リモート "
+"システムのどんな俳優に上記の規則によって禁止されていないメッセージを送信できることを意味を自由に選択するクライアントの機能は削除されません。だけ "
+"(多分後で検証を実行する) 実際のワーカー俳優を含む別の俳優システムに要求を転送するエントリ "
+"ポイント俳優の明確に定義されたセットを格納するクライアント向けシステムのことをお勧めします。これらの 2 "
+"つのサーバー側のシステム間でのメッセージングが行われる場合ローカルを使用して: クラス: 'ActorRef' (彼らをやり取りできる安全に同じ JVM"
+" 内で俳優システム)、マークすることによってこのインターフェイスでメッセージを制限することができます: クラス: "
+"'PossiblyHarmful'、クライアントがそれらを築くことができません。"
 
 #: ../../java/remoting.rst:467
 msgid "SSL"
-msgstr ""
+msgstr "SSL"
 
 #: ../../java/remoting.rst:469
 msgid ""
@@ -705,11 +842,13 @@ msgid ""
 "to the ``enabled-transport`` configuration section. See a description of the"
 " settings in the :ref:`remote-configuration-java` section."
 msgstr ""
+"SSL は、' akka.remote.netty.ssl 'を' 有効なトランスポート ' 構成セクションに追加することによってリモート "
+"トランスポートとして使用できます。設定の説明を参照してください、: ref:\"リモート-構成-java\"セクション。"
 
 #: ../../java/remoting.rst:473
 msgid ""
 "An example of setting up the default Netty based SSL driver as default::"
-msgstr ""
+msgstr "網状の既定の設定の例ベースの既定値として SSL ドライバー。"
 
 #: ../../java/remoting.rst:492
 msgid ""
@@ -718,6 +857,10 @@ msgid ""
 "<http://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/JSSERefGuide.html>`_"
 " and related resources for troubleshooting."
 msgstr ""
+"SSL のサポートは、Java セキュリティで保護されたソケット拡張機能で実装、トラブルシューティングの公式 'Java "
+"セキュリティで保護されたソケット拡張機能ドキュメント < "
+"http://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/JSSERefGuide.html"
+" >' _ および関連リソースを参照してください。"
 
 #: ../../java/remoting.rst:498
 msgid ""
@@ -727,10 +870,14 @@ msgid ""
 "'/dev/./urandom', not '/dev/urandom' as that doesn't work according to `Bug "
 "ID: 6202721 <http://bugs.sun.com/view_bug.do?bug_id=6202721>`_."
 msgstr ""
+"Linux はお勧めで SHA1PRNG を使用する場合は、ブロッキングを防ぐ JVM への引数として "
+"'-Djava.security.egd=file:/dev/./urandom' を指定します。わけではない種を再利用するため、保護します。使用 "
+"'/dev/./urandom' によると動作しないしない '/dev/urandom' と ' バグ ID: 6202721 < "
+"http://bugs.sun.com/view_bug.do?bug_id=6202721 >'_。"
 
 #: ../../java/remoting.rst:506
 msgid "Remote Configuration"
-msgstr ""
+msgstr "リモート構成"
 
 #: ../../java/remoting.rst:508
 msgid ""
@@ -738,16 +885,18 @@ msgid ""
 "Akka. We refer to the :ref:`reference configuration <config-akka-remote>` "
 "for more information."
 msgstr ""
+"安家のリモート処理に関連付けられている構成プロパティの多くがあります。我々 を参照してください、: ref: 詳細については「参照構成 <config-"
+"akka-remote>」."
 
 #: ../../java/remoting.rst:513
 msgid ""
 "Setting properties like the listening IP and port number programmatically is"
 " best done by using something like the following:"
-msgstr ""
+msgstr "リッスンしている ip アドレスとポート番号のようなプロパティをプログラムによって設定は最高の次のようなものを使用して行われます。"
 
 #: ../../java/remoting.rst:521
 msgid "Akka behind NAT or in a Docker container"
-msgstr ""
+msgstr "安家に港湾労働者コンテナー、または NAT の後ろです。"
 
 #: ../../java/remoting.rst:523
 msgid ""
@@ -757,3 +906,5 @@ msgid ""
 "connect to the system from the outside. This requires special configuration "
 "that sets both the logical and the bind pairs for remoting."
 msgstr ""
+"設定でネットワーク アドレス変換 (NAT)、ロード "
+"バランサーまたは港湾労働者コンテナー安家のバインド先のホスト名とポートのペアを含む「論理的な」ホスト名とは異なること、外からシステムへの接続に使用されるペアをポートします。論理とリモート処理のバインドのペアを設定する特別な構成が必要です。"
