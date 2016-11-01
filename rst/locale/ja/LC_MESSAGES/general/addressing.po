@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Jiro Kugiya <j.kugiya@gmail.com>, 2016\n"
+"Last-Translator: Kentaro Maeda <many.front@gmail.com>, 2016\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../../general/addressing.rst:4
 msgid "Actor References, Paths and Addresses"
-msgstr ""
+msgstr "アクターの参照、パス、アドレス"
 
 #: ../../general/addressing.rst:6
 msgid ""
@@ -30,16 +30,19 @@ msgid ""
 "communication between actors is transparent with respect to their placement "
 "across multiple network nodes."
 msgstr ""
+"この章では、分散型の場合もありえるアクターシステムに、アクターがどのようのして区別され配置されるのかについて記述します。  :ref:`actor-"
+"systems` "
+"が固有のスーパービジョン階層で構成されていることと、アクター間のコミュニケーションが複数のネットワークノードを跨いでも透過的であることを中心の考えとして取り掛かりましょう。"
 
 #: ../../general/addressing.rst:14
 msgid ""
 "The above image displays the relationship between the most important "
 "entities within an actor system, please read on for the details."
-msgstr ""
+msgstr "上のイメージはアクターシステム内のとても重要なエンティティ間の関係を描いています。詳細については次を読んでください。"
 
 #: ../../general/addressing.rst:18
 msgid "What is an Actor Reference?"
-msgstr ""
+msgstr "アクターの参照とは何か?"
 
 #: ../../general/addressing.rst:20
 msgid ""
@@ -51,12 +54,17 @@ msgid ""
 "actor has access to a reference representing the sender of the current "
 "message through the :meth:`sender()` method."
 msgstr ""
+"アクターの参照とは :class:`ActorRef` "
+"のサブタイプで、主要な目的はアクターへのメッセージ送信をサポートすることです。それぞれのアクターは :meth:`self`  フィールドを通して標準的"
+" (ローカル) "
+"な参照へのアクセスを取得します。また、この参照は送信者の参照として、他のアクターへ送信する全てのメッセージにデフォルトで含まれます。反対に言えば、メッセージの処理中にアクターは、:meth:`sender()`"
+" メソッドを通して現在のメッセージの送信者を示す参照へのアクセスを取得します。"
 
 #: ../../general/addressing.rst:28
 msgid ""
 "There are several different types of actor references that are supported "
 "depending on the configuration of the actor system:"
-msgstr ""
+msgstr "アクターリファレンスはアクターシステムの設定に応じてサポートされるいくつかの異なるタイプがあります。"
 
 #: ../../general/addressing.rst:31
 msgid ""
@@ -64,6 +72,7 @@ msgid ""
 "configured to support networking functions. These actor references will not "
 "function if sent across a network connection to a remote JVM."
 msgstr ""
+"純粋なローカルアクターの参照は、ネットワーク機能のサポートを設定していないアクターシステムによって使用されます。このアクターの参照は、リモートJVMへのネットワーク接続を行う送信を行う場合は機能しません。"
 
 #: ../../general/addressing.rst:34
 msgid ""
@@ -73,6 +82,7 @@ msgid ""
 " network nodes, these references include protocol and remote addressing "
 "information."
 msgstr ""
+"リモーティングが有効である場合、ローカルアクターの参照は、同じJVM内のアクターである参照に対してもネットワーク機能をサポートしているアクターシステムが使用されます。また、他のネットワークノードに到達可能にするため、これらの参照はプロトコルとリモートアドレス情報も含んでいます。"
 
 #: ../../general/addressing.rst:39
 msgid ""
@@ -81,6 +91,8 @@ msgid ""
 "same as for the aforementioned local references, but sending a message to "
 "them dispatches to one of their children directly instead."
 msgstr ""
+"ルーターのために使用されるローカルアクターのサブタイプがあります(例えば、:class:`Router`  "
+"トレイトをミックスインしたアクターです)。論理的な構造は前述のローカルアクターの参照と同じですが、メッセージをルーターに送信するとルータに直接ではなく、ルーターの子のどれか一つにメッセージをディスパッチします。"
 
 #: ../../general/addressing.rst:43
 msgid ""
@@ -88,12 +100,13 @@ msgid ""
 "communication, i.e. sending messages to them will serialize the messages "
 "transparently and send them to the remote JVM."
 msgstr ""
+"リモートアクターの参照は、リモート通信が到達可能なアクターとして表現され、例えば、それへのメッセージの送信はメッセージを透過的にシリアライズし、リモートのJVMへ送信されるでしょう。"
 
 #: ../../general/addressing.rst:46
 msgid ""
 "There are several special types of actor references which behave like local "
 "actor references for all practical purposes:"
-msgstr ""
+msgstr "実用的な目的のため、ローカルアクターの参照のように振る舞う特別なアクターの参照がいくつかあります。"
 
 #: ../../general/addressing.rst:49
 msgid ""
@@ -101,6 +114,8 @@ msgid ""
 "for the purpose of being completed by the response from an actor. "
 ":meth:`akka.pattern.ask` creates this actor reference."
 msgstr ""
+":class:`PromiseActorRef` はアクターからの応答によって完了する意図を表す :meth:`Promise`  "
+"の特別な表現です。:meth:`akka.pattern.ask` がこのアクターの参照を生成します。"
 
 #: ../../general/addressing.rst:52
 msgid ""
@@ -108,6 +123,8 @@ msgid ""
 "letters service to which Akka routes all messages whose destinations are "
 "shut down or non-existent."
 msgstr ""
+":class:`DeadLetterActorRef` は  デッドレターサービスのデフォルトの実装で、Akka "
+"は、シャットダウンした、または存在しない送信先へメッセージを全てここに送ります。"
 
 #: ../../general/addressing.rst:55
 msgid ""
@@ -117,12 +134,15 @@ msgid ""
 "it over the network and compare it to other existing actor references for "
 "that path, some of which might have been obtained before the actor died."
 msgstr ""
+":class:`EmptyLocalActorRef` は、存在しないアクターパスを探した場合に Akka が返すものです。これは "
+":class:`DeadLetterActorRef` と同等のようですが、パスを保持しているため、Akka "
+"はネットワークを超えて送信することや、存在している他のアクターとパスを比較することができます。これらの内の幾つかはアクターが死ぬ前に獲得されているかもしれません。"
 
 #: ../../general/addressing.rst:61
 msgid ""
 "And then there are some one-off internal implementations which you should "
 "never really see:"
-msgstr ""
+msgstr "それから、実際に見るべきではない一度限りの内部実装も幾つかあります。"
 
 #: ../../general/addressing.rst:64
 msgid ""
@@ -130,6 +150,8 @@ msgid ""
 "as a pseudo-supervisor for the root guardian, we call it “the one who walks "
 "the bubbles of space-time”."
 msgstr ""
+"アクターとして表現されず、ルートガーディアンに対する擬似スーパバイザーとしてだけ機能するアクターの参照があり、我々はこれを \"時空の泡を歩く者\" "
+"と呼んでします。"
 
 #: ../../general/addressing.rst:67
 msgid ""
@@ -137,10 +159,12 @@ msgid ""
 "facilities is a fake actor reference which accepts log events and prints "
 "them directly to standard output; it is :class:`Logging.StandardOutLogger`."
 msgstr ""
+"一番最初のロギングサービスは、アクターの動作環境の生成が実際に稼働するよりも前に開始し、ログイベントを受け付け内容を直接標準出力に出力する偽のアクターの参照になります。これは、"
+" :class:`Logging.StandardOutLogger` です。"
 
 #: ../../general/addressing.rst:72
 msgid "What is an Actor Path?"
-msgstr ""
+msgstr "アクターパスとは何か?"
 
 #: ../../general/addressing.rst:74
 msgid ""
@@ -151,6 +175,7 @@ msgid ""
 "system, hence we adopted the name “path” to refer to it, although actor "
 "hierarchy has some fundamental difference from file system hierarchy."
 msgstr ""
+"アクターは厳密に階層構造のように作成されるため、アクターシステムのルートから下っていく親と子の間のスーパービジョンの連結を再帰的にたどる事で与えられるアクターの名前には一意に順序付けられています。"
 
 #: ../../general/addressing.rst:80
 msgid ""
@@ -159,10 +184,11 @@ msgid ""
 "the designated actor; the path elements are the names of the traversed "
 "actors and are separated by slashes."
 msgstr ""
+"アクターパスは、アクターシステムを区別し、ルートガーディアンから対象のアクターへのパス要素が連結されているアンカーで構成されていいます。パス要素は途中にあるアクターの名前で、スラッシュで区切られています。"
 
 #: ../../general/addressing.rst:86
 msgid "What is the Difference Between Actor Reference and Path?"
-msgstr ""
+msgstr "アクターの参照とパスの違いは何か?"
 
 #: ../../general/addressing.rst:88
 msgid ""
@@ -173,6 +199,7 @@ msgid ""
 "without creating an actor, but you cannot create an actor reference without "
 "creating corresponding actor."
 msgstr ""
+"アクターの参照は、単一のアクターを指し示し、そのライフサイクルはアクターのライフサイクルと一致します。アクターパスは、存在しているかどうかわからないアクターの名前として表現され、ライフサイクルを持たず、決して無効にはなりません。アクターパスはアクターを生成しなくても作ることができますが、アクターの参照は対応するアクターを生成しなければ作ることはできません。"
 
 #: ../../general/addressing.rst:94
 msgid ""
@@ -183,10 +210,11 @@ msgid ""
 " not be delivered to the new incarnation even though they have the same "
 "path."
 msgstr ""
+"アクターを生成したあと、それを終了し、同じアクターパスで新しいアクターを再度生成できます。この新しく生成されたアクターは、アクターの新しい実体です。これは以前と同じアクターではありません。古い実体へのアクターの参照は、新しい実体に対しては無効です。古いアクターの参照へ送信したメッセージは、たとえ同じパスであったとしても、新しい実体のほうへ届くことはないでしょう。"
 
 #: ../../general/addressing.rst:101
 msgid "Actor Path Anchors"
-msgstr ""
+msgstr "アクターパスのアンカー"
 
 #: ../../general/addressing.rst:103
 msgid ""
@@ -194,6 +222,7 @@ msgid ""
 "location by which the corresponding actor is reachable, followed by the "
 "names of the actors in the hierarchy from the root up. Examples are::"
 msgstr ""
+"それぞれのアクターパスはアドレス構成になっていて、プロトコルと、ルートを頂点に対象のアクターまでの間にある各階層のアクターの名前が続く形式になった場所が記述されています。以下が例です。"
 
 #: ../../general/addressing.rst:110
 msgid ""
@@ -202,10 +231,14 @@ msgid ""
 " (i.e. ``host.example.com:5678`` in the example) depends on the transport "
 "mechanism used, but it must abide by the URI structural rules."
 msgstr ""
+"ここの、 ``akka.tcp`` は 2.4 "
+"リリースでデフォルトのリモート通信方法です。他の方法に差し替えもできます。ホストとポートの部分に表示される内容( "
+"例では、``host.example.com:5678`` となっている箇所) は、使用する通信方法によって異なりますが、 URL "
+"構造のルールの守るようになっています。"
 
 #: ../../general/addressing.rst:116
 msgid "Logical Actor Paths"
-msgstr ""
+msgstr "論理的なアクターパス"
 
 #: ../../general/addressing.rst:118
 msgid ""
@@ -215,10 +248,11 @@ msgid ""
 " as soon as the actor system’s remoting configuration (and with it the "
 "address component of the path) is set."
 msgstr ""
+"親のスーパービジョンのリンクをルートガーディアンまで辿って得られた一意のパスは、論理的なアクターパスと呼ばれます。このパスはアクターを生成してきた先祖の家系と確実に一致するので、アクターシステムのリモート構成(パスのアドレス構成も含まれる)が設定してあると、完全な決定性を持ちます。"
 
 #: ../../general/addressing.rst:125
 msgid "Physical Actor Paths"
-msgstr ""
+msgstr "物理的なアクターパス"
 
 #: ../../general/addressing.rst:127
 msgid ""
@@ -232,6 +266,7 @@ msgid ""
 "this path as sender reference when querying other actors will let them reply"
 " directly to this actor, minimizing delays incurred by routing."
 msgstr ""
+"論理的なアクターパスは1つのアクターシステム内で正常に機能する位置を表していますが、一方で、設定に基づくリモートデプロイでは、異なるアクターシステムのような別のネットワークホストにある親からアクターが生成される可能性があることを意味しています。この場合、ルートガディアンまで辿るアクターパスでは、ネットワークを横断する必要があり、コストがかかる操作になります。しかしながら、それぞれのアクターは物理的なパスも保有していて、そのパスはアクターが実際に所属しているアクターシステムのルートガーディアンから始まっています。他のアクターを照会する際に、このパスを送信者の参照として使うと、ルーティングの遅延を最小限に抑えた上で、直接応答ができるようになります。"
 
 #: ../../general/addressing.rst:137
 msgid ""
@@ -240,10 +275,12 @@ msgid ""
 "hierarchy) and the physical path (actor deployment) of an actor may diverge "
 "if one of its ancestors is remotely supervised."
 msgstr ""
+"物理的なアクターパスは決して複数のJVMやアクターシステムにまたがることは決してないという重要な一面があります。これは、先祖のどこかでリモートのスーパーバイザーを使っている場合は、アクターの論理的なパス(スーパービジョンの階層)と、物理的なパス(アクターの配置)"
+" が乖離するかもしれないということを意味しています。"
 
 #: ../../general/addressing.rst:144
 msgid "Actor path alias or symbolic link?"
-msgstr ""
+msgstr "アクターパスはエイリアスやシンボリックリンクなのか?"
 
 #: ../../general/addressing.rst:145
 msgid ""
@@ -256,10 +293,12 @@ msgid ""
 "represents supervision hierarchy, or physical path which represents actor "
 "deployment."
 msgstr ""
+"実際のファイルシステムにあるように、アクターを “パスのエイリアス” や “シンボリックリンク”  "
+"と考えているかもしれません。言い換えると、アクターは１つ以上のパスを使うことで到達可能になるかもしれないということです。しかし、アクターの階層はファイルシステムの階層と異なることに注意するべきです。任意のアクターを参照するためにシンボリックリンクのようなアクターパスを自由に作ることはできません。上記の論理的と物理的のアクターパスのセクションで述べたように、アクターパスはスーパービジョンの階層で表現される論理的なパスか、アクターの配置で表現される物理的なパスのどちらかである必要があります。"
 
 #: ../../general/addressing.rst:155
 msgid "How are Actor References obtained?"
-msgstr ""
+msgstr "どうやってアクターの参照を取得するか?"
 
 #: ../../general/addressing.rst:157
 msgid ""
@@ -268,6 +307,9 @@ msgid ""
 " in the two flavours of creating actor references from concrete actor paths "
 "and querying the logical actor hierarchy."
 msgstr ""
+"アクターの参照を取得する方法は、一般的に "
+"2種類あります。アクターを生成することか、アクターを探すことかのどちらかで、後者の機能には具体的なアクターパスからアクターリファレンスを生成することと、論理的なアクターの階層を照会することの"
+" 2つ方法があります。"
 
 #: ../../general/addressing.rst:163
 msgid "Creating Actors"
@@ -283,10 +325,16 @@ msgid ""
 "for its parent, itself and its children. These references may be sent within"
 " messages to other actors, enabling those to reply directly."
 msgstr ""
+"アクターシステムは通常、 :meth:`ActorSystem.actorOf` "
+"を使用して、ガーディアンアクター配下のアクターを生成することから始まり、それから生成したアクターに含まれる "
+":meth:`ActorContext.actorOf` を使って、 "
+"アクターのツリーを広げていきます。これらのメソッドは、新しく生成されたアクターの参照を返します。各アクターは、親、自分自身、子供に対して( "
+"``ActorContext`` を通して) "
+"直接アクセスできます。これらの参照は他のアクターへメッセージを送信し、直接返信を受け取ることができるかもしれません。"
 
 #: ../../general/addressing.rst:174
 msgid "Looking up Actors by Concrete Path"
-msgstr ""
+msgstr "具体的なパスでアクターを探す"
 
 #: ../../general/addressing.rst:176
 msgid ""
@@ -295,6 +343,8 @@ msgid ""
 "communicating with said actor and the actor corresponding to the selection "
 "is looked up when delivering each message."
 msgstr ""
+"さらに、アクターの参照は、 :meth:`ActorSystem.actorSelection`  メソッドでも検索できます。 "
+"セレクションは前述のアクターとのコミニュケーションに使用可能で、セレクションにメッセージが届いた時は、セレクションに対応するアクターが照会されます。"
 
 #: ../../general/addressing.rst:181
 msgid ""
@@ -303,10 +353,12 @@ msgid ""
 ":class:`Identify` message, to the actor and use the ``sender()`` reference "
 "of a reply from the actor."
 msgstr ""
+"特定のアクターのライフサイクルが束縛された :class:`ActorRef` を取得するためには、組み込みの  :class:`Identify` "
+"メッセージのようなメッセージをアクター送る必要があり、  ``sender()``  を使って応答したアクターの参照を取得します。"
 
 #: ../../general/addressing.rst:186
 msgid "Absolute vs. Relative Paths"
-msgstr ""
+msgstr "絶対パス 対 相対パス"
 
 #: ../../general/addressing.rst:188
 msgid ""
@@ -318,20 +370,26 @@ msgid ""
 "elements consisting of two dots (``\"..\"``) may be used to access the "
 "parent actor. You can for example send a message to a specific sibling::"
 msgstr ""
+":meth:`ActorSystem.actorSelection` に加えて、 :meth:`ActorContext.actorSelection`"
+" も あらゆるアクターの中で、 ``context.actorSelection`` として利用できます。これは、 "
+":class:`ActorSystem` "
+"のものと双子のように似ていて、アクターセレクションを生成できますが、パスの照会を、アクターのツリーのルートから開始する代わりに、現在のアクターの位置から開始します。"
+" 2つのドット (``\"..\"``) "
+"で構成されるパス要素は、親のアクターにアクセスするために使います。次の例では、特定の兄弟にメッセージを送っています。"
 
 #: ../../general/addressing.rst:198
 msgid ""
 "Absolute paths may of course also be looked up on `context` in the usual "
 "way, i.e."
-msgstr ""
+msgstr "もちろん絶対パスによる照会も、 `context` では普通の方法として使えます。"
 
 #: ../../general/addressing.rst:204
 msgid "will work as expected."
-msgstr ""
+msgstr "予期したとおりに動くでしょう"
 
 #: ../../general/addressing.rst:207
 msgid "Querying the Logical Actor Hierarchy"
-msgstr ""
+msgstr "論理的のアクター階層への照会"
 
 #: ../../general/addressing.rst:209
 msgid ""
@@ -345,6 +403,12 @@ msgid ""
 ":meth:`ActorSystem.actorSelection` and :meth:`ActorContext.actorSelection` "
 "methods and do support sending messages::"
 msgstr ""
+"アクターシステムは階層のようなファイルシステムを形成しているので、Unix "
+"シェルでサポートされている方法と同じようなパスのマッチングが可能です。0から複数の実際のアクターをまとめるために、パス要素 (一部でも可) "
+"を、ワイルドカード ( `«*»` と `«?»` ) で置き換えることができます。この結果は単一のアクターの参照ではないので、 "
+":class:`ActorSelection` とは異なる型を持ち、 :class:`ActorRef` "
+"が持つ操作の全てをサポートしていません。セレクションは :meth:`ActorSystem.actorSelection`  と "
+":meth:`ActorContext.actorSelection` メソッドを使ってまとめることができ、メッセージの送信をサポートします。"
 
 #: ../../general/addressing.rst:220
 msgid ""
@@ -358,16 +422,18 @@ msgid ""
 "then watch all discovered concrete actors. This scheme of resolving a "
 "selection may be improved upon in a future release."
 msgstr ""
+"`msg` は現在のアクターも含むすべての兄弟に送信されるでしょう。 `actorSelection` "
+"を使って取得した参照について言えば、メッセージ送信を実行するためにスーパービジョン階層の横断が行われます。メッセージが受信者へ届けられる間でさえもセレクションにマッチしたアクターの確実な集合は変化するため、死活状態の変化をセレクションで監視することは不可能です。それをするためには、リクエストを送信してすべての応答を収集することで不確実性を解決し、送信者の参照を取り出し、そして発見したすべての具体的なアクターを監視します。このセレクションを解決する仕組みは、将来のリリースで改善されるかもしれません。"
 
 #: ../../general/addressing.rst:233
 msgid "Summary: ``actorOf`` vs. ``actorSelection``"
-msgstr ""
+msgstr "要約: ``actorOf`` 対 ``actorSelection``"
 
 #: ../../general/addressing.rst:237
 msgid ""
 "What the above sections described in some detail can be summarized and "
 "memorized easily as follows:"
-msgstr ""
+msgstr "上のセクションで幾つか詳細に解説したことは、以下のとおり簡単に要約できて、記録できます。"
 
 #: ../../general/addressing.rst:240
 msgid ""
@@ -375,6 +441,8 @@ msgid ""
 "child of the context on which this method is invoked (which may be any actor"
 " or actor system)."
 msgstr ""
+"``actorOf`` "
+"は新しいアクターを作る用途で使います。そして作成されたアクターはメソッドを実行したコンテキスト(あらゆるアクターや、アクターシステム)の直接の子供になります。"
 
 #: ../../general/addressing.rst:244
 msgid ""
@@ -382,10 +450,12 @@ msgid ""
 "delivered, i.e. does not create actors, or verify existence of actors when "
 "the selection is created."
 msgstr ""
+"``actorSelection`` "
+"はメッセージを配信するときに、既存のアクターを検索する用途で使います。よって、アクターを生成しません。あるいは、セレクションを生成してアクターの存在の検証目的でも使用します。"
 
 #: ../../general/addressing.rst:249
 msgid "Actor Reference and Path Equality"
-msgstr ""
+msgstr "アクターの参照と パス等価性"
 
 #: ../../general/addressing.rst:251
 msgid ""
@@ -398,6 +468,9 @@ msgid ""
 "it is the same actor incarnation, i.e. a restart is not visible for the "
 "consumer of the ``ActorRef``."
 msgstr ""
+"``ActorRef`` の等価性は ``ActorRef`` "
+"が対応する対象のアクターの実体そのものと目的が一致します。2つのアクターの参照が、同じパスを持ち同じアクターの実体を指している時、等価であると比較されます。終了したアクターを指している参照は、同じパスである別の(再生成した)アクターを比較しても等価ではありません。障害によるアクターのリスタートは、まだ同じアクターの実体であることに注意してください。つまり、リスタートは、"
+" ``ActorRef`` の利用者に対しては 不可視となります。"
 
 #: ../../general/addressing.rst:259
 msgid ""
@@ -406,10 +479,12 @@ msgid ""
 " because the identifier of the target actor is not taken into account when "
 "comparing actor paths."
 msgstr ""
+"もしコレクションのアクターの参照を記録する必要があり、正確なアクターの実体について気にする必要がないなら、キーとして ``ActorPath``  "
+"が使えます。その理由は、アクターパスを比較する際は、対象のアクターの識別子を考慮しないためです。"
 
 #: ../../general/addressing.rst:264
 msgid "Reusing Actor Paths"
-msgstr ""
+msgstr "アクターパスの再利用"
 
 #: ../../general/addressing.rst:266
 msgid ""
@@ -424,6 +499,11 @@ msgid ""
 "between this transition and any other event, hence the new inhabitant of the"
 " path may receive messages which were destined for the previous tenant."
 msgstr ""
+"アクターが終了した時、その参照はデッドレターのメールボックスを指し、 DeathWatch "
+"は最後の状態変化を発行します。そして一般的に、死んだアクターが復活して戻ることは予期しないことでしょう(アクターのライフサイクルではこれは許容していません)。しばらくした後で同じパスのアクターを作ることは可能ですが、"
+" - 今までに生成した利用可能なアクターの集合を保持することなしで反対を実施することは単に不可能であるため - これは良い習慣ではありません。 "
+"``actorSelection`` で “死んだ” "
+"アクターに送ったメッセージは突然再び動き始めますが、この状態変化とあらゆる他のイベントとの間に、何の順序保証もありません。そのため、パスの新しい所有者は以前の所有者に宛てたメッセージを受け取るかもしれません。"
 
 #: ../../general/addressing.rst:277
 msgid ""
@@ -433,6 +513,7 @@ msgid ""
 "deregistration of the name, before which creation of the new child will "
 "fail."
 msgstr ""
+"それは非常に限られた状況では正しいことかもしれませんが、アクターのスーパーバイザーが操作を適切に制限していることを確認しておきます。その理由は、スーパバイザーが新しい子のアクターの生成が失敗する前に、その名前の適切に登録解除されることを発見できる唯一のアクターであるためです。"
 
 #: ../../general/addressing.rst:282
 msgid ""
@@ -442,10 +523,12 @@ msgid ""
 " point in the test procedure, enabling the latter to await proper "
 "deregistration of the name."
 msgstr ""
+"また、テスト対象が特定のパスでインスタンス化することに依存するとき、テスト中でも必要になります。この場合では、スーパーバイザーをモック化することがベストなので、テストの手続きの適切なポイントで、"
+" Terminated メッセージを送り、名前の適切な登録解除を待機可能にします。"
 
 #: ../../general/addressing.rst:288
 msgid "The Interplay with Remote Deployment"
-msgstr ""
+msgstr "リモートデプロイ使用時の内部動作"
 
 #: ../../general/addressing.rst:290
 msgid ""
@@ -462,10 +545,17 @@ msgid ""
 "supervisor will find it on the remote node, preserving logical structure "
 "e.g. when sending to an unresolved actor reference."
 msgstr ""
+"アクターが子を生成するとき、アクターシステムのデプロイヤーは新しいアクターを同じ JVM "
+"に生成するか別のノード上に生成するかを決定します。後者のケースでは、アクターの生成はネットワーク接続経由で異なる JVM "
+"、したがって異なるアクターシステムの中で起こされます。リモートシステムは新しいアクターを、この目的のために予約された特別なパスの配下に置き、新しいアクターのスーパーバイザーはリモートアクターの参照(生成を起こしたアクターとして扱う)になります。この場合、"
+" :meth:`context.parent` (スーパーバイザーの参照) と :meth:`context.path.parent` "
+"(アクターのパスの親のノード) "
+"は同じアクターとして表現されません。しかしながら、スーパーバイザー内部にある子供の名前の検索は、リモートノードの中から発見し、論理的な構造を、例えば未解決のアクターの参照に送信するときなどに、保存します。"
+" "
 
 #: ../../general/addressing.rst:306
 msgid "What is the Address part used for?"
-msgstr ""
+msgstr "アドレス部の用途は何か?"
 
 #: ../../general/addressing.rst:308
 msgid ""
@@ -478,10 +568,11 @@ msgid ""
 "resolved to the actor’s local reference. Otherwise, it will be represented "
 "by a remote actor reference."
 msgstr ""
+"ネットワークを横断してアクターの参照を送信するとき、それはそのパスによって表現されます。そのため、パスは配下のアクターにメッセージを送信するのに必要なすべての情報を完全にエンコードしなくてはいけません。これはエンコーディングプロトコル、パス文字列のアドレス部のホストとポートによって成り立ちます。リモートノードからアクターシステムがアクターパスを受け取った時、パスのアドレスがアクターシステムのアドレスと一致するかチェックし、一致する場合アクターのローカル参照として解決します。そうでない場合、リモートアクターの参照として扱います。"
 
 #: ../../general/addressing.rst:320
 msgid "Top-Level Scopes for Actor Paths"
-msgstr ""
+msgstr "アクターパスのトップレベルスコープ"
 
 #: ../../general/addressing.rst:322
 msgid ""
@@ -489,12 +580,17 @@ msgid ""
 "other actors are found; its name is ``\"/\"``. The next level consists of "
 "the following:"
 msgstr ""
+"パス階層のルートにはすべてのアクターの上位にいるルートガーディアンがいることがわかります。その名前は ``\"/\"'`` "
+"です。次のレベルは以下にあるもので構成されます。"
 
 #: ../../general/addressing.rst:326
 msgid ""
 "``\"/user\"`` is the guardian actor for all user-created top-level actors; "
 "actors created using :meth:`ActorSystem.actorOf` are found below this one."
 msgstr ""
+"``\"/user\"`` "
+"はユーザーが作成するすべてのトップレベルアクターに対するガーディアンアクターで、:meth:`ActorSystem.actorOf` "
+"を使って作成したアクターは、このアクターの配下で見つかります。"
 
 #: ../../general/addressing.rst:328
 msgid ""
@@ -502,6 +598,8 @@ msgid ""
 "actors, e.g. logging listeners or actors automatically deployed by "
 "configuration at the start of the actor system."
 msgstr ""
+"``\"/system\"`` は "
+"システムが作成したすべてのトップレベルアクターのガーディアンアクターです。たとえば、ロギングリスナーや、アクターシステムの開始時に設定によって自動的にデプロイされたアクターなどです。"
 
 #: ../../general/addressing.rst:331
 msgid ""
@@ -509,18 +607,23 @@ msgid ""
 "sent to stopped or non-existing actors are re-routed (on a best-effort "
 "basis: messages may be lost even within the local JVM)."
 msgstr ""
+"``\"/deadLetters\"`` "
+"はデッドレターアクターで、停止状態や存在しないアクターへ送信した全てのメッセージがここに再送されます(ただしベストエフォートベースであり、ローカル "
+"JVM 内であってもメッセージは失われるかもしれません)。"
 
 #: ../../general/addressing.rst:334
 msgid ""
 "``\"/temp\"`` is the guardian for all short-lived system-created actors, "
 "e.g. those which are used in the implementation of :meth:`ActorRef.ask`."
 msgstr ""
+"``\"/temp\"`` は短命のシステムが作成したすべてのアクターに対するガーディアンです。例えば、 :meth:`ActorRef.ask` "
+"の実装などに使われます。"
 
 #: ../../general/addressing.rst:336
 msgid ""
 "``\"/remote\"`` is an artificial path below which all actors reside whose "
 "supervisors are remote actor references"
-msgstr ""
+msgstr "``\"/remote\"`` はスーパーバイザーがリモートアクターの参照に所属するアクターの人工のパスです。"
 
 #: ../../general/addressing.rst:339
 msgid ""
@@ -532,9 +635,11 @@ msgid ""
 "principle means that there are no quirks to remember, it makes the whole "
 "system more uniform and consistent."
 msgstr ""
+"このようなアクターのネームスペース構造の必要性は、集中と非常に簡単な設計目標から生じています。全ての階層はアクターであり、全てのアクターの機能も同じ方法です。したがって、自分で作成したアクターを探すだけでなく、システムガーディアンも探すことができ、またメッセージを送ることもできます(この場合、メッセージをルールに従って破棄するでしょう)。このパワフルな法則は、思えることが苦ではないことを意味し、システム全体をより一体感と一貫性があるものにします。"
 
 #: ../../general/addressing.rst:347
 msgid ""
 "If you want to read more about the top-level structure of an actor system, "
 "have a look at :ref:`toplevel-supervisors`."
 msgstr ""
+"もしアクターシステムのトップレベルの構造についてより知りたいなら、 :ref:`toplevel-supervisors` を見てください。"
