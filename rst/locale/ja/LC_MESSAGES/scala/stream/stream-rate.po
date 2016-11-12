@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Yang Xiao <xtracalley@gmail.com>, 2016\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 
 #: ../../scala/stream/stream-rate.rst:5
 msgid "Buffers and working with rate"
-msgstr ""
+msgstr "バッファーとレートの操作"
 
 #: ../../scala/stream/stream-rate.rst:7
 msgid ""
@@ -27,16 +28,18 @@ msgid ""
 "has spikes, it can be useful to introduce buffers in a stream. In this "
 "chapter we cover how buffers are used in Akka Streams."
 msgstr ""
+"アップストリームとダウンストリームのレートが異なる場合、特にスループットが急上昇する場合は、ストリームにバッファを導入すると便利です。 "
+"この章では、Akka ストリームでのバッファの使用方法について説明します。"
 
 #: ../../scala/stream/stream-rate.rst:13
 msgid "Buffers for asynchronous stages"
-msgstr ""
+msgstr "非同期ステージ用のバッファー"
 
 #: ../../scala/stream/stream-rate.rst:15
 msgid ""
 "In this section we will discuss internal buffers that are introduced as an "
 "optimization when using asynchronous stages."
-msgstr ""
+msgstr "このセクションでは、非同期ステージを使用する際に最適化として導入される内部バッファについて説明します。"
 
 #: ../../scala/stream/stream-rate.rst:17
 msgid ""
@@ -46,11 +49,14 @@ msgid ""
 "process the next message. To demonstrate what we mean by this, let's take a "
 "look at the following example:"
 msgstr ""
+"ステージを非同期に実行するには、 `` .async`` メソッドを使用してステージを明示的にマークする必要があります。 "
+"非同期に実行されるということは、ステージが要素を下流のコンシューマに渡した後、次のメッセージをただちに処理できることを意味します。 "
+"これが何を意味するのかを実証するために、次の例を見てみましょう："
 
 #: ../../scala/stream/stream-rate.rst:23
 msgid ""
 "Running the above example, one of the possible outputs looks like this:"
-msgstr ""
+msgstr "上記の例を実行すると、可能な出力の1つは次のようになります。"
 
 #: ../../scala/stream/stream-rate.rst:37
 msgid ""
@@ -60,6 +66,9 @@ msgid ""
 "element enters the flow. The next element is processed by an asynchronous "
 "stage as soon as it is emitted the previous one."
 msgstr ""
+"順序は、フローの通常の融合同期実行モデルに対応する「A：1、B：1、C：1、A：2、B：2、C：2」では *ない* "
+"ことに注意してください。その場合の要素は、次の要素がフローに入る前に、処理パイプラインを完全に通過します。 "
+"実際は前の要素が発行されるとすぐに次の要素が非同期段階で処理されます。"
 
 #: ../../scala/stream/stream-rate.rst:41
 msgid ""
@@ -75,6 +84,11 @@ msgid ""
 "the communication cost of propagating the backpressure signal through the "
 "asynchronous boundary."
 msgstr ""
+"パイプライン処理は一般にスループットを向上させるが、実際には非同期 (スレッド交差) 境界を通過する重大なコストがあります。 "
+"このコストを償却するために、Akka Streams はウィンドウ化されたバッチ処理のバックプレッシャー戦略を内部的に使用します。 "
+"ウィンドウ化されたのは、 `Stop-And-Wait`_ "
+"プロトコルとは異なり、要素の要求と同時に複数の要素が「飛行中」になる可能性があるためです。バッチ処理の理由は、要素がウィンドウバッファから排出された後、直ちに新しい要素が要求されるではなく、複数の要素が排出された後に複数の要素が要求されるです。"
+" このバッチ処理戦略は、バックプレッシャ信号を非同期境界を通って伝播する通信コストを低減できます。"
 
 #: ../../scala/stream/stream-rate.rst:49
 msgid ""
@@ -89,10 +103,15 @@ msgid ""
 " These situations are exactly those where the internal batching buffering "
 "strategy suddenly becomes non-transparent."
 msgstr ""
+"この内部プロトコルは、ユーザーにはほとんど見えませんが (スループットの増加以外) 、これらの詳細が公開される状況があります。 "
+"これまでの例では、バックプレッシャ信号によって処理チェーンの速度が厳密に調整され、すべてのステージが接続チェーンのスループットよりも速く処理されないと常に仮定していました。"
+" しかし、Akka "
+"Streamsには、処理チェーンのさまざまなセグメントのレートを「切り離す」、または外部のタイミングソースを通るストリームの最大スループットを定義できるツールがあります。"
+" これらの状況は、まさに内部バッチ処理のバッファリング戦略が突然不透明になる状況です。"
 
 #: ../../scala/stream/stream-rate.rst:60
 msgid "Internal buffers and their effect"
-msgstr ""
+msgstr "内部バッファーとその効果"
 
 #: ../../scala/stream/stream-rate.rst:62
 msgid ""
@@ -104,24 +123,30 @@ msgid ""
 " level suitable for the throughput requirements of the application. Default "
 "buffer sizes can be set through configuration:"
 msgstr ""
+"これまで説明したように、パフォーマンスのため、Akka Streamsはすべての非同期処理ステージにバッファを導入しています。 "
+"これらのバッファの目的は最適化のみです。スループットの改善が必要ない場合は、実際には 1 のサイズが最も自然な選択です。 "
+"したがって、これらのバッファサイズは小さくしておき、アプリケーションのスループット要件に適したレベルまで増加させることをお勧めします。 "
+"デフォルトのバッファサイズは、こちらの設定によって調整できます。"
 
 #: ../../scala/stream/stream-rate.rst:72
 msgid ""
 "Alternatively they can be set by passing a "
 ":class:`ActorMaterializerSettings` to the materializer:"
-msgstr ""
+msgstr "あるいは、マテリアライザに :class:`ActorMaterializerSettings` を渡すことで設定できます。"
 
 #: ../../scala/stream/stream-rate.rst:76
 msgid ""
 "If the buffer size needs to be set for segments of a :class:`Flow` only, it "
 "is possible by defining a separate :class:`Flow` with these attributes:"
 msgstr ""
+"一つの :class:`Flow` のセグメントのみにバッファサイズを設定する必要がある場合は、次の属性を持つ個別の :class:`Flow` "
+"を定義することができます。"
 
 #: ../../scala/stream/stream-rate.rst:81
 msgid ""
 "Here is an example of a code that demonstrate some of the issues caused by "
 "internal buffers:"
-msgstr ""
+msgstr "内部バッファによって引き起こされるいくつかの問題を示すコードの例を次に示します。"
 
 #: ../../scala/stream/stream-rate.rst:85
 msgid ""
@@ -135,6 +160,12 @@ msgid ""
 " of ``ZipWith`` (or the whole graph) to 1. We will still see a leading 1 "
 "though which is caused by an initial prefetch of the ``ZipWith`` element."
 msgstr ""
+"上記の例を実行すると、3 秒ごとに数字 *3* が出力されることが期待されます (``conflateWithSeed`` ステップは、下流の "
+"``ZipWith`` がそれらを消費する前に受け取った要素の数を数えるように設定されています) 。印刷される内容は異なりますが、番号 *1* "
+"が表示されます。その理由は、デフォルトでは16要素の大きさの内部バッファであり、 ``ZipWith`` "
+"がそれらを消費する前に要素をプリフェッチします。 ``ZipWith`` (またはグラフ全体) "
+"のバッファサイズを1に変更することでこの問題を解決することは可能です。 また、 ``ZipWith`` "
+"要素の最初のプリフェッチが原因で、先頭に1が表示されます 。"
 
 #: ../../scala/stream/stream-rate.rst:93
 msgid ""
@@ -142,10 +173,11 @@ msgid ""
 "behavior, one of the first solutions to try should be to decrease the input "
 "buffer of the affected elements to 1."
 msgstr ""
+"一般に、時間またはレート駆動の処理ステージが異常な挙動を示す場合、試行する最初の解決策の1つは、影響を受ける要素の入力バッファを1に減らすことです。"
 
 #: ../../scala/stream/stream-rate.rst:98
 msgid "Buffers in Akka Streams"
-msgstr ""
+msgstr "Akka Streams のバッファー"
 
 #: ../../scala/stream/stream-rate.rst:100
 msgid ""
@@ -153,6 +185,7 @@ msgid ""
 "part of the domain logic of the stream processing pipeline of an "
 "application."
 msgstr ""
+"このセクションでは、アプリケーションのストリーム処理パイプラインのドメインロジックの一部である *明示的* なユーザー定義バッファについて説明します。"
 
 #: ../../scala/stream/stream-rate.rst:103
 msgid ""
@@ -160,6 +193,8 @@ msgid ""
 "from an external (imaginary) system and stored locally in memory - relieving"
 " the external system:"
 msgstr ""
+"以下の例では、1000のジョブ (ピッタリ) が外部システム (仮想) "
+"からデキューされ、ローカルメモリに格納され、外部システムを解放していることを確認します。"
 
 #: ../../scala/stream/stream-rate.rst:108
 msgid ""
@@ -171,12 +206,16 @@ msgid ""
 "that we want to be nice to jobs that has been waiting for long, then this "
 "option can be useful."
 msgstr ""
+"次の例では、1000個のジョブをローカルにキューイングしますが、想像上の外部システムで待っているジョブがさらにある場合は、バッファの *tail* "
+"から1つの要素を削除して新しい要素の領域を確保します。 尾から落とすことは非常に一般的な戦略ですが、これは *最年少* "
+"の待機中の仕事を落とすことに注意する必要があります。 私たちが長い間待ち望んでいた仕事に親しみやすいという意味で、 *公平性* "
+"が望まれる場合、このオプションは便利です。"
 
 #: ../../scala/stream/stream-rate.rst:116
 msgid ""
 "Instead of dropping the youngest element from the tail of the buffer a new "
 "element can be dropped without enqueueing it to the buffer at all."
-msgstr ""
+msgstr "バッファの末尾から最も若い要素を削除する代わりに、新しい要素をバッファにエンキューすることなく削除することができます。"
 
 #: ../../scala/stream/stream-rate.rst:121
 msgid ""
@@ -187,6 +226,10 @@ msgid ""
 "element will be retransmitted soon, (in fact a retransmitted duplicate might"
 " be already in the queue!) so it makes sense to drop it first."
 msgstr ""
+"1000ジョブのキューを持つもう1つの例ですが、バッファの *head* から1つの要素を削除することで、新しい要素のための領域を確保しています。 "
+"これは *最古* 待っているジョブです。 これは、ジョブが一定期間内に処理されないと再送信されることが予想される場合に推奨される方法です。 "
+"最も古い要素はすぐに再送信されます (実際には再送信されたコピーがすでにキューに入っている可能性があります) "
+"、だから最初に削除するのが理にかなっています。"
 
 #: ../../scala/stream/stream-rate.rst:130
 msgid ""
@@ -194,6 +237,8 @@ msgid ""
 "jobs it has enqueued once the buffer gets full. This aggressive strategy is "
 "useful when dropping jobs is preferred to delaying jobs."
 msgstr ""
+"上記のドロップ方法と比較して、dropBuffer は、バッファがいっぱいになると、それがエンキューした1000のジョブをすべてドロップします。 "
+"この積極的な戦略は、ジョブの削除がジョブの遅延に優先される場合に便利です。"
 
 #: ../../scala/stream/stream-rate.rst:136
 msgid ""
@@ -203,14 +248,16 @@ msgid ""
 "easily achievable by the error strategy which simply fails the stream once "
 "the buffer gets full."
 msgstr ""
+"仮想外部のジョブプロバイダーがAPIを使用するクライアントである場合、クライアントが1000を超えるジョブを待機できない場合は、フラッディングと接続の終了を考慮する必要があります。"
+" これは、バッファがいっぱいになると単にストリームに失敗するエラー戦略によって簡単に達成できます。"
 
 #: ../../scala/stream/stream-rate.rst:145
 msgid "Rate transformation"
-msgstr ""
+msgstr "レート変換"
 
 #: ../../scala/stream/stream-rate.rst:148
 msgid "Understanding conflate"
-msgstr ""
+msgstr "conflate を理解する"
 
 #: ../../scala/stream/stream-rate.rst:150
 msgid ""
@@ -218,13 +265,15 @@ msgid ""
 "some other signal, ``conflate`` might be useful to combine elements from a "
 "producer until a demand signal comes from a consumer."
 msgstr ""
+"速いプロデューサーがバックプレッシャーまたは他の信号によって減速するよう通知できない場合、需要信号がコンシューマから来るまでプロデューサーからの要素を組み合わせるのに"
+" ``conflate`` が役立つかもしれません。"
 
 #: ../../scala/stream/stream-rate.rst:153
 msgid ""
 "Below is an example snippet that summarizes fast stream of elements to a "
 "standart deviation, mean and count of elements that have arrived  while the "
 "stats have been calculated."
-msgstr ""
+msgstr "以下は、要素の統計が計算されている間に高速ストリームの到着した要素の標準偏差、平均、およびカウントを計算するコード例です。"
 
 #: ../../scala/stream/stream-rate.rst:158
 msgid ""
@@ -232,6 +281,8 @@ msgid ""
 "rate at the start of the flow can be much higher that the element rate at "
 "the end of the flow."
 msgstr ""
+"この例は、そのようなフローの速度が切り離されていることを示しています。 "
+"フローの開始時の要素レートは、フローの終了時の要素レートよりもはるかに高くなる可能性があります。"
 
 #: ../../scala/stream/stream-rate.rst:161
 msgid ""
@@ -240,10 +291,13 @@ msgid ""
 "how ``conflate`` can be used to implement random drop of elements when "
 "consumer is not able to keep up with the producer."
 msgstr ""
+"``conflate`` の別の可能な使い方は、生産者があまりにも速くなっている場合、すべての要素の統計を考慮しないことです。 "
+"以下の例は、コンシューマがプロデューサに追いつくことができないときに、 ``conflate`` "
+"が要素のランダムなドロップを実装するためにどのように使用できるかを示しています。"
 
 #: ../../scala/stream/stream-rate.rst:168
 msgid "Understanding expand"
-msgstr ""
+msgstr "expand を理解する"
 
 #: ../../scala/stream/stream-rate.rst:170
 msgid ""
@@ -251,12 +305,14 @@ msgid ""
 "the demand coming from consumers. Expand allows to extrapolate a value to be"
 " sent as an element to a consumer."
 msgstr ""
+"Expand は、コンシューマからの需要に追いつかない遅いプロデューサーに対処するのに役立ちます。 Expand "
+"を使用すると、要素としてコンシューマに送信される値を推定することができます。"
 
 #: ../../scala/stream/stream-rate.rst:173
 msgid ""
 "As a simple use of ``expand`` here is a flow that sends the same element to "
 "consumer when producer does not send any new elements."
-msgstr ""
+msgstr "ここで単純に ``expand`` を使うのは、プロデューサが新しい要素を送信しないときに同じ要素をコンシューマに送るフローです。"
 
 #: ../../scala/stream/stream-rate.rst:178
 msgid ""
@@ -264,6 +320,8 @@ msgid ""
 "downstream. Leveraging this, here is a flow that tracks and reports a drift "
 "between fast consumer and slow producer."
 msgstr ""
+"また、Expandを使用すると、下流からのデマンド要求の間にある状態を維持することもできます。 "
+"これを利用して、ここでは、高速コンシューマと低速プロデューサの間のドリフトを追跡し報告するフローがあります。"
 
 #: ../../scala/stream/stream-rate.rst:183
 msgid ""
@@ -272,3 +330,5 @@ msgid ""
 "to report a drift of zero if producer is fast enough, or a larger drift "
 "otherwise."
 msgstr ""
+"アップストリームから来るすべての要素は、少なくとも1回は ``expand`` されることに注意してください。 "
+"これは、このフローの出力が、プロデューサが十分に速い場合は0のドリフトを、それ以外の場合はより大きなドリフトを報告することを意味します。"
