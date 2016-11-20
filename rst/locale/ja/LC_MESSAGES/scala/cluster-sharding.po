@@ -80,8 +80,9 @@ msgid ""
 "will result in *multiple shards and entities* being started, one in each "
 "separate cluster! See :ref:`automatic-vs-manual-downing-java`."
 msgstr ""
-"**クラスタシャーディングを自動ダウン機能と一緒に使わないでください**。クラスタが2つの別のクラスタに分断するのを許してしまい、*復数のシャードとエンティティ*がそれぞれ別のクラスタで起動してしまう結果になるからです！:ref"
-":`automatic-vs-manual-downing-java` を参照してください。"
+"**クラスタシャーディングを自動ダウン機能と一緒に使わないでください**。クラスタが2つの別のクラスタに分断するのを許してしまい、 "
+"*復数のシャードとエンティティ* がそれぞれ別のクラスタで起動してしまう結果になるからです！:ref:`automatic-vs-manual-"
+"downing-java` を参照してください。"
 
 #: ../../scala/cluster-sharding.rst:35
 msgid "An Example"
@@ -226,7 +227,7 @@ msgstr ""
 
 #: ../../scala/cluster-sharding.rst:97
 msgid "How it works"
-msgstr ""
+msgstr "どのように動作するか"
 
 #: ../../scala/cluster-sharding.rst:99
 msgid ""
@@ -238,6 +239,10 @@ msgid ""
 "``ShardRegion`` request the location of the shard from a central "
 "coordinator, the ``ShardCoordinator``."
 msgstr ""
+"``ShardRegion`` アクターはクラスタのそれぞれのノードか、特定のロールでタグ付けされたノードで開始されます。 "
+"``ShardRegion`` は入ってくるメッセージからエンティティの識別子とシャードの識別子を取り出す、アプリケーションの特定の 2 "
+"つの関数によって作られます。シャードは一緒に管理されるエンティティのグループです。特定のシャードに最初のメッセージが来ると、 "
+"``ShardRegion`` は中央のコーディネーターからシャードの位置をリクエストします。"
 
 #: ../../scala/cluster-sharding.rst:106
 msgid ""
@@ -248,6 +253,10 @@ msgid ""
 "Incoming messages thus travel via the ``ShardRegion`` and the ``Shard`` to "
 "the target ``Entity``."
 msgstr ""
+"``ShardCoordinator`` はどの ``ShardRegion`` が ``Shard`` を所有するのかを決定し、そのことを "
+"``ShardRegion`` に告げます。そのリージョンはこのリクエストを確認し、子アクターとして ``Shard`` "
+"スーパーバイザーを作ります。個別の ``Entities`` は ``Shard`` アクターに必要とされたときに作られます。入ってくるメッセージは "
+"``ShardRegion`` と ``Shard`` 経由することでターゲットの ``Entity`` へ旅をします。"
 
 #: ../../scala/cluster-sharding.rst:112
 msgid ""
@@ -258,70 +267,76 @@ msgid ""
 "shard can be delivered to the target destination immediately without "
 "involving the ``ShardCoordinator``."
 msgstr ""
+"もしシャードが別の ``ShardRegion`` インスタンスに所属している場合、メッセージは代わりにその ``ShardRegion`` "
+"へ転送されます。シャードの場所を解決している間、そのシャードへ宛てて入ってくるメッセージはバッファされ、シャードの所属が解決された後に配送されます。解決したシャードに宛てた後続のメッセージは"
+" ``ShardCoordinator`` の関与なしに、即座にターゲットの宛先へ配送させることができます。"
 
 #: ../../scala/cluster-sharding.rst:118
 msgid "Scenario 1:"
-msgstr ""
+msgstr "シナリオ 1:"
 
 #: ../../scala/cluster-sharding.rst:120
 msgid "Incoming message M1 to ``ShardRegion`` instance R1."
-msgstr ""
+msgstr "M1 メッセージが R1 ``ShardRegion`` インスタンスに宛てて入ってきます。"
 
 #: ../../scala/cluster-sharding.rst:121
 msgid ""
 "M1 is mapped to shard S1. R1 doesn't know about S1, so it asks the "
 "coordinator C for the location of S1."
-msgstr ""
+msgstr "M1 は S1 シャードにマッピングされます。R1 は S1 について知らないので、C コーディネーターに S1 の場所を尋ねます。"
 
 #: ../../scala/cluster-sharding.rst:122
 msgid "C answers that the home of S1 is R1."
-msgstr ""
+msgstr "S1 の所属は R1 だと C が答えます。"
 
 #: ../../scala/cluster-sharding.rst:123
 msgid ""
 "R1 creates child actor for the entity E1 and sends buffered messages for S1 "
 "to E1 child"
-msgstr ""
+msgstr "R1 は E1 エンティティのための子アクターを作成し、バッファした E1 に宛てたメッセージを子の S1 に送ります。"
 
 #: ../../scala/cluster-sharding.rst:124
 msgid ""
 "All incoming messages for S1 which arrive at R1 can be handled by R1 without"
 " C. It creates entity children as needed, and forwards messages to them."
 msgstr ""
+"R1 に届く、S1 に向けて入ってくるメッセージは 全て C なしに R1 "
+"によって処理されます。それは必要に応じて子のエンティティを作成し、それらにメッセージを転送します。"
 
 #: ../../scala/cluster-sharding.rst:126
 msgid "Scenario 2:"
-msgstr ""
+msgstr "シナリオ 2:"
 
 #: ../../scala/cluster-sharding.rst:128
 msgid "Incoming message M2 to R1."
-msgstr ""
+msgstr "M2 メッセージが R1 に向けて入ってきます。"
 
 #: ../../scala/cluster-sharding.rst:129
 msgid ""
 "M2 is mapped to S2. R1 doesn't know about S2, so it asks C for the location "
 "of S2."
-msgstr ""
+msgstr "M2 は S2 にマッピングされています。R1 は S2 について知らないので、C に S2 の場所を問い合わせます。"
 
 #: ../../scala/cluster-sharding.rst:130
 msgid "C answers that the home of S2 is R2."
-msgstr ""
+msgstr "S2 の所属は R2 だと C が答えます。"
 
 #: ../../scala/cluster-sharding.rst:131
 msgid "R1 sends buffered messages for S2 to R2"
-msgstr ""
+msgstr "R1 はバッファした S2 に宛てたメッセージを R2 に送ります。"
 
 #: ../../scala/cluster-sharding.rst:132
 msgid ""
 "All incoming messages for S2 which arrive at R1 can be handled by R1 without"
 " C. It forwards messages to R2."
-msgstr ""
+msgstr "R1 に届く、S2 に宛てて入ってくるメッセージは全て C なしに R1 によって処理されます。それはメッセージを R2 に転送します。"
 
 #: ../../scala/cluster-sharding.rst:133
 msgid ""
 "R2 receives message for S2, ask C, which answers that the home of S2 is R2, "
 "and we are in Scenario 1 (but for R2)."
 msgstr ""
+"R2 は S2 に宛てたメッセージを受け取り、C に尋ね、C は S2 の所属が R2 だと答え、(R2のための) シナリオ 1 に入ります。"
 
 #: ../../scala/cluster-sharding.rst:135
 msgid ""
@@ -332,6 +347,9 @@ msgid ""
 " singleton, i.e. one instance on the oldest member among all cluster nodes "
 "or a group of nodes tagged with a specific role."
 msgstr ""
+"特定のエンティティアクターのインスタンスは、高々一つだけクラスターのどこかで実行されています。全てのノードがどこにシャードが位置しているのかを同じように認識しているのは重要です。シャード割り当ての決定はクラスターシングルトンで実行されている中央の"
+"  ``ShardCoordinator`` "
+"によって行われるからです。シングルトンとはすなわち、全てのクラスターノードで最も古いメンバか、特定のロールでタグ付けされたノードのグループ内でインスタンスが一つです。"
 
 #: ../../scala/cluster-sharding.rst:142
 msgid ""
@@ -341,6 +359,9 @@ msgid ""
 "the ``ShardRegion`` with least number of previously allocated shards. This "
 "strategy can be replaced by an application specific implementation."
 msgstr ""
+"シャードをどこに配置するかを決定するロジックは付け替えできるシャードのアロケーションストラテジーで定義されています。デフォルトの実装である "
+"``ShardCoordinator.LeastShardAllocationStrategy`` はそれまでに割り当てたシャードが一番少ない "
+"``ShardRegion`` に新しいシャードを割り当てます。このストラテジーはアプリケーション特有の実装に置き換えられます。"
 
 #: ../../scala/cluster-sharding.rst:147
 msgid ""
@@ -364,6 +385,16 @@ msgid ""
 "the entities are of importance it should be persistent (durable), e.g. with "
 ":ref:`persistence-scala`, so that it can be recovered at the new location."
 msgstr ""
+"新たに追加されたメンバをクラスタで使用できるようにするために、コーディネータはシャードのリバランス、すなわち、あるノードから別のノードへエンティティを移行することをアシストします。リバランスプロセスでは、コーディネーターは最初にシャードのハンドオフが開始されたことをすべての"
+" ``ShardRegion`` "
+"アクターに通知します。つまり、シャードの位置がわからない場合と同じ方法で、そのシャードの受信メッセージをバッファリングし始めます。リバランス中、コーディネータはリバランスされているシャードの位置に対する要求には応答せず、すなわち、ハンドオフが完了するまでローカルのバッファリングが継続されます。リバランスされたシャードに対する責任を負う"
+" ``ShardRegion`` は、指定された ``handOffStopMessage`` （デフォルトは ``PoisonPill`` "
+"）をそれらのシャードに送ることによって、そのシャードのすべてのエンティティを停止します。すべてのエンティティが終了したとき、エンティティを所有する ``"
+" "
+"ShardRegion``はコーディネータへハンドオフの完了確認を通知します。その後コーディネータは、シャードの位置に関するリクエストに応答し、それによってシャードの新しい位置を割り当て、次いで"
+" ``ShardRegion`` "
+"アクターにバッファされたメッセージが新しい位置に配信されます。これは、エンティティの状態が転送されたり、移行されたりしないことを意味します。エンティティの状態が重要である場合、エンティティは永続的（耐久性のある状態）でなければなりません。"
+"  :ref:`persistence-scala` を追加すると、新しい場所で状態を復元できます。"
 
 #: ../../scala/cluster-sharding.rst:164
 msgid ""
@@ -377,6 +408,12 @@ msgid ""
 "rebalancing. This strategy can be replaced by an application specific "
 "implementation."
 msgstr ""
+"リバランスするシャードを決定するロジックは、付け替えできるシャードのアロケーションストラテジーで定義されています。 デフォルト実装の "
+"``ShardCoordinator.LeastShardAllocationStrategy`` "
+"はハンドオフのために、以前に割り当てられたシャードを多く持つ ``ShardRegion`` から、シャードを選びます。 "
+"次に、以前に割り当てられたシャードの数が最も少ない ``ShardRegion`` 、すなわち、クラスタの新しいメンバに割り当てられます。 "
+"リバランスを開始するのに、差がどれだけ大きくなければならないかという、設定可能な閾値があります。 "
+"この戦略は、アプリケーション固有の実装に置き換えることができます。"
 
 #: ../../scala/cluster-sharding.rst:172
 msgid ""
@@ -390,6 +427,12 @@ msgid ""
 "new (unknown) shards are buffered until the new ``ShardCoordinator`` becomes"
 " available."
 msgstr ""
+"``ShardCoordinator`` のシャードロケーションの状態は、障害から生き残るために :ref:`persistence-scala ' "
+"を使って永続化されます (耐久性がある)。 これはクラスタ内で実行されているため、 :ref:`persistence-scala` "
+"は分散されたジャーナルで構成する必要があります。 クラッシュするか、疎通できないコーディネータノードが (ダウン状態を経由して) "
+"クラスタから削除されると、新しい ``ShardCoordinator`` のシングルトンアクターが引き継ぎ、状態が回復します。 "
+"このような障害中には、既知の場所のシャードは引き続き使用できますが、新しい (未知の) シャードのメッセージは、新しい "
+"``ShardCoordinator`` が利用可能になるまでバッファリングされます。"
 
 #: ../../scala/cluster-sharding.rst:180
 msgid ""
@@ -400,6 +443,11 @@ msgid ""
 "sending. Reliable end-to-end messaging, with at-least-once semantics can be "
 "added by using ``AtLeastOnceDelivery``  in :ref:`persistence-scala`."
 msgstr ""
+"送信者が同じ ``ShardRegion`` アクターを使用してエンティティアクターにメッセージを配信する限り、メッセージの順序は維持されます。 "
+"バッファの上限に達していない限り、メッセージは通常のメッセージ送信と同じ方法で、at-least-once "
+"のセマンティクスを使いベストエフォートで配信されます。  :ref:`persistence-scala` の "
+"``AtLeastOnceDelivery`` を使うことで、at-least-once "
+"のセマンティクスを持つ信頼性の高いエンドツーエンドメッセージングを実現できます。"
 
 #: ../../scala/cluster-sharding.rst:186
 msgid ""
@@ -409,10 +457,13 @@ msgid ""
 "designing the application specific shard resolution, e.g. to avoid too fine "
 "grained shards."
 msgstr ""
+"新しいか、それまで使用されていないシャードを宛先とするメッセージには、コーディネーターへの往復のためのレイテンシが追加されます。 "
+"シャードのリバランスでもレイテンシが増える可能性があります。 これは、アプリケーション固有の分割粒度を設計するときに考慮しておく必要があります。 "
+"例えば、細かすぎる粒度のシャードにしないなどです。"
 
 #: ../../scala/cluster-sharding.rst:192
 msgid "Distributed Data Mode"
-msgstr ""
+msgstr "分散されたデータモード"
 
 #: ../../scala/cluster-sharding.rst:194
 msgid ""
@@ -422,10 +473,14 @@ msgid ""
 "will be replicated inside a cluster by the :ref:`distributed_data_scala` "
 "module with ``WriteMajority``/``ReadMajority`` consistency."
 msgstr ""
+":ref:`persistence-scala` を使う代わりに、 :ref:` distributed_data_scala` "
+"モジュールをシャードコーディネーターの状態のストレージとして使うことができます。 そのような場合、 ``ShardCoordinator`` の状態は "
+":ref:`distributed_data_scala` モジュールによって ``WriteMajority`` / ``ReadMajority``"
+" の整合性を持ってクラスタ内で複製されます。"
 
 #: ../../scala/cluster-sharding.rst:199
 msgid "This mode can be enabled by setting configuration property::"
-msgstr ""
+msgstr "このモードは、次の設定プロパティで有効にできます::"
 
 #: ../../scala/cluster-sharding.rst:203
 msgid ""
@@ -433,6 +488,8 @@ msgid ""
 " in the cluster. Therefore you should add that extension to the "
 "configuration to make sure that it is started on all nodes::"
 msgstr ""
+"クラスタ内のすべてのノードで実行されている必要があるDistributed Data 拡張機能を使用します。 "
+"したがって、すべてのノードに拡張機能の設定を追加して、起動する必要があります::"
 
 #: ../../scala/cluster-sharding.rst:209
 msgid ""
@@ -446,6 +503,13 @@ msgid ""
 "Entities`` is ``on`` Sharding Region always keeps data usig persistence, no "
 "matter how ``State Store Mode`` is set."
 msgstr ""
+"このモードを使用する場合は、ビルドへ明示的に ``akka-distributed-data-experimental`` "
+"の依存関係を追加する必要があります。もし ``akka-persistence`` がユーザーコードで使われておらず、 `` remember-"
+"entities`` が  ``off`` であれば、 `` akka-persistence`` の依存関係をプロジェクトから削除できます。これを "
+"``Remember Entities`` "
+"と一緒に使うと、リバランス後に再作成されますが、何もない状態からクラスタの開始した後には再作成されません。ddata "
+"モードを使用する場合、何もない状態からクラスタを起動した後のシャードコーディネーターの状態は空です。  ``Remember Entities`` が "
+"``on`` のとき、シャードリージョンは、 `` State Store Mode`` がどのように設定されていても、常にデータの永続性を維持します。"
 
 #: ../../scala/cluster-sharding.rst:219
 msgid ""
@@ -453,10 +517,12 @@ msgid ""
 "introduction in Akka 2.4.0, since it depends on the experimental Distributed"
 " Data module."
 msgstr ""
+"``ddata`` モードは、Akka 2.4.0 で導入され、実験的な Distributed Data モジュールに依存するため、 "
+"**\"実験的\"** であるとみなされています。"
 
 #: ../../scala/cluster-sharding.rst:223
 msgid "Proxy Only Mode"
-msgstr ""
+msgstr "プロキシ専用モード"
 
 #: ../../scala/cluster-sharding.rst:225
 msgid ""
@@ -465,10 +531,13 @@ msgid ""
 " right location. A ``ShardRegion`` is started in proxy only mode with the "
 "method ``ClusterSharding.startProxy`` method."
 msgstr ""
+"``ShardRegion`` "
+"アクターは、プロキシ専用モードで開始することもできます。つまり、エンティティを自身にホストせず、メッセージを適切な場所に委譲する方法を知っています。 "
+"``ShardRegion`` は ``ClusterSharding.startProxy`` メソッドを使うとプロキシ専用モードで起動します。"
 
 #: ../../scala/cluster-sharding.rst:231
 msgid "Passivation"
-msgstr ""
+msgstr "不活性化"
 
 #: ../../scala/cluster-sharding.rst:233
 msgid ""
@@ -485,10 +554,18 @@ msgid ""
 " of the entity. Such buffered messages are thereafter delivered to a new "
 "incarnation of the entity."
 msgstr ""
+"エンティティの状態が永続的な場合は、メモリ消費を減らすために使用されていないエンティティを停止することがあります。 これは、受信タイムアウト ( "
+"``context.setReceiveTimeout`` ) を定義するなど、エンティティアクターのアプリケーション固有の実装によって行われます。 "
+"メッセージがエンティティにすでにエンキューされていて、エンティティ自体が停止した場合、メールボックスにエンキューされたメッセージは破棄されます。 "
+"このようにメッセージを失うことなくグレースフルな不活性化をサポートするために、エンティティのアクターは親の ``Shard`` に "
+"``ShardRegion.Passivate`` を送ることができます。 ``Passivate`` "
+"にラップされた特定のメッセージはエンティティに返送され、エンティティは自分自身を停止するはずです。 ``Passivate`` "
+"を受信してからエンティティが終了するまでの間の受信メッセージは、 ``Shard`` によってバッファリングされます。 "
+"そのようにバッファされたメッセージは、その後、エンティティの新しいインスタンスに配信されます。"
 
 #: ../../scala/cluster-sharding.rst:245
 msgid "Remembering Entities"
-msgstr ""
+msgstr "エンティティの再現"
 
 #: ../../scala/cluster-sharding.rst:247
 msgid ""
@@ -502,6 +579,12 @@ msgid ""
 " will be automatically restarted after the entity restart backoff specified "
 "in the configuration."
 msgstr ""
+"``ClusterSharding.start`` を呼び出すとき ``ClusterShardingSettings`` の "
+"``rememberEntities`` フラグを true に設定することで、各 ``Shard`` のエンティティのリストを永続化 "
+"(耐久性がある状態に) できます。 エンティティを覚えるように設定されている場合、 ``Shard`` "
+"が別のノードにリバランスされるか、クラッシュ後の復旧をするとき、それ以前にその ``Shard`` "
+"で起動していた全てのエンティティを再作成します。エンティティを永久に停止させるには、エンティティアクタの親に ``Passivate`` "
+"メッセージを送信しなければなりません。そうしないと、エンティティが撤退した後、設定で指定されたように自動的にそのエンティティが再起動します。"
 
 #: ../../scala/cluster-sharding.rst:256
 msgid ""
@@ -511,16 +594,21 @@ msgid ""
 "has been received in the ``Shard``. Entities will not be restarted if they "
 "stop without using a ``Passivate``."
 msgstr ""
+"``rememberEntities`` が false に設定されている場合、 `` Shard`` "
+"は、リバランス後やクラッシュからの復旧後にエンティティを自動的に再起動しません。 エンティティは、そのエンティティに宛てた最初のメッセージが "
+"``Shard`` で受信されたときにのみ開始されます。 ``Passivate`` "
+"を使わずにエンティティを停止すると、エンティティは再起動されません。"
 
 #: ../../scala/cluster-sharding.rst:261
 msgid ""
 "Note that the state of the entities themselves will not be restored unless "
 "they have been made persistent, e.g. with :ref:`persistence-scala`."
 msgstr ""
+"エンティティ自身の状態は、 :ref:`persistence-scala` などで永続化されていなければ復元されないことに注意してください。"
 
 #: ../../scala/cluster-sharding.rst:265
 msgid "Supervision"
-msgstr ""
+msgstr "スーパービジョン"
 
 #: ../../scala/cluster-sharding.rst:267
 msgid ""
@@ -528,21 +616,24 @@ msgid ""
 " the default (restarting) strategy you need to create an intermediate parent"
 " actor that defines the ``supervisorStrategy`` to the child entity actor."
 msgstr ""
+"デフォルトの (再起動) 戦略の代わりに、エンティティアクターで別の ``supervisorStrategy`` "
+"を使う必要がある場合は、子のエンティティアクターに対する ``supervisorStrategy`` "
+"を定義する中間の親アクターを作成する必要があります。"
 
 #: ../../scala/cluster-sharding.rst:273
 msgid ""
 "You start such a supervisor in the same way as if it was the entity actor."
-msgstr ""
+msgstr "そのようなスーパーバイザーを、エンティティアクターであるかのように開始します。"
 
 #: ../../scala/cluster-sharding.rst:277
 msgid ""
 "Note that stopped entities will be started again when a new message is "
 "targeted to the entity."
-msgstr ""
+msgstr "停止したエンティティは、新しいメッセージがそのエンティティに宛てられたときに再び開始されることに注意してください。"
 
 #: ../../scala/cluster-sharding.rst:280
 msgid "Graceful Shutdown"
-msgstr ""
+msgstr "グレースフルシャットダウン"
 
 #: ../../scala/cluster-sharding.rst:282
 msgid ""
@@ -554,20 +645,25 @@ msgid ""
 "way as when a rebalance is triggered by the coordinator. When the shards "
 "have been stopped the coordinator will allocate these shards elsewhere."
 msgstr ""
+"``ShardRegion.GracefulShutdown`` メッセージを ``ShardRegion`` アクターに送って、 `` "
+"ShardRegion`` でホストされているすべてのシャードを切り離し、 `` ShardRegion`` アクターを止めることができます。 "
+"それがいつ完了したのかを知るために ``ShardRegion`` アクターを ``観る`` "
+"ことができます。この期間中、コーディネーターによってリバランスがトリガーされたときと同じ方法で、他のリージョンがこれらのシャードのメッセージをバッファします。シャードが停止すると、コーディネーターはこれらのシャードを他の場所に割り当てます。"
 
 #: ../../scala/cluster-sharding.rst:287
 msgid ""
 "When the ``ShardRegion`` has terminated you probably want to ``leave`` the "
 "cluster, and shut down the ``ActorSystem``."
 msgstr ""
+"``ShardRegion`` が終了したら、クラスタから ``離し`` 、 `` ActorSystem`` をシャットダウンするでしょう。"
 
 #: ../../scala/cluster-sharding.rst:289
 msgid "This is how to do that:"
-msgstr ""
+msgstr "これを行う方法:"
 
 #: ../../scala/cluster-sharding.rst:296
 msgid "Removal of Internal Cluster Sharding Data"
-msgstr ""
+msgstr "クラスタシャーディングの内部データの削除"
 
 #: ../../scala/cluster-sharding.rst:298
 msgid ""
@@ -575,6 +671,8 @@ msgid ""
 "Akka Persistence. This data can safely be removed when restarting the whole "
 "Akka Cluster. Note that this is not application data."
 msgstr ""
+"クラスタシャーディングのコーディネーターは、Akka Persistence を使ってシャードの場所を保存します。このデータは、Akka "
+"のクラスタ全体を再起動するときに安全に削除できます。 削除するのはアプリケーションデータではないことに注意してください。"
 
 #: ../../scala/cluster-sharding.rst:302
 msgid ""
@@ -582,12 +680,16 @@ msgid ""
 "``akka.cluster.sharding.RemoveInternalClusterShardingData`` that removes "
 "this data."
 msgstr ""
+"このデータを削除する ``akka.cluster.sharding.RemoveInternalClusterShardingData`` "
+"というユーティリティプログラムがあります。"
 
 #: ../../scala/cluster-sharding.rst:307
 msgid ""
 "Never use this program while there are running Akka Cluster nodes that are "
 "using Cluster Sharding. Stop all Cluster nodes before using this program."
 msgstr ""
+"クラスターシャーディングを使用している Akka のクラスターノードを実行しているときは、このプログラムを決して使わないでください。 "
+"このプログラムを使用する前に、すべてのクラスターノードを停止してください。"
 
 #: ../../scala/cluster-sharding.rst:310
 msgid ""
@@ -596,6 +698,8 @@ msgid ""
 " clusters were running at the same time, e.g. caused by using auto-down and "
 "there was a network partition."
 msgstr ""
+"例えば、auto-down を使ったためにネットワークの分断が発生した場合など、偶発的に 2 "
+"つのクラスタが同時に実行されてしまった場合に発生する可能性のある破損データによって、クラスターシャーディングのコーディネータが起動できない場合は、データを削除する必要があります。"
 
 #: ../../scala/cluster-sharding.rst:316
 msgid ""
@@ -604,10 +708,13 @@ msgid ""
 "will result in *multiple shards and entities* being started, one in each "
 "separate cluster! See :ref:`automatic-vs-manual-downing-scala`."
 msgstr ""
+"**クラスターシャーディングと自動ダウン機能を一緒に使用しないでください** 。クラスターが2つの別々のクラスターに分離してしまう可能性があります! "
+"その結果、 *シャードとエンティティが復数* 起動します。 :ref:`automatic-vs-manual-downing-scala` "
+"を参照してください。"
 
 #: ../../scala/cluster-sharding.rst:321
 msgid "Use this program as a standalone Java main program::"
-msgstr ""
+msgstr "このプログラムをスタンドアローンのJavaメインプログラムとして使用する::"
 
 #: ../../scala/cluster-sharding.rst:327
 msgid ""
@@ -615,12 +722,15 @@ msgid ""
 "easiest to run it with same classpath and configuration as your ordinary "
 "application. It can be run from sbt or maven in similar way."
 msgstr ""
+"このプログラムは `` akka-cluster-sharding`` の JAR ファイルに含まれています。 "
+"通常のアプリケーションと同じクラスパスと設定で実行するのが最も簡単です。同様の方法で sbt または maven から実行できます。"
 
 #: ../../scala/cluster-sharding.rst:331
 msgid ""
 "Specify the entity type names (same as you use in the ``start`` method of "
 "``ClusterSharding``) as program arguments."
 msgstr ""
+"エンティティタイプ名 ( ``ClusterSharding`` の ``start``メソッドで使用するのと同じもの) を引数として指定します。"
 
 #: ../../scala/cluster-sharding.rst:334
 msgid ""
@@ -628,28 +738,30 @@ msgid ""
 "remove data that was stored by Cluster Sharding in Akka 2.3.x using "
 "different persistenceId."
 msgstr ""
+"プログラムの最初の引数に ``-2.3`` を指定すると、Akka 2.3.x の Cluster Sharding によって、異なる "
+"persistenceId で保存されたデータの削除を試みます。"
 
 #: ../../scala/cluster-sharding.rst:339
 msgid "Dependencies"
-msgstr ""
+msgstr "依存関係"
 
 #: ../../scala/cluster-sharding.rst:341
 msgid ""
 "To use the Cluster Sharding you must add the following dependency in your "
 "project."
-msgstr ""
+msgstr "クラスターシャーディングを使うには、下記の依存関係をあなたのプロジェクトに追加する必要があります。"
 
 #: ../../scala/cluster-sharding.rst:343
 msgid "sbt::"
-msgstr ""
+msgstr "sbt::"
 
 #: ../../scala/cluster-sharding.rst:347
 msgid "maven::"
-msgstr ""
+msgstr "maven::"
 
 #: ../../scala/cluster-sharding.rst:356
 msgid "Configuration"
-msgstr ""
+msgstr "設定"
 
 #: ../../scala/cluster-sharding.rst:358
 msgid ""
@@ -662,6 +774,11 @@ msgid ""
 "``ClusterSharding`` extension, i.e. each each entity type can be configured "
 "with different settings if needed."
 msgstr ""
+"``ClusterSharding`` の拡張機能は以下のプロパティで設定できます。 これらの設定プロパティは、 ``ActorSystem`` "
+"のパラメータで作成された場合、 ``ClusterShardingSettings`` を使って読み込まれます。 "
+"``ClusterShardingSettings`` を修正することも、以下のようなレイアウトで別の設定セクションから作成することもできます。 "
+"``ClusterShardingSettings`` は、 ``ClusterSharding`` 拡張の ``start`` "
+"メソッドに渡すパラメータです。つまり、それぞれのエンティティタイプを、必要に応じて異なる設定で構成できます。"
 
 #: ../../scala/cluster-sharding.rst:367
 msgid ""
@@ -670,14 +787,16 @@ msgid ""
 "``ShardAllocationStrategy`` for details of how to implement a custom shard "
 "allocation strategy."
 msgstr ""
+"独自のシャード割り当て戦略は、 ``ClusterSharding.start`` のオプションパラメータで定義することができます。 "
+"独自のシャード割り当て戦略の実装方法の詳細については、 ``ShardAllocationStrategy`` のAPIドキュメントを参照してください。"
 
 #: ../../scala/cluster-sharding.rst:373
 msgid "Inspecting cluster sharding state"
-msgstr ""
+msgstr "クラスターシャーディングの状態検査"
 
 #: ../../scala/cluster-sharding.rst:374
 msgid "Two requests to inspect the cluster state are available:"
-msgstr ""
+msgstr "クラスターの状態を検査するために、2 種類のリクエストが利用できます。"
 
 #: ../../scala/cluster-sharding.rst:376
 msgid ""
@@ -685,6 +804,9 @@ msgid ""
 "``ShardRegion.CurrentShardRegionState`` that contains the identifiers of the"
 " shards running in a Region and what entities are alive for each of them."
 msgstr ""
+"``ShardRegion.GetShardRegionState`` "
+"は、リージョン内で実行されているシャードの識別子と、それぞれのシャードにどのエンティティが生存しているのかを示す "
+"``ShardRegion.CurrentShardRegionState`` を返します。"
 
 #: ../../scala/cluster-sharding.rst:379
 msgid ""
@@ -693,10 +815,13 @@ msgid ""
 " identifiers of the shards running in each region and a count of entities "
 "that are alive in each shard."
 msgstr ""
+"``ShardRegion.GetClusterShardingStats`` "
+"は、クラスタ内のすべてのリージョンを照会し、各リージョンで実行されているシャードの識別子と、各シャード内に存在するエンティティの数を含んだ "
+"``ShardRegion.ClusterShardingStats`` を返します。"
 
 #: ../../scala/cluster-sharding.rst:383
 msgid ""
 "The purpose of these messages is testing and monitoring, they are not "
 "provided to give access to directly sending messages to the individual "
 "entities."
-msgstr ""
+msgstr "これらのメッセージの目的は、テストと監視であり、メッセージを個々のエンティティに直接送信するための手段を提供するものではありません。"
