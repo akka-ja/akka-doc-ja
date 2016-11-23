@@ -31,7 +31,7 @@ msgid ""
 " high-throughput and low latency is a good candidate for using Akka."
 msgstr ""
 "私たちは Akka "
-"が幅広い産業の多数の組織で採用されるのを知っています。投資銀行やマーチャントバンク、小売業、ソーシャルメディア、シミュレーション、ゲーム、賭け事、自動車や交通システム、ヘルスケア、データ解析、その他に沢山あります。どのシステムも高スループットと低レイテンシが必要であったため、"
+"が投資銀行やマーチャントバンク、小売業、ソーシャルメディア、シミュレーション、ゲーム、賭け事、自動車や交通システム、ヘルスケア、データ解析、その他さまざまな幅広い産業の多数の大組織で採用されるのを知っています。高スループットと低レイテンシが必要ならどんなシステムでも"
 " Akka を使うことが良い選択肢になります。"
 
 #: ../../intro/use-cases.rst:14
@@ -40,14 +40,13 @@ msgid ""
 "by production users `here <http://stackoverflow.com/questions/4493001/good-"
 "use-case-for-akka/4494512#4494512>`_"
 msgstr ""
-"Akka を実際に使用したユーザーによる Akka "
-"の評価と、それに対する大きな議論は、`こちら<http://stackoverflow.com/questions/4493001/good-use-"
-"case-for-akka/4494512#4494512>`_  にあります。 "
+"`こちら <http://stackoverflow.com/questions/4493001/good-use-case-for-"
+"akka/4494512#4494512>`_ に、 Akka のユーザーが Akka をどのように使用しているかを述べているものがあります。"
 
 #: ../../intro/use-cases.rst:18
 msgid ""
 "Here are some of the areas where Akka is being deployed into production"
-msgstr "プロダクトに Akka を採用した分野の一部"
+msgstr "以下は Akka を製品で採用しているいくつかの領域です。"
 
 #: ../../intro/use-cases.rst:21
 msgid ""
@@ -82,7 +81,8 @@ msgid ""
 "Correct Simple to work with and understand Just add the jars to your "
 "existing JVM project (use Scala, Java, Groovy or JRuby)"
 msgstr ""
-"正確で簡単に動作します。また、既存の JVMプロジェクト( Scala、Java、Groove、JRubyなど) にJar を追加するだけです。"
+"動作させるのが正確、簡単で理解しやすいです。既存の JVMプロジェクト( Scala、Java、Groove、JRubyなど) にJar "
+"を追加するだけです。"
 
 #: ../../intro/use-cases.rst:37
 msgid "Simulation"
