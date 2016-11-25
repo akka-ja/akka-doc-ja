@@ -30,8 +30,8 @@ msgid ""
 "health care, data analytics and much more. Any system that have the need for"
 " high-throughput and low latency is a good candidate for using Akka."
 msgstr ""
-"私たちは Akka "
-"が投資銀行やマーチャントバンク、小売業、ソーシャルメディア、シミュレーション、ゲーム、賭け事、自動車や交通システム、ヘルスケア、データ解析、その他さまざまな幅広い産業の多数の大組織で採用されるのを知っています。高スループットと低レイテンシが必要ならどんなシステムでも"
+"Akka "
+"は投資銀行やマーチャントバンク、小売業、ソーシャルメディア、シミュレーション、ゲーム、賭け事、自動車や交通システム、ヘルスケア、データ解析、その他さまざまな幅広い産業の多数の大組織で採用されています。高スループットと低レイテンシが必要ならどんなシステムでも"
 " Akka を使うことが良い選択肢になります。"
 
 #: ../../intro/use-cases.rst:14
