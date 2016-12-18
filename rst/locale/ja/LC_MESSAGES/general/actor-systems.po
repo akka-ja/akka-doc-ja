@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Kazuki Negoro <negokaz@gmail.com>, 2016\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 
 #: ../../general/actor-systems.rst:4
 msgid "Actor Systems"
-msgstr ""
+msgstr "アクターシステム"
 
 #: ../../general/actor-systems.rst:6
 msgid ""
@@ -34,16 +35,20 @@ msgid ""
 "emotional state or moral issues). The result can then serve as a mental "
 "scaffolding for building the software implementation."
 msgstr ""
+"アクターは、状態と振る舞いをカプセル化するオブジェクトであり、受信者のメールボックスにメッセージを置くことでメッセージを交換し、排他的に通信します。 "
+"ある意味では、アクターはオブジェクト指向プログラミングの中で最も厳格な形式ですが、人間にとってはより理解しやすいものです。アクターを使って問題の解決策をモデル化し、人々のグループを構想し、それらにサブタスクを割り当て、その機能を組織体系に整理し、障害をエスカレートする方法を考えます"
+" (実際には人を扱わないという利点があります。つまり、感情的な状態や道徳的な問題に心配する必要はありません) "
+"。その結果、ソフトウェア実装を構築するための精神的な足場として役立ちます。"
 
 #: ../../general/actor-systems.rst:19
 msgid ""
 "An ActorSystem is a heavyweight structure that will allocate 1…N Threads, so"
 " create one per logical application."
-msgstr ""
+msgstr "アクターシステムは、1 ... N のスレッドを割り当てる重い構造体なので、論理的なアプリケーションごとに 1 つ作成します。"
 
 #: ../../general/actor-systems.rst:23
 msgid "Hierarchical Structure"
-msgstr ""
+msgstr "階層構造"
 
 #: ../../general/actor-systems.rst:25
 msgid ""
@@ -55,6 +60,11 @@ msgid ""
 "underlying concepts in this section. The only prerequisite is to know that "
 "each actor has exactly one supervisor, which is the actor that created it."
 msgstr ""
+"経済組織のように、アクターは自然に階層を形成します。 プログラムの特定の機能を監督する 1 "
+"人のアクターは、その仕事をより小さく、より管理しやすいものに分割したいかもしれません。この目的のために、それが監督する子アクターを導入します。スーパービジョン"
+" (監督) の詳細は :ref:`ここ <supervision>` "
+"で説明されていますが、このセクションでは根底にある概念に集中します。理解のための唯一の前提条件は、各アクターが、そのアクターを作り出した、ちょうど 1 "
+"人のスーパーバイザーを持つということです。"
 
 #: ../../general/actor-systems.rst:33
 msgid ""
@@ -67,6 +77,10 @@ msgid ""
 " a corresponding failure message to its supervisor, asking for help. The "
 "recursive structure then allows to handle failure at the right level."
 msgstr ""
+"アクターシステムの典型的な特徴は、1 "
+"つの部分で扱えるほど十分に小さくなるまでタスクが分割され、委任されることです。そうすることで、タスクそのものが明確に構造化されているだけでなく、結果的に、どのメッセージを処理すべきか、どのように正常に反応すべきか、そしてどのように障害を処理すべきかということがアクターから推論することができるようになります。1"
+" 人のアクターが特定の状況に対処する手段を持っていない場合、対応する失敗メッセージをスーパーバイザーに送信して、助けを求めます。 "
+"再帰的な構造によって正しいレベルで障害が処理できるようになります。"
 
 #: ../../general/actor-systems.rst:42
 msgid ""
@@ -75,6 +89,7 @@ msgid ""
 "communicated to the right person, a better solution can be found than if "
 "trying to keep everything “under the carpet”."
 msgstr ""
+"これを、障害を漏れ無く考慮した防御的プログラミングになりやすい、階層化されたソフトウェア設計と比較してください。問題が適切な人に伝達されれば、すべてを「カーペットの下に」入れてしまうよりも優れた解決策を見出すことができます。"
 
 #: ../../general/actor-systems.rst:47
 msgid ""
@@ -82,6 +97,7 @@ msgid ""
 "supervise what. There is of course no single best solution, but there are a "
 "few guidelines which might be helpful:"
 msgstr ""
+"そのようなシステムを設計することの難しいところは、誰が何を監督すべきかということの決定方法です。もちろん最高の解決方法はありませんが、役立つガイドラインがいくつかあります:"
 
 #: ../../general/actor-systems.rst:51
 msgid ""
@@ -90,6 +106,8 @@ msgid ""
 "the manager knows which kind of failures are expected and how to handle "
 "them."
 msgstr ""
+"1 "
+"つのアクターがサブタスクを他のアクターに委譲し、その仕事を管理しているとすると、マネージャは子供を監督すべきです。なぜなら管理者が、どの種類の障害が予想され、どのように対処するのかを知っているからです。"
 
 #: ../../general/actor-systems.rst:56
 msgid ""
@@ -101,6 +119,10 @@ msgid ""
 "collecting the replies. This is known as the “Error Kernel Pattern” from "
 "Erlang."
 msgstr ""
+"1 つのアクターが非常に重要なデータを運ぶ場合 "
+"(避けられるなら状態は失われないようにすべき)、このアクターは、危険なサブタスクを監督している子供に送信し、これらの子供の失敗を適切に処理すべきです。 "
+"リクエストの性質によっては、リクエストごとに新しい子を作成することが最善であることがあり、返信を収集するための状態管理をシンプルにできます。 これは "
+"Erlang の \"Error Kernel Pattern\" として知られています。"
 
 #: ../../general/actor-systems.rst:64
 msgid ""
@@ -111,16 +133,18 @@ msgid ""
 "functional dependency alone is not a criterion for deciding where to place a"
 " certain child actor in the hierarchy."
 msgstr ""
+"あるアクターがその義務を果たすために、別のアクターに依存している場合、他のアクターの生死を監視し、終了の通知を受け取って行動する必要があります。 "
+"監視者がスーパーバイザー戦略に影響を与えることはないので、スーパービジョンとは異なります。機能的な依存関係だけでは、特定の子アクターを階層のどこに配置するのかを決定する基準にはなりません。"
 
 #: ../../general/actor-systems.rst:71
 msgid ""
 "There are of course always exceptions to these rules, but no matter whether "
 "you follow the rules or break them, you should always have a reason."
-msgstr ""
+msgstr "もちろん、これらのルールには常に例外がありますが、ルールを守るか破るかにかかわらず、常に理由を持つべきです。"
 
 #: ../../general/actor-systems.rst:75
 msgid "Configuration Container"
-msgstr ""
+msgstr "コンテナを構成"
 
 #: ../../general/actor-systems.rst:77
 msgid ""
@@ -133,10 +157,13 @@ msgid ""
 "actor systems themselves can be used as building blocks in a functional "
 "hierarchy."
 msgstr ""
+"アクターがアンサンブルするアクターシステムは、スケジューリングサービス、構成、ロギングなどの共有設備を管理するための自然な単位です。異なる構成を持つ複数のアクターシステムは"
+" Akka 自身の中でグローバルな状態共有が無ければ、同じ JVM 内で問題なく共存できるはずです。これを 1 "
+"つのノード内、またはネットワーク接続全体にわたるアクターシステム間の透過的な通信と組み合わせることで、アクターシステム自体を機能階層の構成要素として使用できます。"
 
 #: ../../general/actor-systems.rst:86
 msgid "Actor Best Practices"
-msgstr ""
+msgstr "アクターのベストプラクティス"
 
 #: ../../general/actor-systems.rst:88
 msgid ""
@@ -148,6 +175,10 @@ msgid ""
 "lock, a network socket, etc.—unless it is unavoidable; in the latter case "
 "see below."
 msgstr ""
+"アクターは素敵な同僚のようになるべきです。他の人の気を不必要に遣わせることなく効率的に仕事をし、リソースを奪わないようにします。 "
+"プログラミングの言葉にすると、イベント駆動型の方法でイベントを処理し、レスポンス (または更なるリクエスト) を生成することを意味します。 "
+"アクターは、やむを得ない場合を除いて、ロック、ネットワークソケットなどの外部のエンティティをブロックしてはいけません "
+"(つまり、スレッドを占有している間は受動的に待機してはいけません) 。例外は以下の後者の場合を参照してください。"
 
 #: ../../general/actor-systems.rst:96
 msgid ""
@@ -156,6 +187,9 @@ msgid ""
 "their mutable state to the outside, you are back in normal Java concurrency "
 "land with all the drawbacks."
 msgstr ""
+"アクター間で可変なオブジェクトをやりとりしないでください。そのためには、メッセージが不変であることが好ましいです。 "
+"変更可能な状態を外部に公開することでアクターのカプセル化が壊れると、通常の Java "
+"の並行処理の土俵に戻ってしまい、あらゆる欠点を抱えることになります。"
 
 #: ../../general/actor-systems.rst:101
 msgid ""
@@ -166,6 +200,9 @@ msgid ""
 "breaks all the properties which make programming in actors such a nice "
 "experience."
 msgstr ""
+"アクターは、振る舞いと状態のコンテナであり、ふつうはメッセージで振る舞いを送信することはしません (Scala "
+"のクロージャを使う誘惑があるかもしれません)。そのリスクの 1 "
+"つは、アクター間で誤って可変の状態を共有してしまうことです。このアクターモデルの違反は、残念なことにアクタープログラミングのすばらしい体験をもたらす性質を台無しにします。"
 
 #: ../../general/actor-systems.rst:108
 msgid ""
@@ -175,10 +212,13 @@ msgid ""
 " and the performance) and it also reduces the strain on the guardian actor, "
 "which is a single point of contention if over-used."
 msgstr ""
+"トップレベルのアクターは、エラーカーネルの最も奥にあるので、それらは控えめに作成し、本当に階層的なシステムであることが好ましいです。 "
+"これは、障害のハンドリング (構成の細かさとパフォーマンスの両方を考慮する場合) "
+"において利点があります。また、ガーディアンアクターの負荷を軽減します。これを過度に使うと、競合ポイントの一つになります。"
 
 #: ../../general/actor-systems.rst:115
 msgid "Blocking Needs Careful Management"
-msgstr ""
+msgstr "ブロッキングには慎重な管理が必要"
 
 #: ../../general/actor-systems.rst:117
 msgid ""
@@ -191,12 +231,16 @@ msgid ""
 "simple: you are quite likely to find bottlenecks or run out of memory or "
 "threads when the application runs under increased load."
 msgstr ""
+"場合によっては、ブロッキング操作、つまりスレッドが不定期にスリープするようにして外部イベントが発生するのを待つことは避けられないことです。例えば、従来の"
+" RDBMS ドライバーやメッセージング API があり、その根底にある理由は、一般的に (ネットワーク) I/O "
+"がカバーの下で発生するためです。このようなことに直面した場合、ブロッキングコールを単に class:`Future` "
+"の中にラップして、その代わりに使うことができますが、この戦略は単純すぎます。アプリケーションが高い負荷で実行されているときに、ボトルネックになったり、メモリやスレッドを使い果たす可能性が非常に高いです。"
 
 #: ../../general/actor-systems.rst:126
 msgid ""
 "The non-exhaustive list of adequate solutions to the “blocking problem” "
 "includes the following suggestions:"
-msgstr ""
+msgstr "この \"ブロッキング問題\" に対する適切な解決策の非網羅的なリストには、以下のような提案があります。"
 
 #: ../../general/actor-systems.rst:129
 msgid ""
@@ -205,6 +249,8 @@ msgid ""
 " configure a thread pool which is either dedicated for this purpose or "
 "sufficiently sized."
 msgstr ""
+"アクター (またはルーター [:ref:`Java <routing-java>`, :ref:`Scala <routing-scala>] "
+"によって管理されているアクター) の中でブロッキングコールを行い、この目的専用にしているか、または十分な大きさのスレッドプールを設定してください。"
 
 #: ../../general/actor-systems.rst:134
 msgid ""
@@ -212,6 +258,8 @@ msgid ""
 "the number of such calls at any point in time (submitting an unbounded "
 "number of tasks of this nature will exhaust your memory or thread limits)."
 msgstr ""
+"ブロッキングコールを :class:`Future`  内で行い、このような呼び出しの数の上限をある時点で設けます "
+"(タスクを無制限に実行すると、メモリやスレッドを使い切ってしまいます) 。"
 
 #: ../../general/actor-systems.rst:138
 msgid ""
@@ -219,6 +267,8 @@ msgid ""
 "an upper limit on the number of threads which is appropriate for the "
 "hardware on which the application runs."
 msgstr ""
+"アプリケーションを実行するハードウェアに適したスレッド数の上限をスレッドプールに設定し、 :class:`Future` "
+"内でブロッキングコールを行います。"
 
 #: ../../general/actor-systems.rst:142
 msgid ""
@@ -226,6 +276,8 @@ msgid ""
 "selector driving multiple channels) and dispatch events as they occur as "
 "actor messages."
 msgstr ""
+"単一のスレッドを一連のブロッキングリソース (たとえば、複数のチャネルを駆動させる NIO セレクタ) "
+"の管理専用にして、アクターメッセージとして、発生するイベントをディスパッチします。"
 
 #: ../../general/actor-systems.rst:146
 msgid ""
@@ -237,6 +289,11 @@ msgid ""
 "sent to the router. The number N must then be tuned for maximum throughput, "
 "which will vary depending on which DBMS is deployed on what hardware."
 msgstr ""
+"最初の可能性としては、一度に 1 "
+"つの未処理のクエリのみを実行し、内部同期を使用してこれを保証する伝統的なデータベース処理など、自然にシングルスレッドであるリソースが特に適しています。 "
+"一般的なパターンは、N 個のアクターのためのルーターを作成することです。各アクターは、1 "
+"つのDB接続をラップし、ルーターに送信されたクエリを処理します。 スループットを最大化するために N をチューニングしなければなりません。これは、どの "
+"DBMS がどのハードウェアに配備されているかによって異なります。"
 
 #: ../../general/actor-systems.rst:156
 msgid ""
@@ -245,10 +302,13 @@ msgid ""
 "[:ref:`Java <dispatcher-lookup-java>`, :ref:`Scala <dispatcher-lookup-"
 "scala>`]"
 msgstr ""
+"スレッドプールの設定は、Akka に委譲するのが最適です。単純に ``application.conf`` で設定し、 "
+":class:`ActorSystem` [:ref:`Java <dispatcher-lookup-java> `, :ref:`Scala "
+"<dispatcher-lookup-scala>`] でインスタンス化するだけです。"
 
 #: ../../general/actor-systems.rst:162
 msgid "What you should not concern yourself with"
-msgstr ""
+msgstr "あなたが心配すべきでないこと"
 
 #: ../../general/actor-systems.rst:164
 msgid ""
@@ -260,3 +320,7 @@ msgid ""
 "controllable by the application author, but this is also not intended. Take "
 "a step back and relax while Akka does the heavy lifting under the hood."
 msgstr ""
+"アクターシステムは、それ自身に含まれるアクターを実行するために構成されたリソースを管理します。このシステムには数百万ものアクターがいるかもしれません。それらが大量にあるとみなすのが全てのマントラであり、オーバーヘッドはインスタンスごとに、たった約"
+" 300 "
+"バイトの重さです。当然ながら、大規模なシステムでメッセージが処理される正確な順序は、アプリケーション作成者が制御できるものではありませんが、これも意図したものではありません。"
+" Akka がカバーの下で重いものを持ち上げている間、リラックスして一歩踏み出してください。"
