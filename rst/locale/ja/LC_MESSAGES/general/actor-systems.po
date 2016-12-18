@@ -249,7 +249,7 @@ msgid ""
 " configure a thread pool which is either dedicated for this purpose or "
 "sufficiently sized."
 msgstr ""
-"アクター (またはルーター [:ref:`Java <routing-java>`, :ref:`Scala <routing-scala>] "
+"アクター (またはルーター [:ref:`Java <routing-java>`, :ref:`Scala <routing-scala>`] "
 "によって管理されているアクター) の中でブロッキングコールを行い、この目的専用にしているか、または十分な大きさのスレッドプールを設定してください。"
 
 #: ../../general/actor-systems.rst:134
