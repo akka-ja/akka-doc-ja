@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Yugo Maede <yugo.maede@gmail.com>, 2016\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 
 #: ../../general/message-delivery-reliability.rst:5
 msgid "Message Delivery Reliability"
-msgstr ""
+msgstr "メッセージ配信の信頼性"
 
 #: ../../general/message-delivery-reliability.rst:7
 msgid ""
@@ -30,6 +31,9 @@ msgid ""
 "passing, which is why the precise semantics of how messages are passed "
 "between actors deserve their own chapter."
 msgstr ""
+"Akkaは、1 台のコンピューターで複数のプロセッサコアを使用したり（スケールアップ）、ネットワークを跨って分散される (スケール "
+"アウト)信頼性の高いアプリケーションを構築することができます "
+"。このための重要な抽象概念は、すべての相互作用がコードユニット（アクター）間でメッセージ送信を介して起こることです。アクター間のメッセージ送信方法の明確な意義がAkkaの重要なポイントです。"
 
 #: ../../general/message-delivery-reliability.rst:14
 msgid ""
@@ -45,6 +49,11 @@ msgid ""
 "object which is sent, whereas a remote transport will place a limit on the "
 "message size."
 msgstr ""
+"このあとの議論にいくつかのコンテキストを与えるために複数のネットワーク "
+"ホストにまたがるアプリケーションを検討します。通信の基本的なメカニズムはアクターがローカル JVM "
+"上で送信していても、リモートアクターに送信していても同じですが、配信のレイテンシ (ネットワーク リンクの帯域幅やメッセージのサイズにも依存する) "
+"と信頼性には違いがあります。リモート "
+"メッセージ送信した場合は、明らかに間違いを起こす可能性のある、多くの複雑なステップがあります。別の側面として、ローカルの送信は送られるオブジェクトによる制約がなく、ただ同じJVM内のメッセージへ参照を渡すだけであるのに対して、リモート送信はメッセージサイズに上限を設けることになる。"
 
 #: ../../general/message-delivery-reliability.rst:25
 msgid ""
@@ -57,6 +66,10 @@ msgid ""
 "enjoy stricter guarantees on message delivery. The details of this trade-off"
 " are discussed further below."
 msgstr ""
+"すべての相互作用においてリモートが安全であるというアクターを書くことは悲観的な賭けです。これらのプロパティが常に保証されることに頼るだけであることを意味し、詳細は以下で説明します。"
+" "
+"もちろんアクターの実装にいくつかのオーバーヘッドがあります。完全な位置透過性を犠牲にすることをいとわない場合（例えば、密接に協調するアクターのグループ場合）、常にそれらを同じ"
+" JVM に配置し、メッセージ配信の厳格な保証をお楽しみください。このトレードオフの詳細についてはこのあと説明します。"
 
 #: ../../general/message-delivery-reliability.rst:33
 msgid ""
@@ -64,40 +77,41 @@ msgid ""
 "reliability on top of the built-in ones. The chapter closes by discussing "
 "the role of the “Dead Letter Office”."
 msgstr ""
+"補助的に、ビルトイン上に強い信頼性を構築する方法についていくつかのポインターを与え、本章は、「デッドレターオフィス」の役割の議論に閉じることとします。"
 
 #: ../../general/message-delivery-reliability.rst:38
 msgid "The General Rules"
-msgstr ""
+msgstr "一般的なルール"
 
 #: ../../general/message-delivery-reliability.rst:40
 msgid ""
 "These are the rules for message sends (i.e. the ``tell`` or ``!`` method, "
 "which also underlies the ``ask`` pattern):"
-msgstr ""
+msgstr "メッセージ送信にはルールがあります( ``tell`` または ``!`` は  ``ask`` パターンの基礎にもなるメソッド)。"
 
 #: ../../general/message-delivery-reliability.rst:43
 msgid "**at-most-once delivery**, i.e. no guaranteed delivery"
-msgstr ""
+msgstr "**at-most-once delivery** 、配信を保証しない"
 
 #: ../../general/message-delivery-reliability.rst:44
 msgid "**message ordering per sender–receiver pair**"
-msgstr ""
+msgstr "* * sender–receiver ペア毎にメッセージの順序付け * *"
 
 #: ../../general/message-delivery-reliability.rst:46
 msgid ""
 "The first rule is typically found also in other actor implementations while "
 "the second is specific to Akka."
-msgstr ""
+msgstr "1つ目のルールは他アクターの実装でもありますが、2 つ目はAkka固有です。"
 
 #: ../../general/message-delivery-reliability.rst:50
 msgid "Discussion: What does “at-most-once” mean?"
-msgstr ""
+msgstr "ディスカッション:  “at-most-once” とは何か？"
 
 #: ../../general/message-delivery-reliability.rst:52
 msgid ""
 "When it comes to describing the semantics of a delivery mechanism, there are"
 " three basic categories:"
-msgstr ""
+msgstr "デリバリーメカニズムのセマンティクスを記述するには、3 つの基本的なカテゴリがあります。"
 
 #: ../../general/message-delivery-reliability.rst:55
 msgid ""
@@ -105,6 +119,8 @@ msgid ""
 "mechanism, that message is delivered zero or one times; in more casual terms"
 " it means that messages may be lost."
 msgstr ""
+"**at-most-once**  "
+"デリバリーはそのメカニズムに渡したメッセージ毎に、そのメッセージは0回か1回配信されることを意味します。よりカジュアルに言うと、メッセージが失われる可能性があることを意味します。"
 
 #: ../../general/message-delivery-reliability.rst:59
 msgid ""
@@ -113,6 +129,8 @@ msgid ""
 " at least one succeeds; again, in more casual terms this means that messages"
 " may be duplicated but not lost."
 msgstr ""
+"**at-least-once** "
+"デリバリーは、そのメカニズムに渡したメッセージ毎に、少なくとも1回成功するようにその配信で潜在的に複数回試みが行われることを意味します。よりカジュアルに言うと、メッセージの複製が失われないことを意味します。"
 
 #: ../../general/message-delivery-reliability.rst:64
 msgid ""
@@ -120,6 +138,8 @@ msgid ""
 "mechanism exactly one delivery is made to the recipient; the message can "
 "neither be lost nor duplicated."
 msgstr ""
+"**exactly-once** "
+"デリバリーは、そのメカニズム渡したメッセージ毎に正確に1回の配信が受信者に対して行われることを意味します。そのメッセージは失われたり複製されたりしません。"
 
 #: ../../general/message-delivery-reliability.rst:68
 msgid ""
@@ -132,36 +152,40 @@ msgid ""
 "performance—because in addition to the second it requires state to be kept "
 "at the receiving end in order to filter out duplicate deliveries."
 msgstr ""
+"1つ目は最も安価（最高のパフォーマンス、実装のオーバーヘッドが最も少ない）です。送信側やトランスポートメカニズムで状態を維持することがなく、fire-"
+"and-forget方式で行うことができるためです。2 "
+"つ目は、輸送時の損失に対抗するため再試行が必要になり、送信側で状態を維持して、受信側で承認メカニズムを持っていることを意味する。3つ目は、最も高価（その結果パフォーマンス最も悪い）です。2"
+" 番目のメカニズムに加えて、重複配達を除外するために受信側で状態を保つことが状態が必要なためです。"
 
 #: ../../general/message-delivery-reliability.rst:78
 msgid "Discussion: Why No Guaranteed Delivery?"
-msgstr ""
+msgstr "ディスカッション: なぜ配信が保証されないのか？"
 
 #: ../../general/message-delivery-reliability.rst:80
 msgid ""
 "At the core of the problem lies the question what exactly this guarantee "
 "shall mean:"
-msgstr ""
+msgstr "問題の核心は、この保証は正確に何を意味するかという疑問にあります。"
 
 #: ../../general/message-delivery-reliability.rst:83
 msgid "The message is sent out on the network?"
-msgstr ""
+msgstr "メッセージはネットワーク上で送信されるのか？"
 
 #: ../../general/message-delivery-reliability.rst:84
 msgid "The message is received by the other host?"
-msgstr ""
+msgstr "メッセージは別のホストに受信されるのか？"
 
 #: ../../general/message-delivery-reliability.rst:85
 msgid "The message is put into the target actor's mailbox?"
-msgstr ""
+msgstr "メッセージはターゲットとなるアクターのメールボックスに入れらているのか？"
 
 #: ../../general/message-delivery-reliability.rst:86
 msgid "The message is starting to be processed by the target actor?"
-msgstr ""
+msgstr "メッセージは、ターゲットアクターで処理され始めているのか？"
 
 #: ../../general/message-delivery-reliability.rst:87
 msgid "The message is processed successfully by the target actor?"
-msgstr ""
+msgstr "メッセージは、ターゲットのアクターによって正常に処理されたか？"
 
 #: ../../general/message-delivery-reliability.rst:89
 msgid ""
@@ -171,6 +195,8 @@ msgid ""
 " a bounded mailbox would interact with the third point, or even what it "
 "would mean to decide upon the “successfully” part of point five."
 msgstr ""
+"これらのそれぞれにはさまざまな課題とコストがあり、メッセージを渡すライブラリが遵守できない条件があることは明らかです。 "
+"たとえば、構成可能なメールボックスの種類や、No3で境界のあるメールボックスがやりとりする方法、またはNo5の「正常に」の部分を意味するものが何かを考えてください。"
 
 #: ../../general/message-delivery-reliability.rst:95
 msgid ""
@@ -180,6 +206,8 @@ msgid ""
 "message, which is not something Akka could make up on its own (neither are "
 "we writing a “do what I mean” framework nor would you want us to)."
 msgstr ""
+"同じ流れに沿って、 `「誰も信頼できるメッセージングが必要ではない」` "
+"という理由がある。送信者が対話が成功したかどうかを知るための唯一の意味のある方法は、ビジネスレベルの承認メッセージを受け取ることです。これはAkkaが独自に補うことのできるものではありません(我々が「意味を汲み取って実行する」フレームワークを書いているわけではなく、我々に望んでもいない)。"
 
 #: ../../general/message-delivery-reliability.rst:101
 msgid ""
@@ -190,6 +218,8 @@ msgid ""
 "applications around it. You can read more about this approach in the `Erlang"
 " documentation`_ (section 10.9 and 10.10), Akka follows it closely."
 msgstr ""
+"Akkaは分散コンピューティングを採用しており、メッセージの受け渡しによって通信の可否を明白にしているため、抽象性の破綻を欺いたりエミュレートしたりしようとしません。これは、Erlangで大きな成功を収めて使用されているモデルであり、ユーザーがそのアプリケーションを設計する必要があります。このアプローチの詳細は"
+" `Erlang documentation` _(section 10.9 と 10.10) で読むことができ、Akkaはこれに密接に従います。"
 
 #: ../../general/message-delivery-reliability.rst:108
 msgid ""
@@ -199,10 +229,11 @@ msgid ""
 "top of basic ones, but it is not possible to retro-actively remove "
 "reliability in order to gain more performance."
 msgstr ""
+"この問題に関するもう1つの視点は、より高い信頼性を必要としないユースケースが実装コストを払わない基本的な保証のみを提供することです。必要最小限なものの上には常により高い信頼性を追加することは可能ですが、パフォーマンスを高めるためには遡って信頼性を除去することはできません。"
 
 #: ../../general/message-delivery-reliability.rst:117
 msgid "Discussion: Message Ordering"
-msgstr ""
+msgstr "ディスカッション: メッセージの順序"
 
 #: ../../general/message-delivery-reliability.rst:119
 msgid ""
@@ -213,49 +244,52 @@ msgid ""
 "employing mediators or other message dissemination features (unless stated "
 "otherwise)."
 msgstr ""
+"より具体的に言えば、 *あるペアのアクターで、1番目から2番目に直接送信されたメッセージは、順序が狂って受信されません。* *直接* "
+"という単語は、この保証は、メディエータや他のメッセージ伝播機能を使用する(特に明記されていない限り)ときではなく、 `tell` "
+"演算子を使用して最終的な宛先に送信する場合にのみ適用されます。"
 
 #: ../../general/message-delivery-reliability.rst:125
 msgid "The guarantee is illustrated in the following:"
-msgstr ""
+msgstr "保証は以下の通りです:"
 
 #: ../../general/message-delivery-reliability.rst:127
 msgid "Actor ``A1`` sends messages ``M1``, ``M2``, ``M3`` to ``A2``"
-msgstr ""
+msgstr "アクター 'A1' は \"A2\" にメッセージ \"M1\", \"M2\", \"M3\" を送信"
 
 #: ../../general/message-delivery-reliability.rst:129
 msgid "Actor ``A3`` sends messages ``M4``, ``M5``, ``M6`` to ``A2``"
-msgstr ""
+msgstr "アクター 'A3' は \"A2\" にメッセージ \"M4\", \"M5\", \"M6\" を送信"
 
 #: ../../general/message-delivery-reliability.rst:137
 msgid "This means that:"
-msgstr ""
+msgstr "これは次のことを意味します。"
 
 #: ../../general/message-delivery-reliability.rst:132
 msgid "If ``M1`` is delivered it must be delivered before ``M2`` and ``M3``"
-msgstr ""
+msgstr "\"M1\" が配信される場合は、 \"M2\" と \"M3\" の前に届けられなければならい"
 
 #: ../../general/message-delivery-reliability.rst:133
 msgid "If ``M2`` is delivered it must be delivered before ``M3``"
-msgstr ""
+msgstr "\"M2\" が配信される場合は、\"M3\" の前に届けられなければならない"
 
 #: ../../general/message-delivery-reliability.rst:134
 msgid "If ``M4`` is delivered it must be delivered before ``M5`` and ``M6``"
-msgstr ""
+msgstr "\"M4\" が配信される場合は、 \"M5\" と \"M6\" の前に届けられなければならない"
 
 #: ../../general/message-delivery-reliability.rst:135
 msgid "If ``M5`` is delivered it must be delivered before ``M6``"
-msgstr ""
+msgstr "\"M5\" が配信される場合は、 \"M6\" の前に届けられなければならない"
 
 #: ../../general/message-delivery-reliability.rst:136
 msgid ""
 "``A2`` can see messages from ``A1`` interleaved with messages from ``A3``"
-msgstr ""
+msgstr "\"A2\" は、\"A1\" からのメッセージと ''A3\" のメッセージを交互に見ることができる"
 
 #: ../../general/message-delivery-reliability.rst:137
 msgid ""
 "Since there is no guaranteed delivery, any of the messages may be dropped, "
 "i.e. not arrive at ``A2``"
-msgstr ""
+msgstr "配信の保証がないので、いずれかのメッセージが失われる(すなわち \"A2\" に到着しない)かもしれない"
 
 #: ../../general/message-delivery-reliability.rst:141
 msgid ""
@@ -265,27 +299,29 @@ msgid ""
 ":class:`PriorityMailbox`), then the order of processing by the actor can "
 "deviate from the enqueueing order."
 msgstr ""
+"Akkaの保証は、メッセージが受信者のメールボックスにエンキューされる順序に適用されることに注意することが重要です。メールボックスの実装がFIFOを尊重しない場合(例えば、"
+" :class:`PriorityMailbox`)、アクターによる処理の順序は、エンキューする順序から逸脱する可能性があります。"
 
 #: ../../general/message-delivery-reliability.rst:147
 msgid "Please note that this rule is **not transitive**:"
-msgstr ""
+msgstr "このルールは **推移的ではない** ことに注意してください。"
 
 #: ../../general/message-delivery-reliability.rst:149
 msgid "Actor ``A`` sends message ``M1`` to actor ``C``"
-msgstr ""
+msgstr "アクター \"A\" は、アクター \"C\" にメッセージ \"M1\" を送る"
 
 #: ../../general/message-delivery-reliability.rst:151
 msgid "Actor ``A`` then sends message ``M2`` to actor ``B``"
-msgstr ""
+msgstr "アクター \"A\" は、アクター \"B\" にメッセージ \"M2\" を送る"
 
 #: ../../general/message-delivery-reliability.rst:153
 msgid "Actor ``B`` forwards message ``M2`` to actor ``C``"
-msgstr ""
+msgstr "アクター \"B\" はアクター \"C\" にメッセージ \"M2\" を転送する"
 
 #: ../../general/message-delivery-reliability.rst:155
 #: ../../general/message-delivery-reliability.rst:270
 msgid "Actor ``C`` may receive ``M1`` and ``M2`` in any order"
-msgstr ""
+msgstr "アクター \"C\" は順不同で \"M1\" と \"M2\" を受信するでしょう"
 
 #: ../../general/message-delivery-reliability.rst:157
 msgid ""
@@ -294,6 +330,9 @@ msgid ""
 "be violated due to different message delivery latencies when ``A``, ``B`` "
 "and ``C`` reside on different network hosts, see more below."
 msgstr ""
+"因果推移の順序は、 \"M2\" がアクター \"C\" で \"M1\" "
+"の前に受け取られることはないと示唆している(いずれかが失われても)。この順序付けは、 \"A\" 、 \"B\" 、 \"C\" "
+"が異なるネットワークホスト上にある場合のメッセージ配信の待ち時間が異なるために違反する可能性があります。"
 
 #: ../../general/message-delivery-reliability.rst:164
 msgid ""
@@ -306,10 +345,11 @@ msgid ""
 "have R2 send a message to R1. An example of well-defined ordering is a "
 "parent which creates an actor and immediately sends a message to it."
 msgstr ""
+"アクターの作成は、親から子に送信されるメッセージとして扱われ、上記のセマンティクスと同じ意味を持ちます。この最初の作成メッセージで並べ替えることができる方法でアクターにメッセージを送信することは、アクターがまだ存在しないためにメッセージが到着しない可能性があることを意味します。メッセージが早すぎる場合は、リモートデプロイされたアクターR1を作成し、その参照を別のリモートアクターR2に送信し、R2にR1にメッセージを送信させることがあります。うまく定義された順序付けの例は、アクターを作成してすぐにそのアクターにメッセージを送信する親です。"
 
 #: ../../general/message-delivery-reliability.rst:174
 msgid "Communication of failure"
-msgstr ""
+msgstr "通信障害"
 
 #: ../../general/message-delivery-reliability.rst:176
 msgid ""
@@ -318,20 +358,21 @@ msgid ""
 "special system messages that are not ordered relative to ordinary user "
 "messages. In particular:"
 msgstr ""
+"上記で説明した順序保証は、アクター間のユーザーメッセージに対してのみ保持されることに注意してください。アクターの子供の失敗は、通常のユーザーメッセージと一緒に順序付けれない特別なシステムメッセージによって伝えられます。特に："
 
 #: ../../general/message-delivery-reliability.rst:180
 msgid "Child actor ``C`` sends message ``M`` to its parent ``P``"
-msgstr ""
+msgstr "子アクター \"C\" は親アクター \"P\" にメッセージ \"M\" を送信"
 
 #: ../../general/message-delivery-reliability.rst:182
 msgid "Child actor fails with failure ``F``"
-msgstr ""
+msgstr "小アクターは障害 \"F\" で失敗"
 
 #: ../../general/message-delivery-reliability.rst:184
 msgid ""
 "Parent actor ``P`` might receive the two events either in order ``M``, ``F``"
 " or ``F``, ``M``"
-msgstr ""
+msgstr "親アクター \"P\" は、\"M\"、 \"F\" の順または \"F\" 、 \"M\" の順に2つのイベントを受け取る"
 
 #: ../../general/message-delivery-reliability.rst:186
 msgid ""
@@ -339,14 +380,15 @@ msgid ""
 " therefore the ordering of enqueue calls of a user and system message cannot"
 " guarantee the ordering of their dequeue times."
 msgstr ""
+"その理由は、内部システムメッセージには独自のメールボックスがあるため、ユーザーおよびシステムメッセージのエンキュー呼び出しの順でデキューの順序を保証することができないためです。"
 
 #: ../../general/message-delivery-reliability.rst:190
 msgid "The Rules for In-JVM (Local) Message Sends"
-msgstr ""
+msgstr "JVM内(ローカル)のメッセージ送信のルール"
 
 #: ../../general/message-delivery-reliability.rst:193
 msgid "Be careful what you do with this section!"
-msgstr ""
+msgstr "このセクションで何をしているか注意してください！"
 
 #: ../../general/message-delivery-reliability.rst:195
 msgid ""
@@ -357,10 +399,12 @@ msgid ""
 "cluster of machines. Our credo is “design once, deploy any way you wish”, "
 "and to achieve this you should only rely on `The General Rules`_."
 msgstr ""
+"このセクションで信頼性を高めることは、アプリケーションをローカルのみのデプロイメントに縛り付けるため推奨されません。アプリケーションは、マシンのクラスタ上で実行するのに適しているように(アクターにローカルなメッセージ交換パターンを単に採用するのではなく)別々に設計する必要があります。私たちの信条は「一度設計して、あなたが望むようにデプロイする」ことです。これを達成するには、"
+" `The General Rules`_ にのみ頼るべきです。"
 
 #: ../../general/message-delivery-reliability.rst:203
 msgid "Reliability of Local Message Sends"
-msgstr ""
+msgstr "ローカルメッセージ送信の信頼性"
 
 #: ../../general/message-delivery-reliability.rst:205
 msgid ""
@@ -370,32 +414,34 @@ msgid ""
 " operation can however fail for the same reasons as a normal method call can"
 " on the JVM:"
 msgstr ""
+"Akkaテストスイートは、ローカルコンテキストでメッセージを失わないようにする(また、エラーのない状態でもリモートデプロイを行う)ため、テストを安定させるために最善の努力をしています。しかし、ローカルの"
+" `` tell`` 操作は、通常のメソッド呼び出しがJVM上で行うことができるのと同じ理由で失敗することがあります："
 
 #: ../../general/message-delivery-reliability.rst:211
 msgid ":class:`StackOverflowError`"
-msgstr ""
+msgstr ":class:`StackOverflowError`"
 
 #: ../../general/message-delivery-reliability.rst:212
 msgid ":class:`OutOfMemoryError`"
-msgstr ""
+msgstr ":class:`OutOfMemoryError`"
 
 #: ../../general/message-delivery-reliability.rst:213
 msgid "other :class:`VirtualMachineError`"
-msgstr ""
+msgstr "その他の :class:`VirtualMachineError`"
 
 #: ../../general/message-delivery-reliability.rst:215
 msgid "In addition, local sends can fail in Akka-specific ways:"
-msgstr ""
+msgstr "さらに、Akka特有の理由でローカル送信が失敗する可能性があります。"
 
 #: ../../general/message-delivery-reliability.rst:217
 msgid "if the mailbox does not accept the message (e.g. full BoundedMailbox)"
-msgstr ""
+msgstr "メールボックスがメッセージを受け入れない場合(例：BoundedMailbox がいっぱい)"
 
 #: ../../general/message-delivery-reliability.rst:218
 msgid ""
 "if the receiving actor fails while processing the message or is already "
 "terminated"
-msgstr ""
+msgstr "受信側アクターがメッセージの処理中に失敗した場合、または既に終了(terminate)している場合"
 
 #: ../../general/message-delivery-reliability.rst:221
 msgid ""
@@ -405,10 +451,11 @@ msgid ""
 "instead. This is in general not distinguishable from a lost message for an "
 "outside observer."
 msgstr ""
+"1つ目は明らかに設定の問題ですが、2つ目はいくつかの考えが必要です。処理中に例外があった場合、メッセージの送信者はフィードバックを得ません。その通知は代わりにスーパーバイザーに送られます。これは、一般に、外部のオブザーバーのための失われたメッセージと区別できません。"
 
 #: ../../general/message-delivery-reliability.rst:228
 msgid "Ordering of Local Message Sends"
-msgstr ""
+msgstr "ローカルメッセージ送信の順序"
 
 #: ../../general/message-delivery-reliability.rst:230
 msgid ""
@@ -418,6 +465,7 @@ msgid ""
 "possible that future performance optimizations will invalidate this whole "
 "paragraph. The possibly non-exhaustive list of counter-indications is:"
 msgstr ""
+"厳密なFIFOメールボックスを前提とすると、前述のメッセージ順序保証の非推移性の注意は、特定の条件下で排除されます。注意点として、これらはかなり微妙ですが、将来のパフォーマンスの最適化によってこの段落全体が無効になる可能性さえあります。通常は適切な方法であっても適用できない状況の非網羅的なリストは："
 
 #: ../../general/message-delivery-reliability.rst:236
 msgid ""
@@ -428,6 +476,7 @@ msgid ""
 "involved) may be reordered depending on low-level thread scheduling. Since "
 "completely fair locks do not exist on the JVM this is unfixable."
 msgstr ""
+"トップレベルのアクターから最初の返信を受け取る前に、内部の暫定的なキューを保護するロックがあり、このロックは公平ではありません。その意味は、低レベルのスレッドスケジューリングに応じて、アクターの構成(比喩的には、詳細がより入り組んでいる)中に到着する異なる送信者からのエンキューリクエストを並べ替えることができるということです。完全に公正なロックがJVM上に存在しないので、これは修正不可能です。"
 
 #: ../../general/message-delivery-reliability.rst:243
 msgid ""
@@ -435,22 +484,23 @@ msgid ""
 "precisely the routed ActorRef, hence the same problem exists for actors "
 "deployed with Routers."
 msgstr ""
+"ルーターの構築中、より正確には、ルート指定されたActorRefの間に、同じメカニズムが使用されるため、ルーターで展開されたアクターにも同じ問題が存在します。"
 
 #: ../../general/message-delivery-reliability.rst:247
 msgid ""
 "As mentioned above, the problem occurs anywhere a lock is involved during "
 "enqueueing, which may also apply to custom mailboxes."
-msgstr ""
+msgstr "上記のように、問題はエンキュー時にロックが関係する場所で発生します。これは、カスタムメールボックスにも当てはまります。"
 
 #: ../../general/message-delivery-reliability.rst:250
 msgid ""
 "This list has been compiled carefully, but other problematic scenarios may "
 "have escaped our analysis."
-msgstr ""
+msgstr "このリストは慎重に記述されていますが、他の問題のあるシナリオが分析を逃れている可能性があります。"
 
 #: ../../general/message-delivery-reliability.rst:254
 msgid "How does Local Ordering relate to Network Ordering"
-msgstr ""
+msgstr "ローカル順序とネットワーク順序の関係"
 
 #: ../../general/message-delivery-reliability.rst:256
 msgid ""
@@ -458,6 +508,8 @@ msgid ""
 "first to the second will not be received out-of-order* holds for messages "
 "sent over the network with the TCP based Akka remote transport protocol."
 msgstr ""
+"*あるペアのアクターで、1番目から2番目に直接送信されたメッセージは、順序が狂って受信さません。* "
+"というルールは、TCPベースのAkkaリモートトランスポートプロトコルを使用してネットワーク経由で送信されたメッセージで保持されます。"
 
 #: ../../general/message-delivery-reliability.rst:260
 msgid ""
@@ -465,39 +517,40 @@ msgid ""
 "causal ordering under certain conditions. This ordering can be violated due "
 "to different message delivery latencies. For example:"
 msgstr ""
+"前のセクションで説明したように、ローカルメッセージは、特定の条件の下で推移的な因果関係の順序に従います。この順序は、メッセージ配信のレイテンシの差により違反する可能性があります。例えば："
 
 #: ../../general/message-delivery-reliability.rst:264
 msgid "Actor ``A`` on node-1 sends message ``M1`` to actor ``C`` on node-3"
-msgstr ""
+msgstr "ノード1上のアクター ``A`` が、ノード3上のアクター ``C`` にメッセージ ``M1`` を送信"
 
 #: ../../general/message-delivery-reliability.rst:266
 msgid ""
 "Actor ``A`` on node-1 then sends message ``M2`` to actor ``B`` on node-2"
-msgstr ""
+msgstr "ノード1上のアクター ``A`` が、ノード2上のアクター ``B`` にメッセージ ``M2`` を送信"
 
 #: ../../general/message-delivery-reliability.rst:268
 msgid "Actor ``B`` on node-2 forwards message ``M2`` to actor ``C`` on node-3"
-msgstr ""
+msgstr "ノード2上のアクター ``B`` はノード3上のアクター ``C`` にメッセージ ``M2`` を転送"
 
 #: ../../general/message-delivery-reliability.rst:272
 msgid ""
 "It might take longer time for ``M1`` to \"travel\" to node-3 than it takes "
 "for ``M2`` to \"travel\" to node-3 via node-2."
-msgstr ""
+msgstr "``M1`` がノード3に「移動」するのに、 ``M2`` がノード2を介してノード3に「移動」するよりも時間がかかることがあります。"
 
 #: ../../general/message-delivery-reliability.rst:276
 msgid "Higher-level abstractions"
-msgstr ""
+msgstr "高いレベルの抽象化"
 
 #: ../../general/message-delivery-reliability.rst:278
 msgid ""
 "Based on a small and consistent tool set in Akka's core, Akka also provides "
 "powerful, higher-level abstractions on top it."
-msgstr ""
+msgstr "Akkaのコアで小さく一貫性のあるツールセットをベースとし、Akkaは強力で高いレベルの抽象化も提供します。"
 
 #: ../../general/message-delivery-reliability.rst:282
 msgid "Messaging Patterns"
-msgstr ""
+msgstr "メッセージングパターン"
 
 #: ../../general/message-delivery-reliability.rst:284
 msgid ""
@@ -505,21 +558,22 @@ msgid ""
 "delivery is an explicit ACK–RETRY protocol. In its simplest form this "
 "requires"
 msgstr ""
+"前に議論したように、信頼性のある配送の要求に対する直接的な答えは明示的なACK-RETRYプロトコルです。最も単純な形式では、次のことを必要とします。"
 
 #: ../../general/message-delivery-reliability.rst:287
 msgid ""
 "a way to identify individual messages to correlate message with "
 "acknowledgement"
-msgstr ""
+msgstr "確認応答のメッセージと関連付けるため個々のメッセージを識別する方法"
 
 #: ../../general/message-delivery-reliability.rst:289
 msgid ""
 "a retry mechanism which will resend messages if not acknowledged in time"
-msgstr ""
+msgstr "時間内に確認応答がなければメッセージを再送するリトライ機構"
 
 #: ../../general/message-delivery-reliability.rst:290
 msgid "a way for the receiver to detect and discard duplicates"
-msgstr ""
+msgstr "受信者が重複を検出して破棄する方法"
 
 #: ../../general/message-delivery-reliability.rst:292
 msgid ""
@@ -531,6 +585,10 @@ msgid ""
 "Another way of implementing the third part would be to make processing the "
 "messages idempotent on the level of the business logic."
 msgstr ""
+"3つ目は、確認メッセージが到着することが保証されていないために必要になります。ビジネスレベルの確認応答を持つACK-RETRYプロトコルは、Akka "
+"Persistenceモジュールの :ref:`at-least-once-delivery-scala` でサポートされています。重複は、:ref"
+":`at-least-once-delivery-scala` "
+"で送信されたメッセージの識別子を追跡することで検出できます。3つ目の内容を実装するもう1つの方法は、メッセージをビジネスロジックのレベルで冪等に処理することです。"
 
 #: ../../general/message-delivery-reliability.rst:299
 msgid ""
@@ -538,10 +596,12 @@ msgid ""
 ":`reliable-proxy` (which is now superseded by :ref:`at-least-once-delivery-"
 "scala`)."
 msgstr ""
+"3つの要件すべてを実装するもう1つの例は、 :ref:`reliable-proxy` (現在、 :ref:`at-least-once-"
+"delivery-scala` で置き換えられている)です。"
 
 #: ../../general/message-delivery-reliability.rst:303
 msgid "Event Sourcing"
-msgstr ""
+msgstr "イベントソーシング"
 
 #: ../../general/message-delivery-reliability.rst:305
 msgid ""
@@ -559,10 +619,12 @@ msgid ""
 "(usually employing snapshots to speed up the process). :ref:`event-sourcing-"
 "scala` is supported by Akka Persistence."
 msgstr ""
+"イベントソーシング（およびシャーディング）は、大規模なウェブサイトを何十億ものユーザーにスケールさせるもので、その考え方は非常に単純です。コンポーネント（アクターと考える）がコマンドを処理すると、コマンドが引き起こす結果を表すイベントのリストが生成されます。これらのイベントは、コンポーネントの状態に適用されることに加えて保存されます。この方式の素晴らしい点は、イベントがストレージに追加されるだけで、何も変化していないことです。これは、このイベントストリームのコンシューマの完全な複製およびスケーリングを可能にします（すなわち、他のコンポーネントは、異なる場所でコンポーネントの状態を複製するか、または変更に反応するためにイベントストリームをコンシュームする可能性がある）。コンポーネントの状態が、マシンの障害やキャッシュからのプッシュによって失われた場合、イベントストリームをリプレイ（通常は処理を高速化するためにスナップショットを使用）して簡単に再構築できます。"
+"  :ref:`event-sourcing-scala` はAkka Persistenceによってサポートされています。"
 
 #: ../../general/message-delivery-reliability.rst:320
 msgid "Mailbox with Explicit Acknowledgement"
-msgstr ""
+msgstr "明示的な確認応答を含むメールボックス"
 
 #: ../../general/message-delivery-reliability.rst:322
 msgid ""
@@ -572,21 +634,22 @@ msgid ""
 "where delivery guarantees are otherwise sufficient to fulfill the "
 "application’s requirements."
 msgstr ""
+"カスタムメールボックス型を実装することにより、一時的な障害を処理するために受信アクター側でメッセージ処理をリトライすることができます。このパターンは、配信保証が別の方法でアプリケーションの要件を満たすのに十分であるローカル通信で最も有用です。"
 
 #: ../../general/message-delivery-reliability.rst:327
 msgid ""
 "Please note that the caveats for `The Rules for In-JVM (Local) Message "
 "Sends`_ do apply."
-msgstr ""
+msgstr " `JVM内(ローカル)のメッセージ送信のルール`_ の警告が適用されることに注意してください。"
 
 #: ../../general/message-delivery-reliability.rst:330
 msgid ""
 "An example implementation of this pattern is shown at :ref:`mailbox-acking`."
-msgstr ""
+msgstr "このパターンの実装例は :ref:`mailbox-acking` にあります。"
 
 #: ../../general/message-delivery-reliability.rst:335
 msgid "Dead Letters"
-msgstr ""
+msgstr "デッドレター"
 
 #: ../../general/message-delivery-reliability.rst:337
 msgid ""
@@ -596,10 +659,12 @@ msgid ""
 "JVM (e.g. during actor termination). Messages sent via unreliable network "
 "transports will be lost without turning up as dead letters."
 msgstr ""
+"配信できないメッセージ(およびこれが確認できるメッセージ)は、  ``/deadLetters`` "
+"という合成アクターに配信されます。この配信は、ベストエフォート方式で行われます。ローカルJVM内であっても失敗する可能性があります(例えば、アクター終了中)。信頼できないネットワーク転送を介して送信されたメッセージは、デッドレターとして表示されずに失われます。"
 
 #: ../../general/message-delivery-reliability.rst:344
 msgid "What Should I Use Dead Letters For?"
-msgstr ""
+msgstr "デッドレターは何に使えばいいですか？"
 
 #: ../../general/message-delivery-reliability.rst:346
 msgid ""
@@ -613,6 +678,7 @@ msgid ""
 "of common sense: it may well be that avoiding to send to a terminated actor "
 "complicates the sender’s code more than is gained in debug output clarity."
 msgstr ""
+"この機能の主な使い方はデバッグ用で、特にアクターによる送信が一貫性を持って到着しない場合(通常、デッドレターの検査が送信者または受信者が途中で間違って設定されていることを知らせる)です。この目的に役立てるには、可能であればデッドレターに送信しないようにすること、つまり、適切なデッドレターロガー(下記参照)を使用してアプリケーションを実行し、随時出力ログを削除することをお勧めします。実戦には他と同様に、常識的なことを慎重に適用する必要があります。終了したアクターに送信するのを避けると、デバッグ出力の分かりやすさよりも送信側のコードが複雑になることがあります。"
 
 #: ../../general/message-delivery-reliability.rst:356
 msgid ""
@@ -620,10 +686,11 @@ msgid ""
 "guarantees as all other message sends, hence it cannot be used to implement "
 "guaranteed delivery."
 msgstr ""
+"デッドレターサービスは、配送保証において他のすべてのメッセージ送信と同じ規則に従いますので、保証された配送の実装に使用することはできません。"
 
 #: ../../general/message-delivery-reliability.rst:361
 msgid "How do I Receive Dead Letters?"
-msgstr ""
+msgstr "デッドレターを受け取る方法は？"
 
 #: ../../general/message-delivery-reliability.rst:363
 msgid ""
@@ -639,10 +706,14 @@ msgid ""
 "the remote one (if the actor you are sending to does not exist at that point"
 " in time)."
 msgstr ""
+"アクターは、イベントストリームでクラス :class:`akka.actor.DeadLetter` "
+"をサブスクライブすることができます。その方法については、 :ref:`event-stream-java` (Java) または  :ref"
+":`event-stream-scala` "
+"(Scala)を参照してください。サブスクライブされたアクターは、その時点以降(ローカル)システムでパブリッシュされているすべてのデッドレターを受信します。デッドレターはネットワークを介して伝播されません。ネットワークノードごとに1つのアクターをサブスクライブして手動で転送する必要がある場合、それらを1か所で収集する必要があります。また、送信の失敗を決定付けるデッドレターがそのノードで生成されていると考えてください。つまり、リモート送信がローカルシステムになる(ネットワーク接続が確立できない)場合、またはリモートシステムでの場合(あなたが送信しているアクターがその時点で存在しない)です。"
 
 #: ../../general/message-delivery-reliability.rst:375
 msgid "Dead Letters Which are (Usually) not Worrisome"
-msgstr ""
+msgstr "(通常)気にしないデッドレター"
 
 #: ../../general/message-delivery-reliability.rst:377
 msgid ""
@@ -655,3 +726,7 @@ msgid ""
 "children while stopping a hierarchy of actors turning up in dead letters if "
 "the parent is still watching the child when the parent terminates."
 msgstr ""
+"アクターが自分で終了しないとその度に、自身に送るいくつかのメッセージが失われる可能性があります。  "
+":class:`akka.dispatch.Terminate` "
+"メッセージが失われているということは、2つの終了要求が与えられたことを意味しますが、もちろん1つしか成功することはできません。同じように、親が終了したときに親がまだ子どもを監視している場合に、デッドレターでアクターのヒエラルキーを停止させながら、子供からの"
+" :class:`akka.actor.Terminated` メッセージを監視することができます。"
