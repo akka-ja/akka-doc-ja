@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Kentaro Maeda <many.front@gmail.com>, 2016\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 
 #: ../../general/supervision.rst:4
 msgid "Supervision and Monitoring"
-msgstr ""
+msgstr "スーパービジョン と モニタリング"
 
 #: ../../general/supervision.rst:6
 msgid ""
@@ -27,10 +28,12 @@ msgid ""
 " and their semantics. For details on how that translates into real code, "
 "please refer to the corresponding chapters for Scala and Java APIs."
 msgstr ""
+"この章ではスーパービジョンの背後の概念、基本的な要求、意味論について述べます。これらをどうやって本当のコードに落とし込むかの詳細については、Scala "
+"と Java API の対応する章を見てください。"
 
 #: ../../general/supervision.rst:13
 msgid "What Supervision Means"
-msgstr ""
+msgstr "スーパービジョンが意味するもの"
 
 #: ../../general/supervision.rst:15
 msgid ""
@@ -42,22 +45,27 @@ msgid ""
 "Depending on the nature of the work to be supervised and the nature of the "
 "failure, the supervisor has a choice of the following four options:"
 msgstr ""
+":ref:`actor-systems`  "
+"にあるようにスーパービジョンはアクターの依存関係を記述します。スーパ＾バイザーはタスクを部下に移譲し、そしてその障害に対応する必要があります。部下が障害を検知したとき"
+" (つまり、例外を投げたとき) "
+"、部下は自分自身と自分の部下すべてを停止し、スーパーバイザーにメッセージを送り、障害を伝えます。スーパバイザーの対象の作業の性質と障害の性質によって、スーパーバイザーは次の"
+" 4 つのオプションを選択できます。"
 
 #: ../../general/supervision.rst:23
 msgid "Resume the subordinate, keeping its accumulated internal state"
-msgstr ""
+msgstr "部下を再開し、蓄積されている内部状態を維持する。"
 
 #: ../../general/supervision.rst:24
 msgid "Restart the subordinate, clearing out its accumulated internal state"
-msgstr ""
+msgstr "部下をリスタートし、蓄積された内部状態をクリアにする。"
 
 #: ../../general/supervision.rst:25
 msgid "Stop the subordinate permanently"
-msgstr ""
+msgstr "部下を永久に停止する。"
 
 #: ../../general/supervision.rst:26
 msgid "Escalate the failure, thereby failing itself"
-msgstr ""
+msgstr "障害を上位にエスカレートする。したがって自分自身が失敗になる。"
 
 #: ../../general/supervision.rst:28
 msgid ""
@@ -72,6 +80,12 @@ msgid ""
 "children before restarting, but this hook can be overridden; the recursive "
 "restart applies to all children left after this hook has been executed."
 msgstr ""
+"アクターをスーパービジョンの階層の一部としてみることは重要であり、それにより 4 つめの選択肢 "
+"(あるスーパーバイザーもまた別の上位のスーパーバイザーの部下である) "
+"を説明できますし、また最初の3つについても密接な関係があります。アクターの再開はその部下すべてを再開しますし、アクターのリスタートはその部下のすべてをリスタートしますし"
+" (ただし、次に述べる詳細を見てください) 、同様にアクターの停止はすべての部下を停止しようとします。 :class:`Actor` "
+"クラスにあるフックの  :meth:`preRestart` "
+"のデフォルトの動作は、リスタートの前にすべての子供を停止することに注意するべきです。ただし、このフックはオーバーライドが可能であり、フックが実行された後に残ったすべての子供へに対して再帰的なリスタートが適用されます。"
 
 #: ../../general/supervision.rst:39
 msgid ""
@@ -85,6 +99,8 @@ msgid ""
 "you try to do too much at one level, it will become hard to reason about, "
 "hence the recommended way in this case is to add a level of supervision."
 msgstr ""
+"各スーパーバイザーは、発生する可能性のあるすべての障害 (つまり例外) "
+"を上記に挙げた4つの選択肢の1つに変換する関数で設定されます。特に、この関数は失敗したアクターのアイデンティティを入力にとりません。十分に柔軟に見えないような構造の例を挙げるのはとても簡単であり、例えば、異なる部下に対して異なる戦略を適用したい場合があります。この場合、スーパービジョンが障害を再帰的にハンドリングする形式であることを理解しておくことが不可欠です。1つの階層で沢山のことをしようとすと、理解するのが難しくなります。したがってこの場合、推奨されるのはスーパービジョンの階層を追加することです。"
 
 #: ../../general/supervision.rst:49
 msgid ""
@@ -98,6 +114,10 @@ msgid ""
 "yields a natural and clean shutdown procedure for (sub-trees of) actor "
 "applications."
 msgstr ""
+"Akka は \"親のスーパービジョン\" と呼ばれる特定の形式を実装します。アクターは他のアクターによって生成されます。 "
+"ただし、トップレベルのあくたーはライブラリによって生成されます。 "
+"そして生成された各アクターはその親によって監督されます。この制約はアクターのスーパービジョンの階層を暗黙的にし、設計上の意思決定を行いやすくします。これによりアクターは孤立したり、外部のスーパーバイザーに補足されたりすることが無いことを保証していることに注意してください。そうでなければ、不意に補足したりするかもしれません。さらに、アクターアプリケーション"
+" (のサブツリー) の自然で整理されたシャットダウンの手順も獲得できます。"
 
 #: ../../general/supervision.rst:60
 msgid ""
@@ -108,10 +128,12 @@ msgid ""
 "order of normal messages and failure notifications. For details and example "
 "see the :ref:`message-ordering` section."
 msgstr ""
+"スーパービジョンに関する親子間の通信は、ユーザーメッセージとは隔離されたメールボックスを持つ特別なシステムメッセージ上で行われます。これはスーパービジョンに関するイベントが通常のメッセージとの間で決定論的に順序付けられないことを示唆しています。一般的に、ユーザーは通常のメッセージと障害の検知の順番に影響を与えることはできません。詳細とサンプルについては"
+" :ref:`message-ordering` のセクションを見てください。"
 
 #: ../../general/supervision.rst:70
 msgid "The Top-Level Supervisors"
-msgstr ""
+msgstr "トップレベルのスーパーバイザー"
 
 #: ../../general/supervision.rst:76
 msgid ""
@@ -119,10 +141,12 @@ msgid ""
 "in the image above. For more information about the consequences for actor "
 "paths see :ref:`toplevel-paths`."
 msgstr ""
+"アクターシステムは生成時に最低でも3つのアクターを開始します。そのイメージを上に示しています。アクターパスの結果に関する詳細な情報は :ref"
+":`toplevel-paths` を見てください。"
 
 #: ../../general/supervision.rst:83
 msgid "``/user``: The Guardian Actor"
-msgstr ""
+msgstr "``/user``: ガーディアンアクター"
 
 #: ../../general/supervision.rst:85
 msgid ""
@@ -138,10 +162,16 @@ msgid ""
 "failure, the root guardian’s response will be to terminate the guardian, "
 "which in effect will shut down the whole actor system."
 msgstr ""
+"ユーザーが作成するアクターのすべての親となるおそらくは最も影響のある、``\"/user\"`` という名前のガーディアンです。 "
+"``system.actorOf()`` "
+"を使って生成されたアクターはこのアクターの子供になります。これはすなわち、このガーディアンが停止すると、システム内のすべての通常のアクターがシャットダウンされることを意味します。また、このガーディアンのスーパーバイザー戦略はトップレベルの通常のアクターのスーパーバイザーになることも意味します。"
+" Akka 2.1 からこの設定に ``akka.actor.guardian-supervisor-strategy`` "
+"を使うことができるようになりました。これは :class:`SupervisorStrategyConfigurator` "
+"の完全修飾クラス名を取ります。ガーディアンが失敗をエスカレートすると、ルートガーディアンの対応によりガーディアンは停止し、その結果としてすべてのアクターシステムはシャットダウンするでしょう。"
 
 #: ../../general/supervision.rst:98
 msgid "``/system``: The System Guardian"
-msgstr ""
+msgstr "``/system``: システムガーディアン"
 
 #: ../../general/supervision.rst:100
 msgid ""
@@ -156,10 +186,15 @@ msgid ""
 "which will terminate the child in question.  All other throwables are "
 "escalated, which will shut down the whole actor system."
 msgstr ""
+"この特別なガーディアンはすべての通常のアクターが停止していてもロギングをアクティブにしながら整理されたシャットダウン手順を達成するために導入され、アクター自体にロギングが実装されている場合でも動作します。これはシステムガーディアンがユーザーガーディアンを監視し、"
+" :class:`Terminated` メッセージを受け取ったら自身をシャットダウンすることで実現されます。トップレベルのシステムアクターは、 "
+":class:`ActorInitializationException` と :class:`ActorKilledException` "
+"を除いたすべての :class:`Exception`  "
+"型に対して無期限にリスタートするスーパーバイザー戦略を用いています。これで問題のある子供は停止されます。その他の例外がエスカレートされた場合は、全アクターシステムがシャットダウンされるでしょう。"
 
 #: ../../general/supervision.rst:112
 msgid "``/``: The Root Guardian"
-msgstr ""
+msgstr "``/``: ルートガーディアン"
 
 #: ../../general/supervision.rst:114
 msgid ""
@@ -175,30 +210,38 @@ msgid ""
 "``isTerminated`` status to ``true`` as soon as the root guardian is fully "
 "terminated (all children recursively stopped)."
 msgstr ""
+"ルートガーディアンは \"トップレベル\"\" と呼ばれるアクターの祖父にあたり、  :ref:`toplevel-paths`  で言及された "
+"``SupervisorStrategy.stoppingStrategy`` を使っている全ての特別なアクターを監督します。その目的は、あらゆる型の "
+":class:`Exception` の発生に対して子供を停止させることにあります。その他の全ての Throwable "
+"がエスカレートされますが誰によってでしょう?  "
+"あらゆる実体のアクターはスーパーバイザーを持っていますが、ルートガーディアンのスーパバイザーは実体のアクターではありません。これは \"泡の外\" "
+"を意味してして、 \"泡を歩く者\" と呼んでいます。これは人工的な :class:`ActorRef` "
+"であり、トラブルの最初の兆候で子供を停止させ、ルートガーディアンが完全に停止 (再帰的に全ての子供も停止する) するとすぐに、アクターシステムの "
+"``isTerminated``  ステータスを ``true`` に設定します。"
 
 #: ../../general/supervision.rst:129
 msgid "What Restarting Means"
-msgstr ""
+msgstr "リスタートが意味するもの"
 
 #: ../../general/supervision.rst:131
 msgid ""
 "When presented with an actor which failed while processing a certain "
 "message, causes for the failure fall into three categories:"
-msgstr ""
+msgstr "特定のメッセージの処理にアクターが失敗したとき、 その失敗の原因は 3 つのカテゴリに分類されます。"
 
 #: ../../general/supervision.rst:134
 msgid "Systematic (i.e. programming) error for the specific message received"
-msgstr ""
+msgstr "特定の受信メッセージに対する、システム的な (すなわちプログラム上の) エラー "
 
 #: ../../general/supervision.rst:135
 msgid ""
 "(Transient) failure of some external resource used during processing the "
 "message"
-msgstr ""
+msgstr "メッセージ処理中に使用したある外部リソースの (一時的な) 障害 "
 
 #: ../../general/supervision.rst:136
 msgid "Corrupt internal state of the actor"
-msgstr ""
+msgstr "アクターの内部状態の汚染"
 
 #: ../../general/supervision.rst:138
 msgid ""
@@ -215,22 +258,27 @@ msgid ""
 "the actor itself with the notable exception that the message during which "
 "the failure occurred is not re-processed."
 msgstr ""
+"障害が明確に認識されない限り、3番目の原因を取り除くことはできず、そのため内部状態を空にする必要があるという結論が導かれます。もしスーパーバイザーがその他の子供や自分自身汚染による影響を受けていないと判断する場合、例えばエラーカーネルパターンを意識的に適用するために、子供をリスタートすることが最善です。これは、子供の"
+" :class:`ActorRef`  の内部で  :class:`Actor` 配下の新しいインスタンスを生成して、 "
+"障害の起きたインスタンスと新しいものを置き換えることで実現します。この能力がアクターを特別な参照で隠蔽する理由の1つです。新しいアクターはそれから自身のメールボックスの処理を再開します。つまり、リスタートは例外とアクター自身の外部から見えず、障害が起きている間に発生したメッセージは再び処理されることはありません。"
 
 #: ../../general/supervision.rst:151
 msgid "The precise sequence of events during a restart is the following:"
-msgstr ""
+msgstr "リスタート中の正確なイベントの順序は次の通りです。"
 
 #: ../../general/supervision.rst:153
 msgid ""
 "suspend the actor (which means that it will not process normal messages "
 "until resumed), and recursively suspend all children"
-msgstr ""
+msgstr "アクターを一時停止 ( 再開するまで通常のメッセージ処理は処理されません ) し、全ての子供も再帰的に一時停止します。"
 
 #: ../../general/supervision.rst:155
 msgid ""
 "call the old instance’s :meth:`preRestart` hook (defaults to sending "
 "termination requests to all children and calling :meth:`postStop`)"
 msgstr ""
+"古いインスタンスの :meth:`preRestart` フック ( デフォルトでは全ての子供に停止リクエストを送信し、 "
+":meth:`postStop` を呼び出します ) を 呼び出します。"
 
 #: ../../general/supervision.rst:157
 msgid ""
@@ -239,35 +287,40 @@ msgid ""
 "this—like all actor operations—is non-blocking, the termination notice from "
 "the last killed child will effect the progression to the next step"
 msgstr ""
+":meth:`preRestart`  の中で、 (``context.stop()`` を使って) "
+"停止を要求した全ての子供が実際に停止するまで待機します。この操作は、 全てのアクターの操作がそうであるように、ノンブロッキングなので、 "
+"最後に死んだ子供からの停止の通知をもって、次のステップに進むようになるでしょう。"
 
 #: ../../general/supervision.rst:161
 msgid ""
 "create new actor instance by invoking the originally provided factory again"
-msgstr ""
+msgstr "オリジナルの提供されたファクトリを再度実行して、新しいアクターのインスタンスを生成します。"
 
 #: ../../general/supervision.rst:162
 msgid ""
 "invoke :meth:`postRestart` on the new instance (which by default also calls "
 ":meth:`preStart`)"
 msgstr ""
+"新しいインスタンスの :meth:`postRestart` メソッド ( デフォルトでは :meth:`preStart` も呼ばれます ) "
+"を実行します。 "
 
 #: ../../general/supervision.rst:163
 msgid ""
 "send restart request to all children which were not killed in step 3; "
 "restarted children will follow the same process recursively, from step 2"
-msgstr ""
+msgstr "リスタート要求をステップ3 で死ななかった全てのアクターに送信します。リスタートした子供はステップ2 から再帰的に同じ処理を行います。"
 
 #: ../../general/supervision.rst:165
 msgid "resume the actor"
-msgstr ""
+msgstr "アクターを再開します。"
 
 #: ../../general/supervision.rst:168
 msgid "What Lifecycle Monitoring Means"
-msgstr ""
+msgstr "ライフサイクルモニタリングが意味するもの"
 
 #: ../../general/supervision.rst:172
 msgid "Lifecycle Monitoring in Akka is usually referred to as ``DeathWatch``"
-msgstr ""
+msgstr "Akka のライフサイクルモニタリングは、通常 ``DeathWatch`` を指しています。"
 
 #: ../../general/supervision.rst:174
 msgid ""
@@ -279,6 +332,7 @@ msgid ""
 "another so that it may react to the other actor’s termination, in contrast "
 "to supervision which reacts to failure."
 msgstr ""
+"上記で述べたような親と子の間の特別な関係とは対照的に、各アクターはあらゆる他のアクターを監視するかもしれません。アクターは完全に生きている状態で生成され、リスタートは影響を受けるスーパーバイザーの外部から見えないため、モニタリングが可能な唯一の状態変更は、生存から死亡への変化のみです。このようにモニタリングはあるアクターを別のアクターと結びつけるために使用し、別のアクターの終了に対して反応します。障害に対して反応するスーパービジョンとは対照的です。"
 
 #: ../../general/supervision.rst:182
 msgid ""
@@ -292,6 +346,12 @@ msgid ""
 "monitoring request and target’s termination occur, i.e. you still get the "
 "message even if at the time of registration the target is already dead."
 msgstr ""
+"ライフサイクルモニタリングは、モニタリングをしているアクターが受け取る :class:`Terminated` "
+"メッセージを使って実装します。このデフォルトの動作は、別途処理しなければ、特定の :class:`DeathPactException` "
+"をスローします。 :class:`Terminated`  メッセージの監視を開始するために、 "
+"``ActorContext.watch(targetActorRef)`` を実行します。監視を停止するには、 "
+"``ActorContext.unwatch(targetActorRef)`` "
+"を実行します。1つの重要な性質に、モニタリング要求と、対象の停止の発生の順序に関係なくメッセージが配信されることがあります。つまり、登録時に対象がすでに死んでいたとしても、メッセージが取得できる場合があります。"
 
 #: ../../general/supervision.rst:192
 msgid ""
@@ -300,6 +360,7 @@ msgid ""
 "initialization. In that case it should monitor those children and re-create "
 "them or schedule itself to retry this at a later time."
 msgstr ""
+"モニタリングは、スーパーバイザーが単純に子供をリスタートしたり停止したりできない状況で特に有用です。例えば、アクター初期化中の障害などの場合などです。そのような場合、子供を監視しておき、再生成するか、あるいは、しばらく経ってからリトライするようにスケジュールするべきです。"
 
 #: ../../general/supervision.rst:197
 msgid ""
@@ -308,10 +369,13 @@ msgid ""
 "party terminates a child by way of the ``system.stop(child)`` method or "
 "sending a :class:`PoisonPill`, the supervisor might well be affected."
 msgstr ""
+"他によくあるケースとして、アクターが外部リソースがないために失敗させたい場合があります。外部リソースは自身の子供のどれかということもありえます。第三者が"
+" 子の ``system.stop(child)``  メソッドを呼ぶか、 あるいは子に :class:`PoisonPill` "
+"メッセージを送信すると、 スーパーバイザーに影響を与えるでしょう。"
 
 #: ../../general/supervision.rst:205
 msgid "Delayed restarts with the BackoffSupervisor pattern"
-msgstr ""
+msgstr "BackoffSupervisor  パターンによる遅延リスタート"
 
 #: ../../general/supervision.rst:206
 msgid ""
@@ -320,6 +384,8 @@ msgid ""
 "starting a child actor again when it fails, each time with a growing time "
 "delay between restarts."
 msgstr ""
+"組み込みのパターンとして提供される ``akka.pattern.BackoffSupervisor`` はいわゆる "
+"*指数関数的なバックオフスーパーバイザー戦略* を実装し、失敗からリスタートするまでの時間を増やしながらアクターを再び開始していきます。"
 
 #: ../../general/supervision.rst:209
 msgid ""
@@ -331,12 +397,17 @@ msgid ""
 "overloaded, in such situations it makes most sense to give it a little bit "
 "of time to recover before the peristent actor is started."
 msgstr ""
+"このパターンは開始されたアクターがある外部リソースが使用できないなどの理由で失敗し  [#]_ "
+"、ある時点で再度スタートアップが必要となる場合に有用です。このパターンが有用となる主要な例の1つは、 :ref:`PersistentActor "
+"<persistence-scala>` が 永続性障害によって (停止して)  失敗する場合です。 これは "
+"データベースがダウンしていたり過負荷な状態になっていて、そのような状況で "
+"永続性アクターが開始する前に、回復のために少しの時間を設けることを意図しています。"
 
 #: ../../general/supervision.rst:215
 msgid ""
 "A failure can be indicated in two different ways; by an actor stopping or "
 "crashing."
-msgstr ""
+msgstr "障害は アクターの停止とクラッシュによる2種類の方法で示されます。"
 
 #: ../../general/supervision.rst:217
 msgid ""
@@ -344,10 +415,13 @@ msgid ""
 "will start the given echo actor after it has stopped because of a failure, "
 "in increasing intervals of 3, 6, 12, 24 and finally 30 seconds:"
 msgstr ""
+"次の Scala のスニペットは "
+"バックオフスーパーバイザーの作成方法を紹介しています。このスーパーバイザーは与えられたエコーアクターを障害によって停止したら、再開までの間隔を 3秒, "
+"6秒, 12秒, 24秒, そして最後は 30秒と増やしていきます。"
 
 #: ../../general/supervision.rst:222 ../../general/supervision.rst:242
 msgid "The above is equivalent to this Java code:"
-msgstr ""
+msgstr "上記はこの Java コードと同等です。"
 
 #: ../../general/supervision.rst:227
 msgid ""
@@ -360,6 +434,8 @@ msgid ""
 "points in time, thus avoiding large spikes of traffic hitting the recovering"
 " shared database or other resource that they all need to contact."
 msgstr ""
+"バックオフ間隔を少々分散させるために、 ``randomFactor`` "
+"を使うことを強く推奨します。これは複数のアクターが正確に同時にリスタートするを避けるためです。例えば、データベースのような共有リソースが止まって複数のアクターが停止し、同じ設定の間隔の後同時にリスタートします。リスタートの間隔にランダム性を追加することで、アクターはわずかに異なる時点で開始するので、アクセスを行うリカバリ中の共有データベースやその他のリソースへのトラフィックの急激な増加を避けることができるでしょう。"
 
 #: ../../general/supervision.rst:234
 msgid ""
@@ -367,6 +443,8 @@ msgid ""
 "restart the actor after a delay when the actor crashes and the supervision "
 "strategy decides that it should restart."
 msgstr ""
+"``akka.pattern.BackoffSupervisor`` "
+"アクターも、アクターがクラッシュし、スーパビジョン戦略がリスタートすることを決定したときに、遅れてリスタートするように設定されています。"
 
 #: ../../general/supervision.rst:237
 msgid ""
@@ -374,12 +452,17 @@ msgid ""
 "will start the given echo actor after it has crashed because of some "
 "exception, in increasing intervals of 3, 6, 12, 24 and finally 30 seconds:"
 msgstr ""
+"次の Scala のスニペットは "
+"バックオフスーパーバイザーの作成方法を紹介しています。このスーパーバイザーは与えられたエコーアクターがある例外のためにクラッシュしたら、再開までの間隔を"
+" 3秒, 6秒, 12秒, 24秒, そして最後は 30秒と増やしていきます。"
 
 #: ../../general/supervision.rst:247
 msgid ""
 "The ``akka.pattern.BackoffOptions`` can be used to customize the behavior of"
 " the back-off supervisor actor, below are some examples:"
 msgstr ""
+"``akka.pattern.BackoffOptions`` "
+"はバックオフスーパーバイザーアクターの振る舞いをカスタマイズするために使用します。以下にいくつか例を挙げます。"
 
 #: ../../general/supervision.rst:251
 msgid ""
@@ -389,6 +472,10 @@ msgid ""
 "uses a default stopping strategy, any exception will cause the child to "
 "stop."
 msgstr ""
+"上記のコードは、メッセージが正常に処理されバックオフがリセットされたとき、子アクターが親に  `` "
+"akka.pattern.BackoffSupervisor.Reset`` "
+"メッセージを送信するように要求するバックオフスーパバイザを設定しています。また、デフォルトの "
+"停止戦略も使っているので、あらゆる例外に対して子は停止します。"
 
 #: ../../general/supervision.rst:257
 msgid ""
@@ -397,10 +484,12 @@ msgid ""
 "The back-off is automatically reset if the child does not throw any errors "
 "within 10 seconds."
 msgstr ""
+"上記のコードは、 MyException "
+"がスローされたら子をバックオフの後にリスタートし、そのほかの例外はエスカレートするようにバックオフスーパーバイザーを設定しています。バックオフは、子が10秒以内に例外を何もスローしない場合にリセットされます。"
 
 #: ../../general/supervision.rst:261
 msgid "One-For-One Strategy vs. All-For-One Strategy"
-msgstr ""
+msgstr "One-For-One Strategy 対 All-For-One Strategy"
 
 #: ../../general/supervision.rst:263
 msgid ""
@@ -414,6 +503,10 @@ msgid ""
 ":class:`OneForOneStrategy`, which also is the default if none is specified "
 "explicitly."
 msgstr ""
+"Akka には、 :class:`OneForOneStrategy`  と  :class:`AllForOneStrategy` "
+"の2つのスーパービジョン戦略があります。両者はスーパビジョン命令 ( :ref:`上記 <supervision-directives>` を参照) "
+"に対する例外の型から対応付けて設定し、終了の前にどの子供が失敗してもよいかを制限します。両者の違いは、前者は取得した命令を失敗した子供だけに適用し、後者は全ての兄弟に対して適用することにあります。通常、デフォルトであり明示する必要のない、"
+" :class:`OneForOneStrategy` を使用するべきです。"
 
 #: ../../general/supervision.rst:273
 msgid ""
@@ -426,6 +519,10 @@ msgid ""
 "make sure that it is no problem for any of the actors to receive a message "
 "which was queued before the restart but processed afterwards."
 msgstr ""
+":class:`AllForOneStrategy`  "
+"は子供の全体が互いに強く依存していて、1つの子の障害が他の機能に影響を与える場合、つまり不可分の場合、に適用できます。リスタートではメールボックスは破棄されないので、障害時に子供を終了し、スーパバイザから子供を明示的に"
+" (子供のライフサイクルの監視によって) 再作成することがベストとなることがよくあります。 "
+"それ以外の場合、他のアクターに対して、リスタートの前にキューに入れられたメッセージが、後で処理されなくなることが問題ないことを確認する必要があります。"
 
 #: ../../general/supervision.rst:282
 msgid ""
@@ -437,6 +534,11 @@ msgid ""
 " it, and the default :meth:`preRestart` action will terminate all children. "
 "Of course this can be handled explicitly as well."
 msgstr ""
+"all-for-one strategy では、正常に子供を停止 ( つまり、障害による停止ではない場合)  "
+"しても、他の子供を自動的に停止することにはなりません。これはライフサイクルの監視によって簡単に対応できます。もし :class:`Terminated`"
+" メッセージをスーパーバイザーがハンドリングしなかった場合、 :class:`DeathPactException` "
+"がスローされ、(スーパーバイザーに応じて) リスタートされます。そして、 :meth:`preRestart` "
+"のデフォルトの動作で全ての子供が終了します。もちろんこれらを明示的にハンドリングすることもできます。"
 
 #: ../../general/supervision.rst:290
 msgid ""
@@ -446,3 +548,7 @@ msgid ""
 "this can very easily be done by declaring a router of size 1 for the worker,"
 " see :ref:`routing-scala` or :ref:`routing-java`."
 msgstr ""
+"all-for-one supervisor "
+"から一度限りのアクターを生成することは、一時的なアクターによってエスカレートされた障害が永久的に全てに影響することに注意が必要です。もしこれが望ましくないのなら、中間のスーパーバイザーを導入します。これは、サイズが"
+" 1 のルーターをワーカーとして宣言することでとても簡単に実現できます。 :ref:`routing-scala` か :ref:`routing-"
+"java` を参照してください。"
