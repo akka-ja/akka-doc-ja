@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Yugo Maede <yugo.maede@gmail.com>, 2017\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 
 #: ../../general/configuration.rst:4
 msgid "Configuration"
-msgstr ""
+msgstr "設定"
 
 #: ../../general/configuration.rst:6
 msgid ""
@@ -28,26 +29,29 @@ msgid ""
 "to change the default behavior or adapt for specific runtime environments. "
 "Typical examples of settings that you might amend:"
 msgstr ""
+"気の利いたデフォルト値が提供されるので、設定を定義することなくAkkaを使用することができます。 "
+"後に、デフォルトの動作を変更したり、特定のランタイム環境に合わせて設定を修正しなければならない場合があります。 "
+"あなたが修正するかもしれない設定の典型的な例："
 
 #: ../../general/configuration.rst:11
 msgid "log level and logger backend"
-msgstr ""
+msgstr "ログレベルとロガーのバックエンド"
 
 #: ../../general/configuration.rst:12
 msgid "enable remoting"
-msgstr ""
+msgstr "リモーティングを有効化"
 
 #: ../../general/configuration.rst:13
 msgid "message serializers"
-msgstr ""
+msgstr "メッセージシリアライザ"
 
 #: ../../general/configuration.rst:14
 msgid "definition of routers"
-msgstr ""
+msgstr "ルータの定義"
 
 #: ../../general/configuration.rst:15
 msgid "tuning of dispatchers"
-msgstr ""
+msgstr "ディスパッチャのチューニング"
 
 #: ../../general/configuration.rst:17
 msgid ""
@@ -60,6 +64,11 @@ msgid ""
 "<http://typesafehub.github.io/config/v1.2.0/com/typesafe/config/ConfigFactory.html>`_),"
 " which is only summarized in the following."
 msgstr ""
+"Akkaは `Typesafe Config Library <https://github.com/typesafehub/config>`_ "
+"を使用しており、これはAkkaの使用にかかわらず独自のアプリケーションやライブラリの設定にも適しています。 "
+"このライブラリは外部依存関係のないJavaで実装されていますので、 そのドキュメント(特に `ConfigFactory "
+"<http://typesafehub.github.io/config/v1.2.0/com/typesafe/config/ConfigFactory.html>`_)を見てください。"
+" 以下は要約になります。"
 
 #: ../../general/configuration.rst:27
 msgid ""
@@ -68,10 +77,13 @@ msgid ""
 "\"-Yrepl-sync\" to work around a deficiency in the REPLs provided Context "
 "ClassLoader."
 msgstr ""
+"2.9.xのScala "
+"REPLからAkkaを使用していて、独自のClassLoaderをActorSystemに提供していない場合は、REPLで提供されているContext "
+"ClassLoaderの欠点を回避するためにREPLを \"-Yrepl-sync\" で開始します。"
 
 #: ../../general/configuration.rst:34
 msgid "Where configuration is read from"
-msgstr ""
+msgstr "設定を読み込む場所"
 
 #: ../../general/configuration.rst:36
 msgid ""
@@ -87,6 +99,13 @@ msgid ""
 "``reference.conf`` resources found at the root of the class path to form the"
 " fallback configuration, i.e. it internally uses"
 msgstr ""
+"Akkaのすべての設定は  :class:`ActorSystem` のインスタンス内に保持され、別の言い方をすると外から見ると "
+":class:`ActorSystem` は設定情報の唯一のコンシューマです。アクターシステムを構築するときに、 :class:`Config` "
+"オブジェクトを渡すか、 ``ConfigFactory.load()`` を渡しても同じです(適切なクラスローダーで)。 "
+"デフォルトでは、クラスパスのルートにある ``application.conf``` 、 ``application.json`` 、 "
+"``application.properties`` のすべてを解析します。詳しくはそれぞれのドキュメントを参照してください 。 "
+"アクターシステムは、クラスパスのルートにあるすべての ``reference.conf`` "
+"リソースをマージしてフォールバック構成を形成します。つまり、内部的に以下を使用します。"
 
 #: ../../general/configuration.rst:51
 msgid ""
@@ -94,6 +113,7 @@ msgid ""
 "relies upon their presence in the ``reference.conf`` supplied with the "
 "library in question."
 msgstr ""
+"原理としては、このコードにデフォルト値は含まれていませんが、当該ライブラリで提供されている ``reference.conf`` に存在しています。"
 
 #: ../../general/configuration.rst:55
 msgid ""
@@ -105,6 +125,11 @@ msgid ""
 "property (there are more, please refer to the `Config docs "
 "<https://github.com/typesafehub/config/blob/master/README.md>`_)."
 msgstr ""
+"最も高い優先順位は、システムプロパティとして与えられたオーバーライドに与えられます。 `HOCON仕様 "
+"<https://github.com/typesafehub/config/blob/master/HOCON.md>`_ "
+"(下部)を参照してください。 また、デフォルトで ``application`` になっているアプリケーションの設定は、 "
+"``config.resource`` プロパティを使ってオーバーライドすることができます(詳細は、 `Config docs "
+"<https://github.com/typesafehub/config/blob/master/README.md>`_ 参照)。"
 
 #: ../../general/configuration.rst:65
 msgid ""
@@ -113,10 +138,12 @@ msgid ""
 "Akka-based library, keep its configuration in ``reference.conf`` at the root"
 " of the JAR file."
 msgstr ""
+"Akkaアプリケーションを作成する場合は、クラスパスのルートにある ``application.conf`` に設定してください。 "
+"Akkaベースのライブラリを作成する場合は、jarファイルのルートにある ``reference.conf`` に設定してください。"
 
 #: ../../general/configuration.rst:72
 msgid "When using JarJar, OneJar, Assembly or any jar-bundler"
-msgstr ""
+msgstr "JarJar、OneJar、アセンブリまたは任意のjar-bundlerを使用する場合"
 
 #: ../../general/configuration.rst:76
 msgid ""
@@ -127,6 +154,10 @@ msgid ""
 " the reference.confs as well. Otherwise all defaults will be lost and Akka "
 "will not function."
 msgstr ""
+"Akkaの設定方法は、独自のreference.confファイルを持つすべてのモジュール/ "
+"jarの概念に大きく依存しており、これらのすべてが設定によって検出され、読み込まれます。 "
+"残念ながら、これは、複数のjarファイルを同じjarファイルに入れてマージすると、すべてのreference.confsもマージする必要があることを意味します。"
+" そうしないと、すべてのデフォルト値が失われ、Akkaは機能しません。"
 
 #: ../../general/configuration.rst:83
 msgid ""
@@ -137,22 +168,27 @@ msgid ""
 "transformers.html#AppendingTransformer>`_ to merge all the reference.confs "
 "on the build classpath into one."
 msgstr ""
+"Mavenを使用してアプリケーションをパッケージ化する場合、 `Resource Transformers "
+"<http://maven.apache.org/plugins/maven-shade-plugin/examples/resource-"
+"transformers.html#AppendingTransformer>`_ の `Apache Maven Shade Plugin "
+"<http://maven.apache.org/plugins/maven-shade-plugin>`_ "
+"を使用して、ビルドクラスパス上のすべてのreference.confsを1つにマージします。"
 
 #: ../../general/configuration.rst:90
 msgid "The plugin configuration might look like this::"
-msgstr ""
+msgstr "プラグインの設定は次のようになります::"
 
 #: ../../general/configuration.rst:128
 msgid "Custom application.conf"
-msgstr ""
+msgstr "カスタムのapplication.conf"
 
 #: ../../general/configuration.rst:130
 msgid "A custom ``application.conf`` might look like this::"
-msgstr ""
+msgstr "カスタムの ``application.conf`` は次のようになります::"
 
 #: ../../general/configuration.rst:172
 msgid "Including files"
-msgstr ""
+msgstr "ファイルのインクルード"
 
 #: ../../general/configuration.rst:174
 msgid ""
@@ -161,16 +197,20 @@ msgid ""
 "independent settings and then override some settings for specific "
 "environments."
 msgstr ""
+"場合によっては、別の設定ファイルをインクルードすると便利な場合もあります。たとえば、すべての環境に依存しない設定の "
+"``application.conf`` がある場合、特定の環境設定をオーバーライドします。"
 
 #: ../../general/configuration.rst:177
 msgid ""
 "Specifying system property with ``-Dconfig.resource=/dev.conf`` will load "
 "the ``dev.conf`` file, which includes the ``application.conf``"
 msgstr ""
+"``-Dconfig.resource=/dev.conf`` でシステムプロパティを指定すると、 ``application.conf`` "
+"をインクルードしている ``dev.conf`` ファイルが読み込まれます。"
 
 #: ../../general/configuration.rst:179
 msgid "dev.conf:"
-msgstr ""
+msgstr "dev.conf:"
 
 #: ../../general/configuration.rst:189
 msgid ""
@@ -178,10 +218,12 @@ msgid ""
 "`HOCON <https://github.com/typesafehub/config/blob/master/HOCON.md>`_ "
 "specification."
 msgstr ""
+"より高度なインクルードと置換メカニズムについては、 `HOCON "
+"<https://github.com/typesafehub/config/blob/master/HOCON.md>`_ で説明しています。"
 
 #: ../../general/configuration.rst:196
 msgid "Logging of Configuration"
-msgstr ""
+msgstr "設定のログ出力"
 
 #: ../../general/configuration.rst:198
 msgid ""
@@ -190,12 +232,15 @@ msgid ""
 "actor system is started. This is useful when you are uncertain of what "
 "configuration is used."
 msgstr ""
+"システムまたは設定プロパティーの ``akka.log-config-on-start`` が ``on`` "
+"に設定されている場合、アクターシステムの起動時に完全な設定がINFOレベルでログに出力されます。 これは、使用されている設定が不明確な場合に便利です。"
 
 #: ../../general/configuration.rst:202
 msgid ""
 "If in doubt, you can also easily and nicely inspect configuration objects "
 "before or after using them to construct an actor system:"
 msgstr ""
+"疑念がある場合は、設定オブジェクトを使用する前または使用した後で、設定オブジェクトを簡単かつうまく検査して、アクターシステムを構築することもできます。"
 
 #: ../../general/configuration.rst:227
 msgid ""
@@ -204,10 +249,12 @@ msgid ""
 "present, e.g. in the reference configuration. The settings as merged with "
 "the reference and parsed by the actor system can be displayed like this:"
 msgstr ""
+"すべての項目の前のコメントは、元々の設定（ファイルと行番号）と可能性のある設定のコメント(例： 参照設定)です。 "
+"参照とマージされ、アクターシステムによって解析された設定は、次のように表示されます。"
 
 #: ../../general/configuration.rst:239
 msgid "A Word About ClassLoaders"
-msgstr ""
+msgstr "ClassLoadersについて"
 
 #: ../../general/configuration.rst:241
 msgid ""
@@ -223,28 +270,35 @@ msgid ""
 ":class:`NullPointerException` from strange places: this is simply not "
 "supported."
 msgstr ""
+"設定ファイルのいくつかの場所では、Akkaがインスタンス化するクラスの完全修飾クラス名を指定することができます。 "
+"これは、:class:`ClassLoader` を使用して、Javaリフレクションで行われます。 "
+"アプリケーションコンテナやOSGiバンドルのような厳しい環境で適切なものを取得することは、必ずしも自明ではありませんが、Akkaの現在のアプローチは、それぞれの"
+" :class:`ActorSystem` 実装が現在のスレッドのコンテキストクラスローダー(有効でなければ "
+"``this.getClass.getClassLoader`` のような独自ローダのみ)を格納し、それをすべてのリフレクションアクセスに使用します。 "
+"これは、Akkaをブートクラスパスに置くと、奇妙な場所から :class:`NullPointerException` "
+"が生成されることを意味します。これは単純にサポートされていません。"
 
 #: ../../general/configuration.rst:254
 msgid "Application specific settings"
-msgstr ""
+msgstr "アプリケーション固有の設定"
 
 #: ../../general/configuration.rst:256
 msgid ""
 "The configuration can also be used for application specific settings. A good"
 " practice is to place those settings in an Extension, as described in:"
-msgstr ""
+msgstr "設定は、アプリケーション固有の設定にも使用できます。 以下で説明されているように、これらの設定を拡張機能に配置することをお勧めします。"
 
 #: ../../general/configuration.rst:259
 msgid "Scala API: :ref:`extending-akka-scala.settings`"
-msgstr ""
+msgstr "Scala API: :ref:`extending-akka-scala.settings`"
 
 #: ../../general/configuration.rst:260
 msgid "Java API: :ref:`extending-akka-java.settings`"
-msgstr ""
+msgstr "Java API: :ref:`extending-akka-java.settings`"
 
 #: ../../general/configuration.rst:263
 msgid "Configuring multiple ActorSystem"
-msgstr ""
+msgstr "複数のActorSystemの設定"
 
 #: ../../general/configuration.rst:265
 msgid ""
@@ -252,6 +306,8 @@ msgid ""
 "have an ``ActorSystem`` that may be separate from the application's) you may"
 " want to separate the configuration for each system."
 msgstr ""
+"複数の  ``ActorSystem`` がある(またはライブラリを書いていて、アプリケーションのものとは別の ``ActorSystem`` "
+"が存在する)場合は、各システムの設定を分けたいかもしれません。"
 
 #: ../../general/configuration.rst:270
 msgid ""
@@ -259,6 +315,8 @@ msgid ""
 "from the whole class path, it is easiest to utilize that functionality and "
 "differentiate actor systems within the hierarchy of the configuration::"
 msgstr ""
+"``ConfigFactory.load()`` "
+"がクラスパス全体の名前と一致するすべてのリソースをマージしているとすれば、その機能を利用し、設定の階層内のアクターシステムを区別するのが最も簡単です::"
 
 #: ../../general/configuration.rst:292
 msgid ""
@@ -266,12 +324,13 @@ msgid ""
 "trick: in the first case, the configuration accessible from within the actor"
 " system is this"
 msgstr ""
+"これらの2つのサンプルは、「サブツリーの持ち上げ」トリックの異なるバリエーションを示しています。1つ目のケースでは、アクターシステム内からアクセス可能な設定は以下のとおりです。"
 
 #: ../../general/configuration.rst:303
 msgid ""
 "while in the second one, only the “akka” subtree is lifted, with the "
 "following result"
-msgstr ""
+msgstr "2つ目は、「akka」サブツリーのみが持ち上げられ、以下の結果が得られます。"
 
 #: ../../general/configuration.rst:315
 msgid ""
@@ -281,22 +340,24 @@ msgid ""
 " `Including files`_) and copying parts of the configuration tree by way of "
 "path substitutions."
 msgstr ""
+"設定ライブラリは本当に強力で、すべての機能はここで説明する手頃な範囲を超えています。 特に、他のファイルに他の設定ファイルを含める方法( "
+"`ファイルのインクルード`_ の小さな例を参照)と、パスの置換によって設定ツリーの一部をコピーする方法がありますが説明しません。"
 
 #: ../../general/configuration.rst:321
 msgid ""
 "You may also specify and parse the configuration programmatically in other "
 "ways when instantiating the ``ActorSystem``."
-msgstr ""
+msgstr "``ActorSystem`` をインスタンス化するときに、他の方法で設定をプログラムで解析することもできます。"
 
 #: ../../general/configuration.rst:328
 msgid "Reading configuration from a custom location"
-msgstr ""
+msgstr "カスタムロケーションから設定を読み込む"
 
 #: ../../general/configuration.rst:330
 msgid ""
 "You can replace or supplement ``application.conf`` either in code or using "
 "system properties."
-msgstr ""
+msgstr "``application.conf`` をコードやシステムプロパティを使って置き換える、或いは補うことができます。"
 
 #: ../../general/configuration.rst:333
 msgid ""
@@ -304,6 +365,9 @@ msgid ""
 "can replace ``application.conf`` by defining ``-Dconfig.resource=whatever``,"
 " ``-Dconfig.file=whatever``, or ``-Dconfig.url=whatever``."
 msgstr ""
+"``ConfigFactory.load()`` (デフォルトでAkkaが使用)を使用している場合、 "
+"``-Dconfig.resource=whatever`` 、 ``-Dconfig.file=whatever`` 、 "
+"``-Dconfig.url=whatever`` の何れかを定義することで ``application.conf`` を置き換えることができます。"
 
 #: ../../general/configuration.rst:338
 msgid ""
@@ -313,10 +377,14 @@ msgid ""
 "``include \"application\"`` would be overridden by the included file, while "
 "those after would override the included file."
 msgstr ""
+"`-Dconfig.resource`` 等で指定された置換ファイルの中から、まだ尚 "
+"``application.{conf,json,properties}`` を使いたい場合は、 ``include \"application\"``"
+" をすることができます。``include \"application\"`` "
+"の前に指定された設定はインクルードされたファイルによって上書きされ、後のものはインクルードされたファイルを上書きします。"
 
 #: ../../general/configuration.rst:346
 msgid "In code, there are many customization options."
-msgstr ""
+msgstr "コードでは、多くのカスタマイズオプションがあります。"
 
 #: ../../general/configuration.rst:348
 msgid ""
@@ -326,6 +394,10 @@ msgid ""
 "``application.{conf,json,properties}`` and replacing ``-Dconfig.file`` and "
 "friends."
 msgstr ""
+"``ConfigFactory.load()`` のいくつかのオーバーロードがあります。 "
+"これらは、システムプロパティ(オーバーライド)とデフォルト(``reference.conf`` による)に挟まれるものを指定し、通常の "
+"``application.{conf,json,properties}`` を置き換え、  ``-Dconfig.file`` "
+"等を置き換えることができる。"
 
 #: ../../general/configuration.rst:355
 msgid ""
@@ -334,6 +406,9 @@ msgid ""
 "``myname.properties`` would then be used instead of "
 "``application.{conf,json,properties}``."
 msgstr ""
+"``ConfigFactory.load()`` のもっとも単純な変形はリソースのベースネーム(``application`` の代わり)です。 "
+"``application.{conf,json,properties}`` の代わりに ``myname.conf`` 、 "
+"``myname.json`` 、 ``myname.properties`` が使われます。"
 
 #: ../../general/configuration.rst:360
 msgid ""
@@ -342,51 +417,54 @@ msgid ""
 "string in code using ``ConfigFactory.parseString()`` or you could make a map"
 " and ``ConfigFactory.parseMap()``, or you could load a file."
 msgstr ""
+"もっとも柔軟な変形は ``ConfigFactory`` のメソッドを使ってロードできる  ``Config`` オブジェクトです。 例えば、 "
+"``ConfigFactory.parseString()`` を使ってコードで文字列を設定するか、mapと "
+"``ConfigFactory.parseMap()`` を作るか、ファイルを読み込むことができます。"
 
 #: ../../general/configuration.rst:366
 msgid ""
 "You can also combine your custom config with the usual config, that might "
 "look like:"
-msgstr ""
+msgstr "以下のように、カスタム設定を通常の設定と組み合わせることもできます。"
 
 #: ../../general/configuration.rst:372
 msgid ""
 "When working with ``Config`` objects, keep in mind that there are three "
 "\"layers\" in the cake:"
-msgstr ""
+msgstr "``Config``  オブジェクトを扱うとき、ケーキには3つの「層」があることに留意してください："
 
 #: ../../general/configuration.rst:375
 msgid "``ConfigFactory.defaultOverrides()`` (system properties)"
-msgstr ""
+msgstr "``ConfigFactory.defaultOverrides()`` (システムプロパティ)"
 
 #: ../../general/configuration.rst:376
 msgid "the app's settings"
-msgstr ""
+msgstr "アプリの設定"
 
 #: ../../general/configuration.rst:377
 msgid "``ConfigFactory.defaultReference()`` (reference.conf)"
-msgstr ""
+msgstr "``ConfigFactory.defaultReference()`` (reference.conf)"
 
 #: ../../general/configuration.rst:379
 msgid ""
 "The normal goal is to customize the middle layer while leaving the other two"
 " alone."
-msgstr ""
+msgstr "通常の目標は、他の2つだけを残して中間層をカスタマイズすることです。"
 
 #: ../../general/configuration.rst:382
 msgid "``ConfigFactory.load()`` loads the whole stack"
-msgstr ""
+msgstr "``ConfigFactory.load()`` はスタック全体を読み込む"
 
 #: ../../general/configuration.rst:383
 msgid ""
 "the overloads of ``ConfigFactory.load()`` let you specify a different middle"
 " layer"
-msgstr ""
+msgstr "``ConfigFactory.load()`` のオーバーロードにより、異なる中間層を指定"
 
 #: ../../general/configuration.rst:385
 msgid ""
 "the ``ConfigFactory.parse()`` variations load single files or resources"
-msgstr ""
+msgstr "``ConfigFactory.parse()`` の変動は単一のファイルやリソースを読み込む"
 
 #: ../../general/configuration.rst:387
 msgid ""
@@ -394,6 +472,9 @@ msgid ""
 "system props (``defaultOverrides()``) on top and ``reference.conf`` "
 "(``defaultReference()``) on the bottom."
 msgstr ""
+"2つの層をスタックするには、 ``override.withFallback(fallback)`` "
+"を使います。システムプロパティ(``defaultOverrides()``) を一番上に、 ``reference.conf`` "
+"(``defaultReference()``)を一番下にしてください。"
 
 #: ../../general/configuration.rst:391
 msgid ""
@@ -402,10 +483,13 @@ msgid ""
 "``application.conf`` will be overridden by the rest of ``application.conf``,"
 " while those at the bottom will override the earlier stuff."
 msgstr ""
+"コードを記述するのではなく、 ``application.conf`` に別の ``include`` 文を追加することができます。 "
+"``application.conf`` の先頭のインクルードは ``application.conf`` "
+"の残りの部分によって上書きされ、後のものは前のものより優先されます。"
 
 #: ../../general/configuration.rst:398
 msgid "Actor Deployment Configuration"
-msgstr ""
+msgstr "アクターデプロイメントの設定"
 
 #: ../../general/configuration.rst:400
 msgid ""
@@ -416,12 +500,15 @@ msgid ""
 "described in the chapters detailing corresponding topics. An example may "
 "look like this:"
 msgstr ""
+"特定のアクターのデプロイ設定は、設定の ``akka.actor.deployment`` セクションで定義することができます。 "
+"デプロイセクションでは、ディスパッチャ、メールボックス、ルーター設定、リモートデプロイなどを定義することができます。 "
+"これらの機能の設定については、対応するトピックを詳しい説明の章で説明しています。 例は次のようになります。"
 
 #: ../../general/configuration.rst:411
 msgid ""
 "The deployment section for a specific actor is identified by the path of the"
 " actor relative to ``/user``."
-msgstr ""
+msgstr "特定アクターのデプロイセクションは、 ``/user`` を基準にしたアクタのパスで識別されます。"
 
 #: ../../general/configuration.rst:414
 msgid ""
@@ -429,18 +516,21 @@ msgid ""
 "you could specify: ``/*/sampleActor`` and that would match all "
 "``sampleActor`` on that level in the hierarchy. In addition, please note:"
 msgstr ""
+"アスタリスクをアクターパスセクションのワイルドカードとして使用することができるので、 ``/*/sampleActor`` と階層のそのレベルのすべての"
+" ``sampleActor`` にマッチさせることができます。 さらに、次の点に注意してください。"
 
 #: ../../general/configuration.rst:418
 msgid ""
 "you can also use wildcards in the last position to match all actors at a "
 "certain level: ``/someParent/*``"
-msgstr ""
+msgstr "末尾にワイルドカードを使用して、あるレベルのすべてのアクターにマッチさせることもできます: ``/someParent/*``"
 
 #: ../../general/configuration.rst:419
 msgid ""
 "you can use double-wildcards in the last position to match all child actors "
 "and their children recursively: ``/someParent/**``"
 msgstr ""
+"末尾に2つのワイルドカードを使用して、すべての子アクターとその子を再帰的にマッチさせることができます: ``/someParent/**``"
 
 #: ../../general/configuration.rst:421
 msgid ""
@@ -450,74 +540,79 @@ msgid ""
 "considered **more specific** than ``/foo/**``. Only the highest priority "
 "match is used"
 msgstr ""
+"非ワイルドカードマッチは常にワイルドカードより優先順位が高く、ワイルドカードマッチはダブルワイルドカードより優先度が高いので、 ``/foo/bar``"
+" は ``/foo/**`` **より特定のもの** とみなされる ``/foo/*`` **より特定のもの** とみなされます。 "
+"最も高い優先順位の一致のみが使用されます。"
 
 #: ../../general/configuration.rst:424
 msgid ""
 "wildcards **cannot** be used to partially match section, like this: "
 "``/foo*/bar``, ``/f*o/bar`` etc."
 msgstr ""
+"ワイルドカード**は ``/foo*/bar`` 、 ``/f*o/bar`` などのように部分的にセクションにマッチさせることは **できません** "
+"。"
 
 #: ../../general/configuration.rst:427
 msgid "Double-wildcards can only be placed in the last position."
-msgstr ""
+msgstr "ダブルワイルドカードは末尾にのみ置くことができます。"
 
 #: ../../general/configuration.rst:430
 msgid "Listing of the Reference Configuration"
-msgstr ""
+msgstr "参考設定の一覧"
 
 #: ../../general/configuration.rst:432
 msgid ""
 "Each Akka module has a reference configuration file with the default values."
-msgstr ""
+msgstr "各Akkaモジュールには、デフォルト値を持つ参考設定ファイルがあります。"
 
 #: ../../general/configuration.rst:437
 msgid "akka-actor"
-msgstr ""
+msgstr "akka-actor"
 
 #: ../../general/configuration.rst:445
 msgid "akka-agent"
-msgstr ""
+msgstr "akka-agent"
 
 #: ../../general/configuration.rst:453
 msgid "akka-camel"
-msgstr ""
+msgstr "akka-camel"
 
 #: ../../general/configuration.rst:461
 msgid "akka-cluster"
-msgstr ""
+msgstr "akka-cluster"
 
 #: ../../general/configuration.rst:469
 msgid "akka-multi-node-testkit"
-msgstr ""
+msgstr "akka-multi-node-testkit"
 
 #: ../../general/configuration.rst:477
 msgid "akka-persistence"
-msgstr ""
+msgstr "akka-persistence"
 
 #: ../../general/configuration.rst:485
 msgid "akka-remote"
-msgstr ""
+msgstr "akka-remote"
 
 #: ../../general/configuration.rst:495
 msgid "akka-remote (artery)"
-msgstr ""
+msgstr "akka-remote (artery)"
 
 #: ../../general/configuration.rst:504
 msgid "akka-testkit"
-msgstr ""
+msgstr "akka-testkit"
 
 #: ../../general/configuration.rst:511
 msgid "akka-cluster-metrics ~~~~~~~~~~~~--------"
-msgstr ""
+msgstr "akka-cluster-metrics ~~~~~~~~~~~~--------"
 
 #: ../../general/configuration.rst:519
 msgid "akka-cluster-tools ~~~~~~~~~~~~------"
-msgstr ""
+msgstr "akka-cluster-tools ~~~~~~~~~~~~------"
 
 #: ../../general/configuration.rst:527
 msgid "akka-cluster-sharding ~~~~~~~~~~~~---------"
-msgstr ""
+msgstr "akka-cluster-sharding ~~~~~~~~~~~~---------"
 
 #: ../../general/configuration.rst:535
 msgid "akka-distributed-data ~~~~~~~~~~~~---------"
-msgstr ""
+msgstr "akka-distributed-data ~~~~~~~~~~~~---------"
