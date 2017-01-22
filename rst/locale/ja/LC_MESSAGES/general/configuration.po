@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../../general/configuration.rst:4
 msgid "Configuration"
-msgstr "設定"
+msgstr "環境設定"
 
 #: ../../general/configuration.rst:6
 msgid ""
@@ -29,7 +29,7 @@ msgid ""
 "to change the default behavior or adapt for specific runtime environments. "
 "Typical examples of settings that you might amend:"
 msgstr ""
-"気の利いたデフォルト値が提供されるので、設定を定義することなくAkkaを使用することができます。 "
+"気の利いたデフォルト値が提供されるので、環境設定を定義することなくAkkaを使用することができます。 "
 "後に、デフォルトの動作を変更したり、特定のランタイム環境に合わせて設定を修正しなければならない場合があります。 "
 "あなたが修正するかもしれない設定の典型的な例："
 
@@ -65,7 +65,7 @@ msgid ""
 " which is only summarized in the following."
 msgstr ""
 "Akkaは `Typesafe Config Library <https://github.com/typesafehub/config>`_ "
-"を使用しており、これはAkkaの使用にかかわらず独自のアプリケーションやライブラリの設定にも適しています。 "
+"を使用しており、これはAkkaの使用にかかわらず独自のアプリケーションやライブラリの環境設定にも適しています。 "
 "このライブラリは外部依存関係のないJavaで実装されていますので、 そのドキュメント(特に `ConfigFactory "
 "<http://typesafehub.github.io/config/v1.2.0/com/typesafe/config/ConfigFactory.html>`_)を見てください。"
 " 以下は要約になります。"
@@ -83,7 +83,7 @@ msgstr ""
 
 #: ../../general/configuration.rst:34
 msgid "Where configuration is read from"
-msgstr "設定を読み込む場所"
+msgstr "環境設定を読み込む場所"
 
 #: ../../general/configuration.rst:36
 msgid ""
@@ -99,13 +99,13 @@ msgid ""
 "``reference.conf`` resources found at the root of the class path to form the"
 " fallback configuration, i.e. it internally uses"
 msgstr ""
-"Akkaのすべての設定は  :class:`ActorSystem` のインスタンス内に保持され、別の言い方をすると外から見ると "
-":class:`ActorSystem` は設定情報の唯一のコンシューマです。アクターシステムを構築するときに、 :class:`Config` "
+"Akkaのすべての環境設定は  :class:`ActorSystem` のインスタンス内に保持され、別の言い方をすると外から見ると "
+":class:`ActorSystem` は環境設定情報の唯一のコンシューマです。アクターシステムを構築するときに、 :class:`Config` "
 "オブジェクトを渡すか、 ``ConfigFactory.load()`` を渡しても同じです(適切なクラスローダーで)。 "
 "デフォルトでは、クラスパスのルートにある ``application.conf``` 、 ``application.json`` 、 "
 "``application.properties`` のすべてを解析します。詳しくはそれぞれのドキュメントを参照してください 。 "
 "アクターシステムは、クラスパスのルートにあるすべての ``reference.conf`` "
-"リソースをマージしてフォールバック構成を形成します。つまり、内部的に以下を使用します。"
+"リソースをマージしてフォールバック環境設定を形成します。つまり、内部的に以下を使用します。"
 
 #: ../../general/configuration.rst:51
 msgid ""
@@ -127,7 +127,7 @@ msgid ""
 msgstr ""
 "最も高い優先順位は、システムプロパティとして与えられたオーバーライドに与えられます。 `HOCON仕様 "
 "<https://github.com/typesafehub/config/blob/master/HOCON.md>`_ "
-"(下部)を参照してください。 また、デフォルトで ``application`` になっているアプリケーションの設定は、 "
+"(下部)を参照してください。 また、デフォルトで ``application`` になっているアプリケーションの環境設定は、 "
 "``config.resource`` プロパティを使ってオーバーライドすることができます(詳細は、 `Config docs "
 "<https://github.com/typesafehub/config/blob/master/README.md>`_ 参照)。"
 
@@ -138,8 +138,8 @@ msgid ""
 "Akka-based library, keep its configuration in ``reference.conf`` at the root"
 " of the JAR file."
 msgstr ""
-"Akkaアプリケーションを作成する場合は、クラスパスのルートにある ``application.conf`` に設定してください。 "
-"Akkaベースのライブラリを作成する場合は、jarファイルのルートにある ``reference.conf`` に設定してください。"
+"Akkaアプリケーションを作成する場合は、クラスパスのルートにある ``application.conf`` に環境設定をしてください。 "
+"Akkaベースのライブラリを作成する場合は、jarファイルのルートにある ``reference.conf`` に環境設定をしてください。"
 
 #: ../../general/configuration.rst:72
 msgid "When using JarJar, OneJar, Assembly or any jar-bundler"
@@ -154,8 +154,8 @@ msgid ""
 " the reference.confs as well. Otherwise all defaults will be lost and Akka "
 "will not function."
 msgstr ""
-"Akkaの設定方法は、独自のreference.confファイルを持つすべてのモジュール/ "
-"jarの概念に大きく依存しており、これらのすべてが設定によって検出され、読み込まれます。 "
+"Akkaの環境設定方法は、独自のreference.confファイルを持つすべてのモジュール/ "
+"jarの概念に大きく依存しており、これらのすべてが環境設定によって検出され、読み込まれます。 "
 "残念ながら、これは、複数のjarファイルを同じjarファイルに入れてマージすると、すべてのreference.confsもマージする必要があることを意味します。"
 " そうしないと、すべてのデフォルト値が失われ、Akkaは機能しません。"
 
@@ -176,7 +176,7 @@ msgstr ""
 
 #: ../../general/configuration.rst:90
 msgid "The plugin configuration might look like this::"
-msgstr "プラグインの設定は次のようになります::"
+msgstr "プラグインの環境設定は次のようになります::"
 
 #: ../../general/configuration.rst:128
 msgid "Custom application.conf"
@@ -197,7 +197,7 @@ msgid ""
 "independent settings and then override some settings for specific "
 "environments."
 msgstr ""
-"場合によっては、別の設定ファイルをインクルードすると便利な場合もあります。たとえば、すべての環境に依存しない設定の "
+"場合によっては、別の環境設定ファイルをインクルードすると便利な場合もあります。たとえば、すべての環境に依存しない設定の "
 "``application.conf`` がある場合、特定の環境設定をオーバーライドします。"
 
 #: ../../general/configuration.rst:177
@@ -223,7 +223,7 @@ msgstr ""
 
 #: ../../general/configuration.rst:196
 msgid "Logging of Configuration"
-msgstr "設定のログ出力"
+msgstr "環境設定のログ出力"
 
 #: ../../general/configuration.rst:198
 msgid ""
@@ -233,14 +233,15 @@ msgid ""
 "configuration is used."
 msgstr ""
 "システムまたは設定プロパティーの ``akka.log-config-on-start`` が ``on`` "
-"に設定されている場合、アクターシステムの起動時に完全な設定がINFOレベルでログに出力されます。 これは、使用されている設定が不明確な場合に便利です。"
+"に設定されている場合、アクターシステムの起動時に完全な環境設定がINFOレベルでログに出力されます。 "
+"これは、使用されている環境設定が不明確な場合に便利です。"
 
 #: ../../general/configuration.rst:202
 msgid ""
 "If in doubt, you can also easily and nicely inspect configuration objects "
 "before or after using them to construct an actor system:"
 msgstr ""
-"疑念がある場合は、設定オブジェクトを使用する前または使用した後で、設定オブジェクトを簡単かつうまく検査して、アクターシステムを構築することもできます。"
+"疑念がある場合は、環境設定オブジェクトを使用する前または使用した後で、設定オブジェクトを簡単かつうまく検査して、アクターシステムを構築することもできます。"
 
 #: ../../general/configuration.rst:227
 msgid ""
@@ -249,8 +250,8 @@ msgid ""
 "present, e.g. in the reference configuration. The settings as merged with "
 "the reference and parsed by the actor system can be displayed like this:"
 msgstr ""
-"すべての項目の前のコメントは、元々の設定（ファイルと行番号）と可能性のある設定のコメント(例： 参照設定)です。 "
-"参照とマージされ、アクターシステムによって解析された設定は、次のように表示されます。"
+"すべての項目の前のコメントは、元々の設定（ファイルと行番号）と可能性のある設定のコメント(例： リファレンス環境設定)です。 "
+"リファレンスとマージされ、アクターシステムによって解析された設定は、次のように表示されます。"
 
 #: ../../general/configuration.rst:239
 msgid "A Word About ClassLoaders"
@@ -270,7 +271,7 @@ msgid ""
 ":class:`NullPointerException` from strange places: this is simply not "
 "supported."
 msgstr ""
-"設定ファイルのいくつかの場所では、Akkaがインスタンス化するクラスの完全修飾クラス名を指定することができます。 "
+"環境設定ファイルのいくつかの場所では、Akkaがインスタンス化するクラスの完全修飾クラス名を指定することができます。 "
 "これは、:class:`ClassLoader` を使用して、Javaリフレクションで行われます。 "
 "アプリケーションコンテナやOSGiバンドルのような厳しい環境で適切なものを取得することは、必ずしも自明ではありませんが、Akkaの現在のアプローチは、それぞれの"
 " :class:`ActorSystem` 実装が現在のスレッドのコンテキストクラスローダー(有効でなければ "
@@ -286,7 +287,7 @@ msgstr "アプリケーション固有の設定"
 msgid ""
 "The configuration can also be used for application specific settings. A good"
 " practice is to place those settings in an Extension, as described in:"
-msgstr "設定は、アプリケーション固有の設定にも使用できます。 以下で説明されているように、これらの設定を拡張機能に配置することをお勧めします。"
+msgstr "環境設定は、アプリケーション固有の設定にも使用できます。 以下で説明されているように、これらの設定を拡張機能に配置することをお勧めします。"
 
 #: ../../general/configuration.rst:259
 msgid "Scala API: :ref:`extending-akka-scala.settings`"
@@ -307,7 +308,7 @@ msgid ""
 " want to separate the configuration for each system."
 msgstr ""
 "複数の  ``ActorSystem`` がある(またはライブラリを書いていて、アプリケーションのものとは別の ``ActorSystem`` "
-"が存在する)場合は、各システムの設定を分けたいかもしれません。"
+"が存在する)場合は、各システムの環境設定を分けたいかもしれません。"
 
 #: ../../general/configuration.rst:270
 msgid ""
@@ -316,7 +317,7 @@ msgid ""
 "differentiate actor systems within the hierarchy of the configuration::"
 msgstr ""
 "``ConfigFactory.load()`` "
-"がクラスパス全体の名前と一致するすべてのリソースをマージしているとすれば、その機能を利用し、設定の階層内のアクターシステムを区別するのが最も簡単です::"
+"がクラスパス全体の名前と一致するすべてのリソースをマージしているとすれば、その機能を利用し、環境設定の階層内のアクターシステムを区別するのが最も簡単です::"
 
 #: ../../general/configuration.rst:292
 msgid ""
@@ -324,7 +325,7 @@ msgid ""
 "trick: in the first case, the configuration accessible from within the actor"
 " system is this"
 msgstr ""
-"これらの2つのサンプルは、「サブツリーの持ち上げ」トリックの異なるバリエーションを示しています。1つ目のケースでは、アクターシステム内からアクセス可能な設定は以下のとおりです。"
+"これらの2つのサンプルは、「サブツリーの持ち上げ」トリックの異なるバリエーションを示しています。1つ目のケースでは、アクターシステム内からアクセス可能な環境設定は以下のとおりです。"
 
 #: ../../general/configuration.rst:303
 msgid ""
@@ -340,18 +341,18 @@ msgid ""
 " `Including files`_) and copying parts of the configuration tree by way of "
 "path substitutions."
 msgstr ""
-"設定ライブラリは本当に強力で、すべての機能はここで説明する手頃な範囲を超えています。 特に、他のファイルに他の設定ファイルを含める方法( "
-"`ファイルのインクルード`_ の小さな例を参照)と、パスの置換によって設定ツリーの一部をコピーする方法がありますが説明しません。"
+"環境設定ライブラリは本当に強力で、すべての機能はここで説明する手頃な範囲を超えています。 特に、他のファイルに他の環境設定ファイルを含める方法( "
+"`ファイルのインクルード`_ の小さな例を参照)と、パスの置換によって環境設定ツリーの一部をコピーする方法がありますが説明しません。"
 
 #: ../../general/configuration.rst:321
 msgid ""
 "You may also specify and parse the configuration programmatically in other "
 "ways when instantiating the ``ActorSystem``."
-msgstr "``ActorSystem`` をインスタンス化するときに、他の方法で設定をプログラムで解析することもできます。"
+msgstr "``ActorSystem`` をインスタンス化するときに、他の方法で環境設定をプログラムで解析することもできます。"
 
 #: ../../general/configuration.rst:328
 msgid "Reading configuration from a custom location"
-msgstr "カスタムロケーションから設定を読み込む"
+msgstr "カスタムロケーションから環境設定を読み込む"
 
 #: ../../general/configuration.rst:330
 msgid ""
@@ -489,7 +490,7 @@ msgstr ""
 
 #: ../../general/configuration.rst:398
 msgid "Actor Deployment Configuration"
-msgstr "アクターデプロイメントの設定"
+msgstr "アクターデプロイメントの環境設定"
 
 #: ../../general/configuration.rst:400
 msgid ""
@@ -500,9 +501,9 @@ msgid ""
 "described in the chapters detailing corresponding topics. An example may "
 "look like this:"
 msgstr ""
-"特定のアクターのデプロイ設定は、設定の ``akka.actor.deployment`` セクションで定義することができます。 "
+"特定のアクターのデプロイ設定は、環境設定の ``akka.actor.deployment`` セクションで定義することができます。 "
 "デプロイセクションでは、ディスパッチャ、メールボックス、ルーター設定、リモートデプロイなどを定義することができます。 "
-"これらの機能の設定については、対応するトピックを詳しい説明の章で説明しています。 例は次のようになります。"
+"これらの機能の環境設定については、対応するトピックを詳しい説明の章で説明しています。 例は次のようになります。"
 
 #: ../../general/configuration.rst:411
 msgid ""
@@ -530,7 +531,7 @@ msgid ""
 "you can use double-wildcards in the last position to match all child actors "
 "and their children recursively: ``/someParent/**``"
 msgstr ""
-"末尾に2つのワイルドカードを使用して、すべての子アクターとその子を再帰的にマッチさせることができます: ``/someParent/**``"
+"末尾にダブルワイルドカードを使用して、すべての子アクターとその子を再帰的にマッチさせることができます: ``/someParent/**``"
 
 #: ../../general/configuration.rst:421
 msgid ""
@@ -558,12 +559,12 @@ msgstr "ダブルワイルドカードは末尾にのみ置くことができま
 
 #: ../../general/configuration.rst:430
 msgid "Listing of the Reference Configuration"
-msgstr "参考設定の一覧"
+msgstr "リファレンス環境設定の一覧"
 
 #: ../../general/configuration.rst:432
 msgid ""
 "Each Akka module has a reference configuration file with the default values."
-msgstr "各Akkaモジュールには、デフォルト値を持つ参考設定ファイルがあります。"
+msgstr "各Akkaモジュールには、デフォルト値を持つリファレンス環境設定ファイルがあります。"
 
 #: ../../general/configuration.rst:437
 msgid "akka-actor"
