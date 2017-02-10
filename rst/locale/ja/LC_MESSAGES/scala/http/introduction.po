@@ -346,7 +346,7 @@ msgid ""
 "server-side-api` and :ref:`http-client-side`"
 msgstr ""
 "HTTP(WebSocketsを含む)の詳細については、主に低レベルのサーバー側とクライアント側の実装がセクションにあります :ref:`http-"
-"low-level-server-side-api` and :ref:`http-client-side`"
+"low-level-server-side-api` と :ref:`http-client-side`"
 
 #: ../../scala/http/introduction.rst:145
 msgid "akka-http-testkit"
