@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Atsushi Araki <senalove2007@gmail.com>, 2017\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 
 #: ../../scala/http/configuration.rst:4
 msgid "Configuration"
-msgstr ""
+msgstr "設定"
 
 #: ../../scala/http/configuration.rst:6
 msgid ""
@@ -29,23 +30,26 @@ msgid ""
 "ones provided by the reference configuration files from the individual Akka "
 "modules."
 msgstr ""
+"他のAkkaモジュールと同様に、Akka HTTPは`Typesafe "
+"Config`を介して設定されます。通常は、個々のAkkaモジュールの参照設定ファイルによって提供されるデフォルトのものとは異なる、すべてのアプリケーション固有の設定を含む``application.conf``"
+" を提供します。"
 
 #: ../../scala/http/configuration.rst:10
 msgid ""
 "These are the relevant default configuration values for the Akka HTTP "
 "modules."
-msgstr ""
+msgstr "これらはAkka HTTPモジュールの関連するデフォルト設定値です。"
 
 #: ../../scala/http/configuration.rst:13
 msgid "akka-http-core"
-msgstr ""
+msgstr "akka-http-core"
 
 #: ../../scala/http/configuration.rst:20
 msgid "akka-http"
-msgstr ""
+msgstr "akka-http"
 
 #: ../../scala/http/configuration.rst:26
 msgid ""
 "The other Akka HTTP modules do not offer any configuration via `Typesafe "
 "Config`_."
-msgstr ""
+msgstr "他のAkka HTTPモジュールは`Typesafe Config`で設定を提供していません。"
