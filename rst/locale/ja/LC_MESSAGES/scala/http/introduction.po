@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Takaichi Kubo <tk.qubo@gmail.com>, 2016\n"
+"Last-Translator: Atsushi Araki <senalove2007@gmail.com>, 2017\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,6 +30,9 @@ msgid ""
 "While interaction with a browser is of course also in scope it is not the "
 "primary focus of Akka HTTP."
 msgstr ""
+"Akka HTTPモジュールは完全なサーバーを実装します - そして、*akka-actor* と *akka-stream* "
+"の頂点にあるクライアントサイドHTTPスタックです。これはwebフレームワークというよりもむしろより汎用的なツールキットで、HTTPベースのサービスの提供と利用を行います。もちろんブラウザとのインタラクションもスコープには含まれていますが、Akka"
+" HTTPの主要な焦点ではありません。"
 
 #: ../../scala/http/introduction.rst:10
 msgid ""
@@ -41,10 +44,12 @@ msgid ""
 "offers more flexibility but might require you to write more application "
 "code."
 msgstr ""
+"Akka "
+"HTTPはオープンに設計されていて、多くの場合で\"同じことをする\"ためのいくつかの異なったAPIレベルを提供します。あなたはアプリケーションに最も適した抽象化のAPIレベルを選択することができます。これが意味するのは、もし高レベルのAPIを使うことで何かを達成する際に問題が生じたら、より柔軟ですがより多くのアプリケーションコードを書かなければならない、低レベルのAPIを使って対処する、よい機会であるということです。"
 
 #: ../../scala/http/introduction.rst:16
 msgid "Philosophy"
-msgstr ""
+msgstr "哲学"
 
 #: ../../scala/http/introduction.rst:18
 msgid ""
@@ -52,6 +57,8 @@ msgid ""
 " integration layers rather than application cores. As such it regards itself"
 " as a suite of libraries rather than a framework."
 msgstr ""
+"Akka HTTPは　"
+"アプリケーションのコアというよりも、統合レイヤーを構築するためのツールを提供することに明確な重点をおいています。フレームワークというよりも、ライブラリのスイートとして考えられています。"
 
 #: ../../scala/http/introduction.rst:20
 msgid ""
@@ -64,6 +71,7 @@ msgid ""
 "start application development and try to stick to the frameworks “way of "
 "doing things” as you go along."
 msgstr ""
+"フレームワークという用語を考えることは好まれることですが、それはアプリケーションを構築する際の枠組みを与えるものです。多くの決定はすでになされていて、すぐに始められて結果をすばやく届けられるサポートの構成を含む基礎を提供します。ある意味で、フレームワークは骨格であり、生命を与えるためにアプリケーションという肉付けを行うものです。このようなフレームワークは、アプリケーション開発を開始する以前に選択できて、フレームワークの「物事のやり方」に沿うようにするならば最高の働きをします。"
 
 #: ../../scala/http/introduction.rst:22
 msgid ""
@@ -76,6 +84,7 @@ msgid ""
 "practice architecture like this can be a great asset for getting things done"
 " quickly."
 msgstr ""
+"例えば、もしブラウザで見えるwebアプリケーションを構築しているなら、webフレームワークを選んでその上にアプリケーションを構築することには意味があります。なぜなら、アプリケーションの「コア」はブラウザとwebサーバーのコードとの相互作用であるからです。フレームワークの作者はこのようなアプリケーションを設計する「実績のある」方法のひとつを選んでいて、アプリケーションテンプレートの空白を埋めさせます。このようなベストプラクティスのアーキテクチャに頼れることは、物事をすばやく行うための偉大な財産です。"
 
 #: ../../scala/http/introduction.rst:24
 msgid ""
@@ -89,6 +98,7 @@ msgid ""
 "management, JavaScript- and CSS generation/manipulation/minification, "
 "localization support, AJAX support, etc."
 msgstr ""
+"しかしながら、アプリケーションのコアがブラウザとの相互作用ではなく、何かに特化した複雑と思われるビジネスサービスであるために、およそwebアプリケーションであるとは言えず、なおかつ外界との接続にREST/HTTPをめったに使わないのであれば、webフレームワークはあなたの必要とするものではないでしょう。この場合、アプリケーションアーキテクチャはインターフェースではなく、コアにとって意味のあるもので記述されるべきです。その上、ビューテンプレート、アセット管理、JavaScriptとCSSの生成/操作/最小化、国際化サポート、AJAXサポート、といった、存在するであろうブラウザに特化したフレームワークコンポーネントからは何の利益も得られないでしょう。"
 
 #: ../../scala/http/introduction.rst:26
 msgid ""
@@ -100,16 +110,21 @@ msgid ""
 "top of whatever makes sense and use Akka HTTP merely for the HTTP "
 "integration needs."
 msgstr ""
+"Akka "
+"HTTPは「フレームワークではない」ように特別に設計されていますが、それは私たちがフレームワークを嫌っているのではなくて、ユースケース上フレームワークが正しい選択でないためです。Akka"
+" HTTPはHTTPベースの統合レイヤーの構築のためにあり、傍観者であろうとします。したがって、Akka "
+"HTTPの「上に」アプリケーションを構築することは通常なく、何か意味のあるものの上にアプリケーションを構築します。Akka "
+"HTTPはHTTPインテグレーションの要求に対してはめったに使われません。"
 
 #: ../../scala/http/introduction.rst:29
 msgid "Using Akka HTTP"
-msgstr ""
+msgstr "Akka HTTPの使用"
 
 #: ../../scala/http/introduction.rst:30
 msgid ""
 "Akka HTTP is provided in a separate jar file, to use it make sure to include"
 " the following dependency::"
-msgstr ""
+msgstr "Akka HTTPは別のjarファイルとして提供されています。使用する際は以下の依存関係をインクルードしていることを確認してください。"
 
 #: ../../scala/http/introduction.rst:34
 msgid ""
@@ -118,10 +133,13 @@ msgid ""
 "http-core`` you don't need to bring the latter explicitly. Still you may "
 "need to this in case you rely solely on low-level API."
 msgstr ""
+"``akka-http``は2つのモジュール``akka-http-experimental``と``akka-http-"
+"core``からなることを心に留めておいてください。``akka-http-experimental``は``akka-http-"
+"core``に依存しているので、後者を明示的に持ってくる必要はありません。もっぱら低レベルAPIに頼る場合ではまだこのようにする必要があります。"
 
 #: ../../scala/http/introduction.rst:40
 msgid "Routing DSL for HTTP servers"
-msgstr ""
+msgstr "HTTPサーバーのルーティングDSL"
 
 #: ../../scala/http/introduction.rst:41
 msgid ""
@@ -130,6 +148,7 @@ msgid ""
 "more level of ``Directive`` s that narrows down to handling one specific "
 "type of request."
 msgstr ""
+"Akkaの高レベルのルーティングAPIは、HTTPの「経路」を記述し、それらがどのように扱われるのかを記述するDSLを提供します。各経路は、特定の1種類のリクエストに絞り込む、1つまたは複数のレベルの``Directive``からなります。"
 
 #: ../../scala/http/introduction.rst:45
 msgid ""
@@ -138,6 +157,9 @@ msgid ""
 "HTTP ``get`` requests and then ``complete`` those with a string literal, "
 "which will be sent back as a HTTP OK with the string as response body."
 msgstr ""
+"例えば、ある経路がリクエストの``path``とマッチすることにより開始するかもしれないとき、これがもし「/hello」にしかマッチしないとしたら、それはHTTP"
+" ``get``リクエストのみに絞り込まれて、HTTP "
+"OKとともにレスポンスボディの文字列として返された文字列リテラルと共に``complete``します。"
 
 #: ../../scala/http/introduction.rst:49
 msgid ""
@@ -148,6 +170,7 @@ msgid ""
 "kind of object a as long as there is an implicit marshaller available in "
 "scope."
 msgstr ""
+"通信のフォーマットとオブジェクトの間でのリクエストとレスポンスの本体の変換は、ルーティングの定義とは切り離されていて、「磁石の」パターンにより暗黙に引き寄せられたマーシャラーにより行われます。これはスコープ中で暗黙のマーシャラーが有効である限り、どのような種類のオブジェクトによるリクエストであっても``complete``することができることを意味します。"
 
 #: ../../scala/http/introduction.rst:54
 msgid ""
@@ -156,12 +179,15 @@ msgid ""
 "module provides JSON serialization using the spray-json library (see :ref"
 ":`akka-http-spray-json` for details)."
 msgstr ""
+"デフォルトのマーシャラーはStringやByteStringのような他純なオブジェクトとして提供されますし、例えばJSONのようにあなた自身で定義することもできます"
+"。追加のモジュールはspray-jsonライブラリを使ってJSONシリアライゼーションを提供します(詳細は:ref:`akka-http-spray-"
+"json`を参照してください)。"
 
 #: ../../scala/http/introduction.rst:58
 msgid ""
 "The ``Route`` created using the Route DSL is then \"bound\" to a port to "
 "start serving HTTP requests:"
-msgstr ""
+msgstr "Route DSLを使って作られた``Route``はHTTPリクエストを受けるためにポートに「バインドされます」:"
 
 #: ../../scala/http/introduction.rst:63
 msgid ""
@@ -172,6 +198,7 @@ msgid ""
 " an ``Order`` from the incoming request saves it to the database and replies"
 " with an OK when done."
 msgstr ""
+"よくあるユースケースは、JSONへのマーシャラー変換を持つモデルオブジェクトを使ってリクエストに応答するものです。この場合、2つの別々のルーティングが見られます。最初のルーティングはデータベースへの非同期クエリを発行し、JSONレスポンスの中に``Future[Option[Item]]``をマーシャリングします。2つめはデータベースを保存して完了したときにOKを返すようなリクエストを受信し、``Order``をアンマーシャリングします。"
 
 #: ../../scala/http/introduction.rst:71
 msgid ""
@@ -179,6 +206,8 @@ msgid ""
 "provided by the \"spray-json\" library (details on how to use that here: "
 ":ref:`akka-http-spray-json`)."
 msgstr ""
+"この例でのマーシャリングとアンマーシャリングのロジックはspray-jsonライブラリによって提供されています(使い方の詳細はこちら:  :ref"
+":`akka-http-spray-json`)。"
 
 #: ../../scala/http/introduction.rst:74
 msgid ""
@@ -190,11 +219,13 @@ msgid ""
 "streaming requests means that the server decides how fast the remote client "
 "can push the data of the request body."
 msgstr ""
+"Akka "
+"HTTPの強力さのひとつは、ストリーミングデータがその心臓部にあるということです。これが意味するのは、非常に巨大なリクエストやレスポンスであっても、サーバーが一定のメモリ使用量にしか達しないように、リクエストとレスポンスの本体がともに流れていくことができるということです。ストリーミングのレスポンスはリモートクライアントによりバックプレッシャーされます。サーバーはクライアントが扱えるよりもデータをすばやく送信することはできないためです。リクエストのストリーミングとは、サーバーがリモートクライアントに対してどの程度すばやくリクエスト本体のデータを送信するかを決定することを意味しています。"
 
 #: ../../scala/http/introduction.rst:80
 msgid ""
 "Example that streams random numbers as long as the client accepts them:"
-msgstr ""
+msgstr "クライアントが受け入れるまでランダムな数をストリームする例:"
 
 #: ../../scala/http/introduction.rst:85
 msgid ""
@@ -203,6 +234,8 @@ msgid ""
 " on the server. This can be seen using curl and limiting the rate ``curl "
 "--limit-rate 50b 127.0.0.1:8080/random``"
 msgstr ""
+"低速のHTTPクライアントでこのサービスに接続すると、サーバーで一定のメモリ使用量により次の乱数が必要に応じて生成されるようにバックプレッシャーがかかります。これはcurlを使って転送レートを制限すると見ることができます:"
+" `curl --limit-rate 50b 127.0.0.1:8080/random``"
 
 #: ../../scala/http/introduction.rst:90
 msgid ""
@@ -212,6 +245,8 @@ msgid ""
 "response is rendered as json and returned when the response arrives from the"
 " actor."
 msgstr ""
+"Akka HTTPルーティングはアクターと簡単にやりとりします。 この例では、1つのルートではfire and "
+"forgetスタイルで入札を行うことを可能とし、2番目のルートにはアクターとのリクエスト/レスポンスインタラクションが含まれています。結果のレスポンスはjsonとしてレンダリングされ、レスポンスがアクターから到着したときに返されます。"
 
 #: ../../scala/http/introduction.rst:97
 msgid ""
@@ -219,16 +254,19 @@ msgid ""
 "is provided by the \"spray-json\" library (details on how to use that here: "
 ":ref:`akka-http-spray-json`)"
 msgstr ""
+"この例のJSONのマーシャリングとアンマーシャリングのロジックは、\"spray-json\"ライブラリ(これを使用する方法の詳細は: :ref"
+":`akka-http-spray-json`)で提供されています。"
 
 #: ../../scala/http/introduction.rst:101
 msgid ""
 "Read more about the details of the high level APIs in the section :ref"
 ":`http-high-level-server-side-api`."
 msgstr ""
+"高水準APIの詳細については、:ref:`http-high-level-server-side-api` のセクションを参照してください。"
 
 #: ../../scala/http/introduction.rst:104
 msgid "Low-level HTTP server APIs"
-msgstr ""
+msgstr "低水準のHTTPサーバーAPI"
 
 #: ../../scala/http/introduction.rst:105
 msgid ""
@@ -238,16 +276,20 @@ msgid ""
 "module. APIs for handling such request-responses as function calls and as a "
 "``Flow[HttpRequest, HttpResponse, _]`` are available."
 msgstr ""
+"低水準のAkka HTTPサーバAPIは、``HttpRequest``を受け取り、``HttpResponse`` "
+"を生成することによって応答することによって、接続や個々のリクエストを扱うことを可能にします。 これは``akka-http-core`` "
+"モジュールによって提供されます。 関数呼び出しや``Flow[HttpRequest, HttpResponse, "
+"_]``などのリクエストレスポンスを処理するためのAPIが用意されています。"
 
 #: ../../scala/http/introduction.rst:112
 msgid ""
 "Read more details about the low level APIs in the section :ref:`http-low-"
 "level-server-side-api`."
-msgstr ""
+msgstr "高水準APIの詳細については、:ref:`http-low-level-server-side-api`のセクションを参照してください。"
 
 #: ../../scala/http/introduction.rst:116
 msgid "HTTP client API"
-msgstr ""
+msgstr "HTTPクライアントAPI"
 
 #: ../../scala/http/introduction.rst:117
 msgid ""
@@ -257,28 +299,30 @@ msgid ""
 "same server to be handled more performantly by re-using TCP connections to "
 "the server."
 msgstr ""
+"クライアントAPIは、Akka HTTPサーバが使用する同じ``HttpRequest`` および``HttpResponse`` "
+"の抽象化を使用してHTTPサーバを呼び出すメソッドを提供しますが、サーバーへのTCP接続を再利用することにより、同じサーバーへの複数の要求をより効率的に処理できるようにする接続プールの概念が追加されています。"
 
 #: ../../scala/http/introduction.rst:121
 msgid "Example simple request:"
-msgstr ""
+msgstr "単純なリクエストの例："
 
 #: ../../scala/http/introduction.rst:127
 msgid ""
 "Read more about the details of the client APIs in the section :ref:`http-"
 "client-side`."
-msgstr ""
+msgstr "クライアントAPIの詳細については、:ref:`http-client-side`のセクションを参照してください。"
 
 #: ../../scala/http/introduction.rst:132
 msgid "The modules that make up Akka HTTP"
-msgstr ""
+msgstr "Akka HTTPを構成するモジュール"
 
 #: ../../scala/http/introduction.rst:133
 msgid "Akka HTTP is structured into several modules:"
-msgstr ""
+msgstr "Akka HTTPはいくつかのモジュールで構成されています。"
 
 #: ../../scala/http/introduction.rst:138
 msgid "akka-http"
-msgstr ""
+msgstr "akka-http"
 
 #: ../../scala/http/introduction.rst:136
 msgid ""
@@ -287,10 +331,13 @@ msgid ""
 " recommended way to write HTTP servers with Akka HTTP. Details can be found "
 "in the section :ref:`http-high-level-server-side-api`"
 msgstr ""
+"サーバー側でHTTPベースのAPIを定義するためのパワフルなDSLと同様に、(非)マーシャリング、(非)圧縮のような高水準の機能は、Akka "
+"HTTPでHTTPサーバーを作成するための推奨方法です。 詳細は、:ref:`http-high-level-server-side-"
+"api`のセクションにあります。"
 
 #: ../../scala/http/introduction.rst:142
 msgid "akka-http-core"
-msgstr ""
+msgstr "akka-http-core"
 
 #: ../../scala/http/introduction.rst:141
 msgid ""
@@ -298,33 +345,39 @@ msgid ""
 " (incl. WebSockets) Details can be found in sections :ref:`http-low-level-"
 "server-side-api` and :ref:`http-client-side`"
 msgstr ""
+"HTTP(WebSocketsを含む)の詳細については、主に低水準のサーバー側とクライアント側の実装がセクションにあります :ref:`http-"
+"low-level-server-side-api` and :ref:`http-client-side`"
 
 #: ../../scala/http/introduction.rst:145
 msgid "akka-http-testkit"
-msgstr ""
+msgstr "akka-http-testkit"
 
 #: ../../scala/http/introduction.rst:145
 msgid ""
 "A test harness and set of utilities for verifying server-side service "
 "implementations"
-msgstr ""
+msgstr "サーバー側のサービス実装を検証するためのテストハーネスと一連のユーティリティ"
 
 #: ../../scala/http/introduction.rst:149
 msgid "akka-http-spray-json"
-msgstr ""
+msgstr "akka-http-spray-json"
 
 #: ../../scala/http/introduction.rst:148
 msgid ""
 "Predefined glue-code for (de)serializing custom types from/to JSON with "
 "spray-json_ Details can be found here: :ref:`akka-http-spray-json`"
 msgstr ""
+"カスタム型をJSONへシリアライズ、または、JSONからでデシリアライズを行うためのあらかじめ定義されたglue-code 詳細はここにあります "
+":ref:`akka-http-spray-json`"
 
 #: ../../scala/http/introduction.rst:153
 msgid "akka-http-xml"
-msgstr ""
+msgstr "akka-http-xml"
 
 #: ../../scala/http/introduction.rst:152
 msgid ""
 "Predefined glue-code for (de)serializing custom types from/to XML with "
 "scala-xml_ Details can be found here: :ref:`akka-http-xml-marshalling`"
 msgstr ""
+"scala-xmlでカスタム型をXMLへシリアライズする、または、XMLからデシリアライズするための事前定義されたglue-code 詳細は：ref： "
+"`akka-http-xml-marshalling`を参照してください。"
