@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: y2k2mt <y2.k2mt@gmail.com>, 2017\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:4
 msgid "Implications of the streaming nature of Request/Response Entities"
-msgstr ""
+msgstr "リクエスト/レスポンスエンティティのストリーミングにおける性質"
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:6
 msgid ""
@@ -29,6 +30,8 @@ msgid ""
 "user-facing ``HttpRequest`` and ``HttpResponse`` and their ``HttpEntity`` "
 "APIs."
 msgstr ""
+"Akka HTTPは全てストリームで通じています。これは、Akka "
+"Streamによって可能になったバックプレッシャー制御が、TCPレイヤからHTTPサーバ、そして、ユーザーが直接触れる「HttpRequest」、「HttpResponse」及び「HttpEntity」まで全てのレイヤーに対して公開されていることを意味しています。"
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:10
 msgid ""
@@ -39,6 +42,7 @@ msgid ""
 "entity, and back-pressure servers/clients from overwhelming our application,"
 " possibly causing un-necessary buffering of the entity in memory."
 msgstr ""
+"もしあなたがノンストリーミング/ノンリアクティブなHTTPクライアントを慣れているのであれば、このことは驚くべき性質でしょう。具体的には、「HTTPエンティティが消費されないと、接続元へバックプレッシャーとして通知される」ということを意味します。これは単一のエンティティを消費するだけで、背圧の高いサーバやクライアントがアプリケーションを圧倒して、メモリ内のエンティティの不必要なバッファリングを引き起こす可能性がある機能です。"
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:16
 msgid ""
@@ -48,14 +52,16 @@ msgid ""
 " via TCP back-pressure mechanisms. A client should consume the Entity "
 "regardless of the status of the ``HttpResponse``."
 msgstr ""
+"リクエスト内のエンティティを消費(もしくは破棄)することは必須です。もし誤って消費も破棄もされない場合、Akka "
+"HTTPは入力データが背圧制御されるべきと仮定して、TCPのバックプレッシャー機構によって、入力データをストールさせます。クライアントは、HttpResponseのステータスに関わらずエンティティを消費しなければなりません。"
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:22
 msgid "Client-Side handling of streaming HTTP Entities"
-msgstr ""
+msgstr "クライアント側におけるHTTPエンティティのストリーム処理"
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:25
 msgid "Consuming the HTTP Response Entity (Client)"
-msgstr ""
+msgstr "HTTPレスポンスエンティティの消費(クライアント)"
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:27
 msgid ""
@@ -64,6 +70,7 @@ msgid ""
 "simple as running the dataBytes source, (or on the server-side using "
 "directives such as ``BasicDirectives.extractDataBytes``)."
 msgstr ""
+"最も一般的なユースケースは勿論、``dataBytes``を持つSourceを元にしたレスポンスエンティティの消費です。これは、dataBytesを実行するのと同じくらい(もしくは、サーバーサイドで``BasicDirectives.extractDataBytes``ディレクティブを使うのと同じくらい)シンプルです。"
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:31
 msgid ""
@@ -72,6 +79,8 @@ msgid ""
 "incoming chunks, parsing them line-by-line and then connecting the flow into"
 " another destination Sink, such as a File or other Akka Streams connector:"
 msgstr ""
+"インフラストラクチャを最大限に活用するには、さまざまなストリーミングテクニックを使用することをお勧めします。例えば、着信したチャンクをフレーミングし、ラインごとに解析し、ファイルや他のAkka"
+" Streamsのコネクタなどを宛先としたSinkに繋ぎこみます。"
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:37
 msgid ""
@@ -81,10 +90,13 @@ msgid ""
 "which can be used to eagerly consume the entity and make it available in "
 "memory:"
 msgstr ""
+"しかしながら、エンティティ全体を``Strict``な(メモリ上に完全にロードされていることを意味します)エンティティとして消費する必要がある時もあります。Akka"
+" HTTPはエンティティを積極的に消費し、メモリ上に乗せる``toStrict(timeout, "
+"materializer)``メソッドを特別に用意しています。"
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:45
 msgid "Discarding the HTTP Response Entity (Client)"
-msgstr ""
+msgstr "HTTPレスポンスエンティティを破棄する(クライアント)"
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:46
 msgid ""
@@ -93,6 +105,8 @@ msgid ""
 "above entity still has to be consumed in some way, otherwise we'll be "
 "exherting back-pressure on the underlying TCP connection."
 msgstr ""
+"私達はHTTPサービスを呼び出す時、レスポンスされるペイロードには関心がない場合(例. "
+"レスポンスコードにのみ関心がある場合)が時々あります。以前に説明した通り、エンティティは何かしらの方法で消費しなければならず、消費しない場合は、TCP接続を元にしたバックプレッシャーを用いることになります。"
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:50
 msgid ""
@@ -100,20 +114,23 @@ msgid ""
 "discarding the entity if it has no purpose for us. It does so by piping the "
 "incoming bytes directly into an ``Sink.ignore``."
 msgstr ""
+"``discardEntityBytes`` "
+"という便利なメソッドは、使い途の無いエンティティを簡単に破棄することを目的として提供されています。このメソッドは、入力バイトを直接 "
+"``Sink.ignore``に繋ぎこみます。"
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:53
 msgid ""
 "The two snippets below are equivalent, and work the same way on the server-"
 "side for incoming HTTP Requests:"
-msgstr ""
+msgstr "この２つのコードの断片は等価であり、サーバーサイドで入力されたHTTPリクエストに対して同じように動作します。"
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:57
 msgid "Or the equivalent low-level code achieving the same result:"
-msgstr ""
+msgstr "また、この低レベルAPIによるコードも同じ結果となります。"
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:62
 msgid "Server-Side handling of streaming HTTP Entities"
-msgstr ""
+msgstr "サーバーサイドにおけるHTTPエンティティのストリーム処理"
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:64
 msgid ""
@@ -123,16 +140,19 @@ msgid ""
 "expecting that the user-code will eventually decide what to do with the "
 "incoming data."
 msgstr ""
+"クライアント側と同様に、HTTPエンティティはTCP接続から供給されるストリームに直接リンクしています。従って、リクエストエンティティが消費されずに残る場合、ユーザーが受け取ったデータを処理することを期待して、TCP接続にバックプレッシャーをかけます。"
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:68
 msgid ""
 "Note that some directives force an implicit ``toStrict`` operation, such as "
 "``entity(exampleUnmarshaller, example -> {})`` and similar ones."
 msgstr ""
+"``entity(exampleUnmarshaller, example -> {})`` "
+"などのいくつかのディレクティブは、強制的に``toStrict`` の実行を暗黙的に行うことに注意して下さい。"
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:71
 msgid "Consuming the HTTP Request Entity (Server)"
-msgstr ""
+msgstr "HTTPリクエストエンティティの消費(サーバー)"
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:73
 msgid ""
@@ -140,6 +160,8 @@ msgid ""
 "transform it into an actual domain object, for example by using the :ref"
 ":`-entity-java-` directive:"
 msgstr ""
+"送信されてきたリクエストエンティティを消費する最も簡単な方法は、 :ref:`-entity-java-` "
+"ディレクティブを使ってそれを実際のドメインオブジェクトに変換することです。"
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:78
 msgid ""
@@ -148,10 +170,12 @@ msgid ""
 "via a ``CompletionStage<IoResult>`` once all the data has been written into "
 "the file:"
 msgstr ""
+"例えば、ファイルIO Sink にパイプして全てのデータの書き込んだら ``CompletionStage<IoResult>`` "
+"を通じて完了を通知するなど、ストリーム上に流れている生のデータを触ることも勿論可能です。"
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:84
 msgid "Discarding the HTTP Request Entity (Server)"
-msgstr ""
+msgstr "HTTPリクエストエンティティを破棄する(サーバー)"
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:86
 msgid ""
@@ -159,6 +183,7 @@ msgid ""
 "allowed to perform uploads or not) you may want to decide to discard the "
 "uploaded entity."
 msgstr ""
+"何かしらの検証(例えば、ユーザーにアップロードの実行を許可するかしないかをチェックする)の結果によって、アップロードされたエンティティを破棄したい時があります。"
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:89
 msgid ""
@@ -169,12 +194,14 @@ msgid ""
 "demonstrate as well), since there may be more requests pending on the same "
 "connection still."
 msgstr ""
+"破棄する、ということは、たとえあなたがサーバ上でストリームとしてデータを扱うことに関心が無いとしても、アップロードが完全に行われることを意味することに注意して下さい。これは、指定された受信したエンティティを使わない場合に便利ですが、同じ接続で保留中のリクエストがまだある可能性があるため、接続全体を中止する必要はありません（これもデモンストレーションします）。"
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:94
 msgid ""
 "In order to discard the databytes explicitly you can invoke the "
 "``discardEntityBytes`` bytes of the incoming ``HTTPRequest``:"
 msgstr ""
+"``HTTPRequest``の``discardEntityBytes`` を実行することによって、データバイトを明示的に破棄することが出来ます。"
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:98
 msgid ""
@@ -188,16 +215,22 @@ msgid ""
 " connection to be shut-down by the server – effectively hard-aborting the "
 "incoming request:"
 msgstr ""
+"関連するコンセプトは、 ``entity.getDataBytes()`` ストリームのキャンセルにもあり、この場合、Akka "
+"HTTPはクライアントからの接続をます。このことはアップロードの許可の無いユーザを検知して、接続を切りたい時に(受信データを読んで無視するより)便利です。受信した"
+" ``entity.getDataBytes()`` をエンティティストリームをキャンセルする ``Sink.cancelled`` "
+"に繋げることによって可能であり、結果として接続がサーバーによってシャットダウンされ、着信要求を効果的に中断します。"
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:107
 msgid ""
 "Closing connections is also explained in depth in the :ref:`http-closing-"
 "connection-low-level-java` section of the docs."
 msgstr ""
+"接続のクローズについては、ドキュメントの :ref:`http-closing-connection-low-level-java` "
+"セクションで詳しく説明しています。"
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:110
 msgid "Pending: Automatic discarding of not used entities"
-msgstr ""
+msgstr "ペンディング: 使用されないエンティティの自動的な破棄"
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:112
 msgid ""
@@ -206,6 +239,8 @@ msgid ""
 "the entity automatically. This advanced feature has not been implemented "
 "yet, see the below note and issues for further discussion and ideas."
 msgstr ""
+"特定の条件下では、受信したリクエストのエンティティがユーザによって使用される可能性はほとんどないことを検出して、警告を出すか、エンティティを自動的に破棄することが可能です。"
+" この高度な機能はまだ実装されていません。さらなる議論とアイデアについては、以下の注記とイシューを参照してください。"
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:117
 msgid ""
@@ -213,6 +248,8 @@ msgid ""
 "proposed for Akka HTTP, and we're hoping to implement or help the community "
 "implement it."
 msgstr ""
+"Akka HTTPの先進的な機能である「auto "
+"draining」は議論され、提案されており、それを実装したり、コミュニティが実装を支援してくれることを望んでいます。"
 
 #: ../../java/http/implications-of-streaming-http-entity.rst:120
 msgid ""
@@ -221,3 +258,5 @@ msgid ""
 "<https://github.com/akka/akka/issues/18540>`_ ; as always, contributions are"
 " very welcome!"
 msgstr ""
+"`issue＃18716 <https://github.com/akka/akka/issues/18716>` _や `issue＃18540 "
+"<https://github.com/akka/akka/ 'でさらに詳しく読むことができます。貢献はいつも大歓迎です！"
