@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: ckbx_cakebox <norihiro.kakihara@gmail.com>, 2017\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,19 +20,19 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extractUnmatchedPath.rst:4
 msgid "extractUnmatchedPath"
-msgstr ""
+msgstr "extractUnmatchedPath"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extractUnmatchedPath.rst:7
 msgid "Signature"
-msgstr ""
+msgstr "シグネチャ"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extractUnmatchedPath.rst:13
 msgid "Description"
-msgstr ""
+msgstr "説明"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extractUnmatchedPath.rst:14
 msgid "Extracts the unmatched path from the request context."
-msgstr ""
+msgstr "リクエストコンテキストから一致しないパスを抽出します。"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extractUnmatchedPath.rst:16
 msgid ""
@@ -41,11 +42,14 @@ msgid ""
 " building directives that handle complete suffixes of paths (like the "
 "``getFromDirectory`` directives and similar ones)."
 msgstr ""
+"``extractUnmatchedPath``ディレクティブは、:ref: `PathDirectives` "
+"(または要求コンテキストの一致しないパスフィールドを変更するカスタムパス) のどれかによってまだマッチしなかった残りのパスを抽出します。 "
+"ディレクトリの完全な接尾辞 (``getFromDirectory``などのディレクティブなど) を処理するディレクティブを構築する場合に使用できます。"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extractUnmatchedPath.rst:20
 msgid "Use ``mapUnmatchedPath`` to change the value of the unmatched path."
-msgstr ""
+msgstr "一致しないパスの値を変更するには ``mapUnmatchedPath``を使います。"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extractUnmatchedPath.rst:23
 msgid "Example"
-msgstr ""
+msgstr "例"
