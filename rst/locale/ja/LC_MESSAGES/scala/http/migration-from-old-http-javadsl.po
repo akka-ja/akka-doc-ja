@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: ckbx_cakebox <norihiro.kakihara@gmail.com>, 2017\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 
 #: ../../scala/http/migration-from-old-http-javadsl.rst:4
 msgid "Migration Guide from \"old\" HTTP JavaDSL"
-msgstr ""
+msgstr "「古い」HTTP JavaDSLからの移行ガイド"
 
 #: ../../scala/http/migration-from-old-http-javadsl.rst:6
 msgid ""
@@ -28,6 +29,9 @@ msgid ""
 "contributions we were able to come up with a more Java 8 \"feel\", which at "
 "the same time is also closer to the existing ScalaDSL."
 msgstr ""
+"Akka "
+"HTTPのためのいわゆる「古い」JavaDSLは当初、プロジェクトの実験段階で開発されました。複数のユーザーからのコメントと貢献により、Java "
+"8の「感じ」を実現することができました。 それは既存のScalaDSLにも近いものでした。"
 
 #: ../../scala/http/migration-from-old-http-javadsl.rst:10
 msgid ""
@@ -36,14 +40,16 @@ msgid ""
 "the old one not only was rather hard to work with, it actually was not "
 "possible to express many typical use-cases using it."
 msgstr ""
+"以前のDSLは完全に削除され、いわゆる「新しい」DSLに置き換えられました。 "
+"新しいDSLへのアップグレードは、以前のバージョンとのやり取りが難しいだけでなく、多くの典型的なユースケースを表現することが実際には不可能であったため、**強く推奨されています**。"
 
 #: ../../scala/http/migration-from-old-http-javadsl.rst:14
 msgid "The most major changes include:"
-msgstr ""
+msgstr "最も大きな変更点は次のとおりです。"
 
 #: ../../scala/http/migration-from-old-http-javadsl.rst:18
 msgid "HttpApp is gone"
-msgstr ""
+msgstr "HttpAppはなくなりました"
 
 #: ../../scala/http/migration-from-old-http-javadsl.rst:19
 msgid ""
@@ -51,6 +57,8 @@ msgid ""
 " as we would like to encourage understanding how the various elements of the"
 " API fit together."
 msgstr ""
+"``HttpApp`` (``main() ``の実装を含むヘルパークラス) "
+"がなくなりました。APIのさまざまな要素がどのように適合するかを理解しておきたいと思います。"
 
 #: ../../scala/http/migration-from-old-http-javadsl.rst:22
 msgid ""
@@ -59,16 +67,19 @@ msgid ""
 "``Route.flow`` method. For examples of full apps refer to :ref:`http-"
 "testkit-java`."
 msgstr ""
+"代わりに、開発者は ``Route.flow``メソッドを使って ``Route``を ``Flow <HttpRequest, "
+"HttpResponse, ?>``に変換することによって、アプリケーションを \"手動で\" 開始するべきです。 完全なアプリケーションの例は:ref"
+":`http-testkit-java`を参照してください。"
 
 #: ../../scala/http/migration-from-old-http-javadsl.rst:26
 msgid "``RequestVal`` is gone"
-msgstr ""
+msgstr "``RequestVal``はなくなりました"
 
 #: ../../scala/http/migration-from-old-http-javadsl.rst:27
 msgid ""
 "The old API heavily relied on the concept of \"request values\" which could "
 "be used to extract a value from a request context."
-msgstr ""
+msgstr "古いAPIは、リクエストコンテキストから値を抽出するために使用できる「リクエスト値」の概念に大きく依存していました。"
 
 #: ../../scala/http/migration-from-old-http-javadsl.rst:29
 msgid ""
@@ -77,18 +88,20 @@ msgid ""
 " completely removed, and replaced with proper \"directives\", exacly like in"
 " the ScalaDSL."
 msgstr ""
+"コミュニティからのフィードバックや私たちの経験によって、より複雑な設定では対応が難しいことがわかりました。 "
+"リクエスト値の概念は完全に削除され、ScalaDSLのような適切な「ディレクティブ」に置き換えられました。"
 
 #: ../../scala/http/migration-from-old-http-javadsl.rst:32
 msgid "**Previously**::"
-msgstr ""
+msgstr "**以前**::"
 
 #: ../../scala/http/migration-from-old-http-javadsl.rst:44
 msgid "**Now**::"
-msgstr ""
+msgstr "**現在**::"
 
 #: ../../scala/http/migration-from-old-http-javadsl.rst:50
 msgid "All of ScalaDSL routing has corresponding JavaDSL"
-msgstr ""
+msgstr "すべてのScalaDSLルーティングには、対応するJavaDSLがあります"
 
 #: ../../scala/http/migration-from-old-http-javadsl.rst:51
 msgid ""
@@ -98,16 +111,17 @@ msgid ""
 "learning about some nice pattern from blogs which used Scala, yet need to "
 "apply it in Java and the other way around."
 msgstr ""
+"``Route``と``RouteResult``の両方、そして``Rejections``のような他の重要なコアコンセプトはScalaで1対1でモデル化されています。Scalaを使ったブログからいくつかの素敵なパターンを学んだり、それをJavaやそれ以外の方法で適用する必要があるときには、他のAPIに基づいて1つのAPIを理解するのがはるかに簡単です。"
 
 #: ../../scala/http/migration-from-old-http-javadsl.rst:55
 msgid ""
 "It is now possible to implement marshallers using Java. Refer to :ref"
 ":`marshalling-java` for details."
-msgstr ""
+msgstr "Javaを使用してマーシャラーを実装できるようになりました。 詳細は:ref:`marshalling-java`を参照してください。"
 
 #: ../../scala/http/migration-from-old-http-javadsl.rst:58
 msgid "Some complete* overloads changed to completeOK*"
-msgstr ""
+msgstr "いくつかのcomplete*オーバーロードがcompleteOK*に変更されました。"
 
 #: ../../scala/http/migration-from-old-http-javadsl.rst:59
 msgid ""
@@ -115,16 +129,18 @@ msgid ""
 "code is *assumed*, to make this more explicit these methods contain the word"
 " ``OK`` in them."
 msgstr ""
+"JavaDSLでは、エンティティだけでcompleteが呼び出されたとき、``OK``のレスポンスコードが*想定されます*。これをより明示的にするために、これらのメソッドには"
+" ``OK``という単語が含まれています。"
 
 #: ../../scala/http/migration-from-old-http-javadsl.rst:62
 msgid ""
 "This has been made more consistent than previously, across all overloads and"
 " Future-versions of these APIs."
-msgstr ""
+msgstr "これは、すべてのオーバーロードとこれらAPIのFutureバージョンで、従来よりも一貫性がありました。"
 
 #: ../../scala/http/migration-from-old-http-javadsl.rst:65
 msgid "Migration help"
-msgstr ""
+msgstr "移植のヘルプ"
 
 #: ../../scala/http/migration-from-old-http-javadsl.rst:66
 msgid ""
@@ -132,6 +148,9 @@ msgid ""
 "<https://groups.google.com/forum/#!searchin/akka-user/>`_ mailing list or "
 "gitter channels, to seek help or guidance when migrating from the old APIs."
 msgstr ""
+"古いAPIから移行する際には、いつものように、`akka-user "
+"<https://groups.google.com/forum/#!searchin/akka-user/>` "
+"_メーリングリストやgitterチャンネルを使って、いつでも助けや指導を求めることができます。"
 
 #: ../../scala/http/migration-from-old-http-javadsl.rst:69
 msgid ""
@@ -139,3 +158,5 @@ msgid ""
 "team for help in the migration by asking specific questions via the "
 "`Lightbend customer portal <https://portal.lightbend.com/>`_."
 msgstr ""
+"Lightbendサブスクリプションの所有者にとっては、Lightbendカスタマーポータル<https://portal.lightbend.com/>"
+" _で特定の質問をすることで、コアチームに移行の手助けをすることができます。"
