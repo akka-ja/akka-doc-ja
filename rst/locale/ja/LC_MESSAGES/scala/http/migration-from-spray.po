@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: ckbx_cakebox <norihiro.kakihara@gmail.com>, 2017\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,15 +20,15 @@ msgstr ""
 
 #: ../../scala/http/migration-from-spray.rst:2
 msgid "Migration Guide from Spray"
-msgstr ""
+msgstr "Sprayからのマイグレーションガイド"
 
 #: ../../scala/http/migration-from-spray.rst:5
 msgid "General notes"
-msgstr ""
+msgstr "一般的な注意事項"
 
 #: ../../scala/http/migration-from-spray.rst:7
 msgid "Features which are not ported to the akka-http:"
-msgstr ""
+msgstr "akka-httpに移植されていない機能："
 
 #: ../../scala/http/migration-from-spray.rst:9
 msgid ""
@@ -35,6 +36,9 @@ msgid ""
 "forward ported to Akka HTTP, as it has been seen mostly as an anti-pattern. "
 "More information here: https://github.com/akka/akka/issues/18626"
 msgstr ""
+"``overrideStatusCode``とも呼ばれる "
+"``respondWithStatus``は、ほとんどアンチパターンとして見られているので、Akka HTTPに対応するものはありません。 "
+"詳細はこちら：https://github.com/akka/akka/issues/18626"
 
 #: ../../scala/http/migration-from-spray.rst:11
 msgid ""
@@ -43,46 +47,49 @@ msgid ""
 "as Akka HTTP implements it. More information here: "
 "https://github.com/akka/akka/issues/18625"
 msgstr ""
+"`` respondWithMediaType``はスプレーのアンチパターンとみなされ、Akka HTTPに移植されませんでした。 "
+"代わりに、ユーザーはAkka HTTPが実装するコンテントタイプネゴシエーションに頼るべきです。 "
+"詳細はこちら：https://github.com/akka/akka/issues/18625"
 
 #: ../../scala/http/migration-from-spray.rst:14
 msgid ""
 ":ref:`registeringCustomMediaTypes` changed from Spray in order not to rely "
 "on global state."
-msgstr ""
+msgstr ":ref:`registeredCustomMediaTypes`がグローバルな状態に依存しないようにSprayから変更されています。"
 
 #: ../../scala/http/migration-from-spray.rst:17
 msgid "Removed HttpService"
-msgstr ""
+msgstr "HttpServiceは取り除かれています"
 
 #: ../../scala/http/migration-from-spray.rst:19
 msgid ""
 "Spray’s ``HttpService`` was removed. This means that scala code like this::"
-msgstr ""
+msgstr "Sprayの``HttpService``は取り除かれています。これは以下のようなscalaのコード::"
 
 #: ../../scala/http/migration-from-spray.rst:24
 #: ../../scala/http/migration-from-spray.rst:75
 #: ../../scala/http/migration-from-spray.rst:144
 msgid "needs to be changed into::"
-msgstr ""
+msgstr "が以下のように変更する必要があることを意味しています::"
 
 #: ../../scala/http/migration-from-spray.rst:29
 msgid "Changes in Marshalling"
-msgstr ""
+msgstr "マーシャリングの変更"
 
 #: ../../scala/http/migration-from-spray.rst:31
 msgid ""
 "Marshaller.of can be replaced with ``Marshaller.withFixedContentType``."
-msgstr ""
+msgstr "Marshaller.ofは``Marshaller.withFixedContentType``で置き換えることができます。"
 
 #: ../../scala/http/migration-from-spray.rst:33
 #: ../../scala/http/migration-from-spray.rst:87
 msgid "Was::"
-msgstr ""
+msgstr "置き換える前::"
 
 #: ../../scala/http/migration-from-spray.rst:39
 #: ../../scala/http/migration-from-spray.rst:91
 msgid "Replace with::"
-msgstr ""
+msgstr "置き換えた後::"
 
 #: ../../scala/http/migration-from-spray.rst:45
 msgid ""
@@ -90,68 +97,71 @@ msgid ""
 " specify content type when creating one “super” marshaller from other "
 "marshallers:"
 msgstr ""
+"Akka "
+"HTTPマーシャラはコンテントネゴシエーションをサポートしているので、他のマーシャラーから「スーパー」マーシャラーを作成するときにコンテンツタイプを指定する必要はありません。"
 
 #: ../../scala/http/migration-from-spray.rst:48
 #: ../../scala/http/migration-from-spray.rst:100
 msgid "Before::"
-msgstr ""
+msgstr "前::"
 
 #: ../../scala/http/migration-from-spray.rst:58
 #: ../../scala/http/migration-from-spray.rst:115
 msgid "After::"
-msgstr ""
+msgstr "後::"
 
 #: ../../scala/http/migration-from-spray.rst:66
 msgid "Changes in Unmarshalling"
-msgstr ""
+msgstr "アンマーシャリングの変更"
 
 #: ../../scala/http/migration-from-spray.rst:68
 msgid ""
 "Akka Http contains a set of predefined unmarshallers. This means that scala "
 "code like this::"
-msgstr ""
+msgstr "Akka Httpには、あらかじめ定義されたアンマーシャラーのセットが含まれています。 つまり、次のようなscalaのコードは::"
 
 #: ../../scala/http/migration-from-spray.rst:83
 msgid "Changes in MediaTypes"
-msgstr ""
+msgstr "MediaTypesの変更"
 
 #: ../../scala/http/migration-from-spray.rst:85
 msgid ""
 "``MediaType.custom`` can be replaced with specific methods in ``MediaType`` "
 "object."
-msgstr ""
+msgstr "``MediaType.custom``は``MediaType``オブジェクトの所定のメソッドで置き換えられます。"
 
 #: ../../scala/http/migration-from-spray.rst:96
 msgid "Changes in Rejection Handling"
-msgstr ""
+msgstr "リジェクションハンドリングの変更"
 
 #: ../../scala/http/migration-from-spray.rst:98
 msgid "``RejectionHandler`` now uses a builder pattern – see the example:"
-msgstr ""
+msgstr "``RejectionHandler``はBuilderパターンとして使われています。以下の例を参照してください:"
 
 #: ../../scala/http/migration-from-spray.rst:131
 msgid "Changes in HTTP Client"
-msgstr ""
+msgstr "HTTPクライアントの変更"
 
 #: ../../scala/http/migration-from-spray.rst:133
 msgid ""
 "The Spray-client pipeline was removed. Http’s ``singleRequest`` should be "
 "used instead of ``sendReceive``::"
 msgstr ""
+"Sprayクライアントパイプラインは取り除かれました。Httpの``singleRequest`が``sendReceive``の代わりに使われるべきです::"
 
 #: ../../scala/http/migration-from-spray.rst:158
 msgid "Changes in Headers"
-msgstr ""
+msgstr "ヘッダーの変更"
 
 #: ../../scala/http/migration-from-spray.rst:160
 msgid ""
 "All HTTP headers have been moved to the "
 "``akka.http.scaladsl.model.headers._`` package."
-msgstr ""
+msgstr "すべてのHTTPヘッダーは``akka.http.scaladsl.model.headers._``パッケージに移動しました。"
 
 #: ../../scala/http/migration-from-spray.rst:164
 msgid "Changes in form fields and file upload directives"
-msgstr ""
+msgstr "フォームフィールドとファイルアップロードディレクティブの変更"
 
 #: ../../scala/http/migration-from-spray.rst:166
 msgid ""
@@ -160,7 +170,9 @@ msgid ""
 "directives. One solution might be using next directive before working with "
 "form fields::"
 msgstr ""
+"HTTPエンティティのストリーミングの性質上、複数のフォームフィールドにアクセスする前に厳密なHTTPエンティティを持つか、ファイルアップロードディレクティブを使用することが重要です。"
+" 1つの解決策は、フォームフィールドを扱う前にnextディレクティブを使用することです::"
 
 #: ../../scala/http/migration-from-spray.rst:178
 msgid "And one can use it like this::"
-msgstr ""
+msgstr "あるいはこのようにも使うことができます::"
