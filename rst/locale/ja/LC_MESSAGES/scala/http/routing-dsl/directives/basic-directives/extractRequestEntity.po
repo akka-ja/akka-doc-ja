@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: ckbx_cakebox <norihiro.kakihara@gmail.com>, 2017\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,26 +20,28 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extractRequestEntity.rst:4
 msgid "extractRequestEntity"
-msgstr ""
+msgstr "extractRequestEntity"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extractRequestEntity.rst:7
 msgid "Signature"
-msgstr ""
+msgstr "シグネチャ"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extractRequestEntity.rst:13
 msgid "Description"
-msgstr ""
+msgstr "説明"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extractRequestEntity.rst:15
 msgid "Extracts the ``RequestEntity`` from the :class:`RequestContext`."
-msgstr ""
+msgstr ":class:`RequestContext`から``RequestEntity``を抽出します。"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extractRequestEntity.rst:17
 msgid ""
 "The directive returns a ``RequestEntity`` without unmarshalling the request."
 " To extract domain entity, :ref:`-entity-` should be used."
 msgstr ""
+"このディレクティブは、要求をアンマーシャリングしないで `` RequestEntity``を返します。 "
+"ドメインエンティティを抽出するには、:ref:`-entity-`を使用する必要があります。"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extractRequestEntity.rst:22
 msgid "Example"
-msgstr ""
+msgstr "例"
