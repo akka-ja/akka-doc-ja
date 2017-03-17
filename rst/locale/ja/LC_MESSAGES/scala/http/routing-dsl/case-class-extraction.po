@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: ckbx_cakebox <norihiro.kakihara@gmail.com>, 2017\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/case-class-extraction.rst:4
 msgid "Case Class Extraction"
-msgstr ""
+msgstr "caseクラスの抽出"
 
 #: ../../scala/http/routing-dsl/case-class-extraction.rst:6
 msgid ""
@@ -28,6 +29,9 @@ msgid ""
 "proper type-safety and error handling. However, in some case you might want "
 "even more. Consider this example:"
 msgstr ""
+":ref:`Directives` "
+"によって実行される値の抽出は、適切な型安全性とエラー処理を備えた興味深いリクエストプロパティをルートロジックに提供するうえで便利です。 "
+"しかし、場合によってはより多くのことを望むかもしれません。 この例を考えてみましょう。"
 
 #: ../../scala/http/routing-dsl/case-class-extraction.rst:13
 msgid ""
@@ -39,6 +43,9 @@ msgid ""
 "the model class constructor directly afterwards can somewhat clutter up your"
 " route definitions."
 msgstr ""
+"ここでは、:ref:`-parameters-scala-`ディレクティブを使用して3つの `` Int``値を抽出し、 `` "
+"Color``のcaseクラスのインスタンスを構築します。 ここまでは順調ですね。 "
+"しかし、モデルクラスがいくつかのパラメータを持っているときに、モデルクラスのコンストラクタに引数を与えるためだけに引数をキャプチャーすることによってオーバーヘッドが導入されると、ルート定義がいくらか乱雑になる可能性があります。"
 
 #: ../../scala/http/routing-dsl/case-class-extraction.rst:18
 msgid ""
@@ -46,6 +53,8 @@ msgid ""
 "supports an even shorter and more concise syntax. You can also write the "
 "example above like this:"
 msgstr ""
+"モデルクラスがcaseクラスである場合、この例のように、Akka HTTPはさらに短くて簡潔な構文をサポートしています。 "
+"上記の例を次のように書くこともできます："
 
 #: ../../scala/http/routing-dsl/case-class-extraction.rst:24
 msgid ""
@@ -58,6 +67,10 @@ msgid ""
 " you attach the ``as`` call to produces the right number of extractions, "
 "with the right types and in the right order."
 msgstr ""
+"任意のディレクティブを ``as(...)``で抽出して後置することができます。 モデルcaseクラスのコンパニオンオブジェクトを単に "
+"``as``修飾子メソッドに渡すだけで、基礎となるディレクティブは、モデルクラスの型の1つの値だけを抽出する同等のものに変換されます。 "
+"リフレクションは必要ありませんし、caseクラスに特別なインターフェイスを実装する必要もありません。 唯一の要件は、 "
+"``as``呼び出しをつけるディレクティブが適切な型と適切な順序で正しい数の抽出を生成することです。"
 
 #: ../../scala/http/routing-dsl/case-class-extraction.rst:30
 msgid ""
@@ -65,6 +78,8 @@ msgid ""
 "by *several* directives you can first join the directives with the ``&`` "
 "operator before using the ``as`` call:"
 msgstr ""
+"*いくつかの*ディレクティブによって生成された抽出からcaseクラスのインスタンスを構築したい場合は、 "
+"``as``呼び出しを使用する前にまずディレクティブを ``&``演算子で結合することができます:"
 
 #: ../../scala/http/routing-dsl/case-class-extraction.rst:36
 msgid ""
@@ -75,6 +90,10 @@ msgid ""
 "Therefore you can use the ``as`` modifier to convert the directive into one "
 "extracting only a single ``Color`` instance."
 msgstr ""
+"ここで `` Color``クラスは、パラメータではなくパス要素として提供される ``name``という別のメンバを取得しました。 ``path``と "
+"``parameters``ディレクティブを `&``で結合することで、 `` "
+"Color``のクラスのメンバーリストに直接適合する4つの値を抽出するディレクティブを作成します。 したがって、 `` "
+"as``修飾子を使用して、ディレクティブを1つの `` Color``インスタンスのみを抽出するものに変換することができます。"
 
 #: ../../scala/http/routing-dsl/case-class-extraction.rst:41
 msgid ""
@@ -83,6 +102,8 @@ msgid ""
 "class extraction. Especially since it supports another nice feature: "
 "validation."
 msgstr ""
+"一般に、3つ以上の抽出とともに動作するルートがある場合は、これらのcaseクラスを導入して、caseクラス抽出に頼るのが良い考えです。 "
+"特に、それはもう一つの素晴らしい機能をサポートしています：検証。"
 
 #: ../../scala/http/routing-dsl/case-class-extraction.rst:45
 msgid ""
@@ -93,10 +114,13 @@ msgid ""
 " ``as(Color.apply)``. This behavior appears as if it's not really intended, "
 "so this might be improved in future Scala versions."
 msgstr ""
+"caseクラス抽出を使用するときに注意すべき点が1つあります：実際にメンバーを追加するかどうかにかかわらず、caseクラスの明示的なコンパニオンオブジェクトを作成すると、上記の構文はほぼ機能しなくなります"
+" 。 `` as(Color) ``の代わりに `` as(Color.apply)``と呼び出す必要があります。 "
+"この動作は意図していないように見えるため、今後のScalaバージョンでは改善される可能性があります。"
 
 #: ../../scala/http/routing-dsl/case-class-extraction.rst:52
 msgid "Case Class Validation"
-msgstr ""
+msgstr "caseクラス検証"
 
 #: ../../scala/http/routing-dsl/case-class-extraction.rst:54
 msgid ""
@@ -106,12 +130,14 @@ msgid ""
 "255. You could get this done with a few :ref:`-validate-` directives but "
 "this would quickly become cumbersome and hard to read."
 msgstr ""
+"多くの場合、Webサービスは、実際にそれらを操作する前に、ロジックに応じて入力パラメータを検証する必要があります。 "
+"例えば、上記の例では、すべての色成分値が0から255の間でなければならないという制限があります。これは、いくつかの:ref:`-validate-`ディレクティブで行うことができますが、これはすぐに面倒で読みにくいものになります。"
 
 #: ../../scala/http/routing-dsl/case-class-extraction.rst:59
 msgid ""
 "If you use case class extraction you can put the verification logic into the"
 " constructor of your case class, where it should be:"
-msgstr ""
+msgstr "caseクラス抽出を使用する場合、検証ロジックをcaseクラスのコンストラクタに入れることができます。"
 
 #: ../../scala/http/routing-dsl/case-class-extraction.rst:65
 msgid ""
@@ -122,3 +148,7 @@ msgid ""
 "response by the default :ref:`RejectionHandler <The RejectionHandler>`, if "
 "no subsequent route successfully handles the request."
 msgstr ""
+"このような検証を書くと、Akka "
+"HTTPのケースクラス抽出ロジックは、何か問題が生じた場合に、すべてのエラーメッセージを適切に拾い、``ValidationRejection`` "
+"を生成します。 デフォルトでは、 `` ValidationRejections``は、デフォルトの:ref: `RejectionHandler "
+"<The RejectionHandler>`によって、 ``400 Bad Request``エラー応答に変換されます。"
