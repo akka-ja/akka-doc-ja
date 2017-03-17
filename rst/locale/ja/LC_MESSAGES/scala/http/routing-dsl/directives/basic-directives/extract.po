@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: ckbx_cakebox <norihiro.kakihara@gmail.com>, 2017\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,15 +20,15 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extract.rst:4
 msgid "extract"
-msgstr ""
+msgstr "extract"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extract.rst:7
 msgid "Signature"
-msgstr ""
+msgstr "シグネチャ"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extract.rst:13
 msgid "Description"
-msgstr ""
+msgstr "説明"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extract.rst:15
 msgid ""
@@ -37,11 +38,14 @@ msgid ""
 "general :ref:`-textract-` directive that can be used to extract more than "
 "one value."
 msgstr ""
+"``extract``ディレクティブは:ref: `Custom Directives`のビルディングブロックとして使用され、 "
+"``RequestContext``からデータを抽出し、それを内部ルートに提供します。 "
+"複数の値を抽出するために使用できるより一般的な:ref:`-textract-`ディレクティブの1つの値を抽出する特殊な場合です。"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extract.rst:19
 msgid "See :ref:`ProvideDirectives` for an overview of similar directives."
-msgstr ""
+msgstr "類似のディレクティブの概要は:ref:`ProvideDirectives`を参照してください。"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extract.rst:22
 msgid "Example"
-msgstr ""
+msgstr "例"
