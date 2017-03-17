@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: ckbx_cakebox <norihiro.kakihara@gmail.com>, 2017\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,30 +20,31 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extractExecutionContext.rst:4
 msgid "extractExecutionContext"
-msgstr ""
+msgstr "extractExecutionContext"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extractExecutionContext.rst:7
 msgid "Signature"
-msgstr ""
+msgstr "シグネチャ"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extractExecutionContext.rst:13
 msgid "Description"
-msgstr ""
+msgstr "説明"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extractExecutionContext.rst:15
 msgid "Extracts the ``ExecutionContext`` from the ``RequestContext``."
-msgstr ""
+msgstr "`` RequestContext``から `` ExecutionContext``を抽出します。"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extractExecutionContext.rst:17
 msgid ""
 "See :ref:`-withExecutionContext-` to see how to customise the execution "
 "context provided for an inner route."
 msgstr ""
+":ref:`-withExecutionContext`を参照して、内部ルートに提供される実行コンテキストをカスタマイズする方法を参照してください。"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extractExecutionContext.rst:19
 msgid "See :ref:`-extract-` to learn more about how extractions work."
-msgstr ""
+msgstr "抽出がどのように機能するかについては、:ref:`-extract-`を参照してください。"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extractExecutionContext.rst:22
 msgid "Example"
-msgstr ""
+msgstr "例"
