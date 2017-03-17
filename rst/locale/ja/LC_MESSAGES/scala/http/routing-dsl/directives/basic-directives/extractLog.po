@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: ckbx_cakebox <norihiro.kakihara@gmail.com>, 2017\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,21 +20,21 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extractLog.rst:4
 msgid "extractLog"
-msgstr ""
+msgstr "extractLog"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extractLog.rst:7
 msgid "Signature"
-msgstr ""
+msgstr "シグネチャ"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extractLog.rst:13
 msgid "Description"
-msgstr ""
+msgstr "説明"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extractLog.rst:15
 msgid ""
 "Extracts a :class:`LoggingAdapter` from the request context which can be "
 "used for logging inside the route."
-msgstr ""
+msgstr "リクエストコンテキストから :class:`LoggingAdapter`を抽出します。ルート内部でのログに使用できます。"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extractLog.rst:17
 msgid ""
@@ -41,13 +42,14 @@ msgid ""
 "that they don't have to depend on closing over a logger provided in the "
 "class body."
 msgstr ""
+"``extractLog``ディレクティブは、クラス本体に用意されているロガーの終了に依存しないように、ルートへのロギングを提供するために使用されます。"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extractLog.rst:20
 msgid ""
 "See :ref:`-extract-` and :ref:`ProvideDirectives` for an overview of similar"
 " directives."
-msgstr ""
+msgstr "類似のディレクティブの概要については:ref:`-extract-`と:ref:`ProvideDirectives`を参照してください。"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/extractLog.rst:23
 msgid "Example"
-msgstr ""
+msgstr "例"
