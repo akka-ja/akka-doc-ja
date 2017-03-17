@@ -14,7 +14,7 @@
 ## 1.作業環境を準備する
 
 作業には GitHub と Transifex のアカウントが必要です。まだアカウントを持っていない場合は以下よりサインアップして下さい。
-※翻訳はTransifexから行うと自動的にGitHubに連携されます（未設定）ので、GitHubからプルリク/push等、直接編集しないでください。
+※翻訳はTransifexから行うと自動的にGitHubに連携されますので、GitHubからプルリク/push等、直接編集しないでください。
 * [GitHub](https://github.com/join) 
 * [Transifex](https://www.transifex.com/akka-ja/)
 
