@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: ckbx_cakebox <norihiro.kakihara@gmail.com>, 2017\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,20 +20,20 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/mapUnmatchedPath.rst:4
 msgid "mapUnmatchedPath"
-msgstr ""
+msgstr "mapUnmatchedPath"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/mapUnmatchedPath.rst:7
 msgid "Signature"
-msgstr ""
+msgstr "シグネチャ"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/mapUnmatchedPath.rst:13
 msgid "Description"
-msgstr ""
+msgstr "説明"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/mapUnmatchedPath.rst:14
 msgid ""
 "Transforms the unmatchedPath field of the request context for inner routes."
-msgstr ""
+msgstr "内部ルートのリクエストコンテキストのunmatchedPathフィールドを変換します。"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/mapUnmatchedPath.rst:16
 msgid ""
@@ -40,13 +41,15 @@ msgid ""
 ":ref:`Custom Directives`. You can use it for implementing custom path "
 "matching directives."
 msgstr ""
+"`` mapUnmatchedPath``ディレクティブは、:ref:`Custom "
+"Directives`の作成のビルディングブロックとして使用されます。 カスタムパスマッチングディレクティブを実装するために使用することができます。"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/mapUnmatchedPath.rst:19
 msgid ""
 "Use ``extractUnmatchedPath`` for extracting the current value of the "
 "unmatched path."
-msgstr ""
+msgstr "一致しないパスの現在の値を抽出するには、 `` extractUnmatchedPath``を使います。"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/mapUnmatchedPath.rst:22
 msgid "Example"
-msgstr ""
+msgstr "例"
