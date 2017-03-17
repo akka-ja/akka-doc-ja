@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Yugo Maede <yugo.maede@gmail.com>, 2017\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 
 #: ../../scala/dispatchers.rst:4
 msgid "Dispatchers"
-msgstr ""
+msgstr "ディスパッチャ"
 
 #: ../../scala/dispatchers.rst:6
 msgid ""
@@ -28,10 +29,13 @@ msgid ""
 " are also an ``ExecutionContext``, which means that they can be used to "
 "execute arbitrary code, for instance :ref:`futures-scala`."
 msgstr ""
+"Akkaの ``MessageDispatcher`` はAkkaのアクターを \"作動させる（tick）\" もので、マシンのエンジンです。 すべての"
+" ``MessageDispatcher`` の実装は `` ExecutionContext`` です。これは、例えば :ref:`futures-"
+"scala` などの任意のコードを実行するために使用できることを意味します。"
 
 #: ../../scala/dispatchers.rst:11
 msgid "Default dispatcher"
-msgstr ""
+msgstr "デフォルトディスパッチャ"
 
 #: ../../scala/dispatchers.rst:13
 msgid ""
@@ -45,27 +49,36 @@ msgid ""
 ".default-executor.fallback``. By default this is a \"fork-join-executor\", "
 "which gives excellent performance in most cases."
 msgstr ""
+"``ActorSystem`` には、 デフォルトのディスパッチャがあり``Actor`` に他の設定がされていない場合に使用されます。 "
+"デフォルトのディスパッチャを設定することができ、デフォルトでは、指定された ``default-executor`` を持ちます。 渡された "
+"ExecutionContext を使用して ActorSystem が作成された場合、この ExecutionContext は "
+"ActorSystem 内のすべてのディスパッチャのデフォルトエグゼキュータとして使用されます。 ExecutionContext "
+"が指定されていない場合、 ``akka.actor.default-dispatcher.default-executor.fallback`` "
+"で指定された エグゼキュータにフォールバックします。 デフォルトでは、これは \"fork-join-executor\" "
+"であり、ほとんどの場合、優れたパフォーマンスが得られます。"
 
 #: ../../scala/dispatchers.rst:23
 msgid "Looking up a Dispatcher"
-msgstr ""
+msgstr "ディスパッチャを探す"
 
 #: ../../scala/dispatchers.rst:25
 msgid ""
 "Dispatchers implement the :class:`ExecutionContext` interface and can thus "
 "be used to run :class:`Future` invocations etc."
 msgstr ""
+"ディスパッチャは :class:`ExecutionContext` インタフェースを実装しているので、 :class:`Future` "
+"の呼び出しなどを実行するために使用できます。"
 
 #: ../../scala/dispatchers.rst:30
 msgid "Setting the dispatcher for an Actor"
-msgstr ""
+msgstr "アクターのディスパッチャ設定"
 
 #: ../../scala/dispatchers.rst:32
 msgid ""
 "So in case you want to give your ``Actor`` a different dispatcher than the "
 "default, you need to do two things, of which the first is to configure the "
 "dispatcher:"
-msgstr ""
+msgstr "``Actor`` にデフォルトとは別のディスパッチャを適用したい場合は、まずディスパッチャに2つの設定が必要です。"
 
 #: ../../scala/dispatchers.rst:38
 msgid ""
@@ -75,10 +88,14 @@ msgid ""
 " in order to reduce the latency of handling a new incoming task. You can "
 "read more about parallelism in the JDK's `ForkJoinPool documentation`_."
 msgstr ""
+"``parallelism-max`` は、ForkJoinPool "
+"によって割り当てられたスレッドの総数に上限を設定しないことに注意してください。これは、新しい着信タスクの制御によるレイテンシを削減するために、プールが実行している"
+" *hot* スレッド数を明確にする設定です。並列性の詳細については、JDKの `ForkJoinPool "
+"documentation`_を参照してください。"
 
 #: ../../scala/dispatchers.rst:43
 msgid "And here's another example that uses the \"thread-pool-executor\":"
-msgstr ""
+msgstr "\"thread-pool-executor\" を使用する別の例を次に示します。"
 
 #: ../../scala/dispatchers.rst:48
 msgid ""
@@ -86,18 +103,20 @@ msgid ""
 "``java.util.concurrent.ThreadPoolExecutor``. You can read more about it in "
 "the JDK's `ThreadPoolExecutor documentation`_."
 msgstr ""
+"スレッドプールエグゼキュータディスパッチャは ``java.util.concurrent.ThreadPoolExecutor`` "
+"を使って実装されています。 詳しくはJDKの `ThreadPoolExecutor documentation`_ を参照してください。"
 
 #: ../../scala/dispatchers.rst:51
 msgid ""
 "For more options, see the default-dispatcher section of the "
 ":ref:`configuration`."
-msgstr ""
+msgstr "その他のオプションについては、 :ref:`configuration` の default-dispatcher 節を参照してください。"
 
 #: ../../scala/dispatchers.rst:53
 msgid ""
 "Then you create the actor as usual and define the dispatcher in the "
 "deployment configuration."
-msgstr ""
+msgstr "次に、通常通りアクターを作成し、デプロイメントコンフィグレーションでディスパッチャを定義します。"
 
 #: ../../scala/dispatchers.rst:59
 msgid ""
@@ -105,6 +124,8 @@ msgid ""
 "in code. If you define the ``dispatcher`` in the deployment configuration "
 "then this value will be used instead of programmatically provided parameter."
 msgstr ""
+"デプロイメントコンフィグレーションの代わりに、ソースコードでディスパッチャを定義することもできます。デプロイメントコンフィグレーションで "
+"``dispatcher`` を定義すると、プログラムで提供されたパラメータの代わりにこの値が使用されます。"
 
 #: ../../scala/dispatchers.rst:66
 msgid ""
@@ -114,87 +135,95 @@ msgid ""
 "for instance put it as a sub-section, where you'd use periods to denote sub-"
 "sections, like this: ``\"foo.bar.my-dispatcher\"``"
 msgstr ""
+"デプロイメントコンフィグレーションの ``withDispatcher`` と ``dispatcher`` "
+"プロパティで指定するディスパッチャはあなたのコンフィグレーションへの実際のパスです。したがって、この例ではトップレベルのセクションですが、サブセクションとして使用することもできます。たとえば、"
+" ``\"foo.bar.my-dispatcher\"`` のようになります。"
 
 #: ../../scala/dispatchers.rst:75
 msgid "Types of dispatchers"
-msgstr ""
+msgstr "ディスパッチャの種類"
 
 #: ../../scala/dispatchers.rst:77
 msgid "There are 3 different types of message dispatchers:"
-msgstr ""
+msgstr "3種類のメッセージディスパッチャがあります。"
 
 #: ../../scala/dispatchers.rst:79
 msgid "Dispatcher"
-msgstr ""
+msgstr "Dispatcher"
 
 #: ../../scala/dispatchers.rst:81
 msgid ""
 "This is an event-based dispatcher that binds a set of Actors to a thread "
 "pool. It is the default dispatcher used if one is not specified."
 msgstr ""
+"これは、アクターのセットをスレッドプールにバインドするイベントベースのディスパッチャです。ディスパッチャが指定されていない場合に使用されるデフォルトのディスパッチャです。"
 
 #: ../../scala/dispatchers.rst:84 ../../scala/dispatchers.rst:135
 msgid "Sharability: Unlimited"
-msgstr ""
+msgstr "共有可能性: 無制限"
 
 #: ../../scala/dispatchers.rst:86 ../../scala/dispatchers.rst:101
 msgid "Mailboxes: Any, creates one per Actor"
-msgstr ""
+msgstr "メールボックス: 任意、アクターごとに1つ作成"
 
 #: ../../scala/dispatchers.rst:88
 msgid "Use cases: Default dispatcher, Bulkheading"
-msgstr ""
+msgstr "ユースケース: デフォルトのディスパッチャー、隔壁"
 
 #: ../../scala/dispatchers.rst:93 ../../scala/dispatchers.rst:125
 msgid "Driven by: ``java.util.concurrent.ExecutorService``"
-msgstr ""
+msgstr "駆動者: ``java.util.concurrent.ExecutorService``"
 
 #: ../../scala/dispatchers.rst:91 ../../scala/dispatchers.rst:123
 msgid ""
 "specify using \"executor\" using \"fork-join-executor\", \"thread-pool-"
 "executor\" or the FQCN of an ``akka.dispatcher.ExecutorServiceConfigurator``"
 msgstr ""
+"\"fork-join-executor\"、\"thread-pool-executor\" 、または "
+"``akka.dispatcher.ExecutorServiceConfigurator`` のFQCNを使用する \"executor\"  "
+"を使用して指定"
 
 #: ../../scala/dispatchers.rst:95
 msgid "PinnedDispatcher"
-msgstr ""
+msgstr "PinnedDispatcher"
 
 #: ../../scala/dispatchers.rst:97
 msgid ""
 "This dispatcher dedicates a unique thread for each actor using it; i.e. each"
 " actor will have its own thread pool with only one thread in the pool."
 msgstr ""
+"このディスパッチャは、使用する各アクターに固有のスレッドを割り当てます。すなわち、各アクターは、プール内に1つのスレッドのみを持つ独自のスレッドプールを有する。"
 
 #: ../../scala/dispatchers.rst:99
 msgid "Sharability: None"
-msgstr ""
+msgstr "共有可能性: なし"
 
 #: ../../scala/dispatchers.rst:103
 msgid "Use cases: Bulkheading"
-msgstr ""
+msgstr "ユースケース: 隔壁"
 
 #: ../../scala/dispatchers.rst:106
 msgid "Driven by: Any ``akka.dispatch.ThreadPoolExecutorConfigurator``"
-msgstr ""
+msgstr "駆動者: 任意の ``akka.dispatch.ThreadPoolExecutorConfigurator``"
 
 #: ../../scala/dispatchers.rst:106
 msgid "by default a \"thread-pool-executor\""
-msgstr ""
+msgstr "デフォルトでは、 \"thread-pool-executor\""
 
 #: ../../scala/dispatchers.rst:108
 msgid "BalancingDispatcher"
-msgstr ""
+msgstr "BalancingDispatcher"
 
 #: ../../scala/dispatchers.rst:110
 msgid ""
 "This is an executor based event driven dispatcher that will try to "
 "redistribute work from busy actors to idle actors."
-msgstr ""
+msgstr "これは、エグゼキュータベースのイベント駆動型ディスパッチャで、ビジー状態のアクターからアイドル状態アクターに作業を再分配しようとします。"
 
 #: ../../scala/dispatchers.rst:112
 msgid ""
 "All the actors share a single Mailbox that they get their messages from."
-msgstr ""
+msgstr "すべてのアクターはメッセージを受け取る１つのメールボックスを共有します。"
 
 #: ../../scala/dispatchers.rst:114
 msgid ""
@@ -203,28 +232,31 @@ msgid ""
 "actors belong to a pool of actors, and to the client there is no guarantee "
 "about which actor instance actually processes a given message."
 msgstr ""
+"このディスパッチャの同じインスタンスを使用するすべてのアクターが、1つのアクターに送信されたすべてのメッセージを処理できると仮定します。すなわちアクターはアクターの１つのプールに属し、クライアントにはどのアクターインスタンスが実際に与えられたメッセージを処理するかの保証はない。"
 
 #: ../../scala/dispatchers.rst:116
 msgid "Sharability: Actors of the same type only"
-msgstr ""
+msgstr "共有可能性: 同じ種類のアクターのみ"
 
 #: ../../scala/dispatchers.rst:118
 msgid "Mailboxes: Any, creates one for all Actors"
-msgstr ""
+msgstr "メールボックス: 任意、すべてのアクターに対して1つ作成"
 
 #: ../../scala/dispatchers.rst:120
 msgid "Use cases: Work-sharing"
-msgstr ""
+msgstr "ユースケース: ワークシェアリング"
 
 #: ../../scala/dispatchers.rst:127
 msgid ""
 "Note that you can **not** use a ``BalancingDispatcher`` as a **Router "
 "Dispatcher**. (You can however use it for the **Routees**)"
 msgstr ""
+"**Router Dispatcher** として \"BalancingDispatcher\" を使用することは **できません** 。 "
+"(ただし、** Routees ** に使用することはできます)"
 
 #: ../../scala/dispatchers.rst:129
 msgid "CallingThreadDispatcher"
-msgstr ""
+msgstr "CallingThreadDispatcher"
 
 #: ../../scala/dispatchers.rst:131
 msgid ""
@@ -233,36 +265,38 @@ msgid ""
 "concurrently for the same actor. See :ref:`Scala-CallingThreadDispatcher` "
 "for details and restrictions."
 msgstr ""
+"このディスパッチャは、カレントスレッドでのみで呼び出しを実行します。このディスパッチャは新しいスレッドを作成しませんが、同じアクターに対して異なるスレッドから同時に使用できます。詳細と制限については"
+" :ref:`Scala-CallingThreadDispatcher` を参照してください。"
 
 #: ../../scala/dispatchers.rst:137
 msgid "Mailboxes: Any, creates one per Actor per Thread (on demand)"
-msgstr ""
+msgstr "メールボックス: 任意、スレッドごとに1つのアクタを作成します(要求に応じて)"
 
 #: ../../scala/dispatchers.rst:139
 msgid "Use cases: Testing"
-msgstr ""
+msgstr "ユースケース: テスト"
 
 #: ../../scala/dispatchers.rst:141
 msgid "Driven by: The calling thread (duh)"
-msgstr ""
+msgstr "駆動者: 呼び出し側スレッド"
 
 #: ../../scala/dispatchers.rst:145
 msgid "More dispatcher configuration examples"
-msgstr ""
+msgstr "その他のディスパッチャの設定例"
 
 #: ../../scala/dispatchers.rst:148
 msgid ""
 "Configuring a dispatcher with fixed thread pool size, e.g. for actors that "
 "perform blocking IO:"
-msgstr ""
+msgstr "スレッドプールサイズが固定されたディスパッチャの設定、例えばIOをブロックするアクターの場合："
 
 #: ../../scala/dispatchers.rst:152 ../../scala/dispatchers.rst:160
 msgid "And then using it:"
-msgstr ""
+msgstr "それを使用して:"
 
 #: ../../scala/dispatchers.rst:156
 msgid "Configuring a ``PinnedDispatcher``:"
-msgstr ""
+msgstr "``PinnedDispatcher`` を設定:"
 
 #: ../../scala/dispatchers.rst:164
 msgid ""
@@ -271,6 +305,9 @@ msgid ""
 "actor will have its own thread pool when using ``PinnedDispatcher``, and "
 "that pool will have only one thread."
 msgstr ""
+"上記の ``my-thread-pool-dispatcher`` の例にある ``thread-pool-executor`` "
+"の設定は適用されません。これは、すべてのアクターが、 ``PinnedDispatcher`` "
+"を使うときには独自のスレッドプールを持ち、そのプールにはスレッドが1つしかないからです。"
 
 #: ../../scala/dispatchers.rst:168
 msgid ""
@@ -280,3 +317,6 @@ msgid ""
 "time you need to add ``thread-pool-executor.allow-core-timeout=off`` to the "
 "configuration of the ``PinnedDispatcher``."
 msgstr ""
+"コアプールタイムアウトは、 ``PinnedDispatcher`` がアイドル状態のアクターの場合にリソースの使用を抑えるために使用されるので、 "
+"*同じ* スレッドが時間とともに使用されることは保証されません。同じスレッドを常に使用するには、 ``Thread-pool-executor"
+".allow-core-timeout = off`` を ``PinnedDispatcher`` の設定に追加する必要があります。"
