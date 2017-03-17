@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: ckbx_cakebox <norihiro.kakihara@gmail.com>, 2017\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,15 +20,15 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/mapResponseEntity.rst:4
 msgid "mapResponseEntity"
-msgstr ""
+msgstr "mapResponseEntity"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/mapResponseEntity.rst:7
 msgid "Signature"
-msgstr ""
+msgstr "シグネチャ"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/mapResponseEntity.rst:13
 msgid "Description"
-msgstr ""
+msgstr "説明"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/mapResponseEntity.rst:15
 msgid ""
@@ -35,11 +36,13 @@ msgid ""
 ":ref:`Custom Directives` to transform a response entity that was generated "
 "by the inner route."
 msgstr ""
+"`` mapResponseEntity``ディレクティブは、内部ルートによって生成されたレスポンスエンティティを変換するための:ref:`Custom"
+" Directives`のビルディングブロックとして使用されます。"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/mapResponseEntity.rst:18
 msgid "See :ref:`Response Transforming Directives` for similar directives."
-msgstr ""
+msgstr "同様のディレクティブは:ref:`Response Transforming Directives`を参照してください。"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/mapResponseEntity.rst:21
 msgid "Example"
-msgstr ""
+msgstr "例"
