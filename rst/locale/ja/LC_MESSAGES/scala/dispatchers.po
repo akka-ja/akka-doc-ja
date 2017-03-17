@@ -49,7 +49,7 @@ msgid ""
 ".default-executor.fallback``. By default this is a \"fork-join-executor\", "
 "which gives excellent performance in most cases."
 msgstr ""
-"``ActorSystem`` には、 デフォルトのディスパッチャがあり``Actor`` に他の設定がされていない場合に使用されます。 "
+"``ActorSystem`` には、 デフォルトのディスパッチャがあり ``Actor`` に他の設定がされていない場合に使用されます。 "
 "デフォルトのディスパッチャを設定することができ、デフォルトでは、指定された ``default-executor`` を持ちます。 渡された "
 "ExecutionContext を使用して ActorSystem が作成された場合、この ExecutionContext は "
 "ActorSystem 内のすべてのディスパッチャのデフォルトエグゼキュータとして使用されます。 ExecutionContext "
@@ -252,7 +252,7 @@ msgid ""
 "Dispatcher**. (You can however use it for the **Routees**)"
 msgstr ""
 "**Router Dispatcher** として \"BalancingDispatcher\" を使用することは **できません** 。 (ただし、"
-" ** Routees** に使用することはできます)"
+" **Routees** に使用することはできます)"
 
 #: ../../scala/dispatchers.rst:129
 msgid "CallingThreadDispatcher"
@@ -278,7 +278,7 @@ msgstr "ユースケース: テスト"
 
 #: ../../scala/dispatchers.rst:141
 msgid "Driven by: The calling thread (duh)"
-msgstr "駆動者: 呼び出し側スレッド(自明)"
+msgstr "駆動者: 呼び出し側スレッド(もちろん)"
 
 #: ../../scala/dispatchers.rst:145
 msgid "More dispatcher configuration examples"
