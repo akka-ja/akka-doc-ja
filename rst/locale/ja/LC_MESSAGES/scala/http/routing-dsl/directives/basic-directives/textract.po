@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: ckbx_cakebox <norihiro.kakihara@gmail.com>, 2017\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,21 +20,21 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/textract.rst:4
 msgid "textract"
-msgstr ""
+msgstr "textract"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/textract.rst:7
 msgid "Signature"
-msgstr ""
+msgstr "シグネチャ"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/textract.rst:13
 msgid "Description"
-msgstr ""
+msgstr "説明"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/textract.rst:14
 msgid ""
 "Extracts a tuple of values from the request context and provides them to the"
 " inner route."
-msgstr ""
+msgstr "リクエストコンテキストから値のタプルを抽出し、それを内部ルートに提供します。"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/textract.rst:17
 msgid ""
@@ -43,15 +44,19 @@ msgid ""
 "directive. To provide a constant value independent of the ``RequestContext``"
 " use the :ref:`-tprovide-` directive instead."
 msgstr ""
+"`` textContext``ディレクティブは:ref:`Custom Directives`のビルディングブロックとして使われ、 `` "
+"RequestContext``からデータを抽出し、内部ルートに提供します。 "
+"1つの値だけを抽出するには、:ref:`-extract-`ディレクティブを使用します。 `` "
+"RequestContext``とは独立した定数値を提供するには、代わりに:ref:`-tprovide-`ディレクティブを使います。"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/textract.rst:21
 msgid "See :ref:`ProvideDirectives` for an overview of similar directives."
-msgstr ""
+msgstr "類似のディレクティブの概要は:ref:`ProvideDirectives`を参照してください。"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/textract.rst:23
 msgid "See also :ref:`-extract-` for extracting a single value."
-msgstr ""
+msgstr "単一の値を抽出するには:ref:`-extract-` を参照してください。"
 
 #: ../../scala/http/routing-dsl/directives/basic-directives/textract.rst:27
 msgid "Example"
-msgstr ""
+msgstr "例"
