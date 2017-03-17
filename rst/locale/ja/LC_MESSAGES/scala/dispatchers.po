@@ -30,7 +30,7 @@ msgid ""
 "execute arbitrary code, for instance :ref:`futures-scala`."
 msgstr ""
 "Akkaの ``MessageDispatcher`` はAkkaのアクターを \"作動させる（tick）\" もので、マシンのエンジンです。 すべての"
-" ``MessageDispatcher`` の実装は `` ExecutionContext`` です。これは、例えば :ref:`futures-"
+" ``MessageDispatcher`` の実装は ``ExecutionContext`` です。これは、例えば :ref:`futures-"
 "scala` などの任意のコードを実行するために使用できることを意味します。"
 
 #: ../../scala/dispatchers.rst:11
@@ -71,7 +71,7 @@ msgstr ""
 
 #: ../../scala/dispatchers.rst:30
 msgid "Setting the dispatcher for an Actor"
-msgstr "アクターのディスパッチャ設定"
+msgstr "アクターのためのディスパッチャの設定"
 
 #: ../../scala/dispatchers.rst:32
 msgid ""
@@ -90,8 +90,8 @@ msgid ""
 msgstr ""
 "``parallelism-max`` は、ForkJoinPool "
 "によって割り当てられたスレッドの総数に上限を設定しないことに注意してください。これは、新しい着信タスクの制御によるレイテンシを削減するために、プールが実行している"
-" *hot* スレッド数を明確にする設定です。並列性の詳細については、JDKの `ForkJoinPool "
-"documentation`_を参照してください。"
+" *hot* スレッド数を明確にする設定です。並列性の詳細については、JDKの `ForkJoinPool documentation`_ "
+"を参照してください。"
 
 #: ../../scala/dispatchers.rst:43
 msgid "And here's another example that uses the \"thread-pool-executor\":"
@@ -251,8 +251,8 @@ msgid ""
 "Note that you can **not** use a ``BalancingDispatcher`` as a **Router "
 "Dispatcher**. (You can however use it for the **Routees**)"
 msgstr ""
-"**Router Dispatcher** として \"BalancingDispatcher\" を使用することは **できません** 。 "
-"(ただし、** Routees ** に使用することはできます)"
+"**Router Dispatcher** として \"BalancingDispatcher\" を使用することは **できません** 。 (ただし、"
+" ** Routees** に使用することはできます)"
 
 #: ../../scala/dispatchers.rst:129
 msgid "CallingThreadDispatcher"
@@ -278,7 +278,7 @@ msgstr "ユースケース: テスト"
 
 #: ../../scala/dispatchers.rst:141
 msgid "Driven by: The calling thread (duh)"
-msgstr "駆動者: 呼び出し側スレッド"
+msgstr "駆動者: 呼び出し側スレッド(自明)"
 
 #: ../../scala/dispatchers.rst:145
 msgid "More dispatcher configuration examples"
@@ -292,7 +292,7 @@ msgstr "スレッドプールサイズが固定されたディスパッチャの
 
 #: ../../scala/dispatchers.rst:152 ../../scala/dispatchers.rst:160
 msgid "And then using it:"
-msgstr "それを使用して:"
+msgstr "これを使用して:"
 
 #: ../../scala/dispatchers.rst:156
 msgid "Configuring a ``PinnedDispatcher``:"
