@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Kentaro Maeda <many.front@gmail.com>, 2017\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 
 #: ../../scala/mailboxes.rst:4
 msgid "Mailboxes"
-msgstr ""
+msgstr "メールボックス"
 
 #: ../../scala/mailboxes.rst:6
 msgid ""
@@ -27,14 +28,17 @@ msgid ""
 "Normally each ``Actor`` has its own mailbox, but with for example a "
 "``BalancingPool`` all routees will share a single mailbox instance."
 msgstr ""
+"Akka のメールボックスは ``アクター`` に宛てられたメッセージを保持します。通常それぞれの ``アクター`` "
+"は自分自身のメールボックスを持ちますが、  ``BalancingPool`` は例外的に単一のメールボックスのインスタンスを、全ての Routee "
+"が共有します。"
 
 #: ../../scala/mailboxes.rst:11
 msgid "Mailbox Selection"
-msgstr ""
+msgstr "メールボックスの選択"
 
 #: ../../scala/mailboxes.rst:14
 msgid "Requiring a Message Queue Type for an Actor"
-msgstr ""
+msgstr "アクターのメッセージキューの型を要求する"
 
 #: ../../scala/mailboxes.rst:16
 msgid ""
@@ -42,12 +46,14 @@ msgid ""
 " of actor by having that actor extend the parameterized trait "
 ":class:`RequiresMessageQueue`. Here is an example:"
 msgstr ""
+"パラメータ化した :class:`RequiresMessageQueue` "
+"トレイトを継承したアクターを定義することで、特定のアクターの型に対するメッセージキューに特定の型を要求することができます。こちらがその例です。"
 
 #: ../../scala/mailboxes.rst:22
 msgid ""
 "The type parameter to the :class:`RequiresMessageQueue` trait needs to be "
 "mapped to a mailbox in configuration like this:"
-msgstr ""
+msgstr ":class:`RequiresMessageQueue` に対する型パラメータは次のようなメールボックスの設定と対応付けられます。"
 
 #: ../../scala/mailboxes.rst:28
 msgid ""
@@ -56,6 +62,8 @@ msgid ""
 "configured in deployment, either directly or via a dispatcher with a "
 "specified mailbox type, then that will override this mapping."
 msgstr ""
+"これで、:class:`MyBoundedActor` 型のアクターを生成するといつでも、 "
+"制限付きのメールボックスを取得しようとします。もしアクターに、直接またはディスパッチャー経由で特定のメールボックスの型を使って、設定とは異なるメールボックスをデプロイ時に定義した場合は、この対応付けを上書きします。"
 
 #: ../../scala/mailboxes.rst:34
 msgid ""
@@ -63,10 +71,11 @@ msgid ""
 "against the required type in the trait and if the queue doesn't implement "
 "the required type then actor creation will fail."
 msgstr ""
+"アクターに対して作成されたメールボックスのキューの型は、トレイトの要求型に反していないかチェックされます。そのキューが要求型を実装していない場合は、アクターの生成は失敗します。"
 
 #: ../../scala/mailboxes.rst:38
 msgid "Requiring a Message Queue Type for a Dispatcher"
-msgstr ""
+msgstr "ディスパッチャーに対するメッセージキューの型を要求する"
 
 #: ../../scala/mailboxes.rst:40
 msgid ""
@@ -76,6 +85,8 @@ msgid ""
 " requirement is formulated within the dispatcher configuration section like "
 "this::"
 msgstr ""
+"ディスパッチャーも、その上でアクターが実行する際に使用するメールボックスの型を要求するかもしれません。1つの例は複数のコンシューマに対してスレッドセーフなメッセージキューを要求する"
+" BalancingDispatcher です。そのような要求は、次のようにディスパッチャーの設定の一部の中にまとめられます。"
 
 #: ../../scala/mailboxes.rst:50
 msgid ""
@@ -84,10 +95,12 @@ msgid ""
 "conflict—e.g. if the actor requires a mailbox type which does not satisfy "
 "this requirement—then actor creation will fail."
 msgstr ""
+"指定する要求にはメッセージキューの実装のスーパータイプとなることが保証されるクラスやインターフェース名を入れます。競合する場合 - "
+"例えばアクターがこの要求を満たさないメールボックスの型を要求した場合 - アクターの生成は失敗します。"
 
 #: ../../scala/mailboxes.rst:56
 msgid "How the Mailbox Type is Selected"
-msgstr ""
+msgstr "メールボックスの型の選択方法"
 
 #: ../../scala/mailboxes.rst:58
 msgid ""
@@ -95,6 +108,8 @@ msgid ""
 " dispatcher which will execute it. Then the mailbox is determined as "
 "follows:"
 msgstr ""
+"アクターが生成されるとき、 :class:`ActorRefProvider` "
+"が自身を実行するディスパッチャーを最初に決定します。それから次のようにメールボックスが決定されます。"
 
 #: ../../scala/mailboxes.rst:61
 msgid ""
@@ -102,6 +117,7 @@ msgid ""
 "then that names a configuration section describing the mailbox type to be "
 "used."
 msgstr ""
+"もしアクターのデプロイ設定のセクションに、 ``mailbox``  キーを含む場合、それがメールボックスの型を記述した設定として扱われます。"
 
 #: ../../scala/mailboxes.rst:65
 msgid ""
@@ -109,12 +125,14 @@ msgid ""
 "was called on it—then that names a configuration section describing the "
 "mailbox type to be used."
 msgstr ""
+"もし、アクターの ``Props`` が メールボックスの選択を含む場合、 -- 例えば ``withMailbox`` がそこで呼ばれる場合 -- "
+"それがメールボックスの型を記述した設定として扱われます。"
 
 #: ../../scala/mailboxes.rst:69
 msgid ""
 "If the dispatcher’s configuration section contains a ``mailbox-type`` key "
 "the same section will be used to configure the mailbox type."
-msgstr ""
+msgstr "もしディスパッチャーの設定に、``mailbox-type`` キーを含む場合、同じセクションがメールボックスの型の設定として扱われます。"
 
 #: ../../scala/mailboxes.rst:72
 msgid ""
@@ -122,6 +140,7 @@ msgid ""
 " that requirement will be used to determine the mailbox type to be used; if "
 "that fails then the dispatcher’s requirement—if any—will be tried instead."
 msgstr ""
+"もしアクターが上記の方法でメールボックスの型を要求した場合、要求に対する対応がメールボックスの型を決定する方法として扱われます。もしそれが失敗した場合、ディスパッチャーの要求があった場合はそれを替わりに試します。"
 
 #: ../../scala/mailboxes.rst:76
 msgid ""
@@ -129,14 +148,15 @@ msgid ""
 "mapping for that requirement will be used to determine the mailbox type to "
 "be used."
 msgstr ""
+"もし、ディスパッチャーが上記の方法でメールボックスの型を要求した場合、その要求に対する対応がメールボックスの型を決定する方法として扱われます。"
 
 #: ../../scala/mailboxes.rst:80
 msgid "The default mailbox ``akka.actor.default-mailbox`` will be used."
-msgstr ""
+msgstr "デフォルトのメールボックスである ``akka.actor.default-mailbox`` が使用されます。"
 
 #: ../../scala/mailboxes.rst:83
 msgid "Default Mailbox"
-msgstr ""
+msgstr "デフォルトのメールボックス"
 
 #: ../../scala/mailboxes.rst:85
 msgid ""
@@ -144,6 +164,8 @@ msgid ""
 "used. By default it is an unbounded mailbox, which is backed by a "
 "``java.util.concurrent.ConcurrentLinkedQueue``."
 msgstr ""
+"メールボックスが上記の内容のように明記されていない場合はデフォルトのメールボックスが使用されます。デフォルトではそれは、 "
+"``java.util.concurrent.ConcurrentLinkedQueue`` を基にした、制限のないメールボックスとなります。"
 
 #: ../../scala/mailboxes.rst:89
 msgid ""
@@ -151,15 +173,18 @@ msgid ""
 "and it can be used as the default mailbox, but it cannot be used with a "
 "BalancingDispatcher."
 msgstr ""
+"``SingleConsumerOnlyUnboundedMailbox`` "
+"は非常に効率の良いメールボックスであり、これをデフォルトのメールボックスとして使用することができます。ただし、 BalancingDispatcher "
+"と一緒に使うことはできません。"
 
 #: ../../scala/mailboxes.rst:92
 msgid ""
 "Configuration of ``SingleConsumerOnlyUnboundedMailbox`` as default mailbox::"
-msgstr ""
+msgstr "デフォルトのメールボックスを ``SingleConsumerOnlyUnboundedMailbox`` にする設定"
 
 #: ../../scala/mailboxes.rst:99
 msgid "Which Configuration is passed to the Mailbox Type"
-msgstr ""
+msgstr "どの設定がメールボックスの型に渡されるか"
 
 #: ../../scala/mailboxes.rst:101
 msgid ""
@@ -171,143 +196,150 @@ msgid ""
 "configuration path of the mailbox type and adding a fall-back to the default"
 " mailbox configuration section."
 msgstr ""
+"各メールボックスの型は :class:`MailboxType` を継承したクラスによって実装され、２つのコンストラクタ引数、 "
+":class:`ActorSystem.Settings` オブジェクトと :class:`Config`  "
+"セクションを取ります。後者はアクターシステムの設定にある名前付きのセクションを取得してから、その ``Id`` "
+"キーをメールボックスの型の設定パスで上書きし、デフォルトのメールボックスの設定セクションを後ろに追加したものになります。"
 
 #: ../../scala/mailboxes.rst:109
 msgid "Builtin Mailbox Implementations"
-msgstr ""
+msgstr "組み込みのメールボックス実装"
 
 #: ../../scala/mailboxes.rst:111
 msgid "Akka comes shipped with a number of mailbox implementations:"
-msgstr ""
+msgstr "Akka はいくつかのメールボックスの実装が付属しています"
 
 #: ../../scala/mailboxes.rst:113
 msgid "**UnboundedMailbox** (default)"
-msgstr ""
+msgstr "**UnboundedMailbox** (デフォルト)"
 
 #: ../../scala/mailboxes.rst:115
 msgid "The default mailbox"
-msgstr ""
+msgstr "デフォルトのメールボックス"
 
 #: ../../scala/mailboxes.rst:117
 msgid "Backed by a ``java.util.concurrent.ConcurrentLinkedQueue``"
-msgstr ""
+msgstr "``java.util.concurrent.ConcurrentLinkedQueue`` に基づく"
 
 #: ../../scala/mailboxes.rst:119 ../../scala/mailboxes.rst:131
 #: ../../scala/mailboxes.rst:153 ../../scala/mailboxes.rst:165
 #: ../../scala/mailboxes.rst:177
 msgid "Blocking: No"
-msgstr ""
+msgstr "ブロッキング: しない"
 
 #: ../../scala/mailboxes.rst:121 ../../scala/mailboxes.rst:133
 #: ../../scala/mailboxes.rst:155 ../../scala/mailboxes.rst:167
 #: ../../scala/mailboxes.rst:179
 msgid "Bounded: No"
-msgstr ""
+msgstr "上限: なし"
 
 #: ../../scala/mailboxes.rst:123
 msgid ""
 "Configuration name: ``\"unbounded\"`` or "
 "``\"akka.dispatch.UnboundedMailbox\"``"
-msgstr ""
+msgstr "設定名称: ``\"unbounded\"`` または ``\"akka.dispatch.UnboundedMailbox\"``"
 
 #: ../../scala/mailboxes.rst:125
 msgid "**SingleConsumerOnlyUnboundedMailbox**"
-msgstr ""
+msgstr "**SingleConsumerOnlyUnboundedMailbox**"
 
 #: ../../scala/mailboxes.rst:127
 msgid ""
 "This queue may or may not be faster than the default one depending on your "
 "use-case—be sure to benchmark properly!"
 msgstr ""
+"このキューはユースケースによってはデフォルトのものより早くなるかもしれませんし、ならないかもしれません。適切にベンチーマークをしてください!"
 
 #: ../../scala/mailboxes.rst:129
 msgid ""
 "Backed by a Multiple-Producer Single-Consumer queue, cannot be used with "
 "``BalancingDispatcher``"
-msgstr ""
+msgstr "複数生産者-単一消費者 キューに基づき、 ``BalancingDispatcher`` と併用できない"
 
 #: ../../scala/mailboxes.rst:135
 msgid ""
 "Configuration name: ``\"akka.dispatch.SingleConsumerOnlyUnboundedMailbox\"``"
-msgstr ""
+msgstr "設定名称: ``\"akka.dispatch.SingleConsumerOnlyUnboundedMailbox\"``"
 
 #: ../../scala/mailboxes.rst:137
 msgid "**NonBlockingBoundedMailbox**"
-msgstr ""
+msgstr "**NonBlockingBoundedMailbox**"
 
 #: ../../scala/mailboxes.rst:139
 msgid "Backed by a very efficient Multiple-Producer Single-Consumer queue"
-msgstr ""
+msgstr "非常に効率的な 複数生産者-単一消費者 キューに基づく"
 
 #: ../../scala/mailboxes.rst:141
 msgid "Blocking: No (discards overflowing messages into deadLetters)"
-msgstr ""
+msgstr "ブロッキング: しない (あふれたメッセージは deadLetter へ捨てます)"
 
 #: ../../scala/mailboxes.rst:143 ../../scala/mailboxes.rst:194
 #: ../../scala/mailboxes.rst:206 ../../scala/mailboxes.rst:218
 #: ../../scala/mailboxes.rst:230
 msgid "Bounded: Yes"
-msgstr ""
+msgstr "上限: あり"
 
 #: ../../scala/mailboxes.rst:145
 msgid "Configuration name: ``\"akka.dispatch.NonBlockingBoundedMailbox\"``"
-msgstr ""
+msgstr "設定名称: ``\"akka.dispatch.NonBlockingBoundedMailbox\"``"
 
 #: ../../scala/mailboxes.rst:147
 msgid "**UnboundedControlAwareMailbox**"
-msgstr ""
+msgstr "**UnboundedControlAwareMailbox**"
 
 #: ../../scala/mailboxes.rst:149 ../../scala/mailboxes.rst:224
 msgid ""
 "Delivers messages that extend ``akka.dispatch.ControlMessage`` with higher "
 "priority"
-msgstr ""
+msgstr "``akka.dispatch.ControlMessage`` を継承した高優先度のメッセージを配送します。"
 
 #: ../../scala/mailboxes.rst:151
 msgid "Backed by two ``java.util.concurrent.ConcurrentLinkedQueue``"
-msgstr ""
+msgstr "2 つの ``java.util.concurrent.ConcurrentLinkedQueue`` に基づく"
 
 #: ../../scala/mailboxes.rst:157
 msgid "Configuration name: \"akka.dispatch.UnboundedControlAwareMailbox\""
-msgstr ""
+msgstr "設定名称: \"akka.dispatch.UnboundedControlAwareMailbox\""
 
 #: ../../scala/mailboxes.rst:159
 msgid "**UnboundedPriorityMailbox**"
-msgstr ""
+msgstr "**UnboundedPriorityMailbox**"
 
 #: ../../scala/mailboxes.rst:161
 msgid "Backed by a ``java.util.concurrent.PriorityBlockingQueue``"
-msgstr ""
+msgstr "``java.util.concurrent.PriorityBlockingQueue`` に基づく"
 
 #: ../../scala/mailboxes.rst:163
 msgid ""
 "Delivery order for messages of equal priority is undefined - contrast with "
 "the UnboundedStablePriorityMailbox"
-msgstr ""
+msgstr "優先度の等しいメッセージの配送順は未定義です。UnboundedStablePriorityMailbox とは対照的です。"
 
 #: ../../scala/mailboxes.rst:169
 msgid "Configuration name: \"akka.dispatch.UnboundedPriorityMailbox\""
-msgstr ""
+msgstr "設定名称:  \"akka.dispatch.UnboundedPriorityMailbox\""
 
 #: ../../scala/mailboxes.rst:171
 msgid "**UnboundedStablePriorityMailbox**"
-msgstr ""
+msgstr "**UnboundedStablePriorityMailbox**"
 
 #: ../../scala/mailboxes.rst:173
 msgid ""
 "Backed by a ``java.util.concurrent.PriorityBlockingQueue`` wrapped in an "
 "``akka.util.PriorityQueueStabilizer``"
 msgstr ""
+"``akka.util.PriorityQueueStabilizer`` にラップされている "
+"``java.util.concurrent.PriorityBlockingQueue``  に基づく"
 
 #: ../../scala/mailboxes.rst:175
 msgid ""
 "FIFO order is preserved for messages of equal priority - contrast with the "
 "UnboundedPriorityMailbox"
-msgstr ""
+msgstr "同一の優先度のメッセージに対して、FIFO の順序を維持します。 UnboundedPriorityMailbox とは対照的です。"
 
 #: ../../scala/mailboxes.rst:181
 msgid "Configuration name: \"akka.dispatch.UnboundedStablePriorityMailbox\""
-msgstr ""
+msgstr "設定名称: \"akka.dispatch.UnboundedStablePriorityMailbox\""
 
 #: ../../scala/mailboxes.rst:183
 msgid ""
@@ -315,55 +347,58 @@ msgid ""
 "capacity is reached and configured with non-zero ``mailbox-push-timeout-"
 "time``."
 msgstr ""
+"上限ありのメールボックス実装は、容量がいっぱいになり、さらに ``mailbox-push-timeout-time`` に 0 "
+"以外が設定してある場合は 送信者をブロックします。"
 
 #: ../../scala/mailboxes.rst:186
 msgid ""
 "The following mailboxes should only be used with zero ``mailbox-push-"
 "timeout-time``."
-msgstr ""
+msgstr "以降のメールボックスでは ``mailbox-push-timeout-time`` に 0 のみを指定するようにするべきです。"
 
 #: ../../scala/mailboxes.rst:188
 msgid "**BoundedMailbox**"
-msgstr ""
+msgstr "**BoundedMailbox**"
 
 #: ../../scala/mailboxes.rst:190
 msgid "Backed by a ``java.util.concurrent.LinkedBlockingQueue``"
-msgstr ""
+msgstr "``java.util.concurrent.LinkedBlockingQueue`` に基づく"
 
 #: ../../scala/mailboxes.rst:192 ../../scala/mailboxes.rst:204
 #: ../../scala/mailboxes.rst:216 ../../scala/mailboxes.rst:228
 msgid ""
 "Blocking: Yes if used with non-zero ``mailbox-push-timeout-time``, otherwise"
 " No"
-msgstr ""
+msgstr "ブロッキング:  ``mailbox-push-timeout-time`` が0以外ならする、そうでない場合しない"
 
 #: ../../scala/mailboxes.rst:196
 msgid "Configuration name: \"bounded\" or \"akka.dispatch.BoundedMailbox\""
-msgstr ""
+msgstr "設定名称:  \"bounded\" または \"akka.dispatch.BoundedMailbox\""
 
 #: ../../scala/mailboxes.rst:198
 msgid "**BoundedPriorityMailbox**"
-msgstr ""
+msgstr "**BoundedPriorityMailbox**"
 
 #: ../../scala/mailboxes.rst:200
 msgid ""
 "Backed by a ``java.util.PriorityQueue`` wrapped in an "
 "``akka.util.BoundedBlockingQueue``"
 msgstr ""
+"``akka.util.BoundedBlockingQueue`` がラップしている ``java.util.PriorityQueue`` に基づく"
 
 #: ../../scala/mailboxes.rst:202
 msgid ""
 "Delivery order for messages of equal priority is undefined - contrast with "
 "the ``BoundedStablePriorityMailbox``"
-msgstr ""
+msgstr "優先度の等しいメッセージの配送順は未定義です。``BoundedStablePriorityMailbox``とは対照的です。"
 
 #: ../../scala/mailboxes.rst:208
 msgid "Configuration name: ``\"akka.dispatch.BoundedPriorityMailbox\"``"
-msgstr ""
+msgstr "設定名称:  ``\"akka.dispatch.BoundedPriorityMailbox\"``"
 
 #: ../../scala/mailboxes.rst:210
 msgid "**BoundedStablePriorityMailbox**"
-msgstr ""
+msgstr "**BoundedStablePriorityMailbox**"
 
 #: ../../scala/mailboxes.rst:212
 msgid ""
@@ -371,66 +406,70 @@ msgid ""
 "``akka.util.PriorityQueueStabilizer`` and an "
 "``akka.util.BoundedBlockingQueue``"
 msgstr ""
+"``akka.util.PriorityQueueStabilizer`` と ``akka.util.BoundedBlockingQueue`` "
+"がラップしている  ``java.util.PriorityQueue`` に基づく"
 
 #: ../../scala/mailboxes.rst:214
 msgid ""
 "FIFO order is preserved for messages of equal priority - contrast with the "
 "BoundedPriorityMailbox"
-msgstr ""
+msgstr "同一優先度のメッセージは FIFO の順序になるように維持します。 BoundedPriorityMailbox  とは対照的です。"
 
 #: ../../scala/mailboxes.rst:220
 msgid "Configuration name: \"akka.dispatch.BoundedStablePriorityMailbox\""
-msgstr ""
+msgstr "設定名称: \"akka.dispatch.BoundedStablePriorityMailbox\""
 
 #: ../../scala/mailboxes.rst:222
 msgid "**BoundedControlAwareMailbox**"
-msgstr ""
+msgstr "**BoundedControlAwareMailbox**"
 
 #: ../../scala/mailboxes.rst:226
 msgid ""
 "Backed by two ``java.util.concurrent.ConcurrentLinkedQueue`` and blocking on"
 " enqueue if capacity has been reached"
 msgstr ""
+"2つの ``java.util.concurrent.ConcurrentLinkedQueue`` "
+"に基づき、もし容量が上限に達している場合はエンキューをブロックします。"
 
 #: ../../scala/mailboxes.rst:232
 msgid "Configuration name: \"akka.dispatch.BoundedControlAwareMailbox\""
-msgstr ""
+msgstr "設定名称: \"akka.dispatch.BoundedControlAwareMailbox\""
 
 #: ../../scala/mailboxes.rst:236
 msgid "Mailbox configuration examples"
-msgstr ""
+msgstr "メールボックスの設定例"
 
 #: ../../scala/mailboxes.rst:239
 msgid "PriorityMailbox"
-msgstr ""
+msgstr "PriorityMailbox"
 
 #: ../../scala/mailboxes.rst:241
 msgid "How to create a PriorityMailbox:"
-msgstr ""
+msgstr "PriorityMailbox の作成方法"
 
 #: ../../scala/mailboxes.rst:245
 msgid "And then add it to the configuration:"
-msgstr ""
+msgstr "設定にメールボックスの追加を行います"
 
 #: ../../scala/mailboxes.rst:249 ../../scala/mailboxes.rst:280
 msgid "And then an example on how you would use it:"
-msgstr ""
+msgstr "メールボックスの使用例です"
 
 #: ../../scala/mailboxes.rst:253
 msgid "It is also possible to configure a mailbox type directly like this:"
-msgstr ""
+msgstr "このように直接メールボックスの型を設定することも可能です"
 
 #: ../../scala/mailboxes.rst:258
 msgid "And then use it either from deployment like this:"
-msgstr ""
+msgstr "このようにデプロイメントからでも使うことができます"
 
 #: ../../scala/mailboxes.rst:262
 msgid "Or code like this:"
-msgstr ""
+msgstr "もしくは次のようなコードでもよいです"
 
 #: ../../scala/mailboxes.rst:267
 msgid "ControlAwareMailbox"
-msgstr ""
+msgstr "ControlAwareMailbox"
 
 #: ../../scala/mailboxes.rst:269
 msgid ""
@@ -438,22 +477,24 @@ msgid ""
 " receive control messages immediately no matter how many other messages are "
 "already in its mailbox."
 msgstr ""
+"``ControlAwareMailbox`` は "
+"メールボックス内にすでにいくつかのメッセージがある場合でも、コントロールメッセージを即座に受信したい場合に非常に便利です。"
 
 #: ../../scala/mailboxes.rst:272
 msgid "It can be configured like this:"
-msgstr ""
+msgstr "このように設定します"
 
 #: ../../scala/mailboxes.rst:276
 msgid "Control messages need to extend the ``ControlMessage`` trait:"
-msgstr ""
+msgstr "コントロールメッセージは、 ``ControlMessage`` トレイトを継承する必要があります。"
 
 #: ../../scala/mailboxes.rst:285
 msgid "Creating your own Mailbox type"
-msgstr ""
+msgstr "メールボックスの型を自作する"
 
 #: ../../scala/mailboxes.rst:287
 msgid "An example is worth a thousand quacks:"
-msgstr ""
+msgstr "次の実装例自体には大した意味はありません。"
 
 #: ../../scala/mailboxes.rst:291
 msgid ""
@@ -461,6 +502,7 @@ msgid ""
 "\"mailbox-type\" in the dispatcher configuration, or the mailbox "
 "configuration."
 msgstr ""
+"次に、ディスパッチャーの設定かメールボックスの設定に、自作のメールボックス型の FQCN を \"mailbox-type\"  の値として明記します。"
 
 #: ../../scala/mailboxes.rst:296
 msgid ""
@@ -472,19 +514,21 @@ msgid ""
 "this mailbox type; the mailbox type will be instantiated once for each "
 "dispatcher or mailbox setting using it."
 msgstr ""
+"``akka.actor.ActorSystem.Settings`` と ``com.typesafe.config.Config`` "
+"を引数に取るコンストラクタを必ず作成してください。このコンストラクタは自作のメールボックスを構築するためにリフレクションから実行されます。第二引数に渡されるコンフィグは、このメールボックス型を使用するように設定されたディスパッチャーかメールボックスを記述した設定ファイルのセクションになります。メールボックス型は各ディスパッチャーかメールボックスの設定が使用される度に一度だけインスタンス化されます。"
 
 #: ../../scala/mailboxes.rst:304
 msgid ""
 "You can also use the mailbox as a requirement on the dispatcher like this:"
-msgstr ""
+msgstr "このようにディスパッチャー上の要求としてメールボックスを使用することもできます。"
 
 #: ../../scala/mailboxes.rst:309
 msgid "Or by defining the requirement on your actor class like this:"
-msgstr ""
+msgstr "または、このように自身のアクタークラス上に要求を定義することもできます。"
 
 #: ../../scala/mailboxes.rst:315
 msgid "Special Semantics of ``system.actorOf``"
-msgstr ""
+msgstr "``system.actorOf`` の特別な意味"
 
 #: ../../scala/mailboxes.rst:317
 msgid ""
@@ -498,9 +542,15 @@ msgid ""
 " only upon swapping the real filling in will they be transferred into the "
 "real mailbox. Thus,"
 msgstr ""
+"``system.actorOf`` は :class:`ActorRef 型を返却している時に、同期性とノンブロッキングを両立させるため、(そして "
+"参照の返却を完全に機能させるという意味を持たせるため) "
+"、この場合に特別な処理を行っています。この背後では、中身の無いアクターの参照が構築が行われ、その参照は、実際にアクターとコンテキストを生成しそれを参照の内部に設定するシステムガーディアンに送られています。それが起きるまでに"
+" :class:`ActorRef` "
+"に送信されたメッセージは、一旦ローカルに蓄積されます。そして本当の内容への交換が起きたときにだけ、本当のメールボックスへ転送されます。"
 
 #: ../../scala/mailboxes.rst:333
 msgid ""
 "will probably fail; you will have to allow for some time to pass and retry "
 "the check à la :meth:`TestKit.awaitCond`."
 msgstr ""
+"これはおそらく失敗します。:meth:`TestKit.awaitCond` を使って、いくらかの時間が経過してから再度試行する必要があります。"
