@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: y2k2mt <y2.k2mt@gmail.com>, 2017\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:4
 msgid "Low-Level Server-Side API"
-msgstr ""
+msgstr "低レベルサーバーサイドAPI"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:6
 msgid ""
@@ -27,67 +28,70 @@ msgid ""
 "provides an embedded, `Reactive-Streams`_-based, fully asynchronous HTTP/1.1"
 " server implemented on top of :ref:`Akka Stream <streams-java>`."
 msgstr ""
+"Akka HTTPは :ref:`HTTP Client <http-client-side-java>` とは別に、完全に非同期な "
+"`Reactive-Streams`_ ベースの、 :ref:`Akka Stream <streams-"
+"java>`.上に構築されたHTTP/1.1サーバーの実装を提供しています。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:9
 msgid "It sports the following features:"
-msgstr ""
+msgstr "次のような機能をサポートしています。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:11
 msgid "Full support for `HTTP persistent connections`_"
-msgstr ""
+msgstr "パーシステント・コネクションの完全なサポート"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:12
 msgid "Full support for `HTTP pipelining`_"
-msgstr ""
+msgstr "HTTPパイプラインの完全なサポート"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:13
 msgid ""
 "Full support for asynchronous HTTP streaming including \"chunked\" transfer "
 "encoding accessible through an idiomatic API"
-msgstr ""
+msgstr "自然なAPIを通じたチャンク転送形式を含む非同期なHTTPストリーミングの完全なサポート"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:14
 msgid "Optional SSL/TLS encryption"
-msgstr ""
+msgstr "オプショナルなSSL/TLS暗号化のサポート"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:15
 msgid "WebSocket support"
-msgstr ""
+msgstr "WebSocketのサポート"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:21
 msgid "The server-side components of Akka HTTP are split into two layers:"
-msgstr ""
+msgstr "Akka HTTPのサーバーサイドのコンポーネントは２つのレイヤに分けられます。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:23
 msgid ""
 "The basic low-level server implementation in the ``akka-http-core`` module"
-msgstr ""
+msgstr "``akka-http-core`` モジュールにある低レベルなサーバーの実装"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:24
 msgid "Higher-level functionality in the ``akka-http`` module"
-msgstr ""
+msgstr "高レベルな機能は ``akka-http`` モジュールにあります。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:26
 msgid ""
 "The low-level server (1) is scoped with a clear focus on the essential "
 "functionality of an HTTP/1.1 server:"
-msgstr ""
+msgstr "低レベルなサーバ (1) はHTTP/1.1の基本的な機能は"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:28
 msgid "Connection management"
-msgstr ""
+msgstr "接続の管理"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:29
 msgid "Parsing and rendering of messages and headers"
-msgstr ""
+msgstr "メッセージとヘッダーの解析とレンダリング"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:30
 msgid "Timeout management (for requests and connections)"
-msgstr ""
+msgstr "(リクエストと接続の)タイムアウトの管理"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:31
 msgid "Response ordering (for transparent pipelining support)"
-msgstr ""
+msgstr "(パイプライニングをサポートする為の)レスポンスの整列"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:33
 msgid ""
@@ -97,6 +101,9 @@ msgid ""
 "general focus this design keeps the server core small and light-weight as "
 "well as easy to understand and maintain."
 msgstr ""
+"典型的なHTTPサーバーの全ての核ではない機能(例えば、リクエストルーティング、ファイル転送、圧縮など)は高レベルなレイヤにあり、 ``akka-"
+"http-core`` "
+"には実装されていません。これらの一般的なデザインから分けることによって、コアを小さく、軽量に保つのと同様に理解と保守を簡単にしています。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:38
 msgid ""
@@ -105,10 +112,12 @@ msgid ""
 "java>` which can make the definition of more complex service logic much "
 "easier."
 msgstr ""
+"あなたの必要に応じて、低レベルなAPIを直接使うことも、複雑なサービスのロジックをより簡単に定義する為に高レベルなルーティングDSL "
+":ref:`Routing DSL <http-high-level-server-side-api-java>` に頼ることもできます。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:44
 msgid "Streams and HTTP"
-msgstr ""
+msgstr "ストリームとHTTP"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:46
 msgid ""
@@ -116,6 +125,8 @@ msgid ""
 "java>` and makes heavy use of it - in its implementation as well as on all "
 "levels of its API."
 msgstr ""
+"Akka HTTPサーバーは :ref:`Akka Stream <streams-java>` "
+"の上に実装されていて、その実装や全てのレベルのAPIも同様に強く依存しています。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:49
 msgid ""
@@ -126,6 +137,9 @@ msgid ""
 "``Flow<HttpRequest, HttpResponse, ?>`` to \"translate\" requests into "
 "responses."
 msgstr ""
+"コネクションレベルにおいて、Akka HTTPは :ref:`Akka Stream IO <stream-io-java>`: "
+"と基本的に同じインターフェースを提供しています。ソケットのバインディングは接続要求のストリームとして表現されています。アプリケーションはストリームから接続をプルし、それらの１つ１つを"
+" ``Flow<HttpRequest, HttpResponse, ?>`` に供給し、リクエストをレスポンスへ変換します。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:53
 msgid ""
@@ -137,16 +151,23 @@ msgid ""
 "the :ref:`http-model-java` for more information on how HTTP messages are "
 "represented in Akka HTTP."
 msgstr ""
+"サーバサイドにおけるソケットのバインディングを ``Source<IncomingConnection>``  とし、接続の１つ１つを "
+"``Source<HttpRequest>`` と ``Sink<HttpResponse>`` "
+"としたストリームの抽象化は、単一のHTTPメッセージの中にも存在ます。HTTPリクエストとレスポンスのエンティティは一般的に "
+"``Source<ByteString>``としてモデル化されています。HTTPメッセージがAkka "
+"HTTPにおいてどのように表現されているかについての詳しい情報は :ref:`http-model-java` も参照してください。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:60
 msgid "Starting and Stopping"
-msgstr ""
+msgstr "起動と停止"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:62
 msgid ""
 "On the most basic level an Akka HTTP server is bound by invoking the "
 "``bind`` method of the `akka.http.javadsl.Http`_ extension:"
 msgstr ""
+"最も基本的なレベルのAkka HTTPサーバは `akka.http.javadsl.Http`_ extension: の``bind`` "
+"メソッドを実行することによって起動します。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:68
 msgid ""
@@ -156,6 +177,8 @@ msgid ""
 " well as a larger number of settings for configuring the server according to"
 " your needs."
 msgstr ""
+" ``Http().bind`` "
+"メソッドに引数を指定し、インターフェースとバインドするポートを特定します。そして、HTTP接続の要求をハンドリングする処理を登録します。さらに、そのメソッドはあなたの必要に応じてソケットオプションを設定するのと同様に、数多くのサーバーを調整する為の設定を行うことができます。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:72
 msgid ""
@@ -173,10 +196,15 @@ msgid ""
 " address of the bound socket, which is useful for example when binding to "
 "port zero (and thus letting the OS pick an available port)."
 msgstr ""
+" ``bind`` メソッドの結果である ``Source<Http.IncomingConnection>`` "
+"は接続要求を受信することによって排出しなければなりません。実際のバインディングはSourceがパイプラインプロセスの一部としてマテリアライズされる前には実行されません。バインドに失敗した場合(例.ポートが既に使用されていた場合)はマテリアライズされたストリームはそれぞれ例外を出し、直ぐに停止します。接続要求の消費側が消費をキャンセルした時に、バインディングは解放されます。(即ち、ソケットはアンバウンドされます。)"
+" 代替手段として、Sourceのマテリアライズプロセスの一部として生成された ``Http.ServerBinding`` インスタンスの "
+"``unbind()`` メソッドを使うことができます。 ``Http.ServerBinding`` "
+"はまた、ソケットにバインドされた実際のローカルアドレスを取得する方法を提供します。これは、例えばポート0(有効なポートをOSに選択させる)にバインディングする時に便利です。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:88
 msgid "Request-Response Cycle"
-msgstr ""
+msgstr "リクエスト-レスポンス サイクル"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:90
 msgid ""
@@ -185,32 +213,37 @@ msgid ""
 " to provide a ``Flow<HttpRequest, HttpResponse, ?>`` to handle requests "
 "coming in over this connection."
 msgstr ""
+"新しい接続を受信した時に、リモートアドレスとリクエストをハンドリグする  ``Flow<HttpRequest, HttpResponse, ?>`` "
+"を供給するメソッドで構成されている ``Http.IncomingConnection`` が出現します。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:94
 msgid ""
 "Requests are handled by calling one of the ``handleWithXXX`` methods with a "
 "handler, which can either be"
-msgstr ""
+msgstr "リクエストは ``handleWithXXX`` メソッドの一つを呼び出すことによって処理されます。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:96
 msgid "a ``Flow<HttpRequest, HttpResponse, ?>`` for ``handleWith``,"
-msgstr ""
+msgstr " ``Flow<HttpRequest, HttpResponse, ?>`` を処理する ``handleWith``"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:97
 msgid ""
 "a function ``Function<HttpRequest, HttpResponse>`` for "
 "``handleWithSyncHandler``,"
 msgstr ""
+"関数 ``Function<HttpRequest, HttpResponse>`` を処理する ``handleWithSyncHandler``"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:98
 msgid ""
 "a function ``Function<HttpRequest, CompletionStage<HttpResponse>>`` for "
 "``handleWithAsyncHandler``."
 msgstr ""
+" 関数 ``Function<HttpRequest, CompletionStage<HttpResponse>>`` を処理する "
+"``handleWithAsyncHandler``"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:100
 msgid "Here is a complete example:"
-msgstr ""
+msgstr "ここに完全な例があります。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:105
 msgid ""
@@ -220,6 +253,10 @@ msgid ""
 " Depending on the use case many other ways of providing a request handler "
 "are conceivable using Akka Stream's combinators."
 msgstr ""
+"この例では、リクエストはリクエストストリームを ``handleWithSyncHandler`` と関数 "
+"``Function<HttpRequest, HttpResponse>`` を使って変換することによって処理されます。 (Akka Streamの "
+"``map`` 演算子を使っても同様です。) Akka "
+"Streamのコンビネータを使うことでユースケースに応じたリクエストを処理する方法はいくらでも考えられます。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:109
 msgid ""
@@ -231,16 +268,19 @@ msgid ""
 " ``handleWithAsyncHandler``, or the ``map`` or ``mapAsync`` stream "
 "operators, this requirement will be automatically fulfilled."
 msgstr ""
+"アプリケーションがFlowを指定する場合、リクエスト毎に該当する唯一のレスポンスを生成し、レスポンスの順序を該当するリクエストの順序と一致させることはアプリケーションの責務です。(このことは、複数のリクエストが重複するHTTPパイプライニングが有効になっている場合に関連します。)"
+" ``handleWithSyncHandler`` や ``handleWithAsyncHandler`` 、若しくは ``map`` や "
+"``mapAsync`` を使用している場合は、この要件は自動的に満たされます。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:115
 msgid ""
 "See :ref:`http-routing-java` for a more convenient high-level DSL to create "
 "request handlers."
-msgstr ""
+msgstr "リクエストハンドラを作成するのに便利な高レベルDSLについては、 :ref:`http-routing-java` を参照して下さい。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:118
 msgid "Streaming Request/Response Entities"
-msgstr ""
+msgstr "ストリーミング リクエスト/レスポンス エンティティ"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:120
 msgid ""
@@ -250,10 +290,13 @@ msgid ""
 "constructing responses. See :ref:`HttpEntity-java` for a description of the "
 "alternatives."
 msgstr ""
+"HTTPメッセージのストリーミングは、 ``HttpEntity`` "
+"のサブクラスを通じてサポートされます。アプリケーションはリクエストを受信した時に、ストリーミングされたエンティティを扱うことが出来るだけでなく、多くの場合は、レスポンスを生成する時にも扱うことが出来る必要があります。代替手段の説明については、"
+" :ref:`HttpEntity-java` を参照して下さい。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:127
 msgid "Closing a connection"
-msgstr ""
+msgstr "接続を閉じる"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:129
 msgid ""
@@ -264,6 +307,9 @@ msgid ""
 "connection and the server will actively close the connection when it has "
 "been sent out."
 msgstr ""
+"HTTPの接続は ``Flow`` を処理中に上流の消費を中断したり、ピアが接続を閉じると閉じられます。明示的に ``Connection: "
+"close`` ヘッダを``HttpResponse`` "
+"に加えることが便利な場合もあります。このレスポンスは接続の最後のレスポンスになり、サーバーは送信が完了すると接続を閉じます。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:134
 msgid ""
@@ -272,10 +318,13 @@ msgid ""
 "using ``take`` combinator). In order to prevent this behaviour entity should"
 " be explicitly drained by attaching it to ``Sink.ignore()``."
 msgstr ""
+"接続はリクエストエンティティが中断された場合(例：``Sink.cancelled()`` "
+"に繋がれた場合)、若しくは、部分的に消費された場合(例：``take`` コンビネータを使用した場合)にも閉じられます。この振る舞いを防ぐ為には、 "
+"``Sink.ignore()`` に繋ぐことによって明示的にドレインしなければなりません。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:141
 msgid "Stand-Alone HTTP Layer Usage"
-msgstr ""
+msgstr "スタンドアロンのHTTPレイヤの使用方法"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:143
 msgid ""
@@ -287,6 +336,8 @@ msgid ""
 "Potential scenarios where this might be useful include tests, debugging or "
 "low-level event-sourcing (e.g by replaying network traffic)."
 msgstr ""
+"リアクティブ・ストリームを基本としたの性質を持つAkka "
+"HTTPレイヤは、TCPインターフェースから完全に切り離す事ができます。この\"特性\"は殆どのアプリケーションでは重要ではありませんが、特定のケースにおいてはネットワークからではない他のソースによって\"実行\"できる事が便利である場合があります。これが有用である可能性があるシナリオは、テストやデバッグ、低レベルのイベントソーシング(例:ネットワークトラフィックの再現)などがあります。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:149
 msgid ""
@@ -295,6 +346,9 @@ msgid ""
 "NotUsed>``, that is a stage that \"upgrades\" a potentially encrypted raw "
 "connection to the HTTP level."
 msgstr ""
+"サーバー側では、スタンドアロンのHTTPレイヤは、暗号化された未処理の接続をHTTPレベルに「アップグレードする」段階である "
+"``BidiFlow<HttpResponse, SslTlsOutbound, SslTlsInbound, HttpRequest, "
+"NotUsed>`` を形成します。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:152
 msgid ""
@@ -303,10 +357,12 @@ msgid ""
 "degrees of configuration. Note, that the returned instance is not reusable "
 "and can only be materialized once."
 msgstr ""
+"レイヤーのインスタンスは ``Http.get(system).serverLayer`` "
+"をオーバーロードした二つのメソッドの内の一つを呼ぶことによって生成する事ができ、また、様々な段階の設定を可能にします。返されたインスタンスは再利用可能ではなく、一度しかマテリアライズされないことに注意してください。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:157
 msgid "Controlling server parallelism"
-msgstr ""
+msgstr "サーバーの並列性を制御する"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:159
 msgid ""
@@ -317,6 +373,8 @@ msgid ""
 "overloaded by too many requests, Akka HTTP can limit the number of requests "
 "it handles in parallel."
 msgstr ""
+"リクエストの処理は、幾つのかの接続を並列に処理する、またはHTTPパイプライニングを使って幾つかのリクエストをレスポンスを待つ事なく送信する、という二つの軸で並列化する事ができます。どちらのケースでもクライアントは送出中のリクエストの数を制御します。多くのリクエストを送信しすぎて過負荷となる事を防ぐために、Akka"
+" HTTPは並列して処理するリクエストの数を制限する事が出来ます。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:164
 msgid ""
@@ -327,6 +385,11 @@ msgid ""
 "Akka Stream's combinators to apply backpressure to control the flow of "
 "incoming connections, e.g. by using ``throttle`` or ``mapAsync``."
 msgstr ""
+"同時接続数を制限するには ``akka.http.server.max-connections`` の設定を使用します。この設定は全ての "
+"``Http.bindAndHandle*`` メソッドに適用されます。  ``Http.bind`` を使用しているのであれば、着信した接続は "
+"``Source<IncomingConnection, ...>`` "
+"として表されます。着信した接続にバックプレシャー制御を適用してフローを制御する為に、 ``throttle`` や ``mapAsync`` "
+"などのAkka Streamのコンビネータを使用して下さい。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:169
 msgid ""
@@ -348,10 +411,21 @@ msgid ""
 "one of these two measures, config setting and manual flow shaping, will "
 "determine how parallel requests on one connection are handled."
 msgstr ""
+"HTTPパイプライニングは一般的には推奨されていませんが ( `そして、多くのブラウザでは無効化されていますが "
+"<https://en.wikipedia.org/w/index.php?title=HTTP_pipelining&oldid=700966692#Implementation_in_web_browsers>`_)、Akka"
+" HTTPでは完全にサポートしています。制限は二段階で適用されます。一つは、 ``akka.http.server.pipeline-limit`` "
+"を設定する事で、未解決のリクエストがユーザが提供する処理フローに設定値以上に供給される事を防ぎます。もう一つは、処理のフローが自身にスロットリングを適用する事によるものです。"
+" ``Http.bindAndHandleSync`` や ``Http.bindAndHandleAsync`` を使用するのであれば、 "
+"``parallelism`` "
+"パラメータで一つの接続に対して並行するリクエストの数を指定する事が出来ます。(デフォルトの値は1です。つまり、パイプライニングは無効化されています。)"
+"  ``Http.bindAndHandle`` や ``Http.bind`` "
+"を使用するのであれば、幾つのリクエストを同時に受け付けるかを、ユーザが提供する処理フローによって完全に制御する事が出来ます。この場合、例えばAkka "
+"Streamの ``mapAsync`` "
+"コンビネータを使用して、並行して処理するリクエストの数を制限する事が出来ます。実際には、これらの二つの措置、つまり、構成の設定と手動によるフローの構成の制約の厳しい方が、一つの接続での並列リクエストの処理方法を決定します。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:185
 msgid "Handling HTTP Server failures in the Low-Level API"
-msgstr ""
+msgstr "低レベルAPIでHTTPサーバの障害を処理する"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:187
 msgid ""
@@ -361,6 +435,8 @@ msgid ""
 " being logged, for example by shutting down the actor system, or notifying "
 "some external monitoring end-point explicitly."
 msgstr ""
+"Akka "
+"HTTPサーバの初期化もしくは実行中に、障害が起こる状況はいくつもあります。Akkaの既定の動作では、全ての障害のログを記録しますが、ログの記録に加えて、例えば、アクターシステムを停止したり、外部のモニタリング装置に明示的に通知したりなど、応答したい時があるかもしれません。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:191
 msgid ""
@@ -371,28 +447,31 @@ msgid ""
 "failing to unmarshal an HttpRequest, examples of failures include (from "
 "outer-most, to inner-most):"
 msgstr ""
+"HTTPサーバを生成したり、マテリアライズする時に幾つもの障害が起こる可能性があります。(平素なストリーミング ``Tcp`` サーバも同様です。) "
+"スタックのさまざまな層で発生する可能性のある失敗の種類には、サーバを起動できない事から、HttpRequestがアンマーシャリングできない事まで "
+"(最も外側のものから最も内側のものまで) 障害の例として含まれます。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:196
 msgid "Failure to ``bind`` to the specified address/port,"
-msgstr ""
+msgstr "指定したアドレス/ポートの ``bind`` に失敗する場合"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:197
 msgid ""
 "Failure while accepting new ``IncommingConnection`` s, for example when the "
 "OS has run out of file descriptors or memory,"
-msgstr ""
+msgstr "OSのファイルディスクリプタやメモリを使い果たし、新しい ``IncommingConnection`` の受信に失敗する場合"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:198
 msgid ""
 "Failure while handling a connection, for example if the incoming "
 "``HttpRequest`` is malformed."
-msgstr ""
+msgstr "受信した ``HttpRequest`` が不正であった場合など、接続の処理に失敗する場合"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:200
 msgid ""
 "This section describes how to handle each failure situation, and in which "
 "situations these failures may occur."
-msgstr ""
+msgstr "この節では、様々な障害の状況に応じた処理の仕方について、またどのような状況でこれらの障害が発生する可能性があるかについて説明します。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:205
 msgid ""
@@ -402,6 +481,9 @@ msgid ""
 "\"binding future\" will fail immediatly, and we can react to if by listening"
 " on the CompletionStage’s completion:"
 msgstr ""
+"最初のタイプ障害はサーバーが指定されたポートをバインドできない場合です。例えば、ポートが既に他のアプリケーションに使用されている場合や "
+"ポートが特権を持っている場合 (即ち、ルートのみ使用する事ができる場合) "
+"などです。この場合、バインド処理のフューチャーは直ぐに失敗し、CompletionStageの完了をリスニングしている場合は応答する事ができます。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:212
 msgid ""
@@ -414,6 +496,9 @@ msgid ""
 "pretty stright forward, as failures are signaled through the stream starting"
 " from the stage which failed, all the way downstream to the final stages."
 msgstr ""
+"一度サーバーがポートのバインドに成功すると、 ``Source<IncomingConnection, ?>`` "
+"が起動し、新しく受信した接続を発行します。Sourceは技術的には障害を検知する事ができます。しかしながら、それはファイルディスクリプタやメモリが枯渇し接続の着信ができなくなった場合など、非常に劇的な状況に限られるべきです。Akka"
+" Streamsにおける障害の処理は非常に進歩しています。障害が発生したストリームからストリームを通って、最終ステージまですべての方法で通知されます。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:221
 msgid ""
@@ -423,6 +508,9 @@ msgid ""
 "let the Actor handle the rest – maybe it'll decide to restart the server or "
 "shutdown the ActorSystem, that however is not our concern anymore."
 msgstr ""
+"以下の例では、ストリームの処理に失敗する ``GraphStage`` を追加しています。 ( :ref:`stream-customize-java`"
+" を参照して下さい。) ストリームがダウンした原因を ``failureMonitor`` "
+"アクターに通知し、残りの処理、つまりサーバーを再起動するのか、アクターシステムを停止するのかをアクターに依頼します。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:231
 msgid ""
@@ -432,6 +520,7 @@ msgid ""
 " failure we can use the same pattern as in the previous snippet, however "
 "apply it to the connection's Flow:"
 msgstr ""
+"三つ目の障害は、接続が確立されたもののその後不意に停止した場合、例えばクライアントがTCP接続を中断した場合です。接続のFlowに以前のコードの断片のパターンを適用する事で、この障害を処理する事ができます。"
 
 #: ../../java/http/server-side/low-level-server-side-api.rst:238
 msgid ""
@@ -440,3 +529,4 @@ msgid ""
 " into those very deeply, as Akka will simply log errors of this kind anyway,"
 " which is a reasonable default for such problems."
 msgstr ""
+"これらの機能は多かれ少なかれ、接続やバインドに失敗したなど、インフラストラクチャの機能に依存していると説明する事ができます。多くの場合、Akkaは単純にエラーログを出力ます。これは、このような問題に対する最も合理的な既定の動作であり、あなたはこれらの問題に深入りする必要はありません。"
