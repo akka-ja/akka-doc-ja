@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: y2k2mt <y2.k2mt@gmail.com>, 2017\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/overview.rst:2
 msgid "Routing DSL Overview"
-msgstr ""
+msgstr "ルーティングDSLの概要"
 
 #: ../../scala/http/routing-dsl/overview.rst:4
 msgid ""
@@ -27,6 +28,9 @@ msgid ""
 "``Function``-level interface that allows an application to respond to "
 "incoming HTTP requests by simply mapping requests to responses:"
 msgstr ""
+"Akka HTTP :ref:`http-low-level-server-side-api` "
+"は、アプリケーションが受信したHTTPリクエストを簡単にレスポンスにマッピングする為の ``Flow``若しくは ``Function`` "
+"レベルのインターフェースを提供しています。"
 
 #: ../../scala/http/routing-dsl/overview.rst:10
 msgid ""
@@ -37,6 +41,10 @@ msgid ""
 "\"ceremony\" required. Also, it doesn't help in keeping your service "
 "definition as DRY_ as you might like."
 msgstr ""
+"受信した ``HttpRequest`` に対してパターンマッチを使った完璧なREST APIを ( `Unfiltered`_ の抽出子を少し使って)"
+" "
+"完全に定義する事が可能ですが、このアプローチは大量の文法の\"儀式\"を必要とし、比較的大きなサービスにはいくらか扱いにくくなってしまいます。また、サービスの定義をあなたが好む"
+" DRY_ に保つのに役に立ちません。"
 
 #: ../../scala/http/routing-dsl/overview.rst:15
 msgid ""
@@ -50,21 +58,26 @@ msgid ""
 "conversion is also provided implicitly by ``RouteResult.route2HandlerFlow`` "
 "[1]_."
 msgstr ""
+"Akka HTTPはその代わりとして、あなたのサービスの振る舞いを簡潔で読みやすく記述できる要素の構造( :ref:`Directives` "
+"と呼ばれています)として表現できる柔軟なDSLを提供しています。ディレクティブは トップレベルにおいて ``bind`` を呼ぶ事で直接供給される "
+"``Flow`` 処理 (若しくは、非同期な処理関数)で構成されるルート構造体として組み上げられます。 ``Route`` からFlowへの変換は "
+"``Route.handlerFlow`` を使用する事で明示的に行う事が出来ます。また、 "
+"``RouteResult.route2HandlerFlow`` [1]_ による暗黙的な変換も提供されています。"
 
 #: ../../scala/http/routing-dsl/overview.rst:22
 msgid ""
 "For example, the service definition from above, written using the routing "
 "DSL, would look like this:"
-msgstr ""
+msgstr "例えば、ルーティングDSLを使用して記述された上記のサービスの定義は次ようになります:"
 
 #: ../../scala/http/routing-dsl/overview.rst:27
 msgid "The core of the Routing DSL becomes available with a single import::"
-msgstr ""
+msgstr "ルーティングDSLのコアは、一つのインポートで有効になります"
 
 #: ../../scala/http/routing-dsl/overview.rst:31
 msgid ""
 "This example also relies on the pre-defined support for Scala XML with::"
-msgstr ""
+msgstr "この例では、予め定義されたScala XMLをサポートする機能にも依存しています"
 
 #: ../../scala/http/routing-dsl/overview.rst:35
 msgid ""
@@ -73,12 +86,14 @@ msgid ""
 " that the Routing DSL promises. The :ref:`Long Example` might do a better "
 "job in this regard."
 msgstr ""
+"ここで示されている非常に短い例は、\"儀式\"を抑えられる事を示すものとしても、ルーティングDSLが約束する簡潔さと可読性の改善を示すものとしても最適ではありません。"
+" :ref:`Long Example` は、この点において良い仕事をしてくれるでしょう。"
 
 #: ../../scala/http/routing-dsl/overview.rst:39
 msgid ""
 "For learning how to work with the Routing DSL you should first understand "
 "the concept of :ref:`Routes`."
-msgstr ""
+msgstr "ルーティングDSLがどのように動作しているかについて学ぶには、まず :ref:`Routes` のコンセプトを理解するべきです。"
 
 #: ../../scala/http/routing-dsl/overview.rst:42
 msgid ""
@@ -91,3 +106,8 @@ msgid ""
 "implicit conversion will also be picked up from "
 "``RouteResult.route2HandlerFlow`` automatically."
 msgstr ""
+"暗黙的な変換対象を自動的に拾い上げるには、型に対するコンパニオンオブジェクトを必要とします。しかし、 ``Route`` は "
+"``RequestContext => Future[RouteResult]`` のエイリアスでしかなく、 ``Route`` "
+"のコンパニオンオブジェクトはありません。幸運にも、暗黙的な変換対象を見つける為の `implicit scope`_ "
+"には、元の型に関連する全ての型が含まれており、 ``RouteResult.route2HandlerFlow`` "
+"によって自動的に拾われ、暗黙的に変換されます。"
