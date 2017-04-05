@@ -29,7 +29,7 @@ msgid ""
 "incoming HTTP requests by simply mapping requests to responses:"
 msgstr ""
 "Akka HTTP :ref:`http-low-level-server-side-api` "
-"は、アプリケーションが受信したHTTPリクエストを簡単にレスポンスにマッピングする為の ``Flow``若しくは ``Function`` "
+"は、アプリケーションが受信したHTTPリクエストを簡単にレスポンスにマッピングする為の ``Flow`` 若しくは ``Function`` "
 "レベルのインターフェースを提供しています。"
 
 #: ../../scala/http/routing-dsl/overview.rst:10
