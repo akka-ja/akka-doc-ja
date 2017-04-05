@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: y2k2mt <y2.k2mt@gmail.com>, 2017\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/overview.rst:4
 msgid "Routing DSL Overview"
-msgstr ""
+msgstr "ルーティングDSLの概要"
 
 #: ../../java/http/routing-dsl/overview.rst:6
 msgid ""
@@ -29,6 +30,10 @@ msgid ""
 "(excerpt from :ref:`Low-level server side example <http-low-level-server-"
 "side-example-java>`):"
 msgstr ""
+"Akka HTTP :ref:`http-low-level-server-side-api-java` "
+"は、アプリケーションが受信したHTTPリクエストを簡単にレスポンスにマッピングする為の ``Flow``若しくは ``Function`` "
+"レベルのインターフェースを提供しています。 ( :ref:`Low-level server side example <http-low-level-"
+"server-side-example-java>` から抜粋。)"
 
 #: ../../java/http/routing-dsl/overview.rst:13
 msgid ""
@@ -38,6 +43,9 @@ msgid ""
 "\"ceremony\" required. Also, it doesn't help in keeping your service "
 "definition as DRY_ as you might like."
 msgstr ""
+"受信した ``HttpRequest`` に対してパターンマッチを使った完璧なREST "
+"APIを完全に定義する事が可能ですが、このアプローチは大量の文法の\"儀式\"を必要とし、比較的大きなサービスにはいくらか扱いにくくなってしまいます。また、サービスの定義をあなたが好む"
+" DRY_ に保つのに役に立ちません。"
 
 #: ../../java/http/routing-dsl/overview.rst:17
 msgid ""
@@ -48,24 +56,29 @@ msgid ""
 "create a handler ``Flow`` (or, alternatively, an async handler function) "
 "that can be directly supplied to a ``bind`` call."
 msgstr ""
+"Akka HTTPはその代わりとして、あなたのサービスの振る舞いを簡潔で読みやすく記述できる要素の構造( :ref:`directives-java` "
+"と呼ばれています)として表現できる柔軟なDSLを提供しています。ディレクティブは トップレベルにおいて ``bind`` を呼ぶ事で直接供給される "
+"``Flow`` 処理 (若しくは、非同期な処理関数)で構成されるルート構造体として組み上げられます。 "
 
 #: ../../java/http/routing-dsl/overview.rst:22
 msgid ""
 "Here's the complete example rewritten using the composable high-level API:"
-msgstr ""
+msgstr "構成可能な高レベルAPIによって書き直された完全な例を次に示します。"
 
 #: ../../java/http/routing-dsl/overview.rst:27
 msgid "The core of the Routing DSL becomes available with a single import::"
-msgstr ""
+msgstr "ルーティングDSLのコアは、一つのインポートで有効になります。"
 
 #: ../../java/http/routing-dsl/overview.rst:31
 msgid ""
 "Or by extending the ``akka.http.javadsl.server.AllDirectives`` class which "
 "brings together all directives into a single class for easier access::"
 msgstr ""
+"また、全てのディレクティブを一つのクラスにまとめてアクセスしやすくする "
+"``akka.http.javadsl.server.AllDirectives`` を拡張することによって"
 
 #: ../../java/http/routing-dsl/overview.rst:36
 msgid ""
 "Of course it is possible to directly import only the directives you need "
 "(i.e. ``WebSocketDirectives`` etc)."
-msgstr ""
+msgstr "もちろん、必要なディレクティブのみ (例えば、``WebSocketDirectives`` など) をインポートすることも可能です。"
