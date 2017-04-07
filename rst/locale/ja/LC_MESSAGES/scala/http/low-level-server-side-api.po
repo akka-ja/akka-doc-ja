@@ -121,7 +121,7 @@ msgid ""
 "first\" HTTP Servers."
 msgstr ""
 " :ref:`implications-of-streaming-http-entities` "
-"の節を読むことを推奨します。この節では、ストリーミングファーストではないHTTPサーバーから移行している人に向けたフルスタックのストリーミングコンセプトに則った説明をしています。"
+"の節を読むことを推奨します。この節では、ストリーミングファーストではないHTTPサーバーから移行している人に向けたフルスタックのストリーミングの概念に則った説明をしています。"
 
 #: ../../scala/http/low-level-server-side-api.rst:49
 msgid "Streams and HTTP"
