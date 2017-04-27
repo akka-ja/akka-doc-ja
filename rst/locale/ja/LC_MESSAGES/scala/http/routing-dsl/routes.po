@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: y2k2mt <y2.k2mt@gmail.com>, 2017\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/routes.rst:4
 msgid "Routes"
-msgstr ""
+msgstr "ルート"
 
 #: ../../scala/http/routing-dsl/routes.rst:6
 msgid ""
@@ -27,42 +28,50 @@ msgid ""
 "structures you build with the DSL, no matter whether they consists of a "
 "single line or span several hundred lines, are instances of this type::"
 msgstr ""
+" \"Route\" はAkka "
+"HTTPのルーティングDSLにおいて中心となる概念です。DSLで構築した構造体は、それが一行で構成されていても数百行で構成されていてもこの型のインスタンスになります。"
 
 #: ../../scala/http/routing-dsl/routes.rst:11
 msgid ""
 "It's a simple alias for a function turning a ``RequestContext`` into a "
 "``Future[RouteResult]``."
-msgstr ""
+msgstr "これは ``RequestContext`` を ``Future[RouteResult]`` に変換する関数の単純なエイリアスです。"
 
 #: ../../scala/http/routing-dsl/routes.rst:13
 msgid ""
 "Generally when a route receives a request (or rather a ``RequestContext`` "
 "for it) it can do one of these things:"
 msgstr ""
+"全般的に、ルートがリクエストを受信すると(若しくは、そのための ``RequestContext`` "
+"を受け取ると)、これらうち一つを実行する事が出来ます。"
 
 #: ../../scala/http/routing-dsl/routes.rst:15
 msgid ""
 "Complete the request by returning the value of "
 "``requestContext.complete(...)``"
-msgstr ""
+msgstr " ``requestContext.complete(...)`` の値を返すことによってリクエストを完了する。"
 
 #: ../../scala/http/routing-dsl/routes.rst:16
 msgid ""
 "Reject the request by returning the value of ``requestContext.reject(...)`` "
 "(see :ref:`rejections-scala`)"
 msgstr ""
+" ``requestContext.reject(...)`` の値を返すことによって、リクエストを拒否します。 ( :ref:`rejections-"
+"scala` を参照して下さい。)"
 
 #: ../../scala/http/routing-dsl/routes.rst:17
 msgid ""
 "Fail the request by returning the value of ``requestContext.fail(...)`` or "
 "by just throwing an exception (see :ref:`exception-handling-scala`)"
 msgstr ""
+" ``requestContext.fail(...)`` の値を返す、若しくは単純に例外を投げることによって、リクエストを失敗させます。 ( :ref"
+":`exception-handling-scala` を参照して下さい。)"
 
 #: ../../scala/http/routing-dsl/routes.rst:18
 msgid ""
 "Do any kind of asynchronous processing and instantly return a "
 "``Future[RouteResult]`` to be eventually completed later"
-msgstr ""
+msgstr "あらゆる非同期処理を行い、後で完了する処理は ``Future[RouteResult]`` として直ぐに返します。"
 
 #: ../../scala/http/routing-dsl/routes.rst:20
 msgid ""
@@ -71,6 +80,9 @@ msgid ""
 " means that the route does not want to handle the request. You'll see "
 "further down in the section about route composition what this is good for."
 msgstr ""
+"前者のケースはかなり明確であり、 ``complete`` "
+"を呼ぶことによって、クライアントにリクエストの応答としてのレスポンスを返すケースです。後者のケースの \"reject\" "
+"はルートが処理を継続したくない場合を意味しています。以下の節では、ルートの構成として、これらが何に適しているのかを詳しく説明します。"
 
 #: ../../scala/http/routing-dsl/routes.rst:24
 msgid ""
@@ -78,6 +90,9 @@ msgid ""
 "scope ``RejectionHandler`` and ``ExceptionHandler`` instances to convert "
 "rejections and exceptions into appropriate HTTP responses for the client."
 msgstr ""
+" ``Route`` は ``Route.seal`` を使うことによって、 \"sealed\" とする事ができます。これらはスコープ内の "
+"``RejectionHandler`` と ``ExceptionHandler`` "
+"のインスタンスを使って、リジェクションと例外をクライアントに返す明確なHTTPレスポンスに変換します。"
 
 #: ../../scala/http/routing-dsl/routes.rst:27
 msgid ""
@@ -85,6 +100,9 @@ msgid ""
 "lifted into a handler ``Flow`` or async handler function to be used with a "
 "``bindAndHandleXXX`` call from the :ref:`http-low-level-server-side-api`."
 msgstr ""
+" ``Route.handlerFlow`` 、 ``Route.asyncHandler`` 又は ``Route`` を使用する事によって、 "
+":ref:`http-low-level-server-side-api` から呼ばれる ``bindAndHandleXXX`` と共に使用する "
+"``Flow`` や非同期な処理関数に引き上げる事が出来ます。"
 
 #: ../../scala/http/routing-dsl/routes.rst:30
 msgid ""
@@ -92,10 +110,12 @@ msgid ""
 "``Flow[HttpRequest, HttpResponse, Unit]`` defined in the ``RouteResult`` "
 "companion, which relies on ``Route.handlerFlow``."
 msgstr ""
+"注記:  ``Route`` から ``Flow[HttpRequest, HttpResponse, Unit]`` への暗黙的な変換が "
+"``Route.handlerFlow`` に依存する ``RouteResult`` のコンパニオンオブジェクトに定義されています。"
 
 #: ../../scala/http/routing-dsl/routes.rst:37
 msgid "RequestContext"
-msgstr ""
+msgstr "リクエストコンテキスト"
 
 #: ../../scala/http/routing-dsl/routes.rst:39
 msgid ""
@@ -106,22 +126,29 @@ msgid ""
 "value that describes how much of the request URI has not yet been matched by"
 " a :ref:`Path Directive <PathDirectives>`."
 msgstr ""
+"リクエストコンテキストは ``HttpRequest`` インスタンスに、 ``ExecutionContext`` 、 "
+"``Materializer``　、 ``LoggingAdapter`` や設定された ``RoutingSettings`` "
+"などの典型的なルーティング処理に必要とされる情報を付加し、その機能を高めます。また、これには :ref:`Path Directive "
+"<PathDirectives>` にマッチしていないリクエストURIの数の値を持つ ``unmatchedPath`` も含まれています。"
 
 #: ../../scala/http/routing-dsl/routes.rst:44
 msgid ""
 "The ``RequestContext`` itself is immutable but contains several helper "
 "methods which allow for convenient creation of modified copies."
 msgstr ""
+" ``RequestContext`` 自体は不変ですが、利便性の為に、変更されたコピーを生成する幾つかのヘルパーメソッドが提供されています。"
 
 #: ../../scala/http/routing-dsl/routes.rst:51
 msgid "RouteResult"
-msgstr ""
+msgstr "ルートリザルト"
 
 #: ../../scala/http/routing-dsl/routes.rst:53
 msgid ""
 "``RouteResult`` is a simple abstract data type (ADT) that models the "
 "possible non-error results of a ``Route``. It is defined as such::"
 msgstr ""
+" ``RouteResult`` は ``Route`` "
+"のエラーではない結果をモデルとした、シンプルな抽象データ型(ADT)です。次のように定義されます::"
 
 #: ../../scala/http/routing-dsl/routes.rst:63
 msgid ""
@@ -130,34 +157,37 @@ msgid ""
 ":ref:`-reject-` or :ref:`-redirect-`) or the respective methods on the "
 ":ref:`RequestContext` instead."
 msgstr ""
+"通常は ``RouteResult`` をあなた自身で作成するのではなく、事前に定義された :ref:`RouteDirectives` ( "
+":ref:`-complete-` 、 :ref:`-reject-` 若しくは :ref:`-redirect-` ) "
+"に依存するか、それぞれのメソッドを :ref:`RequestContext` に置き換えて下さい。"
 
 #: ../../scala/http/routing-dsl/routes.rst:69
 msgid "Composing Routes"
-msgstr ""
+msgstr "ルートを組み立てる"
 
 #: ../../scala/http/routing-dsl/routes.rst:71
 msgid ""
 "There are three basic operations we need for building more complex routes "
 "from simpler ones:"
-msgstr ""
+msgstr "一から複雑なルートを構築する為に必要な三つの基本的な操作があります。"
 
 #: ../../scala/http/routing-dsl/routes.rst:73
 msgid ""
 "Route transformation, which delegates processing to another, \"inner\" route"
 " but in the process changes some properties of either the incoming request, "
 "the outgoing response or both"
-msgstr ""
+msgstr "別の内部的なルートに処理を委譲し、受信したリクエスト、送信されたレスポンス、若しくはその両方のプロパティの一部が変更するルートの変換"
 
 #: ../../scala/http/routing-dsl/routes.rst:75
 msgid ""
 "Route filtering, which only lets requests satisfying a given filter "
 "condition pass and rejects all others"
-msgstr ""
+msgstr "条件を満たすリクエストのみを通過させ、他のリクエストは全て拒否するルートのフィルタリング"
 
 #: ../../scala/http/routing-dsl/routes.rst:76
 msgid ""
 "Route chaining, which tries a second route if a given first one was rejected"
-msgstr ""
+msgstr "最初のルートが拒否された時に次のルートを試行するルートの連鎖"
 
 #: ../../scala/http/routing-dsl/routes.rst:78
 msgid ""
@@ -168,10 +198,15 @@ msgid ""
 " by Akka HTTP and which you can also easily create yourself. "
 ":ref:`Directives` deliver most of Akka HTTP's power and flexibility."
 msgstr ""
+"最後のポイントは結合演算子 ``~`` で実現されます。これは ``import "
+"akka.http.scaladsl.server.Directives._`` を行なった時に有効になる拡張メソッドです。最初の二つのポイントは、所謂"
+" :ref:`Directives` と呼ばれるもので提供されています。多くの  :ref:`Directives` は Akka "
+"HTTPで事前に定義されており、また、あなた自身で簡単に作成することも出来ます。 :ref:`Directives` はAkka "
+"HTTPの力と柔軟性の多くを提供します。"
 
 #: ../../scala/http/routing-dsl/routes.rst:88
 msgid "The Routing Tree"
-msgstr ""
+msgstr "ルーティングツリー"
 
 #: ../../scala/http/routing-dsl/routes.rst:90
 msgid ""
@@ -181,29 +216,31 @@ msgid ""
 "through all the branches in a depth-first manner until either some node "
 "completes it or it is fully rejected."
 msgstr ""
+"基本的に、ディレクティブや ``~`` "
+"演算子と入れ子構造でカスタムしたルートを結合すると、ルートはツリー構造で構築されます。リクエストがこのルートのツリー構造に注入されると、リクエストはツリーの頂点から深度を優先する規則に従って、あるノードが完了、若しくは完全に拒否されるまで、全てのブランチに流れ落ちます。"
 
 #: ../../scala/http/routing-dsl/routes.rst:94
 msgid "Consider this schematic example::"
-msgstr ""
+msgstr "この模式的な例を考えてみましょう::"
 
 #: ../../scala/http/routing-dsl/routes.rst:112
 msgid "Here five directives form a routing tree."
-msgstr ""
+msgstr "ここでは、五つのディレクティブがルーティングツリーを形成します。"
 
 #: ../../scala/http/routing-dsl/routes.rst:114
 msgid ""
 "Route 1 will only be reached if directives ``a``, ``b`` and ``c`` all let "
 "the request pass through."
-msgstr ""
+msgstr "ルート1は ``a``, ``b`` 及び ``c`` のディレクティブが全て通過する場合にのみ到達します。"
 
 #: ../../scala/http/routing-dsl/routes.rst:115
 msgid ""
 "Route 2 will run if ``a`` and ``b`` pass, ``c`` rejects and ``d`` passes."
-msgstr ""
+msgstr "ルート2は、 ``a`` と ``b`` を通過し、 ``c`` で拒否され ``d`` を通過した場合に実行されます。"
 
 #: ../../scala/http/routing-dsl/routes.rst:116
 msgid "Route 3 will run if ``a`` and ``b`` pass, but ``c`` and ``d`` reject."
-msgstr ""
+msgstr "ルート3は、 ``a`` と ``b`` を通過し、 ``c`` と ``d`` で拒否された場合に実行されます。"
 
 #: ../../scala/http/routing-dsl/routes.rst:118
 msgid ""
@@ -212,3 +249,5 @@ msgid ""
 "complex filtering logic quite easy to implement: simply put the most "
 "specific cases up front and the most general cases in the back."
 msgstr ""
+"従って、ルート3は直前の位置で拒否された場合にのみ実行される \"catch-all\" "
+"ルートと見做す事が出来ます。このメカニズムにより、複雑なフィルタリングロジックを簡単に実装する事が出来ます。最も限定的なケースを前方に置き、一般的なケースを後方に置くだけです。"
