@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: y2k2mt <y2.k2mt@gmail.com>, 2017\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/routes.rst:4
 msgid "Routes"
-msgstr ""
+msgstr "ルート"
 
 #: ../../java/http/routing-dsl/routes.rst:6
 msgid ""
@@ -28,6 +29,9 @@ msgid ""
 "single line or span several hundred lines, are functions turning a "
 "``RequestContext`` into a ``CompletionStage<RouteResult>``."
 msgstr ""
+" \"Route\" はAkka "
+"HTTPのルーティングDSLにおいて中心となる概念です。DSLで構築した構造体は、それが一行で構成されていても数百行で構成されていても "
+"``RequestContext`` を ``CompletionStage<RouteResult>`` に変換する関数になります。"
 
 #: ../../java/http/routing-dsl/routes.rst:10
 msgid ""
@@ -39,36 +43,47 @@ msgid ""
 "``akka.stream.Materializer``, so that these don't have to be passed around "
 "manually."
 msgstr ""
+" ``Route`` それ自身は、 ``RequestContext`` を実行し ``RouteResult`` を返す関数です。 "
+"``RequestContext`` "
+"は現在のリクエストと、リクエストがルート構造を通過した時に合致しなかったURIのパスの情報などの補助的なデータを含むデータ構造体です。このデータ構造体は現在の"
+" ``ExecutionContext`` や  ``akka.stream.Materializer`` "
+"も含まれています。これらを手動で持ち回る必要はありません。"
 
 #: ../../java/http/routing-dsl/routes.rst:15
 msgid ""
 "Generally when a route receives a request (or rather a ``RequestContext`` "
 "for it) it can do one of these things:"
 msgstr ""
+"全般的に、ルートがリクエストを受信すると(若しくは、そのための ``RequestContext`` "
+"を受け取ると)、これらうち一つを実行する事が出来ます。"
 
 #: ../../java/http/routing-dsl/routes.rst:17
 msgid ""
 "Complete the request by returning the value of "
 "``requestContext.complete(...)``"
-msgstr ""
+msgstr " ``requestContext.complete(...)`` の値を返すことによってリクエストを完了します。"
 
 #: ../../java/http/routing-dsl/routes.rst:18
 msgid ""
 "Reject the request by returning the value of ``requestContext.reject(...)`` "
 "(see :ref:`rejections-java`)"
 msgstr ""
+" ``requestContext.reject(...)`` の値を返すことによって、リクエストを拒否します。 ( :ref:`rejections-"
+"java` を参照して下さい。)"
 
 #: ../../java/http/routing-dsl/routes.rst:19
 msgid ""
 "Fail the request by returning the value of ``requestContext.fail(...)`` or "
 "by just throwing an exception (see :ref:`exception-handling-java`)"
 msgstr ""
+" ``requestContext.fail(...)`` の値を返す、若しくは単純に例外を投げることによって、リクエストを失敗させます。 ( :ref"
+":`exception-handling-java` を参照して下さい。)"
 
 #: ../../java/http/routing-dsl/routes.rst:20
 msgid ""
 "Do any kind of asynchronous processing and instantly return a "
 "``Future[RouteResult]`` to be eventually completed later"
-msgstr ""
+msgstr "あらゆる非同期処理を行い、後で完了する処理は ``Future[RouteResult]`` として直ぐに返します。"
 
 #: ../../java/http/routing-dsl/routes.rst:22
 msgid ""
@@ -77,6 +92,9 @@ msgid ""
 " means that the route does not want to handle the request. You'll see "
 "further down in the section about route composition what this is good for."
 msgstr ""
+"前者のケースはかなり明確であり、 ``complete`` "
+"を呼ぶことによって、クライアントにリクエストの応答としてのレスポンスを返すケースです。後者のケースの \"reject\" "
+"はルートが処理を継続したくない場合を意味しています。以下の節では、ルートの構成として、これらの何が良いのかを詳しく説明しています。"
 
 #: ../../java/http/routing-dsl/routes.rst:26
 msgid ""
@@ -84,6 +102,9 @@ msgid ""
 "scope ``RejectionHandler`` and ``ExceptionHandler`` instances to convert "
 "rejections and exceptions into appropriate HTTP responses for the client."
 msgstr ""
+" ``Route`` は ``Route.seal`` を使うことによって、 \"sealed\" とする事ができます。これらはスコープ内の "
+"``RejectionHandler`` と ``ExceptionHandler`` "
+"のインスタンスを使って、リジェクションと例外をクライアントに返す明確なHTTPレスポンスとして変換します。"
 
 #: ../../java/http/routing-dsl/routes.rst:29
 msgid ""
@@ -91,10 +112,13 @@ msgid ""
 "lifted into a handler ``Flow`` or async handler function to be used with a "
 "``bindAndHandleXXX`` call from the :ref:`http-low-level-server-side-api`."
 msgstr ""
+" ``Route.handlerFlow`` 、 ``Route.asyncHandler`` 又は ``Route`` を使用する事によって、 "
+":ref:`http-low-level-server-side-api` から呼ばれる ``bindAndHandleXXX`` と共に使用する "
+"``Flow`` や非同期な処理関数に引き上げる事が出来ます。"
 
 #: ../../java/http/routing-dsl/routes.rst:36
 msgid "RequestContext"
-msgstr ""
+msgstr "リクエストコンテキスト"
 
 #: ../../java/http/routing-dsl/routes.rst:38
 msgid ""
@@ -105,16 +129,21 @@ msgid ""
 "value that describes how much of the request URI has not yet been matched by"
 " a :ref:`Path Directive <PathDirectives>`."
 msgstr ""
+"リクエストコンテキストは ``HttpRequest`` インスタンスに、 ``ExecutionContext`` 、 "
+"``Materializer``　、 ``LoggingAdapter`` や設定された ``RoutingSettings`` "
+"などの典型的なルーティング処理に必要とされる情報を付加し、その機能を高めます。また、これには :ref:`Path Directive "
+"<PathDirectives>` にマッチしていないリクエストURIの数の値を持つ ``unmatchedPath`` も含まれています。"
 
 #: ../../java/http/routing-dsl/routes.rst:43
 msgid ""
 "The ``RequestContext`` itself is immutable but contains several helper "
 "methods which allow for convenient creation of modified copies."
 msgstr ""
+" ``RequestContext`` 自体は不変ですが、利便性の為に、変更されたコピーを生成する幾つかのヘルパーメソッドが提供されています。"
 
 #: ../../java/http/routing-dsl/routes.rst:49
 msgid "RouteResult"
-msgstr ""
+msgstr "ルートリザルト"
 
 #: ../../java/http/routing-dsl/routes.rst:51
 msgid ""
@@ -124,14 +153,17 @@ msgid ""
 "if it was generated by one of the ``completeX`` methods, or a rejection that"
 " contains information about why the route could not handle the request."
 msgstr ""
+" ``RouteResult`` はルートを評価した可能性のある結果を表す、曖昧な構造です。 ``RouteResult`` は "
+"``RequestContext`` のメソッドを使うことによってのみ、生成する事が出来ます。結果は ``completeX`` "
+"メソッドの一つによって生成されたレスポンスか、ルートがリクエストを処理出来なかった理由を含むリジェクションの何れかです。"
 
 #: ../../java/http/routing-dsl/routes.rst:58
 msgid "Composing Routes"
-msgstr ""
+msgstr "ルートを組み立てる"
 
 #: ../../java/http/routing-dsl/routes.rst:60
 msgid "Routes are composed to form the route tree in two principle ways."
-msgstr ""
+msgstr "ルートは二つの法則によってルートツリーとして形成されます。"
 
 #: ../../java/http/routing-dsl/routes.rst:62
 msgid ""
@@ -141,31 +173,33 @@ msgid ""
 "route argument that is invoked when its semantics decide to do so, e.g. when"
 " a URL path is matched."
 msgstr ""
+"ルートは \"Directive\" でラップする事ができ、内部のルートをラップした振る舞いを追加する事が出来ます。Java "
+"DSLにおいては、ディレクティブはRouteを返すメソッドです。多くの場合、ディレクティブのメソッドはそのセマンティクスが、例えば、URLのパスが合致した時など、ルートが実行される時に呼び出される内部のルートを持っています。"
 
 #: ../../java/http/routing-dsl/routes.rst:66
 msgid "Example topics for directives include:"
-msgstr ""
+msgstr "ディレクティブトピックの例"
 
 #: ../../java/http/routing-dsl/routes.rst:68
 msgid ""
 "filtering requests to decide which requests will get to the inner route"
-msgstr ""
+msgstr "どのリクエストが内部のルートに到達するかを決定する為、リクエストをフィルタします。"
 
 #: ../../java/http/routing-dsl/routes.rst:69
 msgid "transforming the request before passing it to the inner route"
-msgstr ""
+msgstr "内部のルートを通過する前にリクエストを変換します。"
 
 #: ../../java/http/routing-dsl/routes.rst:70
 msgid ""
 "transforming the response (or more generally the route result) received from"
 " the inner route"
-msgstr ""
+msgstr "内部のルートから受け取ったレスポンス(若しくは、ルートリザルト)を変換します。"
 
 #: ../../java/http/routing-dsl/routes.rst:71
 msgid ""
 "applying side-effects around inner route processing, such as measuring the "
 "time taken to run the inner route"
-msgstr ""
+msgstr "内部のルートの実行にかかった時間を計測するなど、処理中の副作用を適用します。"
 
 #: ../../java/http/routing-dsl/routes.rst:73
 msgid ""
@@ -175,10 +209,13 @@ msgid ""
 " a request, in which case further alternatives are explored. Alternatives "
 "are specified by passing a list of routes to to ``RouteDirectives.route()``."
 msgstr ""
+"もう一つの構成方法は、 ``Route`` "
+"のリストを定義する事です。代替えのルートは、その中の一つのルートがリクエストを受け取り、レスポンスを供給するまで試行されます。一方、ルートはリクエストを拒否することも出来、この場合はさらに別の選択肢が検討されます。代替案はルートのリストを"
+" ``RouteDirectives.route()`` に渡すことによって指定されます。"
 
 #: ../../java/http/routing-dsl/routes.rst:81
 msgid "The Routing Tree"
-msgstr ""
+msgstr "ルーティングツリー"
 
 #: ../../java/http/routing-dsl/routes.rst:83
 msgid ""
@@ -188,6 +225,7 @@ msgid ""
 "in a depth-first manner until either some node completes it or it is fully "
 "rejected."
 msgstr ""
+"基本的に、入れ子構造でカスタムしたルートを結合すると、ルートはツリー構造で構築されます。リクエストがこのルートのツリー構造に注入されると、リクエストはツリーの頂点から深度を優先する規則に従って、あるノードが完了、若しくは完全に拒否されるまで、全てのブランチに流れ落ちます。"
 
 #: ../../java/http/routing-dsl/routes.rst:87
 msgid ""
@@ -195,25 +233,26 @@ msgid ""
 "you can just imagine any of the available directives, e.g. matching a "
 "particular path, header or request parameter.::"
 msgstr ""
+"この模式的な例を考えてみます。directiveAやdirectiveB、その他は、例えば、パスやヘッダ及びリクエストパラメータに合致する幾つかの有効なディレクティブとして考える事が出来ます。"
 
 #: ../../java/http/routing-dsl/routes.rst:108
 msgid "Here five directives form a routing tree."
-msgstr ""
+msgstr "ここでは、五つのディレクティブがルーティングツリーを形成します。"
 
 #: ../../java/http/routing-dsl/routes.rst:110
 msgid ""
 "Route 1 will only be reached if directives ``a``, ``b`` and ``c`` all let "
 "the request pass through."
-msgstr ""
+msgstr "ルート1は ``a``, ``b`` 及び ``c`` のディレクティブが全て通過する場合にのみ到達します。"
 
 #: ../../java/http/routing-dsl/routes.rst:111
 msgid ""
 "Route 2 will run if ``a`` and ``b`` pass, ``c`` rejects and ``d`` passes."
-msgstr ""
+msgstr "ルート2は、 ``a`` と ``b`` を通過し、 ``c`` で拒否され ``d`` を通過した場合に実行されます。"
 
 #: ../../java/http/routing-dsl/routes.rst:112
 msgid "Route 3 will run if ``a`` and ``b`` pass, but ``c`` and ``d`` reject."
-msgstr ""
+msgstr "ルート3は、 ``a`` と ``b`` を通過し、 ``c`` と ``d`` で拒否された場合に実行されます。"
 
 #: ../../java/http/routing-dsl/routes.rst:114
 msgid ""
@@ -222,3 +261,5 @@ msgid ""
 "complex filtering logic quite easy to implement: simply put the most "
 "specific cases up front and the most general cases in the back."
 msgstr ""
+"従って、ルート3は直前の位置で拒否された場合にのみ実行される \"catch-all\" "
+"ルートと見做す事が出来ます。このメカニズムにより、複雑なフィルタリングロジックを簡単に実装する事が出来ます。最も限定的なケースを前方に置き、一般的なケースを後方に置くだけです。"
