@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Takaichi Kubo <tk.qubo@gmail.com>, 2016\n"
+"Last-Translator: Qubo <tk.qubo@gmail.com>, 2016\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,13 +29,13 @@ msgid ""
 "tools:"
 msgstr ""
 "ストリームは基本的にはソースから始まります。Akka Stream "
-"を始める場合も然りです。しかしまずは、ストリーミングのために必要な道具をインポートしてみましょう。"
+"を始める場合も然りです。しかしまずは、ストリーミングのために必要なものをインポートしてみましょう。"
 
 #: ../../scala/stream/stream-quickstart.rst:11
 msgid ""
 "If you want to execute the code samples while you read through the quick "
 "start guide, you will also need the following imports:"
-msgstr "このクイックスタートガイドを読みつつサンプルコードを実行したい場合、以下のインポートも必要になります。"
+msgstr "このクイックスタートガイドを読み進めるなかでサンプルコードを実行する場合、以下のインポートも必要になります。"
 
 #: ../../scala/stream/stream-quickstart.rst:15
 msgid ""
@@ -52,10 +52,10 @@ msgid ""
 "no auxiliary information is produced, the type ``akka.NotUsed`` is used—and "
 "a simple range of integers surely falls into this category."
 msgstr ""
-"*TBD* :class:`Source` "
-"型は2つの型パラメータを取ります。一つ目がソースが発行する個別要素の型を示し、二つ目が、実行中のソースが生成する補助的な値を示します（##???##）(例えばネットワークソースは、接続先のポートや通信先のアドレスに関する情報を提供します)。"
+":class:`Source` "
+"型は2つの型パラメータを取ります。一つ目がソースが発行する個別要素の型を示し、二つ目が、実行中のソースが生成する補助的な値を示します(例えばネットワークソースは、接続先のポートや通信先のアドレスに関する情報を提供します)。"
 " 補助的な情報が生成されない場合、ここには ``akka.NotUsed`` "
-"という型が使われます。例えば整数の範囲をストリームとして扱う場合、これに相当します。"
+"という型が付与されます。例えば整数の範囲をストリームとして扱うケースがこれに相当します。"
 
 #: ../../scala/stream/stream-quickstart.rst:26
 msgid ""
@@ -63,7 +63,7 @@ msgid ""
 "the first 100 natural numbers, but this source is not yet active. In order "
 "to get those numbers out we have to run it:"
 msgstr ""
-"このソースを作成したということは、1から100までの整数を発行するためのレシピが作成されたということです。しかしソースはまだアクティブにはなっていません。これらの整数を手にするには、次のようなコードを実行する必要があります。"
+"このソースを作成したということは、1から100までの整数を発行するためのレシピが作成されたということです。しかしソースはまだアクティブにはなっていません。これらの整数を手にするには、以下のようなコードを実行する必要があります。"
 
 #: ../../scala/stream/stream-quickstart.rst:32
 msgid ""
@@ -73,6 +73,9 @@ msgid ""
 " “run” be part of the method name; there are other methods that run Akka "
 "Streams, and they all follow this pattern."
 msgstr ""
+"この行では、ソースに対してそれを消費するための関数を与えています。例では単純に数値をコンソール上に出力しようとしており、Actorがこの小さなストリームのレシピを受け取って実行します。\"run\""
+" という語を名前に含んだメソッドが、実行の引き金となります。Akka Stream "
+"を実行するためのメソッドは他にもありますが、それらは例外なくこの命名規則に従っています。"
 
 #: ../../scala/stream/stream-quickstart.rst:38
 msgid ""
@@ -80,6 +83,8 @@ msgid ""
 "are probably also asking yourself what this ``materializer`` means. In order"
 " to get this value we first need to create an Actor system:"
 msgstr ""
+"ところで、このストリームを実行する Actor はどこで生成されるのか、そしてこの ``materializer`` "
+"は一体何者なのでしょうか。これらの値を取得するには、まずアクターシステムを作る必要があります。"
 
 #: ../../scala/stream/stream-quickstart.rst:44
 msgid ""
@@ -92,6 +97,11 @@ msgid ""
 "it is omitted from the ``run`` method call arguments, which we will do in "
 "the following."
 msgstr ""
+"マテリアライザを生成する方法は他にもあります。例えばアクター内部でストリームを利用する際、 :class:`ActorContext` "
+"から生成します。:class:`Materializer` "
+"クラスは、ストリーム実行エンジンのためのファクトリであり、ストリームを走らせるために必要なものです。今の段階では詳細を理解する必要は全くありませんが、ただ"
+" :class:`Source` が持っているあらゆる ``run`` メソッドを呼び出すために必要だということだけ覚えておいてください。``run``"
+" メソッドの引数に指定しなかった場合、マテリアライザは暗黙的に選択されます。次を御覧ください。"
 
 #: ../../scala/stream/stream-quickstart.rst:52
 msgid ""
@@ -100,6 +110,8 @@ msgid ""
 "can be reused, incorporated into a larger design. We may choose to transform"
 " the source of integers and write it to a file instead:"
 msgstr ""
+":class:`Source` は、どのようなデータを実行するかの説明書に過ぎないのですが、これはAkka "
+"Streamの優れた点でもあります。ソースを建築家の青写真のように再利用し、より大きな設計に役立てることが可能なのです。先の例で言うと整数のソースを変形してファイルに書き込むこともできます。"
 
 #: ../../scala/stream/stream-quickstart.rst:59
 msgid ""
@@ -118,10 +130,18 @@ msgid ""
 "bytes or elements were consumed and whether the stream terminated normally "
 "or exceptionally."
 msgstr ""
+"まず、ストリーム全体に対して計算処理を適用するために ``scan`` コンビネータを用います。これは数値の1( ``BigInt(1)`` "
+")から始めて、続く数値を次々と掛け合わせてゆき、初期値とそれに続く全ての計算結果を出力として返します。結果として階乗のリストを、後の再利用のために "
+":class:`Source` "
+"に隠蔽した形で手に入れることができました。ここで注意していただきたいのは、実際の計算はまだ何も行われていないということです。これはストリームを実行した際にどのような計算処理を行いたいかを記述したものに過ぎないのです。更にこの数値リストを、テキストファイル内の各行を表現した"
+" :class:`ByteString` "
+"オブジェクトのストリームへと変換します。そしてデータの受信者としてファイルを指定することにより、ストリームを実行するのです。Akka Stream "
+"の用語では、これを :class:`Sink` と呼びます。:class:`IOResult` は Akka Stream で IO "
+"操作が返却するタイプです。これはどのくらいのバイトあるいは要素が消費されたか、そしてストリームが正常終了あるいは異常終了したかに関する情報を保持しています。"
 
 #: ../../scala/stream/stream-quickstart.rst:74
 msgid "Reusable Pieces"
-msgstr ""
+msgstr "再利用可能な部品"
 
 #: ../../scala/stream/stream-quickstart.rst:76
 msgid ""
@@ -135,6 +155,11 @@ msgid ""
 " that is like a source but with an “open” input. In Akka Streams this is "
 "called a :class:`Flow`:"
 msgstr ""
+"他のストリーム系ライブラリが持たない Akka Stream "
+"の優れた点として、ソースだけでなく、他の全ての要素も青写真のように再利用可能であるということが挙げられます。例えばファイル書込用の "
+":class:`Sink` は、入力文字列から :class:`ByteString` "
+"要素を取得する処理を挿入し、それを再利用可能な部品としてパッケージ化することもできます。(普段目にする英文のように)ストリームを書き込む言語は常に左から右へと流れてゆきます。従ってソースに似てはいるものの、「開いた」入力元となる開始地点も必要です。これを"
+" Akka Stream で :class:`Flow`: と呼びます。"
 
 #: ../../scala/stream/stream-quickstart.rst:87
 msgid ""
@@ -148,6 +173,12 @@ msgid ""
 "starting point; since we want to retain what the ``FileIO.toPath`` sink has "
 "to offer, we need to say ``Keep.right``)."
 msgstr ""
+"文字列のストリームから始まり、それぞれを :class:`ByteString` へ変換し、そして先ほどのファイル書き込み用 :class:`Sink`"
+" へと流し込んでゆきます。できあがった青写真は :class:`Sink[String, Future[IOResult]]` "
+"という型になります。これは文字列を入力値として取り、マテリアル化する際に ``Future[IOResult]`` "
+"型の補助情報を生成することを意味します(:class:`Source` や :class:`Flow` "
+"で処理をチェーンする場合、補助情報―「マテリアル化された値」とも呼びます―の型は最上流の開始地点で決まります。ここでは "
+"``FileIO.toPath`` が提供するものを保持したいため、``Keep.right`` と宣言する必要があります)。"
 
 #: ../../scala/stream/stream-quickstart.rst:97
 msgid ""
@@ -155,10 +186,12 @@ msgid ""
 "to our ``factorials`` source—after a small adaptation to turn the numbers "
 "into strings:"
 msgstr ""
+"このできあがったばかりのピカピカの :class:`Sink` を、数値を文字列に変更するため少しだけ手を加えた ``factorials`` "
+"につなげてみましょう。"
 
 #: ../../scala/stream/stream-quickstart.rst:104
 msgid "Time-Based Processing"
-msgstr ""
+msgstr "時間ベースの処理"
 
 #: ../../scala/stream/stream-quickstart.rst:106
 msgid ""
@@ -170,6 +203,10 @@ msgid ""
 "second is the factorial of one, and so on. We combine these two by forming "
 "strings like ``\"3! = 6\"``."
 msgstr ""
+"ここからより複雑な例に入る前に、Akka Stream が実現するストリーミングの性質について見てゆきましょう。まず ``factorials`` "
+"ソースをスタート地点として、0 から 100 までの数値を発行する :class:`Source` "
+"に対してそれぞれの要素でペアを作ってゆきます。``factorials`` ソースから発行される 1 番目の値は 0 の階乗、2 番めが "
+"1の階乗、といった具合に続いてゆきます。この数値の組み合わせで ``\"3! = 6\"`` のような文字列を作ってゆきます。"
 
 #: ../../scala/stream/stream-quickstart.rst:116
 msgid ""
@@ -182,6 +219,10 @@ msgid ""
 "first element gets through immediately and the second then has to wait for "
 "one second and so on)."
 msgstr ""
+"ここまでの操作には時間という概念は考慮されていませんでした。このままでは通常のコレクションに対する操作と何ら変わりません。しかし次の行では、ストリームが一定の速度で流れるように処理が示されています。具体的には``throttle``"
+" コンビネータを使って、秒間1要素でストリームの速度を絞っています。(引数に出てくる2つめの ``1`` "
+"は、データのバースト時に流しても良い最大の要素数を指定します。ここで ``1`` "
+"を渡しているのは、最初の要素が流れた直後は、後続の要素はそれぞれ1秒待たなければいけない、という意味です。)"
 
 #: ../../scala/stream/stream-quickstart.rst:125
 msgid ""
@@ -198,6 +239,10 @@ msgid ""
 "incoming rate is higher than one per second the throttle combinator will "
 "assert *back-pressure* upstream."
 msgstr ""
+"このプログラムを実行すると、一秒ごとに一行が表示されるはずです。さて、直ちに役立つわけでもないですが、留意して欲しいことがあります。それは、ここでもし10億もの数値を生成するようなストリームを使ったとしても、JVMがOutOfMemoryErrorでクラッシュすることはないということです。また、ストリームがバックグラウンドで実行されることにも着目してください(これは補助情報が:class:`Future`として提供されていることの理由になります)。この仕組が動くのは、Akka"
+" "
+"Streamが暗黙に汎用的なフローコントロールを実装しており、全てのコンビネータがバックプレッシャーを意識している作りだからです。これによってthrottleコンビネータが、上流のデータソース全てに対して、要素を決められたレートでしか受け取ることができないということを通知することができます。つまり秒間1以上の入力レートに直面した際、throttleコンビネータは上流に対して"
+"*back-pressure*を通知します。"
 
 #: ../../scala/stream/stream-quickstart.rst:137
 msgid ""
@@ -206,10 +251,13 @@ msgid ""
 "transformation combinators to choose from, see also :ref:`stages-"
 "overview_scala`."
 msgstr ""
+"これがAkka "
+"Streamの簡単な要約となります。他にも数多くのソースとシンク、そして更に多くのストリーム変換のコンビネータが利用可能ですが、詳細につきましては:ref"
+":`stages-overview_scala` もご参照ください。"
 
 #: ../../scala/stream/stream-quickstart.rst:142
 msgid "Reactive Tweets"
-msgstr ""
+msgstr "リアクティブTweet"
 
 #: ../../scala/stream/stream-quickstart.rst:144
 msgid ""
@@ -218,6 +266,7 @@ msgid ""
 "we'll consider consuming a stream of tweets and extracting information "
 "concerning Akka from them."
 msgstr ""
+"ストリーム処理の典型的なユースケースとして、ライブストリームデータを消費して、そこから有用なデータを抽出したりまとめたりする例を考えてみましょう。ここではツイートのストリームを消費して、そこからAkkaに関連した情報を抽出してみます。"
 
 #: ../../scala/stream/stream-quickstart.rst:147
 msgid ""
@@ -228,12 +277,15 @@ msgid ""
 "of such systems. Instead Akka Streams depend on internal backpressure "
 "signals that allow to control what should happen in such scenarios."
 msgstr ""
+"また、*「もし購読者がデータのライブストリームを消費する速度があまりにも遅い場合はどうするのか」* "
+"という、全てのノンブロッキングソリューションに内在する問題も考えてみます。概して要素をバッファリングするソリューションが取られることが多いですが、これは結果的にはバッファーオーバーフローを引き起こしたりシステムを不安定にさせる結果に終わります。一方でAkka"
+" Streamでは、このような状況においてどう振る舞うべきかをコントロールするための内部的なバックプレッシャーシグナル機構を備えています。"
 
 #: ../../scala/stream/stream-quickstart.rst:154
 msgid ""
 "Here's the data model we'll be working with throughout the quickstart "
 "examples:"
-msgstr ""
+msgstr "ここで、本クイックスタートの例を通じて扱ってゆくデータモデルを紹介します。"
 
 #: ../../scala/stream/stream-quickstart.rst:159
 msgid ""
@@ -243,10 +295,13 @@ msgid ""
 "sections of the docs, and then come back to this quickstart to see it all "
 "pieced together into a simple example application."
 msgstr ""
+"このままコード例に飛び込んでゆく前に使用される語彙の概観を理解したい場合、ドキュメンテーション内の :ref:`core-concepts-scala`"
+" や :ref:`defining-and-running-streams-scala` "
+"節に目を通してみてください。クイックスタートに戻った際、それらの語彙がこのシンプルなアプリケーション例でどう利用されるか理解できることでしょう。"
 
 #: ../../scala/stream/stream-quickstart.rst:164
 msgid "Transforming and consuming simple streams"
-msgstr ""
+msgstr "シンプルなストリームの変換と消費"
 
 #: ../../scala/stream/stream-quickstart.rst:165
 msgid ""
@@ -254,6 +309,8 @@ msgid ""
 "stream from which we'll want to extract certain information, like for "
 "example finding all twitter handles of users who tweet about ``#akka``."
 msgstr ""
+"ここで扱うアプリケーションの一例として、シンプルなTwitterフィードストリーに対して、例えば ``#akka`` "
+"についてツイートしている全てのユーザーのハンドル名を洗い出すなどの情報抽出を試してみましょう。"
 
 #: ../../scala/stream/stream-quickstart.rst:168
 msgid ""
@@ -261,6 +318,8 @@ msgid ""
 ":class:`ActorMaterializer`, which will be responsible for materializing and "
 "running the streams we are about to create:"
 msgstr ""
+":class:`ActorSystem` や :class:`ActorMaterializer` "
+"はこれから作成するストリームをマテリアライズしたり実行するための責務を持っています。これらを生成して環境を整えるには次のように記述します"
 
 #: ../../scala/stream/stream-quickstart.rst:173
 msgid ""
@@ -271,12 +330,18 @@ msgid ""
 "etc. These can be overridden with ``withAttributes`` on :class:`Flow`, "
 ":class:`Source`, :class:`Sink` and :class:`Graph`."
 msgstr ""
+":class:`ActorMaterializer` はオプションで :class:`ActorMaterializerSettings` "
+"を取ります。これはデフォルトのバッファサイズ(:ref:`async-stream-buffers-scala` "
+"も参照ください)やパイプラインに使用されるディスパッチャなど、マテリアライズのためのプロパティを定義するのに利用します。これらの値は "
+":class:`Flow`、:class:`Source`、:class:`Sink`、:class:`Graph` などが持つ "
+"``withAttributes`` で上書きすることができます。"
 
 #: ../../scala/stream/stream-quickstart.rst:177
 msgid ""
 "Let's assume we have a stream of tweets readily available. In Akka this is "
 "expressed as a :class:`Source[Out, M]`:"
 msgstr ""
+"ここで、手元にツイートのストリームがあるとしましょう。Akkaにおいてこれは  :class:`Source[Out, M]`: として表現します。"
 
 #: ../../scala/stream/stream-quickstart.rst:181
 msgid ""
@@ -288,6 +353,11 @@ msgid ""
 "\"materialized types\", which we'll talk about :ref:`below <materialized-"
 "values-quick-scala>`)."
 msgstr ""
+"ストリームは常に :class:`Source[Out,M1]` から流れ始め、:class:`Flow[In,Out,M2]` "
+"要素やより応用的なグラフ要素を幾つか通って、最終的に :class:`Sink[In,M3]` によって消費されます(今のところ "
+"``M``、``M2``、``M3`` "
+"などの型パラメータは無視してください。これらは各ストリームクラスが生産／消費する要素の型とは関係はありません。:ref:`below "
+"<materialized-values-quick-scala>` でお話する通りこれらは「マテリアライズされた型」になります)。"
 
 #: ../../scala/stream/stream-quickstart.rst:186
 msgid ""
@@ -296,6 +366,7 @@ msgid ""
 "data (which is a very important distinction, as some operations only make "
 "sense in streaming and vice versa):"
 msgstr ""
+"Scalaのコレクションライブラリを使ったことのある方にとっては、各種の操作は見慣れたものに映るでしょう。しかしこれらはコレクションにではなくストリームに対して実行されます(ストリームの文脈では意味のある操作もコレクションの文脈ではそうとは限りませんし、逆もまたしかりです。この大きな違いに注意してください)。"
 
 #: ../../scala/stream/stream-quickstart.rst:192
 msgid ""
@@ -308,12 +379,21 @@ msgid ""
 "experimental/@version@/#akka.stream.scaladsl.Sink$>`_. For now let's simply "
 "print each author:"
 msgstr ""
+"最後に、 :ref:`materialize <stream-materialization-scala>` "
+"を行いストリーム処理を実行するために、``Flow`` を :class:`Sink` へ接続し、 ``Flow`` "
+"を実行可能な状態にする必要があります。最も簡単なやり方として ``Source`` の ``runWith(sink)`` "
+"を呼び出すという手があります。幾つもの共通のシンクは利便性のために、:class:`Sink` の `コンパニオンオブジェクト "
+"<http://doc.akka.io/api/akka-stream-and-http-"
+"experimental/@version@/#akka.stream.scaladsl.Sink$>`_ "
+"のメソッドとして、あらかじめ定義されています。ここではシンプルに作者を表示してみましょう。"
 
 #: ../../scala/stream/stream-quickstart.rst:200
 msgid ""
 "or by using the shorthand version (which are defined only for the most "
 "popular Sinks such as ``Sink.fold`` and ``Sink.foreach``):"
 msgstr ""
+"あるいは簡略な記法ではこうなります(これは ``Sink.fold`` や ``Sink.foreach`` "
+"などの最もポピュラーなシンクにしか定義されていません):"
 
 #: ../../scala/stream/stream-quickstart.rst:204
 msgid ""
@@ -321,14 +401,16 @@ msgid ""
 "to be in implicit scope (or passed in explicitly, like this: "
 "``.run(materializer)``)."
 msgstr ""
+"ストリームをマテリアライズし実行するには、常に暗黙的なスコープに :class:`Materializer` が必要です(あるいは "
+"``.run(materializer)`` のように明示的に渡すことになります)。"
 
 #: ../../scala/stream/stream-quickstart.rst:207
 msgid "The complete snippet looks like this:"
-msgstr ""
+msgstr "コード全体は次のようになります"
 
 #: ../../scala/stream/stream-quickstart.rst:212
 msgid "Flattening sequences in streams"
-msgstr ""
+msgstr "ストリームのシーケンスをフラット化する"
 
 #: ../../scala/stream/stream-quickstart.rst:213
 msgid ""
@@ -339,6 +421,8 @@ msgid ""
 "flattened stream of hashtags from our stream of tweets we can use the "
 "``mapConcat`` combinator:"
 msgstr ""
+"前節では、1:1の要素の関係に対して操作を行っていました。これは最も一般的なケースではありますが、時に一つの要素から複数の要素を受け取り、Scalaコレクションに対して"
+" ``flatMap`` を行う場合と同様に「フラット化」されたストリームを受け取りたいような場合もあると思います。"
 
 #: ../../scala/stream/stream-quickstart.rst:221
 msgid ""
@@ -349,6 +433,9 @@ msgid ""
 "strategy), and second, the monad laws would not hold for our implementation "
 "of flatMap (due to the liveness issues)."
 msgstr ""
+"for内包表記やモナド合成を連想させるため、``flatMap`` という名前は意図的に避けられています。``flatMap`` "
+"という名前は2つの理由から問題があります。まず連結を行ってフラット化することは(ストラテジとしてマージが優先されるため)デッドロックの危険性があるため、制限のかかったストリーム処理環境では望まれない挙動となります。もう一つは、(生存性の問題により)私たちの"
+" flatMap はモナド率を満たさないからです。"
 
 #: ../../scala/stream/stream-quickstart.rst:226
 msgid ""
@@ -356,10 +443,12 @@ msgid ""
 "a strict collection (``f:Out=>immutable.Seq[T]``), whereas ``flatMap`` would"
 " have to operate on streams all the way through."
 msgstr ""
+"``mapConcat`` に渡す関数は厳密なコレクションを返す必要がある (``f:Out=>immutable.Seq[T]``) "
+"のに対して、``flatMap`` はストリームに対して操作が行われるということに注意してください。"
 
 #: ../../scala/stream/stream-quickstart.rst:230
 msgid "Broadcasting a stream"
-msgstr ""
+msgstr "ストリームをブロードキャストする"
 
 #: ../../scala/stream/stream-quickstart.rst:231
 msgid ""
@@ -369,6 +458,7 @@ msgid ""
 "have to split the source stream into two streams which will handle the "
 "writing to these different files."
 msgstr ""
+"さてここで、あるライブストリームから全てのハッシュタグおよび投稿者名を永続化したいとします。例えば投稿者全員のハンドル名を一つのファイルに書き出し、全てのハッシュタグをディスク上の別のファイルに書き出すことを考えてみます。これはつまりソースストリームを2つのストリームに分け、それぞれ異なるファイルへの書き出しを扱うことになります。"
 
 #: ../../scala/stream/stream-quickstart.rst:235
 msgid ""
@@ -377,6 +467,9 @@ msgid ""
 "that we'll be using in this example is called :class:`Broadcast`, and it "
 "simply emits elements from its input port to all of its output ports."
 msgstr ""
+"「ファン・アウト」(あるいは「ファン・イン」)などの構造を作るための要素は、Akka "
+"Streamにおいては「ジャンクション」と呼ばれます。この例ではその中から :class:`Broadcast` "
+"を使います。これはシンプルに入力ポートから全ての出力ポートに対して要素を発行します。"
 
 #: ../../scala/stream/stream-quickstart.rst:239
 msgid ""
@@ -386,10 +479,12 @@ msgid ""
 "complex stream setups at the expense of not reading as familiarly as "
 "collection transformations."
 msgstr ""
+"Akka "
+"Streamは線形的なストリーム構造(フロー)を、非線形的で分岐してゆくもの(グラフ)と意図的に区別して、それぞれのケースに対して最も便利なAPIを提供しています。グラフは、コレクションの変換のように容易には読めないですが、その代わりに複雑な任意のストリームの組み立てを表現することができます。"
 
 #: ../../scala/stream/stream-quickstart.rst:243
 msgid "Graphs are constructed using :class:`GraphDSL` like this:"
-msgstr ""
+msgstr ":class:`GraphDSL` を用いると、グラフをこのように構築することができます："
 
 #: ../../scala/stream/stream-quickstart.rst:247
 msgid ""
@@ -398,6 +493,9 @@ msgid ""
 "operator\" (also read as \"connect\" or \"via\" or \"to\"). The operator is "
 "provided implicitly by importing ``GraphDSL.Implicits._``."
 msgstr ""
+"ご覧の通り :class:`GraphDSL` の内部で暗黙的なグラフビルダーである ``b`` を使って、グラフをミュータブルに構築します。その際に "
+"``~>`` というエッジ演算子(あるいは「接続」、「経由」などと読みます)を利用します。演算子は ``GraphDSL.Implicits._`` "
+"をインポートすることで暗黙的に読み込まれます。"
 
 #: ../../scala/stream/stream-quickstart.rst:251
 msgid ""
@@ -408,12 +506,19 @@ msgid ""
 " :class:`RunnableGraph` using ``RunnableGraph.fromGraph``. The runnable "
 "graph can then be ``run()`` to materialize a stream out of it."
 msgstr ""
+"``GraphDSL.create`` は :class:`Graph` を返却します。この例では :class:`Graph[ClosedShape,"
+" Unit]` となっていますが、ここで :class:`ClosedShape` は *完全に接続されたグラフ* "
+"あるいは「閉じた」グラフを意味します。つまり未接続の入力や出力が存在しないということです。このグラフは閉じているため、``RunnableGraph.fromGraph``"
+" を使って :class:`RunnableGraph` に変換することができます。ランナブルなグラフは ``run()`` "
+"することでストリームをマテリアライズすることができます。"
 
 #: ../../scala/stream/stream-quickstart.rst:256
 msgid ""
 "Both :class:`Graph` and :class:`RunnableGraph` are *immutable, thread-safe, "
 "and freely shareable*."
 msgstr ""
+":class:`Graph` も :class:`RunnableGraph` も *イミュータブルでスレッドセーフであり、自由に共有* "
+"することができます。"
 
 #: ../../scala/stream/stream-quickstart.rst:258
 msgid ""
@@ -425,10 +530,14 @@ msgid ""
 "which will be explained in detail in :ref:`constructing-sources-sinks-flows-"
 "from-partial-graphs-scala`."
 msgstr ""
+"グラフは一つ以上の未接続のポートを持ち、それにより異なるシェイプをなすことがあります。グラフに未接続のポートがあるということは、そのグラフは "
+"*部分グラフ* であると表現します。大きな構造のなかでグラフを合成したりネストする際の考え方に関しては、:ref:`composition-scala`"
+" で詳細に説明されています。また :ref:`constructing-sources-sinks-flows-from-partial-graphs-"
+"scala` では、複雑な計算グラフをFlow，SinkやSourceとしてラップすることができるということを詳細に説明しています。"
 
 #: ../../scala/stream/stream-quickstart.rst:265
 msgid "Back-pressure in action"
-msgstr ""
+msgstr "バックプレッシャーを実際に扱ってみる"
 
 #: ../../scala/stream/stream-quickstart.rst:266
 msgid ""
@@ -439,6 +548,10 @@ msgid ""
 "other Reactive Streams compatible implementations read :ref:`back-pressure-"
 "explained-scala`."
 msgstr ""
+"Akka Streamが持つ強みの一つに、ストリームのシンク(購読者)からソース(発行者)に対して、*いつでも* "
+"バックプレッシャー情報を伝播できるという点があります。これはオプション機能ではなく、常に有効な機能として提供されています。Akka "
+"Streamが扱うバックプレッシャープロトコルやその他のReactive Stream互換の実装に関してさらに学びたい場合は、 :ref:`back-"
+"pressure-explained-scala` を参照下さい。"
 
 #: ../../scala/stream/stream-quickstart.rst:271
 msgid ""
@@ -451,6 +564,11 @@ msgid ""
 "interested in the \"*most recent tweets, with a buffer of 10 elements*\" "
 "this can be expressed using the ``buffer`` element:"
 msgstr ""
+"このような(Akka "
+"Streamを使っていない)アプリケーションはしばしば、入力データを充分な速度で処理することができない、という問題に直面することがあります。たまたまなのか設計上そうなっているのかはともかく、処理しきれない入力データをバッファリングし始め、やがてバッファリングする余地もなくなって最終的には"
+" ``OutOfMemoryError`` が発生したり、サービスの応答性に対し深刻なデグレデーションが発生することとなってしまいます。Akka "
+"Streamは明示的にバッファリングを行うことができますし、またそうする必要があります。例えば「*10要素をバッファリングした最新のツイート*」にのみ興味がある場合は、``buffer``"
+" 要素を使ってこのように表現することができます："
 
 #: ../../scala/stream/stream-quickstart.rst:279
 msgid ""
@@ -460,10 +578,12 @@ msgid ""
 "(``dropHead``), dropping the entire buffer, signalling errors etc. Be sure "
 "to pick and choose the strategy that fits your use case best."
 msgstr ""
+"``buffer`` 要素には明示的に ``OverflowStrategy`` "
+"を渡す必要があり、これはバッファが一杯の時に新しく要素を受け取ったらどのように応答すべきかを定義します。取りうる戦略としては最も古い要素をドロップする(``dropHead``)、バッファ全体をドロップする、エラーを発行する、などがあります。それぞれのユースケースに最も相応しい戦略を正しく選択して下さい。"
 
 #: ../../scala/stream/stream-quickstart.rst:286
 msgid "Materialized values"
-msgstr ""
+msgstr "マテリアライズされた値"
 
 #: ../../scala/stream/stream-quickstart.rst:287
 msgid ""
@@ -478,12 +598,15 @@ msgid ""
 "tweets\"), but in general it is possible to deal with finite streams and "
 "come up with a nice result such as a total count of elements."
 msgstr ""
+"ここまでFlowを使ってデータ処理を行い、コンソール表示であれ外部システムへの保存であれ、何らかの外部シンクへと消費する流れのみを見てきました。しかし時には、マテリアライズされたプロセスパイプラインで得られた値を扱いたいケースもあると思います。例えばツイートをいくつ処理したか知りたい場合はどうでしょう。無限に続くツイートストリームが相手では、この質問に答えるのは容易ではありません(一つの解答として「*現時点で*"
+" "
+"N個のツイートを処理した」ことを表すカウントストリームを作ることはできます)。しかし有限のストリームから要素の数を取得するといったケースは一般的にも充分考えられます。"
 
 #: ../../scala/stream/stream-quickstart.rst:294
 msgid ""
 "First, let's write such an element counter using ``Sink.fold`` and see how "
 "the types look like:"
-msgstr ""
+msgstr "まず、``Sink.fold`` を使って要素カウンタを書いてみましょう。型はどのようになるでしょうか?"
 
 #: ../../scala/stream/stream-quickstart.rst:298
 msgid ""
@@ -494,6 +617,10 @@ msgid ""
 "``tweets`` stream to ``count`` with ``via``. Finally we connect the Flow to "
 "the previously prepared Sink using ``toMat``."
 msgstr ""
+"最初に、 流れ込むツイートを整数値の ``1`` へ変換する、再利用可能な ``Flow`` を用意します。そして ``Sink.fold`` "
+"を使ってストリーム上の全ての ``Int`` 要素を足し合わせ、結果を ``Future[Int]`` として利用するシンクを作ります。次に "
+"``tweets`` ストリームを ``via`` で ``count`` と接続します。最後に ``toMat`` "
+"を使い、Flowを先ほど用意したシンクへと接続するのです。"
 
 #: ../../scala/stream/stream-quickstart.rst:303
 msgid ""
@@ -507,6 +634,13 @@ msgid ""
 "``Future[Int]`` and because of using ``Keep.right``, the resulting "
 ":class:`RunnableGraph` has also a type parameter of ``Future[Int]``."
 msgstr ""
+"``Source[+Out, +Mat]``、``Flow[-In, +Out, +Mat]`` や ``Sink[-In, +Mat]`` "
+"に出てくる不可思議な型パラメータ ``Mat`` "
+"を覚えていますか？これはマテリアライズされた際に処理モジュールが返却する値の型を表します。モジュール同士を繋げるとき、それらのマテリアライズされた値も明示的に結合されることとなります。先の例では"
+" ``Keep.right`` "
+"という定義済みの関数を使っていますが、これは右側に追加されているステージの持つマテリアライズされた型のみ注目することを示します。``sumSink`` "
+"のマテリアライズされた型は ``Future[Int]`` であり、また ``Keep.right`` を使うことにより、結果となる "
+":class:`RunnableGraph` もまた型パラメータ ``Future[Int]`` を持つことになります。"
 
 #: ../../scala/stream/stream-quickstart.rst:310
 msgid ""
@@ -520,6 +654,12 @@ msgid ""
 "contain the total length of our ``tweets`` stream. In case of the stream "
 "failing, this future would complete with a Failure."
 msgstr ""
+"このステップではまだプロセスパイプラインをマテリアライズ "
+"*しません*。ここでやっていることは単純にFlowの説明を準備し、それをシンクと接続し、``RunnableGraph[Future[Int]]`` "
+"という名前が示す通り ``run()`` できる状態にしただけです。次に、Flowをマテリアライズし実行するために、暗黙的な "
+":class:`ActorMaterializer` を使って ``run()`` を呼びだします。``RunnableGraph[T]`` の "
+"``run()`` メソッドを呼び出した際の戻り値は ``T`` 型となります。この例では型は ``Future[Int]`` であり、完了時に "
+"``tweets`` ストリームの長さを返します。ストリーム処理が失敗した場合、このFutureはFailureをもって完了します。"
 
 #: ../../scala/stream/stream-quickstart.rst:317
 msgid ""
@@ -529,6 +669,8 @@ msgid ""
 "within a minute, the materialized values for those two materializations will"
 " be different, as illustrated by this example:"
 msgstr ""
+":class:`RunnableGraph` "
+"はストリームの「青写真」であるため、再利用して何度もマテリアライズすることが可能です。これが何を意味するかといいますと、ストリームをマテリアライズする際、例えば1分以内のツイートのライブストリームを消費するケースで考えてみますと、この例で示すような2つのマテリアライズされた値は、互いに異なっていることがあります。"
 
 #: ../../scala/stream/stream-quickstart.rst:324
 msgid ""
@@ -538,6 +680,10 @@ msgid ""
 " up this section, now we know what happens behind the scenes when we run "
 "this one-liner, which is equivalent to the multi line version above:"
 msgstr ""
+"Akka "
+"Streamには、マテリアライズされた値を提供するための仕組みが多数備わっています。それらを使って計算結果を取得したり、他の仕組みと組み合わせることもできます。詳細については"
+" :ref:`stream-materialization-scala` "
+"にて説明いたします。このセクションを振り返ってみると、次のワンライナーを実行した時に背後で何が起きるかをもう理解できると思います。これは、上でお見せした複数行バージョンと同じものとなります。"
 
 #: ../../scala/stream/stream-quickstart.rst:331
 msgid ""
@@ -546,3 +692,6 @@ msgid ""
 "``runWith()`` itself. In the above example it translates to using "
 "``Keep.right`` as the combiner for materialized values."
 msgstr ""
+"``runWith()`` "
+"は便利なメソッドで、自身が追加したもの以外の他の全てのステージ上のマテリアライズされた値を自動的に無視します。先ほどの例は、マテリアライズされた値に対して"
+" ``Keep.right`` をコンビネータとして使うという意味となります。"
