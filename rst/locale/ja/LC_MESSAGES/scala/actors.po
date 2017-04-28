@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Jiro Kugiya <j.kugiya@gmail.com>, 2016\n"
+"Last-Translator: Kazuki Negoro <negokaz@gmail.com>, 2016\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -70,7 +70,8 @@ msgid ""
 "handle, using standard Scala pattern matching, along with the implementation"
 " of how the messages should be processed."
 msgstr ""
-"アクターは:class:`Actor`という基本traitを拡張することで実装することができます。また、ここで:meth:`receive`というメソッドを実装する必要があります。:meth:`receive`というメソッドはcase文の塊で(この型は`PartialFunction[Any,"
+"アクターは :class:`Actor` "
+"という基本traitを拡張することで実装することができます。また、ここで:meth:`receive`というメソッドを実装する必要があります。:meth:`receive`というメソッドはcase文の塊で(この型は`PartialFunction[Any,"
 " "
 "Unit]``です)、Scalaのパターンマッチングを使ってアクターがどのようなメッセージを処理できるかということとそのメッセージがどのように処理されるかということを定義します。"
 
@@ -791,12 +792,17 @@ msgid ""
 "to the named child. It should be noted that the ``..`` in actor paths here "
 "always means the logical structure, i.e. the supervisor."
 msgstr ""
+"与えられたパスは :class:`java.net.URI` に解決されます。つまり基本的にパスは\"/\"で区切られたパスの要素からなります。パスが "
+"`\"/\"` から始まる場合はルートガーディアンから辿ることのできる絶対パスになります。(ルートガーディアンは　`\"/user\"` の親です。) "
+"それ以外の場合は現在のアクターから辿るパスになります。パスの要素が ``..`` "
+"となっている場合はその前のパスで解決されたアクターのsupervisorのパスへと\"戻り\"、そこからその子アクターを\"辿り\"ます。 ``..``"
+" というアクターのパスが表現しているのがいつも論理的な構造でsupervisorを表しているということには注意が必要です。"
 
 #: ../../scala/actors.rst:489
 msgid ""
 "The path elements of an actor selection may contain wildcard patterns "
 "allowing for broadcasting of messages to that section:"
-msgstr ""
+msgstr "アクターを選択するするパス要素には選択されたアクターにメッセージをブロードキャストするためにワイルドカードを指定することができます。"
 
 #: ../../scala/actors.rst:494
 msgid ""
@@ -804,6 +810,8 @@ msgid ""
 ":class:`ActorSelection` is looked up when delivering each message. If the "
 "selection does not match any actors the message will be dropped."
 msgstr ""
+"メッセージは :class:`ActorSelection` を使っても送ることができます。 :class:`ActorSelection` "
+"のパスは配信するメッセージごとに探索が行われます。 アクターを探索結果として得られなかった場合はメッセージは破棄されます。"
 
 #: ../../scala/actors.rst:498
 msgid ""
@@ -818,6 +826,11 @@ msgid ""
 "mean that delivery of that reply is guaranteed, it still is a normal "
 "message."
 msgstr ""
+":class:`ActorSelection` に対応する :class:`ActorRef` "
+"を取得するためには、selectionに対してメッセージを送信し、　アクターから応答を受け取るために ``sender()`` "
+"の参照を利用してください。全てのアクターは組み込みの ``Identify`` というメッセージを理解して、 :class:`ActorRef` "
+"への参照を含む ``ActorIdentity`` "
+"というメッセージを自動的に応答として返します。このメッセージはアクターによって特別な処理が行われ、具体的な名前による探索が失敗した場合(例えば、ワイルドカードではないパス要素が生存しているアクターと対応していなかった場合)には、偽の結果が生成されます。このことは応答メッセージの到達が保障されていることを意味していないことに注意してください。応答も通常のメッセージです。"
 
 #: ../../scala/actors.rst:510
 msgid ""
@@ -827,22 +840,27 @@ msgid ""
 "completed with failure [[akka.actor.ActorNotFound]] if no such actor exists "
 "or the identification didn't complete within the supplied `timeout`."
 msgstr ""
+":clas:`ActorSelection` の ``resolveOne`` というメソッドを使うことによっても "
+":class:`ActorSelection` に対応する :class:`ActorRef` "
+"を取得することができます。このメソッドは指定したアクターが存在した場合に該当する :class:`ActorRef` を ``Future`` "
+"として返します。指定したアクターが存在しない場合や ``timeout`` で指定した時間内に解決が完了しなかった場合には "
+"[[akka.actor.ActorNotFound]]が失敗として戻されます。"
 
 #: ../../scala/actors.rst:516
 msgid ""
 "Remote actor addresses may also be looked up, if :ref:`remoting <remoting-"
 "scala>` is enabled:"
-msgstr ""
+msgstr ":ref:`remoting<remoting-scala>` が有効な場合、リモートのアクターのアドレスも探索することができます。"
 
 #: ../../scala/actors.rst:520
 msgid ""
 "An example demonstrating actor look-up is given in :ref:`remote-sample-"
 "scala`."
-msgstr ""
+msgstr "アクターの探索のサンプルデモは :ref:`remote-sample-scala` にあります。"
 
 #: ../../scala/actors.rst:523
 msgid "Messages and immutability"
-msgstr ""
+msgstr "メッセージと不変性"
 
 #: ../../scala/actors.rst:525
 msgid ""
@@ -853,30 +871,37 @@ msgid ""
 "(if you don’t explicitly expose the state) and works great with pattern "
 "matching at the receiver side."
 msgstr ""
+"**重要** : "
+"メッセージはどんな種類のオブジェクトでも構いませんが、不変である必要があります。Scalaは不変性を(今のところ)強制できないのでこれは習慣にする必要があります。StringやInt、Booleanといったプリミティブは常に不変です。これら以外でScalaで推奨される手法は(明示的に状態を公開しない限りにおいては)不変なcase"
+" classを使うことです。case classを使うとメッセージの受信側でパターンマッチを使えるので大変便利です。"
 
 #: ../../scala/actors.rst:543
 msgid "Send messages"
-msgstr ""
+msgstr "メッセージの送信"
 
 #: ../../scala/actors.rst:545
 msgid "Messages are sent to an Actor through one of the following methods."
-msgstr ""
+msgstr "メッセージはアクターの以下に挙げるメソッドのいずれかを使って送信することができます。"
 
 #: ../../scala/actors.rst:547
 msgid ""
 "``!`` means “fire-and-forget”, e.g. send a message asynchronously and return"
 " immediately. Also known as ``tell``."
 msgstr ""
+"``!`` は\"fire-and-forget\"を意味します。つまり、メッセージを非同期に送信し、直ちに制御を戻すことができます。 ``tell``"
+" という別名もあります。"
 
 #: ../../scala/actors.rst:549
 msgid ""
 "``?`` sends a message asynchronously and returns a :class:`Future` "
 "representing a possible reply. Also known as ``ask``."
 msgstr ""
+"``?`` はメッセージを非同期に送信し、利用可能な戻り値を表現した :class:`Future` を返します。 ``ask`` "
+"という別名もあります。"
 
 #: ../../scala/actors.rst:552
 msgid "Message ordering is guaranteed on a per-sender basis."
-msgstr ""
+msgstr "メッセージの順序は基本的に送信者ごとに保障されます。"
 
 #: ../../scala/actors.rst:556
 msgid ""
@@ -886,16 +911,21 @@ msgid ""
 "remoting. So always prefer ``tell`` for performance, and only ``ask`` if you"
 " must."
 msgstr ""
+"``timeout`` を追跡しなければならないため、``ask`` を使う場合にはパフォーマンス上の影響があります。 ``Promise`` と "
+"``ActorRef`` "
+"を連携させるためにいくつかのことをやらなければならないし、それがリモートであっても到達可能にする必要があります。パフォーマンスのためには常に "
+"``tell`` を使うことが望ましく、 ``ask`` を使うのは本当に必要な時だけにすべきです。"
 
 #: ../../scala/actors.rst:564
 msgid "Tell: Fire-forget"
-msgstr ""
+msgstr "Tell: Fire-forget"
 
 #: ../../scala/actors.rst:566
 msgid ""
 "This is the preferred way of sending messages. No blocking waiting for a "
 "message. This gives the best concurrency and scalability characteristics."
 msgstr ""
+"メッセージを送る場合、こちらの方が好ましい手段です。メッセージを待つようなブロッキングがありません。この手段を用いることで並列性最大限に生かし、スケーラビリティを得ることができます。"
 
 #: ../../scala/actors.rst:571
 msgid ""
@@ -904,22 +934,28 @@ msgid ""
 "Actor in its ``sender(): ActorRef`` member method. The target actor can use "
 "this to reply to the original sender, by using ``sender() ! replyMsg``."
 msgstr ""
+"Actorの中で呼びだした場合、送信側のアクターの参照が暗黙的にメッセージと一緒に受け渡され、受信側のアクターが "
+"``sender():ActorRef`` というメンバーメソッドを使ってこれを利用できます。メッセージを受け取ったアクターはこれを使って、 "
+"``sender() ! replyMsg`` という形で元の送信者に応答を返すことができます。"
 
 #: ../../scala/actors.rst:576
 msgid ""
 "If invoked from an instance that is **not** an Actor the sender will be "
 ":obj:`deadLetters` actor reference by default."
 msgstr ""
+"アクター **ではない** インスタンスから呼び出した場合、デフォルトでは送信者は :obj:`deadLetters` のアクターの参照になります。"
 
 #: ../../scala/actors.rst:582
 msgid "Ask: Send-And-Receive-Future"
-msgstr ""
+msgstr "Ask: Send-And-Receive-Future"
 
 #: ../../scala/actors.rst:584
 msgid ""
 "The ``ask`` pattern involves actors as well as futures, hence it is offered "
 "as a use pattern rather than a method on :class:`ActorRef`:"
 msgstr ""
+"``ask`` パターンはアクターだけではなくfutureも含むパターンです。よって :class:`ActorRef` "
+"のメソッドとしてではなくパターンとして使う形で提供されています。"
 
 #: ../../scala/actors.rst:589
 msgid ""
@@ -931,6 +967,11 @@ msgid ""
 "``onComplete``-handler on the future to affect the submission of the "
 "aggregated :class:`Result` to another actor."
 msgstr ""
+"一般的によく使う組み合わせなので、このサンプルコードでは ``ask`` と ``pipeTo`` "
+"というパターンを一緒に使っています。上記のコードは全てノンブロッキングで非同期だということに注目してください。 ``ask`` は "
+":class:``Future``` "
+"を作りますが、for内包表記を使って3つのFutureを組み合わせて別の新しいFutureに合成しています。``pipeTo``　はFutureに "
+"``onComplete`` ハンドラを作って :class:`Result` に集約された結果を他のアクターに受け渡します。"
 
 #: ../../scala/actors.rst:597
 msgid ""
@@ -941,6 +982,9 @@ msgid ""
 "have a timeout after which it is destroyed in order not to leak resources; "
 "see more below."
 msgstr ""
+"``ask`` を使うとメッセージは ``tell`` を使って受信側のアクターに送信され、 受信側のアクターは :class:`Future` "
+"として値を返すために ``sender() ! reply`` を使って応答を返さなければいけません。 ``ask`` "
+"を実行すると応答を処理するための内部的なアクターが生成されますが、資源がリークさせないように一定時間を経過したらそれが破棄されるようタイムアウトを設ける必要があります。以下の詳細をご覧ください。"
 
 #: ../../scala/actors.rst:605
 msgid ""
@@ -948,6 +992,8 @@ msgid ""
 "the sender. This is *not done automatically* when an actor throws an "
 "exception while processing a message."
 msgstr ""
+"Futureで例外が発生した場合、送信者に障害のメッセージを送信する必要があります。これはアクターがメッセージを処理するときに例外をスローしたとしても "
+"*自動的行われることはありません。* "
 
 #: ../../scala/actors.rst:610
 msgid ""
@@ -955,20 +1001,23 @@ msgid ""
 "period, completing it with an :class:`AskTimeoutException`.  The timeout is "
 "taken from one of the following locations in order of precedence:"
 msgstr ""
+"アクターがFutureの処理を完了しなかった場合、タイムアウト経過後に :class:`AskTimeoutException` "
+"を返して有効期限切れになります。タイムアウトは次のような優先順位で取得されます。"
 
 #: ../../scala/actors.rst:614
 msgid "explicitly given timeout as in:"
-msgstr ""
+msgstr "次のように明示的に与えられた場合"
 
 #: ../../scala/actors.rst:618
 msgid "implicit argument of type :class:`akka.util.Timeout`, e.g."
-msgstr ""
+msgstr ":class:`akka.util.Timeout` 型の暗黙的引数"
 
 #: ../../scala/actors.rst:622
 msgid ""
 "See :ref:`futures-scala` for more information on how to await or query a "
 "future."
 msgstr ""
+"Futureの結果をどのように待つかといったことやFutureに対する操作については :ref:`future-scala` を参照してください。"
 
 #: ../../scala/actors.rst:625
 msgid ""
@@ -976,6 +1025,8 @@ msgid ""
 "``Future`` can be used to register a callback to get a notification when the"
 " Future completes, giving you a way to avoid blocking."
 msgstr ""
+"``onComplete`` や ``onSuccess`` 、 ``onFailure`` といった ``Future`` "
+"のメソッドはFutureの処理が完了した時にブロックすることなく通知を受け取るためのコールバックとして利用することができます。"
 
 #: ../../scala/actors.rst:631
 msgid ""
@@ -988,10 +1039,13 @@ msgid ""
 "enclosing actor. Unfortunately there is not yet a way to detect these "
 "illegal accesses at compile time. See also: :ref:`jmm-shared-state`"
 msgstr ""
+"``onComplete`` や ``onSuccess`` 、 ``onFailure`` "
+"といったFutureのコールバックを使う場合、アクターの中ではアクターの参照をリークしてしまわないように注意する必要があります。例えば、コールバックの中で外側のアクターのメソッドを呼び出したりアクターの状態にアクセスしてはいけません。コールバックは外側のアクターに対して並行に実行されるので、これらはアクターのカプセル化を破壊し、同期関連のバグやレースコンディションを引き起こします。残念なことに今のところこれらの不正なアクセスをコンパイル時に検知する方法がありません。"
+" :ref:`jmm-shared-state` も参照してください。"
 
 #: ../../scala/actors.rst:641
 msgid "Forward message"
-msgstr ""
+msgstr "メッセージの転送"
 
 #: ../../scala/actors.rst:643
 msgid ""
@@ -1000,14 +1054,15 @@ msgid ""
 "going through a 'mediator'. This can be useful when writing actors that work"
 " as routers, load-balancers, replicators etc."
 msgstr ""
+"あるアクターが別のアクターへメッセージを転送することができます。これはメッセージが'仲介者'を経由した後でも元の送信者のアドレスや参照が維持されるということです。これはアクターをルーターやロードバランサ、レプリケイターといった用途で使う場合、便利です。"
 
 #: ../../scala/actors.rst:651
 msgid "Receive messages"
-msgstr ""
+msgstr "メッセージの受信"
 
 #: ../../scala/actors.rst:653
 msgid "An Actor has to implement the ``receive`` method to receive messages:"
-msgstr ""
+msgstr "アクターはメッセージを受信するために ``receive`` というメソッドを実装する必要があります。"
 
 #: ../../scala/actors.rst:657
 msgid ""
@@ -1015,10 +1070,12 @@ msgid ""
 "which the message can be matched against the different case clauses using "
 "Scala pattern matching. Here is an example:"
 msgstr ""
+"このメソッドの戻り値は ``PartialFunction`` "
+"になっていて、その中でメッセージはScalaのパターンマッチを使って'match/case'句の中のそれぞれ異なるmatch句にmatchさせることができます。"
 
 #: ../../scala/actors.rst:668
 msgid "Reply to messages"
-msgstr ""
+msgstr "メッセージへの応答"
 
 #: ../../scala/actors.rst:670
 msgid ""
@@ -1029,10 +1086,14 @@ msgid ""
 "message was sent without an actor or future context) then the sender "
 "defaults to a 'dead-letter' actor ref."
 msgstr ""
+"メッセージに応答を返した場合、 ``sender()`` というメソッドを使ってActorRefを取得することができます。そのActorRefに対して "
+"``sender() ! replyMsg`` "
+"という形で応答を返すことができます。後で応答を返すためにActorRefを保存しておいたり、他のアクターに受け渡すこともできます。送信者がいない場合(アクターの外からメッセージを送信した場合やFutureのコンテクストの中)、デフォルトの送信者は"
+" 'dead-letter' のアクターの参照になります。"
 
 #: ../../scala/actors.rst:684
 msgid "Receive timeout"
-msgstr ""
+msgstr "受信タイムアウト"
 
 #: ../../scala/actors.rst:686
 msgid ""
@@ -1042,6 +1103,9 @@ msgid ""
 "`akka.actor.ReceiveTimeout` message. 1 millisecond is the minimum supported "
 "timeout."
 msgstr ""
+"`ActorContext`:meth:`setReceiveTimeout` は非アクティブ時のタイムアウトを定義し、その時間を経過すると "
+"`ReceiveTimeout` が送信されるトリガになります。このタイムアウトが設定されている時、 receive 関数は "
+"`akka.actor.ReceiveTimeout` を処理することができなければいけません。このタイムアウトの最小値は1ミリ秒です。"
 
 #: ../../scala/actors.rst:691
 msgid ""
@@ -1050,6 +1114,8 @@ msgid ""
 "is **not guaranteed** that upon reception of the receive timeout there must "
 "have been an idle period beforehand as configured via this method."
 msgstr ""
+"受信タイムアウトが発生してから `ReceiveTimeout` "
+"メッセージが他の既にキューに入っているメッセージの後に追加されることに注意してください。つまり、あらかじめメソッドを通じて設定した待ち時間ちょうどに受信タイムアウトのメッセージを受け取られることは**保障されていません**。"
 
 #: ../../scala/actors.rst:695
 msgid ""
@@ -1057,6 +1123,8 @@ msgid ""
 "repeatedly after inactivity periods). Pass in `Duration.Undefined` to switch"
 " off this feature."
 msgstr ""
+"受信タイムアウトは一度設定すると効果として残り続けます。(つまり、非アクティブ時間を経過するごとに継続的にメッセージが送信されます。) "
+"`Duration.Undefined` を設定することでこの機能を閉じることができます。"
 
 #: ../../scala/actors.rst:700
 msgid ""
@@ -1065,10 +1133,13 @@ msgid ""
 "external inactivity but not influenced by internal activity, e.g. scheduled "
 "tick messages."
 msgstr ""
+"``NotInfluenceReceiveTimeout`` をmix-"
+"inしたメッセージはタイマーのリセットを行いません。外部に対して非アクティブだった場合に ``ReceiveTimeout`` "
+"を起こしたいが、内部の活動からは影響を受けたくない場合にこれが役に立つことがあります。例えば、スケジューラの定期的なメッセージ等です。"
 
 #: ../../scala/actors.rst:707
 msgid "Stopping actors"
-msgstr ""
+msgstr "アクターの停止"
 
 #: ../../scala/actors.rst:709
 msgid ""
@@ -1079,6 +1150,10 @@ msgid ""
 " performed asynchronously, i.e. :meth:`stop` may return before the actor is "
 "stopped."
 msgstr ""
+"アクターは ``ActorContext``や ``ActorSystem`` 等の``ActorRefFactory`` が持つ "
+":meth:`stop` "
+"というメソッドを呼び出すことで停止できます。通常はコンテクストでは自分自身や自分の子供のアクターを停止し、アクターシステムではトップレベルのアクターを停止します。実際にアクターが終了するのは非同期に行われ、"
+" :meth:`stop` メソッドはアクターが停止する前に制御を戻します。"
 
 #: ../../scala/actors.rst:717
 msgid ""
@@ -1087,6 +1162,8 @@ msgid ""
 "default these messages are sent to the :obj:`deadLetters` of the "
 ":obj:`ActorSystem`, but that depends on the mailbox implementation."
 msgstr ""
+"アクターを停止する前に処理しようとしていたメッセージがあれば、それは処理されますが、その後にメールボックスに入ってきたメッセージは処理されません。デフォルトではこれらのメッセージは"
+" :obj:`ActorSystem` の :obj:`deadLetters` に送られますが、これはメールボックスの実装に依存します。"
 
 #: ../../scala/actors.rst:722
 msgid ""
@@ -1102,6 +1179,10 @@ msgid ""
 "respond (i.e. processing a message for extended periods of time and "
 "therefore not receiving the stop command), this whole process will be stuck."
 msgstr ""
+"アクターの停止には二つのステップがあります。まず、アクターは自分のメールボックスの処理を中止して自分の子アクターに停止コマンドを送信します。それから最後のものがなくなるまで内部の終了通知の処理を続け、最終的に自分自身を停止します。("
+" :meth:`postStop` を呼び出し、メールボックスをダンプしてから :ref:`DeathWatch` しながら "
+":class:`Terminated` "
+"メッセージを発行します。)この手順はアクターシステムのサブツリーを秩序のある方法で停止し、停止コマンドを葉に伝播させてから確認応答を停止したアクターのスーパーバイザーに返していきます。もしいずれかのアクターが応答しなかった場合(例えば、メッセージを長時間処理していて停止コマンドを受信できない場合)、この全体の処理が止まってしまいます。"
 
 #: ../../scala/actors.rst:734
 msgid ""
@@ -1109,12 +1190,15 @@ msgid ""
 "stopped, and the aforementioned process will ensure proper termination of "
 "the whole system."
 msgstr ""
+":meth:`ActorSystem.terminate()` "
+"を呼びだすと、システムガーディアンアクターが停止され、前述の処理によってシステム全体が正しく停止されます。"
 
 #: ../../scala/actors.rst:738
 msgid ""
 "The :meth:`postStop()` hook is invoked after an actor is fully stopped. This"
 " enables cleaning up of resources:"
 msgstr ""
+":meth:`postStop()` フックは、アクターが完全に停止した後に呼び出されます。これにより、リソースのクリーンアップが可能になります。"
 
 #: ../../scala/actors.rst:746
 msgid ""
@@ -1124,10 +1208,13 @@ msgid ""
 " actor and create its replacement in response to the :class:`Terminated` "
 "message which will eventually arrive."
 msgstr ""
+"アクターの停止は非同期であるため、停止した子の名前をすぐに再利用することはできません。これは "
+":class:`InvalidActorNameException` になります。代わりに、停止しようとしているアクターを "
+":meth:`watch()` し、最終的に到着する :class:`Terminated` メッセージに反応して置換を行います。"
 
 #: ../../scala/actors.rst:755
 msgid "PoisonPill"
-msgstr ""
+msgstr "毒薬"
 
 #: ../../scala/actors.rst:757
 msgid ""
@@ -1136,16 +1223,19 @@ msgid ""
 " ordinary messages and will be handled after messages that were already "
 "queued in the mailbox."
 msgstr ""
+"アクターに ``akka.actor.PoisonPill`` メッセージを送ることもできます。このメッセージが処理されると、アクターは停止します。 "
+"``PoisonPill`` は通常のメッセージとしてエンキューされ、すでにメールボックスにキューイングされているメッセージの後に処理されます。"
 
 #: ../../scala/actors.rst:763
 msgid "Graceful Stop"
-msgstr ""
+msgstr "グレースフルな停止"
 
 #: ../../scala/actors.rst:765
 msgid ""
 ":meth:`gracefulStop` is useful if you need to wait for termination or "
 "compose ordered termination of several actors:"
 msgstr ""
+":meth:`gracefulStop` は、終了を待つ必要がある場合や、いくつかのアクタの順序付けられた終了を構成する必要がある場合に便利です。"
 
 #: ../../scala/actors.rst:772
 msgid ""
@@ -1153,6 +1243,8 @@ msgid ""
 "hook will have been executed: there exists a happens-before edge between the"
 " end of ``postStop()`` and the return of ``gracefulStop()``."
 msgstr ""
+"``gracefulStop()`` が正常に返されると、アクターの ``postStop()`` フックが実行されます: ``postStop()``"
+" の終了と ``gracefulStop()`` の完了の間には順次呼び出しの隙間があります。"
 
 #: ../../scala/actors.rst:776
 msgid ""
@@ -1162,6 +1254,10 @@ msgid ""
 "interactions with other actors before stopping the target actor. Simple "
 "cleanup tasks can be handled in ``postStop``."
 msgstr ""
+"上記の例では、カスタムの ``Manager.Shutdown`` "
+"メッセージがターゲットのアクターに送信され、アクターを停止するプロセスが開始されます。 これを実現するのに  ``PoisonPill`` "
+"を使うこともできますが、ターゲットのアクターを停止する前に他のアクターとのやり取りを行う可能性がわずかながらあります。 単純なクリーンアップのタスクは "
+"``postStop`` で処理できます。"
 
 #: ../../scala/actors.rst:783
 msgid ""
@@ -1172,14 +1268,18 @@ msgid ""
 " within a supervisor you control and only in response to a "
 ":class:`Terminated` message, i.e. not for top-level actors."
 msgstr ""
+"アクターが停止することと、その名前の登録が抹消されることは、お互いに非同期で起こる別々のイベントであることに注意してください。したがって、  "
+"``gracefulStop()`` が返された後でも、まだ名前が使用中なのを見ることがあるかもしれません。 "
+"適切に登録の解除を保証するには、あなたが管理するスーパーバイザ内から名前を再利用するだけで、class:`Terminated` "
+"メッセージに反応するだけで、つまりトップレベルのアクターではありません。"
 
 #: ../../scala/actors.rst:793
 msgid "Become/Unbecome"
-msgstr ""
+msgstr "Become/Unbecome"
 
 #: ../../scala/actors.rst:796
 msgid "Upgrade"
-msgstr ""
+msgstr "更新"
 
 #: ../../scala/actors.rst:798
 msgid ""
@@ -1189,16 +1289,20 @@ msgid ""
 "new message handler. The hotswapped code is kept in a Stack which can be "
 "pushed and popped."
 msgstr ""
+"Akkaは、実行時にアクターのメッセージループ(例：その実装)をホットスワップすることをサポートしています。これを行うためには、アクターの中から `` "
+"context.become`` メソッドを呼び出します。 ：meth： `become` は、新しいメッセージハンドラの実装となる ` "
+"`PartialFunction [Any、Unit]` ` を受け取ります。 "
+"ホットスワップされたコードはスタックに保持され、プッシュしたりポップしたりすることができます。"
 
 #: ../../scala/actors.rst:806
 msgid ""
 "Please note that the actor will revert to its original behavior when "
 "restarted by its Supervisor."
-msgstr ""
+msgstr "Supervisorによってアクターが再起動されたときには元の振る舞いに戻ってしまうことに注意してください。"
 
 #: ../../scala/actors.rst:808
 msgid "To hotswap the Actor behavior using ``become``:"
-msgstr ""
+msgstr "アクターの振る舞いをホットスワップするためには ``become`` を使用します。"
 
 #: ../../scala/actors.rst:812
 msgid ""
@@ -1208,6 +1312,9 @@ msgid ""
 "the behavior stack), which means that you do not use :meth:`unbecome`, "
 "instead always the next behavior is explicitly installed."
 msgstr ""
+"：meth： `become`メソッドの変種は便利で例えば有限状態マシン (FSM、この例は、`Dining Hakkers`を参照してください_) "
+"を実装するなど、さまざまな目的に役立ちます。 有限状態マシンは現在の動作(つまり動作スタックの先頭)を置き換えます。つまり、：meth： "
+"`unbecome` を使わなくても、常に次の動作が明示的に決まります。"
 
 #: ../../scala/actors.rst:820
 msgid ""
@@ -1217,21 +1324,26 @@ msgid ""
 "“push” ones in the long run, otherwise this amounts to a memory leak (which "
 "is why this behavior is not the default)."
 msgstr ""
+"：meth： `become` のもう一つの使い方として、動作スタックの先頭を置き換えずにスタックの先頭に追加するというものがあります。 "
+"この場合、「ポップ」操作の数(すなわち ：meth： "
+"`unbecome`)が長期的に「プッシュ」の数に一致するように注意する必要があります。そうでなければ、メモリリークが発生します(この動作はデフォルトではないのはこれが理由です)。"
 
 #: ../../scala/actors.rst:829
 msgid ""
 "Encoding Scala Actors nested receives without accidentally leaking memory"
-msgstr ""
+msgstr "Scalaのアクターは、メモリを誤ってリークすることなくネストされた受信を行います。"
 
 #: ../../scala/actors.rst:831
 msgid ""
 "See this `Unnested receive example <@github@/akka-"
 "docs/rst/scala/code/docs/actor/UnnestedReceives.scala>`_."
 msgstr ""
+"以下の `ネスとしない受信の例 <@github@/akka-"
+"docs/rst/scala/code/docs/actor/UnnestedReceives.scala>` を参照してください。"
 
 #: ../../scala/actors.rst:836
 msgid "Stash"
-msgstr ""
+msgstr "Stash"
 
 #: ../../scala/actors.rst:838
 msgid ""
@@ -1243,6 +1355,12 @@ msgid ""
 " stashed messages can be processed in the same order as they have been "
 "received originally."
 msgstr ""
+"``stash()`` を呼び出すと、現在のメッセージ（アクターが最後に受け取ったメッセージ）がアクターの隠しに追加されます。 "
+"これは通常、アクターのメッセージハンドラーでデフォルトのケースを処理して、他のケースでは処理されないメッセージを隠すときに呼び出されます。 "
+"同じメッセージを2回隠すのは不正です。 これを行うと、 `` IllegalStateException``がスローされます。 "
+"stashはまた境界がついているかもしれません。その場合、 `` stash（） ``を呼び出すと容量違反につながり、結果として `` "
+"StashOverflowException``が発生します。 stashの容量はメールボックスの設定の \"stash-capacity\"設定（ "
+"`` Int``）を使って設定できます。"
 
 #: ../../scala/actors.rst:848
 msgid ""
@@ -1252,10 +1370,13 @@ msgid ""
 " actor. If you want more control over the mailbox, see the documentation on "
 "mailboxes: :ref:`mailboxes-scala`."
 msgstr ""
+"`` Stash``は、 `` RequiresMessageQueue [DequeBasedMessageQueueSemantics] `` "
+"というマーカートレイトを拡張しています。このマーカートレイトは、システムにアクターにキューベースのメールボックス実装を自動的に選択するように要求します。"
+" メールボックスをより詳細に制御したい場合は、メールボックス  :ref:`mailboxes-scala` のドキュメントを参照してください。"
 
 #: ../../scala/actors.rst:854
 msgid "Here is an example of the ``Stash`` in action:"
-msgstr ""
+msgstr "以下は実際に ``Stash`` を使った例です。"
 
 #: ../../scala/actors.rst:858
 msgid ""
@@ -1269,6 +1390,12 @@ msgid ""
 "capacity of the stash can be configured using the ``stash-capacity`` setting"
 " (an ``Int``) of the mailbox's configuration."
 msgstr ""
+"``stash()`` を呼び出すと、現在のメッセージ(アクターが最後に受け取ったメッセージ)をアクターの隠れた場所に追加します。 "
+"これは通常、アクターのメッセージハンドラーでデフォルトのケースを処理するときに、他のケースで処理しないメッセージを蓄えておきたいときに呼び出します。 "
+"同じメッセージを2回蓄えるのは不正です。 これを行うと、 ``IllegalStateException``      がスローされます。 "
+"stashは容量を持っているので、 ``stash()``を呼び出したときに容量違反になることがあり、その場合  `` "
+"StashOverflowException`` が発生します。 stashの容量はメールボックスの設定の \"stash-capacity\" "
+"という項目(`` Int`` を指定します)を使って設定できます。"
 
 #: ../../scala/actors.rst:869
 msgid ""
@@ -1278,6 +1405,10 @@ msgid ""
 "bounded mailbox overflows, a ``MessageQueueAppendFailedException`` is "
 "thrown. The stash is guaranteed to be empty after calling ``unstashAll()``."
 msgstr ""
+"``unstashAll()`` "
+"を呼び出すと、メールボックス(もしあれば)の容量に達するまで、stashからのメッセージをアクターのメールボックスに追加します(stashからのメッセージはメールボックスに前から追加されます)。"
+" 容量を持つメールボックスがオーバーフローした場合、 ``MessageQueueAppendFailedException`` がスローされます。 "
+"stashは、 `unstashAll()`` を呼び出した後は空であることが保証されています。"
 
 #: ../../scala/actors.rst:876
 msgid ""
@@ -1285,6 +1416,8 @@ msgid ""
 " even a very large number of messages may be stashed without a major impact "
 "on performance."
 msgstr ""
+"stashは ``scala.collection.immutable.Vector`` を使っています。 "
+"そのため、非常に多数のメッセージを蓄えていたとしてもパフォーマンスに大きな影響を与えません。"
 
 #: ../../scala/actors.rst:882
 msgid ""
@@ -1293,6 +1426,10 @@ msgid ""
 "callback. This means it's not possible to write ``Actor with MyActor with "
 "Stash`` if ``MyActor`` overrides ``preRestart``."
 msgstr ""
+"``Stash`` トレイトは、 ``preRestart`` コールバックをオーバーライドするトレイト/クラスの前に ``Actor`` "
+"トレイト(もしくはそのサブクラス)にミックスインしなければならないことに注意してください。 これは、 ``MyActor`` が "
+"``preRestart`` をオーバーライドしている場合に、 ``Actor with MyActor with Stash`` "
+"という書き方ができないということです。"
 
 #: ../../scala/actors.rst:887
 msgid ""
@@ -1302,16 +1439,19 @@ msgid ""
 "implementation of :meth:`preRestart` will call ``unstashAll()``, which is "
 "usually the desired behavior."
 msgstr ""
+"stashは、メールボックスとは異なり、一時的なアクター状態の一部であることに注意してください。 "
+"したがって、同じような特性を持つその他のアクターの状態と同様に管理する必要があります。 ：class： `Stash` "
+"トレイトの:meth:`preRestart` の実装は、 ``unstashAll()`` を呼び出します。これは、通常、望ましい動作です。"
 
 #: ../../scala/actors.rst:895
 msgid ""
 "If you want to enforce that your actor can only work with an unbounded "
 "stash, then you should use the ``UnboundedStash`` trait instead."
-msgstr ""
+msgstr "アクターが容量の境界がないstashを使うようにしたい場合は、代わりに ``UnboundedStash`` を使います。"
 
 #: ../../scala/actors.rst:902
 msgid "Killing an Actor"
-msgstr ""
+msgstr "アクターの強制停止"
 
 #: ../../scala/actors.rst:904
 msgid ""
@@ -1321,24 +1461,29 @@ msgid ""
 "the failure, which may mean resuming the actor, restarting it or terminating"
 " it completely. See :ref:`supervision-directives` for more information."
 msgstr ""
+"``Kill`` メッセージを送ることによってアクターを強制停止することができます。 このメッセージを受け取ると、アクターは "
+":class:`ActorKilledException` をスローし、失敗をトリガーします。 "
+"アクターは操作を中断し、スーパーバイザーに失敗を処理する方法を尋ねます。 "
+"これはアクターがレジュームされたり、再起動されたり、完全に停止させられたりすることを意味します。 詳細は、:ref:`supervision-"
+"directives` を参照してください。"
 
 #: ../../scala/actors.rst:910
 msgid "Use ``Kill`` like this:"
-msgstr ""
+msgstr "`Kill`` メッセージは以下の様に使用します。"
 
 #: ../../scala/actors.rst:919
 msgid "Actors and exceptions"
-msgstr ""
+msgstr "アクターと例外"
 
 #: ../../scala/actors.rst:921
 msgid ""
 "It can happen that while a message is being processed by an actor, that some"
 " kind of exception is thrown, e.g. a database exception."
-msgstr ""
+msgstr "アクターがメッセージを処理している間に、データベース例外のような例外が発生することがあります。"
 
 #: ../../scala/actors.rst:925
 msgid "What happens to the Message"
-msgstr ""
+msgstr "メッセージへの影響"
 
 #: ../../scala/actors.rst:927
 msgid ""
@@ -1352,10 +1497,12 @@ msgid ""
 "Another possibility would be to have a look at the :ref:`PeekMailbox pattern"
 " <mailbox-acking>`."
 msgstr ""
+"メッセージの処理中に例外がスローされた場合(つまり、メールボックスから取り出され、現在の動作に引き渡されていた場合)、このメッセージは失われます。それがメールボックスに戻されないということを理解しておくことが重要です。したがって、メッセージの処理を再試行したい場合は、例外をキャッチして自分で処理し、フローを再試行する必要があります。システムがライブロックしないようにするため、再試行回数に制限を書けるようにしてください(処理を行わないのにCPUサイクルを多く消費してしまいまう)。"
+" :ref:`PeekMailbox pattern <mailbox-acking>` を用いるという手もあります。"
 
 #: ../../scala/actors.rst:937
 msgid "What happens to the mailbox"
-msgstr ""
+msgstr "メールボックスへの影響"
 
 #: ../../scala/actors.rst:939
 msgid ""
@@ -1363,10 +1510,11 @@ msgid ""
 "happens to the mailbox. If the actor is restarted, the same mailbox will be "
 "there. So all messages on that mailbox will be there as well."
 msgstr ""
+"メッセージの処理中に例外がスローされても、メールボックスには何の影響もありません。アクターが再起動すると、同じメールボックスが利用されます。メールボックスの中のすべてのメッセージもそこにあります。"
 
 #: ../../scala/actors.rst:944
 msgid "What happens to the actor"
-msgstr ""
+msgstr "アクターへの影響"
 
 #: ../../scala/actors.rst:946
 msgid ""
@@ -1376,10 +1524,12 @@ msgid ""
 "restarted (wiping out its internal state and starting from scratch) or "
 "terminated."
 msgstr ""
+"アクター内のコードが例外をスローすると、そのアクターは中断され、スーパーバイザーの処理が開始します(：ref： `supervision` "
+"を参照してください)。アクターはスーパーバイザーの決定に従って、(何も起きなかったのと同じように)レジュームしたり、再起動したり(内部状態を一掃してゼロから開始します)、停止したりします。"
 
 #: ../../scala/actors.rst:953
 msgid "Extending Actors using PartialFunction chaining"
-msgstr ""
+msgstr "PartialFunction を連鎖してアクターを拡張する"
 
 #: ../../scala/actors.rst:955
 msgid ""
@@ -1393,6 +1543,11 @@ msgid ""
 "be important when combining functions that both can handle the same type of "
 "message."
 msgstr ""
+"いくつかのアクター間で共通の振る舞いを共有したり、複数の小さな関数から1つのアクターの振る舞いを合成することが有用なことがあります。アクターの "
+"：meth： `receive` メソッドの戻り値である ` `Actor.Receive`` は ` `PartialFunction "
+"[Any、Unit]` ` の型エイリアスであり、部分関数は ``PartialFunction#orElse`` "
+"メソッドを使って合成できるので、これは可能です。必要なだけ多くの関数を連鎖させることができますが、同じ型のメッセージ処理できる関数を合成する際に重要な "
+"\"first-match\" wins という法則に注意してください。"
 
 #: ../../scala/actors.rst:960
 msgid ""
@@ -1402,6 +1557,9 @@ msgid ""
 "extracting the behaviors to traits and implementing the actor's "
 ":meth:`receive` as combination of these partial functions."
 msgstr ""
+"たとえば、 ``Producers`` と ``Consumers`` "
+"のどちらかのアクターのセットがあるときに、一つのアクターに両方の動作を共有させることが理にかなっていることがあります。これは、振る舞いトレイトに切り出して、その部分関数の組み合わせとしてアクターの"
+" ：meth：`receive` を実装することによって、コードを重複させる必要なしに、容易に達成することができます。"
 
 #: ../../scala/actors.rst:966
 msgid ""
@@ -1409,10 +1567,11 @@ msgid ""
 " would simply compose the receive method using partial functions from "
 "delegates."
 msgstr ""
+"継承の代わりに、合成を使うことで同じパターンを適用することもできます。 この場合、デリゲートの部分関数を使って単純に receive 関数を合成します。"
 
 #: ../../scala/actors.rst:969
 msgid "Initialization patterns"
-msgstr ""
+msgstr "初期化のパターン"
 
 #: ../../scala/actors.rst:971
 msgid ""
@@ -1422,6 +1581,9 @@ msgid ""
 " replaced by a fresh one, invisibly to the outside observer who only sees "
 "the ``ActorRef``."
 msgstr ""
+"アクターには沢山のライフサイクルフックがあり、さまざまな初期化パターンを実装するための便利なツールキットを提供します。 ``ActorRef`` "
+"の存続期間中、アクターはいくつかの再始動を行っている可能性があります。古いインスタンスは新しいものに置き換えられ、 `` "
+"ActorRef``だけを見る外部の観察者にはわかりません。"
 
 #: ../../scala/actors.rst:975
 msgid ""
@@ -1431,10 +1593,13 @@ msgid ""
 "the ``ActorRef`` is created. The following sections provide patterns for "
 "different initialization needs."
 msgstr ""
+"新しいインスタンスは「インカネーション」だと思う人もいるかもしれません。初期化はアクターのすべてのインカーネーションに対して必要であることもありますが、場合によっては、"
+" ``ActorRef`` "
+"が作成されたときの最初のインスタンスの誕生時にのみ初期化を行う必要があることもあります。次のセクションでは、異なる初期化の必要に応じたパターンを紹介します。"
 
 #: ../../scala/actors.rst:980
 msgid "Initialization via constructor"
-msgstr ""
+msgstr "コンストラクタを使った初期化"
 
 #: ../../scala/actors.rst:982
 msgid ""
@@ -1448,10 +1613,12 @@ msgid ""
 "restart. For example, it is often useful to preserve child actors across "
 "restarts. The following section provides a pattern for this case."
 msgstr ""
+"コンストラクタを使った初期化には様々な利点があります。まず第一に、アクターインスタンスの存続期間中に変化しない状態を格納するために "
+"``val``フィールドを使用することができるようになり、アクターの実装がより堅牢になります。コンストラクタはアクターのインカネーションごとに呼び出されるため、アクタの内部は常に適切な初期化が行われたとみなすことができます。しかし、この方法の欠点でもあります。再起動時に内部の再初期化を避けたい場合があるためです。たとえば、再起動をまたいで子アクターを保持すると便利なことがあります。次のセクションでは、このケースのパターンを示します。"
 
 #: ../../scala/actors.rst:990
 msgid "Initialization via preStart"
-msgstr ""
+msgstr "preStart による初期化"
 
 #: ../../scala/actors.rst:992
 msgid ""
@@ -1462,6 +1629,11 @@ msgid ""
 "every incarnation. However, by overriding ``postRestart()`` one can disable "
 "this behavior, and ensure that there is only one call to ``preStart()``."
 msgstr ""
+"アクターの ``preStart()`` メソッドは、最初のインスタンスの初期化中、つまり  ``ActorRef`` "
+"の作成時に一度だけ直接的に呼び出されます。再起動の場合、 `` preStart()``は `` "
+"postRestart()``から呼び出されるため、オーバーライドしないと、すべてのインカネーションで "
+"``preStart()``が呼び出されます。しかし、 ``postRestart()``をオーバーライドすることで、この動作を無効にし、 "
+"``preStart()``への呼び出しが1つしかないことを保証することができます。"
 
 #: ../../scala/actors.rst:997
 msgid ""
@@ -1469,6 +1641,8 @@ msgid ""
 " for children during restarts. This can be achieved by overriding "
 "``preRestart()``:"
 msgstr ""
+"このパターンの便利な使い方の1つは、再起動時に子プロセスの新しい ``ActorRefs`` の作成を無効にすることです。これは "
+"``preRestart()`` をオーバーライドすることで実現できます："
 
 #: ../../scala/actors.rst:1002
 msgid ""
@@ -1477,14 +1651,17 @@ msgid ""
 "the children, ensuring that their ``preStart()`` method is called only at "
 "the creation of their refs."
 msgstr ""
+"子アクターはまだ *再起動しています* が、新しい "
+"``ActorRef``は作成されないということに注目してください。子アクターに同じ原則を再帰的に適用して、 "
+"``preStart()``メソッドがrefの作成時にのみ呼び出されるようにすることができます。"
 
 #: ../../scala/actors.rst:1006
 msgid "For more information see :ref:`supervision-restart`."
-msgstr ""
+msgstr "さらに詳しい情報は :ref:`supervision-restart` を参照してください。"
 
 #: ../../scala/actors.rst:1009
 msgid "Initialization via message passing"
-msgstr ""
+msgstr "メッセージパッシングによる初期化"
 
 #: ../../scala/actors.rst:1011
 msgid ""
@@ -1494,6 +1671,8 @@ msgid ""
 "initialization message, and use ``become()`` or a finite state-machine state"
 " transition to encode the initialized and uninitialized states of the actor."
 msgstr ""
+"たとえば、循環依存が存在する場合など、アクターの初期化に必要なすべての情報をコンストラクタに渡すことが不可能な場合があります。この場合、アクターは初期化メッセージをリッスンし、アクターの初期化後の状態と初期化前の状態をエンコードするために"
+" ``become()`` または有限ステートマシン状態による遷移を使用する必要があります。"
 
 #: ../../scala/actors.rst:1018
 msgid ""
@@ -1501,6 +1680,8 @@ msgid ""
 "tool can be the ``Stash`` to save messages until the initialization "
 "finishes, and replaying them after the actor became initialized."
 msgstr ""
+"アクターが初期化される前にメッセージを受けとる場合、初期化が完了するまでメッセージを保存し、アクターが初期化された後にメッセージを再生する "
+"``Stash`` という便利なツールがあります。"
 
 #: ../../scala/actors.rst:1023
 msgid ""
@@ -1510,3 +1691,5 @@ msgid ""
 "in an uninitialized state might lead to the condition that it receives a "
 "user message before the initialization has been done."
 msgstr ""
+"このパターンは慎重に使用し、上記のパターンのいずれも該当しない場合にのみ適用してください。潜在的な問題の1つは、メッセージがリモートアクターに送信されると失われる可能性があることです。また、"
+" ``ActorRef`` を初期化されていない状態で公開すると、初期化が完了する前にユーザメッセージを受け取るという条件につながる可能性があります。"
