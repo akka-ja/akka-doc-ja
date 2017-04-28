@@ -28,7 +28,7 @@ msgid ""
 "structures you build with the DSL, no matter whether they consists of a "
 "single line or span several hundred lines, are instances of this type::"
 msgstr ""
-" \"Route\" はAkka "
+"\"Route\" はAkka "
 "HTTPのルーティングDSLにおいて中心となる概念です。DSLで構築した構造体は、それが一行で構成されていても数百行で構成されていてもこの型のインスタンスになります。"
 
 #: ../../scala/http/routing-dsl/routes.rst:11
@@ -49,14 +49,14 @@ msgstr ""
 msgid ""
 "Complete the request by returning the value of "
 "``requestContext.complete(...)``"
-msgstr " ``requestContext.complete(...)`` の値を返すことによってリクエストを完了する。"
+msgstr "``requestContext.complete(...)`` の値を返すことによってリクエストを完了する。"
 
 #: ../../scala/http/routing-dsl/routes.rst:16
 msgid ""
 "Reject the request by returning the value of ``requestContext.reject(...)`` "
 "(see :ref:`rejections-scala`)"
 msgstr ""
-" ``requestContext.reject(...)`` の値を返すことによって、リクエストを拒否します。 ( :ref:`rejections-"
+"``requestContext.reject(...)`` の値を返すことによって、リクエストを拒否します。 ( :ref:`rejections-"
 "scala` を参照して下さい。)"
 
 #: ../../scala/http/routing-dsl/routes.rst:17
@@ -64,7 +64,7 @@ msgid ""
 "Fail the request by returning the value of ``requestContext.fail(...)`` or "
 "by just throwing an exception (see :ref:`exception-handling-scala`)"
 msgstr ""
-" ``requestContext.fail(...)`` の値を返す、若しくは単純に例外を投げることによって、リクエストを失敗させます。 ( :ref"
+"``requestContext.fail(...)`` の値を返す、若しくは単純に例外を投げることによって、リクエストを失敗させます。 ( :ref"
 ":`exception-handling-scala` を参照して下さい。)"
 
 #: ../../scala/http/routing-dsl/routes.rst:18
@@ -90,7 +90,7 @@ msgid ""
 "scope ``RejectionHandler`` and ``ExceptionHandler`` instances to convert "
 "rejections and exceptions into appropriate HTTP responses for the client."
 msgstr ""
-" ``Route`` は ``Route.seal`` を使うことによって、 \"sealed\" とする事ができます。これらはスコープ内の "
+"``Route`` は ``Route.seal`` を使うことによって、 \"sealed\" とする事ができます。これらはスコープ内の "
 "``RejectionHandler`` と ``ExceptionHandler`` "
 "のインスタンスを使って、リジェクションと例外をクライアントに返す明確なHTTPレスポンスに変換します。"
 
@@ -100,8 +100,8 @@ msgid ""
 "lifted into a handler ``Flow`` or async handler function to be used with a "
 "``bindAndHandleXXX`` call from the :ref:`http-low-level-server-side-api`."
 msgstr ""
-" ``Route.handlerFlow`` 、 ``Route.asyncHandler`` 又は ``Route`` を使用する事によって、 "
-":ref:`http-low-level-server-side-api` から呼ばれる ``bindAndHandleXXX`` と共に使用する "
+"``Route.handlerFlow`` 、 ``Route.asyncHandler`` 又は ``Route`` を使用する事によって、 :ref"
+":`http-low-level-server-side-api` から呼ばれる ``bindAndHandleXXX`` と共に使用する "
 "``Flow`` や非同期な処理関数に引き上げる事が出来ます。"
 
 #: ../../scala/http/routing-dsl/routes.rst:30
@@ -136,7 +136,7 @@ msgid ""
 "The ``RequestContext`` itself is immutable but contains several helper "
 "methods which allow for convenient creation of modified copies."
 msgstr ""
-" ``RequestContext`` 自体は不変ですが、利便性の為に、変更されたコピーを生成する幾つかのヘルパーメソッドが提供されています。"
+"``RequestContext`` 自体は不変ですが、利便性の為に、変更されたコピーを生成する幾つかのヘルパーメソッドが提供されています。"
 
 #: ../../scala/http/routing-dsl/routes.rst:51
 msgid "RouteResult"
@@ -147,7 +147,7 @@ msgid ""
 "``RouteResult`` is a simple abstract data type (ADT) that models the "
 "possible non-error results of a ``Route``. It is defined as such::"
 msgstr ""
-" ``RouteResult`` は ``Route`` "
+"``RouteResult`` は ``Route`` "
 "のエラーではない結果をモデルとした、シンプルな抽象データ型(ADT)です。次のように定義されます::"
 
 #: ../../scala/http/routing-dsl/routes.rst:63
