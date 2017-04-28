@@ -29,7 +29,7 @@ msgid ""
 "single line or span several hundred lines, are functions turning a "
 "``RequestContext`` into a ``CompletionStage<RouteResult>``."
 msgstr ""
-" \"Route\" はAkka "
+"\"Route\" はAkka "
 "HTTPのルーティングDSLにおいて中心となる概念です。DSLで構築した構造体は、それが一行で構成されていても数百行で構成されていても "
 "``RequestContext`` を ``CompletionStage<RouteResult>`` に変換する関数になります。"
 
