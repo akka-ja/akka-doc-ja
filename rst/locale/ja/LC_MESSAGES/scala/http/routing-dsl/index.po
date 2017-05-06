@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: y2k2mt <y2.k2mt@gmail.com>, 2017\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/index.rst:4
 msgid "High-level Server-Side API"
-msgstr ""
+msgstr "高レベルサーバーサイドAPI"
 
 #: ../../scala/http/routing-dsl/index.rst:6
 msgid ""
@@ -29,6 +30,8 @@ msgid ""
 "higher-level functionality of typical web servers or frameworks, like "
 "deconstruction of URIs, content negotiation or static content serving."
 msgstr ""
+"Akka HTTPは :ref:`http-low-level-server-side-api` "
+"に加えて、RESTfulウェブサービスをエレガントに定義する為の、とても柔軟な\"ルーティングDSL\"を提供しています。これは低レベルAPIが残してきた、URIの分解、コンテンツネゴシエーション及び静的ファイルの供給など、典型的なWebサーバ及びフレームワークが提供する高レベルな機能を提供しています。"
 
 #: ../../scala/http/routing-dsl/index.rst:12
 msgid ""
@@ -37,26 +40,28 @@ msgid ""
 " may be unexpected when coming from a background with non-\"streaming "
 "first\" HTTP Servers."
 msgstr ""
+":ref:`implications-of-streaming-http-entities` "
+"の節を読むことを推奨します。この節では、ストリーミングファーストではないHTTPサーバーから移行している人に向けたフルスタックのストリーミングコンセプトに則った説明をしています。"
 
 #: ../../scala/http/routing-dsl/index.rst:32
 msgid "Minimal Example"
-msgstr ""
+msgstr "最小の例"
 
 #: ../../scala/http/routing-dsl/index.rst:34
 msgid ""
 "This is a complete, very basic Akka HTTP application relying on the Routing "
 "DSL:"
-msgstr ""
+msgstr "これは完全な、そしてとても基本的なルーティングDSLによるAkka HTTPアプリケーションです。"
 
 #: ../../scala/http/routing-dsl/index.rst:39
 msgid ""
 "It starts an HTTP Server on localhost and replies to GET requests to "
 "``/hello`` with a simple response."
-msgstr ""
+msgstr "HTTPサーバーをlocalhostで起動し、 ``/hello`` に対するGETリクエストに簡単なレスポンスを返しています。"
 
 #: ../../scala/http/routing-dsl/index.rst:45
 msgid "Longer Example"
-msgstr ""
+msgstr "より長い例"
 
 #: ../../scala/http/routing-dsl/index.rst:47
 msgid ""
@@ -65,10 +70,12 @@ msgid ""
 "definition should give you a feel for what an actual API definition with the"
 " Routing DSL will look like:"
 msgstr ""
+"以下のAkka "
+"HTTPのルートは幾つかの機能を見せるために定義したものです。結果としてサービスは実際には何の役にも立ちませんが、ルーティングDSLでの実際のAPI定義がどのようなものになるかを感じさせます:"
 
 #: ../../scala/http/routing-dsl/index.rst:57
 msgid "Handling HTTP Server failures in the High-Level API"
-msgstr ""
+msgstr "高レベルAPIでHTTPサーバーの失敗を処理する"
 
 #: ../../scala/http/routing-dsl/index.rst:58
 msgid ""
@@ -78,10 +85,12 @@ msgid ""
 " being logged, for example by shutting down the actor system, or notifying "
 "some external monitoring end-point explicitly."
 msgstr ""
+"Akka "
+"HTTPサーバの初期化もしくは実行中に、障害が起こる状況はいくつもあります。Akkaの既定の動作では、全ての障害のログを記録しますが、ログの記録に加えて、例えば、アクターシステムを停止したり、外部のモニタリング装置に明示的に通知したりなど、応答したい時があるかもしれません。"
 
 #: ../../scala/http/routing-dsl/index.rst:64
 msgid "Bind failures"
-msgstr ""
+msgstr "バインドの失敗"
 
 #: ../../scala/http/routing-dsl/index.rst:65
 msgid ""
@@ -91,6 +100,9 @@ msgid ""
 "\"binding future\" will fail immediately, and we can react to if by "
 "listening on the Future's completion:"
 msgstr ""
+"例えば、サーバーが与えられたポートをバインドする事が出来なかった場合があります。例えば、ポートが既に他のアプリケーションに使用されていた場合や、ポートに特権がある場合(例えば、"
+" ``root`` のみ使用可能な場合)があります。これらの場合、\"binding future\" "
+"はすぐに失敗し、Futureの完了をリスニングしていれば、対応する事が出来ます:"
 
 #: ../../scala/http/routing-dsl/index.rst:74
 msgid ""
@@ -98,10 +110,12 @@ msgid ""
 "also more fine-grained control over them refer to the :ref:`handling-http-"
 "server-failures-low-level-scala` documentation."
 msgstr ""
+"発生する可能性のある失敗の種類についての低いレベルにおける概要と、それらの詳細な制御については :ref:`handling-http-server-"
+"failures-low-level-scala` を参照して下さい。"
 
 #: ../../scala/http/routing-dsl/index.rst:78
 msgid "Failures and exceptions inside the Routing DSL"
-msgstr ""
+msgstr "ルーティングDSL内部における失敗と例外"
 
 #: ../../scala/http/routing-dsl/index.rst:80
 msgid ""
@@ -111,16 +125,19 @@ msgid ""
 " transform exceptions into :class:`HttpResponse` s with apropriate error "
 "codes and human-readable failure descriptions."
 msgstr ""
+"ルート内部における例外の処理は、 :ref:`exception-handling-scala` の節で詳細にドキュメント化されている "
+":class:`ExceptionHandler` を供給することによって実行されます。例外を適切なのエラーコードと、人が理解できる失敗の説明によって、"
+" :class:`HttpResponse` に変換する事が出来ます。"
 
 #: ../../scala/http/routing-dsl/index.rst:85
 msgid "File uploads"
-msgstr ""
+msgstr "ファイルアップロード"
 
 #: ../../scala/http/routing-dsl/index.rst:86
 msgid ""
 "For high level directives to handle uploads see the "
 ":ref:`FileUploadDirectives`."
-msgstr ""
+msgstr "高レベルディレクティブ向けのアップロード処理は :ref:`FileUploadDirectives` を参照して下さい。"
 
 #: ../../scala/http/routing-dsl/index.rst:88
 msgid ""
@@ -130,6 +147,9 @@ msgid ""
 "individual body part payload so you will need to consume those streams both "
 "for the file and for the form fields."
 msgstr ""
+"例えば、簡単な `file` の入力を持つファイルアップロード処理は、 `Multipart.FormData` "
+"エンティティを受信することで実行する事が出来ます。ボディ部は、 全てすぐに利用できるものというよりは寧ろ `Source` "
+"であり、ボディ部の個別のペイロードは、ファイルとフォームフィールドの両方のストリームを消費する必要があることに注意して下さい。"
 
 #: ../../scala/http/routing-dsl/index.rst:93
 msgid ""
@@ -137,6 +157,7 @@ msgid ""
 " file on disk, collects some form fields and saves an entry to a fictive "
 "database:"
 msgstr ""
+"ここに、アップロードされたファイルを一時ファイルとしてディスクにダンプし、フィールドを収集して、架空のデータベースにエントリを保存する簡単な例を示します:"
 
 #: ../../scala/http/routing-dsl/index.rst:99
 msgid ""
@@ -145,13 +166,17 @@ msgid ""
 "any number of ``.csv`` files, parse those into lines and split each line "
 "before we send it to an actor for further processing:"
 msgstr ""
+"アップロードされたファイルは、前の例のように一時ファイルに保存するのではなく、着信時に変換することができます。 この例では、任意の数の ``.csv``"
+" ファイルを受け入れ、それらを行に解析し、さらに処理するためにアクターに送る前に各行を分割します:"
 
 #: ../../scala/http/routing-dsl/index.rst:107
 msgid "Configuring Server-side HTTPS"
-msgstr ""
+msgstr "サーバー側のHTTPSを設定する"
 
 #: ../../scala/http/routing-dsl/index.rst:109
 msgid ""
 "For detailed documentation about configuring and using HTTPS on the server-"
 "side refer to :ref:`serverSideHTTPS-scala`."
 msgstr ""
+"サーバーサイドでHTTPSを設定し使用する事に関する詳細なドキュメントは、  :ref:`serverSideHTTPS-scala` "
+"を参照して下さい。"
