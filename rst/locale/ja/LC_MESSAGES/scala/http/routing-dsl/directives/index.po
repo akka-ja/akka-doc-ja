@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: y2k2mt <y2.k2mt@gmail.com>, 2017\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 
 #: ../../scala/http/routing-dsl/directives/index.rst:4
 msgid "Directives"
-msgstr ""
+msgstr "ディレクティブ"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:6
 msgid ""
@@ -27,16 +28,20 @@ msgid ""
 "complex :ref:`route structures <Routes>`. Akka HTTP already pre-defines a "
 "large number of directives and you can easily construct your own:"
 msgstr ""
+"\"Directive\" は、任意の複雑な :ref:`route structures <Routes>` "
+"を作成するのに使われる小さなブロックです。Akka HTTPは予め数多くのディレクティブを定義しています。あなた自身で構築することも簡単に出来ます。"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:18
 msgid "Basics"
-msgstr ""
+msgstr "基本"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:20
 msgid ""
 "Directives create :ref:`Routes`. To understand how directives work it is "
 "helpful to contrast them with the \"primitive\" way of creating routes."
 msgstr ""
+"ディレクティブは :ref:`Routes` "
+"を作成します。\"プリミティブ\"なルートの作成方法と比較することで、ディレクティブがどの様に動作するのかを理解する助けになります。"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:23
 msgid ""
@@ -44,26 +49,28 @@ msgid ""
 " can be written in any way in which function instances can be written, e.g. "
 "as a function literal::"
 msgstr ""
+"``Route`` が単純な関数型 ``Route`` "
+"の型エイリアスであるので、インスタンスは様々な方法で関数のインスタンスとして記述する事が出来ます。関数リテラルの例::"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:28
 msgid "or shorter::"
-msgstr ""
+msgstr "より簡潔な例::"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:32
 msgid "With the :ref:`-complete-` directive this becomes even shorter::"
-msgstr ""
+msgstr ":ref:`-complete-` ディレクティブを使うことによって、より簡潔になります::"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:36
 msgid ""
 "These three ways of writing this ``Route`` are fully equivalent, the created"
 " ``route`` will behave identically in all cases."
-msgstr ""
+msgstr "三つの方法で記述された ``Route`` は全て等価です。作成された ``route`` は全てのケースにおいて同じ振る舞いをします。"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:39
 msgid ""
 "Let's look at a slightly more complicated example to highlight one important"
 " point in particular. Consider these two routes::"
-msgstr ""
+msgstr "ここで特に重要なポイントに焦点を当てるために、もっと複雑な例を見てみましょう。これらの二つのルートを考えてみます::"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:52
 msgid ""
@@ -72,12 +79,14 @@ msgid ""
 "constructed, whereas in the case of ``b`` it is executed every time the "
 "route is *run*."
 msgstr ""
+"``a`` と ``b`` との違いは、いつ ``println`` 文が実行されるかです。 ``a`` "
+"の場合はルートが構築された時に*一回だけ*実行され、 ``b`` の場合はルートが実行される度に実行されます。"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:56
 msgid ""
 "Using the :ref:`-complete-` directive the same effects are achieved like "
 "this::"
-msgstr ""
+msgstr ":ref:`-complete-` ディレクティブを使うと、この様に同じ効果が得られます::"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:68
 msgid ""
@@ -85,31 +94,34 @@ msgid ""
 "evaluated *by-name*, i.e. it is re-evaluated every time the produced route "
 "is run."
 msgstr ""
+"これが動作するのは、 :ref:`-complete-` ディレクティブの引数が *by-name* "
+"によって評価される、つまりルートが実行される度に再実行されるからです。"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:71
 msgid "Let's take things one step further::"
-msgstr ""
+msgstr "もう一歩先に進みましょう::"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:80
 msgid ""
 "Using the :ref:`-get-` and :ref:`-complete-` directives we can write this "
 "route like this::"
 msgstr ""
+":ref:`-get-` と :ref:`-complete-` ディレクティブを使うことによって、ルートをこの様に記述する事ができます::"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:88
 msgid "Again, the produced routes will behave identically in all cases."
-msgstr ""
+msgstr "この場合も、生成されたルートは全てのケースにおいて同じように振舞います。"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:90
 msgid ""
 "Note that, if you wish, you can also mix the two styles of route creation::"
-msgstr ""
+msgstr "必要に応じて、二通りのやり方を混在させる事も出来ます::"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:98
 msgid ""
 "Here, the inner route of the :ref:`-get-` directive is written as an "
 "explicit function literal."
-msgstr ""
+msgstr "ここでは、 :ref:`-get-` ディレクティブ内部のルートは明示的な関数リテラルとして記述されています。"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:100
 msgid ""
@@ -121,14 +133,17 @@ msgid ""
 "routes via ``Route`` function literals that directly manipulate the "
 ":ref:`RequestContext`."
 msgstr ""
+"しかしながら、これの例を見ても、\"手動\"で書いたコードよりもディレクティブを使ってルートを構築する方が、はるかに簡潔で読みやすく、保守しやすくなります。また、より良い記述性を提供します(次の節で説明します)。そして、Akka"
+" HTTPのルーティングDSLを使うと、 :ref:`RequestContext` を直接操作する ``Route`` "
+"関数リテラルを経由したルートの構築に戻る必要はほとんどありません。"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:107
 msgid "Structure"
-msgstr ""
+msgstr "構造"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:109
 msgid "The general anatomy of a directive is as follows::"
-msgstr ""
+msgstr "ディレクティブの一般的な分析は次の通りです::"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:115
 msgid ""
@@ -139,42 +154,47 @@ msgid ""
 " as function arguments. When seen \"from the outside\" a directive with its "
 "inner route form an expression of type ``Route``."
 msgstr ""
+"それは名前を持ち、ゼロかそれ以上の引数と内部ルートを持ちます( :ref:`RouteDirectives` "
+"は常に末端で使用され、内部ルートを持つことのできない特別なルートです)。加えて、ディレクティブは値を\"抽出\"し、内部ルートで関数の引数として利用させる事ができます。\"外側から\"見えるとき、その内側のルートを持つディレクティブは、"
+" ``Route`` 型の式を形成します。"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:122
 msgid "What Directives do"
-msgstr ""
+msgstr "ディレクティブの意味"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:124
 msgid "A directive can do one or more of the following:"
-msgstr ""
+msgstr "ディレクティブは以下の一つ以上の事が出来ます:"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:128
 msgid ""
 "Transform the incoming ``RequestContext`` before passing it on to its inner "
 "route (i.e. modify the request)"
-msgstr ""
+msgstr "内部ルートを通過する前に、受診した ``RequestContext`` を変換する(即ち、リクエストを変更します)"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:129
 msgid ""
 "Filter the ``RequestContext`` according to some logic, i.e. only pass on "
 "certain requests and reject others"
 msgstr ""
+"幾つかのロジックにしたがって、 ``RequestContext`` をフィルタする(即ち、特定のリクエストを通過させ、他のリクエストを拒否する)"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:130
 msgid ""
 "Extract values from the ``RequestContext`` and make them available to its "
 "inner route as \"extractions\""
-msgstr ""
+msgstr "``RequestContext`` から値を抽出し、内部ルートで \"extractions\" として利用できるようにする"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:131
 msgid ""
 "Chain some logic into the :ref:`RouteResult` future transformation chain "
 "(i.e. modify the response or rejection)"
 msgstr ""
+"幾つかのロジックを :ref:`RouteResult` Futureの変換チェーンに連結する(即ち、レスポンスもしくはリジェクションを変更する)"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:132
 msgid "Complete the request"
-msgstr ""
+msgstr "リクエストの完了"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:134
 msgid ""
@@ -182,10 +202,12 @@ msgid ""
 "route and can apply arbitrarily complex transformations, both (or either) on"
 " the request and on the response side."
 msgstr ""
+"これは ``Directive`` "
+"が内部ルートの機能を完全にラップし、リクエスト側とレスポンス側の両方(もしくは一方)に任意の複雑な変換を適用する事が出来ることを意味します。"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:139
 msgid "Composing Directives"
-msgstr ""
+msgstr "ディレクティブの作成"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:141
 msgid ""
@@ -196,12 +218,15 @@ msgid ""
 "the parent directive. Alternatively, you might choose to use the ``concat`` "
 "combinator. ``concat(a, b, c)`` is the same as ``a ~ b ~ c``."
 msgstr ""
+"ディレクティブの間の ``~`` "
+"(チルダ)を忘れても、完全に正しいScalaコードとしてコンパイルする事が出来ますが、期待したようには動作しません。単一の式として意図したものは、実際には複数の式であり、最後の式のみが結果として使用されます。あるいは、"
+" ``concat`` コンビネータを使用することもできます。 ``concat(a, b, c)`` は ``a ~ b ~ c`` と同じです。"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:144
 msgid ""
 "As you have seen from the examples presented so far the \"normal\" way of "
 "composing directives is nesting. Let's take a look at this concrete example:"
-msgstr ""
+msgstr "これまでの例の通り、ディレクティブがネストするのは「普通」のやり方です。具体的な例を見てみましょう:"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:150
 msgid ""
@@ -210,6 +235,8 @@ msgid ""
 "``path`` directive. To make this structure more explicit you could also "
 "write the whole thing like this:"
 msgstr ""
+"この ``get`` と ``put`` ディレクティブは ``~`` 演算子で連結し、 ``path`` "
+"ディレクティブの内部ルートとして機能するルートを形成します。この構造をより明確にするために、以下のように書く事が出来ます:"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:157
 msgid ""
@@ -219,28 +246,31 @@ msgid ""
 "can also use the ``|`` operator on directives. Here is yet another way to "
 "write the example:"
 msgstr ""
+"ディレクティブがただのメソッドとして実装されているのではなく、独立した ``Directive`` "
+"型のオブジェクトとして実装されていることは、このスニペットからはわかりません。しかし、これによってディレクティブをより柔軟に作成する事が出来ます。例えば、ディテクティブとして"
+" ``|`` を使うようなこともできます。例を書くもう一つの方法は次の通りです:"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:164
 msgid ""
 "Or better (without dropping down to writing an explicit ``Route`` function "
 "manually):"
-msgstr ""
+msgstr "より良い例( ``Route`` 関数を手作業で明示的に書くことを避けた):"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:169
 msgid ""
 "If you have a larger route structure where the ``(get | put)`` snippet "
 "appears several times you could also factor it out like this:"
-msgstr ""
+msgstr " ``(get | put)`` スニペットが頻繁に出てくるような大きなルート構造を持っている場合、次のように分解することもできます:"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:175
 msgid ""
 "Note that, because ``getOrPut`` doesn't take any parameters, it can be a "
 "``val`` here."
-msgstr ""
+msgstr "``getOrPut`` は引数を取らないので、 ``val`` として書けることに注意して下さい。"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:177
 msgid "As an alternative to nesting you can also use the `&` operator:"
-msgstr ""
+msgstr "ネストする代わりに `&` 演算子を使うこともできます。"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:182
 msgid ""
@@ -248,12 +278,14 @@ msgid ""
 "with ``&``, the resulting \"super-directive\" simply extracts the "
 "concatenation of its sub-extractions."
 msgstr ""
+"ここでは、抽出を生成するディレクティブが ``&`` と連結される時、結果として得られる \"super-directive\" "
+"は単に連結された部分抽出を抽出する事がわかります。"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:185
 msgid ""
 "And once again, you can factor things out if you want, thereby pushing the "
 "\"factoring out\" of directive configurations to its extreme:"
-msgstr ""
+msgstr "そしてもう一度、因子を分解する事が出来ます。それによって、ディレクティブの「因数分解 」を極端に押し進める事が出来ます。"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:191
 msgid ""
@@ -261,6 +293,8 @@ msgid ""
 " as \"saving\" more complex directive configurations as a ``val`` works "
 "across the board, with all directives taking inner routes."
 msgstr ""
+"``|`` や ``&`` 演算子でディレクティブを連結したり、複雑なディレクティブの設定を ``val`` "
+"として保存することで、全てのディレクティブを内部ルートを取る事ができます。"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:194
 msgid ""
@@ -269,6 +303,7 @@ msgid ""
 "maintainable routing code. It might even be that the very first of this "
 "series of examples is in fact the most readable one."
 msgstr ""
+"複雑なディレクティブを一つのディレクティブに「圧縮」する事は、読みやすく、保守可能なルーティングコードを得る最適な方法とは限りません。実際、この節の最初の例が最も読みやすいものであるかもしれません。"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:198
 msgid ""
@@ -277,10 +312,11 @@ msgid ""
 "web service behavior at the level of abstraction that is right for **your** "
 "application."
 msgstr ""
+"それでもなお、ここにあるエクササイズの目的は、どのように柔軟なディレクティブの力を、あなたのアプリケーションに適した抽象レベルで、Webサービスの振る舞いを定義するのに使う事ができるのかを示す事です。"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:203
 msgid "Type Safety of Directives"
-msgstr ""
+msgstr "ディレクティブの型安全"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:205
 msgid ""
@@ -288,22 +324,24 @@ msgid ""
 "DSL makes sure that all extractions work as expected and logical constraints"
 " are enforced at compile-time."
 msgstr ""
+"``|`` や ``&`` "
+"演算子を使ってディレクティブを連結すると、ルーティングDSLは全ての抽出を期待した通りに動作させ、論理的な制約をコンパイル時に施します。"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:208
 msgid ""
 "For example you cannot ``|`` a directive producing an extraction with one "
 "that doesn't::"
-msgstr ""
+msgstr "例えば、 ``|`` ディレクティブで抽出を生成することは出来ません::"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:212
 msgid "Also the number of extractions and their types have to match up::"
-msgstr ""
+msgstr "また、抽出する数とその種類は一致している必要があります::"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:217
 msgid ""
 "When you combine directives producing extractions with the ``&`` operator "
 "all extractions will be properly gathered up::"
-msgstr ""
+msgstr "``&`` 演算子で抽出を生成するディレクティブを連結するとき、全ての抽出は集約されます::"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:225
 msgid ""
@@ -313,3 +351,6 @@ msgid ""
 "does not fully satisfy your needs you can also easily create :ref:`Custom "
 "Directives`."
 msgstr ""
+"ディレクティブは、WebサービスロジックをDRYや型安全性を保ちながら、小さなブロックをプラグアンドプレイで構築するための優れた方法を提供します。 "
+"豊富な :ref:`Predefined Directives` でもあなたのニーズを満たせない場合は、 :ref:`Custom "
+"Directives` を簡単に作る事ができます。"
