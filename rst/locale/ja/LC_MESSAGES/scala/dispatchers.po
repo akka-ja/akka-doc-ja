@@ -49,12 +49,12 @@ msgid ""
 ".default-executor.fallback``. By default this is a \"fork-join-executor\", "
 "which gives excellent performance in most cases."
 msgstr ""
-"``ActorSystem`` には、 デフォルトのディスパッチャがあり ``Actor`` に個別の設定がされていない場合に適用されます。 "
-"デフォルトのディスパッチャは設定することができ、デフォルトは ``default-executor`` "
-"を指定して``Dispatcher``を実行します。 渡された ExecutionContext を使用して ActorSystem が作られると、この"
-" ExecutionContext は ActorSystem 内のすべてのディスパッチャのデフォルトエグゼキュータとして使用されます。 "
-"ExecutionContext が指定されていない場合、 ``akka.actor.default-dispatcher.default-"
-"executor.fallback`` で指定された エグゼキュータにフォールバックします。 デフォルトは「fork-join-"
+"``ActorSystem`` には、  ``Actor`` に個別の設定がされていない場合に適用されるデフォルトのディスパッチャがあります。 "
+"デフォルトのディスパッチャは設定することができ、デフォルトは ``default-executor`` を指定して ``Dispatcher`` "
+"を実行します。 渡された ExecutionContext を使用して ActorSystem が作られると、この ExecutionContext は"
+" ActorSystem 内のすべてのディスパッチャのデフォルトエグゼキュータとして使用されます。 ExecutionContext "
+"が指定されていない場合、 ``akka.actor.default-dispatcher.default-executor.fallback`` "
+"で指定された エグゼキュータにフォールバックします。 デフォルトは「fork-join-"
 "executor」で、ほとんどの場合、優れたパフォーマンスが得られます。"
 
 #: ../../scala/dispatchers.rst:23
@@ -116,7 +116,7 @@ msgstr "その他のオプションについては、 :ref:`configuration` の d
 msgid ""
 "Then you create the actor as usual and define the dispatcher in the "
 "deployment configuration."
-msgstr "次に、通常通りアクターを作成し、デプロイメントコンフィグレーションでディスパッチャを定義します。"
+msgstr "次に、通常通りアクターを作成し、デプロイメント設定でディスパッチャを定義します。"
 
 #: ../../scala/dispatchers.rst:59
 msgid ""
@@ -124,8 +124,8 @@ msgid ""
 "in code. If you define the ``dispatcher`` in the deployment configuration "
 "then this value will be used instead of programmatically provided parameter."
 msgstr ""
-"デプロイメントコンフィグレーションの代わりに、ソースコードでディスパッチャを定義することもできます。デプロイメントコンフィグレーションで "
-"``dispatcher`` を定義すると、プログラムで提供されたパラメータの代わりにこの値が使用されます。"
+"デプロイメント設定の代わりに、ソースコードでディスパッチャを定義することもできます。デプロイメント設定で ``dispatcher`` "
+"を定義すると、プログラムで提供されたパラメータの代わりにこの値が使用されます。"
 
 #: ../../scala/dispatchers.rst:66
 msgid ""
@@ -135,8 +135,8 @@ msgid ""
 "for instance put it as a sub-section, where you'd use periods to denote sub-"
 "sections, like this: ``\"foo.bar.my-dispatcher\"``"
 msgstr ""
-"デプロイメントコンフィグレーションの ``withDispatcher`` と ``dispatcher`` "
-"プロパティで指定するディスパッチャはあなたのコンフィグレーションへの実際のパスです。したがって、この例ではトップレベルのセクションですが、サブセクションとして使用することもできます。たとえば、"
+"デプロイメント設定の ``withDispatcher`` と ``dispatcher`` "
+"プロパティで指定するディスパッチャは設定への実際のパスです。したがって、この例ではトップレベルのセクションですが、サブセクションとして使用することもでき、たとえば、"
 " ``\"foo.bar.my-dispatcher\"`` のようになります。"
 
 #: ../../scala/dispatchers.rst:75
@@ -156,7 +156,7 @@ msgid ""
 "This is an event-based dispatcher that binds a set of Actors to a thread "
 "pool. It is the default dispatcher used if one is not specified."
 msgstr ""
-"これは、アクターのセットをスレッドプールにバインドするイベントベースのディスパッチャです。ディスパッチャが指定されていない場合に使用されるデフォルトのディスパッチャです。"
+"アクターのセットをスレッドプールにバインドするイベントベースのディスパッチャです。ディスパッチャが指定されていない場合に使用されるデフォルトのディスパッチャです。"
 
 #: ../../scala/dispatchers.rst:84 ../../scala/dispatchers.rst:135
 msgid "Sharability: Unlimited"
@@ -192,7 +192,7 @@ msgid ""
 "This dispatcher dedicates a unique thread for each actor using it; i.e. each"
 " actor will have its own thread pool with only one thread in the pool."
 msgstr ""
-"このディスパッチャは、使用する各アクターに固有のスレッドを割り当てます。すなわち、各アクターは、プール内に1つのスレッドのみを持つ独自のスレッドプールを有します。"
+"使用する各アクターに固有のスレッドを割り当てます。すなわち、各アクターは、プール内に1つのスレッドのみを持つ独自のスレッドプールを有します。"
 
 #: ../../scala/dispatchers.rst:99
 msgid "Sharability: None"
@@ -218,7 +218,7 @@ msgstr "BalancingDispatcher"
 msgid ""
 "This is an executor based event driven dispatcher that will try to "
 "redistribute work from busy actors to idle actors."
-msgstr "これは、エグゼキュータベースのイベント駆動型ディスパッチャで、ビジー状態のアクターからアイドル状態アクターに作業を再分配しようとします。"
+msgstr "エグゼキュータベースのイベント駆動型ディスパッチャで、ビジー状態のアクターからアイドル状態のアクターに作業を再分配しようとします。"
 
 #: ../../scala/dispatchers.rst:112
 msgid ""
@@ -265,7 +265,7 @@ msgid ""
 "concurrently for the same actor. See :ref:`Scala-CallingThreadDispatcher` "
 "for details and restrictions."
 msgstr ""
-"このディスパッチャは、カレントスレッドでのみで呼び出しを実行します。このディスパッチャは新しいスレッドを作成しませんが、同じアクターに対して異なるスレッドから同時に使用できます。詳細と制限については"
+"カレントスレッドでのみで呼び出しを実行します。このディスパッチャは新しいスレッドを作成しませんが、同じアクターに対して異なるスレッドから同時に使用できます。詳細と制限については"
 " :ref:`Scala-CallingThreadDispatcher` を参照してください。"
 
 #: ../../scala/dispatchers.rst:137
@@ -278,7 +278,7 @@ msgstr "ユースケース: テスト"
 
 #: ../../scala/dispatchers.rst:141
 msgid "Driven by: The calling thread (duh)"
-msgstr "駆動者: 呼び出し側スレッド(もちろん)"
+msgstr "駆動者: 呼び出し側スレッド(当然ですが)"
 
 #: ../../scala/dispatchers.rst:145
 msgid "More dispatcher configuration examples"
