@@ -120,7 +120,7 @@ msgid ""
 " may be unexpected when coming from a background with non-\"streaming "
 "first\" HTTP Servers."
 msgstr ""
-" :ref:`implications-of-streaming-http-entities` "
+":ref:`implications-of-streaming-http-entities` "
 "の節を読むことを推奨します。この節では、ストリーミングファーストではないHTTPサーバーから移行している人に向けたフルスタックのストリーミングの概念に則った説明をしています。"
 
 #: ../../scala/http/low-level-server-side-api.rst:49
@@ -185,7 +185,7 @@ msgid ""
 " well as a larger number of settings for configuring the server according to"
 " your needs."
 msgstr ""
-" ``Http().bind`` "
+"``Http().bind`` "
 "メソッドに引数に、インターフェースとバインドするポートを指定します。そして、HTTP接続の要求をハンドリングする処理を登録します。さらに、必要に応じてソケットオプションを設定するのと同様に、数多くのサーバーを調整する為の設定を行うことができます。"
 
 #: ../../scala/http/low-level-server-side-api.rst:77
@@ -204,7 +204,7 @@ msgid ""
 " address of the bound socket, which is useful for example when binding to "
 "port zero (and thus letting the OS pick an available port)."
 msgstr ""
-" ``bind`` メソッドの結果である ``Source[Http.IncomingConnection]`` "
+"``bind`` メソッドの結果である ``Source[Http.IncomingConnection]`` "
 "は接続要求を受信することによってドレインしなければなりません。実際のバインディングはSourceがパイプラインプロセスの一部としてマテリアライズされる前には実行されません。バインドに失敗した場合(例.ポートが既に使用されていた場合)はマテリアライズされたストリームはそれぞれ例外を出し、直ぐに停止します。接続要求の消費側が消費をキャンセルした時に、バインディングは解放されます。(即ち、ソケットはアンバウンドされます。)"
 " 代替手段として、Sourceのマテリアライズプロセスの一部として生成された ``Http.ServerBinding`` インスタンスの "
 "``unbind()`` メソッドを使うことができます。 ``Http.ServerBinding`` "
@@ -232,7 +232,7 @@ msgstr "リクエストは ``handleWithXXX`` メソッドの一つを呼び出�
 
 #: ../../scala/http/low-level-server-side-api.rst:100
 msgid "a ``Flow[HttpRequest, HttpResponse, _]`` for ``handleWith``,"
-msgstr " ``Flow[HttpRequest, HttpResponse, _]`` を処理する ``handleWith``"
+msgstr "``Flow[HttpRequest, HttpResponse, _]`` を処理する ``handleWith``"
 
 #: ../../scala/http/low-level-server-side-api.rst:101
 msgid ""
@@ -244,7 +244,7 @@ msgid ""
 "a function ``HttpRequest => Future[HttpResponse]`` for "
 "``handleWithAsyncHandler``."
 msgstr ""
-" 関数 ``HttpRequest => Future[HttpResponse]`` を処理する ``handleWithAsyncHandler``"
+"関数 ``HttpRequest => Future[HttpResponse]`` を処理する ``handleWithAsyncHandler``"
 
 #: ../../scala/http/low-level-server-side-api.rst:104
 msgid "Here is a complete example:"
@@ -370,7 +370,7 @@ msgid ""
 "overloads of the ``Http().serverLayer`` method, which also allows for "
 "varying degrees of configuration."
 msgstr ""
-" ``Http.ServerLayer`` のインスタンスは ``Http().serverLayer`` "
+"``Http.ServerLayer`` のインスタンスは ``Http().serverLayer`` "
 "をオーバーロードした二つのメソッドの内の一つを呼ぶことによって生成する事ができ、また、様々な段階の設定を可能にします。"
 
 #: ../../scala/http/low-level-server-side-api.rst:169
