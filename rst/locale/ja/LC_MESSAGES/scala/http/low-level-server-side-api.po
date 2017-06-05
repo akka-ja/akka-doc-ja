@@ -174,7 +174,7 @@ msgid ""
 "On the most basic level an Akka HTTP server is bound by invoking the "
 "``bind`` method of the `akka.http.scaladsl.Http`_ extension:"
 msgstr ""
-"最も基本的なレベルのAkka HTTPサーバは `akka.http.scaladsl.Http`_ の``bind`` "
+"最も基本的なレベルのAkka HTTPサーバは `akka.http.scaladsl.Http`_ の ``bind`` "
 "メソッドを実行することによって起動します。"
 
 #: ../../scala/http/low-level-server-side-api.rst:73
@@ -298,7 +298,7 @@ msgid ""
 "unmarshalling-scala` facilities provided by Akka HTTP then the conversion of"
 " custom types to and from streamed entities can be quite convenient."
 msgstr ""
-"Akka HTTPが提供している :ref:`http-marshalling-scala` や:ref:`http-unmarshalling-"
+"Akka HTTPが提供している :ref:`http-marshalling-scala` や :ref:`http-unmarshalling-"
 "scala` の機能は、カスタム型とストリーミングされたエンティティとの相互変換に非常に便利です。"
 
 #: ../../scala/http/low-level-server-side-api.rst:133
