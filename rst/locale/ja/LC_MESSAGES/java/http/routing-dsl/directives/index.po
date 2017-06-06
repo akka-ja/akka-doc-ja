@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: y2k2mt <y2.k2mt@gmail.com>, 2017\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 
 #: ../../java/http/routing-dsl/directives/index.rst:4
 msgid "Directives"
-msgstr ""
+msgstr "ディレクティブ"
 
 #: ../../java/http/routing-dsl/directives/index.rst:6
 msgid ""
@@ -27,10 +28,12 @@ msgid ""
 "complex :ref:`route structures <Routes>`. Akka HTTP already pre-defines a "
 "large number of directives and you can easily construct your own:"
 msgstr ""
+"\"Directive\" は、任意の複雑な :ref:`route structures <Routes>` "
+"を作成するのに使われる小さなブロックです。Akka HTTPは予め数多くのディレクティブを定義しています。あなた自身で構築することも簡単に出来ます。"
 
 #: ../../java/http/routing-dsl/directives/index.rst:18
 msgid "Basics"
-msgstr ""
+msgstr "基本"
 
 #: ../../java/http/routing-dsl/directives/index.rst:20
 msgid ""
@@ -38,16 +41,18 @@ msgid ""
 "take a ``RequestContext`` and eventually ``complete`` it, which could (and "
 "often should) happen asynchronously."
 msgstr ""
+":ref:`Routes-java` は ``RequestContext`` を取り、最終的に(場合によっては非同期に) ``complete`` "
+"する高度に特殊な関数です。"
 
 #: ../../java/http/routing-dsl/directives/index.rst:23
 msgid "With the :ref:`-complete-java-` directive this becomes even shorter::"
-msgstr ""
+msgstr ":ref:`-complete-java-` ディレクティブを使うことによって、より簡潔になります::"
 
 #: ../../java/http/routing-dsl/directives/index.rst:27
 msgid ""
 "Writing multiple routes that are tried as alternatives (in-order of "
 "definition), is as simple as using the ``route(route1, route2)``, method::"
-msgstr ""
+msgstr "定義した順に試行される複数のルートを記述する事は、 ``route(route1, route2)`` を使用するのと同じ位簡単です。"
 
 #: ../../java/http/routing-dsl/directives/index.rst:38
 msgid ""
@@ -57,20 +62,23 @@ msgid ""
 "``GET`` requests for that route, and all other requests will be routed "
 "towards the other \"catch all\" route, that completes the route::"
 msgstr ""
+"最後にマッチするルートを記述する事によって、 \"catch all\" なルートも簡単に定義する事ができます。以下の例では、( :ref"
+":`MethodDirectives-java` の一つである) ``get()`` を使って、全ての ``GET`` "
+"リクエストをこのルートにマッチさせ、その他のリクエストを \"catch all\" に送ってルートを完結させています::"
 
 #: ../../java/http/routing-dsl/directives/index.rst:50
 msgid ""
 "If no route matches a given request, a default ``404 Not Found`` response "
 "will be returned as response."
-msgstr ""
+msgstr "リクエストにマッチするルートがない場合、デフォルトでは ``404 Not Found`` がレスポンスとして返されます。"
 
 #: ../../java/http/routing-dsl/directives/index.rst:53
 msgid "Structure"
-msgstr ""
+msgstr "構造"
 
 #: ../../java/http/routing-dsl/directives/index.rst:55
 msgid "The general anatomy of a directive is as follows::"
-msgstr ""
+msgstr "ディレクティブの一般的な分析は次の通りです::"
 
 #: ../../java/http/routing-dsl/directives/index.rst:61
 msgid ""
@@ -78,6 +86,8 @@ msgid ""
 ":ref:`RouteDirectives-java` are special in that they are always used at the "
 "leaf-level and as such cannot have inner routes)."
 msgstr ""
+"それは名前を持ち、ゼロかそれ以上の引数と内部ルートを持ちます。( :ref:`RouteDirectives-java` "
+"は常に末端で使用され、内部ルートを持つことのできない特別なルートです)"
 
 #: ../../java/http/routing-dsl/directives/index.rst:64
 msgid ""
@@ -86,42 +96,45 @@ msgid ""
 "outside\" a directive with its inner route form an expression of type "
 "``Route``."
 msgstr ""
+"加えて、ディレクティブは値を\"抽出\"し、内部ルートで関数の引数として利用させる事ができます。\"外側から\"見えるとき、その内側のルートを持つディレクティブは、"
+" ``Route`` 型の式を形成します。"
 
 #: ../../java/http/routing-dsl/directives/index.rst:69
 msgid "What Directives do"
-msgstr ""
+msgstr "ディレクティブの意味"
 
 #: ../../java/http/routing-dsl/directives/index.rst:71
 msgid "A directive can do one or more of the following:"
-msgstr ""
+msgstr "ディレクティブは以下の一つ以上の事が出来ます:"
 
 #: ../../java/http/routing-dsl/directives/index.rst:75
 msgid ""
 "Transform the incoming ``RequestContext`` before passing it on to its inner "
 "route (i.e. modify the request)"
-msgstr ""
+msgstr "内部ルートを通過する前に、受診した ``RequestContext`` を変換する(即ち、リクエストを変更します)"
 
 #: ../../java/http/routing-dsl/directives/index.rst:76
 msgid ""
 "Filter the ``RequestContext`` according to some logic, i.e. only pass on "
 "certain requests and reject others"
 msgstr ""
+"幾つかのロジックにしたがって、 ``RequestContext`` をフィルタする(即ち、特定のリクエストを通過させ、他のリクエストを拒否する)"
 
 #: ../../java/http/routing-dsl/directives/index.rst:77
 msgid ""
 "Extract values from the ``RequestContext`` and make them available to its "
 "inner route as \"extractions\""
-msgstr ""
+msgstr "``RequestContext`` から値を抽出し、内部ルートで \"extractions\" として利用できるようにする"
 
 #: ../../java/http/routing-dsl/directives/index.rst:78
 msgid ""
 "Chain some logic into the :class:`RouteResult` future transformation chain "
 "(i.e. modify the response or rejection)"
-msgstr ""
+msgstr "幾つかのロジックを :class:`RouteResult` の変換チェーンに連結する(即ち、レスポンスもしくはリジェクションを変更する)"
 
 #: ../../java/http/routing-dsl/directives/index.rst:79
 msgid "Complete the request"
-msgstr ""
+msgstr "リクエストの完了"
 
 #: ../../java/http/routing-dsl/directives/index.rst:81
 msgid ""
@@ -129,11 +142,13 @@ msgid ""
 "route and can apply arbitrarily complex transformations, both (or either) on"
 " the request and on the response side."
 msgstr ""
+"これは ``Directive`` "
+"が内部ルートの機能を完全にラップし、リクエスト側とレスポンス側の両方(もしくは一方)に任意の複雑な変換を適用する事が出来ることを意味します。"
 
 #: ../../java/http/routing-dsl/directives/index.rst:86
 msgid "Composing Directives"
-msgstr ""
+msgstr "ディレクティブの作成"
 
 #: ../../java/http/routing-dsl/directives/index.rst:88
 msgid "TODO rewrite for Java API"
-msgstr ""
+msgstr "TODO Java APIの書き直し"
