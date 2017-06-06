@@ -177,7 +177,7 @@ msgid ""
 "Filter the ``RequestContext`` according to some logic, i.e. only pass on "
 "certain requests and reject others"
 msgstr ""
-"幾つかのロジックにしたがって、 ``RequestContext`` をフィルタする(即ち、特定のリクエストを通過させ、他のリクエストを拒否する)"
+"幾つかのロジックにしたがって、 ``RequestContext`` をフィルタする、即ち、特定のリクエストを通過させ、他のリクエストを拒否する"
 
 #: ../../scala/http/routing-dsl/directives/index.rst:130
 msgid ""
