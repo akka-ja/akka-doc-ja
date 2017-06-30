@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-04 02:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Yugo Maede <yugo.maede@gmail.com>, 2017\n"
 "Language-Team: Japanese (https://www.transifex.com/akka-ja/teams/67802/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,11 +20,11 @@ msgstr ""
 
 #: ../../scala/fsm.rst:5
 msgid "FSM"
-msgstr ""
+msgstr "FSM"
 
 #: ../../scala/fsm.rst:9
 msgid "Overview"
-msgstr ""
+msgstr "概要"
 
 #: ../../scala/fsm.rst:11
 msgid ""
@@ -31,28 +32,31 @@ msgid ""
 "and is best described in the `Erlang design principles "
 "<http://www.erlang.org/documentation/doc-4.8.2/doc/design_principles/fsm.html>`_"
 msgstr ""
+"FSM(Finite State "
+"Machine：有限状態マシン)はAkkaのアクターにミックスインとして利用することができ、`Erlangの設計原則<http://www.erlang.org/documentation/doc-4.8.2/doc/design_principles/fsm.html>`_"
+" に詳しく記載されています。"
 
 #: ../../scala/fsm.rst:15
 msgid "A FSM can be described as a set of relations of the form:"
-msgstr ""
+msgstr "FSMは、次の式の関係の集合として記述できます。"
 
 #: ../../scala/fsm.rst:17
 msgid "**State(S) x Event(E) -> Actions (A), State(S')**"
-msgstr ""
+msgstr "**State(S) x Event(E) -> Actions (A), State(S')**"
 
 #: ../../scala/fsm.rst:19
 msgid "These relations are interpreted as meaning:"
-msgstr ""
+msgstr "これらの関係は、次のように解釈されます。"
 
 #: ../../scala/fsm.rst:21
 msgid ""
 "*If we are in state S and the event E occurs, we should perform the actions "
 "A and make a transition to the state S'.*"
-msgstr ""
+msgstr "*状態SでイベントEが発生した場合は、アクションAを実行して状態S'に遷移する必要があります。*"
 
 #: ../../scala/fsm.rst:25
 msgid "A Simple Example"
-msgstr ""
+msgstr "簡単な例"
 
 #: ../../scala/fsm.rst:27
 msgid ""
@@ -60,16 +64,18 @@ msgid ""
 "actor which shall receive and queue messages while they arrive in a burst "
 "and send them on after the burst ended or a flush request is received."
 msgstr ""
+":class:`FSM` "
+"トレイトのほとんどの機能を実証するために、メッセージがバーストに到着している間にメッセージを受信しキューに入れ、バーストが終了した後、またはフラッシュ要求を受信した後にメッセージを送信するアクターを考えてみましょう。"
 
 #: ../../scala/fsm.rst:31
 msgid "First, consider all of the below to use these import statements:"
-msgstr ""
+msgstr "まず、これらのインポート文を使用するには、以下のすべてを考慮してください。"
 
 #: ../../scala/fsm.rst:35
 msgid ""
 "The contract of our “Buncher” actor is that it accepts or produces the "
 "following messages:"
-msgstr ""
+msgstr "「Buncher」アクターの決め事として、以下のメッセージを受け入れるか、作り出します："
 
 #: ../../scala/fsm.rst:39
 msgid ""
@@ -77,6 +83,8 @@ msgid ""
 "``Batches`` to be passed on; ``Queue`` will add to the internal queue while "
 "``Flush`` will mark the end of a burst."
 msgstr ""
+"``SetTarget`` は起動に必要で ``Batches`` が渡される宛先を設定します。 ``Queue``\n"
+" は内部キューに追加され、 ``Flush`` はバーストの終了をマークします。"
 
 #: ../../scala/fsm.rst:45
 msgid ""
@@ -86,10 +94,12 @@ msgid ""
 "of the actor is made up of the target actor reference to send the batches to"
 " and the actual queue of messages."
 msgstr ""
+"アクターは2つの状態になることができます。キューにメッセージが存在しない状態(別名 ``Idle`` )と、存在する状態(別名 ``Active`` "
+")です。メッセージが到着し続けてフラッシュが要求されない限り、Active状態に留まります。アクターの内部状態データは、バッチを送信するターゲットアクター参照とメッセージの実際のキューで構成されます。"
 
 #: ../../scala/fsm.rst:51
 msgid "Now let’s take a look at the skeleton for our FSM actor:"
-msgstr ""
+msgstr "FSMアクターのスケルトンを見てみましょう:"
 
 #: ../../scala/fsm.rst:57
 msgid ""
@@ -97,10 +107,12 @@ msgid ""
 " and specifying the possible states and data values as type parameters. "
 "Within the body of the actor a DSL is used for declaring the state machine:"
 msgstr ""
+"基本的な戦略は、 :class:`FSM` "
+"トレイトをミックスインし、可能な状態とデータ値を型パラメータとして指定することで、アクターを宣言することです。アクター本体では、ステートマシンを宣言するためにDSLが使用されます。"
 
 #: ../../scala/fsm.rst:61
 msgid ":meth:`startWith` defines the initial state and initial data"
-msgstr ""
+msgstr ":meth:`startWith` は初期状態と初期データを定義します。"
 
 #: ../../scala/fsm.rst:62
 msgid ""
@@ -108,12 +120,14 @@ msgid ""
 "handled (could potentially be multiple ones, the passed "
 ":class:`PartialFunction` will be concatenated using :meth:`orElse`)"
 msgstr ""
+"処理される状態ごとに :meth:`when(<state>) { ... }`  宣言があります(潜在的に複数になる可能性があり、渡される "
+":class:`PartialFunction`  は :meth:`orElse` を使用して連結されます`)"
 
 #: ../../scala/fsm.rst:65
 msgid ""
 "finally starting it up using :meth:`initialize`, which performs the "
 "transition into the initial state and sets up timers (if required)."
-msgstr ""
+msgstr "最終的に、初期状態へ遷移させ(必要に応じて)タイマーを設定する :meth:`initialize` を使用して起動します。"
 
 #: ../../scala/fsm.rst:68
 msgid ""
@@ -131,6 +145,14 @@ msgid ""
 "states, we make use of the fact that any event which is not handled by the "
 "``when()`` block is passed to the ``whenUnhandled()`` block:"
 msgstr ""
+"この場合、 ``SetTarget()`` メッセージだけが処理される ``Idle`` と ``Uninitialized`` 状態から始めます。 "
+"``stay`` は、このイベントの現在から遷移しないための処理を終了する準備をしていますが、 ``using`` "
+"修飾子はFSMの内部状態(この時点では ``Uninitialized`` )をターゲットのアクター参照を含む新しい ``Todo()`` オブジェクト"
+" に置き換えます。``Active`` 状態には、1秒間メッセージが受信されなければ ``FSM.StateTimeout`` "
+"メッセージが生成される状態のタイムアウトが宣言されています。この場合、``Flush`` コマンドを受け取るのと同じ効果があります。 ``Idle`` "
+"状態に戻り、内部キューを空のベクターにリセットします。 "
+"では、メッセージはどのようにしてキューに入れられるのでしょうか？これは両方の状態で同じように動作するので、 ``when()``  "
+"ブロックによって処理されないイベントは ``whenUnhandled()`` ブロックに渡されるという事実を利用します:"
 
 #: ../../scala/fsm.rst:84
 msgid ""
@@ -141,6 +163,10 @@ msgid ""
 "Otherwise—and in all other non-handled cases—the second case just logs a "
 "warning and does not change the internal state."
 msgstr ""
+"ここで扱う最初のケースは、 ``Queue()`` 要求を内部キューに追加し、 ``Active`` "
+"状態に移ることです(これが既にその状態にあるなら、もちろん ``Active`` 状態に留まります)。 ``Queue()`` "
+"イベントが受信されたときにFSMデータが ``Uninitialized`` "
+"でない場合に限ります。それ以外の他で処理されないケースでは、2つ目のケースで、警告ログを出力するだけで、内部状態は変更されません。"
 
 #: ../../scala/fsm.rst:91
 msgid ""
@@ -149,6 +175,8 @@ msgid ""
 "multiple such blocks and all of them will be tried for matching behavior in "
 "case a state transition occurs (i.e. only when the state actually changes)."
 msgstr ""
+"残りは ``Batches`` が実際にターゲットに送られる部分です。これは、 ``onTransition`` "
+"メカニズムを使用しています。このブロックを複数宣言することができ、状態遷移が起こった場合(つまり、状態が実際に変化した場合のみ)にすべての振る舞いをマッチングさせようとします。"
 
 #: ../../scala/fsm.rst:98
 msgid ""
@@ -159,6 +187,8 @@ msgid ""
 "During the state change, the old state data is available via ``stateData`` "
 "as shown, and the new state data would be available as ``nextStateData``."
 msgstr ""
+"遷移コールバックは、入力として現在の状態と次の状態の2つの状態をとる部分関数です。FSMトレイトには、arrow演算子の形でこれらのための便利な抽出器が含まれており、状態遷移の方向でマッチングできます。状態遷移の間、古い状態データは"
+" ``stateData`` を介して、新しい状態データは ``nextStateData`` として利用できます。"
 
 #: ../../scala/fsm.rst:106
 msgid ""
@@ -167,6 +197,9 @@ msgid ""
 "``goto(S)`` will emit an event ``S->S`` event that can be handled by "
 "``onTransition``, whereas ``stay()`` will *not*."
 msgstr ""
+"同じ状態の遷移は ``goto(S)`` や ``stay()`` を使って実装できます( ``S`` 状態にあるとき)。 この２つの違いは、 "
+"``goto(S)`` は ``onTransition`` で処理されるイベント ``S->S`` イベントを送出するのに対し、 ``stay()``"
+" は処理されません 。"
 
 #: ../../scala/fsm.rst:112
 msgid ""
@@ -174,20 +207,24 @@ msgid ""
 " using the :ref:`akka-testkit`, which is conveniently bundled with ScalaTest"
 " traits into ``AkkaSpec``:"
 msgstr ""
+"このバンチャーが実際に動作することを確認するには、 :ref:`akka-testkit` "
+"を使用してテストを書くと簡単です。ScalaTestのトレイトを ``AkkaSpec`` に便利にバンドルしています:"
 
 #: ../../scala/fsm.rst:121
 msgid "Reference"
-msgstr ""
+msgstr "リファレンス"
 
 #: ../../scala/fsm.rst:124
 msgid "The FSM Trait and Object"
-msgstr ""
+msgstr "FSMトレイトとオブジェクト"
 
 #: ../../scala/fsm.rst:126
 msgid ""
 "The :class:`FSM` trait inherits directly from :class:`Actor`, when you "
 "extend :class:`FSM` you must be aware that an actor is actually created:"
 msgstr ""
+":class:`FSM` トレイトは :class:`Actor` を直接継承します。 :class:`FSM` "
+"を拡張すると、アクターが実際に作成されたことに気づくでしょう:"
 
 #: ../../scala/fsm.rst:135
 msgid ""
@@ -197,22 +234,25 @@ msgid ""
 "e.g. state timeout handling depends on actually passing the messages through"
 " the FSM logic."
 msgstr ""
+"FSMトレイトは、内部メッセージを処理し、(現在の状態に応じて)他のすべてをFSMロジックに渡す ``receive`` メソッドを定義します。 "
+"``receive`` "
+"メソッドをオーバーライドするときは、状態のタイムアウト処理は、FSMロジックを介してメッセージを実際に送信するかどうかによって決まるといったことに注意して下さい。"
 
 #: ../../scala/fsm.rst:141
 msgid "The :class:`FSM` trait takes two type parameters:"
-msgstr ""
+msgstr ":class:`FSM` トレイトは2つの型パラメータをとります:"
 
 #: ../../scala/fsm.rst:143
 msgid ""
 "the supertype of all state names, usually a sealed trait with case objects "
 "extending it,"
-msgstr ""
+msgstr "すべての状態名のスーパータイプ、通常それを継承するケースオブジェクトのシールドトレイト"
 
 #: ../../scala/fsm.rst:145
 msgid ""
 "the type of the state data which are tracked by the :class:`FSM` module "
 "itself."
-msgstr ""
+msgstr ":class:`FSM` モジュール自身によって追跡される状態データの型"
 
 #: ../../scala/fsm.rst:152
 msgid ""
@@ -221,18 +261,19 @@ msgid ""
 " to the FSM class you have the advantage of making all changes of the "
 "internal state explicit in a few well-known places."
 msgstr ""
+"状態データと状態名とは、状態マシンの内部状態を記述します。この決め事に従い、FSMクラスに変更可能なフィールドを追加しなければ、いくつかのよく知られた点で内部状態のすべての変更を明確にするという利点が得られます。"
 
 #: ../../scala/fsm.rst:158
 msgid "Defining States"
-msgstr ""
+msgstr "状態の定義"
 
 #: ../../scala/fsm.rst:160
 msgid "A state is defined by one or more invocations of the method"
-msgstr ""
+msgstr "状態は1つ以上のメソッド呼び出しで定義されます"
 
 #: ../../scala/fsm.rst:162
 msgid ":func:`when(<name>[, stateTimeout = <timeout>])(stateFunction)`."
-msgstr ""
+msgstr ":func:`when(<name>[, stateTimeout = <timeout>])(stateFunction)`."
 
 #: ../../scala/fsm.rst:164
 msgid ""
@@ -242,6 +283,10 @@ msgid ""
 ":meth:`hashCode`; in particular it must not be mutable. The easiest fit for "
 "these requirements are case objects."
 msgstr ""
+"指定する名前は、 :class:`FSM` "
+"トレイトに与えられた最初の型パラメータと型互換性のあるオブジェクトでなければなりません。このオブジェクトはハッシュキーとして使用されるため、正しく "
+":meth:`equals` と :meth:`hashCode` "
+"を確実に正しく実装する必要があります。特にそれは変更可能であってはなりません。これらの要件に最も簡単に適合するのは、ケースオブジェクトです。"
 
 #: ../../scala/fsm.rst:170
 msgid ""
@@ -253,6 +298,10 @@ msgid ""
 ":func:`setStateTimeout(state, duration)`. This enables runtime configuration"
 " e.g. via external message."
 msgstr ""
+":meth:`stateTimeout` "
+"パラメータが与えられた場合、そのままの滞在を含むこの状態へのすべての遷移は、デフォルトでこのタイムアウトを受け取ります。明示的なタイムアウトで遷移を開始すると、このデフォルトを上書きすることができます。詳しくは"
+" `遷移の開始`_ を参照してください。状態のタイムアウトは、アクション処理中に :func:`setStateTimeout(state, "
+"duration)` を使って変更することもできます。これにより、外部メッセージなどによる実行時設定を可能にします。"
 
 #: ../../scala/fsm.rst:178
 msgid ""
@@ -260,19 +309,23 @@ msgid ""
 "State]`, which is conveniently given using the partial function literal "
 "syntax as demonstrated below:"
 msgstr ""
+":meth:`stateFunction` の引数は :class:`PartialFunction[Event, State]` "
+"です。これは、以下に示すような部分関数のリテラル構文を使用すると便利です。"
 
 #: ../../scala/fsm.rst:185
 msgid ""
 "The :class:`Event(msg: Any, data: D)` case class is parameterized with the "
 "data type held by the FSM for convenient pattern matching."
 msgstr ""
+":class:`Event(msg: Any, data: D)` "
+"ケースクラスは、パターンマッチングしやすくするためにFSMが保持するデータ型でパラメータ化されています。"
 
 #: ../../scala/fsm.rst:190
 msgid ""
 "It is required that you define handlers for each of the possible FSM states,"
 " otherwise there will be failures when trying to switch to undeclared "
 "states."
-msgstr ""
+msgstr "考えられるFSMの状態ごとにハンドラを定義する必要があります。定義しなければ、宣言されていない状態に切り替える際に障害が発生します。"
 
 #: ../../scala/fsm.rst:193
 msgid ""
@@ -281,18 +334,20 @@ msgid ""
 " states. If you want to leave the handling of a state “unhandled” (more "
 "below), it still needs to be declared like this:"
 msgstr ""
+"シールドトレイトを拡張するオブジェクトとして状態を宣言し、各状態に ``when``\n"
+" 節があることを確認することをお勧めします。状態の処理を行わない「unhandled」(以下を参照)の場合でも、以下のように宣言する必要があります:"
 
 #: ../../scala/fsm.rst:201
 msgid "Defining the Initial State"
-msgstr ""
+msgstr "初期状態の定義"
 
 #: ../../scala/fsm.rst:203
 msgid "Each FSM needs a starting point, which is declared using"
-msgstr ""
+msgstr "各FSMには出発点が必要で以下で宣言されます。"
 
 #: ../../scala/fsm.rst:205
 msgid ":func:`startWith(state, data[, timeout])`"
-msgstr ""
+msgstr ":func:`startWith(state, data[, timeout])`"
 
 #: ../../scala/fsm.rst:207
 msgid ""
@@ -300,10 +355,12 @@ msgid ""
 "the desired initial state. If you want to cancel a default timeout, use "
 ":obj:`None`."
 msgstr ""
+"オプションで指定されたタイムアウト引数は、目的の初期状態に与えられた値で上書きします。デフォルトのタイムアウトを取り消したい場合は、:obj:`None`"
+" を使います。"
 
 #: ../../scala/fsm.rst:212
 msgid "Unhandled Events"
-msgstr ""
+msgstr "処理されないイベント"
 
 #: ../../scala/fsm.rst:214
 msgid ""
@@ -311,22 +368,26 @@ msgid ""
 "to do something else in this case you can specify that with "
 ":func:`whenUnhandled(stateFunction)`:"
 msgstr ""
+"状態が受信したイベントを処理しない場合、警告がログ出力されます。このとき何か別のことをしたい場合は、それを "
+":func:`whenUnhandled(stateFunction)` で指定することができます:"
 
 #: ../../scala/fsm.rst:221
 msgid ""
 "Within this handler the state of the FSM may be queried using the "
 ":meth:`stateName` method."
-msgstr ""
+msgstr "このハンドラ内では、 :meth:`stateName` メソッドを使用してFSMの状態を問い合わせることができます。"
 
 #: ../../scala/fsm.rst:224
 msgid ""
 "**IMPORTANT**: This handler is not stacked, meaning that each invocation of "
 ":func:`whenUnhandled` replaces the previously installed handler."
 msgstr ""
+"**重要**: このハンドラはスタックされません。つまり、 :func:`whenUnhandled`  "
+"を呼び出すたびに前に設定されていたハンドラが置き換えられます。"
 
 #: ../../scala/fsm.rst:228
 msgid "Initiating Transitions"
-msgstr ""
+msgstr "遷移の開始"
 
 #: ../../scala/fsm.rst:230
 msgid ""
@@ -337,10 +398,12 @@ msgid ""
 ":func:`goto(state)`. The resulting object allows further qualification by "
 "way of the modifiers described in the following:"
 msgstr ""
+":obj:`stateFunction`  の結果は、 `Termination from Inside`_ で説明されているFSMを終了しない限り、次の状態の定義でなければなりません。状態定義は、:func:`stay`\n"
+" ディレクティブで記述されている現在の状態でも、 :func:`goto(state)` によって与えられた状態と異なる状態でも構いません。結果として得られるオブジェクトは、次のような修飾子を使用してさらに修飾することができます。"
 
 #: ../../scala/fsm.rst:237
 msgid ":meth:`forMax(duration)`"
-msgstr ""
+msgstr ":meth:`forMax(duration)`"
 
 #: ../../scala/fsm.rst:239
 msgid ""
@@ -350,6 +413,9 @@ msgid ""
 "meantime; you can rely on the fact that the :obj:`StateTimeout` message will"
 " not be processed after an intervening message."
 msgstr ""
+"この修飾子は、次の状態で状態のタイムアウトを設定します。これは、終了時に :obj:`StateTimeout` "
+"メッセージをFSMに送信するタイマーが開始されることを意味する。このタイマーは、その間に他のメッセージを受信するとキャンセルされ、そのメッセージの後に "
+":obj:`StateTimeout` メッセージは処理されません。"
 
 #: ../../scala/fsm.rst:245
 msgid ""
@@ -357,10 +423,12 @@ msgid ""
 "specified for the target state. If you want to cancel the default timeout, "
 "use :obj:`Duration.Inf`."
 msgstr ""
+"この修飾子を使用して、ターゲットの状態に指定されているデフォルトのタイムアウトを無効にすることもできます。デフォルトのタイムアウトをキャンセルするには、"
+" :obj:`Duration.Inf` を使用します。"
 
 #: ../../scala/fsm.rst:249
 msgid ":meth:`using(data)`"
-msgstr ""
+msgstr ":meth:`using(data)`"
 
 #: ../../scala/fsm.rst:251
 msgid ""
@@ -368,28 +436,30 @@ msgid ""
 "follow the advice :ref:`above <fsm-philosophy>`, this is the only place "
 "where internal state data are ever modified."
 msgstr ""
+"この修飾子は、古い状態のデータを新しいデータで置き換えます。 :ref:`前 <fsm-philosophy>` "
+"のアドバイスに従えば、これが内部状態のデータが変更される唯一の場所です。"
 
 #: ../../scala/fsm.rst:255
 msgid ":meth:`replying(msg)`"
-msgstr ""
+msgstr ":meth:`replying(msg)`"
 
 #: ../../scala/fsm.rst:257
 msgid ""
 "This modifier sends a reply to the currently processed message and otherwise"
 " does not modify the state transition."
-msgstr ""
+msgstr "この修飾子は、現在処理中のメッセージに応答を送信し状態は変更しません。"
 
 #: ../../scala/fsm.rst:260
 msgid ""
 "All modifiers can be chained to achieve a nice and concise description:"
-msgstr ""
+msgstr "すべての修飾子は、簡潔に記述に記述するためにチェーンすることができます:"
 
 #: ../../scala/fsm.rst:265
 msgid ""
 "The parentheses are not actually needed in all cases, but they visually "
 "distinguish between modifiers and their arguments and therefore make the "
 "code even more pleasant to read for foreigners."
-msgstr ""
+msgstr "実際にはかっこは必要ありませんが、修飾子とその引数を視覚的に区別しているため、外国人にとっては快適で読みやすくなります。"
 
 #: ../../scala/fsm.rst:271
 msgid ""
@@ -397,10 +467,12 @@ msgid ""
 "blocks or similar; this is a Scala restriction. Either refactor your code "
 "using ``if () ... else ...`` or move it into a method definition."
 msgstr ""
+"``return`` は、 :meth:`when` ブロックなどには使用できないことに注意してください。これはScalaの制約なので、 ``if ()"
+" ... else ...`` を使用してコードをリファクタリングするか、またはメソッド定義に移します。"
 
 #: ../../scala/fsm.rst:276
 msgid "Monitoring Transitions"
-msgstr ""
+msgstr "遷移の監視"
 
 #: ../../scala/fsm.rst:278
 msgid ""
@@ -411,10 +483,12 @@ msgid ""
 "setting the internal state variable, as everything within the FSM actor is "
 "running single-threaded anyway."
 msgstr ""
+"遷移は「状態と状態の間」で概念的に発生します。これは、イベント処理ブロックに入れたアクションの後であることを意味します。次の状態は、イベント処理ロジックによって返される値によってのみ定義されるため、これは明らかです。"
+" FSMアクター内のすべてがシングルスレッドで実行されているため、内部状態変数の設定に関して正確な順序を心配する必要はありません。"
 
 #: ../../scala/fsm.rst:286
 msgid "Internal Monitoring"
-msgstr ""
+msgstr "内部監視"
 
 #: ../../scala/fsm.rst:288
 msgid ""
@@ -422,10 +496,12 @@ msgid ""
 "dual view is to describe it as a series of transitions. This is enabled by "
 "the method"
 msgstr ""
+"ここれまで、FSM "
+"DSLは状態とイベントを中心に扱われてきました。2つの視点はこれをひと続きの遷移として記述します。これは下記メソッドによって有効になります。"
 
 #: ../../scala/fsm.rst:292
 msgid ":func:`onTransition(handler)`"
-msgstr ""
+msgstr ":func:`onTransition(handler)`"
 
 #: ../../scala/fsm.rst:294
 msgid ""
@@ -434,6 +510,7 @@ msgid ""
 "input; no resulting state is needed as it is not possible to modify the "
 "transition in progress."
 msgstr ""
+"アクションは状態とイベントではなく遷移に関連付けられます。ハンドラは、入力に状態のペアをとる部分関数です。進行中の遷移を変更することはできないので、結果としての状態は必要ありません。"
 
 #: ../../scala/fsm.rst:302
 msgid ""
@@ -443,6 +520,8 @@ msgid ""
 "alternatively you could bind the unconstrained state to a variable, e.g. for"
 " logging as shown in the last case."
 msgstr ""
+"便利な抽出器 :obj:`->` "
+"は、遷移の方向を明確に視覚的に示した状態のペアを分解することができます。パターンマッチではいつものように関係のない部分にアンダースコアを使用することがあります。あるいは、拘束されていない状態を変数にバインドすることもできます。例えば、最後のcaseに示されているようにロギングを行います。"
 
 #: ../../scala/fsm.rst:308
 msgid ""
@@ -450,6 +529,8 @@ msgid ""
 ":func:`onTransition`, in case your transition handling logic is implemented "
 "as a method:"
 msgstr ""
+"また、遷移処理ロジックがメソッドとして実装されている場合、 :func:`onTransition` "
+"に2つの状態を受け入れる関数オブジェクトを渡すこともできます。"
 
 #: ../../scala/fsm.rst:315
 msgid ""
@@ -461,6 +542,9 @@ msgid ""
 "without having to worry about earlier declarations shadowing later ones; the"
 " actions are still executed in declaration order, though."
 msgstr ""
+"このメソッドに登録されたハンドラはスタックされているので、設計にあわせて :func:`when` ブロックと :func:`onTransition`"
+" ブロックに分散させることができます。ただし、最初に一致するときだけでなく、 *すべてのハンドラは、遷移の度に呼び出される* "
+"ことに注意してください。前の宣言を追いかけて後でも宣言することを気にすることなくすべての遷移処理を確実に一箇所に配置できるように特別に設計されています。アクションは宣言の順序で実行されます。"
 
 #: ../../scala/fsm.rst:325
 msgid ""
@@ -468,10 +552,11 @@ msgid ""
 " to transitions, so that for example the cancellation of a timer upon "
 "leaving a certain state cannot be forgot when adding new target states."
 msgstr ""
+"この種の内部モニタリングは、遷移に応じたFSMを構成するために使用される可能性があります。たとえば、新しい状態を追加する際に、ある状態を離れるとタイマーをキャンセルすることを忘れてはいけません。"
 
 #: ../../scala/fsm.rst:330
 msgid "External Monitoring"
-msgstr ""
+msgstr "外部監視"
 
 #: ../../scala/fsm.rst:332
 msgid ""
@@ -481,6 +566,10 @@ msgid ""
 "immediately and will receive :class:`Transition(actorRef, oldState, "
 "newState)` messages whenever a state change is triggered."
 msgstr ""
+"外部アクターは、  :class:`SubscribeTransitionCallBack(actorRef)` "
+"というメッセージを送信することによって、状態遷移の通知を受けるように登録することができます。指定されたアクターは、 "
+":class:`CurrentState(self, stateName)`  メッセージをすぐに送信され、状態の変更が発生するたびに "
+":class:`Transition(actorRef, oldState, newState)`  メッセージを受け取ります。"
 
 #: ../../scala/fsm.rst:338
 msgid ""
@@ -491,12 +580,18 @@ msgid ""
 " case you'd rather not emit events for same-state transitions use ``stay()``"
 " instead of ``goto(S)``."
 msgstr ""
+"状態の変更には、 ``goto(S)`` を実行するアクションが含まれていますが、すでに ``S`` "
+"という状態になってる場合があります。その場合、監視アクターは ``Transition(ref,S,S)`` メッセージで通知されます。 ``FSM``"
+" が(同じ状態も含め)すべての遷移に反応する必要がある場合に便利です。同じ状態の遷移イベントを通知しないのであれば、 ``goto(S)`` の代わりに"
+" ``stay()`` を使います。"
 
 #: ../../scala/fsm.rst:344
 msgid ""
 "External monitors may be unregistered by sending "
 ":class:`UnsubscribeTransitionCallBack(actorRef)` to the ``FSM`` actor."
 msgstr ""
+"外部監視は、 :class:`UnsubscribeTransitionCallBack(actorRef)`  を ``FSM`` "
+"アクターに送ることによって登録解除されます。"
 
 #: ../../scala/fsm.rst:347
 msgid ""
@@ -504,10 +599,12 @@ msgid ""
 "the subscription list; use :class:`UnsubscribeTransitionCallback` before "
 "stopping the listener."
 msgstr ""
+"登録解除せずにリスナーを停止しても、リスナーは購読リストから削除されません。リスナーを停止する前に、  "
+":class:`UnsubscribeTransitionCallback` を使用してください。"
 
 #: ../../scala/fsm.rst:352
 msgid "Transforming State"
-msgstr ""
+msgstr "状態の変換"
 
 #: ../../scala/fsm.rst:354
 msgid ""
@@ -517,6 +614,8 @@ msgid ""
 "used in case some common handling logic shall be applied to different "
 "clauses:"
 msgstr ""
+"``when()`` "
+"ブロックの引数として提供される部分関数は、Scalaの関数型プログラミングツールの完全な補足を使用して変換できます。型推論を保持するために、いくつかの共通の処理ロジックが異なる節に適用される場合に使用されるヘルパー関数があります:"
 
 #: ../../scala/fsm.rst:362
 msgid ""
@@ -524,20 +623,22 @@ msgid ""
 " to be used several times, e.g. when applying the same transformation to "
 "several ``when()`` blocks:"
 msgstr ""
+"言うまでもありませんが、このメソッドへの引数は記憶され、いくつかの ``when()`` ブロックに同じ変換を適用すると、複数回使用されます。"
 
 #: ../../scala/fsm.rst:370
 msgid "Timers"
-msgstr ""
+msgstr "タイマー"
 
 #: ../../scala/fsm.rst:372
 msgid ""
 "Besides state timeouts, FSM manages timers identified by :class:`String` "
 "names. You may set a timer using"
 msgstr ""
+"状態のタイムアウトに加えて、FSMは :class:`String` の名前で識別されるタイマーを管理します。以下でタイマーをセットします。"
 
 #: ../../scala/fsm.rst:375
 msgid ":func:`setTimer(name, msg, interval, repeat)`"
-msgstr ""
+msgstr ":func:`setTimer(name, msg, interval, repeat)`"
 
 #: ../../scala/fsm.rst:377
 msgid ""
@@ -547,14 +648,17 @@ msgid ""
 " existing timer with the same name will automatically be canceled before "
 "adding the new timer."
 msgstr ""
+" :obj:`msg` は、 :obj:`interval` が経過した後に送信されるメッセージオブジェクトです。 :obj:`repeat` が "
+":obj:`true` の場合、タイマーは  :obj:`interval` "
+"パラメータによって与えられた固定間隔でスケジュールされます。新しいタイマーを追加する前に、同じ名前の既存のタイマーが自動的に取り消されます。"
 
 #: ../../scala/fsm.rst:383
 msgid "Timers may be canceled using"
-msgstr ""
+msgstr "以下でタイマーをキャンセルします。"
 
 #: ../../scala/fsm.rst:385
 msgid ":func:`cancelTimer(name)`"
-msgstr ""
+msgstr ":func:`cancelTimer(name)`"
 
 #: ../../scala/fsm.rst:387
 msgid ""
@@ -562,28 +666,29 @@ msgid ""
 "will not be processed after this call even if the timer already fired and "
 "queued it. The status of any timer may be inquired with"
 msgstr ""
+"これは、すぐに動作することが保証されています。つまり、タイマーがすでに起動してキューに入れられていても、これを呼び出した後にスケジュールされたメッセージは処理されません。以下でタイマーの状態を問合せます。"
 
 #: ../../scala/fsm.rst:391
 msgid ":func:`isTimerActive(name)`"
-msgstr ""
+msgstr ":func:`isTimerActive(name)`"
 
 #: ../../scala/fsm.rst:393
 msgid ""
 "These named timers complement state timeouts because they are not affected "
 "by intervening reception of other messages."
-msgstr ""
+msgstr "これらの名前付きタイマーは、他のメッセージの介在による影響を受けないため、状態のタイムアウトを補完します。"
 
 #: ../../scala/fsm.rst:397
 msgid "Termination from Inside"
-msgstr ""
+msgstr "内部からの終了"
 
 #: ../../scala/fsm.rst:399
 msgid "The FSM is stopped by specifying the result state as"
-msgstr ""
+msgstr "FSMは、次のように最後の状態を指定することによって停止されます。"
 
 #: ../../scala/fsm.rst:401
 msgid ":func:`stop([reason[, data]])`"
-msgstr ""
+msgstr ":func:`stop([reason[, data]])`"
 
 #: ../../scala/fsm.rst:403
 msgid ""
@@ -592,6 +697,8 @@ msgid ""
 "given to change the state data which is available during termination "
 "handling."
 msgstr ""
+"理由は、 :obj:`Normal`(デフォルト)、 :obj:`Shutdown` または :obj:`Failure(reason)` "
+"のいずれかで、第2引数は終了処理中に利用可能な状態のデータを変更するために与えます。"
 
 #: ../../scala/fsm.rst:409
 msgid ""
@@ -600,6 +707,9 @@ msgid ""
 " the same way as a state transition (but note that the ``return`` statement "
 "may not be used within a :meth:`when` block)."
 msgstr ""
+":func:`stop` "
+"はアクションを中断せず、すぐにFSMを停止させることに注意してください。停止アクションは、状態遷移と同じ方法でイベントハンドラから返さなければなりません(ただし、"
+" ``return`` ステートメントは :meth:`when` ブロック内で使用できないことに注意してください)。"
 
 #: ../../scala/fsm.rst:417
 msgid ""
@@ -607,6 +717,9 @@ msgid ""
 "executed when the FSM is stopped. The handler is a partial function which "
 "takes a :class:`StopEvent(reason, stateName, stateData)` as argument:"
 msgstr ""
+":func:`onTermination(handler)` "
+"を使って、FSMが停止したときに実行されるカスタムコードを指定することができます。ハンドラは引数として "
+":class:`StopEvent(reason, stateName, stateData)` を取る部分関数です:"
 
 #: ../../scala/fsm.rst:424
 msgid ""
@@ -614,10 +727,12 @@ msgid ""
 "invocation of :func:`onTermination` replaces the previously installed "
 "handler."
 msgstr ""
+":func:`whenUnhandled` の場合、このハンドラはスタックされていないので、 :func:`onTermination` "
+"を呼び出すたびに、以前に設定されたハンドラが置き換えられます。"
 
 #: ../../scala/fsm.rst:428
 msgid "Termination from Outside"
-msgstr ""
+msgstr "外部からの終了"
 
 #: ../../scala/fsm.rst:430
 msgid ""
@@ -627,6 +742,10 @@ msgid ""
 ":meth:`onTermination` handler if that is prepared to handle a "
 ":obj:`StopEvent(Shutdown, ...)`."
 msgstr ""
+":meth:`stop()` メソッドを使用してFSMに関連付けられた :class:`ActorRef` を停止すると、 "
+":meth:`postStop` フックが実行されます。 :class:`FSM` トレイトによるデフォルト実装は、 "
+":obj:`StopEvent(Shutdown, ...)` を処理する準備ができている場合に:meth:`onTermination` "
+"ハンドラを実行します。"
 
 #: ../../scala/fsm.rst:438
 msgid ""
@@ -634,10 +753,12 @@ msgid ""
 ":meth:`onTermination` handler called, do not forget to call "
 "``super.postStop``."
 msgstr ""
+":meth:`postStop` をオーバーライドし、 :meth:`onTermination` ハンドラを呼ぶ場合は、 "
+"``super.postStop`` を呼び出すことを忘れないようにしてください。"
 
 #: ../../scala/fsm.rst:443
 msgid "Testing and Debugging Finite State Machines"
-msgstr ""
+msgstr "有限状態マシンのテストとデバッグ"
 
 #: ../../scala/fsm.rst:445
 msgid ""
@@ -645,44 +766,50 @@ msgid ""
 " actor. There are specialized tools available as described in "
 ":ref:`TestFSMRef` and in the following."
 msgstr ""
+"開発中やトラブルシューティングの際、FSMは他のアクターと同じように処置を必要とします。 :ref:`TestFSMRef` "
+"と以下に記述されているような特別なツールがあります。"
 
 #: ../../scala/fsm.rst:450
 msgid "Event Tracing"
-msgstr ""
+msgstr "イベントのトレース"
 
 #: ../../scala/fsm.rst:452
 msgid ""
 "The setting ``akka.actor.debug.fsm`` in :ref:`configuration` enables logging"
 " of an event trace by :class:`LoggingFSM` instances:"
 msgstr ""
+":ref:`configuration` の ` `akka.actor.debug.fsm`` を設定すると、 :class:`LoggingFSM`"
+" インスタンスによって、イベントのトレースのロギングを有効にできます ："
 
 #: ../../scala/fsm.rst:459
 msgid "This FSM will log at DEBUG level:"
-msgstr ""
+msgstr "以下は、DEBUGレベル出力します。"
 
 #: ../../scala/fsm.rst:461
 msgid ""
 "all processed events, including :obj:`StateTimeout` and scheduled timer "
 "messages"
-msgstr ""
+msgstr ":obj:`StateTimeout` とスケジュールされたタイマーメッセージを含むすべての処理済みイベント"
 
 #: ../../scala/fsm.rst:463
 msgid "every setting and cancellation of named timers"
-msgstr ""
+msgstr "名前付きタイマーの設定とキャンセル"
 
 #: ../../scala/fsm.rst:464
 msgid "all state transitions"
-msgstr ""
+msgstr "すべての状態遷移"
 
 #: ../../scala/fsm.rst:466
 msgid ""
 "Life cycle changes and special messages can be logged as described for "
 ":ref:`Actors <actor.logging-scala>`."
 msgstr ""
+"ライフサイクルの変更と特別なメッセージは、 :ref:`Actors <actor.logging-scala>` "
+"の説明のとおりにロギングすることができます。"
 
 #: ../../scala/fsm.rst:470
 msgid "Rolling Event Log"
-msgstr ""
+msgstr "ローリングイベントログ"
 
 #: ../../scala/fsm.rst:472
 msgid ""
@@ -690,10 +817,12 @@ msgid ""
 "event log which may be used during debugging (for tracing how the FSM "
 "entered a certain failure state) or for other creative uses:"
 msgstr ""
+":class:`LoggingFSM` "
+"トレイトは、FSMにもう一つの機能を追加します。デバッグ中(FSMがどのように特定のエラー状態に陥ったのかをトレースするため)や他のクリエイティブな用途のために使用されるローリングイベントログです。"
 
 #: ../../scala/fsm.rst:479
 msgid "The :meth:`logDepth` defaults to zero, which turns off the event log."
-msgstr ""
+msgstr ":meth:`logDepth` のデフォルトは0で、これはイベントログをオフにします。"
 
 #: ../../scala/fsm.rst:483
 msgid ""
@@ -703,6 +832,9 @@ msgid ""
 "initializer of :class:`LoggingFSM` runs, and do not change the value "
 "returned by ``logDepth`` after the buffer has been allocated."
 msgstr ""
+"ログバッファはアクターの作成時に割り当てられます。仮想メソッド呼び出しを使用して設定が行われるのはこのためです。 ``val`` "
+"でオーバーライドする場合は、 :class:`LoggingFSM` "
+"のイニシャライザが動作する前に初期化が行われていることを確認し、バッファが割り当てられた後に ``logDepth`` が返す値を変更しないでください。"
 
 #: ../../scala/fsm.rst:489
 msgid ""
@@ -710,10 +842,12 @@ msgid ""
 "which returns an :class:`IndexedSeq[LogEntry]` where the oldest entry is at "
 "index zero."
 msgstr ""
+"イベントログの内容は、 :meth:`getLog` メソッドを使って取得できます。このメソッドは "
+":class:`IndexedSeq[LogEntry]` を返します。最も古いエントリはインデックス0になります。"
 
 #: ../../scala/fsm.rst:494
 msgid "Examples"
-msgstr ""
+msgstr "例"
 
 #: ../../scala/fsm.rst:496
 msgid ""
@@ -722,3 +856,7 @@ msgid ""
 "<http://www.lightbend.com/platform/getstarted>`_ template named `Akka FSM in"
 " Scala <http://www.lightbend.com/activator/template/akka-sample-fsm-scala>`_"
 msgstr ""
+"アクターの :meth:`become`/:meth:`unbecome` に相当する、より大きなFSMの例は、 `Lightbend "
+"Activator <http://www.lightbend.com/platform/getstarted>`_ の `Akka FSM in "
+"Scala <http://www.lightbend.com/activator/template/akka-sample-fsm-scala>`_ "
+"というテンプレートにあります。"
