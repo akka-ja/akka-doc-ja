@@ -399,8 +399,10 @@ msgid ""
 ":func:`goto(state)`. The resulting object allows further qualification by "
 "way of the modifiers described in the following:"
 msgstr ""
-":obj:`stateFunction`  の結果は、 `Termination from Inside`_ で説明されているFSMを終了しない限り、次の状態の定義でなければなりません。状態定義は、:func:`stay`\n"
-" ディレクティブで記述されている現在の状態でも、 :func:`goto(state)` によって与えられた状態と異なる状態でも構いません。結果として得られるオブジェクトは、次のような修飾子を使用してさらに修飾することができます。"
+":obj:`stateFunction`  の結果は、 `Termination from Inside`_ "
+"で説明されているFSMを終了しない限り、次の状態の定義でなければなりません。状態定義は、:func:`stay` "
+"ディレクティブで記述されている現在の状態でも、 :func:`goto(state)` "
+"によって与えられた状態と異なる状態でも構いません。結果として得られるオブジェクトは、次のような修飾子を使用してさらに修飾することができます。"
 
 #: ../../scala/fsm.rst:237
 msgid ":meth:`forMax(duration)`"
