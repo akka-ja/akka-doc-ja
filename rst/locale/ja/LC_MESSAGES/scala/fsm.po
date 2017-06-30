@@ -32,8 +32,9 @@ msgid ""
 "and is best described in the `Erlang design principles "
 "<http://www.erlang.org/documentation/doc-4.8.2/doc/design_principles/fsm.html>`_"
 msgstr ""
-"FSM(Finite State "
-"Machine：有限状態マシン)はAkkaのアクターにミックスインとして利用することができ、`Erlangの設計原則<http://www.erlang.org/documentation/doc-4.8.2/doc/design_principles/fsm.html>`_"
+"FSM(Finite State Machine：有限状態マシン)はAkkaのアクターにミックスインとして利用することができ、`Erlang "
+"design principles "
+"<http://www.erlang.org/documentation/doc-4.8.2/doc/design_principles/fsm.html>`_"
 " に詳しく記載されています。"
 
 #: ../../scala/fsm.rst:15
@@ -697,7 +698,7 @@ msgid ""
 "given to change the state data which is available during termination "
 "handling."
 msgstr ""
-"理由は、 :obj:`Normal`(デフォルト)、 :obj:`Shutdown` または :obj:`Failure(reason)` "
+"理由は、 :obj:`Normal` (デフォルト)、 :obj:`Shutdown` または :obj:`Failure(reason)` "
 "のいずれかで、第2引数は終了処理中に利用可能な状態のデータを変更するために与えます。"
 
 #: ../../scala/fsm.rst:409
@@ -778,8 +779,8 @@ msgid ""
 "The setting ``akka.actor.debug.fsm`` in :ref:`configuration` enables logging"
 " of an event trace by :class:`LoggingFSM` instances:"
 msgstr ""
-":ref:`configuration` の ` `akka.actor.debug.fsm`` を設定すると、 :class:`LoggingFSM`"
-" インスタンスによって、イベントのトレースのロギングを有効にできます ："
+":ref:`configuration` の ``akka.actor.debug.fsm`` を設定すると、 :class:`LoggingFSM` "
+"インスタンスによって、イベントのトレースのロギングを有効にできます ："
 
 #: ../../scala/fsm.rst:459
 msgid "This FSM will log at DEBUG level:"
